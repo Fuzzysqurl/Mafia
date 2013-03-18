@@ -202,7 +202,7 @@
             "help": "After Latios' defeat, you went mad with grief; you have a vote of 10, can avoid the majority of attacks and can inspect, but will faint quite soon.",
             "info": "An inspector with 10 votes and major evasion, but who faints after 2 nights. Sided with Sky Peak.",
             "actions": {
-  		    "initialCondition": {
+			    "initialCondition": {
                     "poison": {
                         "count": 3,
                         "poisonDeadMessage": "You fainted from grief..."
@@ -421,7 +421,7 @@
             "role": "rayquaza",
             "translation": "Rayquaza",
             "side": "village",
-            "help": "You are Rayquaza, commander of weather! Being a powerful dragon, Arceus set you to attack - use /kill to defeat enemies with various moves!",
+            "help": "You are Rayquaza, commander of weather! Being a powerful dragon, Arceus set you to attack - use /kill to defeat enemies with various moves! You can even kill Shedinja with your sheer power!",
             "info": "A vigilante who can hit Shedinja. Sided with Sky Peak.",
             "actions": {
                 "night": {
@@ -976,7 +976,7 @@
             "role": "farfetchd",
             "translation": "Farfetch'd",
             "side": "derp",
-            "help": "You are Farfetch'd, warrior bird! You are proficient with a leek, and so can use it against another with /kill; you also cannot be moved from your task. Being underrated, though, you have a vote of -1.",
+            "help": "You are Farfetch'd, warrior bird! You are proficient with a leek, and you can use it against another with /kill! You also cannot be moved from your task. Being underrated, though, you have a vote of -1. You've spent a long while being ignored and have honed your skills allowing you to be able to hit even the most evasive opponent!",
             "info": "A killer who cannot be distracted and has a vote of -1. Sided with the Derp Army.",
             "actions": {
                 "night": {
