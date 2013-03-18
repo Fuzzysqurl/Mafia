@@ -872,12 +872,12 @@
 			"role": "maglev",
 			"translation": "Maglev",
 			"side": "train",
-			"help": "Show the others that your advanced magnetic technology far exceeds their old-school axles by using /discharge to cripple them, making their actions incredibly unreliable. Your magnetic prowess repels a single vote against you every day and warps your voting power to 1.1.",
-			"info": "Can discharge (convert) one person during the night to a more detrimental state during the night. Vote of 1.1. Voteshield of -1. Sided with the Train Mafia.",
+			"help": "Show the others that your advanced magnetic technology far exceeds their old-school axles by using /discharge to cripple them, making their actions incredibly unreliable and unusable for a night. Your magnetic prowess warps your voting power to 1.1.",
+			"info": "Can discharge (convert and distract) one person during the night to a more detrimental state during the night. Vote of 1.1. Sided with the Train Mafia.",
 			"actions": {
 				"night": {
 					"discharge":{
-						"command": "convert",
+						"command": ["convert", "distract],
 						"target": "AnyButTeam",
 						"common": "Self",
 						"broadcast": "Team",
@@ -895,12 +895,13 @@
 							"cs14": ["cs4", "cs6", "cs8", "cs9", "cs10", "cs11", "cs12", "cs13"]
 						},
 						"priority": 13,
-						"silent": true
+						"silent": true,
+						"distractmsg": "A strong magnetic force immobilized you last night.",
+						"teammsg": "You and your partner(s) were immobilized by a strong magnetic force last night.",
 					}
 				},
                 "startup": "team-reveal-with-roles",
-				"vote": 1.1,
-				"voteshield": -1
+				"vote": 1.1
 			}
 		},	
 		{
