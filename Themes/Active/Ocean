@@ -57,8 +57,9 @@
 				"daykill": "evade",
 				"daykillrevengemsg": "Foolish little fish. Cthulhu doesn't take kindly to your actions and threw you at the moon! If it wasn't obvious, you can't really live in space.",	
 				"kill": {
-                    "mode": "ignore"
-                }
+					"mode": "ignore",
+					"msg": "±Game: Your target (~Self~) was protected!"
+				}
 			}
 		},	
 		{
@@ -158,7 +159,8 @@
                     "mode": "ignore"
                 },
 				"kill": {
-					"mode": "ignore"
+					"mode": "ignore",
+					"msg": "±Game: Your target (~Self~) was protected!"
 				},
 				"daykill": "evade",
 				"onDeath": {
@@ -191,7 +193,8 @@
                     "mode": "ignore"
                 },
 				"kill": {
-					"mode": "ignore"
+					"mode": "ignore",
+					"msg": "±Game: Your target (~Self~) was protected!"
 				},
 				"daykill": "evade",
 				"onDeath": {
@@ -478,7 +481,8 @@
 					}
 				},
 				"kill": {
-					"mode": "ignore"
+					"mode": "ignore",
+					"msg": "±Game: Your target (~Self~) was protected!"
 				},
 				"voteshield": 4
             }
