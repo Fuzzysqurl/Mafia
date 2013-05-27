@@ -372,7 +372,8 @@
 					"kill": {
 						"target": "AnyButSelf",
 						"msg": "You can kill now by typing /kill [name]. You will not be revealed!",
-						"killmsg": "En garde! The Swordfish swings its snout around violently and punctures a hole in ~Target~."
+						"killmsg": "En garde! The Swordfish swings its snout around violently and punctures a hole in ~Target~.",
+						"initialrecharge": 0
 					}
 				},
 				"night": {
@@ -385,7 +386,8 @@
 						"newRole": "swordfish2",
                         "canConvert": [
                             "swordfish"
-                        ]
+                        ],
+						"pierce": true
 					}
 				},
 				"distract": {
@@ -419,7 +421,8 @@
                         "canConvert": [
                             "swordfish2"
                         ],
-						"initialrecharge": 2
+						"initialrecharge": 2,
+						"pierce": true
 					}
 				},
 				"daykill": "evade",
@@ -946,6 +949,7 @@
 		"4.18.2013": "Swordfish given a convert to a more defensive stance. Messages updated to be gender neutral. Hammerhead no longer reveals or gets haxed. Gurry shark given +3 votes. Tiger shark removed from spawnlist. Fish standby hax changed to 33%.",
 		"4.26.2013": "Updating some help messages to add a little more flavor and correct some outdated references. Recycling of old summary created by FPT as a tribute. Support for 99 players now.",
 		"5.22.2013": "Long time no update. Puffer is now immune to poison as is Anemone. Some typo/grammar updates. Devil Fish now has a 20% chance to have +3 votes.",
+		"5.26.2013": "Major error fixed with Swordfish that forced it to wait longer than it needed to for a daykill after transforming.",
 		"??.??.????": "Slight Mammal buff planned in the future."
 	}
 }
