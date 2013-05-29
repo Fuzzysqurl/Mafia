@@ -1,112 +1,79 @@
 {
-    "name": "Testing",
-    "summary": "A peaceful Village is being terrorized by a sole Mafia and a Lyncher. The Village must stop the Mafia from controlling the town while being careful not to lynch the Lynchee, otherwise the Lyncher will win! If the Lynchee is killed at night, the Lyncher joins the Village to take out the common enemy: The Mafia. The game simulates daystart and the Mafia cannot kill night 1. For 3-10 players (non-peak).",
-    "author": "Fuzzy",
-	"minplayers": 3,
+	"name": "Testing",
+	"author": "Fuzzy",
+	"summary": "I did not use vanilla as a base",
 	"ticks": {
-		"night": 15
-	},	
+		"standby": 45,
+		"night": 20
+	},
 	"sides": [
-        {
-            "side": "village",
-            "translation": "Village"
-        },
-        {
-            "side": "mafia",
-            "translation": "Mafia"
-        },
 		{
-			"side": "lyncher",
-			"translation": "Lyncher"
+			"side": "village",
+			"translation": "Village"
+		},
+		{
+			"side": "mafia",
+			"translation": "Mafia"
 		}
 	],
 	"roles": [
 		{
-			"role": "villager",
-            "translation": "Villager",
-            "side": "village",
-            "help": "You have no special abilities beyond the right to vote. You win when both the Mafia and the Lyncher have been removed from the game.",
-			"info": "Wins when both the Mafia and the Lyncher have been removed from the game. Sided with the Village.",
+			"role": "v",
+			"translation": "Villager",
+			"side": "village",
+			"help": "Hi!  You're a Villager, but you don't have any special abilities :(",
+			"actions": {}
+		},
+		{
+			"role": "v2",
+			"translation": "Villager2",
+			"side": "village",
+			"help": "Hi!  You're a Villager, but you don't have any special abilities :(",
 			"actions": {
-				"onDeath": {
-					"exposeRoles": ["lyncher", "villager2", "villager", "mafia"],
-					"exposemsg": "A villager was killed!"
-				}
-			}
+			"night": {
+					"distract": {
+						"target": "AnyButTeam",
+						"common": "Team",
+						"priority": 3,
+						"broadcast": "team"
+					}
+				}}
 		},
 		{
-			"role": "villager2",
-            "translation": "Villager",
-            "side": "village",
-			"hide": true,
-            "help": "You have no special abilities beyond the right to vote now. You win when the Mafia has been removed from the game."
-		},
-		{
-			"role": "lynchee",
-            "translation": "Villager",
-            "side": "village",
-			"hide": true,
-			"winIfDeadRoles": ["mafia", "villager"],
-            "help": "You have no special abilities beyond the right to vote. You win when both the Mafia and the Lyncher have been removed from the game.",
-			"actions": {
-				"onDeath": {
-					"convertRoles": {"lyncher":"villager2"},
-					"convertmsg": "±Game: The Lynchee has been killed!"
-				},
-				"lynch": {
-                    "convertTo": "lynchee2",
-                    "convertmsg": "±Game: The Lynchee has been lynched!"
-                }
-			}
-		},
-		{
-			"role": "lynchee2",
-            "translation": "Lynchee",
-            "side": "village",
-            "help": "You have been lynched!",
-			"info": "Converts Lyncher to Villager on death. Ends the game when lynched. Wins when both Mafia and either all Villagers or the Lyncher have been removed from the game. Sided with the Village"			
-		},
-		{
-			"role": "mafia",
-            "translation": "Mafia",
-            "side": "mafia",
-            "help": "You are able to /kill one player every night, after the first night. You win when only one other player remains in the game other than yourself.",
-			"info": "Can kill one person during the night. Wins when only one other player remains in the game. Sided with the Mafia.",
+			"role": "m",
+			"translation": "Mafia",
+			"side": "mafia",
+			"help": "Hi!  You're Mafia, so you can /kill (shared with your team) during the Night.",
 			"actions": {
 				"night": {
 					"kill": {
-						"common": "Self",
-						"target": "AnyButSelf",
-						"priority": 1,
-						"initialrecharge": 2
+						"target": "AnyButTeam",
+						"common": "Team",
+						"priority": 3,
+						"broadcast": "team"
 					}
-				}
+				},
+				"startup": "team-reveal"
 			}
-		},
+		}
 		{
-			"role": "lyncher",
-            "translation": "Lyncher",
-            "side": "lyncher",
-			"winIfDeadRoles": ["lynchee"],
-            "help": "Your goal is to remove the Lynchee, who you know from the start, from the game during the voting phase. If the Mafia kills your Lynchee, you will join the town and win with them. You win when the Lynchee is successfully lynched at any point in the game.",
-			"info": "Knows the Lynchee from the start. Wins the game if the Lynchee is lynched. Sided with Lyncher.",
+			"role": "m2",
+			"translation": "Mafia2",
+			"side": "mafia",
+			"help": "Hi!  You're Mafia, so you can /protect during the Night.",
 			"actions": {
-				"startup": {
-					"revealRole": ["lynchee"]
-				}
+				"night": {
+					"protect": {
+						"target": "AnyButTeam",
+						"common": "Team",
+						"priority": 2,
+						"broadcast": "team"
+					}
+				},
+				"startup": "team-reveal"
 			}
 		}
 	],
-	"roles1": [
-		"mafia",
-		"lynchee",
-		"lyncher",
-		"villager",
-		"villager",
-		"villager",
-		"villager",
-		"villager",
-		"villager",
-		"villager"
-	]
+	"roles1": ["v", "v", "v", "m", "v", "v", "v", "v", "m", "v", "v", "v", "v", "v", "m", "v", "v", "v", "v", "v"],
+	"villageCantLoseRoles": []
 }
