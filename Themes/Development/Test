@@ -74,6 +74,6 @@
 			}
 		}
 	],
-	"roles1": ["v", "v", "v", "m", "v", "v", "v", "v", "m", "v", "v", "v", "v", "v", "m", "v", "v", "v", "v", "v"],
+	"roles1": ["v2", "v", "v", "m2", "m", "v", "v", "v", "m", "v", "v", "v", "v", "v", "m", "v", "v", "v", "v", "v"],
 	"villageCantLoseRoles": []
 }
