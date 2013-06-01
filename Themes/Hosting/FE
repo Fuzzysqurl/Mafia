@@ -1,8 +1,7 @@
 {
     "name": "FE",
     "author":["Narshen"],
-    "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE Minplayers is now set to 12 temporarily pending small game rebalance.",
-    "minplayers": 12,
+    "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE Minplayers restored to 5. New changes in small games with more changes planned based on how this goes.",
     "sides": [
         {
             "side": "senate",
@@ -133,7 +132,7 @@
             "role": "mafia",
             "translation": "Corrupt Senator",
             "side": "senate",
-            "help": "You're a corrupt senator of the nation of Begnion. You'll benefit if the heroes fail and the world is purged in the final judgment. You can /kill and you have bought extra votes, you now have one and a three-quarters (1.75)!",
+            "help": "You're a corrupt senator of the nation of Begnion. You'll benefit if the heroes fail and the world is purged in the final judgment. You can /kill and you have a vote of 1.1!",
             "actions": {
                 "night": {
                     "kill": {
@@ -144,7 +143,7 @@
                     }
                 },
                 "startup": "team-reveal",
-                "vote": 1.75
+                "vote": 1.1
             }
         },
         {
@@ -169,7 +168,7 @@
             "role": "fool",
             "translation": "Lundgren",
             "side": "fool",
-            "help": "You are the evil Lord Lundgren. You don't have any lofty goals in mind like any of the other villains. You simply wish to take control of House Caelin but...Lyndis and her cadre are in your way. Exterminate the rats with /poison AND /kill every night. Your vote counts as 2.5.",
+            "help": "You are the evil Lord Lundgren. You don't have any lofty goals in mind like any of the other villains. You simply wish to take control of House Caelin but...Lyndis and her cadre are in your way. Exterminate the rats with /poison AND /kill every night. Your vote counts as 2.",
             "actions": {
                 "night": {
                     "poison": {
@@ -183,7 +182,7 @@
                         "priority": 32
                     }
                 },
-                "vote": 2.5
+                "vote": 2
             }
         },
         {
@@ -206,7 +205,8 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "hector"
+                        "hector",
+						"hector2"
                     ]
                 }
             }
@@ -234,6 +234,32 @@
                     }
                 },
                 "vote": 3,
+                "startup": {
+                    "revealRole": [
+                        "lyndis"
+                    ]
+                },
+				"kill": {
+					"mode": {
+						"ignore": ["lyndis"]
+					}
+				}
+            }
+        },
+		{
+            "role": "hector2",
+            "translation": "Hector",
+            "side": "village",
+            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercly loyal to your friends. You possess incredibly strong armor and defensive capabilities, you're able to /protect one other ally every night. In addition, your role as leader of Ostia grants you considerable sway in voting procedures, giving you a +2 vote. You're a close friend of Lyndis so you can identify her from the start.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8
+                    }
+                },
+                "vote": 2,
                 "startup": {
                     "revealRole": [
                         "lyndis"
@@ -400,6 +426,7 @@
                         "canConvert": [
                             "mhero"
                         ],
+						"pierce": true,
                         "convertmsg": "The Masked Hero removes his disguise...it's Prince Marth! The audience cheers!",
                         "silent": false
                     }
@@ -847,7 +874,7 @@
         }
     ],
     "roles1": [
-        "hector",
+        "hector2",
         "roy",
         "fool",
         "mafia",
@@ -894,8 +921,13 @@
     "villageCantLoseRoles": [
         "ike",
         "hector",
-        "lyndis"
+        "lyndis",
+		"mhero",
+		"marth"
     ],
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
-    "killusermsg": "You have fallen in combat!"
+    "killusermsg": "You have fallen in combat!",
+	"changelog": {
+		"6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR"
+	}
 }
