@@ -406,7 +406,7 @@
 "role": "prader",
 "translation": "Prader-Willi Syndrome",
 "side": "mafia",
-"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "schiz", "alz", "depression"],
+"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "rabies2", "schiz", "alz", "depression"],
 "info": "Night Action: kill (shared with team). On Death: converts Angelman Syndrome to Developed AS and exposes it. Knows teammates. Sided with Genetic Diseases.",
 "help": "You are a common chromosomal disease, caused by a defective Chromosome #15, just like Angelman Syndrome. When one of you is eliminated, the other gets an incredible boost, at the cost of being revealed to everyone. But, for now, you share a /kill at night.",
 "actions": {
@@ -436,7 +436,7 @@
 "role": "angel",
 "translation": "Angelman Syndrome",
 "side": "mafia",
-"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "schiz", "alz", "depression"],
+"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "rabies2", "schiz", "alz", "depression"],
 "info": "Night Action: kill (shared with team). On Death: converts Prader-Willi Syndrome to Developed PWS and exposes it. Knows teammates. Sided with Genetic Diseases.",
 "help": "You are a common chromosomal disease that originates from a defective 15th Chromosome, just like Prader-Willi Syndrome. When one of you is eliminated, the other gets an incredible boost, at the cost of being revealed to everyone. But, for now, you share a /kill at night.",
 "actions": {
@@ -466,7 +466,7 @@
 "role": "angel2",
 "translation": "Angelman Syndrome",
 "side": "mafia",
-"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "schiz", "alz", "depression"],
+"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "rabies2", "schiz", "alz", "depression"],
 "info": "Night Action: kill (shared with role). Has a 40% chance of evading nightkill. Can't be distracted. Vote counts as 1000. Knows teammates. Sided with Genetic Diseases.",
 "help": "Your twin disease is out of the game. Your night kill bypasses protections and distractions. Now you're known - and feared - by everyone, so your votes instantly eliminate one person. Because you are developed, it's almost impossible to get rid of you, so you evade 40% of the nightkills aimed at you.",
 "actions": {
@@ -496,7 +496,7 @@
 "role": "prader2",
 "translation": "Prader-Willi Syndrome",
 "side": "mafia",
-"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "schiz", "alz", "depression"],
+"winIfDeadRoles": ["heart", "stem", "liver", "immune", "anthrax", "tetanus", "flu", "rabies", "rabies2", "schiz", "alz", "depression"],
 "info": "Standby Action: kill (reveals user). Has a 45% chance of evading nightkill. Vote counts as 1000. Knows teammates. Sided with Genetic Diseases.",
 "help": "Your twin disease is out of the game. You can kill during the standby, instead of your nightkill. Now you're known - and feared - by everyone, so your votes instantly eliminate one person. Because you are developed, it's almost impossible to get rid of you, so you evade almost half of the nightkills aimed at you.",
 "actions": {
