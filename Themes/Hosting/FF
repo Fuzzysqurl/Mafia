@@ -368,7 +368,7 @@
                 "vote": 2,
                 "startup": "team-reveal-with-roles",
 				"onDeath": {
-					"exposeRoles": ["mafia1"],
+					"exposeRoles": ["conspirator1"],
 					"exposemsg": "These puns are Sinful..."
 				}
             }
@@ -412,7 +412,7 @@
                 },
                 "startup": "team-reveal-with-roles",
 				"onDeath": {
-					"exposeRoles": ["mafia1"],
+					"exposeRoles": ["mafiaboss1"],
 					"exposemsg": "We won't Seymour them any more!"
 				}
             }
