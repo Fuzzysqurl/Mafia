@@ -327,9 +327,9 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-    			"onDeath": {
+				"onDeath": {
 					"exposeRoles": ["mafia1"],
-					"exposemsg": "±Game: ~Player~ (~Role~) has been e-jecht-ed from the game!"
+					"exposemsg": "E-Jecht-ed!"
 				}
             }
         },
@@ -366,7 +366,11 @@
                     }
                 },
                 "vote": 2,
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"onDeath": {
+					"exposeRoles": ["mafia1"],
+					"exposemsg": "These puns are Sinful..."
+				}
             }
         },
         {
@@ -406,7 +410,11 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"onDeath": {
+					"exposeRoles": ["mafia1"],
+					"exposemsg": "We won't Seymour them any more!"
+				}
             }
         },
         {
