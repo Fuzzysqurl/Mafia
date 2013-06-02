@@ -326,7 +326,11 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+    			"onDeath": {
+					"exposeRoles": ["mafia1"],
+					"exposemsg": "±Game: ~Player~ (~Role~) has been e-jecht-ed from the game!"
+				}
             }
         },
         {
