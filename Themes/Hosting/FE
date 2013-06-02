@@ -435,7 +435,9 @@
                     "revealAs": "blackknight"},
                     "vote": 0,
 				"convert": {
-                    "mode": "ignore"
+                    "mode": {
+						"ignore": ["nergal"]
+					}
                 },
                 "kill": {
 					"mode": "ignore"},
@@ -928,6 +930,6 @@
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
     "killusermsg": "You have fallen in combat!",
 	"changelog": {
-		"6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR"
+		"6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR... Part 2: Fixed another error with Marth's convert that completely prevented change."
 	}
 }
