@@ -413,7 +413,7 @@
                 "startup": "team-reveal-with-roles",
 				"onDeath": {
 					"exposeRoles": ["mafiaboss1"],
-					"exposemsg": "We won't Seymour them any more!"
+					"exposemsg": "We won't Seymour of them!"
 				}
             }
         },
