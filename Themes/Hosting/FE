@@ -205,7 +205,26 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "hector",
+                        "hector"
+                    ]
+                }
+            }
+        },
+		{
+            "role": "lyndis2",
+            "translation": "Lyndis",
+            "side": "village",
+            "help": "You're Lady Lyn of House Caelin. Despite being of noble blood, you spent almost the entirety of your life as a nomad on the plains of Sacae. As a result, you're extremely stealthy and swift. Every night, you can use /kill, which grants you the ability to dispatch a target with high priority. You're a close friend of Hector so you can identify him from the start.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9
+                    }
+                },
+                "startup": {
+                    "revealRole": [
 						"hector2"
                     ]
                 }
@@ -877,12 +896,12 @@
     ],
     "roles1": [
         "hector2",
-        "roy",
+        ["roy": 0.5, "soren": 0.5],
         "fool",
         "mafia",
         "villager",
-        "lyndis",
-        "soren",
+        "lyndis2",
+		"villager",
         "mafia",
         "villager",
         "villager2",
@@ -923,6 +942,8 @@
     "villageCantLoseRoles": [
         "ike",
         "hector",
+		"hector2",
+		"lyndis2",
         "lyndis",
 		"mhero",
 		"marth"
@@ -930,6 +951,7 @@
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
     "killusermsg": "You have fallen in combat!",
 	"changelog": {
-		"6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR... Part 2: Fixed another error with Marth's convert that completely prevented change."
+		"6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR... Part 2: Fixed another error with Marth's convert that completely prevented change.",
+		"6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager."
 	}
 }
