@@ -896,7 +896,7 @@
     ],
     "roles1": [
         "hector2",
-        ["roy": 0.5, "soren": 0.5],
+        {"roy": 0.1, "soren": 0.1},
         "fool",
         "mafia",
         "villager",
