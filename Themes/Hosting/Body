@@ -503,7 +503,7 @@
 "startup": "team-reveal-with-roles",
 "standby": {
 "kill": {
-"target": "AnyButSelf",
+"target": "AnyButTeam",
 "msg": "Now you can /kill someone.",
 "killmsg": "~Target~ survived for a long time with Prader-Willi Syndrome (~Self~), but then ~Target~ couldn't take it anymore."
 }
@@ -590,7 +590,7 @@
 "convertmsg": "The ~Old~ forgot its design and now is a/an ~New~!"	
 },
 "kill": {
-"target": "AnyButSelf",
+"target": "AnyButTeam",
 "common": "Team",
 "priority": 28,
 "broadcast": "team",
@@ -659,7 +659,7 @@
 "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is Bone Marrow, ~Target~ is Bone Marrow, ~Target~ is Bone Marrow, ~Target~ is Bone Marrow...'"
 },
 "kill": {
-"target": "AnyButSelf",
+"target": "AnyButTeam",
 "msg": "If you want, /kill someone. But you WILL be revealed, if you do it.",
 "killmsg": "~Self~ is out of control! He screams and hits everything. Oh, no! ~Target~ wanted to stop ~Self~ but nothing can stop a schizophrenic during a psychotic outbreak. Poor ~Target~..."
 }
@@ -690,7 +690,7 @@
 },
 "night": {
 "kill": {
-"target": "AnyButSelf",
+"target": "AnyButTeam",
 "common": "Team",
 "priority": 12,
 "broadcast": "team",
@@ -783,7 +783,7 @@
 "actions": {
 "night": {
 "kill": {
-"target": "AnyButRole",
+"target": "AnyButTeam",
 "common": "Role",
 "priority": 23,
 "broadcast": "role",
