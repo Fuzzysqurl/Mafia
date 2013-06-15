@@ -439,7 +439,7 @@
                         "command": "convert",
                         "target": "OnlySelf",
                         "common": "Self",
-                        "priority": 50,
+                        "priority": 1,
                         "initialrecharge": 3,
                         "newRole": "marth",
                         "canConvert": [
