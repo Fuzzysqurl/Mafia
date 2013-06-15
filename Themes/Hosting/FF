@@ -141,7 +141,7 @@
                     "distract": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 2
+                        "priority": 3
                     }
                 },
                 "hax": {
@@ -169,7 +169,7 @@
                         "command": "convert",
                         "target": "OnlySelf",
                         "common": "Self",
-                        "priority": 50,
+                        "priority": 1,
                         "newRole": "palamayor",
                         "canConvert": [
                             "mayor"
@@ -198,7 +198,7 @@
                         "command": "convert",
                         "target": "OnlySelf",
                         "common": "Self",
-                        "priority": 50,
+                        "priority": 1,
                         "newRole": "mayor",
                         "canConvert": [
                             "palamayor"
@@ -362,7 +362,7 @@
                     "distract": {
                         "target": "AnyButTeam",
                         "common": "Self",
-                        "priority": 1
+                        "priority": 2
                     }
                 },
                 "vote": 2,
@@ -500,7 +500,7 @@
                     "distract": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 3,
+                        "priority": 4,
                         "limit": 3
                     }
                 },
@@ -563,12 +563,12 @@
         "conspirator2",
         "villager",
         "miller",
-        "vigilante",
-        "mayor",
         "werewolf",
+        "mayor",
         "spy",
         "villager",
         "samurai",
+        "vigilante",
         "mayor2",
         "mafiaboss1",
         "mafiaboss2",
