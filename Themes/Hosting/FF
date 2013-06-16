@@ -178,6 +178,9 @@
                         "silent": false
                     }
                 },
+                "avoidHax": [
+                    "protect"
+                ],
                 "vote": -2
             }
         },
@@ -207,6 +210,9 @@
                         "silent": false
                     }
                 },
+                "avoidHax": [
+                    "protect"
+                ],
                 "vote": 2
             }
         },
@@ -257,8 +263,8 @@
                         "revealPlayer": 0.15
                     },
                     "inspect": {
-                        "revealTeam": 0.99,
-                        "revealPlayer": 0.99
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.25
                     }
                 }
             }
@@ -299,7 +305,7 @@
             "role": "vigilante",
             "translation": "Lightning",
             "side": "village",
-            "info": "Can kill one person during the night. Sided with Heroes.",
+            "info": "Can kill one person during the night. Cannot be detected by spies. Sided with Heroes.",
             "help": "Allied with the heroes, it is your goal to assist them and win! Type /kill [name] during the night.",
             "actions": {
                 "night": {
@@ -308,7 +314,10 @@
                         "common": "Self",
                         "priority": 19
                     }
-                }
+                },
+                "avoidHax": [
+                    "kill"
+                ]
             }
         },
         {
@@ -326,11 +335,7 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles",
-				"onDeath": {
-					"exposeRoles": ["mafia1"],
-					"exposemsg": "E-Jecht-ed!"
-				}
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -355,7 +360,7 @@
             "role": "conspirator1",
             "translation": "Yunalesca",
             "side": "mafia1",
-            "info": "Can distract one person during the night. Vote counts as 2. Sided with Sin.",
+            "info": "Can distract one person during the night. Cannot be detected by spies. Vote counts as 2. Sided with Sin.",
             "help": "Stop those who threaten to ruin Sin's plans. Type /distract [name] during the night. Ancient magics double your voting power, giving you +2.",
             "actions": {
                 "night": {
@@ -367,10 +372,9 @@
                 },
                 "vote": 2,
                 "startup": "team-reveal-with-roles",
-				"onDeath": {
-					"exposeRoles": ["conspirator1"],
-					"exposemsg": "These puns are Sinful..."
-				}
+                "avoidHax": [
+                    "distract"
+                ]
             }
         },
         {
@@ -389,6 +393,9 @@
                     }
                 },
                 "vote": 2,
+                "avoidHax": [
+                    "protect"
+                ],
                 "startup": "team-reveal-with-roles"
             }
         },
@@ -410,11 +417,7 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles",
-				"onDeath": {
-					"exposeRoles": ["mafiaboss1"],
-					"exposemsg": "We won't Seymour of them!"
-				}
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -478,9 +481,6 @@
                         }
                     }
                 },
-                "avoidHax": [
-                    "inspect"
-                ],
                 "inspect": {
                     "revealAs": "werewolf"
                 },
@@ -593,5 +593,8 @@
     "killmsg": "±Game: ~Player~ (~Role~) has fallen!",
     "killusermsg": "You have been killed!",
     "lynchmsg": "±Game: ~Player~ (~Role~) has been removed from the game!",
-    "drawmsg": "The battle is over...but there is no victory today. Everyone has died!"
+    "drawmsg": "The battle is over...but there is no victory today. Everyone has died!",
+    "changelog": {
+    	"6.16.2013": "Various nerfs related to hax for the Village. Judge and Yuna can no longer be haxed."
+    }
 }
