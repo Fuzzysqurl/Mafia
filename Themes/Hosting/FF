@@ -236,7 +236,7 @@
             "info": "Vote counts as 9999. Voteshield of -9999. Sided with Kefka's Posse.",
             "help": "The true show begins now! You're the brightest star in the voting arena, voting for anyone results in their immediate death. Team up with Kefka to win!",
             "actions": {
-                "vote": 9999,
+                "vote": 999,
                 "voteshield": -9999
             },
             "winIfDeadRoles": [
@@ -595,6 +595,7 @@
     "lynchmsg": "±Game: ~Player~ (~Role~) has been removed from the game!",
     "drawmsg": "The battle is over...but there is no victory today. Everyone has died!",
     "changelog": {
-    	"6.16.2013": "Various nerfs related to hax for the Village. Judge and Yuna can no longer be haxed."
+    	"6.16.2013": "Various nerfs related to hax for the Village. Judge and Yuna can no longer be haxed.",
+        "6.18.2013": "Kuja can no longer selfvote and get lynched."
     }
 }
