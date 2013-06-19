@@ -360,17 +360,23 @@
             "role": "conspirator1",
             "translation": "Yunalesca",
             "side": "mafia1",
-            "info": "Can distract one person during the night. Cannot be detected by spies. Vote counts as 2. Sided with Sin.",
-            "help": "Stop those who threaten to ruin Sin's plans. Type /distract [name] during the night. Ancient magics double your voting power, giving you +2.",
+            "info": "Can distract one person during the night. Can kill during the night (shared with team). Cannot be detected by spies. Sided with Sin.",
+            "help": "Stop those who threaten to ruin Sin's plans. Type /distract [name] during the night. Ancient magics allow you to /kill one player during the night.",
             "actions": {
                 "night": {
                     "distract": {
                         "target": "AnyButTeam",
                         "common": "Self",
-                        "priority": 2
+                        "priority": 2,
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
                     }
                 },
-                "vote": 2,
                 "startup": "team-reveal-with-roles",
                 "avoidHax": [
                     "distract"
@@ -381,18 +387,23 @@
             "role": "conspirator2",
             "translation": "Judge Gabranth",
             "side": "mafia2",
-            "info": "Can protect one person during the night. Vote counts as 2. Sided with House Solidor.",
-            "help": "You're House Solidor's personal bodyguard. Type /protect [name] to defend Larsa or Vayne! You have the ability to boost your vote count by calling on fellow judges, giving you a +2 vote.",
+            "info": "Can protect one person during the night. Can kill one person each night (shared with team). Sided with House Solidor.",
+            "help": "You're House Solidor's personal bodyguard. Type /protect [name] to defend Larsa or Vayne! You can also /kill someone in the name of House Solidor.",
             "actions": {
                 "night": {
                     "protect": {
                         "target": "AnyButSelf",
                         "common": "Role",
                         "priority": 7,
-                        "broadcast": "role"
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
                     }
                 },
-                "vote": 2,
                 "avoidHax": [
                     "protect"
                 ],
