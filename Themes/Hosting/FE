@@ -588,7 +588,7 @@
                         "target": "AnyButTeam",
                         "common": "Self",
                         "priority": 38,
-                        "recharge": 1
+                        "broadcast": "team"
                     },
                     "demote": {
                         "command": "convert",
@@ -633,7 +633,7 @@
                         "target": "AnyButSelf",
                         "common": "Role",
                         "priority": 7,
-                        "broadcast": "role",
+                        "broadcast": "team",
                         "limit": 2
                     },
                     "kill": {
