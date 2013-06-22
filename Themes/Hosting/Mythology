@@ -163,7 +163,7 @@
                         "revealPlayer": 0.1
                     }
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -187,7 +187,7 @@
                 "avoidHax": [
                     "kill"
                 ],
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -286,7 +286,7 @@
                         "revealPlayer": 0.1
                     }
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -317,7 +317,7 @@
                 "inspect": {
                     "revealAs": "villager"
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -337,7 +337,7 @@
                 "avoidHax": [
                     "kill"
                 ],
-                "startup": "team-reveal",
+                "startup": "team-reveal-with-roles",
                 "standby": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -366,8 +366,8 @@
             "role": "oceanus",
             "translation": "Oceanus",
             "side": "titans",
-            "help": "Titan of the Oceans.  Bodies of water are everywhere, giving you a wide range of influence, and you are sometimes able to detect any command each night.  During the first night, you may use /empower [name] to increase your strength.  You are allied with the Titans.",
-            "info": "Has a chance of hax on every command.  Can Empower himself during the first night.  Sided with the Titans.",
+            "help": "Titan of the Oceans.  Bodies of water are everywhere, giving you a wide range of influence, and you are sometimes able to detect any command each night.  During the first night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Has a chance of hax on every command. Empowers after the first night.  Sided with the Titans.",
             "actions": {
                 "hax": {
                     "kill": {
@@ -395,21 +395,14 @@
                         "revealPlayer": 0.1
                     }
                 },
-                "night": {
-                    "empower": {
-                        "command": "convert",
-                        "target": "OnlySelf",
-                        "common": "Self",
-                        "priority": 95,
-                        "newRole": "eoceanus",
-                        "canConvert": [
-                            "oceanus"
-                        ],
-                        "silent": false,
-                        "convertmsg": "The Tides swell and the Sea surges; Oceanus has become Empowered."
+    			"initialCondition": {
+					"curse": {
+                        "curseCount": 1,
+                        "cursedRole": "eoceanus",
+                        "curseConvertMessage": "The Tides swell and the Sea surges; Oceanus has become Empowered."
                     }
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -452,23 +445,15 @@
             "role": "phoebe",
             "translation": "Phoebe",
             "side": "titans",
-            "help": "Titan of the Moon.  During the day, you may /eclipse someone to kill them; however, you have a 50% chance to be revealed.  During the third night, you may use /empower [name] to increase your strength.  You are allied with the Titans.",
-            "info": "Can daykill someone with a 50% chance of revealing. Can Empower herself during the third night. Sided with the Titans.",
+            "help": "Titan of the Moon.  During the day, you may /eclipse someone to kill them; however, you have a 50% chance to be revealed.  During the third night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Can daykill someone with a 50% chance of revealing. Empowers on the third night. Sided with the Titans.",
             "actions": {
-                "startup": "team-reveal",
-                "night": {
-                    "empower": {
-                        "command": "convert",
-                        "target": "OnlySelf",
-                        "common": "Self",
-                        "priority": 96,
-                        "newRole": "ephoebe",
-                        "canConvert": [
-                            "phoebe"
-                        ],
-                        "silent": false,
-                        "initialrecharge": 3,
-                        "convertmsg": "The Moon glistens and Shadows lengthen; Phoebe has become Empowered."
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"curse": {
+                        "curseCount": 3,
+                        "cursedRole": "ephoebe",
+                        "curseConvertMessage": "The Moon glistens and Shadows lengthen; Phoebe has become Empowered."
                     }
                 },
                 "standby": {
@@ -506,26 +491,18 @@
             "role": "prometheus",
             "translation": "Prometheus",
             "side": "titans",
-            "help": "Titan best known for stealing Fire and giving it to mankind.  For this act, you were punished by the Gods.  This act also gave you a voting power of -3. During the second night, you may use /empower [name] to increase your strength.  You are allied with the Titans.",
-            "info": "Has a vote of -3 and can Empower himself during the second night.  Sided with the Titans.",
+            "help": "Titan best known for stealing Fire and giving it to mankind.  For this act, you were punished by the Gods.  This act also gave you a voting power of -3. During the second night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Has a vote of -3. Empowers on the second night.  Sided with the Titans.",
             "actions": {
-                "night": {
-                    "empower": {
-                        "command": "convert",
-                        "target": "OnlySelf",
-                        "common": "Self",
-                        "priority": 95,
-                        "newRole": "eprometheus",
-                        "canConvert": [
-                            "prometheus"
-                        ],
-                        "silent": false,
-                        "initialrecharge": 2,
-                        "convertmsg": "The Sky flares in a momentary blaze; Prometheus has become Empowered."
+               "initialCondition": {
+					"curse": {
+                        "curseCount": 2,
+                        "cursedRole": "eprometheus",
+                        "curseConvertMessage": "The Sky flares in a momentary blaze; Prometheus has become Empowered."
                     }
                 },
                 "vote": -3,
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
