@@ -84,14 +84,14 @@
                 "blackknight",
                 "madking"
             ],
-            "help": "You've just about had it with these naive heroes! You don't care who wins anymore - so long as it isn't them! Your win condition is satisfied if the heroes lose. Like other soldiers, you possess a 5% kill evade chance. In addition, you appear to be a normal soldier in the roles listing. If you get lynched, you will be saved from death and turn into a Berserk Soldier!",
-			"info": "Has a 5% chance of evading nightkills. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight or Mad King Ashnard. Death causes Ashnard's transformation.",
+            "help": "You've just about had it with these naive heroes! You don't care who wins anymore - so long as it isn't them! Your win condition is satisfied if the heroes lose. In addition, you appear to be a normal soldier in the roles listing. If you get lynched, you will be saved from death and turn into a Berserk Soldier!",
+			"info": "Evades nightkills from Mad King Ashnard. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight or Mad King Ashnard. Death causes Ashnard's transformation.",
             "actions": {
                 "kill": {
-                    "mode": {
-                        "evadeChance": 0.05
-                    }
-                },
+					"mode": {
+						"ignore": ["ashnard"]
+					}
+				},
                 "onlist": "villager",
                 "lynch": {
                     "convertTo": "villager3",
@@ -849,8 +849,8 @@
             "role": "ashnard",
             "translation": "Mad King Ashnard",
             "side": "madking",
-            "help": "You're the very powerful King of Daein, Ashnard. Dubbed the 'Mad King' by all, your reign is one of terror, one in which only the strongest may survive. You strike down one unworthy opponent at night with /kill and use political clout to gain a +2 vote in the arena. You've brought your trump card to the  fray, however. Upon the death of a Disgruntled Soldier, you activate Lehran's Medallion - this will unleash your true form.",
-            "info": "King Ashnard holds back his true power, wishing to gauge the strength of those around him at first. One kill per night, +2 vote. Once a single Disgruntled Soldier is killed, however, his true form is unleashed! ",
+            "help": "You're the very powerful King of Daein, Ashnard. Dubbed the 'Mad King' by all, your reign is one of terror, one in which only the strongest may survive. You strike down one unworthy opponent at night with /kill and use political clout to gain a +2 vote in the arena. You've brought your trump card to the  fray, however. Upon the death of a Disgruntled Soldier, you activate Lehran's Medallion - this will unleash your true form, however, you cannot be the one to kill them.",
+            "info": "King Ashnard holds back his true power, wishing to gauge the strength of those around him at first. One kill per night, +2 vote. Once a single Disgruntled Soldier is killed, however, his true form is unleashed! Cannot kill Disgruntled Soldiers.",
             "actions": {
                 "night": {
                     "kill": {
