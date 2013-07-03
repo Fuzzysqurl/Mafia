@@ -1,209 +1,220 @@
 {
     "name": "Ocean",
-	"author": ["Fuzzy"],
+    "author": [
+        "Fuzzy"
+    ],
     "summary": "Ah, the ocean! It's truly a wonderful place where fish can safely go about their business without fear of... hang on, that's not right. The ocean is a terrible place where fish are in constant danger. Violent Shark deaths occur on a regular basis and even the Mammals are getting in on the action! [Use /changelog to learn of all the new updates!]",
     "sides": [
         {
             "side": "village",
             "translation": "Fish",
-			"winmsg": "The Fish are victorious! ~Players~ can now swim in peace."
+            "winmsg": "The Fish are victorious! ~Players~ can now swim in peace."
         },
         {
             "side": "shark",
             "translation": "Shark Mafia",
-			"winmsg": "The Sharks have consumed everyone and are victorious! Congratulations ~Players~!"
+            "winmsg": "The Sharks have consumed everyone and are victorious! Congratulations ~Players~!"
         },
         {
             "side": "cthulhu",
             "translation": "Cthulhu",
-			"winmsg": "Cthulhu slayed everyone and stands victorious. ~Players~ can now return to their dormant state, or just rampage on land and enslave the human race. Their choice."
+            "winmsg": "Cthulhu slayed everyone and stands victorious. ~Players~ can now return to their dormant state, or just rampage on land and enslave the human race. Their choice."
         },
         {
             "side": "mammal",
             "translation": "Mammal Alliance",
-			"winmsg": "The Mammals united and have emerged victorious! ~Players~ can now get back to whatever the hell they were doing before!"
+            "winmsg": "The Mammals united and have emerged victorious! ~Players~ can now get back to whatever the hell they were doing before!"
         },
-		{
+        {
             "side": "sushi",
             "translation": "Sushi Mafia",
-			"winmsg": "Thanks to ~Players~, City Sushi is now a successful 5 star Sushi Bar!"
+            "winmsg": "Thanks to ~Players~, City Sushi is now a successful 5 star Sushi Bar!"
         },
-		{
+        {
             "side": "sushi2",
             "translation": "Sushi Mafia",
-			"winmsg": "~Players~ are lucky they won, but they might not be so lucky after the lunch crowd arrives..."
+            "winmsg": "~Players~ are lucky they won, but they might not be so lucky after the lunch crowd arrives..."
         }
     ],
-	"roles": [
-	    {
+    "roles": [
+        {
             "role": "cthulhu",
             "translation": "Cthulhu",
             "side": "cthulhu",
             "help": "Zzzz... Zzzz...  You are sleeping in the deepest part of the ocean, deep enough that people can't get close enough to try to kill you. Anyone that tries to inspect you will be lazy and just think you are a fish, cause you know, Cthulhu doesn't exist right? Hopefully no one wakes you because it wont be enjoyable for anyone in the ocean, except you of course!",
-			"info": "Reveals as a Fish. Cannot be night killed. Evades daykills. Automatically converts on night 2. Sided with Cthulhu.",
-			"actions": {
-				"inspect": {
+            "info": "Reveals as a Fish. Cannot be night killed. Evades daykills. Automatically converts on night 2. Sided with Cthulhu.",
+            "actions": {
+                "inspect": {
                     "revealAs": [
-						"fishy"
-					]
+                        "fishy"
+                    ]
                 },
-				"initialCondition": {
+                "initialCondition": {
                     "curse": {
                         "cursedRole": "cthulhu2",
                         "curseCount": 2,
                         "curseConvertMessage": "The Legendary Cthulhu has awakened!"
                     }
                 },
-				"daykill": "evade",
-				"daykillrevengemsg": "Foolish little fish. Cthulhu doesn't take kindly to your actions and threw you at the moon! If it wasn't obvious, you can't really live in space.",	
-				"kill": {
-					"mode": "ignore",
-					"msg": "±Game: Your target (~Self~) was protected!"
-				}
-			}
-		},	
-		{
+                "daykill": "evade",
+                "daykillrevengemsg": "Foolish little fish. Cthulhu doesn't take kindly to your actions and threw you at the moon! If it wasn't obvious, you can't really live in space.",
+                "kill": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Self~) was protected!"
+                }
+            }
+        },
+        {
             "role": "cthulhu2",
             "translation": "Cthulhu",
             "side": "cthulhu",
-		"hide": true,
+            "hide": true,
             "help": "Now that you've awaken, let's cause some chaos! Use /thrash during the day to kill one person (non-revealing), then if you want to cause even more chaos, you can /torment (kill) someone after your first kill, however, you can only do this once per game. You have a chance to reveal as a Fish (50%) because some people still don't believe you exist.",
             "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
-			"actions": {
+            "actions": {
                 "standby": {
-					"thrash": {
-						"command": "kill",
-						"target": "AnyButSelf",
-						"msg": "Use /thrash [name] for a non-revealing kill and use /torment [name] for a one-time non-revealing kill!",
-						"killmsg": "Cthulhu starts to thrash around undersea. Violent currents carry ~Target~ away from the group, never to be heard from again."
-					},
-					"torment": {
-						"command": "kill",
-						"target": "AnyButSelf",
-						"msg": "±Hint: Once you torment, you can not kill in the same phase! So be sure to /thrash first!",
-						"killmsg": "Cthulhu emerges from the depths of the ocean and violently disposes of ~Target~.",
-						"recharge": 100,
-						"limit": 2
-					}
-				},
-				"avoidStandbyHax": [
-					"thrash", "torment"
-				],
-				"convert": {
-					"mode": "ChangeTarget",
-					"msg": "Somebody tried to turn you into sushi last night. You decided to kill them for fun.",
-					"targetmsg": "You tried to make ''Cthulhu Sushi,'' and clearly, things didn't go as expected. Cthulhu killed you just for fun."
-				},
-				"inspect": {
+                    "thrash": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "Use /thrash [name] for a non-revealing kill and use /torment [name] for a one-time non-revealing kill!",
+                        "killmsg": "Cthulhu starts to thrash around undersea. Violent currents carry ~Target~ away from the group, never to be heard from again."
+                    },
+                    "torment": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "±Hint: Once you torment, you can not kill in the same phase! So be sure to /thrash first!",
+                        "killmsg": "Cthulhu emerges from the depths of the ocean and violently disposes of ~Target~.",
+                        "recharge": 100,
+                        "limit": 2
+                    }
+                },
+                "avoidStandbyHax": [
+                    "thrash",
+                    "torment"
+                ],
+                "convert": {
+                    "mode": "ChangeTarget",
+                    "msg": "Somebody tried to turn you into sushi last night. You decided to kill them for fun.",
+                    "targetmsg": "You tried to make ''Cthulhu Sushi,'' and clearly, things didn't go as expected. Cthulhu killed you just for fun."
+                },
+                "inspect": {
                     "revealAs": [
-						"fishy", "cthulhu"
-					]
+                        "fishy",
+                        "cthulhu"
+                    ]
                 }
-				
-			}
-		},
-		{
+            }
+        },
+        {
             "role": "fishy",
             "translation": "Fish",
             "side": "village",
             "help": "You are the feared daykilling fi... wait. Wrong theme. You're just your average run of the mill fish. You might get hax on the Swordfish during the day, but you're far more likely to suffer a horrific shark related death. (Hint: The Swordfish is on your team and you should probably contact it if you get hax)",
             "info": "Gets standby hax on kill. Sided with Fish.",
-			"actions": {
-				"standbyHax": {
-					"kill": {
-						"revealRole": 0.33
-					}
-				}
-			}
+            "actions": {
+                "standbyHax": {
+                    "kill": {
+                        "revealRole": 0.33
+                    }
+                }
+            }
         },
-		{
+        {
             "role": "clown1",
             "translation": "Clown Fish",
             "side": "village",
             "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night.",
             "info": "Can inspect one person during the night. Sided with Fish.",
-			"actions": {
+            "actions": {
                 "night": {
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 10
                     }
-				}          
-			}
-		},
-		{
+                }
+            }
+        },
+        {
             "role": "clown2",
             "translation": "Clown Fish",
-                "side": "village",
-                "hide": true,
+            "side": "village",
+            "hide": true,
             "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night. As long as the Anemone is alive, however, you cannot be killed or distracted. Your familiar design makes you very charismatic and grants you a vote of 2!",
             "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
-			"actions": {
+            "actions": {
                 "night": {
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
-						"broadcast": ["anemone"],
+                        "broadcast": [
+                            "anemone"
+                        ],
                         "priority": 1,
-						"hide": true
+                        "hide": true
                     }
-				},
-				"startup":{
-					"revealRole": ["anemone", "anemone2"]
-				},
-				"distract": {
+                },
+                "startup": {
+                    "revealRole": [
+                        "anemone",
+                        "anemone2"
+                    ]
+                },
+                "distract": {
                     "mode": "ignore"
                 },
-				"kill": {
-					"mode": "ignore",
-					"msg": "±Game: Your target (~Self~) was protected!"
-				},
-				"daykill": "evade",
-				"onDeath": {
-					"convertRoles": {"anemone":"toxic", "anemone2":"toxic"},
-					"convertmsg": "Oh no! The Clown Fish has drowned. The Sea Anemone is not happy and is releasing deadly neurotoxins throughout the Ocean."
-				},
-				"vote": 2
-			}
-		},
-		{
+                "kill": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Self~) was protected!"
+                },
+                "daykill": "evade",
+                "onDeath": {
+                    "convertRoles": {
+                        "anemone": "toxic",
+                        "anemone2": "toxic"
+                    },
+                    "convertmsg": "Oh no! The Clown Fish has drowned. The Sea Anemone is not happy and is releasing deadly neurotoxins throughout the Ocean."
+                },
+                "vote": 2
+            }
+        },
+        {
             "role": "clown3",
             "translation": "Clown Fish",
-                "side": "village",
-                "hide": true,
+            "side": "village",
+            "hide": true,
             "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night. Unfortunately, your Anemone friend has perished leaving you vulnerable to the dangers of the ocean.",
             "info": "Can inspect one person during the night. Sided with Fish.",
-			"actions": {
+            "actions": {
                 "night": {
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 10,
-						"hide": true
+                        "hide": true
                     }
-				}      
-			}
-		},
-		{
+                }
+            }
+        },
+        {
             "role": "turtle",
             "translation": "Sea Turtle",
             "side": "village",
             "help": "You can use your shell to /protect someone from a violent shark death. Slow and steady wins the race, but not the vote. If anyone votes for you, an additional vote is added on.",
-			"info": "Can protect one person during the night. Receives 1 extra vote if voted for. Sided with Fish.",
+            "info": "Can protect one person during the night. Receives 1 extra vote if voted for. Sided with Fish.",
             "actions": {
                 "night": {
                     "protect": {
                         "target": "AnyButSelf",
                         "common": "Role",
-						"broadcast": "none",
+                        "broadcast": "none",
                         "priority": 3
                     }
                 },
-				"voteshield": 1
+                "voteshield": 1
             }
         },
-		{
+        {
             "role": "mermaid",
             "translation": "Mermaid",
             "side": "village",
@@ -221,212 +232,216 @@
                 }
             }
         },
-		{
-			"role": "anemone",
-			"translation": "Sea Anemone",
-			"side": "village",
-			"help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional vote gets added to the total.",
-			"info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 1 extra vote if voted for. Sided with Fish.",
-			"actions": {
-				"protect": {
-					"mode": "die",
-					"msg": "Someone bumped into you last night and knocked you loose from the reef. You floated away, never to be seen again.",
-					"targetmsg": "Your clumsy protecting knocked the Sea Anemone loose from the reef. They floated away, never to be seen again."
-				},
-				"onDeath": {
-					"convertRoles": {"clown2":"clown3"},
-					"convertmsg": "Oh no! The Sea Anemone has been destroyed. Where will the Clown Fish hide now?"
-				},
-				"startup": {
-					"revealRole": "clown2"
-				},
-				"poison": {
-					"mode": "ignore",
-					"msg": "±Game: Your target (~Self~) was guarded!"
-				},
-				"voteshield": 1
-			}
-		},
-		{
-			"role": "anemone2",
-			"translation": "Sea Anemone",
-                "side": "village",
-                "hide": true,
-			"help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional 2 votes get added to the total.",
-			"info": "Clown Fish cannot be killed while alive. Dies if protected. Receives 2 extra votes if voted for. Sided with Fish.",
-			"actions": {
-				"protect": {
-					"mode": "die",
-					"msg": "Someone bumped into you last night and knocked you loose from the reef. You floated away, never to be seen again.",
-					"targetmsg": "Your clumsy protecting knocked the Sea Anemone loose from the reef. They floated away, never to be seen again."
-				},
-				"onDeath": {
-					"convertRoles": {"clown2":"clown3"},
-					"convertmsg": "Oh no! The Sea Anemone has been destroyed. Where will the Clown Fish hide now?"
-				},
-				"startup": {
-					"revealRole": "clown2"
-				},
-				"poison": {
-					"mode": "ignore",
-					"msg": "±Game: Your target (~Self~) was guarded!"
-				},
-				"voteshield": 2
-			}
-		},
-		{
-			"role": "toxic",
-			"translation": "Toxic Anemone",
-			"side": "village",
-			"help": "The Clown Fish that used to inhabit your tentacles has disappeared leading to a back up of waste and poor water circulation in your area. As a result, you are mad at the world and will fatally poison anyone that attempts to get near you. The poison works quickly, killing the victim instantly. No one cares to get close enough to you during the voting phase so you vote counts for nothing.",
-			"info": "Kills anyone that performs an action on the player. Vote of 0. Sided with Fish.",
-			"actions": {
-				"distract": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to distract the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+        {
+            "role": "anemone",
+            "translation": "Sea Anemone",
+            "side": "village",
+            "help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional vote gets added to the total.",
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 1 extra vote if voted for. Sided with Fish.",
+            "actions": {
+                "protect": {
+                    "mode": "die",
+                    "msg": "Someone bumped into you last night and knocked you loose from the reef. You floated away, never to be seen again.",
+                    "targetmsg": "Your clumsy protecting knocked the Sea Anemone loose from the reef. They floated away, never to be seen again."
                 },
-				"inspect": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to inspect the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                "onDeath": {
+                    "convertRoles": {
+                        "clown2": "clown3"
+                    },
+                    "convertmsg": "Oh no! The Sea Anemone has been destroyed. Where will the Clown Fish hide now?"
                 },
-				"safeguard": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to safeguard the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                "startup": {
+                    "revealRole": "clown2"
                 },
-				"stalk": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to stalk the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                "poison": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Self~) was guarded!"
                 },
-				"kill": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to kill the Toxic Anemone, unfortunately, the toxins in the water ended up killing you too."
+                "voteshield": 1
+            }
+        },
+        {
+            "role": "anemone2",
+            "translation": "Sea Anemone",
+            "side": "village",
+            "hide": true,
+            "help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional 2 votes get added to the total.",
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Receives 2 extra votes if voted for. Sided with Fish.",
+            "actions": {
+                "protect": {
+                    "mode": "die",
+                    "msg": "Someone bumped into you last night and knocked you loose from the reef. You floated away, never to be seen again.",
+                    "targetmsg": "Your clumsy protecting knocked the Sea Anemone loose from the reef. They floated away, never to be seen again."
                 },
-				"protect": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to protect the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                "onDeath": {
+                    "convertRoles": {
+                        "clown2": "clown3"
+                    },
+                    "convertmsg": "Oh no! The Sea Anemone has been destroyed. Where will the Clown Fish hide now?"
                 },
-				"convert": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to convert the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                "startup": {
+                    "revealRole": "clown2"
                 },
-				"curse": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to curse the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                "poison": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Self~) was guarded!"
                 },
-				"poison": {
-                    "mode": "killattackerevenifprotected", 
-					"msg": "You tried to poison the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                "voteshield": 2
+            }
+        },
+        {
+            "role": "toxic",
+            "translation": "Toxic Anemone",
+            "side": "village",
+            "help": "The Clown Fish that used to inhabit your tentacles has disappeared leading to a back up of waste and poor water circulation in your area. As a result, you are mad at the world and will fatally poison anyone that attempts to get near you. The poison works quickly, killing the victim instantly. No one cares to get close enough to you during the voting phase so you vote counts for nothing.",
+            "info": "Kills anyone that performs an action on the player. Vote of 0. Sided with Fish.",
+            "actions": {
+                "distract": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to distract the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
                 },
-				"vote": 0,
-				"daykill": "revenge",
-				"daykillrevengemsg": "~Target~ tried to attack the Toxic Anemone but the neurotoxins adversely affected ~Target~, causing them to die."
-			}
-		},        
-		{	
+                "inspect": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to inspect the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                },
+                "safeguard": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to safeguard the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                },
+                "stalk": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to stalk the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                },
+                "kill": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to kill the Toxic Anemone, unfortunately, the toxins in the water ended up killing you too."
+                },
+                "protect": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to protect the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                },
+                "convert": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to convert the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                },
+                "curse": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to curse the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                },
+                "poison": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "You tried to poison the Toxic Anemone, unfortunately, the toxins in the water ended up killing you."
+                },
+                "vote": 0,
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ tried to attack the Toxic Anemone but the neurotoxins adversely affected ~Target~, causing them to die."
+            }
+        },
+        {
             "role": "remora",
             "translation": "Remora",
             "side": "village",
             "help": "You can /attach yourself to another player and join them in their nightly adventures and see who they visited! No one really cares to get rid of you because your phoresy does not negatively affect them. As a result, you have a -2 voteshield.",
             "info": "Can stalk one person during the night. Voteshield of -2. Sided with Fish.",
-			"actions": {
-			    "night": {
-					"attach": {
+            "actions": {
+                "night": {
+                    "attach": {
                         "command": "stalk",
-						"target": "AnyButSelf",
+                        "target": "AnyButSelf",
                         "common": "Role",
-						"broadcast": "none",
+                        "broadcast": "none",
                         "priority": 10
                     }
                 },
-				"voteshield": -2
-			}
-		}, 
-		{
+                "voteshield": -2
+            }
+        },
+        {
             "role": "pufferfish",
             "translation": "Puffer Fish",
             "side": "village",
             "help": "During the voting stage you can puff up and use your vote of 2 to remove the bad guys. Your poison spikes make you immune to others trying to poison you and if someone tries to kill you at night, the poison spikes will quickly kill them too! If they try during the day, you puff up so much that you explode and take them down with you!",
             "info": "Vote of 2. Kills attacker when killed. Immune to poison. Revenges daykills. Sided with Fish.",
-			"actions": {
-				"kill": {
-					"mode": "killattacker",
-					"msg": "You died from the Puffer Fish's poison. That'll teach you to not to blindly nightkill!"
-				},			
-				"daykill": "bomb",
-				"daykillrevengemsg": "~Target~ tried to kill ~Self~, but made the mistake on picking on the Puffer Fish! ~Self~ puffed up and exploded, taking ~Target~ down with them!",
-				"poison": {
-					"mode": "ignore",
-					"msg": "±Game: Your target (~Self~) was guarded!"
-				},
-				"vote": 2
-			}			
+            "actions": {
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "You died from the Puffer Fish's poison. That'll teach you to not to blindly nightkill!"
+                },
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ tried to kill ~Self~, but made the mistake on picking on the Puffer Fish! ~Self~ puffed up and exploded, taking ~Target~ down with them!",
+                "poison": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Self~) was guarded!"
+                },
+                "vote": 2
+            }
         },
-		{
+        {
             "role": "swordfish",
             "translation": "Sword Fish",
             "side": "village",
             "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your experience in the art of swordplay allows you to /parry yourself to convert to a defensive stance that blocks daykills and grants a voteshield, however, your daykill can't be used two days in a row in this mode.",
-			"info": "Can kill one person during standby. Can convert self during the night. Ignores distractors. Sided with Fish.",
-			"actions": {
-				"standby": {
-					"kill": {
-						"target": "AnyButSelf",
-						"msg": "You can kill now by typing /kill [name]. You will not be revealed!",
-						"killmsg": "En garde! The Swordfish swings its snout around violently and punctures a hole in ~Target~.",
-						"initialrecharge": 0
-					}
-				},
-				"night": {
-					"parry": {
-						"command": "convert",
-						"target": "OnlySelf",
-						"common": "Self",
-						"silent": true,
-						"priority": 9,
-						"newRole": "swordfish2",
+            "info": "Can kill one person during standby. Can convert self during the night. Ignores distractors. Sided with Fish.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now by typing /kill [name]. You will not be revealed!",
+                        "killmsg": "En garde! The Swordfish swings its snout around violently and punctures a hole in ~Target~.",
+                        "initialrecharge": 0
+                    }
+                },
+                "night": {
+                    "parry": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "silent": true,
+                        "priority": 9,
+                        "newRole": "swordfish2",
                         "canConvert": [
                             "swordfish"
                         ],
-						"pierce": true
-					}
-				},
-				"distract": {
-					"mode": "ignore"
-				}
+                        "pierce": true
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                }
             }
         },
-		{
+        {
             "role": "swordfish2",
             "translation": "Sword Fish",
             "side": "village",
             "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your defensive stance has limited your movement and prevents you from killing two consecutive days. In return however, you have an immunity to daykills and a voteshield of -2. You can use /fleche to convert yourself back to your offensive stance.",
-			"info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -2. Sided with Fish.",
-			"actions": {
-				"standby": {
-					"kill": {
-						"target": "AnyButSelf",
-						"msg": "You can kill now by typing /kill [name]. You will not be revealed!",
-						"killmsg": "En garde! The Swordfish swings its snout around violently and punctures a hole in ~Target~.",
-						"recharge": 2
-					}
-				},
-				"night": {
-					"fleche": {
-						"command": "convert",
-						"target": "OnlySelf",
-						"common": "Self",
-						"silent": true,
-						"priority": 9,
-						"newRole": "swordfish",
+            "info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -2. Sided with Fish.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now by typing /kill [name]. You will not be revealed!",
+                        "killmsg": "En garde! The Swordfish swings its snout around violently and punctures a hole in ~Target~.",
+                        "recharge": 2
+                    }
+                },
+                "night": {
+                    "fleche": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "silent": true,
+                        "priority": 9,
+                        "newRole": "swordfish",
                         "canConvert": [
                             "swordfish2"
                         ],
-						"initialrecharge": 2,
-						"pierce": true
-					}
-				},
-				"daykill": "evade",
-				"voteshield": -2
+                        "initialrecharge": 2,
+                        "pierce": true
+                    }
+                },
+                "daykill": "evade",
+                "voteshield": -2
             }
         },
         {
@@ -435,95 +450,107 @@
             "side": "village",
             "help": "You are the fearsome predator of the sea. You are able to /kill anyone during the night but due to your behavior, everyone thinks you are a Great White Shark! Your swimming speed allows you to out-speed everyone except distractors.",
             "info": "Can kill one person during the night. Reveals as a Great White Shark when inspected. Sided with Fish.",
-			"actions": {
-				"inspect": {
+            "actions": {
+                "inspect": {
                     "revealAs": "greatwhite"
                 },
-				"night": {
+                "night": {
                     "kill": {
                         "target": "AnyButSelf",
                         "common": "Role",
-						"broadcast": "Role",
+                        "broadcast": "Role",
                         "priority": 2
                     }
                 }
             }
         },
-		{	
+        {
             "role": "angelfish",
             "translation": "Angel Fish",
             "side": "village",
             "help": "You can /bless one person during the night. This is a special action that not only safeguards, it also protects! However, the protection will prevent your target from performing their action during the night. You're an invaluable asset to the reef community and you even know the Devil Ray from the start!",
             "info": "Can bless (protect+safeguard+distract) one person during the night. Knows Devil Ray. Sided with Fish.",
-			"actions": {
-			    "night": {
-					"bless": {
-						"command": ["distract", "safeguard", "protect"],
+            "actions": {
+                "night": {
+                    "bless": {
+                        "command": [
+                            "distract",
+                            "safeguard",
+                            "protect"
+                        ],
                         "target": "AnyButSelf",
                         "common": "Self",
-						"broadcast": ["devilray"],
+                        "broadcast": [
+                            "devilray"
+                        ],
                         "priority": 1,
-						"distractmsg": "A shimmering light surrounded you last night protecting you from harm. You were awestruck and forgot to do your action.",
-						"teammsg": "A shimmering light surrounded your partner last night. You were awestruck and forgot to do your action."
+                        "distractmsg": "A shimmering light surrounded you last night protecting you from harm. You were awestruck and forgot to do your action.",
+                        "teammsg": "A shimmering light surrounded your partner last night. You were awestruck and forgot to do your action."
                     }
                 },
-				"startup": {
-					"revealRole": "devilray"
-				}
-			}
+                "startup": {
+                    "revealRole": "devilray"
+                }
+            }
         },
-		{	
+        {
             "role": "devilray",
             "translation": "Devil Ray",
             "side": "village",
             "help": "You glide around the ocean with your giant wing-like fins. You can cover a lot of distance quickly and as a result, you are able to see predators trying to attack! Despite your name, you are a friendly creature and you know the Angel Fish from the start. The giant shadow you cast can sometimes scare people during the voting phase, granting you a 20% chance to have 3 votes!",
             "info": "Gets hax on night kills. Has a 20% chance to have a vote of 3 every time it votes. Knows Angel Fish. Sided with Fish.",
-			"actions": {
-				"hax": {
+            "actions": {
+                "hax": {
                     "kill": {
                         "revealTeam": 0.25,
                         "revealPlayer": 0.15
                     }
                 },
-				"startup": {
-					"revealRole": "angelfish"
-				},
-				"vote": [1, 1, 1, 1, 3]
-           }
+                "startup": {
+                    "revealRole": "angelfish"
+                },
+                "vote": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    3
+                ]
+            }
         },
-		{
+        {
             "role": "flyingfish",
             "translation": "Flying Fish",
             "side": "village",
-			"hide": true,
+            "hide": true,
             "help": "You don't really fly though, you just jump out of the water and glide in order to avoid predators. You can use /jump during the day to reveal someone's role, but everyone will see you show-boating and know your identity. You also jump out of the water at night to evade all kills, but this makes you vulnerable if anyone tries to vote you as you receive an extra 4 votes if voted for at all.",
             "info": "Can expose one person during the standby. Evades night kills. Receives 4 extra votes if voted for. Sided with Fish.",
-			"actions": {
+            "actions": {
                 "standby": {
-					"jump": {
-						"command": "expose",
-						"target": "AnyButSelf",
-						"msg": "You can now type /jump [name] to reveal someone's role! You will be revealed.",
-						"exposemsg": "The Flying Fish (~Self~) jumps out of the water and starts to glide around. It looks down and sees ~Target~, who resembles a ~Role~!"
-					}
-				},
-				"kill": {
-					"mode": "ignore",
-					"msg": "±Game: Your target (~Self~) was protected!"
-				},
-				"voteshield": 4
+                    "jump": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "msg": "You can now type /jump [name] to reveal someone's role! You will be revealed.",
+                        "exposemsg": "The Flying Fish (~Self~) jumps out of the water and starts to glide around. It looks down and sees ~Target~, who resembles a ~Role~!"
+                    }
+                },
+                "kill": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Self~) was protected!"
+                },
+                "voteshield": 4
             }
         },
-		{		
+        {
             "role": "greatwhite",
             "translation": "Great White Shark",
             "side": "shark",
             "help": "Duuun dun duuun dun-- You are the feared predator of the sea. You can use your massive jaws to violently attack another person at night with /kill.",
             "info": "Can kill one person during the night. Sided with Shark Mafia.",
-			"actions": {
+            "actions": {
                 "night": {
                     "kill": {
-						"target": "AnyButTeam",
+                        "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 6,
                         "broadcast": "team"
@@ -532,76 +559,79 @@
                 "startup": "team-reveal-with-roles"
             }
         },
-		{	
+        {
             "role": "reef",
             "translation": "Reef Shark",
             "side": "shark",
             "help": "You are the Reef Shark! You are relatively quick and tend to hang out around the coral reefs allowing you to /kill one person during the night, but only if the Great White doesn't beat you to it. Distractors can't really keep up with you so you ignore them. In addition, you can /inspect a fish every night to see if they are worth eating!",
             "info": "Can kill one person during the night. Can inspect one person during the night. Ignores distractors. Sided with Shark Mafia.",
-			"actions": {
-			    "night": {
+            "actions": {
+                "night": {
                     "kill": {
-						"target": "AnyButTeam",
+                        "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 6,
                         "broadcast": "team"
                     },
-					"inspect": {
-						"target": "AnyButTeam",
+                    "inspect": {
+                        "target": "AnyButTeam",
                         "common": "Role",
                         "priority": 10,
                         "broadcast": "team"
-					}
+                    }
                 },
-				"distract": {
-					"mode": "ignore"
-				},
-				"startup": "team-reveal-with-roles"
-			}
-		},
-		{
+                "distract": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
             "role": "gurry",
             "translation": "Gurry Shark",
             "side": "shark",
             "help": "Your flesh is poisonous, so you are able to /poison one person during the night. Your poison's effects mimic extreme drunkenness, so your target will be unable to gather any information if they tried to inspect or stalk someone during the night. The neurotoxins in your poison will take their toll after 1 night. In addition, your vote counts for 3!",
             "info": "Can poison and distract one person during the night. Vote of 3. Sided with Shark Mafia.",
-			"actions": {
-				"night": {
-					"poison": {
-						"command": ["poison", "distract"],
-						"target": "AnyButTeam",
-						"common": "Role",
-						"priority": 8,
-						"broadcast": "team",
-						"count": 2,
-						"poisonDeadMessage": "Ugh. I can't feel my everything. My only regret is that I think I'm a fish...",
-						"distractmsg": "Is that a seagull? Hey! Seagull! Over here! Wait a minute, it's not a seagull, the Gurry Shark's poison is messing with my vision and I can't see straight." 
-					}
-				},
-				"startup": "team-reveal-with-roles",
-				"vote": 3
-			}			
+            "actions": {
+                "night": {
+                    "poison": {
+                        "command": [
+                            "poison",
+                            "distract"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "count": 2,
+                        "poisonDeadMessage": "Ugh. I can't feel my everything. My only regret is that I think I'm a fish...",
+                        "distractmsg": "Is that a seagull? Hey! Seagull! Over here! Wait a minute, it's not a seagull, the Gurry Shark's poison is messing with my vision and I can't see straight."
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 3
+            }
         },
         {
             "role": "tiger",
             "translation": "Tiger Shark",
             "side": "shark",
-			"hide": true,
+            "hide": true,
             "help": "You have two animals in your name, that's enough to confuse anyone!. Type /distract [name] during the night to distract someone! In addition, your vote counts for 3!",
             "info": "Can distract one person during the night. Vote of 3. Sided with Shark Mafia.",
-			"actions": {
+            "actions": {
                 "night": {
-					"distract": {
-						"priority": 1,
-						"target": "AnyButTeam",
-						"common": "Self",
-						"broadcast": "team",
-						"distractmsg": "The Tiger Shark came to you last night! That name really confuses you. Is it like Catdog? Half-tiger and half-shark? You'll never know. Oh crap, you forgot do anything last night!",
-						"teammsg": "The Tiger shark came to your partner last night! That name really confuses you. Is it like Catdog? Half-tiger and half-shark? You'll never know. Oh crap, you forgot do anything last night!"
-                    }					
+                    "distract": {
+                        "priority": 1,
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "distractmsg": "The Tiger Shark came to you last night! That name really confuses you. Is it like Catdog? Half-tiger and half-shark? You'll never know. Oh crap, you forgot do anything last night!",
+                        "teammsg": "The Tiger shark came to your partner last night! That name really confuses you. Is it like Catdog? Half-tiger and half-shark? You'll never know. Oh crap, you forgot do anything last night!"
+                    }
                 },
-				"startup": "team-reveal-with-roles",
-				"vote": 3
+                "startup": "team-reveal-with-roles",
+                "vote": 3
             }
         },
         {
@@ -610,48 +640,48 @@
             "side": "shark",
             "help": "Nobody could think that you're dangerous- just look at you! What's with those eyes freak? Bump into things much? You can /hammer someone during the day to kill them and you're even fast enough to swim away before anyone knows you were there!",
             "info": "Can kill one person during the standby (non-revealing). Sided with Shark Mafia.",
-			"actions": {
-				"standby": {
-					"hammer": {
-						"command": "kill",
-						"target": "AnyButTeam",
-						"msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
-						"killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammerhead Shark headbutted ~Target~, killing them instantly!",
-						"revealChance": 0.00, 
-						"revealmsg": "But wait! Who was that? ~Self~ was revealed to be ~Role~!"
-					}
-				},
-				"startup": "team-reveal-with-roles"
-			}
+            "actions": {
+                "standby": {
+                    "hammer": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
+                        "killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammerhead Shark headbutted ~Target~, killing them instantly!",
+                        "revealChance": 0.00,
+                        "revealmsg": "But wait! Who was that? ~Self~ was revealed to be ~Role~!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
         },
-		{
+        {
             "role": "bluewhale",
             "translation": "Blue Whale",
             "side": "mammal",
             "help": "Use your enormous girth to /protect one person every night. Furthermore, your vote counts for 2 and if anybody tries to distract you, your blowhole blasts them out of the ocean!",
             "info": "Can protect one person during the night. Vote of 2. Kills all distractors. Sided with Mammal Alliance.",
-			"actions": {
+            "actions": {
                 "night": {
                     "protect": {
                         "target": "AnyButSelf",
                         "common": "Role",
-						"broadcast": "team",
+                        "broadcast": "team",
                         "priority": 3
                     }
-				},
-				"distract": {
+                },
+                "distract": {
                     "mode": "ChangeTarget",
-					"msg": "Somebody tried to distract you last night! How silly! You ignored them and sent them hurtling out of the ocean!",
-					"hookermsg": "You tried to distract the Blue Whale! Oh dear, oh dear. It didn't even notice, you fell into the path of its blowhole and were sent hurtling out of the ocean!"
-				},
-				"onDeath": {
+                    "msg": "Somebody tried to distract you last night! How silly! You ignored them and sent them hurtling out of the ocean!",
+                    "hookermsg": "You tried to distract the Blue Whale! Oh dear, oh dear. It didn't even notice, you fell into the path of its blowhole and were sent hurtling out of the ocean!"
+                },
+                "onDeath": {
                     "convertRoles": {
                         "dolphin": "dolphinplus"
                     },
                     "convertmsg": "±Neptune: Oh boy, you've really done it now guys. Killing the Blue Whale greatly angered the ~Old~. It has become the ~New~ and now gets vote of 1000!"
                 },
-				"vote": 2,
-				"startup": "team-reveal-with-roles"
+                "vote": 2,
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -660,210 +690,233 @@
             "side": "mammal",
             "help": "You are a pretty intelligent beast and will be able to dodge incoming daykills. This is about all you can do, at least until the Blue Whale dies...",
             "info": "Evades daykills. Sided with Mammal Alliance.",
-			"actions": {	
-				"daykill": "evade",
-				"startup": "team-reveal-with-roles"
-			},
-				"winIfDeadRoles": [
-					"swordfish",
-					"pufferfish",
-					"greatwhite",
-					"hammerhead",
-					"cthulhu2",
-					"chef",
-					"barracuda",
-					"reef",
-					"swordfish2"
-				]
+            "actions": {
+                "daykill": "evade",
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "swordfish",
+                "pufferfish",
+                "greatwhite",
+                "hammerhead",
+                "cthulhu2",
+                "chef",
+                "barracuda",
+                "reef",
+                "swordfish2"
+            ]
         },
-		{
-			"role": "orca",
+        {
+            "role": "orca",
             "translation": "Orca",
             "side": "mammal",
             "help": "You are an apex predator that rules the ocean with an iron fin! You are able to attack someone at night with /kill in order to keep the Fish from rebelling and overthrowing your rule.",
             "info": "Can kill one person during the night. Sided with Mammal Alliance.",
-			"actions": {
+            "actions": {
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
                         "common": "Team",
-						"broadcast": "team",
-                        "priority": 5					
+                        "broadcast": "team",
+                        "priority": 5
                     }
                 },
-				"startup": "team-reveal-with-roles"
-			}	
-		},
-		{
-
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
             "role": "dolphinplus",
             "translation": "Enraged Dolphin",
             "side": "mammal",
             "help": "GRRRR! RAAAGGGEEE! The death of the Blue Whale has angered you and now everyone must pay! You can avenge the death of your fallen comrade with your 1000 vote! You think you saw the Clown Fish trying to dart around earlier, so you might know who they are. Unfortunately, revenge is the only thing on your mind causing you to be very reckless and vulnerable during the day.",
-			"info": "Vote of 1000. Sided with Mammal Alliance.",
-			"actions": {
-				"vote": 1000,
-				"startup": {
-                    "revealRole": ["clown3"],
-					"team-revealif": ["mammal"]
-				}
-			},
-				"winIfDeadRoles": [
-					"swordfish",
-					"pufferfish",
-					"greatwhite",
-					"hammerhead",
-					"cthulhu2",
-					"chef",
-					"barracuda",
-					"reef",
-					"swordfish2"
-				]
-		},
-		{
+            "info": "Vote of 1000. Sided with Mammal Alliance.",
+            "actions": {
+                "vote": 1000,
+                "startup": {
+                    "revealRole": [
+                        "clown3"
+                    ],
+                    "team-revealif": [
+                        "mammal"
+                    ]
+                }
+            },
+            "winIfDeadRoles": [
+                "swordfish",
+                "pufferfish",
+                "greatwhite",
+                "hammerhead",
+                "cthulhu2",
+                "chef",
+                "barracuda",
+                "reef",
+                "swordfish2"
+            ]
+        },
+        {
             "role": "otter",
             "translation": "Sea Otter",
             "side": "mammal",
             "help": "D'awwwwww... You are so cute and fuzzy! You are able to /kill another ocean inhabitant at night. Since everyone is too busy looking at your cuteness, they don't realize what you are doing and are able to /stalk them without them noticing. You also ignore distractors because they spend their time trying to snuggle with you.",
             "info": "Can kill one person during the night. Can stalk one person during the night. Ignores distractors. Sided with Mammal Alliance.",
-			"actions": {
-				"night": {
+            "actions": {
+                "night": {
                     "kill": {
                         "target": "AnyButTeam",
                         "common": "Team",
-						"broadcast": "team",
-                        "priority": 5			
+                        "broadcast": "team",
+                        "priority": 5
                     },
-					"stalk": {
+                    "stalk": {
                         "target": "AnyButTeam",
                         "common": "Role",
-						"broadcast": "team",
-                        "priority": 10			
+                        "broadcast": "team",
+                        "priority": 10
                     }
                 },
-				"distract": {
-					"mode": "ignore"
-				},
-				"startup": "team-reveal-with-roles"
-			}
+                "distract": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles"
+            }
         },
-		{	
+        {
             "role": "chef",
             "translation": "Sushi Chef",
-                "side": "sushi",
+            "side": "sushi",
             "help": "Every night you can convert one Fish, Great White Shark, or Orca into Sashimi using /slice, but only these roles are able to be converted as strict food laws! A veteran in the field, you know the identity of all the Fish and your /slice will actually protect your target from being eaten in the same night. Your experience also makes you immune to distractions and all votes against you count for nothing. Try not to make Cthulhu Sushi though as you will probably have a VERY bad day.",
             "info": "Can convert one person every night. Ignores distractors. Voteshield of -9999. Sided with Sushi Mafia.",
-			"actions": {
-				"night": {
-					"slice": {
-						"command": ["convert", "protect"],
-						"target": "Any",
-						"common": "Self",
-						"priority": 1,
-						"newRole": {
-							"sashimi": ["fishy", "greatwhite", "orca"] 
-						},
-						"convertmsg": "Try out our new dish at City Sushi! It is made from ~Old~ and is only $7.99 + tip!",
-						"hide": true
-					}	
-				},
-				"startup": {
-                    "revealRole": ["fishy"],
-					"team-revealif": ["sushi"]
+            "actions": {
+                "night": {
+                    "slice": {
+                        "command": [
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": {
+                            "sashimi": [
+                                "fishy",
+                                "greatwhite",
+                                "orca"
+                            ]
+                        },
+                        "convertmsg": "Try out our new dish at City Sushi! It is made from ~Old~ and is only $7.99 + tip!",
+                        "hide": true
+                    }
                 },
-				"distract": {
-					"mode": "ignore"
-				},
-				"onDeath": {
-					"convertRoles": {"sashimi":"sushi"},
-					"convertmsg": "Even in the face of death, the Sushi Chef made sure to finish their work by using the ~Old~ in order to make ~New~!"
-				},
-				"voteshield": -9999
+                "startup": {
+                    "revealRole": [
+                        "fishy"
+                    ],
+                    "team-revealif": [
+                        "sushi"
+                    ]
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "sashimi": "sushi"
+                    },
+                    "convertmsg": "Even in the face of death, the Sushi Chef made sure to finish their work by using the ~Old~ in order to make ~New~!"
+                },
+                "voteshield": -9999
             },
-			"winIfDeadRoles": [
-					"swordfish",
-					"swordfish2",
-					"anemone2",
-					"pufferfish",
-					"greatwhite",
-					"hammerhead",
-					"dolphin",
-					"dolphinplus",
-					"cthulhu",
-					"barracuda",
-					"otter",
-					"orca"
-			]
-        },		
-		{
-			"role": "sashimi",
+            "winIfDeadRoles": [
+                "swordfish",
+                "swordfish2",
+                "anemone2",
+                "pufferfish",
+                "greatwhite",
+                "hammerhead",
+                "dolphin",
+                "dolphinplus",
+                "cthulhu",
+                "barracuda",
+                "otter",
+                "orca"
+            ]
+        },
+        {
+            "role": "sashimi",
             "translation": "Sashimi",
             "side": "sushi",
             "help": "Oh no! The Sushi Chef caught you and sliced you up to serve in their restaurant! To make matters worse, you have no vote because you're sliced Fish!",
             "info": "Vote of 0. Sided with Sushi Mafia.",
-			"actions": {
-				"startup": "team-reveal-with-roles",
-				"vote": 0
-			}
-        },			
-		{
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "vote": 0
+            }
+        },
+        {
             "role": "sushi",
             "translation": "Sushi",
             "side": "sushi2",
-			"hide": true,
+            "hide": true,
             "help": "Oh no! The Sushi Chef has died, but their last act was to make Sushi out of you! You now have vote of 3 to use because you are so tasty.",
             "info": "Vote of 3. Sided with Sushi Mafia.",
-			"actions": {
-				"vote": 3,
-				"startup": {
-                    "revealRole": ["sushi"]
-				}
-			}
+            "actions": {
+                "vote": 3,
+                "startup": {
+                    "revealRole": [
+                        "sushi"
+                    ]
+                }
+            }
         },
-		{
-			"role": "anemone21",
-			"translation": "Sea Anemone",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-			"info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 2 extra votes if voted for. Sided with Fish.",
-			"actions": {
-			}
-		},
-		{
-			"role": "sushi21",
-			"translation": "Sushi",
-			"side": "sushi",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-			"info": "Vote of 3. Sided with Sushi Mafia.",
-			"actions": {
-			}
-		},
-		{
-     		"role": "clown31",
-      		"translation": "Clown Fish",
-      		"side": "dummy",
-      		"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-    		"info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
-      		"actions": {
-      		}
-  		},
-		{
-			"role": "cthulhu21",
-      		"translation": "Cthulhu",
-      		"side": "dummy",
-      		"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-    		"info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
-      		"actions": {
-      		}
-  		},
-		{
-			"role": "swordfish21",
-      		"translation": "Swordfish",
-      		"side": "dummy",
-      		"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-			"info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -2. Sided with Fish."
-		}
+        {
+            "role": "anemone21",
+            "translation": "Sea Anemone",
+            "side": "dummy",
+            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 2 extra votes if voted for. Sided with Fish.",
+            "actions": {
+                
+            }
+        },
+        {
+            "role": "sushi21",
+            "translation": "Sushi",
+            "side": "sushi",
+            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
+            "info": "Vote of 3. Sided with Sushi Mafia.",
+            "actions": {
+                
+            }
+        },
+        {
+            "role": "clown31",
+            "translation": "Clown Fish",
+            "side": "dummy",
+            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
+            "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
+            "actions": {
+                
+            }
+        },
+        {
+            "role": "cthulhu21",
+            "translation": "Cthulhu",
+            "side": "dummy",
+            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
+            "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
+            "actions": {
+                
+            }
+        },
+        {
+            "role": "swordfish21",
+            "translation": "Swordfish",
+            "side": "dummy",
+            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
+            "info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -2. Sided with Fish."
+        }
     ],
+    
     "roles1": [
 		"fishy",
 		"mermaid",
