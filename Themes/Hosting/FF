@@ -375,7 +375,8 @@
                 },
                 "poison": {
                     "mode": "ignore"
-                }
+                },
+                "voteshield": -3
             }
         },
         {
