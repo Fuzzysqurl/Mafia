@@ -489,7 +489,7 @@
             "role": "yunalesca",
             "translation": "Yunalesca",
             "side": "sin",
-            "info": "Can distract one person during the night. Can kill during the night (shared with team). Cannot be detected by spies. Sided with Sin.",
+            "info": "Can distract one person during the night. Can kill during the night (shared with team). Cannot be detected by spies. Vote counts as 2. Sided with Sin.",
             "help": "Stop those who threaten to ruin Sin's plans. Type /distract [name] during the night. Ancient magics allow you to /kill one player during the night and grant you a vote of 2.",
             "actions": {
                 "night": {
