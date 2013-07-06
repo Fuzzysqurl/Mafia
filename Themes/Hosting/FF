@@ -806,7 +806,6 @@
         "lightning",
         "cloud",
         "paladin",
-        "dkc",
         "chocobo"
     ],
     "killmsg": "±Game: ~Player~ (~Role~) has fallen!",
