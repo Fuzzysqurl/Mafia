@@ -696,7 +696,6 @@
             },
             "winIfDeadRoles": [
                 "swordfish",
-                "pufferfish",
                 "greatwhite",
                 "hammerhead",
                 "cthulhu2",
@@ -743,7 +742,6 @@
             },
             "winIfDeadRoles": [
                 "swordfish",
-                "pufferfish",
                 "greatwhite",
                 "hammerhead",
                 "cthulhu2",
