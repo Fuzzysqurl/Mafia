@@ -114,7 +114,7 @@
             "translation": "Kefka",
             "side": "posse",
             "info": "Can kill one person during the night. Cannot be detected by spies. Kills any distractors. Sided with Kefka's Posse.",
-            "help": "With insane agility, you outspeed even bodyguards. Strike hard with /kill [name]! Uwee hee hee! If Kuja is playing, team up with him to win!",
+            "help": "With insane agility, you outspeed even bodyguards and spies can not see you! Strike hard with /kill [name]! Uwee hee hee! If Kuja is playing, team up with him to win! You cannot kill Kuja due to your alliance. A message will tell you if you have targeted your teammate, use this to your advantage!",
             "actions": {
                 "night": {
                     "kill": {
