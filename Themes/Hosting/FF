@@ -114,7 +114,7 @@
             "translation": "Kefka",
             "side": "posse",
             "info": "Can kill one person during the night. Cannot be detected by spies. Kills any distractors. Sided with Kefka's Posse.",
-            "help": "With insane agility, you outspeed even bodyguards, and spies can not see you! Strike hard with /kill [name]! Uwee hee hee! If Kuja is playing, team up with him to win! You cannot kill Kuja due to your alliance. A message will tell you if you have targeted your teammate, use this to your advantage!",
+            "help": "You are Kefka. A short-tempered, maniacal, and highly destructive being with sociopathic tendencies. You love to go out and kill, outspeeding all bodyguards and evading the watchful eyes of spies. If anyone dare get in the way of your /kill, they will meet their demise instead. You have made an alliance with Kuja, so you can not kill him if you try to target him. Dance mad and kill everyone in your path!",
             "actions": {
                 "night": {
                     "kill": {
