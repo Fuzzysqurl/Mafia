@@ -114,7 +114,7 @@
             "actions": {
                 "standbyHax": {
                     "kill": {
-                        "revealRole": 0.33
+                        "revealRole": 0.3
                     }
                 }
             }
@@ -236,8 +236,8 @@
             "role": "anemone",
             "translation": "Sea Anemone",
             "side": "village",
-            "help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional vote gets added to the total.",
-            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 1 extra vote if voted for. Sided with Fish.",
+            "help": "You can't do much except for sway in the ocean currents, causing your vote to count as 0. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional vote gets added to the total.",
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Vote of 0. Receives 1 extra vote if voted for. Sided with Fish.",
             "actions": {
                 "protect": {
                     "mode": "die",
@@ -257,7 +257,8 @@
                     "mode": "ignore",
                     "msg": "±Game: Your target (~Self~) was guarded!"
                 },
-                "voteshield": 1
+                "voteshield": 1,
+                "vote": 0
             }
         },
         {
@@ -265,8 +266,8 @@
             "translation": "Sea Anemone",
             "side": "village",
             "hide": true,
-            "help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional 2 votes get added to the total.",
-            "info": "Clown Fish cannot be killed while alive. Dies if protected. Receives 2 extra votes if voted for. Sided with Fish.",
+            "help": "You can't do much except for sway in the ocean currents, causing your vote to count as 0. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional 2 votes get added to the total.",
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Vote of 0. Receives 2 extra votes if voted for. Sided with Fish.",
             "actions": {
                 "protect": {
                     "mode": "die",
@@ -286,7 +287,8 @@
                     "mode": "ignore",
                     "msg": "±Game: Your target (~Self~) was guarded!"
                 },
-                "voteshield": 2
+                "voteshield": 2,
+                "vote": 0
             }
         },
         {
@@ -360,27 +362,22 @@
             "role": "pufferfish",
             "translation": "Puffer Fish",
             "side": "village",
-            "help": "During the voting stage you can puff up and use your vote of 2 to remove the bad guys. Your poison spikes make you immune to others trying to poison you and if someone tries to kill you at night, the poison spikes will quickly kill them too! If they try during the day, you puff up so much that you explode and take them down with you!",
-            "info": "Vote of 2. Kills attacker when killed. Immune to poison. Revenges daykills. Sided with Fish.",
+            "help": "At the first sign of danger, you puff up as a defense mechanism in attempt to make your attacker think twice about having you for lunch. If someone does kill you at night or during the day however, you puff up so much that you explode and take them down with you!",
+            "info": "Kills attacker when killed. Revenges daykills. Sided with Fish.",
             "actions": {
                 "kill": {
                     "mode": "killattacker",
-                    "msg": "You died from the Puffer Fish's poison. That'll teach you to not to blindly nightkill!"
+                    "msg": "The Puffer Fish exploded, causing sharp spikes to pierce your body, killing you instantly."
                 },
                 "daykill": "bomb",
-                "daykillrevengemsg": "~Target~ tried to kill ~Self~, but made the mistake on picking on the Puffer Fish! ~Self~ puffed up and exploded, taking ~Target~ down with them!",
-                "poison": {
-                    "mode": "ignore",
-                    "msg": "±Game: Your target (~Self~) was guarded!"
-                },
-                "vote": 2
+                "daykillrevengemsg": "~Target~ tried to kill ~Self~, but made the mistake on picking on the Puffer Fish! ~Self~ puffed up and exploded, taking ~Target~ down with them!"
             }
         },
         {
             "role": "swordfish",
             "translation": "Sword Fish",
             "side": "village",
-            "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your experience in the art of swordplay allows you to /parry yourself to convert to a defensive stance that blocks daykills and grants a voteshield, however, your daykill can't be used two days in a row in this mode.",
+            "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your experience in the art of swordplay allows you to /parry yourself to convert to a defensive stance that blocks daykills and grants a voteshield of -2, however, your daykill can't be used two days in a row in this mode.",
             "info": "Can kill one person during standby. Can convert self during the night. Ignores distractors. Sided with Fish.",
             "actions": {
                 "standby": {
@@ -414,6 +411,7 @@
             "role": "swordfish2",
             "translation": "Sword Fish",
             "side": "village",
+            "hide": true,
             "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your defensive stance has limited your movement and prevents you from killing two consecutive days. In return however, you have an immunity to daykills and a voteshield of -2. You can use /fleche to convert yourself back to your offensive stance.",
             "info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -2. Sided with Fish.",
             "actions": {
@@ -613,53 +611,38 @@
             }
         },
         {
-            "role": "tiger",
-            "translation": "Tiger Shark",
-            "side": "shark",
-            "hide": true,
-            "help": "You have two animals in your name, that's enough to confuse anyone!. Type /distract [name] during the night to distract someone! In addition, your vote counts for 3!",
-            "info": "Can distract one person during the night. Vote of 3. Sided with Shark Mafia.",
-            "actions": {
-                "night": {
-                    "distract": {
-                        "priority": 1,
-                        "target": "AnyButTeam",
-                        "common": "Self",
-                        "broadcast": "team",
-                        "distractmsg": "The Tiger Shark came to you last night! That name really confuses you. Is it like Catdog? Half-tiger and half-shark? You'll never know. Oh crap, you forgot do anything last night!",
-                        "teammsg": "The Tiger shark came to your partner last night! That name really confuses you. Is it like Catdog? Half-tiger and half-shark? You'll never know. Oh crap, you forgot do anything last night!"
-                    }
-                },
-                "startup": "team-reveal-with-roles",
-                "vote": 3
-            }
-        },
-        {
             "role": "hammerhead",
             "translation": "Hammerhead Shark",
             "side": "shark",
-            "help": "Nobody could think that you're dangerous- just look at you! What's with those eyes freak? Bump into things much? You can /hammer someone during the day to kill them and you're even fast enough to swim away before anyone knows you were there!",
-            "info": "Can kill one person during the standby (non-revealing). Sided with Shark Mafia.",
+            "help": "Nobody could think that you're dangerous- just look at you! What's with those eyes freak? Bump into things much? You can /hammer someone during the day to kill them and you're even fast enough to swim away before anyone knows you were there! You have a vote of 2 and can even /kill at night if your shark buddies can't make up their minds!",
+            "info": "Can kill one person during the standby (non-revealing). Can kill one person during the night. Sided with Shark Mafia.",
             "actions": {
                 "standby": {
                     "hammer": {
                         "command": "kill",
                         "target": "AnyButTeam",
                         "msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
-                        "killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammerhead Shark headbutted ~Target~, killing them instantly!",
-                        "revealChance": 0.00,
-                        "revealmsg": "But wait! Who was that? ~Self~ was revealed to be ~Role~!"
+                        "killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammerhead Shark headbutted ~Target~, killing them instantly!"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 6,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 2
             }
         },
         {
             "role": "bluewhale",
             "translation": "Blue Whale",
             "side": "mammal",
-            "help": "Use your enormous girth to /protect one person every night. Furthermore, your vote counts for 2 and if anybody tries to distract you, your blowhole blasts them out of the ocean!",
-            "info": "Can protect one person during the night. Vote of 2. Kills all distractors. Sided with Mammal Alliance.",
+            "help": "Use your enormous girth to /protect one person every night. Furthermore, your vote counts for 3 and if anybody tries to distract you, your blowhole blasts them out of the ocean!",
+            "info": "Can protect one person during the night. Vote of 3. Kills all distractors. Sided with Mammal Alliance.",
             "actions": {
                 "night": {
                     "protect": {
@@ -680,7 +663,7 @@
                     },
                     "convertmsg": "±Neptune: Oh boy, you've really done it now guys. Killing the Blue Whale greatly angered the ~Old~. It has become the ~New~ and now gets vote of 1000!"
                 },
-                "vote": 2,
+                "vote": 3,
                 "startup": "team-reveal-with-roles"
             }
         },
@@ -689,7 +672,7 @@
             "translation": "Dolphin",
             "side": "mammal",
             "help": "You are a pretty intelligent beast and will be able to dodge incoming daykills. This is about all you can do, at least until the Blue Whale dies...",
-            "info": "Evades daykills. Sided with Mammal Alliance.",
+            "info": "Evades daykills. Vote of 2. Sided with Mammal Alliance.",
             "actions": {
                 "daykill": "evade",
                 "startup": "team-reveal-with-roles"
@@ -742,6 +725,7 @@
             },
             "winIfDeadRoles": [
                 "swordfish",
+                "pufferfish",
                 "greatwhite",
                 "hammerhead",
                 "cthulhu2",
@@ -871,10 +855,8 @@
             "translation": "Sea Anemone",
             "side": "dummy",
             "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 2 extra votes if voted for. Sided with Fish.",
-            "actions": {
-                
-            }
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Vote of 0. Receives 2 extra votes if voted for. Sided with Fish.",
+            "actions": {}
         },
         {
             "role": "sushi21",
@@ -882,9 +864,7 @@
             "side": "sushi",
             "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
             "info": "Vote of 3. Sided with Sushi Mafia.",
-            "actions": {
-                
-            }
+            "actions": {}
         },
         {
             "role": "clown31",
@@ -892,9 +872,7 @@
             "side": "dummy",
             "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
             "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
-            "actions": {
-                
-            }
+            "actions": {}
         },
         {
             "role": "cthulhu21",
@@ -902,9 +880,7 @@
             "side": "dummy",
             "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
             "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
-            "actions": {
-                
-            }
+            "actions": {}
         },
         {
             "role": "swordfish21",
@@ -914,15 +890,14 @@
             "info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -2. Sided with Fish."
         }
     ],
-    
     "roles1": [
-		"fishy",
+		"clown1",
 		"mermaid",
 		"turtle",
 		"greatwhite",
 		"otter",
 		"fishy",
-		"clown1",
+		"fishy",
 		"greatwhite"
 	],
 	"roles2": [		
@@ -986,21 +961,21 @@
     "villageCantLoseRoles": [
         "barracuda",
         "swordfish",
-		"swordfish2",
-		"pufferfish",
-		"remora",
-		"clown2"
-        ],
-	"killmsg": "±Neptune: ~Player~ (~Role~) drowned!",
-	"killusermsg": "You drowned!",
-	"drawmsg": "Everybody drowned! This is why we can't have nice things.",
-	"minplayers": 6,
-	"changelog": {
-		"4.9.2013": "Minor typos and grammatical errors fixed. Removed Barracuda's daykill evasion. Replaced Flying Fish with an ordinary Fish. Slightly reduced hax rate for Devil Ray. Remora voteshield changed from -3 to -2. Corrected Cthulhu's help to properly tell the player what the role can do. Shortened Sushi Chef's help message. Swapped Sea Otter and Reef Shark's abilities (Otter now has stalk, Shark now has inspect). Fixed broadcast error on Reef Shark.",
-		"4.18.2013": "Swordfish given a convert to a more defensive stance. Messages updated to be gender neutral. Hammerhead no longer reveals or gets haxed. Gurry shark given +3 votes. Tiger shark removed from spawnlist. Fish standby hax changed to 33%.",
-		"4.26.2013": "Updating some help messages to add a little more flavor and correct some outdated references. Recycling of old summary created by FPT as a tribute. Support for 99 players now.",
-		"5.22.2013": "Long time no update. Puffer is now immune to poison as is Anemone. Some typo/grammar updates. Devil Fish now has a 20% chance to have +3 votes.",
-		"5.26.2013": "Major error fixed with Swordfish that forced it to wait longer than it needed to for a daykill after transforming and fixed a minor error that would prevent Swordfish from converting properly.",
-		"??.??.????": "Slight Mammal buff planned in the future. Small game changes again."
-	}
+        "swordfish2",
+        "remora",
+        "clown2"
+    ],
+    "killmsg": "±Neptune: ~Player~ (~Role~) drowned!",
+    "killusermsg": "You drowned!",
+    "drawmsg": "Everybody drowned! This is why we can't have nice things.",
+    "minplayers": 5,
+    "changelog": {
+        "4.9.2013": "Minor typos and grammatical errors fixed. Removed Barracuda's daykill evasion. Replaced Flying Fish with an ordinary Fish. Slightly reduced hax rate for Devil Ray. Remora voteshield changed from -3 to -2. Corrected Cthulhu's help to properly tell the player what the role can do. Shortened Sushi Chef's help message. Swapped Sea Otter and Reef Shark's abilities (Otter now has stalk, Shark now has inspect). Fixed broadcast error on Reef Shark.",
+        "4.18.2013": "Swordfish given a convert to a more defensive stance. Messages updated to be gender neutral. Hammerhead no longer reveals or gets haxed. Gurry shark given +3 votes. Tiger shark removed from spawnlist. Fish standby hax changed to 33%.",
+        "4.26.2013": "Updating some help messages to add a little more flavor and correct some outdated references. Recycling of old summary created by FPT as a tribute. Support for 99 players now.",
+        "5.22.2013": "Long time no update. Puffer is now immune to poison as is Anemone. Some typo/grammar updates. Devil Fish now has a 20% chance to have +3 votes.",
+        "5.26.2013": "Major error fixed with Swordfish that forced it to wait longer than it needed to for a daykill after transforming and fixed a minor error that would prevent Swordfish from converting properly.",
+        "7.14.2013": "Blue Whale vote changed from 2 to 3. Hammerhead Shark changed from 1 to 2. Anemone vote changed from 1 to 0. Fish Standby hax cahnged from 33% to 30%. Min players dropped to 5. Pufferfish nerfed quite a bit (Vote changed from 2 to 1 and immunity to poison removed). Grammar fixes across the theme.",
+        "??.??.????": "???"
+    }
 }
