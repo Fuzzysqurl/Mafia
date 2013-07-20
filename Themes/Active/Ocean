@@ -57,6 +57,7 @@
                     }
                 },
                 "daykill": "evade",
+                "daykillevademsg": "The water around that player doesn't look safe, maybe you should go after someone else.",
                 "daykillrevengemsg": "Foolish little fish. Cthulhu doesn't take kindly to your actions and threw you at the moon! If it wasn't obvious, you can't really live in space.",
                 "kill": {
                     "mode": "ignore",
@@ -168,6 +169,7 @@
                     "msg": "±Game: Your target (~Self~) was protected!"
                 },
                 "daykill": "evade",
+                "daykillevademsg": "The water around that player doesn't look safe, maybe you should go after someone else.",
                 "onDeath": {
                     "convertRoles": {
                         "anemone": "toxic",
@@ -388,6 +390,7 @@
                         "initialrecharge": 0
                     }
                 },
+                "daykillmissmsg": "You tried to stab ~Target~ with your snout, but they quickly swam in the other direction, causing you to miss.",
                 "night": {
                     "parry": {
                         "command": "convert",
@@ -423,6 +426,7 @@
                         "recharge": 2
                     }
                 },
+                "daykillmissmsg": "You tried to stab ~Target~ with your snout, but they quickly swam in the other direction, causing you to miss.",
                 "night": {
                     "fleche": {
                         "command": "convert",
@@ -638,7 +642,10 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "vote": 2
+                "vote": 2,
+                "stalk": {
+                    "mode": "noVisit"
+                }
             }
         },
         {
@@ -679,6 +686,7 @@
             "info": "Evades daykills. Vote of 2. Sided with Mammal Alliance.",
             "actions": {
                 "daykill": "evade",
+                "daykillevademsg": "The water around that player doesn't look safe, maybe you should go after someone else.",
                 "startup": "team-reveal-with-roles"
             },
             "winIfDeadRoles": [
@@ -980,6 +988,7 @@
         "5.22.2013": "Long time no update. Puffer is now immune to poison as is Anemone. Some typo/grammar updates. Devil Fish now has a 20% chance to have +3 votes.",
         "5.26.2013": "Major error fixed with Swordfish that forced it to wait longer than it needed to for a daykill after transforming and fixed a minor error that would prevent Swordfish from converting properly.",
         "7.14.2013": "Blue Whale vote changed from 2 to 3. Hammerhead Shark changed from 1 to 2. Anemone vote changed from 1 to 0. Fish Standby hax changed from 33% to 30%. Min players dropped to 5. Pufferfish nerfed quite a bit (Vote changed from 2 to 1 and immunity to poison removed). Grammar fixes across the theme. Swordfish's defense mode now grants voteshield of -3 and daykills get wasted instead of blocked against it.",
+        "7.20.2013": "Added custom evasion messages. Hammerhead now returns noVisit when stalked.",
         "??.??.????": "???"
     }
 }
