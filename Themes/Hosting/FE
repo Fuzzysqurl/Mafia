@@ -691,6 +691,7 @@
             "translation": "Nameless Morph",
             "side": "nergal",
             "help": "Your life force has been stolen and you've been slain! The morph made from your corpse retains your memories, though, and you are still 'alive' (if only in name). Your vote is worthless 75% of the time. You do, however, have a -10 voteshield and inspect as Lord Nergal",
+            "info": "Voteshield of -10. Vote counts as 1 25% of the time. Sided with Dread Isle. Reveals as Nergal.",
             "actions": {
                 "vote": [
                     0,
@@ -923,7 +924,7 @@
             "translation": "Robin",
             "side": "village",
             "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /myrm to use a Second Seal and become one of three roles-- inspector, bodyguard, or vigilante.",
-            "info": "Can become a Mage, Knight, or Myrmidon. Sided with Heroes.",
+            "info": "Can become a Mage (inspector), Knight (bodyguard), or Myrmidon (vigilante). Sided with Heroes.",
             "actions": {
                 "night": {
                     "mage": {
