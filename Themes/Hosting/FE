@@ -684,9 +684,9 @@
             "role": "morph",
             "translation": "Nameless Morph",
             "side": "nergal",
-            "help": "Your life force has been stolen and you've been slain! The morph made from your corpse retains your memories, though, and you are still 'alive' (if only in name). Your vote is worthless. You do, however, have a -10 voteshield and inspect as Lord Nergal",
+            "help": "Your life force has been stolen and you've been slain! The morph made from your corpse retains your memories, though, and you are still 'alive' (if only in name). Your vote is worthless 75% of the time. You do, however, have a -10 voteshield and inspect as Lord Nergal",
             "actions": {
-                "vote": 0,
+                "vote": [0, 0, 0, 0, 1],
                 "voteshield": -10,
                 "inspect": {
                     "revealAs": "nergal"
@@ -1076,6 +1076,6 @@
         "6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager.",
         "6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second",
-        "7.22.2013": "Added Robin role and cleaned up larger games' spawnlist!"
+        "7.22.2013": "Added Robin role and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1."
     }
 }
