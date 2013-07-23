@@ -978,6 +978,7 @@
             "role": "mage",
             "translation": "Robin (Mage)",
             "side": "village",
+            "hide": "true",
             "help": "Due to your high intelligence, you can use /inspect to view someone's role.",
             "actions": {
                 "night": {
@@ -993,6 +994,7 @@
             "role": "myrm",
             "translation": "Robin (Myrmidon)",
             "side": "village",
+            "hide": "true",
             "help": "Due to your high speed and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent.",
             "actions": {
                 "night": {
@@ -1008,6 +1010,7 @@
             "role": "knight",
             "translation": "Robin (Knight)",
             "side": "village",
+            "hide": "true",
             "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed!",
             "actions": {
                 "night": {
