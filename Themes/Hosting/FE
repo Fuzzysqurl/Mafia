@@ -1072,7 +1072,7 @@
             "translation": "Aversa",
             "side": "grimleal",
             "help": "Brought up by Validar, who acted as a father to you, you serve as his main helper in his fight against Robin and the other heroes. You share a kill with him during the night, but you cannot be haxed. You have a voteshield of one because of your smaller following of Grimleal cultists. You can also /stalk and /inspect ONCE per game to figure out what someone is up to. Make sure to report your findings to your teammates! You cannot be converted due to your extremely high skill in resisting Dark magic.",
-            "info": "Shares a nightkill with Validar. Cannot be haxed. Voteshield of -1. Can stalk and inspect ONCE per game.",
+            "info": "Shares a nightkill with Validar. Cannot be haxed. Voteshield of -1. Can stalk and inspect ONCE per game. Sided with Grimleal.",
             "actions": {
                 "voteshield": -1,
                 "startup": "team-reveal-with-roles",
