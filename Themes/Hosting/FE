@@ -1056,7 +1056,9 @@
         "villager",
         "villager",
         "robin",
-        "villager"
+        "villager",
+        "villager",
+        "villager2"
     ],
     "villageCantLoseRoles": [
         "ike",
