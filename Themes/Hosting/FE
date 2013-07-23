@@ -12,6 +12,11 @@
             "winmsg": "Ta ha ha! The Corrupt Senators, ~Players~, have won!"
         },
         {
+            "side": "grimleal",
+            "translation": "Grimleal",
+            "winmsg": "'AHAHAHA!' The Fell Dragon Grima has been awoken, and the destruction of the world has begun, thanks to ~Players~!"
+        },
+        {
             "side": "nergal",
             "translation": "Dread Isle",
             "winmsg": "'Humans... they are so very fragile'... the Dread Isle forces, ~Players~, have won!"
@@ -29,7 +34,7 @@
         {
             "side": "lyon",
             "translation": "Grado Empire",
-            "winmsg": "The sheer power of the Demon King allows ~Players~ to destroy all opposition! A thousand year reign of evil has begun!"
+            "winmsg": "The sheer power of the Demon King allows ~Players~ to destroy all opposition! A thousand-year reign of evil has begun!"
         },
         {
             "side": "madking",
@@ -85,10 +90,11 @@
                 "lyon",
                 "senate",
                 "blackknight",
-                "madking"
+                "madking",
+                "grimleal"
             ],
             "help": "You've just about had it with these naive heroes! You don't care who wins anymore - so long as it isn't them! Your win condition is satisfied if the heroes lose. In addition, you appear to be a normal soldier in the roles listing. If you get lynched, you will be saved from death and turn into a Berserk Soldier!",
-            "info": "Evades nightkills from Mad King Ashnard. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight or Mad King Ashnard. Death causes Ashnard's transformation.",
+            "info": "Evades nightkills from Mad King Ashnard. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight,Grimleal, or Mad King Ashnard. Death causes Ashnard's transformation.",
             "actions": {
                 "kill": {
                     "mode": {
@@ -686,7 +692,13 @@
             "side": "nergal",
             "help": "Your life force has been stolen and you've been slain! The morph made from your corpse retains your memories, though, and you are still 'alive' (if only in name). Your vote is worthless 75% of the time. You do, however, have a -10 voteshield and inspect as Lord Nergal",
             "actions": {
-                "vote": [0, 0, 0, 0, 1],
+                "vote": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                ],
                 "voteshield": -10,
                 "inspect": {
                     "revealAs": "nergal"
@@ -831,7 +843,7 @@
             "role": "ashnard2",
             "translation": "Empowered Ashnard",
             "side": "madking",
-            "help": "'GGGRRAAAAAGGGGHHHH!!! GGRRAAAHH HAAA HAAA HAAA!!!...It...feels...so...GOOOOOOD...' The power of the medallion has driven you completely insane but...you've never felt so alive! Your nightkill priority has been increased, your vote totals have increased to 5 and you now have a powerful daykill with /kill!  Nobody stands a chance!",
+            "help": "'GGGRRAAAAAGGGGHHHH!!! GGRRAAAHH HAAA HAAA HAAA!!!...It...feels...so...GOOOOOOD...' The power of the medallion has driven you completely insane, but...you've never felt so alive! Your nightkill priority has been increased, your vote totals have increased to 5 and you now have a powerful daykill with /kill!  Nobody stands a chance!",
             "info": "Ashnard's strongest form. Appears when a Disgruntled Soldier is killed in combat. 1 high-priority nightkill, 1 daykill, +5 vote.",
             "actions": {
                 "night": {
@@ -911,6 +923,7 @@
             "translation": "Robin",
             "side": "village",
             "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /myrm to use a Second Seal and become one of three roles-- inspector, bodyguard, or vigilante.",
+            "info": "Can become a Mage, Knight, or Myrmidon. Sided with Heroes.",
             "actions": {
                 "night": {
                     "mage": {
@@ -1005,6 +1018,89 @@
                     }
                 }
             }
+        },
+        {
+            "role": "madking",
+            "translation": "Gangrel",
+            "side": "grimleal",
+            "help": "'Men are beasts! Nothing more! We fight! We kill! We devour our prey!' As the Mad King Gangrel, you have one specific goal: destroy anyone opposing you! Work with your Grimleal 'peers' to take over the continent and reawaken the Fell Dragon! Help your team with a /kill during the day! You might reveal yourself, being as glorious and flashy as you are. You already consider yourself a dead man, so you can't be converted by Nergal.",
+            "info": "Has a daykill that may reveal him. Sided with Grimleal.",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can now /kill someone! You have a 25% chance of revealing yourself.",
+                        "killmsg": "'Clinging to each other won't save you maggots when the boot falls!' Gangrel raises his Levin Sword and a large thunderbolt strikes ~Target~, frying them instantly.",
+                        "revealChance": 0.25,
+                        "revealmsg": "~Self~ laughs as he polishes his crown."
+                    }
+                }
+            }
+        },
+        {
+            "role": "validar",
+            "translation": "Validar",
+            "side": "grimleal",
+            "help": "Gya ha ha! As the Plegian King Validar and leader of the Grimleal, you only believe in destiny and what cannot be undone-- the reawakening of the Fell Dragon Grima cannot be hindered! Foolish heroes stand in your way, trying to rewrite history! This cannot happen! You can work your way to revealing Grima's Truth to everyone with a /kill (shared with Aversa) during the night. You cannot be distracted, but you can be haxed. Due to the fact that you're a king and have a large cult following you, you also have a massive 5 votes!",
+            "info": "Shares a kill with Aversa. Cannot be distracted. Vote counts as 5. Sided with Grimleal.",
+            "actions": {
+                "vote": 5,
+                "startup": "team-reveal-with-roles",
+                "distract": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 13,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "aversa",
+            "translation": "Aversa",
+            "side": "grimleal",
+            "help": "Brought up by Validar, who acted as a father to you, you serve as his main helper in his fight against Robin and the other heroes. You share a kill with him during the night, but you cannot be haxed. You have a voteshield of one because of your smaller following of Grimleal cultists. You can also /stalk and /inspect ONCE per game to figure out what someone is up to. Make sure to report your findings to your teammates! You cannot be converted due to your extremely high skill in resisting Dark magic.",
+            "info": "Shares a nightkill with Validar. Cannot be haxed. Voteshield of -1. Can stalk and inspect ONCE per game.",
+            "actions": {
+                "voteshield": -1,
+                "startup": "team-reveal-with-roles",
+                "avoidHax": [
+                    "kill"
+                ],
+                "convert": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 54,
+                        "broadcast": "team",
+                        "charges": 1
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 41,
+                        "broadcast": "team",
+                        "charges": 1
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 13,
+                        "broadcast": "team"
+                    }
+                }
+            }
         }
     ],
     "roles1": [
@@ -1051,13 +1147,16 @@
         "villager2",
         "truemiller",
         "villager",
-        "villager",
         "villager2",
-        "villager",
-        "villager",
         "robin",
         "villager",
+        "madking",
+        "validar",
+        "villager2",
+        "aversa",
         "villager",
+        "villager",
+        "truemiller",
         "villager2"
     ],
     "villageCantLoseRoles": [
@@ -1078,6 +1177,6 @@
         "6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager.",
         "6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second",
-        "7.22.2013": "Added Robin role and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1."
+        "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1."
     }
 }
