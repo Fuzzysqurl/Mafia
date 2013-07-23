@@ -1,6 +1,9 @@
 {
     "name": "FE",
-    "author":["Narshen"],
+    "author": [
+        "Narshen",
+        "Sky Sentinel"
+    ],
     "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE The continent is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the world!",
     "sides": [
         {
@@ -85,13 +88,15 @@
                 "madking"
             ],
             "help": "You've just about had it with these naive heroes! You don't care who wins anymore - so long as it isn't them! Your win condition is satisfied if the heroes lose. In addition, you appear to be a normal soldier in the roles listing. If you get lynched, you will be saved from death and turn into a Berserk Soldier!",
-			"info": "Evades nightkills from Mad King Ashnard. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight or Mad King Ashnard. Death causes Ashnard's transformation.",
+            "info": "Evades nightkills from Mad King Ashnard. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight or Mad King Ashnard. Death causes Ashnard's transformation.",
             "actions": {
                 "kill": {
-					"mode": {
-						"ignore": ["ashnard"]
-					}
-				},
+                    "mode": {
+                        "ignore": [
+                            "ashnard"
+                        ]
+                    }
+                },
                 "onlist": "villager",
                 "lynch": {
                     "convertTo": "villager3",
@@ -210,7 +215,7 @@
                 }
             }
         },
-		{
+        {
             "role": "lyndis2",
             "translation": "Lyndis",
             "side": "village",
@@ -225,7 +230,7 @@
                 },
                 "startup": {
                     "revealRole": [
-						"hector2"
+                        "hector2"
                     ]
                 }
             }
@@ -258,14 +263,16 @@
                         "lyndis"
                     ]
                 },
-				"kill": {
-					"mode": {
-						"ignore": ["lyndis"]
-					}
-				}
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "lyndis"
+                        ]
+                    }
+                }
             }
         },
-		{
+        {
             "role": "hector2",
             "translation": "Hector",
             "side": "village",
@@ -284,11 +291,13 @@
                         "lyndis2"
                     ]
                 },
-				"kill": {
-					"mode": {
-						"ignore": ["lyndis"]
-					}
-				}
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "lyndis"
+                        ]
+                    }
+                }
             }
         },
         {
@@ -432,7 +441,7 @@
             "translation": "Masked Hero",
             "side": "village",
             "help": "A prince from a distant land, cloaked in purple garb. A mask shields your face...an enigmatic figure. You're watching the outcome of this fight with utmost patience - you have no commands until the third night. On the third night, you will be able to /unmask [your name] to reveal your true identity! Due to your disguise, you'll appear to be very similar to a certain masked villain...the Black Knight. You stray away from the battlefield during both the day and night - you can't be killed, poisoned or converted but your vote is worthless.",
-			"info": "Can unmask self during the night. Vote counts as 0. Can't be nightkilled. Can't be daykilled. Can't be poisoned. Reveals as Black Knight when inspected. Sided with Heroes.",
+            "info": "Can unmask self during the night. Vote counts as 0. Can't be nightkilled. Can't be daykilled. Can't be poisoned. Reveals as Black Knight when inspected. Sided with Heroes.",
             "actions": {
                 "night": {
                     "unmask": {
@@ -445,25 +454,29 @@
                         "canConvert": [
                             "mhero"
                         ],
-						"pierce": true,
+                        "pierce": true,
                         "convertmsg": "The Masked Hero removes his disguise...it's Prince Marth! The audience cheers!",
                         "silent": false
                     }
                 },
                 "inspect": {
-                    "revealAs": "blackknight"},
-                    "vote": 0,
-				"convert": {
+                    "revealAs": "blackknight"
+                },
+                "vote": 0,
+                "convert": {
                     "mode": {
-						"ignore": ["nergal"]
-					}
+                        "ignore": [
+                            "nergal"
+                        ]
+                    }
                 },
                 "kill": {
-					"mode": "ignore"},
+                    "mode": "ignore"
+                },
                 "poison": {
                     "mode": "ignore"
                 },
-				"daykill": "evade"
+                "daykill": "evade"
             }
         },
         {
@@ -471,7 +484,7 @@
             "translation": "Marth",
             "side": "village",
             "help": "The Prince of Altea, Marth is here! You're an extremely capable tactician - in addition to your peerless swordsmanship. Now that you've removed your mask, you can finally take the lead! You have the ability to /kill one target per night with ease. Additionally, your assortment of abilities allows you to do anything else you wish but...you can't perform everything at once! You can /protect, /distract, /safeguard (yourself included), /inspect and even /stalk at night but you must choose one carefully! You're also incredibly charismatic - your vote is worth 4.",
-			"info": "Can kill one person during the night. Can either inspect, protect, stalk, safeguard, or distract one target during the night. Vote counts as 4. Sided with Heroes.",
+            "info": "Can kill one person during the night. Can either inspect, protect, stalk, safeguard, or distract one target during the night. Vote counts as 4. Sided with Heroes.",
             "actions": {
                 "night": {
                     "inspect": {
@@ -686,7 +699,7 @@
             "translation": "Nergal",
             "side": "nergal",
             "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every other night you are able to /morph any unit into a Nameless Morph, sided with you. Be careful, as Nameless Morphs do not know who you are! Of course, you are also able to /kill using 'basic' dark magic every round as well. Plunge the world into darkness!",
-"info": "Can morph one person every other night. Can kill one person during the night. Sided with Dread Isle.",
+            "info": "Can morph one person every other night. Can kill one person during the night. Sided with Dread Isle.",
             "actions": {
                 "night": {
                     "morph": {
@@ -729,7 +742,7 @@
                         "priority": 12,
                         "broadcast": "team"
                     },
- 		"stalk": {
+                    "stalk": {
                         "target": "AnyButTeam",
                         "common": "Self",
                         "priority": 53,
@@ -796,7 +809,7 @@
             "translation": "Lyon",
             "side": "lyon",
             "help": "You're the kind prince of Grado, you have no desire for this war but...this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate [your name] to use it! You have no further commands until you activate it.",
-"info": "Can convert self during the night. Sided with Grado Empire.",
+            "info": "Can convert self during the night. Sided with Grado Empire.",
             "actions": {
                 "night": {
                     "activate": {
@@ -819,7 +832,7 @@
             "translation": "Empowered Ashnard",
             "side": "madking",
             "help": "'GGGRRAAAAAGGGGHHHH!!! GGRRAAAHH HAAA HAAA HAAA!!!...It...feels...so...GOOOOOOD...' The power of the medallion has driven you completely insane but...you've never felt so alive! Your nightkill priority has been increased, your vote totals have increased to 5 and you now have a powerful daykill with /kill!  Nobody stands a chance!",
-           "info": "Ashnard's strongest form. Appears when a Disgruntled Soldier is killed in combat. 1 high-priority nightkill, 1 daykill, +5 vote.",
+            "info": "Ashnard's strongest form. Appears when a Disgruntled Soldier is killed in combat. 1 high-priority nightkill, 1 daykill, +5 vote.",
             "actions": {
                 "night": {
                     "kill": {
@@ -892,16 +905,119 @@
                 },
                 "vote": 666
             }
+        },
+        {
+            "role": "robin",
+            "translation": "Robin",
+            "side": "village",
+            "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /myrm to use a Second Seal and become one of three roles-- inspector, bodyguard, or vigilante.",
+            "actions": {
+                "night": {
+                    "mage": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 51,
+                        "restrict": [
+                            "myrm",
+                            "knight"
+                        ],
+                        "newRole": {
+                            "mage": [
+                                "robin"
+                            ]
+                        }
+                    },
+                    "knight": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 51,
+                        "restrict": [
+                            "myrm",
+                            "mage"
+                        ],
+                        "newRole": {
+                            "knight": [
+                                "robin"
+                            ]
+                        }
+                    },
+                    "myrm": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 51,
+                        "restrict": [
+                            "mage",
+                            "knight"
+                        ],
+                        "newRole": {
+                            "myrm": [
+                                "robin"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "role": "mage",
+            "translation": "Robin (Mage)",
+            "side": "village",
+            "help": "Due to your high intelligence, you can use /inspect to view someone's role.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "priority": 35,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "myrm",
+            "translation": "Robin (Myrmidon)",
+            "side": "village",
+            "help": "Due to your high speed and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "priority": 10,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "knight",
+            "translation": "Robin (Knight)",
+            "side": "village",
+            "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed!",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "priority": 7,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
         }
     ],
     "roles1": [
         "hector2",
-        {"roy": 0.1, "soren": 0.1},
+        {
+            "roy": 0.1,
+            "soren": 0.1
+        },
         "fool",
         "mafia",
         "villager",
         "lyndis2",
-		"villager",
+        "villager",
         "mafia",
         "villager",
         "villager2",
@@ -939,29 +1055,27 @@
         "villager2",
         "villager",
         "villager",
-        "villager",
-        "idoun",
-        "villager",
-        "villager",
-        "ephidel",
-        "villager",
+        "robin",
         "villager"
     ],
     "villageCantLoseRoles": [
         "ike",
         "hector",
-		"hector2",
-		"lyndis2",
+        "hector2",
+        "lyndis2",
         "lyndis",
-		"mhero",
-		"marth"
+        "mhero",
+        "marth",
+        "robin",
+        "myrm"
     ],
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
     "killusermsg": "You have fallen in combat!",
-	"changelog": {
-		"6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR... Part 2: Fixed another error with Marth's convert that completely prevented change.",
-		"6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager.",
-		"6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
-		"6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second"
-	}
+    "changelog": {
+        "6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR... Part 2: Fixed another error with Marth's convert that completely prevented change.",
+        "6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager.",
+        "6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
+        "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second",
+        "7.22.2013": "Added Robin role and cleaned up larger games' spawnlist!"
+    }
 }
