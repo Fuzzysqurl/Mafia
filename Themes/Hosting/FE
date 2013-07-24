@@ -426,9 +426,7 @@
                         "ignore": [
                             "ike"
                         ]
-                    },
-                    "targetmsg": "A giant, golden sword is seen high in the sky. You quickly moved out of the way to avoid being hit.",
-                "msg": "~Target~ sidestepped your blow. 'Is there something you wanted to talk about, Ike?'"
+                    }
                 }
             }
         },
