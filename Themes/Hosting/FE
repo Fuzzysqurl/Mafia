@@ -4,7 +4,6 @@
         "Narshen",
         "Sky Sentinel"
     ],
-    "minplayers": 3,
     "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE The continent is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the world!",
     "sides": [
         {
@@ -443,7 +442,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name] :",
-                        "killmsg": "'Prepare yourself.' A giant, golden sword is seen high in the sky. Ike lands on the ground in front of ~Target~ and swings the holy sword, Ragnell, at ~Target~ with great force. This match is over!"
+                        "killmsg": "'Prepare yourself.' A giant, golden sword is seen high in the sky. Ike lands on the ground in front of his opponent and swings the holy sword, Ragnell, at ~Target~ with great force. This match is over!"
                     }
                 },
                 "startup": {
@@ -1082,8 +1081,8 @@
             "role": "aversa",
             "translation": "Aversa",
             "side": "grimleal",
-            "help": "Brought up by Validar, who acted as a father to you, you serve as his main helper in his fight against Robin and the other heroes. You share a kill with him during the night, but you cannot be haxed. You have a voteshield of one because of your smaller following of Grimleal cultists. You can also /stalk and /inspect ONCE per game to figure out what someone is up to. Make sure to report your findings to your teammates! You cannot be converted due to your extremely high skill in resisting Dark magic.",
-            "info": "Shares a nightkill with Validar. Cannot be haxed. Voteshield of -1. Can stalk and inspect ONCE per game. Sided with Grimleal.",
+            "help": "Brought up by Validar, who acted as a father to you, you serve as his main helper in his fight against Robin and the other heroes. You share a kill with him during the night, but you cannot be haxed. You have a voteshield of one because of your smaller following of Grimleal cultists. You can also /inspect ONCE per game to figure out what someone is up to. Make sure to report your findings to your teammates! You cannot be converted due to your extremely high skill in resisting Dark magic.",
+            "info": "Shares a nightkill with Validar. Cannot be haxed. Voteshield of -1. Can inspect ONCE per game. Sided with Grimleal.",
             "actions": {
                 "voteshield": -1,
                 "startup": "team-reveal-with-roles",
@@ -1094,13 +1093,6 @@
                     "mode": "ignore"
                 },
                 "night": {
-                    "stalk": {
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 54,
-                        "broadcast": "team",
-                        "charges": 1
-                    },
                     "inspect": {
                         "target": "AnyButTeam",
                         "common": "Team",
@@ -1119,7 +1111,60 @@
         }
     ],
     "roles1": [
-"soren", "ike", "villager2"
+        "hector2",
+        {
+            "roy": 0.1,
+            "soren": 0.1
+        },
+        "fool",
+        "mafia",
+        "villager",
+        "lyndis2",
+        "villager",
+        "mafia",
+        "villager",
+        "villager2",
+        "truemiller"
+    ],
+    "roles2": [
+        "hector",
+        "lyndis",
+        "idoun",
+        "nergal",
+        "soren",
+        "limstella",
+        "zeph",
+        "villager",
+        "villager2",
+        "truemiller",
+        "ike",
+        "ashnard",
+        "sophia",
+        "roy",
+        "villager",
+        "murdock",
+        "ephidel",
+        "sothe",
+        "villager2",
+        "lyon",
+        "blackknight",
+        "micaiah",
+        "mhero",
+        "truemiller",
+        "villager2",
+        "truemiller",
+        "villager",
+        "villager2",
+        "robin",
+        "villager",
+        "madking",
+        "validar",
+        "villager2",
+        "aversa",
+        "villager",
+        "villager",
+        "truemiller",
+        "villager2"
     ],
     "villageCantLoseRoles": [
         "ike",
@@ -1138,7 +1183,7 @@
         "6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR... Part 2: Fixed another error with Marth's convert that completely prevented change.",
         "6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager.",
         "6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
-        "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second",
+        "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps."
     }
