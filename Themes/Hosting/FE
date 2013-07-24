@@ -94,7 +94,7 @@
                 "grimleal"
             ],
             "help": "You've just about had it with these naive heroes! You don't care who wins anymore - so long as it isn't them! Your win condition is satisfied if the heroes lose. In addition, you appear to be a normal soldier in the roles listing. If you get lynched, you will be saved from death and turn into a Berserk Soldier!",
-            "info": "Evades nightkills from Mad King Ashnard. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight,Grimleal, or Mad King Ashnard. Death causes Ashnard's transformation.",
+            "info": "Evades nightkills from Mad King Ashnard. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight, Grimleal, or Mad King Ashnard. Death causes Ashnard's transformation.",
             "actions": {
                 "kill": {
                     "mode": {
@@ -126,7 +126,8 @@
                 "lyon",
                 "senate",
                 "blackknight",
-                "madking"
+                "madking",
+                "grimleal"
             ],
             "help": "You've lost all sense of self-preservation. The side of justice has just tried to rid themselves of you...and you are completely enraged! The time for talk is over - you now have one swift kill per night.",
             "actions": {
@@ -440,7 +441,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name] :",
-                        "killmsg": "'Prepare yourself'. A giant, golden sword is seen high in the sky. Then, with great force, Ike lands and duels ~Target~. Sadly, ~Target~ is no match for Ike. This match is over!"
+                        "killmsg": "'Prepare yourself.' A giant, golden sword is seen high in the sky. Ike lands on the ground in front of ~Target~ and swings the holy sword, Ragnell, at ~Target~ with great force. This match is over!"
                     }
                 },
                 "startup": {
@@ -448,7 +449,7 @@
                         "soren"
                     ]
                 },
-                "daykillmissmsg": "You decided that, instead of killing your teammate, you'd have a conversation with ~Target~. You gain one relationship point"
+                "daykillmissmsg": "~Target~ sidestepped your blow. 'Is there something you wanted to talk about, Ike?'"
             }
         },
         {
@@ -571,7 +572,7 @@
             "translation": "Black Knight",
             "side": "blackknight",
             "help": "You're the enigmatic Black Knight, the strongest of Daein's Four Riders and one of the strongest warriors in the land. You wield the holy blade Alondite, the counterpart to Ike's Ragnell! You're patiently watching the outcome of this war. On the 5th night, you are able to act and use the deadly skill Luna. Type /luna to kill up to 5 targets with maximum priority on the 5th night and every night afterwards. Your armor is blessed by the goddess, normal weapons cannot hope to harm it - you are immune to death at night. You can, as a fun distraction, use /intimidate during the 4th standby phase (before the 5th night) to send a warning message to all the other players.",
-            "info": "The Black Knight is incredibly patient and will not take any action for 4 turns. Starting from the 5th night onward, he can kill up to 5 people at once with maximum priority. He is undetectable via spies and is unkillable at night. ",
+            "info": "Can /luna 5 people starting night 5. can /intimidate on the 4th day. Cannot be haxed or nightkilled. Sided with himself.",
             "actions": {
                 "standby": {
                     "intimidate": {
@@ -828,7 +829,7 @@
             "translation": "Lyon",
             "side": "lyon",
             "help": "You're the kind prince of Grado, you have no desire for this war but...this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate [your name] to use it! You have no further commands until you activate it.",
-            "info": "Can convert self during the night. Sided with Grado Empire.",
+            "info": "Can convert into Demon King during the night. Sided with Grado Empire.",
             "actions": {
                 "night": {
                     "activate": {
@@ -885,7 +886,7 @@
             "translation": "Mad King Ashnard",
             "side": "madking",
             "help": "You're the very powerful King of Daein, Ashnard. Dubbed the 'Mad King' by all, your reign is one of terror, one in which only the strongest may survive. You strike down one unworthy opponent at night with /kill and use political clout to gain a +2 vote in the arena. You've brought your trump card to the  fray, however. Upon the death of a Disgruntled Soldier, you activate Lehran's Medallion - this will unleash your true form, however, you cannot be the one to kill them.",
-            "info": "King Ashnard holds back his true power, wishing to gauge the strength of those around him at first. One kill per night, +2 vote. Once a single Disgruntled Soldier is killed, however, his true form is unleashed! Cannot kill Disgruntled Soldiers.",
+            "info": "One nightkill, +2 vote. Once a single Disgruntled Soldier is killed, however, he converts into Enraged Ashnard. Cannot kill Disgruntled Soldiers.",
             "actions": {
                 "night": {
                     "kill": {
@@ -1191,6 +1192,6 @@
         "6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
-        "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted."
+        "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps."
     }
 }
