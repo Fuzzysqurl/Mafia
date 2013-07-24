@@ -428,7 +428,7 @@
                         ]
                     },
                     "targetmsg": "±Tactician: A giant, golden sword is seen high in the sky. You quickly moved out of the way to avoid being hit.",
-                "msg": "±Tactician: Soren sidestepped the swing of your sword. 'Is there something you wanted to talk about, Ike?'"
+                    "msg": "±Tactician: Soren sidestepped the swing of your sword. 'Is there something you wanted to talk about, Ike?'"
                 }
             }
         },
@@ -1049,7 +1049,7 @@
                         "target": "AnyButTeam",
                         "msg": "You can now /kill someone! You have a 25% chance of revealing yourself.",
                         "killmsg": "'Clinging to each other won't save you maggots when the boot falls!' Gangrel raises his Levin Sword and a large thunderbolt strikes ~Target~, frying them instantly.",
-                        "revealChance": 0.25
+                        "revealChance": 0.25,
                         "revealmsg": "~Self~ laughs as he polishes his crown."
                     }
                 }
