@@ -141,10 +141,28 @@
             }
         },
         {
-            "role": "mafia",
-            "translation": "Corrupt Senator",
+            "role": "hetzel",
+            "translation": "Hetzel",
             "side": "senate",
-            "help": "You're a corrupt senator of the nation of Begnion. You'll benefit if the heroes fail and the world is purged in the final judgment. You can /kill and you have a vote of 1.1!",
+            "help": "You're a Duke of the nation of Begnion, and a senior member of the Senate. Although you don't necessarily condone the Senate's actions, you have no power to stop it. You can /kill and you have a vote of 1.1!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal",
+                "vote": 1.1
+            }
+        },
+{
+            "role": "lekain",
+            "translation": "Lekain",
+            "side": "senate",
+            "help": "You're a Duke of the nation of Begnion, and a senior member of the Senate. You have a sick, twisted mind and you will stop at NOTHING to prevent the heroes from... well, stopping you! You can /kill and you have a vote of 1.1!",
             "actions": {
                 "night": {
                     "kill": {
@@ -913,9 +931,9 @@
             "winIfDeadRoles": [
                 "lyndis",
                 "robin",
-                "myrm",
+                "merc",
                 "nergal",
-                "ike",
+                "ike","lonqu",
                 "madking",
                 "ashnard",
                 "ashnard2",
@@ -953,8 +971,8 @@
             "role": "robin",
             "translation": "Robin",
             "side": "village",
-            "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /myrm to use a Second Seal and become one of three roles-- inspector, bodyguard, or vigilante.",
-            "info": "Can become a Mage (inspector), Knight (bodyguard), or Myrmidon (vigilante). Sided with Heroes.",
+            "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /merc to use a Second Seal and become one of three roles-- inspector with a voteshield and an extra vote, bodyguard that can't be killed, or vigilante that can't be distracted and pierces bodyguards.",
+            "info": "Can become a Mage (inspector), Knight (bodyguard), or Mercenary (vigilante). Sided with Heroes.",
             "actions": {
                 "night": {
                     "mage": {
@@ -962,8 +980,9 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
+                        "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
                         "restrict": [
-                            "myrm",
+                            "merc",
                             "knight"
                         ],
                         "newRole": {
@@ -977,8 +996,9 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
+ "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
                         "restrict": [
-                            "myrm",
+                            "merc",
                             "mage"
                         ],
                         "newRole": {
@@ -987,17 +1007,18 @@
                             ]
                         }
                     },
-                    "myrm": {
+                    "merc": {
                         "command": "convert",
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
+ "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
                         "restrict": [
                             "mage",
                             "knight"
                         ],
                         "newRole": {
-                            "myrm": [
+                            "merc": [
                                 "robin"
                             ]
                         }
@@ -1010,8 +1031,10 @@
             "translation": "Robin (Mage)",
             "side": "village",
             "hide": "true",
-            "help": "Due to your high intelligence, you can use /inspect to view someone's role.",
+            "help": "Due to your high intelligence, you can use /inspect to view someone's role. You also have a voteshield of -1 and a vote of 2, because of Chrom's trust in you.",
             "actions": {
+"voteshield": -1,
+"vote": 2,
                 "night": {
                     "inspect": {
                         "priority": 35,
@@ -1022,17 +1045,18 @@
             }
         },
         {
-            "role": "myrm",
-            "translation": "Robin (Myrmidon)",
+            "role": "merc",
+            "translation": "Robin (Mercenary)",
             "side": "village",
             "hide": "true",
-            "help": "Due to your high speed and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent.",
+            "help": "Due to your expertise and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent. You also have your mind set on killing, so you can't be distracted and you can pierce through the toughest of bodyguards with your Armorslayer sword.",
             "actions": {
                 "night": {
                     "kill": {
-                        "priority": 10,
+                        "priority": 45,
                         "common": "Self",
-                        "target": "AnyButSelf"
+                        "target": "AnyButSelf",
+"pierce": true
                     }
                 }
             }
@@ -1042,9 +1066,12 @@
             "translation": "Robin (Knight)",
             "side": "village",
             "hide": "true",
-            "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed!",
+            "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed! Due to your amazing defensive skills in Pavise and Aegis, you also cannot be killed at night.",
             "actions": {
+"kill": { "mode": "ignore"}
+                    ,
                 "night": {
+                    
                     "protect": {
                         "priority": 7,
                         "common": "Self",
@@ -1083,9 +1110,9 @@
                 "standby": {
                     "kill": {
                         "target": "AnyButTeam",
-                        "msg": "You can now /kill someone! You have a 25% chance of revealing yourself.",
+                        "msg": "You can now /kill someone! You have a 10% chance of revealing yourself.",
                         "killmsg": "'Clinging to each other won't save you maggots when the boot falls!' Gangrel raises his Levin Sword and a large thunderbolt strikes ~Target~, frying them instantly.",
-                        "revealChance": 0.25,
+                        "revealChance": 0.1,
                         "revealmsg": "~Self~ laughs as he polishes his crown."
                     }
                 }
@@ -1153,11 +1180,11 @@
             "soren": 0.1
         },
         "fool",
-        "mafia",
+        "lekain",
         "villager",
         "lyndis2",
         "villager",
-        "mafia",
+        "hetzel",
         "villager",
         "villager2",
         "truemiller"
@@ -1174,8 +1201,8 @@
         "villager2",
         "truemiller",
         {
-            "ike": 0.95,
-            "lonqu": 0.05
+            "ike": 0.7,
+            "lonqu": 0.3
         },
         "ashnard",
         "sophia",
@@ -1214,7 +1241,8 @@
         "mhero",
         "marth",
         "robin",
-        "myrm"
+        "merc",
+        "lonqu"
     ],
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
     "killusermsg": "You have fallen in combat!",
@@ -1224,6 +1252,7 @@
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
-        "7.24.2013": "Masked Hero now unmasks a little later than Luna, so that he can beat the Black Knight one on one. Threw in an Easter Egg :D"
+        "7.24.2013": "Masked Hero now unmasks a little later than Luna, so that he can beat the Black Knight one on one. Threw in an Easter Egg :D",
+        "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators."
     }
 }
