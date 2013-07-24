@@ -1152,15 +1152,15 @@
         "mhero",
         "truemiller",
         "villager2",
-        "truemiller",
-        "villager",
-        "villager2",
         "robin",
+        "truemiller",
         "villager",
         "madking",
         "validar",
         "villager2",
         "aversa",
+        "villager",
+        "villager2",
         "villager",
         "villager",
         "truemiller",
@@ -1180,11 +1180,11 @@
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
     "killusermsg": "You have fallen in combat!",
     "changelog": {
-        "6.1.2013": "Rebalanced small games. Fixed Masked Hero being unable to convert. Added Marth to VCLR... Part 2: Fixed another error with Marth's convert that completely prevented change.",
         "6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager.",
         "6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
-        "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps."
+        "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
+        "7.24.2013": "Masked Hero now unmasks a little later than Luna, so that he can beat the Black Knight one on one."
     }
 }
