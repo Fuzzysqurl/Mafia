@@ -419,6 +419,14 @@
                     "revealRole": [
                         "ike"
                     ]
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "ike"
+                        ]
+                    },
+                    "msg": "A giant, golden sword is seen high in the sky. You quickly moved out of the way to prevent getting hit."
                 }
             }
         },
@@ -439,7 +447,8 @@
                     "revealRole": [
                         "soren"
                     ]
-                }
+                },
+                "daykillmissmsg": "You decided that, instead of killing your teammate, you'd have a conversation with ~Target~. You gain one relationship point"
             }
         },
         {
@@ -594,7 +603,7 @@
             "role": "zeph",
             "translation": "King Zephiel",
             "side": "bern",
-            "help": "You will not bar my path! You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. To this end, you have the ability to /kill any unit at night with your mighty blade. Additionally, your spy network allows you to /inspect anyone (this spy network cannot be traced via enemy spies). Furthermore, your incredible political clout gives you a +3 vote. Needless to say, you cannot be distracted, poisoned or morphed. Finally, you can /demote a soldier of their voting capabilities once per game!",
+            "help": "You will not bar my path! You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. To this end, you have the ability to /kill any unit at night with your mighty blade. Additionally, your spy network allows you to /inspect anyone (this spy network cannot be traced via enemy spies). Furthermore, your incredible political clout gives you a +3 vote. Needless to say, you cannot be poisoned or morphed. Finally, you can /demote a soldier of their voting capabilities once per game!",
             "actions": {
                 "night": {
                     "kill": {
@@ -633,9 +642,6 @@
                     "mode": "ignore"
                 },
                 "poison": {
-                    "mode": "ignore"
-                },
-                "distract": {
                     "mode": "ignore"
                 },
                 "vote": 3
@@ -837,6 +843,9 @@
                         "convertmsg": "The Dark Crystal has consumed the soul of Lyon, the final sacrifice. Now, the Demon King is reborn! Beware!",
                         "silent": false
                     }
+                },
+                "stalk": {
+                    "mode": "noVisit"
                 }
             }
         },
@@ -1181,6 +1190,7 @@
         "6.3.2013": "Nerfing village harder in small games following a perfect game where Lyndis/Soren/Roy were all on the last bad guy in the same cycle. Lyndis loses stalk in small games. Only Roy OR Soren may spawn. The other is replaced by villager.",
         "6.14.2013": "Changed Zephiel's demote message so that the soldier will not know he has converted.",
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second",
-        "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1."
+        "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
+        "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted."
     }
 }
