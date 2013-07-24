@@ -421,10 +421,10 @@
                         "ike"
                     ]
                 },
-                "daykill": {
+                "expose": {
                     "mode": {
                         "ignore": [
-                            "ike"
+                            "roy"
                         ]
                     },
                     "targetmsg": "A giant, golden sword is seen high in the sky. You quickly moved out of the way to avoid being hit.",
