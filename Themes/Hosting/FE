@@ -587,7 +587,7 @@
                         "command": "kill",
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 1,
+                        "priority": 0,
                         "limit": 5,
                         "initialrecharge": 5
                     }
