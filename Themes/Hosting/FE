@@ -427,7 +427,8 @@
                             "ike"
                         ]
                     },
-                    "msg": "A giant, golden sword is seen high in the sky. You quickly moved out of the way to prevent getting hit."
+                    "targetmsg": "A giant, golden sword is seen high in the sky. You quickly moved out of the way to avoid being hit.",
+                "msg": "~Target~ sidestepped your blow. 'Is there something you wanted to talk about, Ike?'"
                 }
             }
         },
@@ -448,8 +449,7 @@
                     "revealRole": [
                         "soren"
                     ]
-                },
-                "daykillmissmsg": "~Target~ sidestepped your blow. 'Is there something you wanted to talk about, Ike?'"
+                }
             }
         },
         {
@@ -1118,60 +1118,7 @@
         }
     ],
     "roles1": [
-        "hector2",
-        {
-            "roy": 0.1,
-            "soren": 0.1
-        },
-        "fool",
-        "mafia",
-        "villager",
-        "lyndis2",
-        "villager",
-        "mafia",
-        "villager",
-        "villager2",
-        "truemiller"
-    ],
-    "roles2": [
-        "hector",
-        "lyndis",
-        "idoun",
-        "nergal",
-        "soren",
-        "limstella",
-        "zeph",
-        "villager",
-        "villager2",
-        "truemiller",
-        "ike",
-        "ashnard",
-        "sophia",
-        "roy",
-        "villager",
-        "murdock",
-        "ephidel",
-        "sothe",
-        "villager2",
-        "lyon",
-        "blackknight",
-        "micaiah",
-        "mhero",
-        "truemiller",
-        "villager2",
-        "truemiller",
-        "villager",
-        "villager2",
-        "robin",
-        "villager",
-        "madking",
-        "validar",
-        "villager2",
-        "aversa",
-        "villager",
-        "villager",
-        "truemiller",
-        "villager2"
+"soren", "ike", "villager2"
     ],
     "villageCantLoseRoles": [
         "ike",
