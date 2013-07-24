@@ -1050,7 +1050,7 @@
                         "msg": "You can now /kill someone! You have a 25% chance of revealing yourself.",
                         "killmsg": "'Clinging to each other won't save you maggots when the boot falls!' Gangrel raises his Levin Sword and a large thunderbolt strikes ~Target~, frying them instantly.",
                         "revealChance": 0.25
-                        "revealmsg": "~Self~ laughs as he polishes his crown.","limit": 10
+                        "revealmsg": "~Self~ laughs as he polishes his crown."
                     }
                 }
             }
