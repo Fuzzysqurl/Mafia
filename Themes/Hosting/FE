@@ -4,6 +4,7 @@
         "Narshen",
         "Sky Sentinel"
     ],
+    "minplayers": 3,
     "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE The continent is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the world!",
     "sides": [
         {
