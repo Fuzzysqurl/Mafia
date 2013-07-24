@@ -402,7 +402,7 @@
             "role": "soren",
             "translation": "Soren",
             "side": "village",
-            "help": "You're the expert tactician of the Greil Mercenaries. You're very loyal to Ike and serve him with your life but are a bit...cold to other people. Regardless, its in your best interests to help the heroes and end this war. To this end, you have the ability to /inspect one unit at nighttime, showing their identity. You're also good at predicting traps and danger, giving you a 10% chance to not die to killers. You're always next to Ike so you know his identity.",
+            "help": "You're the expert tactician of the Greil Mercenaries. You're very loyal to Ike and serve him with your life but are a bit...cold to other people. Regardless, its in your best interests to help the heroes and end this war. To this end, you have the ability to /inspect one unit at nighttime, showing their identity. You're also good at predicting traps and danger, giving you a 10% chance to not die to killers. You're always next to Ike so you know his identity. If Lon'qu is in the game, you'll know him, too!",
             "actions": {
                 "night": {
                     "inspect": {
@@ -418,7 +418,8 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "ike"
+                        "ike",
+                        "lonqu"
                     ]
                 },
                 "daykill": {
@@ -909,6 +910,25 @@
             "role": "demon king",
             "translation": "Demon King",
             "side": "lyon",
+            "winIfDeadRoles": [
+                "lyndis",
+                "robin",
+                "myrm",
+                "nergal",
+                "ike",
+                "madking",
+                "ashnard",
+                "ashnard2",
+                "blackknight",
+                "idoun",
+                "nergal",
+                "aversa",
+                "validar",
+                "ephidel",
+                "murdock",
+                "zeph",
+                "limstella"
+            ],
             "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish.",
             "actions": {
                 "night": {
@@ -1034,6 +1054,22 @@
             }
         },
         {
+            "role": "lonqu",
+            "translation": "Lon'qu",
+            "side": "village",
+            "help": "Since Lon'qu is the most epic person in the Fire Emblem universe, Ike has decided that, for today, he'd let you have some fun. Now, you have the exact same job as him: kill some baddies during the day with your amazing Swordmaster skills. You'll know Soren, as Ike informed him that you were taking over. Work with your team to crush the opposition!",
+            "info": "Easter egg daykiller that replaces ike rarely. Knows Soren. Sided with Heroes.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to DESTROY someone!",
+                        "killmsg": "'How well will you die?' Lon'qu holds his Killing Edge in the air. He charges at ~Target~, hitting them five times in a split second. Astra! ~Target~ was obliterated."
+                    }
+                }
+            }
+        },
+        {
             "role": "madking",
             "translation": "Gangrel",
             "side": "grimleal",
@@ -1137,7 +1173,10 @@
         "villager",
         "villager2",
         "truemiller",
-        "ike",
+        {
+            "ike": 0.95,
+            "lonqu": 0.05
+        },
         "ashnard",
         "sophia",
         "roy",
@@ -1185,6 +1224,6 @@
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
-        "7.24.2013": "Masked Hero now unmasks a little later than Luna, so that he can beat the Black Knight one on one."
+        "7.24.2013": "Masked Hero now unmasks a little later than Luna, so that he can beat the Black Knight one on one. Threw in an Easter Egg :D"
     }
 }
