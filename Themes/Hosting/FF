@@ -262,6 +262,15 @@
                 "vote": 0,
                 "kill": {
                     "mode": "ignore"
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "cloud"
+                        ]
+                    },
+                    "targetmsg": "±Game: Cloud swung his Buster Sword at you, but missed by a fraction of an inch. 'Cloud, you're not the one who kills me, silly!'",
+                    "msg": "±Game: Aerith dodged the swing of your Buster Sword, but just barely. 'Cloud, you're not the one who kills me, silly!'"
                 }
             }
         },
@@ -593,7 +602,7 @@
             "translation": "Cloud",
             "side": "village",
             "info": "Can kill one person during the standby. Can't be daykilled. Sided with Heroes.",
-            "help": "As a former member of SOLDIER, your battle skills are top notch. Type /kill [name] during the day to eliminate possible villains. You're fairly flashy so your kills will be done in plain sight: you will be revealed.",
+            "help": "As a former member of SOLDIER, your battle skills are top notch. Type /kill [name] during the day to eliminate possible villains. You're fairly flashy so your kills will be done in plain sight: you will be revealed. You can't kill Aerith!",
             "actions": {
                 "standby": {
                     "kill": {
