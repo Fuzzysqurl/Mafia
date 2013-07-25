@@ -1181,6 +1181,7 @@
             "role": "lonqu",
             "translation": "Lon'qu",
             "side": "village",
+            "hide": true,
             "help": "Since Lon'qu is the most epic person in the Fire Emblem universe, Ike has decided that, for today, he'd let you have some fun. Now, you have the exact same job as him: kill some baddies during the day with your amazing Swordmaster skills. You'll know Soren, as Ike informed him that you were taking over. Work with your team to crush the opposition!",
             "info": "Easter egg daykiller that replaces ike rarely. Knows Soren. Sided with Heroes.",
             "actions": {
@@ -1389,10 +1390,7 @@
         "villager",
         "villager2",
         "truemiller",
-        {
-            "ike": 0.7,
-            "lonqu": 0.3
-        },
+        "ike",
         "ashnard",
         "sophia",
         "roy",
@@ -1423,10 +1421,7 @@
         "villager",
         "villager2",
         "truemiller",
-        {
-            "ike": 0.7,
-            "lonqu": 0.3
-        },
+        "ike",
         "ashnard",
         "sophia",
         "roy",
