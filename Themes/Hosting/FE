@@ -1190,7 +1190,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "msg": "Use /kill to DESTROY someone!",
-                        "killmsg": "'How well will you die?' Lon'qu holds his Killing Edge in the air. He charges at ~Target~, hitting them five times in a split second. Astra! ~Role~ was obliterated."
+                        "killmsg": "'How well will you die?' Lon'qu holds his Killing Edge in the air. He charges at ~Target~, hitting them five times in a split second. Astra! ~Target~ was obliterated."
                     }
                 }
             }
