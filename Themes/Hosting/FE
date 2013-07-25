@@ -7,6 +7,11 @@
     "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE The continent is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the world!",
     "sides": [
         {
+            "side": "arvis",
+            "translation": "Prince Arvis",
+            "winmsg": "~Players~ smiles cruelly, looking at the destruction he has caused. He laughs to himself. His reign of fear has begun."
+        },
+        {
             "side": "senate",
             "translation": "Begnion Senators",
             "winmsg": "Ta ha ha! The Corrupt Senators, ~Players~, have won!"
@@ -216,6 +221,28 @@
             }
         },
         {
+            "role": "fool2",
+            "translation": "Lundgren",
+            "side": "fool",
+            "help": "You are the evil Lord Lundgren. You don't have any lofty goals in mind like any of the other villains. You simply wish to take control of House Caelin but...Lyndis and her cadre are in your way. Exterminate the rats with /poison AND /kill every night. Your vote counts as 3. You know the disgrunts.",
+            "actions": {
+                "startup": "team-reveal",
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 33
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 14
+                    }
+                },
+                "vote": 3
+            }
+        },
+        {
             "role": "lyndis",
             "translation": "Lyndis",
             "side": "village",
@@ -385,6 +412,15 @@
                         "priority": 6,
                         "distractmsg": "Mystical dark magics have bound you in place. You were unable to act this round. "
                     }
+                },
+                "expose": {
+                    "mode": {
+                        "ignore": [
+                            "roy"
+                        ]
+                    },
+                    "targetmsg": "±Tactician: Roy pointed the Sword of Seals at you, but upon realizing you were Sophia, he pointed it away.",
+                    "msg": "±Tactician: Upon realizing you pointed the Sword of Seals at Sophia, you quickly pointed it away."
                 },
                 "startup": {
                     "revealRole": [
@@ -847,8 +883,8 @@
             "role": "lyon",
             "translation": "Lyon",
             "side": "lyon",
-            "help": "You're the kind prince of Grado, you have no desire for this war but...this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate [your name] to use it! You have no further commands until you activate it.",
-            "info": "Can convert into Demon King during the night. Sided with Grado Empire.",
+            "help": "You're the kind prince of Grado, you have no desire for this war but...this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate [your name] to use it! You have no further commands until you activate it. You can't be killed as Lyon, either.",
+            "info": "Can convert into Demon King during the night. Evades nightkills. Sided with Grado Empire.",
             "actions": {
                 "night": {
                     "activate": {
@@ -866,6 +902,9 @@
                 },
                 "stalk": {
                     "mode": "noVisit"
+                },
+                "kill": {
+                    "mode": "ignore"
                 }
             }
         },
@@ -946,7 +985,8 @@
                 "ephidel",
                 "murdock",
                 "zeph",
-                "limstella"
+                "limstella",
+                "fool2"
             ],
             "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish.",
             "actions": {
@@ -969,19 +1009,65 @@
             }
         },
         {
+            "role": "arvis",
+            "translation": "Arvis",
+            "side": "arvis",
+            "help": "Ahaha! It feels GREAT to be powerful, doesn't it!? During the day, you can ROAST somebody with /flame-- they'll be incinerated instantly. Since you are sided with yourself, you can /kill someone at night, too, and your immense strength allows you to kill anyone that kills you at night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 16
+                    }
+                },
+                "kill": {
+                    "mode": "killattackerevenifprotected"
+                },
+                "standby": {
+                    "flame": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can now /flame someone to death! Ahaha!",
+                        "killmsg": "Arvis laughs uncontrollably as he summons an intense flame from the sky, setting the ground around ~Target~ aflame. They are immediately incinerated and cease to exist."
+                    }
+                }
+            }
+        },
+        {
+            "role": "lissa",
+            "translation": "Lissa",
+            "side": "village",
+            "help": "As a Cleric, you have access to a powerful Warp staff. Using this, you can warp votes from one person away! This means that your vote counts as -15. You know Robin, as you were the first to find him!",
+            "actions": {
+                "startup": {
+                    "revealRole": [
+                        "robin",
+                        "merc",
+                        "knight",
+                        "mage"
+                    ]
+                },
+                "vote": -15
+            }
+        },
+        {
             "role": "robin",
             "translation": "Robin",
             "side": "village",
-            "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /merc to use a Second Seal and become one of three roles-- inspector with a voteshield and an extra vote, bodyguard that can't be killed, or vigilante that can't be distracted and pierces bodyguards.",
-            "info": "Can become a Mage (inspector, voteshield+2 votes), Knight (bodyguard, can't be killed), or Mercenary (vigilante, pierces, can't be distracted). Sided with Heroes.",
+            "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /merc to use a Second Seal and become one of three roles-- inspector with a voteshield and an extra vote, bodyguard that can't be killed, or vigilante that can't be distracted and pierces bodyguards. You also know Lissa!",
+            "info": "Can become a Mage (inspector, voteshield+2 votes), Knight (bodyguard, can't be killed), or Mercenary (vigilante, pierces, can't be distracted). Sided with Heroes. Knows Lissa.",
             "actions": {
+                "startup": {
+                    "revealRole": "lissa"
+                },
                 "night": {
                     "mage": {
                         "command": "convert",
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
-                        "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
+                        "convertmsg": "~Old~ raises his Second Seal and becomes a ~New~!",
                         "restrict": [
                             "merc",
                             "knight"
@@ -997,7 +1083,7 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
-                        "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
+                        "convertmsg": "~Old~ raises his Second Seal and becomes a ~New~!",
                         "restrict": [
                             "merc",
                             "mage"
@@ -1013,7 +1099,7 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
-                        "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
+                        "convertmsg": "~Old~ raises his Second Seal and becomes a ~New~!",
                         "restrict": [
                             "mage",
                             "knight"
@@ -1034,6 +1120,9 @@
             "hide": "true",
             "help": "Due to your high intelligence, you can use /inspect to view someone's role. You also have a voteshield of -1 and a vote of 2, because of Chrom's trust in you.",
             "actions": {
+                "startup": {
+                    "revealRole": "lissa"
+                },
                 "voteshield": -1,
                 "vote": 2,
                 "night": {
@@ -1052,9 +1141,12 @@
             "hide": "true",
             "help": "Due to your expertise and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent. You also have your mind set on killing, so you can't be distracted and you can pierce through the toughest of bodyguards with your Armorslayer sword.",
             "actions": {
+                "startup": {
+                    "revealRole": "lissa"
+                },
                 "night": {
                     "kill": {
-                        "priority": 45,
+                        "priority": 44,
                         "common": "Self",
                         "target": "AnyButSelf",
                         "pierce": true
@@ -1069,6 +1161,9 @@
             "hide": "true",
             "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed! Due to your amazing defensive skills in Pavise and Aegis, you also cannot be killed at night.",
             "actions": {
+                "startup": {
+                    "revealRole": "lissa"
+                },
                 "kill": {
                     "mode": "ignore"
                 },
@@ -1088,12 +1183,41 @@
             "help": "Since Lon'qu is the most epic person in the Fire Emblem universe, Ike has decided that, for today, he'd let you have some fun. Now, you have the exact same job as him: kill some baddies during the day with your amazing Swordmaster skills. You'll know Soren, as Ike informed him that you were taking over. Work with your team to crush the opposition!",
             "info": "Easter egg daykiller that replaces ike rarely. Knows Soren. Sided with Heroes.",
             "actions": {
+                "startup": {
+                    "revealRole": "soren"
+                },
                 "standby": {
                     "kill": {
                         "target": "AnyButSelf",
                         "msg": "Use /kill to DESTROY someone!",
-                        "killmsg": "'How well will you die?' Lon'qu holds his Killing Edge in the air. He charges at ~Target~, hitting them five times in a split second. Astra! ~Target~ was obliterated."
+                        "killmsg": "'How well will you die?' Lon'qu holds his Killing Edge in the air. He charges at ~Target~, hitting them five times in a split second. Astra! ~Role~ was obliterated."
                     }
+                }
+            }
+        },
+        {
+            "role": "risen",
+            "translation": "Risen Soldier",
+            "side": "grimleal",
+            "help": "You're basically a dead, dead soldier. So dead, in fact, that you want to get revenge on those that are living. Most people will think you're just a regular soldier, but since you're weak from being DEAD, you can't do much. You can /protect your teammates at night, and can't be morphed.",
+            "info": "Can protect during the night. Can't be morphed. Inspected as Risen Soldier or Soldier. Sided with Grimleal.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "inspect": {
+                    "revealAs": [
+                        "villager",
+                        "risen"
+                    ]
                 }
             }
         },
@@ -1283,16 +1407,50 @@
         "truemiller",
         "villager2",
         "robin",
+        "villager",
+        "naesala1",
+        "arvis"
+    ],
+    "roles3": [
+        "hector",
+        "lyndis",
+        "idoun",
+        "nergal",
+        "soren",
+        "limstella",
+        "zeph",
+        "villager",
+        "villager2",
         "truemiller",
+        {
+            "ike": 0.7,
+            "lonqu": 0.3
+        },
+        "ashnard",
+        "sophia",
+        "roy",
+        "villager",
+        "murdock",
+        "ephidel",
+        "sothe",
+        "villager2",
+        "lyon",
+        "blackknight",
+        "micaiah",
+        "mhero",
+        "truemiller",
+        "villager2",
+        "robin",
         "villager",
         "naesala1",
         "madking",
         "validar",
-        "villager",
+        "lissa",
         "aversa",
         "villager",
-        "villager",
-        "truemiller",
+        "fool2",
+        "villager2",
+        "risen",
         "villager"
     ],
     "villageCantLoseRoles": [
@@ -1315,6 +1473,6 @@
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
-        "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators. Added Naesala. Tweaked messages."
+        "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators. Added Naesala. Tweaked messages. Added Lissa... Added Arvis... Added Risen Soldier..."
     }
 }
