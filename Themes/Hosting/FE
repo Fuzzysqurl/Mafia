@@ -752,7 +752,7 @@
             "role": "morph",
             "translation": "Nameless Morph",
             "side": "nergal",
-            "help": "Your life force has been stolen and you've been slain! The morph made from your corpse retains your memories, though, and you are still 'alive' (if only in name). Your vote is worthless 75% of the time. You do, however, have a -10 voteshield and inspect as Lord Nergal",
+            "help": "Your life force has been stolen and you've been slain! The morph made from your corpse retains your memories, though, and you are still 'alive' (if only in name). Your vote is worthless 75% of the time. You do, however, have a -10 voteshield and inspect as Lord Nergal.",
             "info": "Voteshield of -10. Vote counts as 1 25% of the time. Sided with Dread Isle. Reveals as Nergal.",
             "actions": {
                 "vote": [
