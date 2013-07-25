@@ -158,7 +158,7 @@
                 "vote": 1.1
             }
         },
-{
+        {
             "role": "lekain",
             "translation": "Lekain",
             "side": "senate",
@@ -933,7 +933,8 @@
                 "robin",
                 "merc",
                 "nergal",
-                "ike","lonqu",
+                "ike",
+                "lonqu",
                 "madking",
                 "ashnard",
                 "ashnard2",
@@ -972,7 +973,7 @@
             "translation": "Robin",
             "side": "village",
             "help": "You're Robin! Discovered asleep in the middle of a field by Chrom and Lissa, your past remains a mystery. Thus, you are not sure of what class you wish to undertake! You may /mage, /knight, or /merc to use a Second Seal and become one of three roles-- inspector with a voteshield and an extra vote, bodyguard that can't be killed, or vigilante that can't be distracted and pierces bodyguards.",
-            "info": "Can become a Mage (inspector), Knight (bodyguard), or Mercenary (vigilante). Sided with Heroes.",
+            "info": "Can become a Mage (inspector, voteshield+2 votes), Knight (bodyguard, can't be killed), or Mercenary (vigilante, pierces, can't be distracted). Sided with Heroes.",
             "actions": {
                 "night": {
                     "mage": {
@@ -996,7 +997,7 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
- "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
+                        "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
                         "restrict": [
                             "merc",
                             "mage"
@@ -1012,7 +1013,7 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 51,
- "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
+                        "convertmsg": "~Old raises his Second Seal and becomes a ~New~!",
                         "restrict": [
                             "mage",
                             "knight"
@@ -1033,8 +1034,8 @@
             "hide": "true",
             "help": "Due to your high intelligence, you can use /inspect to view someone's role. You also have a voteshield of -1 and a vote of 2, because of Chrom's trust in you.",
             "actions": {
-"voteshield": -1,
-"vote": 2,
+                "voteshield": -1,
+                "vote": 2,
                 "night": {
                     "inspect": {
                         "priority": 35,
@@ -1056,7 +1057,7 @@
                         "priority": 45,
                         "common": "Self",
                         "target": "AnyButSelf",
-"pierce": true
+                        "pierce": true
                     }
                 }
             }
@@ -1068,10 +1069,10 @@
             "hide": "true",
             "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed! Due to your amazing defensive skills in Pavise and Aegis, you also cannot be killed at night.",
             "actions": {
-"kill": { "mode": "ignore"}
-                    ,
+                "kill": {
+                    "mode": "ignore"
+                },
                 "night": {
-                    
                     "protect": {
                         "priority": 7,
                         "common": "Self",
@@ -1171,6 +1172,67 @@
                     }
                 }
             }
+        },
+        {
+            "role": "naesala1",
+            "translation": "Naesala",
+            "side": "village",
+            "help": "As the Raven King, you have the power to convert into a super-powerful bird of prey with /bird [yourname]! In raven form, your senses are enhanced and your stamina and agility are almost doubled. As a human, you will be able to see who inspected you, and you have the power to evade 50% of nightkills. People will also see you as a soldier. As a raven, you'll evade 25% of kills and you can /stalk during the night.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "villager",
+                    "mode": "identify"
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "night": {
+                    "bird": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "naesala2",
+                        "canConvert": [
+                            "naesala1"
+                        ],
+                        "priority": 45,
+                        "convertmsg": "Naesala transformed to raven form!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "naesala2",
+            "translation": "Naesala",
+            "side": "village",
+            "help": "Black as night and swifter than wind, you can easily figure out what someone is doing during the night, with /stalk. You can /human at anytime to convert back to your other role, and you avoid 25% of nightkills.",
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+                "night": {
+                    "human": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "naesala1",
+                        "canConvert": [
+                            "naesala2"
+                        ],
+                        "priority": 45,
+                        "convertmsg": "Naesala reverted to human form!"
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 99
+                    }
+                }
+            }
         }
     ],
     "roles1": [
@@ -1252,7 +1314,6 @@
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
-        "7.24.2013": "Masked Hero now unmasks a little later than Luna, so that he can beat the Black Knight one on one. Threw in an Easter Egg :D",
         "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators."
     }
 }
