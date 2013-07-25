@@ -1178,6 +1178,7 @@
             "translation": "Naesala",
             "side": "village",
             "help": "As the Raven King, you have the power to convert into a super-powerful bird of prey with /bird [yourname]! In raven form, your senses are enhanced and your stamina and agility are almost doubled. As a human, you will be able to see who inspected you, and you have the power to evade 50% of nightkills. People will also see you as a soldier. As a raven, you'll evade 25% of kills and you can /stalk during the night.",
+            "info": "Can evade 50% of nightkills. Knows who inspected him. Reveals as soldier. Can /bird himself. Sided with Heroes.",
             "actions": {
                 "inspect": {
                     "revealAs": "villager",
@@ -1208,6 +1209,7 @@
             "translation": "Naesala",
             "side": "village",
             "help": "Black as night and swifter than wind, you can easily figure out what someone is doing during the night, with /stalk. You can /human at anytime to convert back to your other role, and you avoid 25% of nightkills.",
+            "info": "Can /human to revert to human. Stalks at night. Evades 25% of nightkills. Sided with Heroes.",
             "actions": {
                 "kill": {
                     "mode": {
@@ -1283,16 +1285,15 @@
         "robin",
         "truemiller",
         "villager",
+        "naesala1",
         "madking",
         "validar",
-        "villager2",
-        "aversa",
         "villager",
-        "villager2",
+        "aversa",
         "villager",
         "villager",
         "truemiller",
-        "villager2"
+        "villager"
     ],
     "villageCantLoseRoles": [
         "ike",
@@ -1314,6 +1315,6 @@
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
-        "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators."
+        "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators. Added Naesala. Tweaked messages."
     }
 }
