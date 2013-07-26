@@ -797,7 +797,7 @@
                 },
                 "startup": "team-reveal-with-roles",
                 "onDeath": {
-                    "onslay": false,
+                    "onslay": true,
                     "killRoles": [
                         "morph"
                     ],
