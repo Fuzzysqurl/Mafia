@@ -618,7 +618,7 @@
             "translation": "Alzheimer",
             "side": "mafia1",
             "info": "Night Actions: distract (shared with role), convert (shared with role - can be used every 2 nights - can convert most PRs to Stem Cell or most diseases to Alzheimer) and kill (shared with team). Vote counts as 0.7. Knows teammates. Sided with Psychological Diseases.",
-            "help": "You're a disease that affects people's memory and elder people are more affected by you. You can /distract someone to make them to forget what they would do at night. You can also /forget someone, every two nights, to change their role (if they are on the good team, they'll become a Stem Cell - villager, if they are a disease, they will become another Alzheimer; you can't convert the bone marrow and some diseases). You share a kill with your team. Due having memory problems, your voting power was reduced to 0.7.",
+            "help": "You're a disease that affects people's memory and elder people are more affected by you. You can /distract someone to make them to forget what they would do at night. You can also /forget someone, every two nights, to change their role (if they are on the good team, they'll become a Stem Cell - villager, if they are a disease, they will become another Alzheimer; you can't convert the bone marrow and some diseases). You share a kill with your team. Due to having memory problems, your voting power was reduced to 0.7.",
             "actions": {
                 "vote": 0.7,
                 "startup": "team-reveal-with-roles",
@@ -647,8 +647,7 @@
                                 "liver",
                                 "pineal",
                                 "immune",
-                                "immunesmall",
-                                "bone"
+                                "immunesmall"
                             ],
                             "alz": [
                                 "angel",
