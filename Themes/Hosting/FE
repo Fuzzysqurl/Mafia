@@ -4,6 +4,8 @@
         "Narshen",
         "Sky Sentinel"
     ],
+    "altname": "Fire Emblem",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?15904-Fire-Emblem-(FE)",
     "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE The continent is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the world!",
     "sides": [
         {
@@ -224,7 +226,7 @@
             "role": "fool2",
             "translation": "Lundgren",
             "side": "fool",
-            "help": "You are the evil Lord Lundgren. You don't have any lofty goals in mind like any of the other villains. You simply wish to take control of House Caelin but...Lyndis and her cadre are in your way. Exterminate the rats with /poison AND /kill every night. Your vote counts as 3. You know the disgrunts.",
+            "help": "You are the evil Lord Lundgren. You don't have any lofty goals in mind like any of the other villains. You simply wish to take control of House Caelin but...Lyndis and her cadre are in your way. Exterminate the rats with /poison AND /kill every night. Your vote counts as 3. You know the disgruntled soldiers.",
             "actions": {
                 "startup": "team-reveal",
                 "night": {
@@ -472,8 +474,7 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "ike",
-                        "lonqu"
+                        "ike"
                     ]
                 },
                 "daykill": {
@@ -616,7 +617,8 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 40
+                        "priority": 40,
+                        "msg": "±Tactician: Critical Hit! Marth's Falchion zips right through you."
                     }
                 },
                 "vote": 4
@@ -644,7 +646,8 @@
                         "common": "Self",
                         "priority": 0,
                         "limit": 5,
-                        "initialrecharge": 5
+                        "initialrecharge": 5,
+                        "msg": "±Black Knight: 'Let's see how you handle this!'"
                     }
                 },
                 "convert": {
@@ -666,7 +669,8 @@
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 11,
-                        "broadcast": "team"
+                        "broadcast": "team",
+                        "msg": "±Tactician: King Zephiel swung the Eckesachs toward you, and you had no chance of escaping."
                     },
                     "inspect": {
                         "target": "AnyButTeam",
@@ -731,14 +735,15 @@
             "role": "idoun",
             "translation": "Idoun",
             "side": "bern",
-            "help": "You're the Dark Priestess, Idoun. While you seem to be a young girl, you're actually the Dark Dragon. You're assisting Zephiel in his schemes for the destruction of the world but you aren't doing it of your own volition. Still, you must win this war!. You can /kill one target a night and you have considerable influence in affairs of state, giving you a +1.5 vote. Additionally, as you are always in robes and a hood, you are mistaken for a Soldier when inspected.",
+            "help": "You're the Dark Priestess, Idoun. While you seem to be a young girl, you're actually the Dark Dragon. You're assisting Zephiel in his schemes for the destruction of the world but you aren't doing it of your own volition. Still, you must win this war! You can /kill one target a night and you have considerable influence in affairs of state, giving you a +1.5 vote. Additionally, as you are always in robes and a hood, you are mistaken for a Soldier when inspected.",
             "actions": {
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 11,
-                        "broadcast": "team"
+                        "broadcast": "team",
+                        "msg": "±Tactician: The breath of the Dark Dragon burned you to a crisp!"
                     }
                 },
                 "startup": "team-reveal-with-roles",
@@ -773,7 +778,7 @@
             "role": "nergal",
             "translation": "Nergal",
             "side": "nergal",
-            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every other night you are able to /morph any unit into a Nameless Morph, sided with you. Be careful, as Nameless Morphs do not know who you are! Of course, you are also able to /kill using 'basic' dark magic every round as well. Plunge the world into darkness!",
+            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every other night you are able to /morph any unit into a Nameless Morph, sided with you. Of course, you are also able to /kill using 'basic' dark magic every round as well. Plunge the world into darkness!",
             "info": "Can morph one person every other night. Can kill one person during the night. Sided with Dread Isle.",
             "actions": {
                 "night": {
@@ -792,7 +797,8 @@
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 12,
-                        "broadcast": "team"
+                        "broadcast": "team",
+                        "msg": "±Nergal: 'Tremble and despair!'"
                     }
                 },
                 "startup": "team-reveal-with-roles",
@@ -805,10 +811,41 @@
             }
         },
         {
+            "role": "sonia",
+            "translation": "Sonia",
+            "side": "nergal",
+            "help": "As Sonia, the 'imperfect' creation of Nergal, you believe humans are scum. You're a morph, but you don't believe that-- You're a human in your mind. The perfect human. Sadly, you were just a failed version of Limstella; not as beautiful, not as strong... It... angers you that you're flawed. You hate it. You hate everything. Your rage allows you to /kill somebody at night with an array of powerful spells, and you can /bind somebody at night, too. Both of these are shared with your teammates. You can /inspect someone during the night, too. You truely believe you're human, so you can be poisoned.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 53,
+                        "broadcast": "team"
+                    },
+                    "bind": {
+                        "command": "distract",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 5,
+                        "distractmsg": "Mystical anima magics have bound you in place. You were unable to act this round."
+                    }
+                }
+            }
+        },
+        {
             "role": "limstella",
             "translation": "Limstella",
             "side": "nergal",
-            "help": "The strongest and most beautiful of morphs at Nergal's command, you are a master of magic. You can use this magic to /kill every night. Elemental magics allow you to /bind an opponent in place, rendering then unable to take action for the night. You may also use /stalk to follow a suspect during the night. As you are not alive, you are not able to be poisoned.",
+            "help": "The strongest and most beautiful of morphs at Nergal's command, you are a master of magic. You can use this magic to /kill every night. Elemental magics allow you to /bind an opponent in place, rendering them unable to take action for the night. Both of these are shared with your team. You may also use /stalk to follow a suspect during the night. As you are not alive, you are not able to be poisoned.",
             "actions": {
                 "night": {
                     "kill": {
@@ -826,10 +863,10 @@
                     "bind": {
                         "command": "distract",
                         "target": "AnyButTeam",
-                        "common": "Self",
+                        "common": "Team",
                         "broadcast": "team",
                         "priority": 5,
-                        "distractmsg": "Mystical anima magics have bound you in place. You were unable to act this round. "
+                        "distractmsg": "Mystical anima magics have bound you in place. You were unable to act this round."
                     }
                 },
                 "poison": {
@@ -919,7 +956,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 3,
+                        "priority": 10,
                         "limit": 1
                     }
                 },
@@ -1117,7 +1154,7 @@
             "role": "mage",
             "translation": "Robin (Mage)",
             "side": "village",
-            "hide": "true",
+            "hide": true,
             "help": "Due to your high intelligence, you can use /inspect to view someone's role. You also have a voteshield of -1 and a vote of 2, because of Chrom's trust in you.",
             "actions": {
                 "startup": {
@@ -1138,7 +1175,7 @@
             "role": "merc",
             "translation": "Robin (Mercenary)",
             "side": "village",
-            "hide": "true",
+            "hide": true,
             "help": "Due to your expertise and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent. You also have your mind set on killing, so you can't be distracted and you can pierce through the toughest of bodyguards with your Armorslayer sword.",
             "actions": {
                 "startup": {
@@ -1158,7 +1195,7 @@
             "role": "knight",
             "translation": "Robin (Knight)",
             "side": "village",
-            "hide": "true",
+            "hide": true,
             "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed! Due to your amazing defensive skills in Pavise and Aegis, you also cannot be killed at night.",
             "actions": {
                 "startup": {
@@ -1261,7 +1298,8 @@
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 13,
-                        "broadcast": "team"
+                        "broadcast": "team",
+                        "msg": "±Tactician: Grima's Truth sucked the life out of you!"
                     }
                 }
             }
@@ -1384,7 +1422,10 @@
         "idoun",
         "nergal",
         "soren",
-        "limstella",
+        {
+            "limstella": 0.5,
+            "sonia": 0.5
+        },
         "zeph",
         "villager",
         "villager2",
@@ -1419,7 +1460,6 @@
         "zeph",
         "villager",
         "villager2",
-        "truemiller",
         "ike",
         "ashnard",
         "sophia",
@@ -1437,6 +1477,7 @@
         "villager2",
         "robin",
         "villager",
+        "sonia",
         "naesala1",
         "madking",
         "validar",
@@ -1468,6 +1509,7 @@
         "6.15.2013": "Made Marth's convert first priority to prevent auto-wins for waiting to convert till last second.",
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
-        "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators. Added Naesala. Tweaked messages. Added Lissa... Added Arvis... Added Risen Soldier..."
+        "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators. Added Naesala. Tweaked messages. Added Lissa... Added Arvis... Added Risen Soldier... and Sonia, which is Limstella with an inspect instead of stalk.",
+        "7.26.2013": "Ashnard's nightkill no longer outspeeds protect, nor does it outspeed Lyn's kill."
     }
 }
