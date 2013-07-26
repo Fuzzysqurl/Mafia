@@ -385,7 +385,8 @@
                         "target": "AnyButSelf",
                         "msg": "You can kill now by typing /kill [name]. You will not be revealed!",
                         "killmsg": "En garde! The Swordfish swings its snout around violently and punctures a hole in ~Target~.",
-                        "initialrecharge": 0
+                        "initialrecharge": 0,
+                        "charges": 1
                     }
                 },
                 "night": {
