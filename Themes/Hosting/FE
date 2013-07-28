@@ -274,6 +274,7 @@
             "role": "lyndis2",
             "translation": "Lyndis",
             "side": "village",
+            "hide": true,
             "help": "You're Lady Lyn of House Caelin. Despite being of noble blood, you spent almost the entirety of your life as a nomad on the plains of Sacae. As a result, you're extremely stealthy and swift. Every night, you can use /kill, which grants you the ability to dispatch a target with high priority. You're a close friend of Hector so you can identify him from the start.",
             "actions": {
                 "night": {
@@ -330,6 +331,7 @@
         {
             "role": "hector2",
             "translation": "Hector",
+            "hide": true,
             "side": "village",
             "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercly loyal to your friends. You possess incredibly strong armor and defensive capabilities, you're able to /protect one other ally every night. In addition, your role as leader of Ostia grants you considerable sway in voting procedures, giving you a +2 vote. You're a close friend of Lyndis so you can identify her from the start.",
             "actions": {
@@ -791,7 +793,7 @@
                         "newRole": "morph",
                         "silent": false,
                         "recharge": 2,
-                        "convertmsg": "A player has been drained of life energy and turned into a Nameless Morph!",
+                        "convertmsg": "~Old~ has been drained of life energy and turned into a Nameless Morph!",
                         "broadcast": "team"
                     },
                     "kill": {
