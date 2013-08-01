@@ -143,7 +143,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 2
+                        "priority": 3
                     }
                 }
             }
@@ -163,7 +163,7 @@
                     }
                 },
                 "startup": "team-reveal",
-                "vote": 1.1
+                "vote": 1.10
             }
         },
         {
@@ -181,7 +181,7 @@
                     }
                 },
                 "startup": "team-reveal",
-                "vote": 1.1
+                "vote": 1.10
             }
         },
         {
@@ -391,7 +391,7 @@
                     "safeguard": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 2
+                        "priority": 4
                     }
                 },
                 "startup": {
@@ -648,7 +648,7 @@
                         "command": "kill",
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 0,
+                        "priority": 2,
                         "limit": 5,
                         "initialrecharge": 5,
                         "msg": "±Black Knight: 'Let's see how you handle this!'"
@@ -818,7 +818,7 @@
             "role": "sonia",
             "translation": "Sonia",
             "side": "nergal",
-            "help": "As Sonia, the 'imperfect' creation of Nergal, you believe humans are scum. You're a morph, but you don't believe that-- You're a human in your mind. The perfect human. Sadly, you were just a failed version of Limstella; not as beautiful, not as strong... It... angers you that you're flawed. You hate it. You hate everything. Your rage allows you to /kill somebody at night with an array of powerful spells, and you can /bind somebody at night, too. Both of these are shared with your teammates. You can /inspect someone during the night, too. You truely believe you're human, so you can be poisoned.",
+            "help": "As Sonia, the 'imperfect' creation of Nergal, you believe humans are scum. You're a morph, but you don't believe that-- You're a human in your mind. The perfect human. Sadly, you were just a failed version of Limstella; not as beautiful, not as strong... It... angers you that you're flawed. You hate it. You hate everything. Your rage allows you to /kill somebody at night with an array of powerful spells, and you can /bind somebody at night, too. Both of these are shared with your teammates. You can /inspect someone during the night, too.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "night": {
@@ -924,12 +924,12 @@
             "role": "lyon",
             "translation": "Lyon",
             "side": "lyon",
-            "help": "You're the kind prince of Grado, you have no desire for this war but...this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate [your name] to use it! You have no further commands until you activate it. You can't be killed as Lyon, either.",
-            "info": "Can convert into Demon King during the night. Evades nightkills. Sided with Grado Empire.",
+            "help": "You're the kind prince of Grado, you have no desire for this war but...this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate [your name] to use it! You have no further commands until you activate it.",
+            "info": "Can convert into Demon King during the night. Sided with Grado Empire.",
             "actions": {
                 "night": {
                     "activate": {
-                        "command": "convert",
+                        "command": ["convert", "protect"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 1,
@@ -943,9 +943,6 @@
                 },
                 "stalk": {
                     "mode": "noVisit"
-                },
-                "kill": {
-                    "mode": "ignore"
                 }
             }
         },
@@ -1028,7 +1025,8 @@
                 "zeph",
                 "limstella",
                 "fool2",
-                "arvis"
+                "arvis",
+                "marth"
             ],
             "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish.",
             "actions": {
@@ -1501,7 +1499,6 @@
         "hector2",
         "lyndis2",
         "lyndis",
-        "mhero",
         "marth",
         "robin",
         "merc",
@@ -1516,6 +1513,7 @@
         "7.22.2013": "Added Robin role, Grimleal mafia team, and cleaned up larger games' spawnlist! Morph has 25% chance of having a vote of 1.",
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
         "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators. Added Naesala. Tweaked messages. Added Lissa... Added Arvis... Added Risen Soldier... and Sonia, which is Limstella with an inspect instead of stalk.",
-        "7.26.2013": "Ashnard's nightkill no longer outspeeds protect, nor does it outspeed Lyn's kill."
+        "7.26.2013": "Ashnard's nightkill no longer outspeeds protect, nor does it outspeed Lyn's kill.",
+        "8.1.2013": "Priority reshuffle. Added Marth to DK's winIfDead. Minor help message tweaks on a couple of roles"
     }
 }
