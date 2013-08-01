@@ -1,0 +1,147 @@
+{
+    "name": "SI",
+    "altname":"Space Invaders",
+    "author":["Cat Fart"
+    ],
+    "summary":"http://wiki.pokemon-online.eu/wiki/Theme:Space_Invaders",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?15941-Space-Invaders",
+    "sides":[{
+            "side":"aliens",
+            "translation":"Space Invaders",
+            "winmsg":"The Space Invaders (~Players~) destroyed all the human's forces and now they control the Earth!"
+        },
+        {
+            "side":"village",
+            "translation":"Defenders",
+            "winmsg":"The Defenders (~Players~) won and now the Earth it's a safe place!"
+        }
+    ],
+    "roles":[{
+            "role":"laser",
+            "translation":"Laser Cannon",
+            "side":"village",
+            "help":"You're the Laser Cannon! Destroy your enemies with your laser typing /kill during the standby! However, you should be protected by a Bunker, because if you die, the Space Invaders win!",
+            "info":"Can kill one player during the standby. Sided with the Defenders.",
+            "actions":{
+                "standby":{
+                    "kill":{
+                        "target":"AnyButSelf",
+                        "msg":"Now, destroy your enemies with /kill [name]! :",
+                        "killmsg":"~Self~ aimed at ~Target~ and destroyed him with a laser shot!! IMMA FIRIN MAH LAZER!!!"
+                    }
+                },
+"onDeath": {
+    "killRoles": ["bunker"],
+    "killmsg": "±Space Invaders:  When ~Self~ died, all the Bunkers were defenseless and they surrendered!"
+}
+            }
+        },
+        {
+            "role":"bunker",
+            "translation":"Bunker",
+            "side":"village",
+            "help":"You're Bunker! Sturdy and resistant, you can block the Alien's attack! But you'll have to choose, because you can protect the Laser Cannon or yourself up to 3 times in the game! Make wise decisions, because if all the Bunkers or the Laser Cannon die, the Space Invaders win!",
+            "info":"Can protect or selfprotect one player during the night up to 3 times. Sided with the Defenders",
+            "actions":{
+                "night":{
+                    "protect":{
+                        "target":"Any",
+                        "common":"Self",
+                        "priority":1,
+  		"charges":3,
+			"chargesmsg": "You can only protect ~Charges~ more times!"
+                    }
+                },
+                "startup":{
+                    "revealRole":"laser"
+                }
+            }
+        },
+        {
+            "role":"alien",
+            "translation":"Alien",
+            "side":"aliens",
+            "winIfDeadRoles":["bunker"
+            ],
+            "help":"You're an alien! Time to kill all that stupid humans and control the Earth! Type /kill during the night! Also, each 2 nights you have an extra nightkill with /kill2, and that's not shared with your team!!",
+            "info":"Can kill one player during the night (Shared). Can kill one player each 2 nights (Not-Shared). Sided with the Space Invaders.",
+            "actions":{
+                "night":{
+                    "kill":{
+                        "target":"AnyButTeam",
+                        "common":"Team",
+                        "priority":2,
+                        "broadcast":"team"
+                    },
+                    "kill2": {
+                        "recharge": 2,
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 3,
+                        "broadcast": "team"
+                    }
+                },
+"startup": {
+    "revealRole": ["alien", "laser"]
+}
+            }
+        }
+    ],
+    "roles1":["laser",
+        "bunker",
+        "bunker",
+        "bunker",
+        "alien",
+        "bunker",
+        "bunker",
+        "alien",
+        "bunker",
+        "bunker",
+        "bunker",
+	"alien",
+        "bunker",
+        "bunker",
+        "bunker",
+        "alien",
+        "bunker",
+        "bunker",
+        "bunker",
+	"alien",
+        "bunker",
+        "bunker",
+        "bunker",
+        "bunker",
+	"alien",
+        "bunker",
+        "bunker",
+        "bunker",
+	"alien",
+        "bunker",
+        "bunker",
+	"alien",
+        "bunker",
+        "bunker",
+        "alien",
+        "bunker",
+        "bunker",
+        "bunker",
+	"alien",
+        "bunker",
+        "bunker",
+        "alien",
+        "bunker",
+        "bunker",
+	"alien",
+        "bunker",
+        "bunker",
+        "bunker",
+        "alien"
+    ],
+    "villageCantLoseRoles": [
+        "laser"
+    ],
+    "killmsg":"±Space Invaders: ~Player~ (~Role~) was destroyed!",
+    "killusermsg":" You were destroyed!",
+    "border":"***¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦  ¦¯-¯¦"
+}
