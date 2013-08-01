@@ -920,7 +920,7 @@
             "translation": "Tetanus",
             "side": "bacteria",
             "info": "Night Actions: spore (protect and safeguard - can only be used on itself - has a 10% chance of failing) or kill (shared with team). Can't use both night actions at the same night. Vote counts as 1.1. Knows teammates. Sided with Bacterial Diseases.",
-            "help": "You are a bacterial disease that can stop muscles movements. Being caused by a bacteria, you can EITHER form some spores, with /spore [your name] at night OR share a /kill with the other bacterial diseases at night. Due being deadly, your vote was increased to 1.1.",
+            "help": "You are a bacterial disease that can stop muscles movements. Being caused by a bacteria, you can EITHER form some spores (which protect and safeguard), with /spore [your name] at night OR share a /kill with the other bacterial diseases at night. Due being deadly, your vote was increased to 1.1.",
             "actions": {
                 "vote": 1.1,
                 "startup": "team-reveal-with-roles",
