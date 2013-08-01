@@ -227,6 +227,7 @@
             "role": "fool2",
             "translation": "Lundgren",
             "side": "fool",
+            "hide": true,
             "help": "You are the evil Lord Lundgren. You don't have any lofty goals in mind like any of the other villains. You simply wish to take control of House Caelin but...Lyndis and her cadre are in your way. Exterminate the rats with /poison AND /kill every night. Your vote counts as 3. You know the disgruntled soldiers.",
             "actions": {
                 "startup": "team-reveal",
@@ -1026,7 +1027,8 @@
                 "murdock",
                 "zeph",
                 "limstella",
-                "fool2"
+                "fool2",
+                "arvis"
             ],
             "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish.",
             "actions": {
@@ -1053,6 +1055,7 @@
             "translation": "Arvis",
             "side": "arvis",
             "help": "Ahaha! It feels GREAT to be powerful, doesn't it!? During the day, you can ROAST somebody with /flame-- they'll be incinerated instantly. Since you are sided with yourself, you can /kill someone at night, too, and your immense strength allows you to kill anyone that kills you at night.",
+            "info": "Can kill one person during the night. Can flame (kill) one person during the standby. Revenges nightkills (even when protected). Sided with Prince Arvis.",
             "actions": {
                 "night": {
                     "kill": {
