@@ -946,6 +946,6 @@
     "killmsg": "±Olympus: ~Player~ (~Role~) has been cast off from Mount Olympus!",
 	"changelog": {
 		"07.31.13": "Added Demeter, Dionysus, Gaia, and Uranus. Slightly lowered hax for Demigods.",
-		"08.01.13": "Completely removed hax for Demigods."
+		"08.01.13": "Completely removed hax for Demigods. Fixed spawnlist so that Kronos and Achilles spawn at the same time."
 	}
 }
