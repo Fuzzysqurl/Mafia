@@ -48,7 +48,7 @@
             "actions": {
                 "hax": {
                     "kill": {
-                        "revealTeam": 0.5,
+                        "revealTeam": 0.05,
                         "revealPlayer": 0.02
                     }
                 }
