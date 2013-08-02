@@ -639,7 +639,7 @@
                     "intimidate": {
                         "command": "reveal",
                         "revealmsg": "In every pub and on every street, there is only one topic of conversation - the Black Knight is here. Everyone in the audience feels a chill.",
-                        "initialrecharge": 4,
+                        "initialrecharge": 5,
                         "recharge": 99
                     }
                 },
