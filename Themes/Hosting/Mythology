@@ -172,11 +172,6 @@
                         "broadcast": "team"
                     }
                 },
-                "hax": {
-                    "distract": {
-                        "revealPlayer": 0.1
-                    }
-                },
                 "startup": "team-reveal-with-roles",
 				"initialCondition": {
 					"clearPoison": true
@@ -197,9 +192,7 @@
                     }
                 },
                 "distract": {
-                    "mode": "ChangeTarget",
-                    "hookermsg": "You sway seductively to your target but it's the Basilisk! You attempt to scream but its menacing gaze is stifling and you are unable to utter a sound as the creature slithers towards you...",
-                    "msg": "The ~Distracter~ tried to distract you last night. You found her to be a pleasant meal."
+                    "mode": "Ignore"
                 },
                 "avoidHax": [
                     "kill"
@@ -567,11 +560,6 @@
                         "common": "Team",
                         "priority": 11,
                         "broadcast": "team"
-                    }
-                },
-                "hax": {
-                    "protect": {
-                        "revealPlayer": 0.1
                     }
                 },
                 "startup": "team-reveal-with-roles",
@@ -946,6 +934,6 @@
     "killmsg": "±Olympus: ~Player~ (~Role~) has been cast off from Mount Olympus!",
 	"changelog": {
 		"07.31.13": "Added Demeter, Dionysus, Gaia, and Uranus. Slightly lowered hax for Demigods.",
-		"08.01.13": "Completely removed hax for Demigods. Fixed spawnlist so that Kronos and Achilles spawn at the same time."
+		"08.01.13": "Completely removed hax for Demigods. Fixed spawnlist so that Kronos and Achilles spawn at the same time. Removed Cerberus and Gorgon getting hax. Basilisk now ignores distract rather than killing the distractor."
 	}
 }
