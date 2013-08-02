@@ -620,7 +620,7 @@
             "role": "cactuar",
             "translation": "Cactuar",
             "side": "village",
-            "info": "Can inspect one person during the night (90% chance for fake inspect). Sees itself as Locke. Cannot be detected by spies. Reveals as Kefka when inspected. Sided with Heroes.",
+            "info": "Can inspect one person during the night (90% chance for fake inspect). Sees itself as Locke. Reveals as Kefka when inspected. Sided with Heroes.",
             "help": "Type /Inspect [name] to find his/her identity! Be careful to not die!",
             "actions": {
                 "night": {
