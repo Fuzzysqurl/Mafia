@@ -6,7 +6,7 @@
 		"Roy Mustang"
 	],
 	"threadlink": "http://pokemon-online.eu/forums/showthread.php?16001-Mythology",
-    "summary": "The Heavens are at war in this epic struggle for Mount Olympus.  The mighty powers of Good, including Zeus, Apollo, and Athena are supported by numerous Demigods as they combat their enemies.  Hades brings his vicious Cerberus' to aid him as he kills during the day, hidden by Darkness, while Medusa and her fellow Gorgons seek their revenge on the divine.  Ever lurking in the shadows, Kronos exerts his might in a more discreet way, sentencing death upon whoever he votes. Watch out though, as Mount Olympus is being besieged from a new angle; the Titans have joined the battle. While they begin the brawl weakly, be careful, as they get stronger every night... CHANGES: Basilisk now ignores distractors rather than killing distractors! NEW ROLES: Demeter, Dionysus, Gaia, Uranus",
+    "summary": "The Heavens are at war in this epic struggle for Mount Olympus.  The mighty powers of Good, including Zeus, Apollo, and Athena are supported by numerous Demigods as they combat their enemies.  Hades brings his vicious Cerberus' to aid him as he kills during the day, hidden by Darkness, while Medusa and her fellow Gorgons seek their revenge on the divine.  Ever lurking in the shadows, Kronos exerts his might in a more discreet way, sentencing death upon whoever he votes. Watch out though, as Mount Olympus is being besieged from a new angle; the Titans have joined the battle. While they begin the brawl weakly, be careful, as they get stronger every night... NEW ROLES: Demeter, Dionysus, Gaia, Uranus",
     "sides": [
         {
             "side": "mafia1",
@@ -40,14 +40,20 @@
         }
     ],
     "roles": [
-            {
+        {
             "role": "villager",
             "translation": "Demigod",
-            "info": "Standard villager. Sided with Olmpians.",
             "side": "village",
             "help": "You dont have any special commands during the night! Vote to remove people in the day!",
-            "actions": {}
-        },      
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.02
+                    }
+                }
+            }
+        },     
         {
             "role": "apollo",
             "translation": "Apollo",
@@ -162,7 +168,7 @@
             "role": "mafia1",
             "translation": "Cerberus",
             "side": "mafia1",
-            "help": "Three-headed dog of the Underworld, and servant of Hades. Type /Kill [name] to kill someone!",
+            "help": "Three-headed dog of the Underworld, and servant of Hades. You have a small chance to discover the Pretty Lady.  Type /Kill [name] to kill someone!",
             "actions": {
                 "night": {
                     "kill": {
@@ -170,6 +176,11 @@
                         "common": "Team",
                         "priority": 11,
                         "broadcast": "team"
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealPlayer": 0.1
                     }
                 },
                 "startup": "team-reveal-with-roles",
@@ -192,7 +203,9 @@
                     }
                 },
                 "distract": {
-                    "mode": "Ignore"
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You sway seductively to your target but it's the Basilisk! You attempt to scream but its menacing gaze is stifling and you are unable to utter a sound as the creature slithers towards you...",
+                    "msg": "The ~Distracter~ tried to distract you last night. You found her to be a pleasant meal."
                 },
                 "avoidHax": [
                     "kill"
@@ -552,7 +565,7 @@
             "role": "mafia2",
             "translation": "Gorgon",
             "side": "mafia2",
-            "help": "Your head is writhing with snakes that terrify even the most hardened God. Type /Kill [name] to kill someone!",
+            "help": "Your head is writhing with snakes that terrify even the most hardened God. You have a small chance to discover the Bodyguard! Type /Kill [name] to kill someone!",
             "actions": {
                 "night": {
                     "kill": {
@@ -560,6 +573,11 @@
                         "common": "Team",
                         "priority": 11,
                         "broadcast": "team"
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealPlayer": 0.1
                     }
                 },
                 "startup": "team-reveal-with-roles",
@@ -606,7 +624,7 @@
             "role": "mafiaboss1",
             "translation": "Hades",
             "side": "mafia1",
-            "help": "Lord of the Underworld. Your veil of Darkness protects you from the feeble spying attempts of Hermes. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
+            "help": "Lord of the Underworld. Your veil of Darkness protects you from the feeble spying attempts of Hermes and the Demigods. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
             "actions": {
                 "night": {
                     "kill": {
@@ -859,23 +877,8 @@
         "villager",
         "villager",
         "mayor"
-    ],   
+    ],
     "roles2": [
-        "bodyguard",
-        "mafia1",
-        "mafia1",
-        "inspector",
-        "hooker",
-        "villager",
-        "mafia2",
-        "mafia2",
-        "villager",
-        "spy",
-        "villager",
-        "mayor",        
-        "villager"
-     ],
-    "roles3": [
         "bodyguard",
         "mafia1",
         "mafia1",
@@ -933,7 +936,5 @@
     ],
     "killmsg": "±Olympus: ~Player~ (~Role~) has been cast off from Mount Olympus!",
 	"changelog": {
-		"07.31.13": "Added Demeter, Dionysus, Gaia, and Uranus. Slightly lowered hax for Demigods.",
-		"08.01.13": "Completely removed hax for Demigods. Fixed spawnlist so that Kronos and Achilles spawn at the same time. Removed Cerberus and Gorgon getting hax. Basilisk now ignores distract rather than killing the distractor."
 	}
 }
