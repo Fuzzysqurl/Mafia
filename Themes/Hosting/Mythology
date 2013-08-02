@@ -1,8 +1,12 @@
 {
     "name": "Mythology",
-    "author": "Redsnake",
-    "threadlink": "http://pokemon-online.eu/forums/showthread.php?16001-Mythology",
-    "summary": "The Heavens are at war in this epic struggle for Mount Olympus.  The mighty powers of Good, including Zeus, Apollo, and Athena are supported by numerous Demigods as they combat their enemies.  Hades brings his vicious Cerberus' to aid him as he kills during the day, hidden by Darkness, while Medusa and her fellow Gorgons seek their revenge on the divine.  Ever lurking in the shadows, Kronos exerts his might in a more discreet way, sentencing death upon whoever he votes. Watch out though, as Mount Olympus is being besieged from a new angle; the Titans have joined the battle. While they begin the brawl weakly, be careful, as they get stronger every night...",
+    "author": [
+		"Redsnake",
+		"Sebastian Hummel",
+		"Roy Mustang"
+	],
+	"threadlink": "http://pokemon-online.eu/forums/showthread.php?16001-Mythology",
+    "summary": "The Heavens are at war in this epic struggle for Mount Olympus.  The mighty powers of Good, including Zeus, Apollo, and Athena are supported by numerous Demigods as they combat their enemies.  Hades brings his vicious Cerberus' to aid him as he kills during the day, hidden by Darkness, while Medusa and her fellow Gorgons seek their revenge on the divine.  Ever lurking in the shadows, Kronos exerts his might in a more discreet way, sentencing death upon whoever he votes. Watch out though, as Mount Olympus is being besieged from a new angle; the Titans have joined the battle. While they begin the brawl weakly, be careful, as they get stronger every night... NEW ROLES: Demeter, Dionysus, Gaia, Uranus",
     "sides": [
         {
             "side": "mafia1",
@@ -27,7 +31,7 @@
         {
             "side": "kronos",
             "translation": "Kronos",
-            "winmsg": "±Olympus: Masterful manipulation has allowed ~Players~ to overthrow the Gods and claim Mount Olympus for his own!"
+            "winmsg": "±Olympus: Masterful manipulation has allowed ~Players~ to overthrow the Gods and claim Mount Olympus for their own!"
         },
         {
             "side": "titans",
@@ -36,20 +40,14 @@
         }
     ],
     "roles": [
-        {
+            {
             "role": "villager",
             "translation": "Demigod",
+            "info": "Standard villager. Sided with Olmpians.",
             "side": "village",
             "help": "You dont have any special commands during the night! Vote to remove people in the day!",
-            "actions": {
-                "hax": {
-                    "kill": {
-                        "revealTeam": 0.10,
-                        "revealPlayer": 0.02
-                    }
-                }
-            }
-        },
+            "actions": {}
+        },      
         {
             "role": "apollo",
             "translation": "Apollo",
@@ -67,7 +65,10 @@
                     }
                 },
                 "daykill": "revealkiller",
-                "daykillrevengemsg": "In a dying explosion of light, ~Self~ reveals ~Target~ as the ~Role~!"
+                "daykillrevengemsg": "In a dying explosion of light, ~Self~ reveals ~Target~ as the ~Role~!",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -82,7 +83,10 @@
                         "common": "Self",
                         "priority": 30
                     }
-                }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -109,7 +113,10 @@
                     "team-revealif": [
                         "mafia1"
                     ]
-                }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -126,7 +133,10 @@
                     }
                 },
                 "vote": 2,
-                "startup": "role-reveal"
+                "startup": "role-reveal",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -142,7 +152,10 @@
                         "priority": 3
                     }
                 },
-                "startup": "role-reveal"
+                "startup": "role-reveal",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -164,7 +177,10 @@
                         "revealPlayer": 0.1
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -188,7 +204,10 @@
                 "avoidHax": [
                     "kill"
                 ],
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -205,7 +224,10 @@
                         "distractmsg": "While you attempted to carry out your nightly activities, you instead found yourself irresistibly enamoured with a breathtaking woman who appeared from nowhere.  You have no regrets the next morning, though your partners seem to be a bit miffed.",
                         "teammsg": "You were unable to act last night, as your teammate was too busy with Aphrodite."
                     }
-                }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -214,29 +236,10 @@
             "side": "village",
             "help": "God of the Gods.  You rule the Olympians, and thus your vote counts as 4. You dont have any special commands during the night! Vote to remove people in the day!",
             "actions": {
-                "vote": 4
-            }
-        },
-        {
-            "role": "kronos",
-            "translation": "Kronos",
-            "side": "kronos",
-            "help": "Leader of the Titans, you are all alone after your tyranny.  However, you control immense power, and a single vote by you will vote someone out. You don't have any special commands during the night! Vote to remove people in the day!",
-            "winIfDeadRoles": [
-                "mafia1",
-                "werewolf",
-                "vigilante",
-                "mafia2",
-                "mafiaboss2",
-                "mafiaboss1",
-                "samurai",
-                "prometheus",
-                "eprometheus",
-                "phoebe",
-                "ephoebe"
-            ],
-            "actions": {
-                "vote": 100
+                "vote": 4,
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -250,7 +253,218 @@
                         "revealTeam": 0.3,
                         "revealPlayer": 0.11
                     }
-                }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "samurai",
+            "translation": "Achilles",
+            "side": "village",
+            "help": "While mortal, the Olympians have deemed you strong enough to survive their cause. However, you are not beyond disposable, and so you kill in the daylight where your name will be revealed.  Type /Kill [name] during the day phase to kill someone! You will be revealed when you kill, so make wise choices! You are allied with the Good people.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "~Self~ (Achilles) pulls out a sword and strikes it through ~Target~'s chest!"
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "demeter",
+            "translation": "Demeter",
+            "side": "village",
+            "help": "Goddess of the Harvest. During the night, you can /harvest for a player, which will be seen by all. Half of the time, this will heal them of all poison, but the other half of the time you will only heal yourself. Save your friends.",
+			"info": "Can harvest for one person during the night (50% chance of healing their poison, 50% chance of healing self). Broadcast to all. Sided with Olympians.",
+            "actions": {
+                "night": {
+					"harvest": {
+						"command": ["convert", "copy"],
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Demeter harvests a golden apple and presents it to ~Target~! Accepted! ***",
+						"restrict": ["harvest"],
+						"priority": 27,
+						"newRole": {
+							"villager": ["villager"],
+							"villager2": ["villager2"],
+							"villager3": ["villager3"],
+							"villager4": ["villager4"],
+							"apollo": ["apollo"],
+							"inspector": ["inspector"],
+							"poseidon": ["poseidon"],
+							"bodyguard": ["bodyguard"],
+							"bodyguard0": ["bodyguard0"],
+							"mafia1": ["mafia1"],
+							"werewolf": ["werewolf"],
+							"hooker": ["hooker"],
+							"mayor": ["mayor"],
+							"spy": ["spy"],
+							"samurai": ["samurai"],
+							"dionysus": ["dionysus", "dionysuspo", "dionysuspo2"],
+							"vigilante": ["vigilante"],
+							"kronos": ["kronos"],
+							"gaia": ["gaia"],
+							"uranus": ["uranus"],
+							"mafia2": ["mafia2"],
+							"mafiaboss2": ["mafiaboss2"],
+							"mafiaboss1": ["mafiaboss1"],
+							"oceanus": ["oceanus"],
+							"eoceanus": ["eoceanus"],
+							"phoebe": ["phoebe"],
+							"ephoebe": ["ephoebe"],
+							"prometheus": ["prometheus"],
+							"eprometheus": ["eprometheus"],
+							"miller": ["miller"]
+						},
+						"silentConvert": true,
+						"copyAs": {
+							"demeter": 0.5,
+							"demeter2": 0.5
+						},
+						"silentCopy": true,
+						"silent": true
+					}
+				}
+            }
+        },
+        {
+			"hide": true,
+            "role": "demeter2",
+            "translation": "Demeter",
+            "side": "village",
+            "help": "Goddess of the Harvest. During the night, you can /harvest for a player, which will be seen by all. Half of the time, this will heal them of all poison, but the other half of the time you will only heal yourself. Save your friends.",
+            "actions": {
+                "night": {
+					"harvest": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Demeter harvests a fallen apple and presents it to ~Target~! Rejected... ***",
+						"restrict": ["harvest"],
+						"priority": 27,
+						"copyAs": {
+							"demeter": 0.5,
+							"demeter2": 0.5
+						},
+						"silentCopy": true,
+						"silent": true
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "dionysus",
+            "translation": "Dionysus",
+            "side": "village",
+            "help": "God of Wine and Ecstasy. During the night, you can /drink with a player, which will be seen by all. Half of the time, this will poison them, but the other half of the time you will be poisoned instead. Be careful.",
+			"info": "Can drink with one person during the night (50% chance of poisoning them, 50% chance of poisoning self, killing after two days). Broadcast to all. Sided with Olympians.",
+            "actions": {
+                "night": {
+					"drink": {
+						"command": {
+							"poison": 0.5,
+							"copy": 0.5
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
+						"restrict": ["drink"],
+						"priority": 23,
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying with Dionysus, and died of alcohol poisoning...",
+						"copyAs": "dionysuspo",
+						"silentCopy": true,
+						"silent": true
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+			"hide": true,
+            "role": "dionysuspo",
+            "translation": "Dionysus",
+            "side": "village",
+            "help": "God of Wine and Ecstasy. During the night, you can /drink with a player, which will be seen by all. Half of the time, this will poison them, but the other half of the time you will be poisoned instead. Be careful.",
+            "actions": {
+                "night": {
+					"drink": {
+						"command": {
+							"poison": 0.5,
+							"copy": 0.5
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
+						"restrict": ["drink"],
+						"priority": 22,
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying with Dionysus, and died of alcohol poisoning...",
+						"copyAs": "dionysuspo2",
+						"silentCopy": true
+					}
+				},
+				"initialCondition": {
+					"poison": {
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying, and died of alcohol poisoning..."
+					}
+				}
+            }
+        },
+        {
+			"hide": true,
+            "role": "dionysuspo2",
+            "translation": "Dionysus",
+            "side": "village",
+            "help": "God of Wine and Ecstasy. During the night, you can /drink with a player, which will be seen by all. Half of the time, this will poison them, but the other half of the time you will be poisoned instead. Be careful.",
+            "actions": {
+                "night": {
+					"drink": {
+						"command": {
+							"poison": 0.5,
+							"copy": 0.5
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
+						"restrict": ["drink"],
+						"priority": 21,
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying with Dionysus, and died of alcohol poisoning...",
+						"copyAs": "dionysuspo2",
+						"silentCopy": true,
+						"silent": true
+					}
+				}
             }
         },
         {
@@ -268,7 +482,77 @@
                 },
                 "avoidHax": [
                     "kill"
-                ]
+                ],
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "kronos",
+            "translation": "Kronos",
+            "side": "kronos",
+            "help": "Leader of the Titans, you are (almost) all alone after your tyranny.  However, you control immense power, and a single vote by you will vote someone out. You don't have any special commands during the night! Vote to remove people in the day! If Gaia and Uranus are alive, team up with them to win!",
+            "winIfDeadRoles": [
+                "mafia1",
+                "werewolf",
+                "vigilante",
+                "mafia2",
+                "mafiaboss2",
+                "mafiaboss1",
+                "samurai",
+                "prometheus",
+                "eprometheus",
+                "phoebe",
+                "ephoebe",
+				"dionysus",
+				"dionysuspo",
+				"dionysuspo2"
+            ],
+            "actions": {
+                "vote": 100,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "gaia",
+            "translation": "Gaia",
+            "side": "kronos",
+            "help": "Mother Earth as you are known today. You have temporarily teamed up with your son Kronos and his father Uranus to eliminate all others. You may /expose someone during the day to reveal their role. Find and team up with your partners to win!",
+            "actions": {
+                "standby": {
+					"expose": {
+						"target": "AnyButSelf",
+						"msg": "Use /expose now to show off someone's role! You will not be revealed.",
+						"exposemsg": "Mother Gaia would like all the world to know that ~Target~ is the ~Role~."
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "uranus",
+            "translation": "Uranus",
+            "side": "kronos",
+            "help": "The Original Ruler of the Universe. You have temporarily teamed up with your son Kronos and his mother Gaia to eliminate all others. You can /poison someone during the night, and they will die after 2 more nights. Be careful not to poison your own family. Find and team up with your partners to win!",
+			"info": "Can poison one person during the night, killing them after 2 nights. Sided with Kronos.",
+            "actions": {
+                "night": {
+					"poison": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 25,
+						"count": 3,
+						"poisonDeadMessage": "Be wary of the power of mighty Uranus..."
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -290,7 +574,10 @@
                         "revealPlayer": 0.1
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -321,7 +608,10 @@
                 "inspect": {
                     "revealAs": "villager"
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -348,22 +638,10 @@
                         "msg": "It's daytime, but you are cloaked in Darkness. Type /Kill to get rid of your nemesis.",
                         "killmsg": "A dark shadow appears behind ~Target~ and grows into a menacing form.  A black aura surrounds them, and both Hades and ~Target~ are taken to the Underworld."
                     }
-                }
-            }
-        },
-        {
-            "role": "samurai",
-            "translation": "Achilles",
-            "side": "village",
-            "help": "While mortal, the Olympians have deemed you strong enough to survive their cause. However, you are not beyond disposable, and so you kill in the daylight where your name will be revealed.  Type /Kill [name] during the day phase to kill someone! You will be revealed when you kill, so make wise choices! You are allied with the Good people.",
-            "actions": {
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now using /kill [name] :",
-                        "killmsg": "~Self~ (Achilles) pulls out a sword and strikes it through ~Target~'s chest!"
-                    }
-                }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -397,16 +675,28 @@
                     "flipper": {
                         "revealTeam": 0.1,
                         "revealPlayer": 0.1
+                    },
+                    "poison": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "harvest": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "drink": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
                     }
                 },
-    			"initialCondition": {
+				"initialCondition": {
 					"curse": {
                         "curseCount": 1,
                         "cursedRole": "eoceanus",
                         "curseConvertMessage": "The Tides swell and the Sea surges; Oceanus has become Empowered."
-                    }
-                },
-                "startup": "team-reveal-with-roles"
+                    },
+					"clearPoison": true
+                }
             }
         },
         {
@@ -441,9 +731,24 @@
                     "flipper": {
                         "revealTeam": 0.5,
                         "revealPlayer": 0.5
+                    },
+                    "poison": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "harvest": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "drink": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -459,7 +764,8 @@
                         "curseCount": 3,
                         "cursedRole": "ephoebe",
                         "curseConvertMessage": "The Moon glistens and Shadows lengthen; Phoebe has become Empowered."
-                    }
+                    },
+					"clearPoison": true
                 },
                 "standby": {
                     "eclipse": {
@@ -490,7 +796,10 @@
                         "revealmsg": "You witness ~Self~ silhouetted against the Moon!"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -505,7 +814,8 @@
                         "curseCount": 2,
                         "cursedRole": "eprometheus",
                         "curseConvertMessage": "The Sky flares in a momentary blaze; Prometheus has become Empowered."
-                    }
+                    },
+					"clearPoison": true
                 },
                 "vote": -3,
                 "startup": "team-reveal-with-roles"
@@ -528,7 +838,10 @@
                     }
                 },
                 "vote": -6,
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         },
         {
@@ -539,7 +852,10 @@
             "actions": {
                 "inspect": {
                     "revealAs": "kronos"
-                }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
             }
         }
     ],
@@ -549,11 +865,11 @@
         "inspector",
         "werewolf",
         "hooker",
-        "villager",
+        {"villager": 0.95, "villager2": 0.02, "villager3": 0.02, "villager4": 0.01},
         "mafia1",
-        "villager",
-        "villager",
-        "villager",
+        {"villager": 0.95, "villager2": 0.02, "villager3": 0.02, "villager4": 0.01},
+        {"villager": 0.95, "villager2": 0.02, "villager3": 0.02, "villager4": 0.01},
+        {"villager": 0.95, "villager2": 0.02, "villager3": 0.02, "villager4": 0.01},
         "mayor"
     ],
     "roles2": [
@@ -579,24 +895,42 @@
         "vigilante",
         "poseidon",
         "villager",
-        "phoebe",
         "prometheus",
+        "phoebe",
         "oceanus",
         "werewolf",
         "villager",
+        "villager",
         "samurai",
-        "villager",
-        "villager",
         "werewolf",
-        "mafia1",
+        "villager",
+		"gaia",
+        "villager",
+        "bodyguard",
+		"dionysus",
+		"uranus",
+		{"demeter": 0.5, "demeter2": 0.5},
+		"miller",
         "mafia2",
-        "bodyguard"
+        "mafia1",
+		"spy",
+		"werewolf",
+        "villager",
+		"villager",
+        "villager"
     ],
     "villageCantLoseRoles": [
         "mayor",
         "vigilante",
         "samurai",
-        "bodyguard"
+        "bodyguard",
+		"dionysus",
+		"dionysuspo",
+		"dionysuspo2"
     ],
-    "killmsg": "±Olympus: ~Player~ (~Role~) has been cast off from Mount Olympus!"
+    "killmsg": "±Olympus: ~Player~ (~Role~) has been cast off from Mount Olympus!",
+	"changelog": {
+		"07.31.13": "Added Demeter, Dionysus, Gaia, and Uranus. Slightly lowered hax for Demigods.",
+		"08.01.13": "Completely removed hax for Demigods."
+	}
 }
