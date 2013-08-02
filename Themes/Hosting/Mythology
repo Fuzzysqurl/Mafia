@@ -162,7 +162,7 @@
             "role": "mafia1",
             "translation": "Cerberus",
             "side": "mafia1",
-            "help": "Three-headed dog of the Underworld, and servant of Hades. You have a small chance to discover the Pretty Lady.  Type /Kill [name] to kill someone!",
+            "help": "Three-headed dog of the Underworld, and servant of Hades. Type /Kill [name] to kill someone!",
             "actions": {
                 "night": {
                     "kill": {
@@ -552,7 +552,7 @@
             "role": "mafia2",
             "translation": "Gorgon",
             "side": "mafia2",
-            "help": "Your head is writhing with snakes that terrify even the most hardened God. You have a small chance to discover the Bodyguard! Type /Kill [name] to kill someone!",
+            "help": "Your head is writhing with snakes that terrify even the most hardened God. Type /Kill [name] to kill someone!",
             "actions": {
                 "night": {
                     "kill": {
@@ -606,7 +606,7 @@
             "role": "mafiaboss1",
             "translation": "Hades",
             "side": "mafia1",
-            "help": "Lord of the Underworld. Your veil of Darkness protects you from the feeble spying attempts of Hermes and the Demigods. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
+            "help": "Lord of the Underworld. Your veil of Darkness protects you from the feeble spying attempts of Hermes. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
             "actions": {
                 "night": {
                     "kill": {
