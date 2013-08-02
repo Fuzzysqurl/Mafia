@@ -6,7 +6,7 @@
 		"Roy Mustang"
 	],
 	"threadlink": "http://pokemon-online.eu/forums/showthread.php?16001-Mythology",
-    "summary": "The Heavens are at war in this epic struggle for Mount Olympus.  The mighty powers of Good, including Zeus, Apollo, and Athena are supported by numerous Demigods as they combat their enemies.  Hades brings his vicious Cerberus' to aid him as he kills during the day, hidden by Darkness, while Medusa and her fellow Gorgons seek their revenge on the divine.  Ever lurking in the shadows, Kronos exerts his might in a more discreet way, sentencing death upon whoever he votes. Watch out though, as Mount Olympus is being besieged from a new angle; the Titans have joined the battle. While they begin the brawl weakly, be careful, as they get stronger every night... NEW ROLES: Demeter, Dionysus, Gaia, Uranus",
+    "summary": "The Heavens are at war in this epic struggle for Mount Olympus.  The mighty powers of Good, including Zeus, Apollo, and Athena are supported by numerous Demigods as they combat their enemies.  Hades brings his vicious Cerberus' to aid him as he kills during the day, hidden by Darkness, while Medusa and her fellow Gorgons seek their revenge on the divine.  Ever lurking in the shadows, Kronos exerts his might in a more discreet way, sentencing death upon whoever he votes. Watch out though, as Mount Olympus is being besieged from a new angle; the Titans have joined the battle. While they begin the brawl weakly, be careful, as they get stronger every night... NEW ROLES: Dionysus, Gaia, Uranus, (Demeter removed cause it doesnt work)",
     "sides": [
         {
             "side": "mafia1",
@@ -287,6 +287,7 @@
             "role": "demeter",
             "translation": "Demeter",
             "side": "village",
+            "hide": true,
             "help": "Goddess of the Harvest. During the night, you can /harvest for a player, which will be seen by all. Half of the time, this will heal them of all poison, but the other half of the time you will only heal yourself. Save your friends.",
 			"info": "Can harvest for one person during the night (50% chance of healing their poison, 50% chance of healing self). Broadcast to all. Sided with Olympians.",
             "actions": {
@@ -296,16 +297,13 @@
 						"target": "AnyButSelf",
 						"common": "Self",
 						"broadcast": [
-							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
 						],
 						"broadcastmsg": "*** Demeter harvests a golden apple and presents it to ~Target~! Accepted! ***",
 						"restrict": ["harvest"],
 						"priority": 27,
 						"newRole": {
 							"villager": ["villager"],
-							"villager2": ["villager2"],
-							"villager3": ["villager3"],
-							"villager4": ["villager4"],
 							"apollo": ["apollo"],
 							"inspector": ["inspector"],
 							"poseidon": ["poseidon"],
@@ -357,7 +355,7 @@
 						"target": "AnyButSelf",
 						"common": "Self",
 						"broadcast": [
-							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
 						],
 						"broadcastmsg": "*** Demeter harvests a fallen apple and presents it to ~Target~! Rejected... ***",
 						"restrict": ["harvest"],
@@ -391,7 +389,7 @@
 						"target": "AnyButSelf",
 						"common": "Self",
 						"broadcast": [
-							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
 						],
 						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
 						"restrict": ["drink"],
@@ -424,7 +422,7 @@
 						"target": "AnyButSelf",
 						"common": "Self",
 						"broadcast": [
-							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
 						],
 						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
 						"restrict": ["drink"],
@@ -459,7 +457,7 @@
 						"target": "AnyButSelf",
 						"common": "Self",
 						"broadcast": [
-							"villager", "villager2", "villager3", "villager4", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
 						],
 						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
 						"restrict": ["drink"],
@@ -915,7 +913,7 @@
         "bodyguard",
 		"dionysus",
 		"uranus",
-		{"demeter": 0.5, "demeter2": 0.5},
+            "villager",
 		"miller",
         "mafia2",
         "mafia1",
