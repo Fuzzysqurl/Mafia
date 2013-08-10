@@ -1,7 +1,7 @@
 {
     "name": "Transport",
-  "author": ["Fuzzysqurl", "Not L", "Kaeldiar", "EarlS", "Hopkirk", "Human Destroyer", "Fuzzy"],
-  "threadlink": "http://pokemon-online.eu/forums/showthread.php?18976",
+    "author": ["Fuzzy", "Not L", "Kaeldiar", "EarlS", "Hopkirk", "Human Destroyer"],
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?18976",
     "summary": "Like any vehicle, the more you use it, the less reliable it becomes. This theme is no different! The more you use your action, the less you can depend on it being there when you really need it. Thankfully, there is a group of Mechanics that will help restore your vehicle to tip-top shape! But be warned: the dreaded Maglev Train can discharge your vehicle with powerful magnetic forces, leaving you in a state of disrepair and your action will be highly unreliable.",
     "sides": [
         {
@@ -574,7 +574,7 @@
 			"role": "squad2",
 			"translation": "Squad Car [2]",
                 "side": "village",
-                "hide": true,
+                "hide": "side",
 			"help": "No criminal shall escape from you! Incarcerate the criminals during the day with /arrest. You will take them out of the game, but due to legal restrictions, you are required to identify yourself. If field work isn't working out, you can go back to desk work by typing /desk [your name].",
 			"info": "Can kill one person during the day (revealing). Can convert itself into Squad Car during the night (exposer). Sided with the Automobiles.",
 			"actions": {
@@ -1778,7 +1778,7 @@
 			"role": "stealthh2",
 			"translation": "Stealth Helicopter [2]",
                 "side": "plane",
-                "hide": true,
+                "hide": "side",
 			"help": "Argh! Your computer system was damaged by magnetic waves. You can still /bomb someone during the night to poison them with mustard gas so potent that they will die immediately, but your accuracy has declined. The technology that cloaks you has also been damaged so now you only have a 15% chance of evading night kills.",
 			"info": "Can instant-kill poison one person during the night (25% fail chance). Evades 15% of nightkills. Sided with the Plane Mafia.",
 			"actions": {
@@ -1915,7 +1915,7 @@
 			"role": "jet4",
 			"translation": "Jumbo Jet [4]",
                 "side": "plane",
-                "hide": true,
+                "hide": "side",
 			"help": "Every night you will stop at a major airport where you can /inspect someone, but at this point, you won't be able to see anything. You should probably /refresh yourself instead of trying to inspect someone tonight. Your drowsiness prevents you from changing your mind, so once you decide on what to do, you cannot change it. To make matters worse, you accidentally told Airport Security to take a break, so you have no protection during the night.",
 			"info": "Can inspect one person during the night (99% fail chance). Can refresh self to convert into Jumbo Jet [5] (Inspect with 35% fail chance). Vote of 2.5. Sided with the Plane Mafia.",
 			"actions": {
@@ -1956,7 +1956,7 @@
 			"role": "jet5",
 			"translation": "Jumbo Jet [5]",
                 "side": "plane",
-                "hide": true,
+                "hide": "side",
 			"help": "Ahh... Much better. Every night you will still stop at a major airport where you can /inspect someone, but you feel refreshed and have a stable rate of success now. Airport Security is back from their break and will continue to help remove 5% of threats aimed at you.",
 			"info": "Can inspect one person during the night (35% fail chance). Evades 5% of night kills. Vote of 2.5. Sided with the Plane Mafia.",
 			"actions": {
@@ -2019,7 +2019,7 @@
 			"role": "hijack2",
 			"translation": "Hijacker [2]",
                 "side": "hijack",
-                "hide": true,
+                "hide": "side",
 			"help": "You are now actively searching for a vehicle to hijack, and as a result, have a vote of 999. You can use /hide in order to blend in with the crowd with a vote of -999.",
 			"info": "Can convert self into Hijacker during the night (vote of -999). Vote of 999. Sided with the Hijacker Mafia.",
 			"winIfDeadRoles": [
@@ -2086,7 +2086,7 @@
 			"role": "tele2",
 			"translation": "Teleporter [2]",
                 "side": "teleport",
-                "hide": true,
+                "hide": "side",
 			"help": "System upgrade complete! You are now able to teleport and unsuspecting vehicle to an undisclosed location using /beam during the day. You can also /kill someone during the night, or you can trade that kill for another non-revealing daykill with /upgrade2 [your name]. Your shoddy programming prevents you from using upgrade again for 2 nights and still prevents you from using kill and upgrade in the same night.",
 			"info": "Can kill one person during the day. Can kill one person during the night or after 2 nights, convert itself into Teleporter [3] (2 day kills). Sided with the Teleporter Mafia.",
 			"actions": {
@@ -2134,7 +2134,7 @@
 			"role": "tele3",
 			"translation": "Teleporter [3]",
                 "side": "teleport",
-                "hide": true,
+                "hide": "side",
 			"help": "System upgrade complete! You decided that people should witness your immense power so you are able to /beam twice per day to teleport unsuspecting vehicles to another galaxy.",
 			"info": "Can kill two people during the day. Sided with the Teleporter Mafia.",
 			"actions": {
@@ -2155,76 +2155,14 @@
 					"revealAs": "tele1"
 				}
 			}
-		},		
-		{
-			"role": "squad2dummy",
-			"translation": "Squad Car [2]",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can kill one person during the day (revealing). Can convert itself into Squad Car during the night (exposer). Sided with the Automobiles.",
-			"actions": {
-			}
-		},		
+		},	
 		{
 			"role": "cs0dummy",
 			"translation": "Cargo Ship",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
+			"side": "ship",
+            "hide": "side",
+			"help": "Unused role for proper display.",
 			"info": "Can be one of many forms: Kill only / Vote of 2 / Vote of 3 / Kill and Vote of 2 / Kill and Vote of 3 / Vote of 4 / Kill and Vote of 4. Sided with the Ship Mafia.",
-			"actions": {
-			}
-		},	
-		{
-			"role": "stealthh2dummy",
-			"translation": "Stealth Helicopter [2]",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can instant-kill poison one person during the night (25% fail chance). Evades 15% of nightkills. Sided with the Plane Mafia.",
-			"actions": {
-			}
-		},		
-		{
-			"role": "jet4dummy",
-			"translation": "Jumbo Jet",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can inspect one person during the night (99% fail chance). Can refresh self to convert into Jumbo Jet [5] (Inspect with 35% fail chance). Vote of 2.5. Sided with the Plane Mafia.",
-			"actions": {
-			}
-		},		
-		{
-			"role": "jet5dummy",
-			"translation": "Jumbo Jet",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can inspect one person during the night (35% fail chance). Evades 5% of night kills. Vote of 2.5. Sided with the Plane Mafia.",
-			"actions": {
-			}
-		},		
-		{
-			"role": "hijack2dummy",
-			"translation": "Hijacker [2]",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can convert self into Hijacker during the night (vote of -999). Vote of 999. Sided with the Hijacker Mafia.",
-			"actions": {
-			}
-		},		
-		{
-			"role": "tele2dummy",
-			"translation": "Teleporter [2]",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can kill one person during the day. Can kill one person during the night or after 2 nights, convert itself into Teleporter [3] (2 day kills). Sided with the Teleporter Mafia.",
-			"actions": {
-			}
-		},		
-		{
-			"role": "tele3dummy",
-			"translation": "Teleporter [3]",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can kill two people during the day. Sided with the Teleporter Mafia.",
 			"actions": {
 			}
 		}
@@ -2292,6 +2230,8 @@
 	"drawmsg": "±Game: Everyone crashed (and died)! Nature is now taking over the world. This is why we can't have nice things!",
 	"border": "*** ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ***",
 	"changelog": {
-		"29 Mar 13": "Updated Freight Train and Semi's kill+copy to properly resolve and futureproof it"
+		"03.29.13": "Updated Freight Train and Semi's kill+copy to properly resolve and futureproof it",
+        	"08.10.13": "Cleaned up coding."
+        
 	}
 }
