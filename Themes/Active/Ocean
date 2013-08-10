@@ -663,6 +663,7 @@
                         "killif": ["mermaid", "angelfish"],                    
                         "ignore": ["gurry"]
                     },
+                    "msg": "Someone tried to distract you, but before you could notice who it was, they were blasted with a stream of water from your blow hole.",
                     "hookermsg": "You tried to distract the Blue Whale! Oh dear, oh dear. It didn't even notice, you fell into the path of its blow hole and were sent hurtling out of the ocean!"
                 },
                 "onDeath": {
