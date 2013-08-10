@@ -234,8 +234,8 @@
             "role": "anemone",
             "translation": "Sea Anemone",
             "side": "village",
-            "help": "You can't do much except for sway in the ocean currents, causing your vote to count as 0. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional vote gets added to the total.",
-            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Vote of 0. Receives 1 extra vote if voted for. Sided with Fish.",
+            "help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional vote gets added to the total.",
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 1 extra vote if voted for. Sided with Fish.",
             "actions": {
                 "protect": {
                     "mode": "die",
@@ -255,8 +255,7 @@
                     "mode": "ignore",
                     "msg": "±Game: Your target (~Self~) was guarded!"
                 },
-                "voteshield": 1,
-                "vote": 0
+                "voteshield": 1
             }
         },
         {
@@ -264,8 +263,8 @@
             "translation": "Sea Anemone",
             "side": "village",
             "hide": "side",
-            "help": "You can't do much except for sway in the ocean currents, causing your vote to count as 0. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional 2 votes get added to the total.",
-            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Vote of 0. Receives 2 extra votes if voted for. Sided with Fish.",
+            "help": "You can't do much except for sway in the ocean currents. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional 2 votes get added to the total.",
+            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Receives 2 extra votes if voted for. Sided with Fish.",
             "actions": {
                 "protect": {
                     "mode": "die",
@@ -966,7 +965,7 @@
         "5.26.2013": "Major error fixed with Swordfish that forced it to wait longer than it needed to for a daykill after transforming and fixed a minor error that would prevent Swordfish from converting properly.",
         "7.14.2013": "Blue Whale vote changed from 2 to 3. Hammerhead Shark changed from 1 to 2. Anemone vote changed from 1 to 0. Fish Standby hax changed from 33% to 30%. Min players dropped to 5. Pufferfish nerfed quite a bit (Vote changed from 2 to 1 and immunity to poison removed). Grammar fixes across the theme. Swordfish's defense mode now grants voteshield of -3 and daykills get wasted instead of blocked against it.",
         "7.20.2013": "Added custom evasion messages. Hammerhead now returns noVisit when stalked.",
-        "8.10.2013": "Adjusted Dolphin's winIfDead to credit wins properly. Adjusted Chef's winIfDead to credit wins properly. Adjusted Dolphin's help to reduce confusion with a reveal. Increased Blue Whale's resistance to poison. Decreased Gurry Shark's vote to 2 to give more wins to Mammals. Sashimi inspect as fish again. Team-revealif-with-roles finally! Sushi Chef no longer dies if it tries to convert Cthulhu. Clean up of Placeholder roles. Blue whale no longer kills Gurry Shark. Message tweaking here and there. Slightly tweaked middle game spawn to give Village a better chance of winning.",
+        "8.10.2013": "Adjusted Dolphin's winIfDead to credit wins properly. Adjusted Chef's winIfDead to credit wins properly. Adjusted Dolphin's help to reduce confusion with a reveal. Increased Blue Whale's resistance to poison. Decreased Gurry Shark's vote to 2 to give more wins to Mammals. Sashimi inspect as fish again. Team-revealif-with-roles finally! Sushi Chef no longer dies if it tries to convert Cthulhu. Clean up of Placeholder roles. Blue whale no longer kills Gurry Shark. Message tweaking here and there. Slightly tweaked middle game spawn to give Village a better chance of winning. Anemone gets it's vote back. ",
         "Potential Additions": "New PRs for Village. New Mafia side. New roles for each existing Mafia side.",
         "Potential Tweaks": "Dolphin dayinspect. Puffer Fish poison resistance. Sushi inspect as Fish. Specific Daykill/Expose revenge. A role with Detox. Removal or restriction of Hammerhead's nightkill. Clown Fish maintaining vote after losing Anemone."
     }
