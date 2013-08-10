@@ -486,8 +486,8 @@
                             "devilray"
                         ],
                         "priority": 1,
-                        "distractmsg": "±Distract: A shimmering light surrounded you last night protecting you from harm. You were awestruck and forgot to do your action.",
-                        "teammsg": "±Distract: A shimmering light surrounded your partner last night. You were awestruck and forgot to do your action."
+                        "distractmsg": "A shimmering light surrounded you last night protecting you from harm. You were awestruck and forgot to do your action.",
+                        "teammsg": "A shimmering light surrounded your partner last night. You were awestruck and forgot to do your action."
                     }
                 },
                 "startup": {
@@ -606,8 +606,8 @@
                         "priority": 8,
                         "broadcast": "team",
                         "count": 2,
-                        "poisonDeadMessage": "±Poison: Ugh. I can't feel my everything. My only regret is that I think I'm a fish...",
-                        "distractmsg": "±Distract: Is that a seagull? Hey! Seagull! Over here! Wait a minute, it's not a seagull, the Gurry Shark's poison is messing with my vision and I can't see straight."
+                        "poisonDeadMessage": "Ugh. I can't feel my everything. My only regret is that I think I'm a fish...",
+                        "distractmsg": "Is that a seagull? Hey! Seagull! Over here! Wait a minute, it's not a seagull, the Gurry Shark's poison is messing with my vision and I can't see straight."
                     }
                 },
                 "startup": "team-reveal-with-roles",
@@ -660,7 +660,10 @@
                     }
                 },
                 "distract": {
-                    "mode": "ChangeTarget",
+                    "mode": {
+                        "killif": ["mermaid", "angelfish"],                    
+                        "ignore": ["gurry"]
+                    },
                     "msg": "Somebody tried to distract you last night! How silly! You ignored them and sent them hurtling out of the ocean!",
                     "hookermsg": "You tried to distract the Blue Whale! Oh dear, oh dear. It didn't even notice, you fell into the path of its blowhole and were sent hurtling out of the ocean!"
                 },
@@ -964,7 +967,7 @@
         "5.26.2013": "Major error fixed with Swordfish that forced it to wait longer than it needed to for a daykill after transforming and fixed a minor error that would prevent Swordfish from converting properly.",
         "7.14.2013": "Blue Whale vote changed from 2 to 3. Hammerhead Shark changed from 1 to 2. Anemone vote changed from 1 to 0. Fish Standby hax changed from 33% to 30%. Min players dropped to 5. Pufferfish nerfed quite a bit (Vote changed from 2 to 1 and immunity to poison removed). Grammar fixes across the theme. Swordfish's defense mode now grants voteshield of -3 and daykills get wasted instead of blocked against it.",
         "7.20.2013": "Added custom evasion messages. Hammerhead now returns noVisit when stalked.",
-        "8.10.2013": "Adjusted Dolphin's winIfDead to credit wins properly. Adjusted Chef's winIfDead to credit wins properly. Adjusted Dolphin's help to reduce confusion with a reveal. Increased Blue Whale's resistance to poison. Decreased Gurry Shark's vote to 2 to give more wins to Mammals. Sashimi inspect as fish again. Team-revealif-with-roles finally! Sushi Chef no longer dies if it tries to convert Cthulhu. Clean up of Placeholder roles.",
+        "8.10.2013": "Adjusted Dolphin's winIfDead to credit wins properly. Adjusted Chef's winIfDead to credit wins properly. Adjusted Dolphin's help to reduce confusion with a reveal. Increased Blue Whale's resistance to poison. Decreased Gurry Shark's vote to 2 to give more wins to Mammals. Sashimi inspect as fish again. Team-revealif-with-roles finally! Sushi Chef no longer dies if it tries to convert Cthulhu. Clean up of Placeholder roles. Blue whale no longer kills Gurry Shark.",
         "Potential Additions": "New PRs for Village. New Mafia side. New roles for each existing Mafia side.",
         "Potential Tweaks": "Dolphin dayinspect. Puffer Fish poison resistance. Sushi inspect as Fish. Specific Daykill/Expose revenge. A role with Detox. Removal or restriction of Hammerhead's nightkill. Clown Fish maintaining vote after losing Anemone."
     }
