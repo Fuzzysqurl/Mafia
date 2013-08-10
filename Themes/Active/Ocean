@@ -70,9 +70,9 @@
             "role": "cthulhu2",
             "translation": "Cthulhu",
             "side": "cthulhu",
-            "hide": true,
+            "hide": "side",
             "help": "Now that you've awaken, let's cause some chaos! Use /thrash during the day to kill one person (non-revealing), then if you want to cause even more chaos, you can /torment (kill) someone after your first kill, however, you can only do this once per game. You have a chance to reveal as a Fish (50%) because some people still don't believe you exist.",
-            "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
+            "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
             "actions": {
                 "standby": {
                     "thrash": {
@@ -94,11 +94,6 @@
                     "thrash",
                     "torment"
                 ],
-                "convert": {
-                    "mode": "ChangeTarget",
-                    "msg": "Somebody tried to turn you into sushi last night. You decided to kill them for fun.",
-                    "targetmsg": "You tried to make ''Cthulhu Sushi,'' and clearly, things didn't go as expected. Cthulhu killed you just for fun."
-                },
                 "inspect": {
                     "revealAs": [
                         "fishy",
@@ -141,7 +136,7 @@
             "role": "clown2",
             "translation": "Clown Fish",
             "side": "village",
-            "hide": true,
+            "hide": "side",
             "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night. As long as the Anemone is alive, however, you cannot be killed or distracted. Your familiar design makes you very charismatic and grants you a vote of 2!",
             "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
             "actions": {
@@ -185,7 +180,7 @@
             "role": "clown3",
             "translation": "Clown Fish",
             "side": "village",
-            "hide": true,
+            "hide": "side",
             "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night. Unfortunately, your Anemone friend has perished leaving you vulnerable to the dangers of the ocean.",
             "info": "Can inspect one person during the night. Sided with Fish.",
             "actions": {
@@ -268,7 +263,7 @@
             "role": "anemone2",
             "translation": "Sea Anemone",
             "side": "village",
-            "hide": true,
+            "hide": "side",
             "help": "You can't do much except for sway in the ocean currents, causing your vote to count as 0. You know your friend the Clown Fish from the start, and as long as you are around, he cannot be killed! If anyone tries to protect you, you die for some unknown reason. Small changes in your environment are exponentially increased due to your frailty, therefore, if you get voted, an additional 2 votes get added to the total.",
             "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Vote of 0. Receives 2 extra votes if voted for. Sided with Fish.",
             "actions": {
@@ -415,7 +410,7 @@
             "role": "swordfish2",
             "translation": "Sword Fish",
             "side": "village",
-            "hide": true,
+            "hide": "side",
             "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your defensive stance has limited your movement and prevents you from killing two consecutive days. In return however, you have an immunity to daykills and a voteshield of -3. You can use /fleche to convert yourself back to your offensive stance.",
             "info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -3. Sided with Fish.",
             "actions": {
@@ -475,7 +470,7 @@
             "role": "angelfish",
             "translation": "Angel Fish",
             "side": "village",
-            "help": "You can /bless one person during the night. This is a special action that not only safeguards, it also protects! However, the protection will prevent your target from performing their action during the night. You're an invaluable asset to the reef community and you even know the Devil Ray from the start!",
+            "help": "You can /bless one person during the night. This is a special action that not only safeguards, it also protects! However, the protection will prevent your target from performing their action during the night. You know the Devil Ray from the start.",
             "info": "Can bless (protect+safeguard+distract) one person during the night. Knows Devil Ray. Sided with Fish.",
             "actions": {
                 "night": {
@@ -491,8 +486,8 @@
                             "devilray"
                         ],
                         "priority": 1,
-                        "distractmsg": "A shimmering light surrounded you last night protecting you from harm. You were awestruck and forgot to do your action.",
-                        "teammsg": "A shimmering light surrounded your partner last night. You were awestruck and forgot to do your action."
+                        "distractmsg": "±Distract: A shimmering light surrounded you last night protecting you from harm. You were awestruck and forgot to do your action.",
+                        "teammsg": "±Distract: A shimmering light surrounded your partner last night. You were awestruck and forgot to do your action."
                     }
                 },
                 "startup": {
@@ -529,7 +524,7 @@
             "role": "flyingfish",
             "translation": "Flying Fish",
             "side": "village",
-            "hide": true,
+            "hide": "both",
             "help": "You don't really fly though, you just jump out of the water and glide in order to avoid predators. You can use /jump during the day to reveal someone's role, but everyone will see you show-boating and know your identity. You also jump out of the water at night to evade all kills, but this makes you vulnerable if anyone tries to vote you as you receive an extra 4 votes if voted for at all.",
             "info": "Can expose one person during the standby. Evades night kills. Receives 4 extra votes if voted for. Sided with Fish.",
             "actions": {
@@ -597,8 +592,8 @@
             "role": "gurry",
             "translation": "Gurry Shark",
             "side": "shark",
-            "help": "Your flesh is poisonous, so you are able to /poison one person during the night. Your poison's effects mimic extreme drunkenness, so your target will be unable to gather any information if they tried to inspect or stalk someone during the night. The neurotoxins in your poison will take their toll after 1 night. In addition, your vote counts for 3!",
-            "info": "Can poison and distract one person during the night. Vote of 3. Sided with Shark Mafia.",
+            "help": "Your flesh is poisonous, so you are able to /poison one person during the night. Your poison's effects mimic extreme drunkenness, so your target will be unable to gather any information if they tried to inspect or stalk someone during the night. The neurotoxins in your poison will take their toll after 1 night. In addition, your vote counts for 2!",
+            "info": "Can poison and distract one person during the night. Vote of 2. Sided with Shark Mafia.",
             "actions": {
                 "night": {
                     "poison": {
@@ -611,12 +606,12 @@
                         "priority": 8,
                         "broadcast": "team",
                         "count": 2,
-                        "poisonDeadMessage": "Ugh. I can't feel my everything. My only regret is that I think I'm a fish...",
-                        "distractmsg": "Is that a seagull? Hey! Seagull! Over here! Wait a minute, it's not a seagull, the Gurry Shark's poison is messing with my vision and I can't see straight."
+                        "poisonDeadMessage": "±Poison: Ugh. I can't feel my everything. My only regret is that I think I'm a fish...",
+                        "distractmsg": "±Distract: Is that a seagull? Hey! Seagull! Over here! Wait a minute, it's not a seagull, the Gurry Shark's poison is messing with my vision and I can't see straight."
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "vote": 3
+                "vote": 2
             }
         },
         {
@@ -653,8 +648,8 @@
             "role": "bluewhale",
             "translation": "Blue Whale",
             "side": "mammal",
-            "help": "Use your enormous girth to /protect one person every night. Furthermore, your vote counts for 3 and if anybody tries to distract you, your blowhole blasts them out of the ocean!",
-            "info": "Can protect one person during the night. Vote of 3. Kills all distractors. Sided with Mammal Alliance.",
+            "help": "Use your enormous girth to /protect one person every night. Furthermore, your vote counts for 3 and if anybody tries to distract you, your blowhole blasts them out of the ocean! If you get poisoned, it will take twice as long to actually kill you due to your massive size.",
+            "info": "Can protect one person during the night. Vote of 3. Takes twice as long to die from poison. Kills all distractors. Sided with Mammal Alliance.",
             "actions": {
                 "night": {
                     "protect": {
@@ -676,7 +671,11 @@
                     "convertmsg": "±Neptune: Oh boy, you've really done it now guys. Killing the Blue Whale greatly angered the ~Old~. It has become the ~New~ and now gets vote of 1000!"
                 },
                 "vote": 3,
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "poison": {
+                    "mode": "resistance",
+                    "rate": 2
+                }
             }
         },
         {
@@ -684,21 +683,18 @@
             "translation": "Dolphin",
             "side": "mammal",
             "help": "You are a pretty intelligent beast and will be able to dodge incoming daykills. This is about all you can do, at least until the Blue Whale dies...",
-            "info": "Evades daykills. Vote of 2. Sided with Mammal Alliance.",
+            "info": "Evades daykills. Sided with Mammal Alliance.",
             "actions": {
                 "daykill": "evade",
                 "daykillevademsg": "The water around that player doesn't look safe, maybe you should go after someone else.",
                 "startup": "team-reveal-with-roles"
             },
             "winIfDeadRoles": [
-                "swordfish",
                 "greatwhite",
                 "hammerhead",
-                "cthulhu2",
-                "chef",
-                "barracuda",
                 "reef",
-                "swordfish2"
+                "gurry",
+                "barracuda"
             ]
         },
         {
@@ -723,7 +719,7 @@
             "role": "dolphinplus",
             "translation": "Enraged Dolphin",
             "side": "mammal",
-            "help": "GRRRR! RAAAGGGEEE! The death of the Blue Whale has angered you and now everyone must pay! You can avenge the death of your fallen comrade with your 1000 vote! You think you saw the Clown Fish trying to dart around earlier, so you might know who they are. Unfortunately, revenge is the only thing on your mind causing you to be very reckless and vulnerable during the day.",
+            "help": "GRRRR! RAAAGGGEEE! The death of the Blue Whale has angered you and now everyone must pay! You can avenge the death of your fallen comrade with your 1000 vote! You think you saw the Clown Fish trying to dart around earlier, so you might know who they are, but they aren't really a threat to you as they cannot kill you. Unfortunately, revenge is the only thing on your mind causing you to be very reckless and vulnerable during the day.",
             "info": "Vote of 1000. Sided with Mammal Alliance.",
             "actions": {
                 "vote": 1000,
@@ -731,14 +727,14 @@
                     "revealRole": [
                         "clown3"
                     ],
-                    "team-revealif": [
+                    "team-revealif-with-roles": [
                         "mammal"
                     ]
                 }
             },
             "winIfDeadRoles": [
                 "swordfish",
-                "pufferfish",
+                "gurry",
                 "greatwhite",
                 "hammerhead",
                 "cthulhu2",
@@ -779,8 +775,8 @@
             "role": "chef",
             "translation": "Sushi Chef",
             "side": "sushi",
-            "help": "Every night you can convert one Fish, Great White Shark, or Orca into Sashimi using /slice, but only these roles are able to be converted as strict food laws! A veteran in the field, you know the identity of all the Fish and your /slice will actually protect your target from being eaten in the same night. Your experience also makes you immune to distractions and all votes against you count for nothing. Try not to make Cthulhu Sushi though as you will probably have a VERY bad day.",
-            "info": "Can convert one person every night. Ignores distractors. Voteshield of -9999. Sided with Sushi Mafia.",
+            "help": "Every night you can convert one Fish, Great White Shark, or Orca into Sashimi using /slice, but only these roles are able to be converted as strict food laws! A veteran in the field, you know the identity of all the Fish and your /slice will actually protect your target from being eaten in the same night. Your experience also makes you immune to distractions and all votes against you count for nothing. Modern medicine also makes you immune to poison.",
+            "info": "Can convert one person every night. Ignores distractors. Immune to poison. Voteshield of -9999. Sided with Sushi Mafia.",
             "actions": {
                 "night": {
                     "slice": {
@@ -806,12 +802,18 @@
                     "revealRole": [
                         "fishy"
                     ],
-                    "team-revealif": [
+                    "team-revealif-with-roles": [
                         "sushi"
                     ]
                 },
                 "distract": {
                     "mode": "ignore"
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 1
+                    },
+                    "silent": true
                 },
                 "onDeath": {
                     "convertRoles": {
@@ -824,13 +826,11 @@
             "winIfDeadRoles": [
                 "swordfish",
                 "swordfish2",
-                "anemone2",
-                "pufferfish",
                 "greatwhite",
                 "hammerhead",
-                "dolphin",
-                "dolphinplus",
-                "cthulhu",
+                "reef",
+                "gurry",
+                "cthulhu2",
                 "barracuda",
                 "otter",
                 "orca"
@@ -840,20 +840,25 @@
             "role": "sashimi",
             "translation": "Sashimi",
             "side": "sushi",
-            "help": "Oh no! The Sushi Chef caught you and sliced you up to serve in their restaurant! To make matters worse, you have no vote because you're sliced Fish!",
-            "info": "Vote of 0. Sided with Sushi Mafia.",
+            "help": "Oh no! The Sushi Chef caught you and sliced you up to serve in their restaurant! To make matters worse, you have no vote because you're sliced Fish! However, a Fish is a fish, and the ocean dwellers cannot tell the difference.",
+            "info": "Vote of 0. Reveals as Fish when inspected or exposed. Sided with Sushi Mafia.",
             "actions": {
                 "startup": "team-reveal-with-roles",
-                "vote": 0
+                "vote": 0,
+                "inspect": {
+                    "revealAs": [
+                        "fishy"
+                    ]
+                }
             }
         },
         {
             "role": "sushi",
             "translation": "Sushi",
             "side": "sushi2",
-            "hide": true,
+            "hide": "side",
             "help": "Oh no! The Sushi Chef has died, but their last act was to make Sushi out of you! You now have vote of 3 to use because you are so tasty.",
-            "info": "Vote of 3. Sided with Sushi Mafia.",
+            "info": "Vote of 3. Reveals as Fish when inspected or exposed. Sided with Sushi Mafia.",
             "actions": {
                 "vote": 3,
                 "startup": {
@@ -864,43 +869,12 @@
             }
         },
         {
-            "role": "anemone21",
-            "translation": "Sea Anemone",
-            "side": "dummy",
-            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-            "info": "Clown Fish cannot be killed while alive. Dies if protected. Immune to poison. Vote of 0. Receives 2 extra votes if voted for. Sided with Fish.",
-            "actions": {}
-        },
-        {
-            "role": "sushi21",
+            "role": "placeholder",
             "translation": "Sushi",
             "side": "sushi",
-            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-            "info": "Vote of 3. Sided with Sushi Mafia.",
+            "hide": "role",
+            "help": "Unused role for different win message. If you see this role, please contact Fuzzy.",
             "actions": {}
-        },
-        {
-            "role": "clown31",
-            "translation": "Clown Fish",
-            "side": "dummy",
-            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-            "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
-            "actions": {}
-        },
-        {
-            "role": "cthulhu21",
-            "translation": "Cthulhu",
-            "side": "dummy",
-            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-            "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
-            "actions": {}
-        },
-        {
-            "role": "swordfish21",
-            "translation": "Swordfish",
-            "side": "dummy",
-            "help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzy.",
-            "info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -3. Sided with Fish."
         }
     ],
     "roles1": [
@@ -915,7 +889,7 @@
 	],
 	"roles2": [		
 		"fishy",
-		{"clown2": 1, "clown31": 0},
+		"clown2",
 		"anemone",
 		"otter",
 		"greatwhite",
@@ -931,8 +905,8 @@
 			"fishy"
     ],
 	"roles3": [
-		{"clown2": 1, "clown31": 0},
-		{"anemone2": 1, "anemone21":0},
+		"clown2",
+		"anemone2",
 		"fishy",
 		"fishy",
 		"fishy",
@@ -990,6 +964,8 @@
         "5.26.2013": "Major error fixed with Swordfish that forced it to wait longer than it needed to for a daykill after transforming and fixed a minor error that would prevent Swordfish from converting properly.",
         "7.14.2013": "Blue Whale vote changed from 2 to 3. Hammerhead Shark changed from 1 to 2. Anemone vote changed from 1 to 0. Fish Standby hax changed from 33% to 30%. Min players dropped to 5. Pufferfish nerfed quite a bit (Vote changed from 2 to 1 and immunity to poison removed). Grammar fixes across the theme. Swordfish's defense mode now grants voteshield of -3 and daykills get wasted instead of blocked against it.",
         "7.20.2013": "Added custom evasion messages. Hammerhead now returns noVisit when stalked.",
-        "??.??.????": "???"
+        "8.10.2013": "Adjusted Dolphin's winIfDead to credit wins properly. Adjusted Chef's winIfDead to credit wins properly. Adjusted Dolphin's help to reduce confusion with a reveal. Increased Blue Whale's resistance to poison. Decreased Gurry Shark's vote to 2 to give more wins to Mammals. Sashimi inspect as fish again. Team-revealif-with-roles finally! Sushi Chef no longer dies if it tries to convert Cthulhu. Clean up of Placeholder roles.",
+        "Potential Additions": "New PRs for Village. New Mafia side. New roles for each existing Mafia side.",
+        "Potential Tweaks": "Dolphin dayinspect. Puffer Fish poison resistance. Sushi inspect as Fish. Specific Daykill/Expose revenge. A role with Detox. Removal or restriction of Hammerhead's nightkill. Clown Fish maintaining vote after losing Anemone."
     }
 }
