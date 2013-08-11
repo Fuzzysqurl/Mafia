@@ -1026,7 +1026,8 @@
                 "limstella",
                 "fool2",
                 "arvis",
-                "marth"
+                "marth",
+                "mhero"
             ],
             "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish.",
             "actions": {
@@ -1514,6 +1515,7 @@
         "7.23.2013": "Lyon shows as no visit on stalk. Soren now evades Ike's daykill. King Zeph can now be distracted. Cleaned up infos and helps.",
         "7.24.2013": "Notice: Making lots and lots of flavor changes, with new roles and new ideas! Stay tuned and ask Sky Sentinel for any help you may need in understanding! Example: Named Corrupt Senators. Added Naesala. Tweaked messages. Added Lissa... Added Arvis... Added Risen Soldier... and Sonia, which is Limstella with an inspect instead of stalk.",
         "7.26.2013": "Ashnard's nightkill no longer outspeeds protect, nor does it outspeed Lyn's kill.",
-        "8.1.2013": "Priority reshuffle. Added Marth to DK's winIfDead. Minor help message tweaks on a couple of roles"
+        "8.1.2013": "Priority reshuffle. Added Marth to DK's winIfDead. Minor help message tweaks on a couple of roles",
+        "8.10.2013": "Added Masked Hero to DK's winIfDead"
     }
 }
