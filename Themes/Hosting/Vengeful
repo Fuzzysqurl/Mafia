@@ -58,7 +58,7 @@
             "side": "mafia",
             "help": "You're a mafia goon! You moved into this town and took it over, but the villagers want it back; since you're trying to blend in, you can't kill like you normally would, so use your vote as your weapon!",
             "actions": {
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -67,12 +67,12 @@
             "side": "mafia",
             "help": "You're the mafia Godfather! You moved into this town and took it over, but the villagers want it back; since you're trying to blend in you can't kill them like you normally would, so use your vote as your weapon! Tread carefully though; if you are lynched, the mafia all lose!",
             "actions": {
-                "startup": "team-reveal",
+                "startup": "team-reveal-with-roles",
                 "lynch": {
                     "killRoles": [
                         "goon"
                     ],
-                    "singlekillmsg": "Because ~Self~ was lynched, ~Target~ (~Role~) gave up!"
+                    "singlekillmsg": "±Game: Because ~Self~ was lynched, ~Target~ gave up!"
                 }
             }
         }
