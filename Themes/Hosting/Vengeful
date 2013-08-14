@@ -71,7 +71,8 @@
                 "lynch": {
                     "killRoles": [
                         "goon"
-                    ]
+                    ],
+                    "singlekillmsg": "Because ~Self~ was lynched, ~Target~ (~Role~) gave up!"
                 }
             }
         }
