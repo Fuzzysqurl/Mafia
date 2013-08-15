@@ -7,7 +7,7 @@
     "minplayers": 6,
     "altname": "Fire Emblem",
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?15904-Fire-Emblem-(FE)",
-    "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE The continent is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the world!",
+    "summary": "The world is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the Earth!",
     "sides": [
         {
             "side": "arvis",
@@ -958,7 +958,7 @@
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 10,
-                        "limit": 1
+                        "msg": "±Tactician: The Gurgurant hit you with a shockwave!"
                     }
                 },
                 "convert": {
@@ -989,7 +989,7 @@
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 28,
-                        "broadcast": "team"
+                        "msg": "±Tactician: One slash of the mighty Gurgurant and you were gone."
                     }
                 },
                 "vote": 2,
@@ -1060,7 +1060,8 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 16
+                        "priority": 16,
+                        "msg": "±Tactician: You were roasted by Arvis's Valflame."
                     }
                 },
                 "kill": {
@@ -1224,7 +1225,7 @@
             "side": "village",
             "hide": true,
             "help": "Since Lon'qu is the most epic person in the Fire Emblem universe, Ike has decided that, for today, he'd let you have some fun. Now, you have the exact same job as him: kill some baddies during the day with your amazing Swordmaster skills. You'll know Soren, as Ike informed him that you were taking over. Work with your team to crush the opposition!",
-            "info": "Easter egg daykiller that replaces ike rarely. Knows Soren. Sided with Heroes.",
+            "info": "Easter egg. Sided with Heroes.",
             "actions": {
                 "startup": {
                     "revealRole": "soren"
@@ -1233,7 +1234,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "msg": "Use /kill to DESTROY someone!",
-                        "killmsg": "'How well will you die?' Lon'qu holds his Killing Edge in the air. He charges at ~Target~, hitting them five times in a split second. Astra! ~Target~ was obliterated."
+                        "killmsg": "'How well will you die?' Lon'qu holds his Silver Sword in the air. He charges at ~Target~, hitting them five times in a split second. Astra! ~Target~ was obliterated."
                     }
                 }
             }
@@ -1313,8 +1314,8 @@
             "role": "aversa",
             "translation": "Aversa",
             "side": "grimleal",
-            "help": "Brought up by Validar, who acted as a father to you, you serve as his main helper in his fight against Robin and the other heroes. You share a kill with him during the night, but you cannot be haxed. You have a voteshield of one because of your smaller following of Grimleal cultists. You can also /inspect ONCE per game to figure out what someone is up to. Make sure to report your findings to your teammates! You cannot be converted due to your extremely high skill in resisting Dark magic.",
-            "info": "Shares a nightkill with Validar. Cannot be haxed. Voteshield of -1. Can inspect ONCE per game. Sided with Grimleal.",
+            "help": "Brought up by Validar, who acted as a father to you, you serve as his main helper in his fight against Robin and the other heroes. You share a kill with him during the night, but you cannot be haxed. You have a voteshield of one because of your smaller following of Grimleal cultists. You can also /inspect TWICE per game to figure out what someone is up to. Make sure to report your findings to your teammates! You cannot be converted due to your extremely high skill in resisting Dark magic.",
+            "info": "Shares a nightkill with Validar. Cannot be haxed. Voteshield of -1. Can inspect TWICE per game. Sided with Grimleal.",
             "actions": {
                 "voteshield": -1,
                 "startup": "team-reveal-with-roles",
@@ -1330,13 +1331,14 @@
                         "common": "Team",
                         "priority": 41,
                         "broadcast": "team",
-                        "charges": 1
+                        "charges": 2
                     },
                     "kill": {
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 13,
-                        "broadcast": "team"
+                        "broadcast": "team",
+                        "msg": "Aversa's Night drained all of your HP!"
                     }
                 }
             }
@@ -1428,8 +1430,8 @@
         "nergal",
         "soren",
         {
-            "limstella": 0.5,
-            "sonia": 0.5
+            "limstella": 0.6,
+            "sonia": 0.4
         },
         "zeph",
         "villager",
