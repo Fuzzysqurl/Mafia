@@ -296,7 +296,7 @@
             "role": "hector",
             "translation": "Hector",
             "side": "village",
-            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercly loyal to your friends. You possess incredibly strong armor and defensive capabilities, you're able to /protect up to two other allies every night. In addition, your role as leader of Ostia grants you considerable sway in voting procedures, giving you a +3 vote. You're a close friend of Lyndis so you can identify her from the start. As a fun diversion, type /expose [name] during the game to insult anyone!",
+            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercly loyal to your friends. You possess incredibly strong armor and defensive capabilities, you're able to /protect up to two other allies every night. In addition, your role as leader of Ostia grants you considerable sway in voting procedures, giving you a +3 vote. You're a close friend of Lyndis so you can identify her from the start. Use Lyn's stalk information to /insult who you think should be lynched during the day! You can insult once per game.",
             "actions": {
                 "night": {
                     "protect": {
@@ -307,10 +307,11 @@
                     }
                 },
                 "standby": {
-                    "expose": {
+                    "insult": {
+                        "command": "expose",
                         "target": "AnyButSelf",
                         "recharge": 99,
-                        "msg": "Make sure the coast is clear and type /expose to make a rude gesture at someone!",
+                        "msg": "Make sure the coast is clear and type /insult to make a rude gesture at someone!",
                         "exposemsg": "Hector makes sure the coast is clear and then proceeds to make a very rude gesture at ~Target~! The audience is completely shocked..."
                     }
                 },
