@@ -312,7 +312,7 @@
                         "target": "AnyButSelf",
                         "recharge": 99,
                         "msg": "Make sure the coast is clear and type /insult to make a rude gesture at someone!",
-                        "exposemsg": "Hector makes sure the coast is clear and then proceeds to make a very rude gesture at ~Target~! The audience is completely shocked..."
+                        "exposemsg": "'Hey, you!' Hector makes sure the coast is clear and then proceeds to make a very rude gesture at ~Target~! The audience is completely shocked..."
                     }
                 },
                 "vote": 3,
