@@ -374,7 +374,7 @@
             "role": "swordfish",
             "translation": "Sword Fish",
             "side": "village",
-            "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your experience in the art of swordplay allows you to /parry yourself to convert to a defensive stance that blocks daykills and grants a voteshield of -2, however, your daykill can't be used two days in a row in this mode.",
+            "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your experience in the art of swordplay allows you to /parry yourself to convert to a defensive stance that blocks daykills and grants a voteshield of -3, however, your daykill can't be used two days in a row in this mode.",
             "info": "Can kill one person during standby. Can convert self during the night. Ignores distractors. Sided with Fish.",
             "actions": {
                 "standby": {
