@@ -131,7 +131,8 @@
         "lynchee"
     ],
     "changelog": {
-        "May 8, 2013": "Fixed bug related to Lynchee not converting when Lyncher dies.",
-        "Jun 1, 2013": "Changed the way Lynchee is coded to allow readlog compatibility"
+        "05.08.2013": "Fixed bug related to Lynchee not converting when Lyncher dies.",
+        "06.01.2013": "Changed the way Lynchee is coded to allow readlog compatibility",
+        "08.19.2013": "Fxied 3 Player games resolving incorrectly"
     }
 }
