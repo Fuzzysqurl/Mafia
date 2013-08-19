@@ -196,14 +196,14 @@
                         "common": "Self",
                         "priority": 35,
                         "broadcast": "none",
-                        "recharge": 9001
+                        "charges": 1
                     },
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 45,
                         "broadcast": "none",
-                        "recharge": 9001
+                        "charges": 1
                     },
                     "bond": {
                         "command": "distract",
@@ -213,21 +213,21 @@
                         "broadcast": "none",
                         "distractmsg": "The Copper atom bonded with you last night! You were too distracted to complete any actions.",
                         "teammsg": "The Copper atom bonded with your teammate last night! You were too distracted to ~Action~ anyone.",
-                        "recharge": 9001
+                        "charges": 1
                     },
                     "protect": {
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 23,
                         "broadcast": "none",
-                        "recharge": 9001
+                        "charges": 1
                     },
                     "safeguard": {
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 4,
                         "broadcast": "none",
-                        "recharge": 9001
+                        "charges": 1
                     }
                 },
                 "vote": -1
