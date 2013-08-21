@@ -154,7 +154,7 @@
                 },
 				"lynch": {
                     "convertTo": "genesect2",
-                    "convertmsg": "~Self~ (Shedinja) was removed from the game!"
+                    "lynchmsg": "~Self~ (Shedinja) was removed from the game!"
                 }
             }
         },
