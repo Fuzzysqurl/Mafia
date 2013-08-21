@@ -6,8 +6,8 @@
     "minplayers": 3,
     "nonPeak": true,
     "ticks": {
-        "standby": 60,
-        "night": 20
+        "standby": 45,
+        "night": 25
     },
     "sides": [
         {
@@ -28,7 +28,7 @@
             "actions": {
                 "lynch": {
                     "convertTo": "villager2",
-                    "convertmsg": "Before you all lynch, ~Self~ has decided to kill..."
+                    "lynchmsg": "Before you all lynch, ~Self~ has decided to kill..."
                 }
             }
         },
@@ -72,7 +72,7 @@
                     "killRoles": [
                         "goon"
                     ],
-                    "singlekillmsg": "±Game: Because ~Self~ was lynched, ~Target~ gave up!"
+                    "singlekillmsg": "±Game: With their leader gone, ~Target~ surrendered!"
                 }
             }
         }
