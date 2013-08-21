@@ -114,7 +114,7 @@
                 "onlist": "villager",
                 "lynch": {
                     "convertTo": "villager3",
-                    "lynchmsg": "The Disgruntled Soldier, ~Self~,  is hit with a Berserk Staff after receiving ~Count~ votes. He has gone insane and now kills at night."
+                    "convertmsg": "The Disgruntled Soldier, ~Self~,  is hit with a Berserk Staff after receiving ~Count~ votes. He has gone insane and now kills at night."
                 },
                 "onDeath": {
                     "convertRoles": {
