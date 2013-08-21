@@ -28,7 +28,7 @@
             "actions": {
                 "lynch": {
                     "convertTo": "villager2",
-                    "lynchmsg": "Before you all lynch, ~Self~ has decided to kill..."
+                    "convertmsg": "Before you all lynch, ~Self~ has decided to kill..."
                 }
             }
         },
