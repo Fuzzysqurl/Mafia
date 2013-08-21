@@ -59,7 +59,7 @@
                 },
                 "lynch": {
                     "convertTo": "lynchee2",
-                    "convertmsg": "The Lynchee has been lynched!"
+                    "lynchmsg": "The Lynchee has been lynched!"
                 }
             }
         },
