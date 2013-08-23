@@ -1,0 +1,340 @@
+{
+    "name": "Dethy",
+    "author": [
+        "Fegelein",
+        "Hey Day"
+    ],
+    "minplayers": 3,
+    "nonPeak":true,
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?18702-Non-Peak-Dethy",
+    "summary": "The mafia have found the Inspector Retirement home, and now it is up to the Inspectors to defend themselves! There are Sane Inspectors (always right), Insane Inspectors (always wrong), Paranoid Inspectors (always sees someone as Mafia), and Naive Inspectors (always sees someone as Inspector). Made by Fegelein and HD (Human Destroyer), PM them with feedback.",
+    "ticks": {
+        "standby": 45,
+        "night": 25
+    },
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Village",
+            "winmsg": "Congratulations. You, ~Players~ can retire in peace!"
+        },
+        {
+            "side": "mafia",
+            "translation": "Mafia",
+            "winmsg": "You've successfully taken over the Retirement Home! Now ~Players~ can use it as their secret hideout!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "saneplaceholder",
+            "translation": "Sane Inspector",
+            "side": "village",
+            "help": "You are a placeholder!",
+            "info": "Can inspect someone each night and get correct results. Wins with the Village."
+        },
+        {
+            "role": "insaneplaceholder",
+            "translation": "Insane Inspector",
+            "side": "village",
+            "help": "You are a placeholder!",
+            "info": "Can inspect someone each night and get incorrect results. Wins with the Village."
+        },
+        {
+            "role": "paranoidplaceholder",
+            "translation": "Paranoid Inspector",
+            "side": "village",
+            "help": "You are a placeholder!",
+            "info": "Can inspect someone each night and get a result of Mafia. Wins with the Village."
+        },
+        {
+            "role": "naiveplaceholder",
+            "translation": "Naive Inspector",
+            "side": "village",
+            "help": "You are a placeholder!",
+            "info": "Can inspect someone each night and get a result of Inspector. Wins with the Village."
+        },
+        {
+            "role": "mafiaplaceholder",
+            "translation": "Mafia",
+            "side": "mafia",
+            "help": "You are a placeholder!",
+            "info": "Has a factional kill every night starting Night 2. Wins with the Mafia."
+        },
+        {
+            "role": "inspector",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "Sight": {
+                            "true": 1
+                        }
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                },
+				"initialCondition": {
+					"curse": {
+						"cursedRole": "inspector2",
+						"curseCount": 1
+					}
+				},
+				"onlist": "saneplaceholder"
+            }
+        },
+        {
+            "role": "insaneinspector",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "hide": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                },
+				"initialCondition": {
+					"curse": {
+						"cursedRole": "insaneinspector2",
+						"curseCount": 1,
+                        "silentCurse": true
+					}
+				},
+				"onlist": "insaneplaceholder"
+            }
+        },
+        {
+            "role": "paranoidinspector",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "Sight": {
+                            "mafia": 1
+                        },
+                        "hide": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                },
+				"initialCondition": {
+					"curse": {
+						"cursedRole": "paranoidinspector2",
+						"curseCount": 1,
+                        "silentCurse": true
+					}
+				},
+				"onlist": "paranoidplaceholder"
+            }
+        },
+        {
+            "role": "naiveinspector",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "Sight": {
+                            "inspector": 1
+                        },
+                        "hide": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                },
+				"initialCondition": {
+					"curse": {
+						"cursedRole": "naiveinspector2",
+						"curseCount": 1,
+                        "silentCurse": true
+					}
+				},
+				"onlist": "naiveplaceholder"
+            }
+        },
+		{
+            "role": "inspector2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "Sight": {
+                            "true": 1
+                        }
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                }
+            }
+        },
+        {
+            "role": "insaneinspector2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "hide": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                }
+            }
+        },
+        {
+            "role": "paranoidinspector2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "Sight": {
+                            "mafia": 1
+                        },
+                        "hide": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                }
+            }
+        },
+        {
+            "role": "naiveinspector2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "Sight": {
+                            "inspector": 1
+                        },
+                        "hide": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia"
+                }
+            }
+        },
+        {
+            "role": "mafia",
+            "translation": "Mafia",
+            "side": "mafia",
+            "help": "You are a member of the mafia, hoping to get rid of all of the Inspectors! Type /Kill [name] to kill someone! You cannot kill the first night!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "initialrecharge": 2
+                    }
+                },
+                "startup": "team-reveal",
+                "inspect": {
+                    "revealAs": "inspector"
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "inspector",
+        "insaneinspector",
+        "mafia",
+        {
+            "paranoidinspector": 0.5,
+            "naiveinspector": 0.5
+        },
+        {
+            "paranoidinspector": 0.5,
+            "naiveinspector": 0.5
+        },
+        {
+            "paranoidinspector": 0.25,
+            "naiveinspector": 0.25,
+            "inspector": 0.25,
+            "insaneinspector": 0.25
+        },
+        "mafia",
+        {
+            "paranoidinspector": 0.25,
+            "naiveinspector": 0.25,
+            "inspector": 0.25,
+            "insaneinspector": 0.25
+        },
+        {
+            "paranoidinspector": 0.25,
+            "naiveinspector": 0.25,
+            "inspector": 0.25,
+            "insaneinspector": 0.25
+        },
+        {
+            "paranoidinspector": 0.25,
+            "naiveinspector": 0.25,
+            "inspector": 0.25,
+            "insaneinspector": 0.25
+        }
+    ],
+    "changelog": {
+        "23.08.2013": "What's up with the weird date system? HD terrible imo. Silent Curse added. Also, fixed the 8 errors with the theme.",
+		"12.06.2013": "The sanities that are in the game are now revealed on Night 1, but hidden after that.",
+        "11.06.2013": "Inspectors no longer reveal their sanity after death nor onlist. Fixed /roles for mafia and updated help messages for Inspectors to clarify the theme to newer players.",
+        "24.03.2013": "Maximum amount of players has been lowered to 10; this is now a nonpeak theme.",
+        "22.03.2013": "Gave Inspectors names so that they would appear onlist correctly. Also fixed /roles.",
+        "20.03.2013": "Lowered standby ticks to 45 (from 60).",
+        "28.02.2013": "Theme completed, put up for review."
+    }
+}
