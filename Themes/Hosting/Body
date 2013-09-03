@@ -94,7 +94,7 @@
                 "kill": {
                     "mode": {
                         "ignore": [
-                            "immune"
+                            "immune", "immunesmall"
                         ]
                     }
                 },
