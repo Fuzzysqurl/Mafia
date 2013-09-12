@@ -938,14 +938,7 @@
 				"fishy", "fishy", "fishy", "fishy", "fishy",
 				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "pufferfish",
 				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "barracuda", 
-				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "chef",
-				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "angelfish", 
-				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "swordfish",
-				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "clown2", 
-				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "chef", 
-				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "barracuda", 
-				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "swordfish", 
-				"greatwhite", "orca", "sashimi"
+				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "chef"
 	],	
     "villageCantLoseRoles": [
         "barracuda",
