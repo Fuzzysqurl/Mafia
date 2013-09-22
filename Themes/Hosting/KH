@@ -1,0 +1,776 @@
+{
+    "name": "KH",
+    "altname": "Kingdom Hearts",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?17398-Kingdom-Hearts",
+    "author": "Beast",
+    "minplayers": 8,
+    "summary": "The fight for Kingdom Hearts has begun. Who will come out on top? Wiki Link here.",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "KeyBlade Wielders",
+            "winmsg": "~Players~ haven't let Kingdom Hearts fall into the wrong hands."
+        },
+        {
+            "side": "heartless",
+            "translation": "Heartless",
+            "winmsg": "The Heartless have gotten all the hearts they need to open Kingdom Hearts and now ~Players~ will rule everything"
+        },
+        {
+            "side": "nobody",
+            "translation": "Organization XIII",
+            "winmsg": "The Organization, ~Players~, have opened Kingdom Hearts and who knows what will happen now."
+        },
+        {
+            "side": "other",
+            "translation": "Xehanort",
+            "winmsg": "Master Xehanort and his followers, ~Players~, have made the X-Blade and opened up Kingdom Hearts."
+        },
+        {
+            "side": "Diz",
+            "translation": "Diz",
+            "winmsg": "~Players~ have stopped Kingdom Hearts from being opened."
+        }
+    ],
+    "roles": [
+        {
+            "role": "sora",
+            "translation": "Sora",
+            "side": "village",
+            "info": "Can turn into different forms with /valor, /wisdom and /master. Has a one time night kill.  Sided with KeyBlade Wielders.",
+            "help": "Connected to all by your heart, Hero of the series, you are Sora. You have mulitple forms that you can go into use /valor to gain a revealing daykill and 20% chance to evade night kills /wisdom to gain a distract and inspect /master to gain and inspect, 40% chance to avoid nightkills and revealing daykill, you have to wait until night 2 to go into master form.  There is always a chance you will go into your Final form where you get an unrevealing daykill, avoid nightkills and an inspect or go into Anti-Sora where you die in 3 days get a 50% chance to kill and a non-revealing daykill. Keep in mind no form is permanent.  You also have a one time /kill at night.",
+            "actions": {
+                "night": {
+                    "valor": {
+                        "command": "convert",
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "newRole": {
+                            "random": {
+                                "valor": 0.7,
+                                "final": 0.1,
+                                "anti": 0.2
+                            }
+                        },
+                        "priority": 60
+                    },
+                    "wisdom": {
+                        "command": "convert",
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "newRole": {
+                            "random": {
+                                "wisdom": 0.7,
+                                "final": 0.1,
+                                "anti": 0.2
+                            }
+                        },
+                        "priority": 60
+                    },
+                    "master": {
+                        "command": "convert",
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "newRole": {
+                            "random": {
+                                "master": 0.7,
+                                "final": 0.1,
+                                "anti": 0.2
+                            }
+                        },
+                        "priority": 60,
+                        "initialrecharge": 2
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "priority": 29,
+                        "common": "Self",
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "valor",
+            "translation": "Sora-Valor",
+            "side": "village",
+            "help": "Valor form is the form of strength.  You are now able to /kill during the day.  You will be revealed though. You also have a 20% chance at evading night kills.  You will leave this form in 3 days.",
+            "info": "20% night kill evade chance. Revealing Daykill. Sided with KeyBlade Wielders.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "sora",
+                        "curseCount": 3,
+                        "curseConvertMessage": "Sora has left Valor form."
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to take out an enemy. You will be revealed",
+                        "killmsg": "~Self~ uses their two Keyblades to slash through ~Target~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "wisdom",
+            "translation": "Sora-Wisdom",
+            "side": "village",
+            "help": "Wisdom form is the form of intelligence.  You are able to /distract one person each night and are also able to find out someone's identity with /inspect.  You leave this form in 3 days.",
+            "info": "Able to /inspect one person each night. Able to /distract one person each night. Sided with KeyBlade Wielders.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "sora",
+                        "curseCount": 3,
+                        "curseConvertMessage": "Sora has left Wisdom form."
+                    }
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 39
+                    }
+                }
+            }
+        },
+        {
+            "role": "master",
+            "translation": "Sora-Master",
+            "side": "village",
+            "help": "Master form is a mix between power and intelligence.  You can /inspect someone at night and then /kill someone during the day. You will be revealed when you kill. With your wisdom you evade 40% of all night kills. You will leave this form in 3 days.",
+            "info": "Can /inspect someone at night. Has a revealing daykill. Sided with KeyBlade Wielders.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "sora",
+                        "curseCount": 3,
+                        "curseConvertMessage": "Sora has left Master form."
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.4
+                    }
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 39
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can /kill an enemy now.  You will be revealed.",
+                        "killmsg": "~Self~ twirls their Keyblades around themselves taking out ~Target~ in the process."
+                    }
+                }
+            }
+        },
+        {
+            "role": "final",
+            "translation": "Sora-Final",
+            "side": "village",
+            "help": "Final form is your ultimate form.  You are able to /inspect someone at night.  You also have the ability to /kill someone during the day without being revealed.  You will leave this form in 4 days.",
+            "info": "Can /inspect someone at night. Unrevealing Daykill. Sided with KeyBlade Wielders.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "sora",
+                        "curseCount": 4,
+                        "curseConvertMessage": "Sora has left Final form."
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 39
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Take out an enemy with /kill.",
+                        "killmsg": "Sora uses the Oathkeeper and Oblivion to strike down ~Target~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "anti",
+            "translation": "Anti-Sora",
+            "side": "village",
+            "help": "Anti-Sora represents the darkness that dwells within Sora's heart.  You have amazing power but it comes at a cost.  You are able to /kill at night with a 50% chance of missing.  You also are able to /kill during the day and no one knows who you are.  Sadly, you die in 3 days though.",
+            "info": "50% fail chance night kill. Unrevealing Daykill. Sided with KeyBlade Wielders.",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": 3,
+                        "poisonDeadMessage": "The darkness finally took over your body and you have gone to Kingdom Hearts."
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "failChance": 0.5
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to rip through someone.",
+                        "killmsg": "Sora takes his claws and rips through ~Target~.  They never saw it coming."
+                    }
+                }
+            }
+        },
+        {
+            "role": "riku",
+            "translation": "Riku",
+            "side": "village",
+            "help": "You are Sora's best friend Riku and you walk the path to Dawn.  You have embraced the Darkness and because of this your vote counts as -6 and you hide in the dark and hear peoples plans.",
+            "info": "Vote of -6. Gets hax on kill and stalk. Sided with KeyBlade Wielders.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    },
+                    "stalk": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                },
+                "vote": -6
+            }
+        },
+        {
+            "role": "kairi",
+            "translation": "Kairi",
+            "side": "village",
+            "help": "You are Kairi and one of the Princesses of Heart.  You have a heart made of pure light.  You can use this light to /expose someone during the day but you will be revealed.  Because of your pure heart you have a vote of 2.",
+            "info": "Can /expose on person each day and is revealed. Has a vote of 2. Sided with KeyBlade Wielders.",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can now /expose someone.",
+                        "exposemsg": "~Self~ lets the light shine down exposing ~Target~ to be ~Role~."
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "goofy",
+            "translation": "Goofy",
+            "side": "village",
+            "help": "Goofy, the loyal protecter of King Mickey and one of Sora's trusted friends.  You carry a shield around so you are able to /protect someone each night.  On the 4th night your shield gets upgraded and you can protect an extra person, even yourself, each night with /shield.",
+            "info": "Can /protect someone each night. On the fourth night can start to use /shield to protect people. Sided with KeyBlade Wielders.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10
+                    },
+                    "shield": {
+                        "command": "protect",
+                        "target": "Any",
+                        "common": "Self",
+                        "initialrecharge": 4,
+                        "priority": 9
+                    }
+                }
+            }
+        },
+        {
+            "role": "donald",
+            "translation": "Donald",
+            "side": "village",
+            "help": "The royal mage Donald.  You have been keeping Sora company on his journey.  You have perfected your magic and you use it to support Sora.  You are able to /distract someone each night. On the 4th night you gain the ability to use /magic to distract a second person.",
+            "info": "Can /distract one person each night. On the fourth night can start to use /magic on someone for a second distract. Sided with KeyBlade Wielders.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5
+                    },
+                    "magic": {
+                        "target": "AnyButSelf",
+                        "command": "distract",
+                        "common": "Self",
+                        "initialrecharge": 4,
+                        "priority": 4
+                    }
+                }
+            }
+        },
+        {
+            "role": "spirit",
+            "translation": "Spirit",
+            "side": "village",
+            "help": "You are just a spirit.  It is your job to help those with a Keyblade.  Vote during the day to remove people.",
+            "actions": {}
+        },
+        {
+            "role": "mickey",
+            "translation": "King Mickey",
+            "side": "village",
+            "help": "King Mickey, wielder of the golden KeyBlade.  You have been fighting against the darkness for a very long time.  You are able to /kill during the day while wearing your cloak so no one knows who you are.",
+            "info": "Unrevealing daykill. Sided with KeyBlade Wielders.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to strike down and opponent.",
+                        "killmsg": "A cloaked figure appears behind ~Target~.  They are struck down with a golden KeyBlade.  We know it is King Mickey but we didn't see their face."
+                    }
+                }
+            }
+        },
+        {
+            "role": "ansem",
+            "translation": "Ansem",
+            "side": "heartless",
+            "winningSides": [
+                "heartless",
+                "other"
+            ],
+            "help": "The leader of the Heartless and the villian of the first game.  You are the heartless of Xehanort.  You share a /kill with your team and also have you own kill by using /destroy. You also avoid hax on the shared kill. Since you are Xehanort's heartless you also win with Xehanort's team.",
+            "info": "Shared kill with team. Can kill somone with /destroy. Avoids Kill Hax. Wins with Xehanort. Sided with the Heartless.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "priority": 26,
+                        "common": "Team",
+                        "broadcast": "team"
+                    },
+                    "destroy": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 19,
+                        "broadcast": "team"
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "shadow",
+            "translation": "Shadow",
+            "side": "heartless",
+            "help": "Shadow, the lowest form of heartless.  You are great in numbers but low in power.  You share a /kill with your team.  If Ansem is alive you might want to let them kill since they can't be haxed.",
+            "info": "Shares a /kill with team. Sided with the Heartless.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "priority": 26,
+                        "common": "Team",
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "darkside",
+            "translation": "Darkside",
+            "side": "heartless",
+            "help": "The biggest heartless of them all.  You tower over everyone.  Use /distract to make people cower in fear of your size. You also share a /kill with your team.",
+            "info": "Can /distract one person each night. Team shared /kill. Sided with the Heartless.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "msg": "You stood in fear of the huge size of the Darkside",
+                        "teammsg": "Your team mate encountered the Darkside last night."
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "priority": 26,
+                        "common": "Self",
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "neoshadow",
+            "translation": "Neoshadow",
+            "side": "heartless",
+            "help": "The new shadow. You are much more useful to your team than that lowly shadow. You have a shared /kill just like a shadow but can also use /protect to help your team stay alive.",
+            "info": "Can /protect one person each night. Shares a /kill with the team. Sided with the Heartless.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "priority": 15,
+                        "broadcast": "Team",
+                        "common": "Role"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "priority": 26,
+                        "common": "Self",
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "nova",
+            "translation": "Nova Shadow",
+            "side": "heartless",
+            "help": "A super powerful heartless that is strangely hard to defeat.  Due to your durability you evade 20% of all night kills and day kills.  You are also able to /stalk someone at night to see where they went. You also share a /kill with your team.",
+            "info": "/Stalks one person each night. Team shared /kill. Evades 20% of all kills. Sided with the Heartless.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "priority": 25,
+                        "common": "Self",
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "priority": 26,
+                        "common": "Self",
+                        "broadcast": "team"
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "xion",
+            "translation": "Xion",
+            "side": "nobody",
+            "help": "A doll made to take Sora's memories.  Your appearance is ever changing and you appear to be anyone to people who inspect you.  Since you look like everyone and noone you are able to find out what people are doing at night through hax.",
+            "info": "Inspects as anyone. Get hax on kill, protect and distract.  Sided with the Organization XIII.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.07
+                    },
+                    "protect": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.07
+                    },
+                    "distract": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.07
+                    }
+                },
+                "inspect": {
+                    "revealAs": "*"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "xemnas",
+            "translation": "Xemnas",
+            "side": "nobody",
+            "winningSides": [
+                "nobody",
+                "other"
+            ],
+            "help": "The leader of Organization XIII and the nobody of Xehanort. You can use /kill to slice people with your lightsabers.  Since you are Xehanort's nobody you win with his team.",
+            "info": "Can /kill one person each night.  Wins with Xehanort.  Sided with the Organization XIII.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 21,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "roxas",
+            "translation": "Roxas",
+            "side": "nobody",
+            "help": "The Nobody of Sora.  Just like Sora you are able to /kill but it is every other night and it is shared with your team.  Due to being the Nobody of Sora and having a heart you have a vote of 3.",
+            "info": "Vote of 3. Can /kill one person each night. Sided with the Organization XIII.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 23,
+                        "recharge": 2
+                    }
+                },
+                "vote": 3,
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "namine",
+            "translation": "Namine",
+            "side": "nobody",
+            "help": "Having the ability to mess with people's memories is a fun thing.  Since you have this power you are able to /distract someone to change their memory into thinking they did what they wanted to.  You also are able to use /kill to take out those who stop your memory erasing. The kill is shared with your team.",
+            "info": "Can /distract someone each night. Sided with the Organization XIII.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 2,
+                        "msg": "Namine messed with your memories making you only think you did your action last night.",
+                        "teammsg": "While waiting for your teammate to help, they had their memory changed thinking they did."
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 23
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "axel",
+            "translation": "Axel",
+            "side": "nobody",
+            "help": "You and your Chakrams hunt people down. You throw them at people to /kill them but you share the kill with your team. You /stalk people at night to find out who they visited that night.  You are a very selfless person so you are able to /protect someone at the cost of your life.",
+            "info": "Can /stalk one person each night. Can /protect one person. Can /kill one person(shared). Sided with the Organization XIII.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 75
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 23
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 11,
+                        "suicideChance": 1
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "xigbar",
+            "translation": "Xigbar",
+            "side": "nobody",
+            "help": "You carry around guns which is kind of cheating considering everyone else has the equivalent of a sword. You shoot at anyone who gets in the way of your leader and as such you are able to /kill them, but it is shared with your team. You can use your guns to /protect your team at night.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 12
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 23
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "xehanort",
+            "translation": "Xehanort",
+            "side": "other",
+            "help": "Pure evil is all you need to know.  Your goal is to open Kingdom Hearts regardless of the consequences.  You kill any distractors and have an unrevealing daykill. Did I mention you are pure evil?",
+            "info": "Kills distractors. Has an unrevealing daykill. Sided with Xehanort.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to destroy someone.",
+                        "killmsg": "~Target~ hears the sound of an evil laugh.  Before they knew it they were taken out."
+                    }
+                },
+                "distract": {
+                    "mode": {
+                        "killif": [
+                            "namine",
+                            "darkside",
+                            "donald"
+                        ]
+                    },
+                    "hookermsg": "You went to distract Xehanort but just ended up as one of the hearts he needed.",
+                    "msg": "Some tried to distract you so you just took their heart instead."
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "vanitas",
+            "translation": "Vanitas",
+            "side": "other",
+            "help": "Created from the darkness of Ventus your sole purpose is to help Master Xehanort to open Kingdom Hearts.  You have a vote of 50.  Use your vote to help Master Xehanort open Kingdom Hearts.",
+            "info": "Has a vote of 50. Sided with Xehanort.",
+            "actions": {
+                "vote": 50,
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "diz",
+            "translation": "Diz",
+            "side": "Diz",
+            "help": "Diz, also known as Ansem the Wise.  You were experimenting with people's hearts and thus you made the heartless.  You have been searching since to find a way to get rid of them.  You are wise allowing you to /inspect people at night.  You are also able to /kill during the day by shooting a giant cannon at your target without being seen.",
+            "info": "Can /inspect one person each night. Can /kill one person each day without revealing. Sided with Diz.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 89
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to take out an opponent.",
+                        "killmsg": "Diz takes out a giant canon and no one knows what he is going to do with it.  It was made to blow up Kingdom Hearts but instead he decided to fire it at ~Target~.  Guess we won't be seeing them again."
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "sora",
+        "shadow",
+        "spirit",
+        "goofy",
+        "axel",
+        "shadow",
+        "donald",
+        "spirit",
+        "xion",
+        "spirit"
+    ],
+    "roles2": [
+        "sora",
+        "goofy",
+        "roxas",
+        "spirit",
+        "riku",
+        "nova",
+        "axel",
+        "spirit",
+        "donald",
+        "spirit",
+        "darkside",
+        "namine",
+        "neoshadow",
+        "spirit",
+        "xion",
+        {
+            "darkside": 0.3,
+            "neoshadow": 0.3,
+            "shadow": 0.1,
+            "spirit": 0.3
+        },
+        "xigbar",
+        "kairi",
+        "spirit",
+        "ansem",
+        "xemnas",
+        "spirit",
+        "xehanort",
+        "vanitas",
+        "spirit",
+        "diz",
+        "spirit",
+        {
+            "darkside": 0.33,
+            "neoshadow": 0.33,
+            "nova": 0.34
+        },
+        "mickey",
+        "spirit",
+        "spirit",
+        "spirit",
+ {
+            "darkside": 0.33,
+            "neoshadow": 0.33,
+            "nova": 0.34
+        },
+        "spirit",
+        "spirit",
+	"shadow",
+        "spirit"
+    ],
+    "villageCantLoseRoles": [
+        "sora",
+        "final",
+        "valor",
+        "wisdom",
+        "master",
+        "anti",
+        "mickey",
+        "kairi",
+        "riku"
+    ],
+    "killmsg": "+Master Yen Sid: ~Player~ (~Role~) has returned to Kingdom Hearts!",
+    "killusermsg": "Your heart has been released from your body."
+}
