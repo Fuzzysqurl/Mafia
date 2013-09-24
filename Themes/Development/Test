@@ -1,0 +1,206 @@
+{
+    "name": "testing",
+    "author": "hi",
+    "minplayers": 3,
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Village"
+        },
+        {
+            "side": "mafia",
+            "translation": "Mafia",
+			"hide": true
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Villager",
+            "side": "village",
+            "help": "You're an everyday citizen of this fine village, and you're sick of being pushed around by the mafia. Vote during the day to try and eliminate scum!",
+            "actions": {
+                "lynch": {
+                    "convertTo": "villager2",
+                    "convertmsg": "Before you all lynch, ~Self~ has decided to kill..."
+                },
+				"startupmsg": "You are a ~Role~ sided with ~Side~. Also, this works!"
+            }
+        },
+		 {
+            "role": "soren",
+            "translation": "Soren",
+            "side": "village",
+            "help": "You're the expert tactician of the Greil Mercenaries. You're very loyal to Ike and serve him with your life but are a bit...cold to other people. Regardless, its in your best interests to help the heroes and end this war. To this end, you have the ability to /inspect one unit at nighttime, showing their identity. You're also good at predicting traps and danger, giving you a 10% chance to not die to killers. You're always next to Ike so you know his identity. If Lon'qu is in the game, you'll know him, too!",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 35
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.1
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "ike"
+                    ]
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "ike"
+                        ]
+                    },
+                    "targetmsg": "±Tactician: A giant, golden sword is seen high in the sky. You quickly moved out of the way to avoid being hit.",
+                    "msg": "±Tactician: Soren sidestepped the swing of your sword. 'Is there something you wanted to talk about, Ike?'",
+					"expend": 2
+                }
+            }
+        },
+		{
+            "role": "sophia",
+            "translation": "Sophia",
+            "side": "village",
+            "help": "You're a shaman from the mystical village of Arcadia, here to help Lord Roy defeat the villains. To this end, you wield powerful dark magic. This magic allows you to /bind a unit once per night, leaving them unable to take any action whatsoever. Being a shaman, you have a high resistance to other dark magics - you cannot be morphed. You know the identity of Lord Roy.",
+            "actions": {
+                "night": {
+                    "bind": {
+                        "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "distractmsg": "Mystical dark magics have bound you in place. You were unable to act this round. "
+                    }
+                },
+                "expose": {
+                    "mode": {
+                        "ignore": [
+                            "roy"
+                        ]
+                    },
+                    "targetmsg": "±Tactician: Roy pointed the Sword of Seals at you, but upon realizing you were Sophia, he pointed it away.",
+                    "msg": "±Tactician: Upon realizing you pointed the Sword of Seals at Sophia, you quickly pointed it away.",
+					"expend": true
+                },
+                "startup": {
+                    "revealRole": [
+                        "roy"
+                    ]
+                },
+                "convert": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "roy",
+            "translation": "Roy",
+            "side": "village",
+            "help": "You're the son of Eliwood, Marquess of Pherae! You're here to put an end to this war and, to that end, you've brought along the mythical Sword of Seals. Each day, during the standby phase, you can type /expose [name] to use the power of the Sword of Seals to reveal the identity of any player. The fire is so vibrant that you will be revealed so be careful. You've brought along your ally, Sophia, so you know her identity from the start.",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "~Self~, Lord Roy, points the Sword of Seals at ~Target~ and illuminates them, showing them to be ~Role~ sided with ~Side~! Roy then strikes a pose!"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "sophia"
+                    ]
+                }
+            }
+        }
+        {
+            "role": "ike",
+            "translation": "Ike",
+            "side": "village",
+            "help": "As the incredibly powerful leader of the Greil Mercenaries, it's up to you to put an end to this war. You possess the holy sword, Ragnell, and are strong enough to wield it with only one hand. You are capable enough to duel any other player and win in single combat. Type /kill during the standby phase to fight them. You're not only powerful but you're also swift - you won't be revealed. Soren is always at your side so you know his identity.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name] :",
+                        "killmsg": "'Prepare yourself.' A giant, golden sword is seen high in the sky. Ike lands on the ground in front of his opponent and swings the holy sword, Ragnell, at ~Target~ with great force. This match is over!",
+						"limit": 2
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "soren"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager2",
+            "translation": "Vengeful Villager",
+            "side": "village",
+            "help": "You've been lynched, but you still have a shot to save the village! You can use /kill to eliminate one person, hopefully a member of the mafia!",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": -1
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "goon",
+            "translation": "Goon",
+            "side": "mafia",
+            "help": "You're a mafia goon! You moved into this town and took it over, but the villagers want it back; since you're trying to blend in, you can't kill like you normally would, so use your vote as your weapon!",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"inspect": {
+					"mode": {
+						"seenSide": "village"
+					}
+				}
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Godfather",
+            "side": "mafia",
+            "help": "You're the mafia Godfather! You moved into this town and took it over, but the villagers want it back; since you're trying to blend in you can't kill them like you normally would, so use your vote as your weapon! Tread carefully though; if you are lynched, the mafia all lose!",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "lynch": {
+                    "killRoles": [
+                        "goon"
+                    ],
+                    "singlekillmsg": "±Game: With their leader gone, ~Target~ surrendered!"
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "villager",
+        "godfather",
+        "villager",
+        "villager",
+        "goon",
+        "villager",
+        "goon"
+    ],
+    "villageCantLoseRoles": [
+        "villager2"
+    ],
+    "killmsg": "±Game: ~Player~ (~Role~) was killed (vengefully)!",
+    "killusermsg": "±Game: You were killed (vengefully)!",
+    "lynchmsg": "±Game: ~Player~, the ~Role~, was lynched (vengefully)!"
+}
