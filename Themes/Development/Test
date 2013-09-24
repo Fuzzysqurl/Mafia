@@ -167,9 +167,7 @@
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "inspect": {
-                    "mode": {
                         "seenSide": "village"
-                    }
                 }
             }
         },
