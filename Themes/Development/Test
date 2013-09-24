@@ -58,7 +58,7 @@
                     },
                     "targetmsg": "±Tactician: A giant, golden sword is seen high in the sky. You quickly moved out of the way to avoid being hit.",
                     "msg": "±Tactician: Soren sidestepped the swing of your sword. 'Is there something you wanted to talk about, Ike?'",
-                    "expend": 2
+                    "expend": true
                 }
             }
         },
@@ -107,7 +107,8 @@
                     "expose": {
                         "target": "AnyButSelf",
                         "msg": "You can type /expose [name] to reveal someone's role!",
-                        "exposemsg": "~Self~, Lord Roy, points the Sword of Seals at ~Target~ and illuminates them, showing them to be ~Role~ sided with ~Side~! Roy then strikes a pose!"
+                        "exposemsg": "~Self~, Lord Roy, points the Sword of Seals at ~Target~ and illuminates them, showing them to be ~Role~ sided with ~Side~! Roy then strikes a pose!",
+                        "limit": 2
                     }
                 },
                 "startup": {
