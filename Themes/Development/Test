@@ -10,7 +10,7 @@
         {
             "side": "mafia",
             "translation": "Mafia",
-			"hide": true
+            "hide": true
         }
     ],
     "roles": [
@@ -24,10 +24,10 @@
                     "convertTo": "villager2",
                     "convertmsg": "Before you all lynch, ~Self~ has decided to kill..."
                 },
-				"startupmsg": "You are a ~Role~ sided with ~Side~. Also, this works!"
+                "startupmsg": "You are a ~Role~ sided with ~Side~. Also, this works!"
             }
         },
-		 {
+        {
             "role": "soren",
             "translation": "Soren",
             "side": "village",
@@ -58,11 +58,11 @@
                     },
                     "targetmsg": "±Tactician: A giant, golden sword is seen high in the sky. You quickly moved out of the way to avoid being hit.",
                     "msg": "±Tactician: Soren sidestepped the swing of your sword. 'Is there something you wanted to talk about, Ike?'",
-					"expend": 2
+                    "expend": 2
                 }
             }
         },
-		{
+        {
             "role": "sophia",
             "translation": "Sophia",
             "side": "village",
@@ -85,7 +85,7 @@
                     },
                     "targetmsg": "±Tactician: Roy pointed the Sword of Seals at you, but upon realizing you were Sophia, he pointed it away.",
                     "msg": "±Tactician: Upon realizing you pointed the Sword of Seals at Sophia, you quickly pointed it away.",
-					"expend": true
+                    "expend": true
                 },
                 "startup": {
                     "revealRole": [
@@ -116,7 +116,7 @@
                     ]
                 }
             }
-        }
+        },
         {
             "role": "ike",
             "translation": "Ike",
@@ -128,7 +128,7 @@
                         "target": "AnyButSelf",
                         "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name] :",
                         "killmsg": "'Prepare yourself.' A giant, golden sword is seen high in the sky. Ike lands on the ground in front of his opponent and swings the holy sword, Ragnell, at ~Target~ with great force. This match is over!",
-						"limit": 2
+                        "limit": 2
                     }
                 },
                 "startup": {
@@ -165,11 +165,11 @@
             "help": "You're a mafia goon! You moved into this town and took it over, but the villagers want it back; since you're trying to blend in, you can't kill like you normally would, so use your vote as your weapon!",
             "actions": {
                 "startup": "team-reveal-with-roles",
-				"inspect": {
-					"mode": {
-						"seenSide": "village"
-					}
-				}
+                "inspect": {
+                    "mode": {
+                        "seenSide": "village"
+                    }
+                }
             }
         },
         {
