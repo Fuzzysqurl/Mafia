@@ -101,7 +101,7 @@
             "role": "roy",
             "translation": "Roy",
             "side": "village",
-            "help": "You're the son of Eliwood, Marquess of Pherae! You're here to put an end to this war and, to that end, you've brought along the mythical Sword of Seals. Each day, during the standby phase, you can type /expose [name] to use the power of the Sword of Seals to reveal the identity of any player. The fire is so vibrant that you will be revealed so be careful. You've brought along your ally, Sophia, so you know her identity from the start.",
+            "help": "~Side~ You're the son of Eliwood, Marquess of Pherae! You're here to put an end to this war and, to that end, you've brought along the mythical Sword of Seals. Each day, during the standby phase, you can type /expose [name] to use the power of the Sword of Seals to reveal the identity of any player. The fire is so vibrant that you will be revealed so be careful. You've brought along your ally, Sophia, so you know her identity from the start.",
             "actions": {
                 "standby": {
                     "expose": {
@@ -122,7 +122,7 @@
             "role": "ike",
             "translation": "Ike",
             "side": "village",
-            "help": "As the incredibly powerful leader of the Greil Mercenaries, it's up to you to put an end to this war. You possess the holy sword, Ragnell, and are strong enough to wield it with only one hand. You are capable enough to duel any other player and win in single combat. Type /kill during the standby phase to fight them. You're not only powerful but you're also swift - you won't be revealed. Soren is always at your side so you know his identity.",
+            "help": "~Side~ As the incredibly powerful leader of the Greil Mercenaries, it's up to you to put an end to this war. You possess the holy sword, Ragnell, and are strong enough to wield it with only one hand. You are capable enough to duel any other player and win in single combat. Type /kill during the standby phase to fight them. You're not only powerful but you're also swift - you won't be revealed. Soren is always at your side so you know his identity.",
             "actions": {
                 "standby": {
                     "kill": {
