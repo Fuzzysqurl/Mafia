@@ -18,13 +18,13 @@
             "role": "villager",
             "translation": "Villager",
             "side": "village",
+            "startupmsg": "You are a ~Role~ sided with ~Side~. Also, this works!",
             "help": "You're an everyday citizen of this fine village, and you're sick of being pushed around by the mafia. Vote during the day to try and eliminate scum!",
             "actions": {
                 "lynch": {
                     "convertTo": "villager2",
                     "convertmsg": "Before you all lynch, ~Self~ has decided to kill..."
-                },
-                "startupmsg": "You are a ~Role~ sided with ~Side~. Also, this works!"
+                }
             }
         },
         {
