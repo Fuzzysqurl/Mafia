@@ -1,13 +1,13 @@
 {
-    "name": "FE",
-    "altname": "Fire Emblem",
+    "name": "FE2",
+    "altname": "FE",
     "author": [
         "<span style='color:#ff4e00'>Solace</span>",
         "Fuzzy"
     ],
     "minplayers": 6,
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?15904-Fire-Emblem",
-    "summary": "The world is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the Earth!",
+    "summary": "[MASSIVE OVERHAUL] The world is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the Earth!",
     "sides": [
         {
             "side": "village",
