@@ -1,0 +1,1313 @@
+{
+    "name": "FE",
+    "altname": "Fire Emblem",
+    "author": [
+        "<span style='color:#ff4e00'>Solace</span>",
+        "Fuzzy"
+    ],
+    "minplayers": 6,
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?15904-Fire-Emblem",
+    "summary": "The world is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the Earth!",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Heroes",
+            "winmsg": "Fighting against all odds, the Heroes (~Players~) have cleansed the land of the forces of evil!"
+        },
+        {
+            "side": "bern",
+            "translation": "Kingdom of Bern",
+            "winmsg": "A wide smile is seen all over the faces of ~Players~ - the dragons have been reawakened!"
+        },
+        {
+            "side": "fang",
+            "translation": "Black Fang",
+            "winmsg": "'Humans... they are so very fragile'... The Black Fang, ~Players~, has won!"
+        },
+        {
+            "side": "grado",
+            "translation": "Grado Empire",
+            "winmsg": "The sheer power of the Demon King allows ~Players~ to destroy all opposition! A thousand-year reign of evil has begun!"
+        },
+        {
+            "side": "daein",
+            "translation": "Kingdom of Daein",
+            "winmsg": "'One blow. For nameless wretches like you, one blow is more than enough.' The Kingdom of Daein, lead by ~Players~, has destroyed all opposition! "
+        },
+        {
+            "side": "begnion",
+            "translation": "Begnion Empire",
+            "winmsg": "Did you really think you could stop the largest and most grand nation in the world? The Begnion Empire, led by ~Players~, has won!"
+        },
+        {
+            "side": "grimleal",
+            "translation": "Grimleal Army",
+            "winmsg": "'AHAHAHA!' The Fell Dragon Grima has been awoken, and the destruction of the world has begun, thanks to ~Players~!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Soldier",
+            "side": "village",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands.",
+            "info": "Sided with The Heroes."
+        },
+        {
+            "role": "bribed",
+            "translation": "Bribed Soldier",
+            "side": "village",
+            "help": "Never underestimate the power of money! King Zephiel has paid you off causing you to lose your voting capabilities.",
+            "info": "Vote of 0. Sided with The Heroes.",
+            "actions": {
+                "vote": 0
+            }
+        },
+        {
+            "role": "disgruntled",
+            "translation": "Disgruntled Soldier",
+            "side": "daein",
+            "winningSides": [
+                "fang",
+                "bern",
+                "grado",
+                "begnion",
+                "grimleal"
+            ],
+            "help": "You've just about had it with these naïve heroes! You don't care who wins any more - so long as it isn't them! If you get lynched, you will turn into a Berserk Soldier!",
+            "info": "Converts to Berserk Soldier when lynched. Wins the game with any side, excluding The Heroes. Sided with The Kingdom of Daein.",
+            "actions": {
+                "lynch": {
+                    "convertTo": "berserk",
+                    "convertmsg": "The Disgruntled Soldier, ~Self~,  is hit with a Berserk Staff after receiving ~Count~ votes. He has gone insane and now kills at night."
+                }
+            }
+        },
+        {
+            "role": "berserk",
+            "translation": "Berserk Soldier",
+            "side": "daein",
+            "winningSides": [
+                "fang",
+                "bern",
+                "grado",
+                "begnion",
+                "grimleal"
+            ],
+            "help": "You've lost all sense of self-preservation. The side of justice has just tried to rid themselves of you...and you are completely enraged! The time for talk is over - you now have one swift kill per night.",
+            "info": "Can kill one person during the night. Wins the game with any side, excluding The Heroes. Sided with The Kingdom of Daein.",
+            "actions": {
+                "startup": "role-reveal",
+                "night": {
+                    "kill": {
+                        "target": "AnyButRole",
+                        "common": "Role",
+                        "priority": 3,
+                        "msg": "±Tactician: Have you ever seen a man toss an axe into the air then watch it turn in three full circles before grabbing it and slamming it down into someone? Well, now you can say you have. That's what Berserkers do, after all."
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller_begnion",
+            "translation": "Trainee",
+            "side": "village",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands.",
+            "info": "Can be seen as a member of Kingdom of Bern, Begnion Empire, Black Fang, or Grimleal. Voteshield of 1. Vote of 0 if seen on Begnion Empire. Sided with The Heroes.",
+            "actions": {
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "villager",
+                "inspect": {
+                    "seenSide": "begnion"
+                },
+                "vote": 0,
+                "voteshield": 1,
+                "lynch": {
+                    "revealAs": "miller_begnion"
+                }
+            }
+        },
+        {
+            "role": "miller_bern",
+            "translation": "Trainee",
+            "side": "village",
+            "hide": "both",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands.",
+            "actions": {
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "villager",
+                "inspect": {
+                    "seenSide": "bern"
+                },
+                "voteshield": 1,
+                "lynch": {
+                    "revealAs": "miller_bern"
+                }
+            }
+        },
+        {
+            "role": "miller_fang",
+            "translation": "Trainee",
+            "side": "village",
+            "hide": "both",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands.",
+            "actions": {
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "villager",
+                "inspect": {
+                    "seenSide": "fang"
+                },
+                "voteshield": 1,
+                "lynch": {
+                    "revealAs": "miller_fang"
+                }
+            }
+        },
+        {
+            "role": "miller_grimleal",
+            "translation": "Trainee",
+            "side": "village",
+            "hide": "both",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands.",
+            "actions": {
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "villager",
+                "inspect": {
+                    "seenSide": "grimleal"
+                },
+                "voteshield": 1,
+                "lynch": {
+                    "revealAs": "miller_grimleal"
+                }
+            }
+        },
+        {
+            "role": "lyndis",
+            "translation": "Lyndis",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're Lady Lyn of House Caelin. Despite being of noble blood, you spent almost the entirety of your life as a nomad on the plains of Sacae. Due to this, you've mastered the ability to /kill one person during the night.",
+            "info": "Can kill one person during the night. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 11,
+                        "msg": "±Tactician: Lyn's speed in unparalled. You saw only a glint of light reflecting off of her Mani Katti before you breathed your last."
+                    }
+                }
+            }
+        },
+        {
+            "role": "hector",
+            "translation": "Hector",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercely loyal to your friends. You possess incredibly strong armor and defensive capabilities, and as such, you're able to /protect one person every night.",
+            "info": "Can protect one person during the night. Can insult one person during the day, once per game. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8
+                    }
+                },
+                "standby": {
+                    "insult": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "charges": 1,
+                        "msg": "Make sure the coast is clear and type /insult to make a rude gesture at someone! You can only do this once per game!",
+                        "exposemsg": "'Hey, you!' Hector makes sure the coast is clear and then proceeds to make a very rude gesture at ~Target~! The audience is completely shocked..."
+                    }
+                }
+            }
+        },
+        {
+            "role": "micaiah",
+            "translation": "Micaiah",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the Silver-Haired Maiden, liberator of Daein. You wield very powerful holy magic that can only be used by those in the service of good. Your abilities grant you immunity to poison and allow you to /safeguard one person during the night to protect them from harmful ailments!",
+            "info": "Can safeguard one person during the night. Immune to poison. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "sophia",
+            "translation": "Sophia",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're a shaman from the mystical village of Arcadia, here to help Lord Roy defeat the villains. You wield powerful dark magic that allows you to /flux a unit once per night, making them unable to do anything during the night. Being a shaman, you have a high resistance to other dark magics making you immune to morphing.",
+            "info": "Can distract one person during the night. Immune to converts. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "flux": {
+                        "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "distractmsg": "An ominous feeling washed over you during the night. You were too afraid to act and ran from the battlefield!",
+                        "teammsg": "An ominous feeling washed over your team mate during the night. As they ran from the battlefield, you followed after them, preventing you from performing your actions!"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "roy",
+            "translation": "Roy",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the son of Eliwood, Marquess of Pherae! You're here to put an end to this war and, to that end, you've brought along the mythical Sword of Seals. Each day, you can use the power of the Sword of Seals to /expose a player to reveal what army they belong to, but the fire is so vibrant that you will be revealed as well. Your quick reflexes allow you to dodge incoming daykills without fail.",
+            "info": "Can expose one person during the day (revealing). Evades daykills. Sided with The Heroes.",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "~Self~, Lord Roy, points the Sword of Seals at ~Target~ and illuminates them, showing them to be part of The ~Side~! Roy then strikes a pose!"
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "ike",
+                            "ashnard",
+                            "gangrel"
+                        ]
+                    },
+                    "msg": "±Tactician: A vibrant blast of light narrowly misses you as you try to kill ~Target~.",
+                    "targetmsg": "±Tactician: A glint of sunlight off a sword catches your eye. Without hesitation, you aim the Sword of Seals at the oncoming attacker. They sidestep and disappear before you can tell who it was."
+                }
+            }
+        },
+        {
+            "role": "soren",
+            "translation": "Soren",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the expert tactician of the Greil Mercenaries. You're very loyal to Ike and serve him with your life but are a bit cold to other people. Regardless, its in your best interests to help the Heroes and end this war. You have the ability to /inspect one unit at night to discover what army they are sided with!",
+            "info": "Can inspect one person during the night. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "Sight": "Team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "ike",
+            "translation": "Ike",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "As the incredibly powerful leader of the Greil Mercenaries, it's up to you to put an end to this war. You possess the holy sword, Ragnell, and are strong enough to wield it with only one hand. You're not only powerful but you're also swift, allowing you to /kill one person during the day and escape before your identity is known.",
+            "info": "Can kill one person during the day (non-revealing). Sided with The Heroes.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name]",
+                        "killmsg": "'Prepare yourself.' A giant, golden sword is seen high in the sky. Ike lands on the ground in front of his opponent and swings the holy sword, Ragnell, at ~Target~ with great force. This match is over!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "marth",
+            "translation": "Marth",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "The Prince of Altea, Marth is here! You're an extremely capable tactician - in addition to your peerless swordsmanship. You have the ability to /kill one target every other night with ease. Additionally, your assortment of abilities allows you to do anything else you wish, but you can't perform everything at once! You can choose to either /protect, /distract, /safeguard (yourself included), /inspect or /stalk one person at night! You're also incredibly charismatic - so your vote is worth 2.",
+            "info": "Can kill one person every other night. Can either inspect, protect, stalk, safeguard, or distract one person during the night. Vote of 2. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 17,
+                        "recharge": 2,
+                        "msg": "±Tactician: Critical Hit! Marth's Falchion zips right through you."
+                    },
+                    "safeguard": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 5,
+                        "restrict": [
+                            "distract",
+                            "protect",
+                            "inspect",
+                            "stalk"
+                        ]
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "restrict": [
+                            "safeguard",
+                            "protect",
+                            "inspect",
+                            "stalk"
+                        ],
+                        "distractmsg": "Marth decided to annoy you during the night. You wasted the night trying to stop him.",
+                        "teammsg": "Marth decided to annoy your team mate during the night. You wasted the night trying to stop him."
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "restrict": [
+                            "safeguard",
+                            "distract",
+                            "inspect",
+                            "stalk"
+                        ]
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "Sight": "Team",
+                        "restrict": [
+                            "safeguard",
+                            "distract",
+                            "protect",
+                            "stalk"
+                        ]
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "restrict": [
+                            "safeguard",
+                            "distract",
+                            "protect",
+                            "inspect"
+                        ]
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "eliwood",
+            "translation": "Eliwood",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You are Eliwood, Marquess of Pherae. Given your royal lineage, you have a considerable sway in matters of diplomacy granting you a vote of 3 during the day.",
+            "info": "Vote of 3. Sided with The Heroes.",
+            "actions": {
+                "vote": 3
+            }
+        },
+        {
+            "role": "eirika",
+            "translation": "Eirika",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "Your kind heart and gentle words are the only things that will stay the Demon King's hand. Anyone you vote for will be safe from his vote (-999).",
+            "info": "Vote of -999. Sided with The Heroes.",
+            "actions": {
+                "vote": -999
+            }
+        },
+        {
+            "role": "chrom",
+            "translation": "Chrom",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "You are Chrom, the Prince of Ylisse. You are a strong and veritable leader of your army. You may /bow, /knight, or /lord to use a Second Seal and become one of three roles: an inspector with a voteshield and an extra vote (bow), bodyguard that can't be killed (knight), or vigilante that can't be distracted and pierces bodyguards (lord).",
+            "info": "Can convert during the night into a Sniper, Great Knight, or Great Lord. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "bow": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "convertmsg": "~Old~ raises his Second Seal and becomes a Sniper!",
+                        "restrict": [
+                            "knight",
+                            "lord"
+                        ],
+                        "newRole": {
+                            "bow": [
+                                "chrom"
+                            ]
+                        }
+                    },
+                    "knight": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "restrict": [
+                            "bow",
+                            "lord"
+                        ],
+                        "newRole": {
+                            "knight": [
+                                "chrom"
+                            ]
+                        },
+                        "convertmsg": "~Old~ raises his Second Seal and becomes a Great Knight!"
+                    },
+                    "lord": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "restrict": [
+                            "bow",
+                            "knight"
+                        ],
+                        "newRole": {
+                            "lord": [
+                                "chrom"
+                            ]
+                        },
+                        "convertmsg": "~Old~ raises his Second Seal and becomes a Great Lord!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "bow",
+            "translation": "Sniper Chrom",
+            "side": "village",
+            "hide": "side",
+            "startupmsg": "You are ~Role~!",
+            "help": "Due to your high intelligence, you can use /inspect to view someone's role. You also have a voteshield of -1 because you can attack from afar and a vote of 2.",
+            "info": "Can inspect one person during the night. Vote of 2. Voteshield of -1. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20
+                    }
+                },
+                "vote": 2,
+                "voteshield": -1
+            }
+        },
+        {
+            "role": "lord",
+            "translation": "Great Lord Chrom",
+            "side": "village",
+            "hide": "side",
+            "startupmsg": "You are The ~Role~!",
+            "help": "Due to your expertise and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent. You also have your mind set on killing, so you can't be distracted and you can pierce through the toughest of bodyguards with your Falcion.",
+            "info": "Can kill one person during the night (pierces bodyguards). Immune to distract. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 17,
+                        "pierce": true,
+                        "msg": "'AETHER!' Chrom slashes down with the Falchion and delivers a finishing blow. You've been killed!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "knight",
+            "translation": "Great Knight Chrom",
+            "side": "village",
+            "hide": "side",
+            "startupmsg": "You are The ~Role~!",
+            "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed! Due to your amazing defensive skills in Pavise and Aegis, you also cannot be killed at night.",
+            "info": "Can protect one person during the night. Evades night kills. Sided with The Heroes.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "celica",
+            "translation": "Celica",
+            "side": "village",
+            "startupmsg": "You are ~Role~!",
+            "help": "Oops, we forgot to finish you! YOu just have a -3 vote right now, but you'll get a detox later!",
+            "info": "Can detox one person during the night. Vote of -3. Sided with The Heroes.",
+            "actions": {
+                "vote": -3
+            }
+        },
+        {
+            "role": "knoll",
+            "translation": "Knoll",
+            "side": "grado",
+            "startupmsg": "You are ~Role~!",
+            "help": "You are Knoll, one of Grado's generals. Use your dark magic to either /kill or /poison one player each night and, since you're in a a place of high authority, your vote counts as 2 during the day.",
+            "info": "Can either poison or kill one person during the night. Vote of 2. Sided with The Grado Empire.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "restrict": [
+                            "poison"
+                        ],
+                        "msg": "±Tactician: Knoll truly hopes you find the same solace in the darkness that he does. He sends his kind regards with you to the afterlife."
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "restrict": [
+                            "kill"
+                        ]
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "lyon",
+            "translation": "Lyon",
+            "side": "grado",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the kind Prince of Grado, you have no desire for this war, but this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate to use it and awaken the power of the Demon King! A veil of darkness will protect you from harm.",
+            "info": "Can convert into Demon King during the night (Converting also protects and safeguards self). Sided with The Grado Empire.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "activate": {
+                        "command": [
+                            "convert",
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "newRole": "demon king",
+                        "canConvert": [
+                            "lyon"
+                        ],
+                        "convertmsg": "The Dark Crystal has consumed the soul of Lyon, the final sacrifice. Now, the Demon King is reborn! Beware!",
+                        "silent": false
+                    }
+                }
+            }
+        },
+        {
+            "role": "demon king",
+            "translation": "Demon King",
+            "side": "grado",
+            "winIfDeadRoles": [
+                "lyndis",
+                "marth",
+                "eirika",
+                "ike",
+                "nergal",
+                "ephidel",
+                "limstella",
+                "idoun",
+                "zephiel",
+                "zephiel2",
+                "murdock",
+                "ashnard",
+                "zelgius",
+                "sephiran",
+                "aversa",
+                "validar",
+                "gangrel"
+            ],
+            "startupmsg": "You are The ~Role~!",
+            "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish, unless protected by Eirika! You cannot be converted, distracted, or poisoned!",
+            "info": "Can poison two people during the night. Vote of 999. Immune to convert, distract, and poison. Sided with The Grado Empire.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 9,
+                        "broadcast": "team",
+                        "limit": 2
+                    }
+                },
+                "vote": 999,
+                "convert": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "zelgius",
+            "translation": "Zelgius",
+            "side": "begnion",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the enigmatic Black Knight Zelgius, one of the strongest warriors in the land. You wield the holy blade Alondite, the counterpart to Ike's Ragnell! You're patiently watching the outcome of this war. On the 5th night, you are able to act and use the deadly skill Luna. Type /luna to kill up to 4 people with maximum priority on the 5th night and every night afterwards. Your armor is blessed by the goddess and normal weapons cannot hope to harm it, granting you immunity to death, poison, and converts at night. You can /intimidate the enemy forces during the 4th standby phase (before the 5th night) to send a chilling warning of your arrival.",
+            "info": "Can kill four people during the night, after the fourth night. Can intimidate during the day, once per game, after the third day. Immune to converts and poison. Evades night kills. Sided with The Begnion Empire.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "luna": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 2,
+                        "broadcast": "team",
+                        "initialrecharge": 5,
+                        "limit": 4,
+                        "msg": "±Black Knight: 'Let's see how you handle this!'"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "standby": {
+                    "intimidate": {
+                        "command": "reveal",
+                        "initialrecharge": 4,
+                        "charges": 1,
+                        "revealmsg": "In every pub and on every street, there is only one topic of conversation - the Black Knight is here."
+                    }
+                }
+            }
+        },
+        {
+            "role": "sephiran",
+            "translation": "Sephiran",
+            "side": "begnion",
+            "startupmsg": "You are ~Role~!",
+            "help": "You are Sephiran, the Chancellor of Begnion. You believe the inhabitants of the world deserve nothing but destruction. Use your /kill and your vote of 1.5 to bring about your enemies' ends.",
+            "info": "Can kill one person during the night. Vote of 1.5. Sided with The Begnion Empire.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 13,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Sephiran's magic proved to be too much for you to handle. You've been killed!"
+                    }
+                },
+                "vote": 1.5
+            }
+        },
+        {
+            "role": "lekain",
+            "translation": "Lekain",
+            "side": "begnion",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're a Duke of the nation of Begnion, and a senior member of the Senate. You have a sick, twisted mind and you will stop at NOTHING to prevent the heroes from... well, stopping you! You can /kill and you have a vote of 1.1!",
+            "info": "Can kill one person during the night. Vote of 1.1. Sided with The Begnion Empire.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 13,
+                        "broadcast": "team",
+                        "msg": "±Tactician: He may be just a politician, but he knows where to stick a knife when needs to. Lekain has seen to the end of you!"
+                    }
+                },
+                "vote": 1.1
+            }
+        },
+        {
+            "role": "ashnard",
+            "translation": "Ashnard",
+            "side": "daein",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the very powerful King of Daein, Ashnard. Dubbed the 'Mad King' by all, your reign is one of terror, one in which only the strongest may survive. You can strike down one unworthy opponent at night and one during the day with /kill. Your commanding prowess grants you a vote of 3 and immunity to morphing!",
+            "info": "Can kill one person during the night. Can kill one person during the day. Vote of 3. Immune to converts. Sided with The Kingdom of Daein.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+                        "msg": "±Tactician: One slash of the mighty Gurgurant and you were gone."
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "'If you will not bring the fight to me, then I shall bring the fight to YOU!' Ashnard lunges at his foe...~Target~ never stood a chance..."
+                    }
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "murdock",
+            "translation": "Murdock",
+            "side": "bern",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the personal guard of King Zephiel. You can /protect up to two allies per night to shield them from harm. Like the other members on your team, you are capable of armed combat, allowing you to /kill once per night. Zephiel's powerful swing allows your team to kill a different target than him in the same night.",
+            "info": "Can protect two people during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "limit": 2
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Murdock swings his big 'ole axe in your direction and you fail to dodge it. You're dead!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "idoun",
+            "translation": "Idoun",
+            "side": "bern",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the Dark Priestess, Idoun. While you seem to be a young girl, you're actually the Dark Dragon. You're assisting Zephiel in his schemes for the destruction of the world but you aren't doing it of your own volition. Every night, you can /kill one person a night and /poison another. Zephiel's powerful swing allows your team to kill a different target than him in the same night.",
+            "info": "Can poison one person during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+                        "msg": "±Tactician: The breath of the Dark Dragon burned you to a crisp!"
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 18,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "zephiel",
+            "translation": "Zephiel",
+            "side": "bern",
+            "startupmsg": "You are ~Role~!",
+            "help": "You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. You have the ability to /kill one person at night with your mighty blade. The immense power behind your swing allows your team to kill a different target than you in the same night. Your extensive spy network allows you to /inspect someone to learn which army they are sided with. Furthermore, your incredible political clout gives you a +2 vote and immunity to poison and morphing.",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Vote of 2. Immune to convert and poison. Sided with The Kingdom of Bern.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 14,
+                        "broadcast": "team",
+                        "msg": "±Tactician: King Zephiel swung the Eckesachs toward you, and you had no chance of escaping."
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team",
+                        "Sight": "Team"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "zephiel2",
+            "translation": "Zephiel",
+            "side": "bern",
+            "hide": "side",
+            "startupmsg": "You are ~Role~!",
+            "help": "You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. You have the ability to /kill one person at night with your mighty blade. The immense power behind your swing allows your team to kill a different target than you in the same night. Your extensive spy network allows you to /inspect someone to learn which army they are sided with. Furthermore, your incredible political clout gives you a +3 vote, immunity to poison and morphing, and the ability to /bribe a Soldier to strip them of their voting power!",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Can convert one person to Bribed Soldier during the night, once per game. Vote of 3. Immune to convert and poison. Sided with The Kingdom of Bern.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+                        "msg": "±Tactician: King Zephiel swung the Eckesachs toward you, and you had no chance of escaping."
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team",
+                        "Sight": "Team"
+                    },
+                    "bribe": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 19,
+                        "charges": 1,
+                        "broadcast": "team",
+                        "newRole": {
+                            "bribed": [
+                                "villager",
+                                "miller_bern",
+                                "miller_fang",
+                                "miller_grimleal"
+                            ]
+                        },
+                        "convertmsg": "King Zephiel bribes a Soldier with a bag of gold and strips them of their vote. Being a King has some benefits!"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "narshen",
+            "translation": "Narshen",
+            "side": "bern",
+            "startupmsg": "You are ~Role~!",
+            "help": "'I am strong. I am wise. I am lovely. And most importantly, I am right! ...Me! No one else!' You are one of Bern's three Dragon Generals and thus, have considerable influence on the battlefield. Command your troops to /distract one person during night and then go in yourself and handle things with a /kill! Zephiel's powerful swing allows your team to kill a different target than him in the same night.",
+            "info": "Can kill one person during the night. Can distract one person during the night. Sided with The Kingdom of Bern.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 6,
+                        "distractmsg": "Narhsen's wyvren is quite the magnificent beast, isn't it? You spent all night looking at it and forgot to perform your action.",
+                        "teammsg": "Narhsen's wyvren is quite the magnificent beast, isn't it? Your teammate spent all night looking at it, causing you to miss the action during the night."
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Unfortunately, you couldn't outrun Narshen's wyvren. You're dead now, I'm afraid."
+                    }
+                }
+            }
+        },
+        {
+            "role": "nergal",
+            "translation": "Nergal",
+            "side": "fang",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every other night you are able to /morph any unit into a Nameless Morph to join your army. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
+            "info": "Can morph one person every other night. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "morph": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "recharge": 2,
+                        "newRole": "morph",
+                        "convertmsg": "~Old~ has been drained of life energy and turned into a Nameless Morph!",
+                        "silent": false
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "msg": "±Tactician: 'Tremble and despair!'"
+                    }
+                },
+                "onDeath": {
+                    "killRoles": [
+                        "morph"
+                    ],
+                    "killmsg": "As Nergal dies, so do all of his converted Morphs (~Target~)!"
+                }
+            }
+        },
+        {
+            "role": "morph",
+            "translation": "Nameless Morph",
+            "side": "fang",
+            "help": "You've been slain and your life force has been stolen! The morph made from your corpse retains your memories and you are still 'alive,' if only in name. Your vote is worthless but you possess a voteshield of -3. You can /shield one person on your team to attempt to protect them from harm, but it won't always work.",
+            "info": "Can shield one person during the night (50% fail chance). Vote of 0. Voteshield of -3. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "broadcast": "team",
+                        "failChance": 0.5
+                    }
+                },
+                "vote": 0,
+                "voteshield": -3
+            }
+        },
+        {
+            "role": "limstella",
+            "translation": "Limstella",
+            "side": "fang",
+            "startupmsg": "You are ~Role~!",
+            "help": "The strongest and most beautiful of morphs at Nergal's command, you are a master of magic. You can use this magic to /kill one person every night. Elemental magics grant you the ability to /bind an opponent in place, rendering them unable to take action for the night. As you are not alive, you cannot be poisoned.",
+            "info": "Can kill one person during the night. Can distract one person during the night. Immune to poison. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "bind": {
+                        "command": "distract",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 6,
+                        "broadcast": "team",
+                        "distractmsg": "Mystical anima magics have bound you in place. You were unable to move.",
+                        "teammsg": "Mystical anima magics have bound your teammate in place. You spent all night trying to free them."
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Fimbulvetr. That's the name of the ice magic Limstella wields. It's the name of the ice magic that ended your life."
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "ephidel",
+            "translation": "Ephidel",
+            "side": "fang",
+            "startupmsg": "You are ~Role~!",
+            "help": "One of Nergal's morphs, you are among the strongest of the ones he possesses. In addition to being able to /kill one person during the night, you are able to /inspect one player at night. As you are not alive, you cannot be poisoned.",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Immune to poison. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "msg": "±Tactician: You didn't hear Ephidel as he approached. You only felt the blazing heat of his magic before you ceased living."
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team",
+                        "Sight": "Team"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "jaffar",
+            "translation": "Jaffar",
+            "side": "fang",
+            "startupmsg": "You are ~Role~!",
+            "help": "You are Jaffar, the 'Angel of Death'. Use your skills as an assassin to /kill one person during the night and /stalk another to learn who they visited.",
+            "info": "Can kill one person during the night. Can stalk one person during the night. Immune to poison. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Silence. One strike, one death. The Angel, Jaffar, has come to take you away."
+                    },
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "gangrel",
+            "translation": "Gangrel",
+            "side": "grimleal",
+            "startupmsg": "You are ~Role~!",
+            "help": "'Men are beasts! Nothing more! We fight! We kill! We devour our prey!' As the Mad King Gangrel, you have one specific goal: destroy anyone opposing you! Work with your Grimleal 'peers' to take over the continent and reawaken the Fell Dragon! Help your team with a /kill during the day! You might reveal yourself though, being as glorious and flashy as you are. You already consider yourself a dead man, so you can't be morphed by Nergal.",
+            "info": "Can kill one person during the day. Immune to convert. Sided with The Grimleal Army.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "convert": {
+                    "mode": "ignore"
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "revealChance": 0.1,
+                        "msg": "You can now /kill someone! You have a 10% chance of revealing yourself.",
+                        "killmsg": "'Clinging to each other won't save you maggots when the boot falls!' Gangrel raises his Levin Sword and a large thunderbolt strikes ~Target~, frying them instantly.",
+                        "revealmsg": "~Self~ laughs as he polishes his crown."
+                    }
+                }
+            }
+        },
+        {
+            "role": "validar",
+            "translation": "Validar",
+            "side": "grimleal",
+            "startupmsg": "You are ~Role~!",
+            "help": "Gya ha ha! As the Plegian King Validar and leader of the Grimleal, you only believe in destiny and what cannot be undone. The reawakening of the Fell Dragon Grima cannot be hindered! You can work your way to revealing Grima's Truth to everyone with the power to /kill one person during the night. Due to the fact that you're a king and have a large cult following you, you have a vote of 5 and ignore all distracters!",
+            "info": "Can kill one person during the night. Vote of 5. Immune to distract and convert. Sided with The Grimleal Army.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Grima's Truth sucked the life out of you!"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "vote": 5
+            }
+        },
+        {
+            "role": "aversa",
+            "translation": "Aversa",
+            "side": "grimleal",
+            "startupmsg": "You are ~Role~!",
+            "help": "Brought up by Validar, who acted as a father to you, you serve as his main helper in his fight against Chrom and the other heroes. You are able to /kill one person during the night and /inspect another to learn what army they represent, but you can only do this twice per game. Due to your extremely high skill in resisting Dark magic, you cannot be morphed and possess a voteshield of -3.",
+            "info": "Can kill one person during the night. Can inspect one person during the night, twice per game. Voteshield of -3. Immune to convert. Sided with The Grimleal Army.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 20,
+                        "broadcast": "team",
+                        "charges": 2,
+                        "Sight": "Team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Aversa's Night drained all of your HP!"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "voteshield": -3
+            }
+        }
+    ],
+    "roles1": [
+        "hector",
+        "roy",
+        "knoll",
+        "villager",
+        "sephiran",
+        "eliwood",
+        "sophia",
+        "lekain",
+        "miller_begnion",
+        "villager"
+    ],
+    "roles2": [
+        "hector",
+        "roy",
+        "eliwood",
+        "sophia",
+        "lyndis",
+        "villager",
+        "idoun",
+        "zephiel",
+        "nergal",
+        "limstella",
+        "disgruntled",
+        "soren",
+        "miller_bern",
+        "ephidel",
+        "murdock",
+        "villager"
+    ],
+    "roles3": [
+        "hector",
+        "roy",
+        "eliwood",
+        "sophia",
+        "lyndis",
+        "villager",
+        "idoun",
+        "zephiel",
+        "nergal",
+        "limstella",
+        "disgruntled",
+        "soren",
+        "miller_bern",
+        "ephidel",
+        "murdock",
+        "ike",
+        "ashnard",
+        "villager",
+        "miller_fang",
+        "micaiah",
+        "disgruntled",
+        "narshen",
+        "jaffar",
+        "marth",
+        "zelgius",
+        "sephiran",
+        "villager",
+        "villager",
+        "lyon",
+        "eirika",
+        "disgruntled",
+        "knoll"
+    ],
+    "roles4": [
+        "hector",
+        "roy",
+        "eliwood",
+        "sophia",
+        "lyndis",
+        "villager",
+        "idoun",
+        "zephiel2",
+        "nergal",
+        "limstella",
+        "disgruntled",
+        "soren",
+        "miller_bern",
+        "ephidel",
+        "murdock",
+        "ike",
+        "ashnard",
+        "villager",
+        "miller_fang",
+        "micaiah",
+        "disgruntled",
+        "narshen",
+        "jaffar",
+        "marth",
+        "zelgius",
+        "sephiran",
+        "villager",
+        "villager",
+        "lyon",
+        "eirika",
+        "disgruntled",
+        "knoll",
+        "chrom",
+        "villager",
+        "validar",
+        "aversa",
+        "villager",
+        "gangrel",
+        "celica",
+        "villager",
+        "disgruntled"
+    ],
+    "villageCantLoseRoles": [
+        "ike",
+        "eliwood",
+        "eirika",
+        "lyndis",
+        "marth"
+    ],
+    "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
+    "killusermsg": "You have fallen in combat!",
+    "changelog": {}
+}
