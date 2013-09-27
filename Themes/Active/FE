@@ -595,7 +595,7 @@
                         "target": "AnyButTeam",
                         "common": "Self",
                         "priority": 18,
-                        "broadcast": "team",
+                        "broadcast": "team"
                     }
                 },
                 "vote": 2
