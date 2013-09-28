@@ -212,7 +212,7 @@
             "translation": "Hector",
             "side": "village",
             "startupmsg": "You are ~Role~!",
-            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercely loyal to your friends. You possess incredibly strong armor and defensive capabilities, and as such, you're able to /protect one person every night.",
+            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercely loyal to your friends. You possess incredibly strong armor and defensive capabilities, and as such, you're able to /protect one person every night. During the day, once per game, you can /insult someone to rally support against them!",
             "info": "Can protect one person during the night. Can insult one person during the day, once per game. Sided with The Heroes.",
             "actions": {
                 "night": {
@@ -746,8 +746,8 @@
             "translation": "Lekain",
             "side": "begnion",
             "startupmsg": "You are ~Role~!",
-            "help": "You're a Duke of the nation of Begnion, and a senior member of the Senate. You have a sick, twisted mind and you will stop at NOTHING to prevent the heroes from... well, stopping you! You can /kill and you have a vote of 1.1!",
-            "info": "Can kill one person during the night. Vote of 1.1. Sided with The Begnion Empire.",
+            "help": "You're a Duke of the nation of Begnion, and a senior member of the Senate. You have a sick, twisted mind and you will stop at NOTHING to prevent the heroes from... well, stopping you! Even distracts can't stop you! You can /kill one person during the night and possess a vote of 1.1!",
+            "info": "Can kill one person during the night. Vote of 1.1. Immune to distract. Sided with The Begnion Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "night": {
@@ -758,6 +758,9 @@
                         "broadcast": "team",
                         "msg": "±Tactician: He may be just a politician, but he knows where to stick a knife when needs to. Lekain has seen to the end of you!"
                     }
+                },
+                "distract": {
+                    "mode": "ignore"
                 },
                 "vote": 1.1
             }
@@ -792,71 +795,18 @@
             }
         },
         {
-            "role": "murdock",
-            "translation": "Murdock",
-            "side": "bern",
-            "startupmsg": "You are ~Role~!",
-            "help": "You're the personal guard of King Zephiel. You can /protect up to two allies per night to shield them from harm. Like the other members on your team, you are capable of armed combat, allowing you to /kill once per night. Zephiel's powerful swing allows your team to kill a different target than him in the same night.",
-            "info": "Can protect two people during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
-            "actions": {
-                "startup": "team-reveal-with-roles",
-                "night": {
-                    "protect": {
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 8,
-                        "broadcast": "team",
-                        "limit": 2
-                    },
-                    "kill": {
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 11,
-                        "broadcast": "team",
-                        "msg": "±Tactician: Murdock swings his big 'ole axe in your direction and you fail to dodge it. You're dead!"
-                    }
-                }
-            }
-        },
-        {
-            "role": "idoun",
-            "translation": "Idoun",
-            "side": "bern",
-            "startupmsg": "You are ~Role~!",
-            "help": "You're the Dark Priestess, Idoun. While you seem to be a young girl, you're actually the Dark Dragon. You're assisting Zephiel in his schemes for the destruction of the world but you aren't doing it of your own volition. Every night, you can /kill one person a night and /poison another. Zephiel's powerful swing allows your team to kill a different target than him in the same night.",
-            "info": "Can poison one person during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
-            "actions": {
-                "startup": "team-reveal-with-roles",
-                "night": {
-                    "kill": {
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 14,
-                        "broadcast": "team",
-                        "msg": "±Tactician: The breath of the Dark Dragon burned you to a crisp!"
-                    },
-                    "poison": {
-                        "target": "AnyButTeam",
-                        "common": "Self",
-                        "priority": 18,
-                        "broadcast": "team"
-                    }
-                }
-            }
-        },
-        {
             "role": "zephiel",
             "translation": "Zephiel",
             "side": "bern",
             "startupmsg": "You are ~Role~!",
-            "help": "You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. You have the ability to /kill one person at night with your mighty blade. The immense power behind your swing allows your team to kill a different target than you in the same night. Your extensive spy network allows you to /inspect someone to learn which army they are sided with. Furthermore, your incredible political clout gives you a +2 vote and immunity to poison and morphing.",
+            "help": "You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. You have the ability to /kill one person at night with your mighty blade.Your extensive spy network allows you to /inspect someone to learn which army they are sided with. Furthermore, your incredible political clout gives you a +2 vote and immunity to poison and morphing.",
             "info": "Can kill one person during the night. Can inspect one person during the night. Vote of 2. Immune to convert and poison. Sided with The Kingdom of Bern.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
-                        "common": "Self",
+                        "common": "Team",
                         "priority": 14,
                         "broadcast": "team",
                         "msg": "±Tactician: King Zephiel swung the Eckesachs toward you, and you had no chance of escaping."
@@ -931,6 +881,32 @@
             }
         },
         {
+            "role": "idoun",
+            "translation": "Idoun",
+            "side": "bern",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the Dark Priestess, Idoun. While you seem to be a young girl, you're actually the Dark Dragon. You're assisting Zephiel in his schemes for the destruction of the world but you aren't doing it of your own volition. Every night, you can /kill one person a night and /poison another. ",
+            "info": "Can poison one person during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+                        "msg": "±Tactician: The breath of the Dark Dragon burned you to a crisp!"
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 18,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
             "role": "narshen",
             "translation": "Narshen",
             "side": "bern",
@@ -954,6 +930,33 @@
                         "priority": 14,
                         "broadcast": "team",
                         "msg": "±Tactician: Unfortunately, you couldn't outrun Narshen's wyvren. You're dead now, I'm afraid."
+                    }
+                }
+            }
+        },
+        {
+            "role": "murdock",
+            "translation": "Murdock",
+            "side": "bern",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the personal guard of King Zephiel. You can /protect up to two allies per night to shield them from harm. Like the other members on your team, you are capable of armed combat, allowing you to /kill once per night.",
+            "info": "Can protect two people during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "limit": 2
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+                        "msg": "±Tactician: Murdock swings his big 'ole axe in your direction and you fail to dodge it. You're dead!"
                     }
                 }
             }
@@ -1010,11 +1013,41 @@
                         "priority": 4,
                         "broadcast": "team",
                         "failChance": 0.5,
-                        "shieldActions": ["distract", "kill", "poison", "stalk", "inspect"]
+                        "shieldActions": ["distract", "kill", "poison", "stalk", "inspect", "bind", "luna", "flux"]
                     }
                 },
                 "vote": 0,
                 "voteshield": -3
+            }
+        },
+        {
+            "role": "ephidel",
+            "translation": "Ephidel",
+            "side": "fang",
+            "startupmsg": "You are ~Role~!",
+            "help": "One of Nergal's morphs, you are among the strongest of the ones he possesses. In addition to being able to /kill one person during the night, you are able to /inspect one player at night. As you are not alive, you cannot be poisoned.",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Immune to poison. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "msg": "±Tactician: You didn't hear Ephidel as he approached. You only felt the blazing heat of his magic before you ceased living."
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team",
+                        "Sight": "Team"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
             }
         },
         {
@@ -1042,36 +1075,6 @@
                         "priority": 16,
                         "broadcast": "team",
                         "msg": "±Tactician: Fimbulvetr. That's the name of the ice magic Limstella wields. It's the name of the ice magic that ended your life."
-                    }
-                },
-                "poison": {
-                    "mode": "ignore"
-                }
-            }
-        },
-        {
-            "role": "ephidel",
-            "translation": "Ephidel",
-            "side": "fang",
-            "startupmsg": "You are ~Role~!",
-            "help": "One of Nergal's morphs, you are among the strongest of the ones he possesses. In addition to being able to /kill one person during the night, you are able to /inspect one player at night. As you are not alive, you cannot be poisoned.",
-            "info": "Can kill one person during the night. Can inspect one person during the night. Immune to poison. Sided with The Black Fang.",
-            "actions": {
-                "startup": "team-reveal-with-roles",
-                "night": {
-                    "kill": {
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 16,
-                        "broadcast": "team",
-                        "msg": "±Tactician: You didn't hear Ephidel as he approached. You only felt the blazing heat of his magic before you ceased living."
-                    },
-                    "inspect": {
-                        "target": "AnyButTeam",
-                        "common": "Self",
-                        "priority": 20,
-                        "broadcast": "team",
-                        "Sight": "Team"
                     }
                 },
                 "poison": {
@@ -1304,5 +1307,8 @@
     ],
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
     "killusermsg": "You have fallen in combat!",
-    "changelog": {}
+    "changelog": {
+        "9.26.2013": "Adjusted small game spawn. Allowed Knoll to use both poison and kill.",
+        "9.27.2013": "King Zephiel no longer gets his own kill, except in very large games. Morph's shield will no longer redirect beneficial actions. Lekain now ignores PLs. Reordered some roles internally to alter what messages display. Hector's help updated to tell about the insult."
+    }
 }
