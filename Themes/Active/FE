@@ -1009,7 +1009,8 @@
                         "common": "Self",
                         "priority": 4,
                         "broadcast": "team",
-                        "failChance": 0.5
+                        "failChance": 0.5,
+                        "shieldActions": ["distract", "kill", "poison", "stalk", "inspect"]
                     }
                 },
                 "vote": 0,
