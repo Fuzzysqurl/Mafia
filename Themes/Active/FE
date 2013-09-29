@@ -548,7 +548,7 @@
             "side": "village",
             "hide": "side",
             "startupmsg": "You are The ~Role~!",
-            "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed! Due to your amazing defensive skills in Pavise and Aegis, you also cannot be killed at night.",
+            "help": "Your sheer defensive prowess allows you to completely /protect another person from being harmed! Due to your amazing defensive skills in Aegis and Rightful King, you cannot be killed at night.",
             "info": "Can protect one person during the night. Evades night kills. Sided with The Heroes.",
             "actions": {
                 "night": {
@@ -568,7 +568,7 @@
             "translation": "Celica",
             "side": "village",
             "startupmsg": "You are ~Role~!",
-            "help": "Oops, we forgot to finish you! YOu just have a -3 vote right now, but you'll get a detox later!",
+            "help": "Oops, we forgot to finish you! You just have a -3 vote right now, but you'll get a detox later!",
             "info": "Can detox one person during the night. Vote of -3. Sided with The Heroes.",
             "actions": {
                 "vote": -3
@@ -579,7 +579,7 @@
             "translation": "Knoll",
             "side": "grado",
             "startupmsg": "You are ~Role~!",
-            "help": "You are Knoll, one of Grado's generals. Use your dark magic to /kill and /poison one player each night and, since you're in a a place of high authority, your vote counts as 2 during the day.",
+            "help": "You are Knoll, a royal mage of Grado. Use your dark magic to /kill and /poison one player each night and, since you're in a a place of high authority, your vote counts as 2 during the day.",
             "info": "Can poison one person during the night. Can kill one person during the night. Vote of 2. Sided with The Grado Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
@@ -1397,6 +1397,6 @@
     "changelog": {
         "9.26.2013": "Adjusted small game spawn. Allowed Knoll to use both poison and kill.",
         "9.27.2013": "King Zephiel no longer gets his own kill, except in very large games. Morph's shield will no longer redirect beneficial actions. Lekain now ignores PLs. Reordered some roles internally to alter what messages display. Hector's help updated to tell about the insult.",
-        "9.28.2013": "Nergal can now use morph every night, but only has a limited amount of uses for it. Extra large games have no limit to power up Fang/"
+        "9.28.2013": "Nergal can now use morph every night, but only has a limited amount of uses for it. Extra large games have no limit to power up Fang. Minor flavor adjustments."
     }
 }
