@@ -641,6 +641,8 @@
                 "eirika",
                 "ike",
                 "nergal",
+                "nergal2",
+                "nergal3",
                 "ephidel",
                 "limstella",
                 "idoun",
@@ -965,9 +967,10 @@
             "role": "nergal",
             "translation": "Nergal",
             "side": "fang",
+            "hide": "side",
             "startupmsg": "You are ~Role~!",
-            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every other night you are able to /morph any unit into a Nameless Morph to join your army. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
-            "info": "Can morph one person every other night. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
+            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army, but you only have the power to do this twice. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
+            "info": "Can morph one person every night, twice per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "night": {
@@ -977,7 +980,82 @@
                         "common": "Self",
                         "priority": 7,
                         "broadcast": "team",
-                        "recharge": 2,
+                        "charges": 2,
+                        "newRole": "morph",
+                        "convertmsg": "~Old~ has been drained of life energy and turned into a Nameless Morph!",
+                        "silent": false
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "msg": "±Tactician: 'Tremble and despair!'"
+                    }
+                },
+                "onDeath": {
+                    "killRoles": [
+                        "morph"
+                    ],
+                    "killmsg": "As Nergal dies, so do all of his converted Morphs (~Target~)!"
+                }
+            }
+        },
+        {
+            "role": "nergal2",
+            "translation": "Nergal",
+            "side": "fang",
+            "hide": "side",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army, but you only have the power to do this three times. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
+            "info": "Can morph one person every night, three times per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "morph": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "charges": 3,
+                        "newRole": "morph",
+                        "convertmsg": "~Old~ has been drained of life energy and turned into a Nameless Morph!",
+                        "silent": false
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "msg": "±Tactician: 'Tremble and despair!'"
+                    }
+                },
+                "onDeath": {
+                    "killRoles": [
+                        "morph"
+                    ],
+                    "killmsg": "As Nergal dies, so do all of his converted Morphs (~Target~)!"
+                }
+            }
+        },
+        {
+            "role": "nergal3",
+            "translation": "Nergal",
+            "side": "fang",
+            "hide": "side",
+            "startupmsg": "You are ~Role~!",
+            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
+            "info": "Can morph one person every night.Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "morph": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team",
                         "newRole": "morph",
                         "convertmsg": "~Old~ has been drained of life energy and turned into a Nameless Morph!",
                         "silent": false
@@ -1013,7 +1091,16 @@
                         "priority": 4,
                         "broadcast": "team",
                         "failChance": 0.5,
-                        "shieldActions": ["distract", "kill", "poison", "stalk", "inspect", "bind", "luna", "flux"]
+                        "shieldActions": [
+                            "distract",
+                            "kill",
+                            "poison",
+                            "stalk",
+                            "inspect",
+                            "bind",
+                            "luna",
+                            "flux"
+                        ]
                     }
                 },
                 "vote": 0,
@@ -1309,6 +1396,7 @@
     "killusermsg": "You have fallen in combat!",
     "changelog": {
         "9.26.2013": "Adjusted small game spawn. Allowed Knoll to use both poison and kill.",
-        "9.27.2013": "King Zephiel no longer gets his own kill, except in very large games. Morph's shield will no longer redirect beneficial actions. Lekain now ignores PLs. Reordered some roles internally to alter what messages display. Hector's help updated to tell about the insult."
+        "9.27.2013": "King Zephiel no longer gets his own kill, except in very large games. Morph's shield will no longer redirect beneficial actions. Lekain now ignores PLs. Reordered some roles internally to alter what messages display. Hector's help updated to tell about the insult.",
+        "9.28.2013": "Nergal can now use morph every night, but only has a limited amount of uses for it. Extra large games have no limit to power up Fang/"
     }
 }
