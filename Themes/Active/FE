@@ -202,7 +202,7 @@
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 11,
-                        "msg": "±Tactician: Lyn's speed in unparalled. You saw only a glint of light reflecting off of her Mani Katti before you breathed your last."
+                        "msg": "±Tactician: Lyn's speed in unparalled. You saw only a glint of light reflecting off of her Sol Katti before you breathed your last."
                     }
                 }
             }
@@ -333,7 +333,7 @@
                 "standby": {
                     "kill": {
                         "target": "AnyButSelf",
-                        "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name]",
+                        "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and end them with /kill [name]",
                         "killmsg": "'Prepare yourself.' A giant, golden sword is seen high in the sky. Ike lands on the ground in front of his opponent and swings the holy sword, Ragnell, at ~Target~ with great force. This match is over!"
                     }
                 }
@@ -525,7 +525,7 @@
             "side": "village",
             "hide": "side",
             "startupmsg": "You are The ~Role~!",
-            "help": "Due to your expertise and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent. You also have your mind set on killing, so you can't be distracted and you can pierce through the toughest of bodyguards with your Falcion.",
+            "help": "Due to your expertise and skill in killing enemies quickly, you can use /kill at night to dispatch an unworthy opponent. You also have your mind set on killing, so you can't be distracted and you can pierce through the toughest of bodyguards with your Falchion.",
             "info": "Can kill one person during the night (pierces bodyguards). Immune to distract. Sided with The Heroes.",
             "actions": {
                 "night": {
@@ -575,11 +575,11 @@
             }
         },
         {
-            "role": "knoll",
-            "translation": "Knoll",
+            "role": "riev",
+            "translation": "Riev",
             "side": "grado",
             "startupmsg": "You are ~Role~!",
-            "help": "You are Knoll, a royal mage of Grado. Use your dark magic to /kill and /poison one player each night and, since you're in a a place of high authority, your vote counts as 2 during the day.",
+            "help": "You are Riev, the notorious Blood Beryl and Grado General who helped Lyon control Morva when he was turned into a Draco Zombie. As a ruthless and bloodthirsty Bishop, you are able to /kill someone during the night and /poison, too. Having great power grants you a vote of 2.",
             "info": "Can poison one person during the night. Can kill one person during the night. Vote of 2. Sided with The Grado Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
@@ -589,7 +589,7 @@
                         "common": "Self",
                         "priority": 12,
                         "broadcast": "team",
-                        "msg": "±Tactician: Knoll truly hopes you find the same solace in the darkness that he does. He sends his kind regards with you to the afterlife."
+                        "msg": "±Tactician: You are struck in the midst of battle and lose consciousness. You begin to awaken and see a light. Too bad that light was Riev's Aura magic because now you're dead."
                     },
                     "poison": {
                         "target": "AnyButTeam",
@@ -606,7 +606,7 @@
             "translation": "Lyon",
             "side": "grado",
             "startupmsg": "You are ~Role~!",
-            "help": "You're the kind Prince of Grado, you have no desire for this war, but this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate to use it and awaken the power of the Demon King! A veil of darkness will protect you from harm.",
+            "help": "You're the Prince of Grado, you have no desire for this war, but this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate to use it and awaken the power of the Demon King! A veil of darkness will protect you from harm.",
             "info": "Can convert into Demon King during the night (Converting also protects and safeguards self). Sided with The Grado Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
@@ -657,7 +657,7 @@
                 "gangrel"
             ],
             "startupmsg": "You are The ~Role~!",
-            "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish, unless protected by Eirika! You cannot be converted, distracted, or poisoned!",
+            "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Fomortiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish, unless protected by Eirika! You cannot be converted, distracted, or poisoned!",
             "info": "Can poison two people during the night. Vote of 999. Immune to convert, distract, and poison. Sided with The Grado Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
@@ -846,14 +846,16 @@
                         "common": "Team",
                         "priority": 14,
                         "broadcast": "team",
-                        "msg": "±Tactician: King Zephiel swung the Eckesachs toward you, and you had no chance of escaping."
+                        "msg": "±Tactician: King Zephiel swung the Eckesachs toward you, and you had no chance of escaping.",
+                        "hide": true
                     },
                     "inspect": {
                         "target": "AnyButTeam",
                         "common": "Self",
                         "priority": 20,
                         "broadcast": "team",
-                        "Sight": "Team"
+                        "Sight": "Team",
+                        "hide": true
                     },
                     "bribe": {
                         "command": "convert",
@@ -967,7 +969,6 @@
             "role": "nergal",
             "translation": "Nergal",
             "side": "fang",
-            "hide": "side",
             "startupmsg": "You are ~Role~!",
             "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army, but you only have the power to do this twice. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
             "info": "Can morph one person every night, twice per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
@@ -1021,14 +1022,16 @@
                         "charges": 3,
                         "newRole": "morph",
                         "convertmsg": "~Old~ has been drained of life energy and turned into a Nameless Morph!",
-                        "silent": false
+                        "silent": false,
+                        "hide": true
                     },
                     "kill": {
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: 'Tremble and despair!'"
+                        "msg": "±Tactician: 'Tremble and despair!'",
+                        "hide": true
                     }
                 },
                 "onDeath": {
@@ -1058,14 +1061,16 @@
                         "broadcast": "team",
                         "newRole": "morph",
                         "convertmsg": "~Old~ has been drained of life energy and turned into a Nameless Morph!",
-                        "silent": false
+                        "silent": false,
+                        "hide": true
                     },
                     "kill": {
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: 'Tremble and despair!'"
+                        "msg": "±Tactician: 'Tremble and despair!'",
+                        "hide": true
                     }
                 },
                 "onDeath": {
@@ -1281,7 +1286,7 @@
     "roles1": [
         "hector",
         "roy",
-        "knoll",
+        "riev",
         "villager",
         "sephiran",
         "eliwood",
@@ -1340,7 +1345,7 @@
         "lyon",
         "eirika",
         "disgruntled",
-        "knoll"
+        "riev"
     ],
     "roles4": [
         "hector",
@@ -1374,7 +1379,7 @@
         "lyon",
         "eirika",
         "disgruntled",
-        "knoll",
+        "riev",
         "chrom",
         "villager",
         "validar",
@@ -1395,8 +1400,9 @@
     "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
     "killusermsg": "You have fallen in combat!",
     "changelog": {
-        "9.26.2013": "Adjusted small game spawn. Allowed Knoll to use both poison and kill.",
+        "9.26.2013": "Adjusted small game spawn. Allowed Riev to use both poison and kill.",
         "9.27.2013": "King Zephiel no longer gets his own kill, except in very large games. Morph's shield will no longer redirect beneficial actions. Lekain now ignores PLs. Reordered some roles internally to alter what messages display. Hector's help updated to tell about the insult.",
-        "9.28.2013": "Nergal can now use morph every night, but only has a limited amount of uses for it. Extra large games have no limit to power up Fang. Minor flavor adjustments."
+        "9.28.2013": "Nergal can now use morph every night, but only has a limited amount of uses for it. Extra large games have no limit to power up Fang. Minor flavor adjustments.",
+        "9.30.2013": "Flavor and hide tweaks."
     }
 }
