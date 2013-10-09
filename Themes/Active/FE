@@ -54,6 +54,19 @@
             "info": "Sided with The Heroes."
         },
         {
+            "role": "villager0",
+            "translation": "Soldier",
+            "side": "village",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands and are extremely vulnerable to poison, thus you die instantly if inflicted with it.",
+            "info": "Dies one night faster from poison. Sided with The Heroes.",
+            "actions": {
+                "poison": {
+                    "mode": "resistance",
+                    "constant": -1
+                }
+            }
+        },
+        {
             "role": "bribed",
             "translation": "Bribed Soldier",
             "side": "village",
@@ -112,7 +125,7 @@
             "role": "miller_begnion",
             "translation": "Trainee",
             "side": "village",
-            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands.",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands and are extremely vulnerable to poison, thus you die instantly if inflicted with it.",
             "info": "Can be seen as a member of Kingdom of Bern, Begnion Empire, Black Fang, or Grimleal. Voteshield of 1. Vote of 0 if seen on Begnion Empire. Sided with The Heroes.",
             "actions": {
                 "startup": {
@@ -1287,12 +1300,12 @@
         "hector",
         "roy",
         "riev",
-        "villager",
+        "villager0",
         "sephiran",
         "eliwood",
-        "villager",
-        "lekain",
         "miller_begnion",
+        "lekain",
+        "villager0",
         "sophia"
     ],
     "roles2": [
@@ -1403,6 +1416,7 @@
         "9.26.2013": "Adjusted small game spawn. Allowed Riev to use both poison and kill.",
         "9.27.2013": "King Zephiel no longer gets his own kill, except in very large games. Morph's shield will no longer redirect beneficial actions. Lekain now ignores PLs. Reordered some roles internally to alter what messages display. Hector's help updated to tell about the insult.",
         "9.28.2013": "Nergal can now use morph every night, but only has a limited amount of uses for it. Extra large games have no limit to power up Fang. Minor flavor adjustments.",
-        "9.30.2013": "Flavor and hide tweaks."
+        "9.30.2013": "Flavor and hide tweaks.",
+        "10.9.2013": "Minor spawn changes in small games. Soldiers now die immediately from poison in small games."
     }
 }
