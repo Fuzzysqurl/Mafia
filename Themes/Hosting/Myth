@@ -366,7 +366,7 @@
 						"target": "AnyButSelf",
 						"common": "Self",
 						"broadcast": [
-							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "demeter", "demeter2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "uranus",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
 						],
 						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
 						"restrict": ["drink"],
