@@ -103,8 +103,8 @@
                     "mafia1": 0.5
                 }
             },
-            "help": "God of the Seas. Brother of both Zeus and Hades, no one knows what side you have taken.  Every night, you can use /flipper to send a dolphin after someone to discover who they visit.",
-            "info": "Can send a dolphin to stalk someone during the night. Can be allied with Olympians or Underworld.",
+            "help": "God of the Seas. Brother of both Zeus and Hades, you decided to help the ~Side~ this time. Every night, you can use /flipper to send a dolphin after someone to discover who they visit.",
+            "info": "Can send a dolphin to stalk someone during the night. Can be sided with Olympians OR Underworld.",
             "actions": {
                 "night": {
                     "flipper": {
