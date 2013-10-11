@@ -557,7 +557,8 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -584,7 +585,8 @@
                 "distract": {
                     "mode": "ignore"
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -610,7 +612,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "vote": 2
+                "vote": 2,
+                "teamTalk": true
             }
         },
         {
@@ -640,7 +643,8 @@
                 "vote": 2,
                 "stalk": {
                     "mode": "noVisit"
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -677,7 +681,8 @@
                 "poison": {
                     "mode": "resistance",
                     "rate": 2
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -689,7 +694,8 @@
             "actions": {
                 "daykill": "evade",
                 "daykillevademsg": "The water around that player doesn't look safe, maybe you should go after someone else.",
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             },
             "winIfDeadRoles": [
                 "greatwhite",
@@ -714,7 +720,8 @@
                         "priority": 5
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -732,7 +739,8 @@
                     "team-revealif-with-roles": [
                         "mammal"
                     ]
-                }
+                },
+                "teamTalk": true
             },
             "winIfDeadRoles": [
                 "swordfish",
@@ -770,7 +778,8 @@
                 "distract": {
                     "mode": "ignore"
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -823,7 +832,8 @@
                     },
                     "convertmsg": "Even in the face of death, the Sushi Chef made sure to finish their work by using the ~Old~ in order to make ~New~!"
                 },
-                "voteshield": -9999
+                "voteshield": -9999,
+                "teamTalk": true
             },
             "winIfDeadRoles": [
                 "swordfish",
@@ -851,7 +861,8 @@
                     "revealAs": [
                         "fishy"
                     ]
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -867,7 +878,8 @@
                     "revealRole": [
                         "sushi"
                     ]
-                }
+                },
+                "teamTalk": true
             }
         },
         {
