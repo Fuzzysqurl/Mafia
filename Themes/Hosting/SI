@@ -63,7 +63,7 @@
             "side":"aliens",
             "winIfDeadRoles":["bunker"
             ],
-            "help":"You're an alien! Time to kill all that stupid humans and control the Earth! Type /kill during the night! Also, each 2 nights you have an extra nightkill with /kill2, and that's not shared with your team!!",
+            "help":"You're an alien! Time to kill all that stupid humans and control the Earth! Type /kill during the night! Also, each 2 nights you have an extra nightkill with /kill2, and that's not shared with your team!! You can use /tt [message] to talk to your teammates.",
             "info":"Can kill one player during the night (Shared). Can kill one player each 2 nights (Not-Shared). Sided with the Space Invaders.",
             "actions":{
                 "night":{
@@ -82,9 +82,10 @@
                         "broadcast": "team"
                     }
                 },
-"startup": {
-    "revealRole": ["alien", "laser"]
-}
+                "startup": {
+                    "revealRole": ["alien", "laser"]
+                },
+                "teamTalk": true
             }
         }
     ],
