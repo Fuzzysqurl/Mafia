@@ -225,23 +225,14 @@
             "translation": "Hector",
             "side": "village",
             "startupmsg": "You are ~Role~!",
-            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercely loyal to your friends. You possess incredibly strong armor and defensive capabilities, and as such, you're able to /protect one person every night. During the day, once per game, you can /insult someone to rally support against them!",
-            "info": "Can protect one person during the night. Can insult one person during the day, once per game. Sided with The Heroes.",
+            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercely loyal to your friends. You possess incredibly strong armor and defensive capabilities, and as such, you're able to /protect one person every night.",
+            "info": "Can protect one person during the night. Sided with The Heroes.",
             "actions": {
                 "night": {
                     "protect": {
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 8
-                    }
-                },
-                "standby": {
-                    "insult": {
-                        "command": "expose",
-                        "target": "AnyButSelf",
-                        "charges": 1,
-                        "msg": "Make sure the coast is clear and type /insult to make a rude gesture at someone! You can only do this once per game!",
-                        "exposemsg": "'Hey, you!' Hector makes sure the coast is clear and then proceeds to make a very rude gesture at ~Target~!"
                     }
                 }
             }
@@ -1439,6 +1430,7 @@
         "9.27.2013": "King Zephiel no longer gets his own kill, except in very large games. Morph's shield will no longer redirect beneficial actions. Lekain now ignores PLs. Reordered some roles internally to alter what messages display. Hector's help updated to tell about the insult.",
         "9.28.2013": "Nergal can now use morph every night, but only has a limited amount of uses for it. Extra large games have no limit to power up Fang. Minor flavor adjustments.",
         "9.30.2013": "Flavor and hide tweaks.",
-        "10.9.2013": "Minor spawn changes in small games. Soldiers now die immediately from poison in small games."
+        "10.9.2013": "Minor spawn changes in small games. Soldiers now die immediately from poison in small games.",
+        "10.21.2013": "Hector insult removed."
     }
 }
