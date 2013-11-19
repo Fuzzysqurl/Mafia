@@ -11,7 +11,7 @@
 var script_url = "https://raw.github.com/CrystalMoogle/PO-User-Scripts/master/"; //where the script is stored
 var scriptsFolder = "ClientScripts"; //replace with undefined if you don't want a folder
 var global = this;
-var poScript, Script_Version, initCheck, repoFolder, etext, tgreentext, flash, autoresponse, friendsflash, checkversion, clientbotname, clientbotcolour, clientbotstyle, greentext, fontcolour, fonttype, fontsize, fontstyle, commandsymbol, hilight, armessage, arstart, arend, artype, stalkwords, friends, ignore, logchannel, fchannel, auth_symbol, auth_style, src, Utilities, Commands, autoidle, nochallenge, Plugins, userplugins, weightData, playerswarn, youtube, forceLC, forceAmount, cp;
+var poScript, Script_Version, initCheck, repoFolder, etext, tgreentext, flash, autoresponse, friendsflash, checkversion, clientbotname, clientbotcolour, clientbotstyle, greentext, fontcolour, fonttype, fontsize, fontstyle, commandsymbol, hilight, armessage, arstart, arend, artype, stalkwords, friends, ignore, logchannel, fchannel, auth_symbol, auth_style, src, Utilities, Commands, autoidle, nochallenge, Plugins, userplugins, weightData, playerswarn, youtube, cp;
 var pluginFiles = [];
 String.prototype.format = function () {
     var formatted = this;
@@ -1738,6 +1738,16 @@ function formatMessage(message, channel) {
         }
         var id = client.id(playname);
         var playmessage = Utilities.html_escape(message.substr(pos + 2));
+        if(["Victory Road", "Crobat's Cave", "Movie Night", "Rage Channel.", "Trace's Cavern", "Diamond's Room", "Pile of Balloons", "Elite Clan", "Pallet Town"].indexOf(client.channelName(channel)) !== -1) {
+        if (playmessage == "What does the Crobat say?" && "true"){client.network().sendChanMessage(channel, "KACAW"); }
+        if(["Victory Road", "Crobat's Cave", "Movie Night", "Rage Channel.", "Trace's Cavern", "Diamond's Room", "Pile of Balloons", "Elite Clan", "Pallet Town"].indexOf(client.channelName(channel)) !== -1) {
+        if (playmessage == "Crobat, use Brave Bird!" && "true"){client.network().sendChanMessage(channel, "/me uses Brave Bird!"); }
+        if(["Victory Road", "Crobat's Cave", "Movie Night", "Rage Channel.", "Trace's Cavern", "Diamond's Room", "Pile of Balloons", "Elite Clan", "Pallet Town"].indexOf(client.channelName(channel)) !== -1) {
+        if (playmessage == "Crobat, use U-turn!" && "true"){client.network().sendChanMessage(channel, "/me uses U-turn! Ash called Crobat back!"); }
+        if(["Victory Road", "Crobat's Cave", "Movie Night", "Rage Channel.", "Trace's Cavern", "Diamond's Room", "Pile of Balloons", "Elite Clan", "Pallet Town"].indexOf(client.channelName(channel)) !== -1) {
+        if (playmessage == "Fake Out!" && "true"){client.network().sendChanMessage(channel, "/me doesn't flinch due to its Inner Focus!"); }
+        if(["Victory Road", "Crobat's Cave", "Movie Night", "Rage Channel.", "Trace's Cavern", "Diamond's Room", "Pile of Balloons", "Elite Clan", "Pallet Town"].indexOf(client.channelName(channel)) !== -1) {
+        if (playmessage == "Crobat" && "true"){var options = ["The Bat Pokemon. It flies so silently through the dark on its four wings that it may not be noticed even when nearby.", "The Bat Pokemon. The development of wings on its legs enables it to fly fast but also makes it tough to stop and rest.", "The Bat Pokemon. As a result of its pursuit of faster, yet more silent flight, a new set of wings grew on its hind legs.", "The Bat Pokemon. If this Pokémon is flying by fluttering only a pair of wings on either the forelegs or hind legs, it's proof that Crobat has been flying a long distance. It switches the wings it uses if it is tired.", "The Bat Pokemon. Crobat sneaks up on its intended prey using wings that barely make a sound. This Pokémon rests by hanging on a tree branch with its rear legs that serve as wings.", "The Bat Pokemon. Over the course of evolution, its hind legs turned into wings. By alternately resting its front and rear wings, it can fly all day without having to stop.", "The Bat Pokemon. Having four wings enables it to fly faster and more quietly. It turns active when the night comes.", "The Bat Pokemon. A Pokémon that gained vastly enhanced flying performance by having its legs turn into wings.", "The Bat Pokemon. The transformation of its legs into wings made it better at flying, but more clumsy at walking.", "The Bat Pokemon. Having four wings allows it to fly more quickly and quietly so it can sneak up on prey without its noticing."]; client.network().sendChanMessage(channel, options[sys.rand(0,options.length)]); }}}}}}        
         var colour = clientbotcolour;
         if (id !== -1) {
             colour = client.color(id);
