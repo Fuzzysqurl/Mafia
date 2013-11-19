@@ -11,7 +11,7 @@
 var script_url = "https://raw.github.com/CrystalMoogle/PO-User-Scripts/master/"; //where the script is stored
 var scriptsFolder = "ClientScripts"; //replace with undefined if you don't want a folder
 var global = this;
-var poScript, Script_Version, initCheck, repoFolder, etext, tgreentext, flash, autoresponse, friendsflash, checkversion, clientbotname, clientbotcolour, clientbotstyle, greentext, fontcolour, fonttype, fontsize, fontstyle, commandsymbol, hilight, armessage, arstart, arend, artype, stalkwords, friends, ignore, logchannel, fchannel, auth_symbol, auth_style, src, Utilities, Commands, autoidle, nochallenge, Plugins, userplugins, weightData, playerswarn, youtube, cp;
+var poScript, Script_Version, initCheck, repoFolder, etext, tgreentext, flash, autoresponse, friendsflash, checkversion, clientbotname, clientbotcolour, clientbotstyle, greentext, fontcolour, fonttype, fontsize, fontstyle, commandsymbol, hilight, armessage, arstart, arend, artype, stalkwords, friends, ignore, logchannel, fchannel, auth_symbol, auth_style, src, Utilities, Commands, autoidle, nochallenge, Plugins, userplugins, weightData, playerswarn, youtube, cp = 0;
 var pluginFiles = [];
 String.prototype.format = function () {
     var formatted = this;
@@ -2001,6 +2001,10 @@ function isCapsLetter(letter) {
     return letter >= 'A' && letter <= 'Z';
 }
 
+function isLetter(letter) {
+    return letter >= 'a' && letter <= 'z';
+}
+
 function isCapsMessage(message) {
     var count = 0;
     var i = 0;
@@ -2011,9 +2015,11 @@ function isCapsMessage(message) {
             if (count == 5)
                 return true;
         } else {
-            count -= 2;
-            if (count < 0)
-                count = 0;
+            if (isLetter(c)) {
+                count -= 2;
+                if (count < 0)
+                    count = 0;
+            }
         }
         i += 1;
     }
