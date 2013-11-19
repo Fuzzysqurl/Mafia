@@ -396,6 +396,8 @@ Commands = ({
             sendMessage(commandsymbol + "scriptcommands: Shows commands related to the scripts (e.g. versions, updatescripts)");
             sendMessage(commandsymbol + "socialcommands: Shows commands related to social aspects (e.g. friendslist, ignorelist)");
             sendMessage(commandsymbol + "fontcommands: Shows you the font command details");
+            sendMessage(commandsymbol + "capscount: Shows you your current caps count.");
+            sendMessage(commandsymbol + "resetcapscount: Resets the caps count.");
             var pluginhelps = getPlugins("help-string");
             for (var module in pluginhelps) {
                 if (pluginhelps.hasOwnProperty(module)) {
