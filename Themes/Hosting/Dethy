@@ -83,7 +83,8 @@
 				"initialCondition": {
 					"curse": {
 						"cursedRole": "inspector2",
-						"curseCount": 1
+						"curseCount": 1,
+                        "silentCurse": true
 					}
 				},
 				"onlist": "saneplaceholder"
