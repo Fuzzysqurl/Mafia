@@ -1,10 +1,5 @@
-Mafia
-=====
-Table of Contents:
-Testing Script -- Client Script
-
-
-===
+Testing Script
+====
 How to use the Testing Script:
 
 1. Open your copy of Mafia.js
@@ -13,7 +8,9 @@ How to use the Testing Script:
 4. Save the script, and update on your server.
 
 Scripts created by RiceKirby.
-===
-Client Script information:
+
+
+Client Script
+====
 
 The client script is a fork of Crystal Moogle's client scripts with the addition of an Anti-Caps mute script. What it does is forces your messages to be lowercase if it would have caused a caps mute. It is highly recommended to restart your client after changing the script so it syncs properly with the server.
