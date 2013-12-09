@@ -108,7 +108,8 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -424,7 +425,8 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -442,7 +444,8 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -469,7 +472,8 @@
                 "avoidHax": [
                     "kill"
                 ],
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -493,7 +497,8 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -519,6 +524,7 @@
                 },
                 "vote": 2,
                 "startup": "team-reveal-with-roles",
+                "teamTalk": true,
                 "avoidHax": [
                     "distract"
                 ]
@@ -549,7 +555,8 @@
                     "protect"
                 ],
                 "vote": 2,
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -570,7 +577,8 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -594,6 +602,7 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
+                "teamTalk": true,
                 "avoidHax": [
                     "inspect"
                 ]
