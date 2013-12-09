@@ -1,0 +1,94 @@
+
+/* SCRIPTSYNCSTART */
+    var pushedPlayers = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+/*SCRIPTSYNCEND*/
+
+
+
+
+        /* TESTINGSCRIPTSTART */
+        if (command == "pushn") {
+            if (this.state != "entry") {
+                mafiabot.sendChanMessage(src, "Pushing makes no sense outside entry...");
+                return;
+            }
+            if (commandData <= 0) {
+                mafiabot.sendChanMessage(src, "Set a valid number.");
+                return;
+            }
+            
+            if (commandData > pushedPlayers.length) {
+                mafiabot.sendChanMessage(src, "Not enough names.");
+                return;
+            }
+            var addedPlayers = pushedPlayers.concat();
+            for (var n = addedPlayers.length; n >= 0; --n) {
+                if (this.signups.indexOf(addedPlayers[n]) >= 0) {
+                    addedPlayers.splice(n, 1);
+                }
+            }
+            var addedPlayers = addedPlayers.slice(0, commandData);
+            for (var p in addedPlayers) {
+                this.signups.push(addedPlayers[p]);
+                sendChanAll("±Game: " + addedPlayers[p] + " joined the game! (pushed by " + nonFlashing(sys.name(src)) + ")", mafiachan);
+            };
+            sendChanAll("±Push: " + addedPlayers.length + " players added!", mafiachan);
+            return;
+        }
+        if (command == "showall") {
+            var name = sys.name(src);
+            if (["blank", "entry", "voting"].indexOf(mafia.state) == -1) {
+                var list = [];
+                for (var p in mafia.players) {
+                    list.push(p + " ("+ mafia.players[p].role.translation + ")");
+                }
+                sys.sendMessage(src, "±Game: " + list.join(", "), mafiachan);
+                sys.sendAll("Warning: " + sys.name(src) + " is using /showall to find everyone's role. This is for Administration purposes-only.", mafiachan);
+                if (sys.channelId("Victory Road") != -1) {
+                    sendChanAll("Warning: " + sys.name(src) + " is using /showall to find everyone's role. This is for Administration purposes-only.", sys.channelId("Victory Road"));
+                }
+            } else {
+                sys.sendMessage(src, "±Game: No game running!", mafiachan);
+            }
+            return;
+        }
+        if (command == "settime") {
+            if (mafia.state != "blank") {
+                if (commandData <= 0) {
+                    sys.sendMessage(src, "±Game: Please set a value above 0!", mafiachan);
+                    return;
+                }
+                mafia.ticks = commandData;
+                sendChanHtmlAll("<font color='#FF0000'><timestamp/> This phase will last for another <b>" + commandData + " second" + (commandData == "1" ? "" : "s") + "</b> because <b>" + sys.name(src) + "</b> said so! </font>", mafiachan);
+            } else {
+                sys.sendMessage(src, "±Game: No game running!", mafiachan);
+            }
+            return;
+        }
+        if (command == "addplayer") {
+            var addInfo = commandData.split(":");
+            try {
+                var player = addInfo[0];
+                var role= addInfo[1];
+                if (["entry", "voting", "blank"].indexOf(mafia.state) != -1) {
+                    sys.sendMessage(src, "Warning: Can't add a player now!", mafiachan);
+                    return;
+                }
+                if (mafia.isInGame(player)) {
+                    sys.sendMessage(src, "Warning: This player is already in the game!", mafiachan);
+                    return;
+                }
+                if (role in mafia.theme.roles) {
+                    mafia.players[player] = {'name': player, 'role': mafia.theme.roles[role], 'targets': {}, 'recharges': {}, 'dayrecharges':{}, 'charges' : {}, 'restrictions': [] };
+                    mafia.setPlayerRole(mafia.players[player], role);
+                    sys.sendMessage(src, "±Game: Player " + player + " pushed to the game as " + mafia.theme.trrole(role) + " (" + role + ")", mafiachan);
+                } else {
+                    sys.sendMessage(src, "±Game: No such role!", mafiachan);
+                    return;
+                }
+            } catch (err) {
+                sys.sendMessage(src, "Error when adding player: " + err);
+            }
+            return;
+        }
+        /* TESTINGSCRIPTEND */
