@@ -619,7 +619,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "msg": "Draw your Buster Sword and pick a target using /kill [name] :",
-                        "killmsg": "~Self~ lunges and pulls out a Buster Sword, striking down ~Target~!"
+                        "killmsg": "~Self~ (~Role~) lunges and pulls out a Buster Sword, striking down ~Target~!"
                     }
                 },
                 "daykill": "evade"
