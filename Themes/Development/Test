@@ -1,7 +1,6 @@
 {
 	"name": "Vanilla",
 	"author": "waehofen",
-	"noplur": true,
 	"minplayers": 4,
 	"summary": "Vanilla Mafia!  There are no special abilities in this game.  In this version, the mafia:total players ratio decreases as the number of players gets larger.  I'll work on balancing it if it doesn't work! -waehofen",
 	"changelog": {
