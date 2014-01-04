@@ -34,26 +34,26 @@
                 for (var p in mafia.players) {
                     list.push(p + " ("+ mafia.players[p].role.translation + ")");
                 }
-                gamemsg(cuser, list.join(", "));
-                gamemsgAll(cuser + " is using /showall to find everyone's role. This is for Administration purposes-only.", "Warning");
+                gamemsg(srcname, list.join(", "));
+                gamemsgAll(srcname + " is using /showall to find everyone's role. This is for Administration purposes-only.", "Warning");
                 if (sachannel != -1) {
-                    gamemsgAll(cuser + " is using /showall to find everyone's role. This is for Administration purposes-only.", "Warning", sachannel);
+                    gamemsgAll(srcname + " is using /showall to find everyone's role. This is for Administration purposes-only.", "Warning", sachannel);
                 }
             } else {
-                gamemsg(cuser, "No game running!");
+                gamemsg(srcname, "No game running!");
             }
             return;
         }
         if (command == "settime") {
             if (mafia.state != "blank") {
                 if (commandData <= 0) {
-                    gamemsg(cuser, "Please set a value above 0!");
+                    gamemsg(srcname, "Please set a value above 0!");
                     return;
                 }
                 mafia.ticks = commandData;
                 sendChanHtmlAll("<font color='#FF0000'><timestamp/> This phase will last for another <b>" + commandData + " second" + (commandData == "1" ? "" : "s") + "</b> because <b>" + sys.name(src) + "</b> said so! </font>", mafiachan);
             } else {
-                gamemsg(cuser, "No game running!");
+                gamemsg(srcname, "No game running!");
             }
             return;
         }
@@ -63,23 +63,23 @@
                 var player = addInfo[0];
                 var role= addInfo[1];
                 if (["entry", "voting", "blank"].indexOf(mafia.state) != -1) {
-                    gamemsg(cuser, "Can't add a player now!", "Warning");
+                    gamemsg(srcname, "Can't add a player now!", "Warning");
                     return;
                 }
                 if (mafia.isInGame(player)) {
-                    gamemsg(cuser, "This player is already in the game!", "Warning");
+                    gamemsg(srcname, "This player is already in the game!", "Warning");
                     return;
                 }
                 if (role in mafia.theme.roles) {
                     mafia.players[player] = {'name': player, 'role': mafia.theme.roles[role], 'targets': {}, 'recharges': {}, 'dayrecharges':{}, 'charges' : {}, 'daycharges' : {}, 'restrictions': [] };
                     mafia.setPlayerRole(mafia.players[player], role);
-                    gamemsg(cuser, "Player " + player + " pushed to the game as " + mafia.theme.trrole(role) + " (" + role + ")");
+                    gamemsg(srcname, "Player " + player + " pushed to the game as " + mafia.theme.trrole(role) + " (" + role + ")");
                 } else {
-                    gamemsg(cuser, "No such role!");
+                    gamemsg(srcname, "No such role!");
                     return;
                 }
             } catch (err) {
-                gamemsg(cuser, "Error when adding player: " + err);
+                gamemsg(srcname, "Error when adding player: " + err);
             }
             return;
         }
