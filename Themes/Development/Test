@@ -9,7 +9,8 @@
 	},
 	"ticks": {
 		"standby": 45,
-		"night": 20
+		"night": 20,
+		"night1": 60
 	},
 	"sides": [
 		{
@@ -22,12 +23,13 @@
 		}
 	],
 	"roles": [
-		{
+		        {
 			"role": "v",
 			"translation": "Villager",
 			"side": "village",
 			"help": "",
-			"actions": {"night": {
+			"actions": {
+                "night": {
                     "poison": {
                         "target": "AnyButTeam",
                         "common": "Self",
@@ -35,16 +37,17 @@
                         "broadcast": "team",
                         "failmsg": "LOLFAIL",
                         "failChance": 0.5,
-                        "poisonmsg": "You're a toxic user"
+                        "poisonmsg": "You're a toxic user",
                         "limit": 2
-                    },
-                    "kill": {
-                    	"mode": {
-                    		"evadeCharges": 2,
-                    		"evadechargemsg": "you can evade ~Action~ ~EvadeCharges~ more times!"
-                    	}
-                    	}
-                }}
+                    } 
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 2,
+                        "evadechargemsg": "you can evade ~Action~ ~EvadeCharges~ more times!"
+                    }
+                }
+            }
 		},
 		{
 			"role": "m",
