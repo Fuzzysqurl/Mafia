@@ -27,7 +27,24 @@
 			"translation": "Villager",
 			"side": "village",
 			"help": "",
-			"actions": {}
+			"actions": {"night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 9,
+                        "broadcast": "team",
+                        "failmsg": "LOLFAIL",
+                        "failChance": 0.5,
+                        "poisonmsg": "You're a toxic user"
+                        "limit": 2
+                    },
+                    "kill": {
+                    	"mode": {
+                    		"evadeCharges": 2,
+                    		"evadechargemsg": "you can evade ~Action~ ~EvadeCharges~ more times!"
+                    	}
+                    	}
+                }}
 		},
 		{
 			"role": "m",
