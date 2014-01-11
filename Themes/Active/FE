@@ -572,10 +572,21 @@
             "translation": "Celica",
             "side": "village",
             "startupmsg": "You are ~Role~!",
-            "help": "Oops, we forgot to finish you! You just have a -3 vote right now, but you'll get a detox later!",
+            "help": "Princess Anteze of Zofia, and childhood friend of Alm, you are Celica! Your amazing magic powers allow you to /restore someone to normal condition. This will cure them of poison. Since you are such a devout follower of the goddess Mila, your vote counts as -3 because you wouldn't want anyone you love to get hurt!",
             "info": "Can detox one person during the night. Vote of -3. Sided with The Heroes.",
             "actions": {
-                "vote": -3
+                "vote": -3,
+                "night": {
+                    "restore": {
+                        "command": "detox",
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 80,
+                        "msg": "~Target~ was cured of poison.",
+                        "targetmsg": "Celica focused her healing energy on you, removing the poison from your system.",
+                        "failmsg": "~Target~ is not poisoned!"
+                    }
+                }
             }
         },
         {
@@ -691,10 +702,10 @@
         },
         {
             "role": "zelgius",
-            "translation": "Zelgius",
+            "translation": "Black Knight",
             "side": "begnion",
             "startupmsg": "You are ~Role~!",
-            "help": "You're the enigmatic Black Knight Zelgius, one of the strongest warriors in the land. You wield the holy blade Alondite, the counterpart to Ike's Ragnell! You're patiently watching the outcome of this war. On the 5th night, you are able to act and use the deadly skill Luna. Type /luna to kill up to 4 people with maximum priority on the 5th night and every night afterwards. Your armor is blessed by the goddess and normal weapons cannot hope to harm it, granting you immunity to death, poison, and converts at night. You can /intimidate the enemy forces during the 4th standby phase (before the 5th night) to send a chilling warning of your arrival.",
+            "help": "You're the enigmatic Black Knight, one of the strongest warriors in the land. You wield the holy blade Alondite, the counterpart to Ike's Ragnell! You're patiently watching the outcome of this war. On the 5th night, you are able to act and use the deadly skill Luna. Type /luna to kill up to 4 people with maximum priority on the 5th night and every night afterwards. Your armor is blessed by the goddess and normal weapons cannot hope to harm it, granting you immunity to death, poison, and converts at night. You can /intimidate the enemy forces during the 4th standby phase (before the 5th night) to send a chilling warning of your arrival.",
             "info": "Can kill four people during the night, after the fourth night. Can intimidate during the day, once per game, after the third day. Immune to converts and poison. Evades night kills. Sided with The Begnion Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
@@ -926,7 +937,7 @@
         },
         {
             "role": "narshen",
-            "translation": "Narshen",
+            "translation": "Narcian",
             "side": "bern",
             "startupmsg": "You are ~Role~!",
             "help": "'I am strong. I am wise. I am lovely. And most importantly, I am right! ...Me! No one else!' You are one of Bern's three Dragon Generals and thus, have considerable influence on the battlefield. Command your troops to /distract one person during night and then go in yourself and handle things with a /kill! Zephiel's powerful swing allows your team to kill a different target than him in the same night.",
@@ -939,15 +950,15 @@
                         "common": "Self",
                         "broadcast": "team",
                         "priority": 6,
-                        "distractmsg": "Narhsen's wyvren is quite the magnificent beast, isn't it? You spent all night looking at it and forgot to perform your action.",
-                        "teammsg": "Narhsen's wyvren is quite the magnificent beast, isn't it? Your teammate spent all night looking at it, causing you to miss the action during the night."
+                        "distractmsg": "Narcian's wyvern is quite the magnificent beast, isn't it? You spent all night looking at it and forgot to perform your action.",
+                        "teammsg": "Narcian's wyvern is quite the magnificent beast, isn't it? Your teammate spent all night looking at it, causing you to miss the action during the night."
                     },
                     "kill": {
                         "target": "AnyButTeam",
                         "common": "Team",
                         "priority": 14,
                         "broadcast": "team",
-                        "msg": "±Tactician: Unfortunately, you couldn't outrun Narshen's wyvren. You're dead now, I'm afraid."
+                        "msg": "±Tactician: Unfortunately, you couldn't outrun Narcian's wyvern. You're dead now, I'm afraid."
                     }
                 },
                 "teamTalk": true
@@ -1007,7 +1018,7 @@
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: 'Tremble and despair!'"
+                        "msg": "±Nergal: 'Tremble and despair!'"
                     }
                 },
                 "onDeath": {
@@ -1047,7 +1058,7 @@
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: 'Tremble and despair!'",
+                        "msg": "±Nergal: 'Tremble and despair!'",
                         "hide": true
                     }
                 },
@@ -1087,7 +1098,7 @@
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: 'Tremble and despair!'",
+                        "msg": "±Nergal: 'Tremble and despair!'",
                         "hide": true
                     }
                 },
