@@ -2,6 +2,7 @@
 	"name": "Vanilla",
 	"author": "waehofen",
 	"minplayers": 4,
+	"noplur": true,
 	"summary": "Vanilla Mafia!  There are no special abilities in this game.  In this version, the mafia:total players ratio decreases as the number of players gets larger.  I'll work on balancing it if it doesn't work! -waehofen",
 	"changelog": {
 		"2013-12-06": "mafia given team talk, min players changed to 4, changelog added"
@@ -25,14 +26,14 @@
 			"role": "v",
 			"translation": "Villager",
 			"side": "village",
-			"help": "Hi!  You're a Villager, but you don't have any special abilities :(",
+			"help": "",
 			"actions": {}
 		},
 		{
 			"role": "m",
 			"translation": "Mafia",
 			"side": "mafia",
-			"help": "Hi!  You're Mafia, so you can /kill (shared with your team) during the Night.",
+			"help": "",
 			"actions": {
 				"night": {
 					"kill": {
