@@ -31,7 +31,7 @@
 			"actions": {
                 "night": {
                     "poison": {
-                        "target": "AnyButTeam",
+                        "target": "Any",
                         "common": "Self",
                         "priority": 9,
                         "broadcast": "team",
