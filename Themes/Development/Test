@@ -62,7 +62,8 @@
                 },
                 "onDeath": {
                 	"exposeRoles": ["m"]
-            }
+            	}
+            	}
         },
 		{
 			"role": "m",
