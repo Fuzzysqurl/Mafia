@@ -50,6 +50,21 @@
             }
 		},
 		{
+            "role": "disgruntled",
+            "translation": "Disgruntled Soldier",
+            "side": "village",
+            "help": "You've just about had it with these naïve heroes! You don't care who wins any more - so long as it isn't them! If you get lynched, you will turn into a Berserk Soldier!",
+            "info": "Converts to Berserk Soldier when lynched. Wins the game with any side, excluding The Heroes. Sided with The Kingdom of Daein.",
+            "actions": {
+                "lynch": {
+                    "convertTo": "m",
+                    "convertmsg": "The Disgruntled Soldier, ~Self~,  is hit with a Berserk Staff after receiving ~Count~ votes. He has gone insane and now kills at night."
+                },
+                "onDeath": {
+                	"exposeRoles": ["m"]
+            }
+        },
+		{
 			"role": "m",
 			"translation": "Mafia",
 			"side": "mafia",
