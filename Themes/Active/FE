@@ -704,7 +704,7 @@
             "role": "zelgius",
             "translation": "Black Knight",
             "side": "begnion",
-            "startupmsg": "You are ~Role~!",
+            "startupmsg": "You are the ~Role~!",
             "help": "You're the enigmatic Black Knight, one of the strongest warriors in the land. You wield the holy blade Alondite, the counterpart to Ike's Ragnell! You're patiently watching the outcome of this war. On the 5th night, you are able to act and use the deadly skill Luna. Type /luna to kill up to 4 people with maximum priority on the 5th night and every night afterwards. Your armor is blessed by the goddess and normal weapons cannot hope to harm it, granting you immunity to death, poison, and converts at night. You can /intimidate the enemy forces during the 4th standby phase (before the 5th night) to send a chilling warning of your arrival.",
             "info": "Can kill four people during the night, after the fourth night. Can intimidate during the day, once per game, after the third day. Immune to converts and poison. Evades night kills. Sided with The Begnion Empire.",
             "actions": {
@@ -823,7 +823,7 @@
             "translation": "Zephiel",
             "side": "bern",
             "startupmsg": "You are ~Role~!",
-            "help": "You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. You have the ability to /kill one person at night with your mighty blade.Your extensive spy network allows you to /inspect someone to learn which army they are sided with. Furthermore, your incredible political clout gives you a +2 vote and immunity to poison and morphing.",
+            "help": "You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. You have the ability to /kill one person at night with your mighty blade. Your extensive spy network allows you to /inspect someone to learn which army they are sided with. Furthermore, your incredible political clout gives you a +2 vote and immunity to poison and morphing.",
             "info": "Can kill one person during the night. Can inspect one person during the night. Vote of 2. Immune to convert and poison. Sided with The Kingdom of Bern.",
             "actions": {
                 "startup": "team-reveal-with-roles",
