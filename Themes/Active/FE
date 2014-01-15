@@ -778,7 +778,7 @@
                         "common": "Team",
                         "priority": 13,
                         "broadcast": "team",
-                        "msg": "±Tactician: He may be just a politician, but he knows where to stick a knife when needs to. Lekain has seen to the end of you!"
+                        "msg": "±Tactician: He may be just a politician, but his Rexaura spell sure packs a punch!"
                     }
                 },
                 "distract": {
@@ -986,7 +986,7 @@
                         "common": "Team",
                         "priority": 11,
                         "broadcast": "team",
-                        "msg": "±Tactician: Murdock swings his big 'ole axe in your direction and you fail to dodge it. You're dead!"
+                        "msg": "±Tactician: Murdock threw his big 'ole tomahawk in your direction and you fail to dodge it. You're dead!"
                     }
                 },
                 "teamTalk": true
@@ -1198,7 +1198,7 @@
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: Fimbulvetr. That's the name of the ice magic Limstella wields. It's the name of the ice magic that ended your life."
+                        "msg": "±Limstella: 'I shall take your life and your essence, all for the sake of my master.'"
                     }
                 },
                 "poison": {
