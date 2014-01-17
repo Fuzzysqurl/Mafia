@@ -5,27 +5,56 @@
     "summary": "~~~",
     "threadlink": "~~~",
     "variables": {
+        "******COMMON******": "*******",
+        "ignore": {"mode":"ignore"},
         "removeautolife": [
             ""
         ],
-        "almsg": "~~~",
-        "altarmsg": "~~~",
-        "deathblowmsg": "~~~",
-        "ignore": {"mode":"ignore"},
+        "autolifemsg": "~~~",
+        "autolifetarmsg": "~~~",
+        "autolifehelp": "~~~",
+        
+        "******VILLAGE******": "*******",
+        "mooglemsg": "~~~",
+        "bocomsg": "~~~",
         "lockemsg": "~~~",
-        "locke1msg": "~~~",
-        "lockeact": {"inspect": {"target": "AnyButSelf", "common": "Self", "priority": 0}},
-        "zidaneact": {"inspect": {"target": "AnyButSelf","common": "Self", "priority": 0,"Sight": {"true": 0.1,"kefka": 0.9}}, "inspect": {"revealAs": "kefka"}},
+        "acemsg": "~~~",
+        "bartzmsg": "~~~",
+        "bartzamsg": "~~~",
+        "bartzbmsg": "~~~",
+        "cloudmsg": "~~~",
+        "squallmsg": "~~~",
+        "mogmsg": "~~~",
+        "lightningmsg": "~~~",
+        "dkcmsg": "~~~",
+        "paladinmsg": "~~~",
+        
         "bartzstalkmsg": "~~~",
         "bartznvmsg": "~~~",
+        "deathblowmsg": "~~~",
+        
+        "lockeact": {"inspect": {"target": "AnyButSelf", "common": "Self", "priority": 0}},
+        "zidaneact": {"inspect": {"target": "AnyButSelf","common": "Self", "priority": 0,"Sight": {"true": 0.1,"kefka": 0.9}}},
         "bartzusermsg": "Kweh!! You found Boco!!",
         "bartzaact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "limit": 2, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
         "bartzbact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
         "cloudact": {"kill": {"target": "AnyButSelf", "msg": "~~~", "killmsg": "~~~"}},
-        "squallact": {"kill": {"command": ["kill", "convert"], "target": "AnyButSelf", "common": "Self", "priority": 0, "msg": "~~~", "newRole": "variable:removeautolife", "usermsg": "variable:almsg", "tarmsg": "variable:altarmsg", "convertmsg": ""}},
+        "squallact": {"kill": {"command": ["kill", "convert"], "target": "AnyButSelf", "common": "Self", "priority": 0, "msg": "~~~", "newRole": "variable:removeautolife", "usermsg": "variable:autolifemsg", "tarmsg": "variable:autolifetarmsg", "convertmsg": ""}},
         "mogact": {},
         "dkcact": {"protect": {"target": "OnlySelf", "common": "Self", "priority": 0}, "purify": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"paladin": ["dkc"], "paladin1": ["dkc1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
-        "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}}
+        "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
+        
+        "******GARLAND******": "*******",
+        
+        "******KEFKUJA******": "*******",
+        
+        "******ARCHADIAN EMPIRE******": "*******",
+        
+        "******SHINRA CORP******": "*******",
+        
+        "******CAIUS******": "*******",
+        
+        "******CHAOS******": "*******"
     },
     "sides": [
         {   "side": "village",
@@ -69,7 +98,8 @@
             "translation": "Moogle",
             "side": "village",
             "startupmsg": "You are a Moogle!",
-            "help": "~~~",
+            "help": "variable:mooglemsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "kill": "variable:ignore"
@@ -79,7 +109,7 @@
             "translation": "Boco",
             "side": "village",
             "startupmsg": "You are Boco the Chocobo!",
-            "help": "~~~",
+            "help": "variable:bocomsg",
             "info": "Voteshield of -2. Powers up Bartz when stalked. Sided with the Heroes.",
             "actions": {
                 "voteshield": -2,
@@ -93,7 +123,8 @@
             "translation": "Boco",
             "side": "village",
             "startupmsg": "You are Boco the Chocobo!",
-            "help": "~~~",
+            "help": "variable:bocomsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "voteshield": -2, 
@@ -114,7 +145,8 @@
             "translation": "Locke",
             "side": "village",
             "startupmsg": "You are Locke!",
-            "help": "variable:locke1msg",
+            "help": "variable:lockemsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": "variable:lockeact", 
@@ -128,25 +160,28 @@
             "help": "variable:lockemsg",
             "info": "Can inspect one person during the night (Returns Kefka 90% of the time). Sees itself as Locke. Seen as Kefka. Sided with the Heroes.",
             "actions": {
-                "night": "variable:zidaneact"
+                "night": "variable:zidaneact", 
+                "inspect": {"revealAs": "kefka"}
             }
         },
         {   "role": "zidane1",
             "translation": "Zidane",
             "side": "village",
             "startupmsg": "You are Locke!",
-            "help": "variable:locke1msg",
+            "help": "variable:lockemsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": { 
                 "night": "variable:zidaneact", 
-                "kill":"variable:ignore"
+                "kill":"variable:ignore", 
+                "inspect": {"revealAs": "kefka"}
             }
         },
         {   "role": "ace",
             "translation": "Ace",
             "side": "village",
             "startupmsg": "You are Ace!",
-            "help": "~~~",
+            "help": "variable:acemsg",
             "info": "Has a variable vote (24/53 chance for 2 votes, 18/53 chance for 3 votes, 12/53 chance for 4 votes, 4/53 chance for 7 votes, 1/53 chance for instant lynch). Sided with the Heroes.",
             "actions": {
                 "vote": [ 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,7,7,7,7,1337]
@@ -156,7 +191,8 @@
             "translation": "Ace",
             "side": "village",
             "startupmsg": "You are Ace!",
-            "help": "~~~",
+            "help": "variable:acemsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "vote": [ 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,7,7,7,7,1337],
@@ -167,7 +203,7 @@
             "translation": "Bartz",
             "side": "village",
             "startupmsg": "You are Bartz!",
-            "help": "~~~",
+            "help": "variable:bartzmsg",
             "info": "Can stalk one person during the night. Sided with the Heroes.",
             "actions": {
                 "night": {
@@ -190,7 +226,8 @@
             "translation": "Bartz",
             "side": "village",
             "startupmsg": "You are Bartz!",
-            "help": "~~~",
+            "help": "variable:bartzmsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": {
@@ -214,7 +251,7 @@
             "translation": "Bartz",
             "side": "village",
             "startupmsg": "You are Bartz!",
-            "help": "~~~",
+            "help": "variable:bartzamsg",
             "info": "Can stalk two people during the night. Sided with the Heroes.",
             "hide": "side",
             "actions": {
@@ -225,7 +262,8 @@
             "translation": "Bartz",
             "side": "village",
             "startupmsg": "You are Bartz!",
-            "help": "~~~",
+            "help": "variable:bartzamsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": "variable:bartzaact", 
@@ -236,7 +274,7 @@
             "translation": "Bartz",
             "side": "village",
             "startupmsg": "You are Bartz!",
-            "help": "~~~",
+            "help": "variable:bartzbmsg",
             "hide": "both",
             "actions": {
                 "night": "variable:bartzbact"
@@ -246,7 +284,8 @@
             "translation": "Bartz",
             "side": "village",
             "startupmsg": "You are Bartz!",
-            "help": "~~~",
+            "help": "variable:bartzbmsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": "variable:bartzbact", 
@@ -257,7 +296,7 @@
             "translation": "Cloud",
             "side": "village",
             "startupmsg": "You are Cloud!",
-            "help": "~~~",
+            "help": "variable:cloudmsg",
             "info": "Can kill one person during the day. Cannot be daykilled. Sided with the Heroes.",
             "actions": {
                 "standby": "variable:cloudact", 
@@ -268,7 +307,8 @@
             "translation": "Cloud",
             "side": "village",
             "startupmsg": "You are Cloud!",
-            "help": "~~~",
+            "help": "variable:cloudmsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "standby": "variable:cloudact", 
@@ -280,7 +320,7 @@
             "translation": "Squall",
             "side": "village",
             "startupmsg": "You are Squall!",
-            "help": "~~~",
+            "help": "variable:squallmsg",
             "info": "Can kill one person during the night. Sided with the Heroes.",
             "actions": {
                 "night": "variable:squallact"
@@ -290,7 +330,8 @@
             "translation": "Squall",
             "side": "village",
             "startupmsg": "You are Squall!",
-            "help": "~~~",
+            "help": "variable:squallmsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": "variable:squallact", 
@@ -301,7 +342,7 @@
             "translation": "Mog",
             "side": "village",
             "startupmsg": "You are Mog!",
-            "help": "~~~",
+            "help": "variable:mogmsg",
             "info": "~~~. Sided with the Heroes.",
             "actions": {
                 "night": "variable:mogact"
@@ -311,7 +352,8 @@
             "translation": "Mog",
             "side": "village",
             "startupmsg": "You are Mog!",
-            "help": "~~~",
+            "help": "variable:mogmsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": "variable:mogact", 
@@ -322,7 +364,7 @@
             "translation": "Lightning",
             "side": "village",
             "startupmsg": "You are Lightning!",
-            "help": "~~~",
+            "help": "variable:lightmsg",
             "info": "Can expose one person during the day with a chance of killing instead of exposing, twice per game. Can kill one person during the night, one per game. Can grant auto-life to one person during the night, excluding themselves, once per game. Sided with the Heroes.",
             "actions": {
                 "standby": {
@@ -342,8 +384,8 @@
                         "priority": 0, 
                         "msg": "~~~", 
                         "newRole": "variable:removeautolife", 
-                        "usermsg": "variable:almsg", 
-                        "tarmsg": "variable:altarmsg", 
+                        "usermsg": "variable:autolifemsg", 
+                        "tarmsg": "variable:autolifetarmsg", 
                         "convertmsg": ""
                     },
                     "autolife": {
@@ -395,7 +437,7 @@
             "translation": "Dark Knight Cecil",
             "side": "village",
             "startupmsg": "You are Dark Knight Cecil!",
-            "help": "~~~",
+            "help": "variable:dkcmsg",
             "info": "Can protect themselves during the night. Can purify themselves to convert to Paladin Cecil during the night. Sided with the Heroes.",
             "actions": {
                 "night": "variable:dkcact"
@@ -405,7 +447,8 @@
             "translation": "Dark Knight Cecil",
             "side": "village",
             "startupmsg": "You are Dark Knight Cecil!",
-            "help": "~~~",
+            "help": "variable:dkcmsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": "variable:dkcact",
@@ -416,7 +459,7 @@
             "translation": "Paladin Cecil",
             "side": "village",
             "startupmsg": "You are Paladin Cecil!",
-            "help": "~~~",
+            "help": "variable:paladinmsg",
             "info": "Can protect one person during the night. Can shadow themselves to convert to Dark Knight Cecil during the night. Sided with the Heroes.",
             "actions": {
                 "night": "variable:paladincact",
@@ -427,7 +470,8 @@
             "translation": "Paladin Cecil",
             "side": "village",
             "startupmsg": "You are Paladin Cecil!",
-            "help": "~~~",
+            "help": "variable:paladinmsg",
+            "help2": "variable:autolifehelp",
             "hide": "both",
             "actions": {
                 "night": "variable:dkcact",
