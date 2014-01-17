@@ -61,34 +61,78 @@
         
         "bartzstalkmsg": "~~~",
         "bartznvmsg": "~~~",
+        "bartzusermsg": "Kweh!! You found Boco!!",
         "deathblowmsg": "~~~",
+        "clouddkmsg": "~~~",
+        "clouddkhelp": "~~~",
+        "squallkillmsg": "~~~",
+        "paladinconvertmsg": "~~~",
+        "dkcconvertmsg": "~~~",
         "yunadistractmsg": "~~~",
         "yunateammsg": "~~~",
         
         "lockeact": {"inspect": {"target": "AnyButSelf", "common": "Self", "priority": 0}},
         "zidaneact": {"inspect": {"target": "AnyButSelf","common": "Self", "priority": 0,"Sight": {"true": 0.1,"kefka": 0.9}}},
-        "bartzusermsg": "Kweh!! You found Boco!!",
         "bartzaact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "limit": 2, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
         "bartzbact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
-        "cloudact": {"kill": {"target": "AnyButSelf", "msg": "~~~", "killmsg": "~~~"}},
-        "squallact": {"kill": {"command": ["kill", "convert"], "target": "AnyButSelf", "common": "Self", "priority": 0, "msg": "~~~", "newRole": "variable:removeautolife", "usermsg": "variable:autolifemsg", "tarmsg": "variable:autolifetarmsg", "convertmsg": ""}},
+        "cloudact": {"kill": {"target": "AnyButSelf", "msg": "variable:clouddkhelp", "killmsg": "variable:clouddkmsg"}},
+        "squallact": {"kill": {"command": ["kill", "convert"], "target": "AnyButSelf", "common": "Self", "priority": 0, "msg": "variable:squallkillmsg", "newRole": "variable:removeautolife", "usermsg": "variable:autolifemsg", "tarmsg": "variable:autolifetarmsg", "convertmsg": ""}},
         "mogact": {},
-        "dkcact": {"protect": {"target": "OnlySelf", "common": "Self", "priority": 0}, "purify": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"paladin": ["dkc"], "paladin1": ["dkc1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
-        "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
+        "dkcact": {"protect": {"target": "OnlySelf", "common": "Self", "priority": 0}, "purify": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"paladin": ["dkc"], "paladin1": ["dkc1"]}, "convertmsg": "variable:paladinconvertmsg", "distractmsg": "", "teammsg": ""}},
+        "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "variable:dkcconvertmsg", "distractmsg": "", "teammsg": ""}},
         "yunaact": {},
         "noctisact": {},
         
         "******GARLAND******": "*********************",
+        "garlandmsg": "~~~",
+        
+        "garlandact": {},
         
         "******KEFKUJA******": "*********************",
+        "kefkamsg": "~~~",
+        "kefkaamsg": "~~~",
+        "kujamsg": "~~~",
+        "kujaamsg": "~~~"
+        
+        "kefkaact": {},
+        "kujaaact": {},
         
         "******ARCHADIAN EMPIRE******": "*********************",
+        "gabranthmsg": "~~~",
+        "vaynemsg": "~~~",
+        "cidmsg": "~~~",
+        "venatmsg": "~~~",
+        "zargabaathmsg": "~~~",
+        
+        "gabranthact": {},
+        "vayneact": {},
+        "cidact": {},
+        "venatact": {},
+        "zargabaathact": {},
         
         "******SHINRA CORP******": "*********************",
+        "sephirothmsg": "~~~",
+        "genesismsg": "~~~",
+        "weissmsg": "~~~",
+        "hojomsg": "~~~",
+        "jenovamsg": "~~~",
+        
+        "sephirothact": {},
+        "sephirothdayact": {},
+        "genesisact": {},
+        "weissact": {},
+        "hojoact": {},
+        "jenovaact": {},
         
         "******CAIUS******": "*********************",
+        "caiusmsg": "~~~",
         
-        "******CHAOS******": "*********************"
+        "caiusact": {},
+        
+        "******CHAOS******": "*********************",
+        "chaosmsg": "~~~",
+        
+        "chaosact": {}
     },
     "sides": [
         {   "side": "village",
@@ -556,136 +600,346 @@
             }
         },
         
-        
-        
         {   "role": "garland",
             "translation": "Garland",
             "side": "garland",
             "startupmsg": "You are Garland!",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "help": "variable:garlandmsg",
+            "info": "~~~. Sided with Garland.",
+            "actions": {
+                "night": "variable:garlandact"
+            }
         },
-        
-        
+        {   "role": "garland1",
+            "translation": "Garland",
+            "side": "garland",
+            "startupmsg": "You are Garland!",
+            "help": "variable:garlandmsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:garlandact",
+                "kill": "variable:ignore"
+            }
+        },
         
         {   "role": "kefka",
             "translation": "Kefka",
             "side": "kefkuja",
             "startupmsg": "You are Kefka!",
-            "help": "~~~",
+            "help": "variable:kefkamsg",
             "info": "~~~",
-            "actions": {}
+            "actions": {
+                "night": "variable:kefkaact"
+            }
+        },
+        {   "role": "kefka1",
+            "translation": "Kefka",
+            "side": "kefkuja",
+            "startupmsg": "You are Kefka!",
+            "help": "variable:kefkamsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:kefkaact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "kefkaa",
             "translation": "~~~",
             "side": "kefkuja",
             "startupmsg": "~~~",
-            "help": "~~~",
+            "help": "variable:kefkaamsg",
             "info": "~~~",
-            "actions": {}
+            "actions": {
+                "night": "variable:kefkaact"
+            }
+        },
+        {   "role": "kefkaa1",
+            "translation": "Kefka",
+            "side": "kefkuja",
+            "startupmsg": "~~~",
+            "help": "variable:kefkaamsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:kefkaact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "kuja",
             "translation": "Kuja",
             "side": "kefkuja",
             "startupmsg": "You are Kuja!",
-            "help": "~~~",
+            "help": "variable:kujamsg",
             "info": "~~~",
-            "actions": {}
+            "actions": {
+                "vote": 999,
+                "voteshield": -999
+            }
+        },
+        {   "role": "kuja1",
+            "translation": "Kuja",
+            "side": "kefkuja",
+            "startupmsg": "You are Kuja!",
+            "help": "variable:kujamsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "vote": 999,
+                "voteshield": -999
+            }
         },
         {   "role": "kujaa",
             "translation": "Trance Kuja",
             "side": "kefkuja",
             "startupmsg": "You are Trance Kuja!",
-            "help": "~~~",
+            "help": "variable:kujaamsg",
             "info": "~~~",
-            "actions": {}
+            "actions": {
+                "vote": 999,
+                "voteshield": -999,
+                "night": "variable:kujaaact"
+            }
         },
-    
-    
-    
+        {   "role": "kujaa1",
+            "translation": "Trance Kuja",
+            "side": "kefkuja",
+            "startupmsg": "You are Trance Kuja!",
+            "help": "variable:kujaamsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "vote": 999,
+                "voteshield": -999,
+                "night": "variable:kujaaact"
+            }
+        },
+
         {   "role": "gabranth",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Judge Gabranth",
+            "side": "arch",
+            "startupmsg": "You are Judge Gabranth!",
+            "help": "variable:gabranthmsg",
+            "info": "~~~. Sided with the Archadian Empire.",
+            "actions": {
+                "night": "variable:gabranthact"
+            }
+        },
+        {   "role": "gabranth1",
+            "translation": "Judge Gabranth",
+            "side": "arch",
+            "startupmsg": "You are Judge Gabranth!",
+            "help": "variable:gabranthmsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:gabranthact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "vayne",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Vayne Solidor",
+            "side": "arch",
+            "startupmsg": "You are Vayne Solidor!",
+            "help": "variable:vaynemsg",
+            "info": "~~~. Sided with the Archadian Empire.",
+            "actions": {
+                "night": "variable:vayneact"
+            }
+        },
+        {   "role": "vayne1",
+            "translation": "Vayne Solidor",
+            "side": "arch",
+            "startupmsg": "You are Vayne Solidor!",
+            "help": "variable:vaynemsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:vayneact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "cid",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Dr. Cid",
+            "side": "arch",
+            "startupmsg": "You are Dr. Cid!",
+            "help": "variable:cidmsg",
+            "info": "~~~. Sided with the Archadian Empire.",
+            "actions": {
+                "night": "variable:cidact"
+            }
+        },
+        {   "role": "cid1",
+            "translation": "Dr. Cid",
+            "side": "arch",
+            "startupmsg": "You are Dr. Cid!",
+            "help": "variable:cidmsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:cidact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "venat",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Venat",
+            "side": "arch",
+            "startupmsg": "You are Venat!",
+            "help": "variable:venatmsg",
+            "info": "~~~. Sided with the Archadian Empire.",
+            "actions": {
+                "night": "variable:venatact"
+            }
+        },
+        {   "role": "venat1",
+            "translation": "Venat",
+            "side": "arch",
+            "startupmsg": "You are Venat!",
+            "help": "variable:venatmsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:venatact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "zargabaath",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Judge Zargabaath",
+            "side": "arch",
+            "startupmsg": "You are Judge Zargabaath!",
+            "help": "variable:zargabaathmsg",
+            "info": "~~~. Sided with the Archadian Empire.",
+            "actions": {
+                "night": "variable:zargabaathact"
+            }
+        },
+        {   "role": "zargabaath1",
+            "translation": "Judge Zargabaath",
+            "side": "arch",
+            "startupmsg": "You are Judge Zargabaath!",
+            "help": "variable:zargabaathmsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:zargabaathact",
+                "kill": "variable:ignore"
+            }
         },
         
         
         
         {   "role": "sephiroth",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Sephiroth",
+            "side": "shinra",
+            "startupmsg": "You are the One-Winged Angel Sephiroth!",
+            "help": "variable:sephirothmsg",
+            "info": "~~~. Sided with the Shinra Corporation.",
+            "actions": {
+                "night": "variable:sephirothact",
+                "standby": "variable:sepirothdayact"
+            }
+        },
+        {   "role": "sephiroth1",
+            "translation": "Sephiroth",
+            "side": "shinra",
+            "startupmsg": "You are the One-Winged Angel Sephiroth!",
+            "help": "variable:sephirothmsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:sephirothact",
+                "standby": "variable:sepirothdayact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "genesis",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Genesis",
+            "side": "shinra",
+            "startupmsg": "You are Genesis Rhapsodos!",
+            "help": "variable:genesismsg",
+            "info": "~~~. Sided with the Shinra Corporation.",
+            "actions": {
+                "night": "variable:genesisact"
+            }
+        },
+        {   "role": "genesis1",
+            "translation": "Genesis",
+            "side": "shinra",
+            "startupmsg": "You are Genesis Rhapsodos!",
+            "help": "variable:genesismsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:genesisact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "weiss",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Weiss",
+            "side": "shinra",
+            "startupmsg": "You are Weiss the Immaculate!",
+            "help": "variable:weissmsg",
+            "info": "~~~. Sided with the Shinra Corporation.",
+            "actions": {
+                "night": "variable:weissact"
+            }
+        },
+        {   "role": "weiss1",
+            "translation": "Weiss",
+            "side": "shinra",
+            "startupmsg": "You are Weiss the Immaculate!",
+            "help": "variable:weissmsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:weissact",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "hojo",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Hojo",
+            "side": "shinra",
+            "startupmsg": "You are Professor Hojo!",
+            "help": "variable:hojomsg",
+            "info": "~~~. Sided with the Shinra Corporation.",
+            "actions": {
+                "night": "variable:hojomsg"
+            }
+        },
+        {   "role": "hojo1",
+            "translation": "Hojo",
+            "side": "shinra",
+            "startupmsg": "You are Professor Hojo!",
+            "help": "variable:hojomsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:hojomsg",
+                "kill": "variable:ignore"
+            }
         },
         {   "role": "jenova",
-            "translation": "",
-            "side": "",
-            "startupmsg": "",
-            "help": "",
-            "info": "",
-            "actions": {}
+            "translation": "Jenova",
+            "side": "shinra",
+            "startupmsg": "You are Jenova!",
+            "help": "variable:jenovamsg",
+            "info": "~~~. Sided with the Shinra Corporation.",
+            "actions": {
+                "night": "variable:jenovaact"
+            }
+        },
+        {   "role": "jenova1",
+            "translation": "Jenova",
+            "side": "shinra",
+            "startupmsg": "You are Jenova!",
+            "help": "variable:jenovamsg",
+            "help2": "variable:autolifehelp",
+            "hide": "both",
+            "actions": {
+                "night": "variable:jenovaact",
+                "kill": "variable:ignore"
+            }
         },
         
         
