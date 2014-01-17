@@ -5,16 +5,44 @@
     "summary": "~~~",
     "threadlink": "~~~",
     "variables": {
-        "******COMMON******": "*******",
+        "******COMMON******": "*********************",
         "ignore": {"mode":"ignore"},
-        "removeautolife": [
-            ""
+        "removeautolife1": [
+            "moogle1": ["moogle"],
+            "boco1": ["boco"],
+            "bartz1": ["bartz"], "bartza1": ["bartza"], "bartzb1": ["bartzb"],
+            "locke1": ["locke"],
+            "zidane1": ["zidane"],
+            "ace1": ["ace"],
+            "cloud1": ["cloud"],
+            "squall1": ["squall"],
+            "mog1": ["mog"],
+            "dkc1": ["dkc"], "paladin1": ["paladin"],
+            
+            "kefka1": ["kefka"], "kefkaa1": ["kefkaa"],
+            "kuja1": ["kuja"], "kujaa1": ["kujaa"],
+            
+            "gabranth1": ["gabranth"],
+            "vayne1": ["vayne"],
+            "cid1": ["cid"],
+            "venat1": ["venat"],
+            "zargabaath1": ["zargabaath"],
+            
+            "sephiroth1": ["sephiroth"],
+            "genesis1": ["genesis"],
+            "weiss1": ["weiss"],
+            "hojo1": ["hojo"],
+            "jenova1": ["jenova"],
+            
+            "chaos1": ["chaos"],
+            
+            "caius1": ["caius"]
         ],
         "autolifemsg": "~~~",
         "autolifetarmsg": "~~~",
         "autolifehelp": "~~~",
         
-        "******VILLAGE******": "*******",
+        "******VILLAGE******": "*********************",
         "mooglemsg": "~~~",
         "bocomsg": "~~~",
         "lockemsg": "~~~",
@@ -44,17 +72,17 @@
         "dkcact": {"protect": {"target": "OnlySelf", "common": "Self", "priority": 0}, "purify": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"paladin": ["dkc"], "paladin1": ["dkc1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
         "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
         
-        "******GARLAND******": "*******",
+        "******GARLAND******": "*********************",
         
-        "******KEFKUJA******": "*******",
+        "******KEFKUJA******": "*********************",
         
-        "******ARCHADIAN EMPIRE******": "*******",
+        "******ARCHADIAN EMPIRE******": "*********************",
         
-        "******SHINRA CORP******": "*******",
+        "******SHINRA CORP******": "*********************",
         
-        "******CAIUS******": "*******",
+        "******CAIUS******": "*********************",
         
-        "******CHAOS******": "*******"
+        "******CHAOS******": "*********************"
     },
     "sides": [
         {   "side": "village",
