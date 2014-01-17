@@ -1,0 +1,594 @@
+{
+    "name": "FF",
+    "altname": "Final Fantasy",
+    "author": "Fuzzy",
+    "summary": "~~~",
+    "threadlink": "~~~",
+    "variables": {
+        "removeautolife": [
+            ""
+        ],
+        "almsg": "~~~",
+        "altarmsg": "~~~",
+        "deathblowmsg": "~~~",
+        "ignore": {"mode":"ignore"},
+        "lockemsg": "~~~",
+        "locke1msg": "~~~",
+        "lockeact": {"inspect": {"target": "AnyButSelf", "common": "Self", "priority": 0}},
+        "zidaneact": {"inspect": {"target": "AnyButSelf","common": "Self", "priority": 0,"Sight": {"true": 0.1,"kefka": 0.9}}, "inspect": {"revealAs": "kefka"}},
+        "bartzstalkmsg": "~~~",
+        "bartznvmsg": "~~~",
+        "bartzusermsg": "Kweh!! You found Boco!!",
+        "bartzaact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "limit": 2, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
+        "bartzbact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
+        "cloudact": {"kill": {"target": "AnyButSelf", "msg": "~~~", "killmsg": "~~~"}},
+        "squallact": {"kill": {"command": ["kill", "convert"], "target": "AnyButSelf", "common": "Self", "priority": 0, "msg": "~~~", "newRole": "variable:removeautolife", "usermsg": "variable:almsg", "tarmsg": "variable:altarmsg", "convertmsg": ""}},
+        "mogact": {},
+        "dkcact": {"protect": {"target": "OnlySelf", "common": "Self", "priority": 0}, "purify": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"paladin": ["dkc"], "paladin1": ["dkc1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
+        "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}}
+    },
+    "sides": [
+        {   "side": "village",
+            "translation": "Heroes",
+            "winmsg": "~~~"
+        },
+        {   "side": "garland",
+            "translation": "Garland",
+            "winmsg": "~~~"
+        },
+        {   "side": "kefkuja",
+            "translation": "Insane Kefka Posse",
+            "winmsg": "~~~"
+        },
+        {   "side": "arch",
+            "translation": "Archadian Empire",
+            "winmsg": "~~~"
+        },
+        {   "side": "shinra",
+            "translation": "Shinra",
+            "winmsg": "~~~"
+        },
+        {   "side": "caius",
+            "translation": "Caius",
+            "winmsg": "~~~"
+        },
+        {   "side": "chaos",
+            "translation": "Chaos",
+            "winmsg": "~~~"
+        }
+    ],
+    "roles": [
+        {   "role": "moogle",
+            "translation": "Moogle",
+            "side": "village",
+            "startupmsg": "You are a Moogle!",
+            "help": "~~~",
+            "info": "Sided with the Heroes."
+        },  
+        {   "role": "moogle1",
+            "translation": "Moogle",
+            "side": "village",
+            "startupmsg": "You are a Moogle!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "kill": "variable:ignore"
+            }
+        },        
+        {   "role": "boco",
+            "translation": "Boco",
+            "side": "village",
+            "startupmsg": "You are Boco the Chocobo!",
+            "help": "~~~",
+            "info": "Voteshield of -2. Powers up Bartz when stalked. Sided with the Heroes.",
+            "actions": {
+                "voteshield": -2,
+                "onDeath": {
+                    "convertRoles": {"bartza":"bartzb", "bartza1":"bartzb1"},
+                    "convertmsg": "~~~"
+                }
+            }
+        },
+        {   "role": "boco1",
+            "translation": "Boco",
+            "side": "village",
+            "startupmsg": "You are Boco the Chocobo!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "voteshield": -2, 
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "locke",
+            "translation": "Locke",
+            "side": "village",
+            "startupmsg": "You are Locke!",
+            "help": "variable:lockemsg",
+            "info": "Can inspect one person during the night. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:lockeact"
+            }
+        },
+        {   "role": "locke1",
+            "translation": "Locke",
+            "side": "village",
+            "startupmsg": "You are Locke!",
+            "help": "variable:locke1msg",
+            "hide": "both",
+            "actions": {
+                "night": "variable:lockeact", 
+                "protect": "variable:ignore"
+            }
+        },
+        {   "role": "zidane",
+            "translation": "Zidane",
+            "side": "village",
+            "startupmsg": "You are Locke!",
+            "help": "variable:lockemsg",
+            "info": "Can inspect one person during the night (Returns Kefka 90% of the time). Sees itself as Locke. Seen as Kefka. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:zidaneact"
+            }
+        },
+        {   "role": "zidane1",
+            "translation": "Zidane",
+            "side": "village",
+            "startupmsg": "You are Locke!",
+            "help": "variable:locke1msg",
+            "hide": "both",
+            "actions": { 
+                "night": "variable:zidaneact", 
+                "kill":"variable:ignore"
+            }
+        },
+        {   "role": "ace",
+            "translation": "Ace",
+            "side": "village",
+            "startupmsg": "You are Ace!",
+            "help": "~~~",
+            "info": "Has a variable vote (24/53 chance for 2 votes, 18/53 chance for 3 votes, 12/53 chance for 4 votes, 4/53 chance for 7 votes, 1/53 chance for instant lynch). Sided with the Heroes.",
+            "actions": {
+                "vote": [ 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,7,7,7,7,1337]
+            }
+        },
+        {   "role": "ace1",
+            "translation": "Ace",
+            "side": "village",
+            "startupmsg": "You are Ace!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "vote": [ 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,7,7,7,7,1337],
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "bartz",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz!",
+            "help": "~~~",
+            "info": "Can stalk one person during the night. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "command": ["stalk", "copy"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "copyAs": {"bartza": ["boco", "boco1"]},
+                        "copyfailmsg": "",
+                        "copymsg": "",
+                        "usermsg": "variable:bartzusermsg",
+                        "stalkmsg": "variable:bartzstalkmsg",
+                        "novisitmsg": "variable:bartznvmsg"
+                    }
+                }
+            }
+        },
+        {   "role": "bartz1",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "command": ["stalk", "copy"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "copyAs": {"bartza1": ["boco", "boco1"]},
+                        "copyfailmsg": "",
+                        "copymsg": "",
+                        "usermsg": "variable:bartzusermsg",
+                        "stalkmsg": "variable:bartzstalkmsg",
+                        "novisitmsg": "variable:bartznvmsg"
+                    }
+                },
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "bartza",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz!",
+            "help": "~~~",
+            "info": "Can stalk two people during the night. Sided with the Heroes.",
+            "hide": "side",
+            "actions": {
+                "night": "variable:bartzaact"
+            }
+        },
+        {   "role": "bartza1",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": "variable:bartzaact", 
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "bartzb",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": "variable:bartzbact"
+            }
+        },
+        {   "role": "bartzb1",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": "variable:bartzbact", 
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "cloud",
+            "translation": "Cloud",
+            "side": "village",
+            "startupmsg": "You are Cloud!",
+            "help": "~~~",
+            "info": "Can kill one person during the day. Cannot be daykilled. Sided with the Heroes.",
+            "actions": {
+                "standby": "variable:cloudact", 
+                "daykill": "evade"
+            }
+        },
+        {   "role": "cloud1",
+            "translation": "Cloud",
+            "side": "village",
+            "startupmsg": "You are Cloud!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "standby": "variable:cloudact", 
+                "daykill": "evade",
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "squall",
+            "translation": "Squall",
+            "side": "village",
+            "startupmsg": "You are Squall!",
+            "help": "~~~",
+            "info": "Can kill one person during the night. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:squallact"
+            }
+        },
+        {   "role": "squall1",
+            "translation": "Squall",
+            "side": "village",
+            "startupmsg": "You are Squall!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": "variable:squallact", 
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "mog",
+            "translation": "Mog",
+            "side": "village",
+            "startupmsg": "You are Mog!",
+            "help": "~~~",
+            "info": "~~~. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:mogact"
+            }
+        },
+        {   "role": "mog1",
+            "translation": "Mog",
+            "side": "village",
+            "startupmsg": "You are Mog!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": "variable:mogact", 
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "lightning",
+            "translation": "Lightning",
+            "side": "village",
+            "startupmsg": "You are Lightning!",
+            "help": "~~~",
+            "info": "Can expose one person during the day with a chance of killing instead of exposing, twice per game. Can kill one person during the night, one per game. Can grant auto-life to one person during the night, excluding themselves, once per game. Sided with the Heroes.",
+            "actions": {
+                "standby": {
+                    "launch": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "msg": "~~~",
+                        "exposemsg": "~~~",
+                        "charges": 2
+                    }                    
+                },
+                "night": {
+                    "~~~": {
+                        "command": ["kill", "convert"],
+                        "target": "AnyButSelf", 
+                        "common": "Self", 
+                        "priority": 0, 
+                        "msg": "~~~", 
+                        "newRole": "variable:removeautolife", 
+                        "usermsg": "variable:almsg", 
+                        "tarmsg": "variable:altarmsg", 
+                        "convertmsg": ""
+                    },
+                    "autolife": {
+                        "command": "convert",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "charges": 2,
+                        "convertfailmsg": "~~~",
+                        "tarmsg": "~~~",
+                        "usermsg": "~~~",
+                        "convertmsg": "",
+                        "newRole": {
+							"moogle": ["moogle1"],
+                            "boco": ["boco1"],
+                            "bartz": ["bartz1"], "bartza": ["bartza1"], "bartzb": ["bartzb1"],
+                            "locke": ["locke1"],
+                            "zidane": ["zidane1"],
+                            "ace": ["ace1"],
+                            "cloud": ["cloud1"],
+                            "squall": ["squall1"],
+                            "mog": ["mog1"],
+                            "dkc": ["dkc1"], "paladin": ["paladin1"],
+                            
+                            "kefka": ["kefka1"], "kefkaa": ["kefkaa1"],
+                            "kuja": ["kuja1"], "kujaa": ["kujaa1"],
+                            
+                            "gabranth": ["gabranth1"],
+                            "vayne": ["vayne1"],
+                            "cid": ["cid1"],
+                            "venat": ["venat1"],
+                            "zargabaath": ["zargabaath"],
+                            
+                            "sephiroth": ["sephiroth1"],
+                            "genesis": ["genesis1"],
+                            "weiss": ["weiss1"],
+                            "hojo": ["hojo1"],
+                            "jenova": ["jenova1"],
+                            
+                            "chaos": ["chaos1"],
+                            
+                            "caius": ["caius1"]
+						}                    
+                    }                    
+                }
+            }
+        },
+        {   "role": "dkc",
+            "translation": "Dark Knight Cecil",
+            "side": "village",
+            "startupmsg": "You are Dark Knight Cecil!",
+            "help": "~~~",
+            "info": "Can protect themselves during the night. Can purify themselves to convert to Paladin Cecil during the night. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:dkcact"
+            }
+        },
+        {   "role": "dkc1",
+            "translation": "Dark Knight Cecil",
+            "side": "village",
+            "startupmsg": "You are Dark Knight Cecil!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": "variable:dkcact",
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "paladin",
+            "translation": "Paladin Cecil",
+            "side": "village",
+            "startupmsg": "You are Paladin Cecil!",
+            "help": "~~~",
+            "info": "Can protect one person during the night. Can shadow themselves to convert to Dark Knight Cecil during the night. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:paladincact",
+                "protect": "variable:ignore"
+            }
+        },
+        {   "role": "paladin1",
+            "translation": "Paladin Cecil",
+            "side": "village",
+            "startupmsg": "You are Paladin Cecil!",
+            "help": "~~~",
+            "hide": "both",
+            "actions": {
+                "night": "variable:dkcact",
+                "protect": "variable:ignore",
+                "kill": "variable:ignore"
+            }
+        },
+        
+        
+        
+        {   "role": "garland",
+            "translation": "Garland",
+            "side": "garland",
+            "startupmsg": "You are Garland!",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        
+        
+        
+        {   "role": "kefka",
+            "translation": "Kefka",
+            "side": "kefkuja",
+            "startupmsg": "You are Kefka!",
+            "help": "~~~",
+            "info": "~~~",
+            "actions": {}
+        },
+        {   "role": "kefkaa",
+            "translation": "~~~",
+            "side": "kefkuja",
+            "startupmsg": "~~~",
+            "help": "~~~",
+            "info": "~~~",
+            "actions": {}
+        },
+        {   "role": "kuja",
+            "translation": "Kuja",
+            "side": "kefkuja",
+            "startupmsg": "You are Kuja!",
+            "help": "~~~",
+            "info": "~~~",
+            "actions": {}
+        },
+        {   "role": "kujaa",
+            "translation": "Trance Kuja",
+            "side": "kefkuja",
+            "startupmsg": "You are Trance Kuja!",
+            "help": "~~~",
+            "info": "~~~",
+            "actions": {}
+        },
+    
+    
+    
+        {   "role": "gabranth",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "vayne",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "cid",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "venat",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "zargabaath",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        
+        
+        
+        {   "role": "sephiroth",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "genesis",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "weiss",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "hojo",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "jenova",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        
+        
+        
+        {   "role": "chaos",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        
+        
+        {   "role": "caius",
+            "translation": "",
+            "side": "",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {}
+        }
+    
+    
+    ]
+}
