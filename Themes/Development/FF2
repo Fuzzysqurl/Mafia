@@ -7,7 +7,7 @@
     "variables": {
         "******COMMON******": "*********************",
         "ignore": {"mode":"ignore"},
-        "removeautolife1": [
+        "removeautolife1": {
             "moogle1": ["moogle"],
             "boco1": ["boco"],
             "bartz1": ["bartz"], "bartza1": ["bartza"], "bartzb1": ["bartzb"],
@@ -37,7 +37,7 @@
             "chaos1": ["chaos"],
             
             "caius1": ["caius"]
-        ],
+        },
         "autolifemsg": "~~~",
         "autolifetarmsg": "~~~",
         "autolifehelp": "~~~",
@@ -56,10 +56,14 @@
         "lightningmsg": "~~~",
         "dkcmsg": "~~~",
         "paladinmsg": "~~~",
+        "yunamsg": "~~~",
+        "noctismsg": "~~~",
         
         "bartzstalkmsg": "~~~",
         "bartznvmsg": "~~~",
         "deathblowmsg": "~~~",
+        "yunadistractmsg": "~~~",
+        "yunateammsg": "~~~",
         
         "lockeact": {"inspect": {"target": "AnyButSelf", "common": "Self", "priority": 0}},
         "zidaneact": {"inspect": {"target": "AnyButSelf","common": "Self", "priority": 0,"Sight": {"true": 0.1,"kefka": 0.9}}},
@@ -71,6 +75,8 @@
         "mogact": {},
         "dkcact": {"protect": {"target": "OnlySelf", "common": "Self", "priority": 0}, "purify": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"paladin": ["dkc"], "paladin1": ["dkc1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
         "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "~~~", "distractmsg": "", "teammsg": ""}},
+        "yunaact": {},
+        "noctisact": {},
         
         "******GARLAND******": "*********************",
         
@@ -392,7 +398,7 @@
             "translation": "Lightning",
             "side": "village",
             "startupmsg": "You are Lightning!",
-            "help": "variable:lightmsg",
+            "help": "variable:lightningmsg",
             "info": "Can expose one person during the day with a chance of killing instead of exposing, twice per game. Can kill one person during the night, one per game. Can grant auto-life to one person during the night, excluding themselves, once per game. Sided with the Heroes.",
             "actions": {
                 "standby": {
@@ -504,6 +510,48 @@
             "actions": {
                 "night": "variable:dkcact",
                 "protect": "variable:ignore",
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "yuna",
+            "translation": "Yuna",
+            "side": "village",
+            "startupmsg": "You are Yuna!",
+            "help": "variable:yunamsg",
+            "info": "Can distract one person during the night. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:yunaact"
+            }
+        },
+        {   "role": "yuna1",
+            "translation": "Yuna",
+            "side": "village",
+            "startupmsg": "You are Yuna!",
+            "help": "variable:yunamsg",
+            "hide": "both",
+            "actions": {
+                "night": "variable:yunaact",
+                "kill": "variable:ignore"
+            }
+        },
+        {   "role": "noctis",
+            "translation": "Noctis",
+            "side": "village",
+            "startupmsg": "You are Noctis!",
+            "help": "variable:noctismsg",
+            "info": "Can protect one person during the night. Gets hax on other players dying. Sided with the Heroes.",
+            "actions": {
+                "night": "variable:noctisact"
+            }
+        },
+        {   "role": "noctis1",
+            "translation": "Noctis",
+            "side": "village",
+            "startupmsg": "You are Noctis!",
+            "help": "variable:noctismsg",
+            "hide": "both",
+            "actions": {
+                "night": "variable:noctisact",
                 "kill": "variable:ignore"
             }
         },
