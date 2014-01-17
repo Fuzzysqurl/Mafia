@@ -7,7 +7,40 @@
     "variables": {
         "******COMMON******": "*********************",
         "ignore": {"mode":"ignore"},
-        "removeautolife1": {
+        "grantautolife": {
+            "moogle": ["moogle1"],
+            "boco": ["boco1"],
+            "bartz": ["bartz1"], "bartza": ["bartza1"], "bartzb": ["bartzb1"],
+            "locke": ["locke1"],
+            "zidane": ["zidane1"],
+            "ace": ["ace1"],
+            "cloud": ["cloud1"],
+            "squall": ["squall1"],
+            "mog": ["mog1"],
+            "dkc": ["dkc1"], "paladin": ["paladin1"],
+            "yuna": ["yuna1"],
+            "noctis": ["noctis1"],
+            
+            "kefka": ["kefka1"], "kefkaa": ["kefkaa1"],
+            "kuja": ["kuja1"], "kujaa": ["kujaa1"],
+            
+            "gabranth": ["gabranth1"],
+            "vayne": ["vayne1"],
+            "cid": ["cid1"],
+            "venat": ["venat1"],
+            "zargabaath": ["zargabaath"],
+            
+            "sephiroth": ["sephiroth1"],
+            "genesis": ["genesis1"],
+            "weiss": ["weiss1"],
+            "hojo": ["hojo1"],
+            "jenova": ["jenova1"],
+            
+            "chaos": ["chaos1"],
+            
+            "caius": ["caius1"]
+        },
+        "removeautolife": {
             "moogle1": ["moogle"],
             "boco1": ["boco"],
             "bartz1": ["bartz"], "bartza1": ["bartza"], "bartzb1": ["bartzb"],
@@ -18,6 +51,8 @@
             "squall1": ["squall"],
             "mog1": ["mog"],
             "dkc1": ["dkc"], "paladin1": ["paladin"],
+            "yuna1": ["yuna"],
+            "noctis1": ["noctis"],
             
             "kefka1": ["kefka"], "kefkaa1": ["kefkaa"],
             "kuja1": ["kuja"], "kujaa1": ["kujaa"],
@@ -38,8 +73,11 @@
             
             "caius1": ["caius"]
         },
-        "autolifemsg": "~~~",
-        "autolifetarmsg": "~~~",
+        "algrantmsg": "~~~Your target was granted autolife",
+        "algranttarmsg": "~~~You will be revived if killed!",
+        "alremovemsg": "~~~Your target was revive",
+        "alremovetarmsg": "~~~You revived!",
+        "autolifefailmsg": "~~~Your target already has autolife!",
         "autolifehelp": "~~~",
         
         "******VILLAGE******": "*********************",
@@ -62,6 +100,9 @@
         "bartzstalkmsg": "~~~",
         "bartznvmsg": "~~~",
         "bartzusermsg": "Kweh!! You found Boco!!",
+        "lightningkillmsg": "~~~",
+        "lightningexphelp": "~~~",
+        "lightningexpmsg": "~~~",
         "deathblowmsg": "~~~",
         "clouddkmsg": "~~~",
         "clouddkhelp": "~~~",
@@ -76,7 +117,7 @@
         "bartzaact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "limit": 2, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
         "bartzbact": {"stalk": { "target": "AnyButSelf", "common": "Self", "priority": 0, "stalkmsg": "variable:bartzstalkmsg", "novisitmsg": "variable:bartznvmsg"}},
         "cloudact": {"kill": {"target": "AnyButSelf", "msg": "variable:clouddkhelp", "killmsg": "variable:clouddkmsg"}},
-        "squallact": {"kill": {"command": ["kill", "convert"], "target": "AnyButSelf", "common": "Self", "priority": 0, "msg": "variable:squallkillmsg", "newRole": "variable:removeautolife", "usermsg": "variable:autolifemsg", "tarmsg": "variable:autolifetarmsg", "convertmsg": ""}},
+        "squallact": {"kill": {"command": ["kill", "convert"], "target": "AnyButSelf", "common": "Self", "priority": 0, "msg": "variable:squallkillmsg", "newRole": "variable:removeautolife", "usermsg": "variable:alremovemsg", "tarmsg": "variable:alremovetarmsg", "convertmsg": ""}},
         "mogact": {},
         "dkcact": {"protect": {"target": "OnlySelf", "common": "Self", "priority": 0}, "purify": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"paladin": ["dkc"], "paladin1": ["dkc1"]}, "convertmsg": "variable:paladinconvertmsg", "distractmsg": "", "teammsg": ""}},
         "paladinact": {"protect": {"target": "AnyButSelf", "common": "Self", "priority": 0 }, "shadow": {"command": ["convert", "distract"], "target": "OnlySelf", "common": "Self", "priority": 0, "newRole": {"dkc": ["paladin"], "dkc1": ["paladin1"]}, "convertmsg": "variable:dkcconvertmsg", "distractmsg": "", "teammsg": ""}},
@@ -449,8 +490,8 @@
                     "launch": {
                         "command": "expose",
                         "target": "AnyButSelf",
-                        "msg": "~~~",
-                        "exposemsg": "~~~",
+                        "msg": "variable:lightningexphelp",
+                        "exposemsg": "variable:lightningexpmsg",
                         "charges": 2
                     }                    
                 },
@@ -460,10 +501,10 @@
                         "target": "AnyButSelf", 
                         "common": "Self", 
                         "priority": 0, 
-                        "msg": "~~~", 
+                        "msg": "variable:lightningkillmsg", 
                         "newRole": "variable:removeautolife", 
-                        "usermsg": "variable:autolifemsg", 
-                        "tarmsg": "variable:autolifetarmsg", 
+                        "usermsg": "variable:alremovemsg", 
+                        "tarmsg": "variable:alremovetarmsg", 
                         "convertmsg": ""
                     },
                     "autolife": {
@@ -472,41 +513,11 @@
                         "common": "Self",
                         "priority": 0,
                         "charges": 2,
-                        "convertfailmsg": "~~~",
-                        "tarmsg": "~~~",
-                        "usermsg": "~~~",
+                        "convertfailmsg": "variable:autolifefailmsg",
+                        "tarmsg": "variable:algranttarmsg",
+                        "usermsg": "variable:algrantmsg",
                         "convertmsg": "",
-                        "newRole": {
-							"moogle": ["moogle1"],
-                            "boco": ["boco1"],
-                            "bartz": ["bartz1"], "bartza": ["bartza1"], "bartzb": ["bartzb1"],
-                            "locke": ["locke1"],
-                            "zidane": ["zidane1"],
-                            "ace": ["ace1"],
-                            "cloud": ["cloud1"],
-                            "squall": ["squall1"],
-                            "mog": ["mog1"],
-                            "dkc": ["dkc1"], "paladin": ["paladin1"],
-                            
-                            "kefka": ["kefka1"], "kefkaa": ["kefkaa1"],
-                            "kuja": ["kuja1"], "kujaa": ["kujaa1"],
-                            
-                            "gabranth": ["gabranth1"],
-                            "vayne": ["vayne1"],
-                            "cid": ["cid1"],
-                            "venat": ["venat1"],
-                            "zargabaath": ["zargabaath"],
-                            
-                            "sephiroth": ["sephiroth1"],
-                            "genesis": ["genesis1"],
-                            "weiss": ["weiss1"],
-                            "hojo": ["hojo1"],
-                            "jenova": ["jenova1"],
-                            
-                            "chaos": ["chaos1"],
-                            
-                            "caius": ["caius1"]
-						}                    
+                        "newRole": "variable:grantautolife"                  
                     }                    
                 }
             }
