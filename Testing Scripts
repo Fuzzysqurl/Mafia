@@ -24,7 +24,7 @@
             for (var p in addedPlayers) {
                 this.signups.push(addedPlayers[p]);
                 gamemsgAll(addedPlayers[p] + " joined the game! (pushed by " + nonFlashing(sys.name(src)) + ")");
-            };
+            }
             gamemsgAll(addedPlayers.length + " players added!", "Push");
             return;
         }
