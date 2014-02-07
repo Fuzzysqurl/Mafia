@@ -84,7 +84,11 @@
         "villager",
         "goon",
         "villager",
-        "goon"
+        "goon",
+        "villager",
+        "goon",
+        "villager",
+        "villager"
     ],
     "villageCantLoseRoles": [
         "villager2"
