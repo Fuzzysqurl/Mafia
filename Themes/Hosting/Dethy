@@ -74,7 +74,7 @@
             "startupmsg": "variable:inspstart",
             "hide": "both",
             "actions": {
-                "night": "variable:sane",
+                "night": "variable:sane2",
                 "inspect": {"revealAs": "mafia"}
             }
         },
@@ -192,23 +192,23 @@
         "insphelp": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
         "sane": {
             "inspect": {
-                "target": "AnyButSelf",
-                "common": "Self",
-                "priority": 2,
-                "Sight": {
-                    "true": 1
-                },
-                "hide": true
-            }
-        },
-        "sane": {
-            "inspect": {
                 "command": ["dummy", "dummy2"],
                 "target": "AnyButSelf",
                 "common": "Self",
                 "dummyusermsg": "±Info: ~Target~ is the Inspector!!",
                 "dummy2usermsg": "±Info: ~Target~ is the Mafia!!",
                 "priority": 2,
+                "hide": true
+            }
+        },
+        "sane2": {
+            "inspect": {
+                "target": "AnyButSelf",
+                "common": "Self",
+                "priority": 2,
+                "Sight": {
+                    "true": 1
+                },
                 "hide": true
             }
         },
