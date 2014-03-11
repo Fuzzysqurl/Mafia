@@ -1,8 +1,8 @@
 {
     "name": "Vengeful",
-    "author": "<span style='color:#007A00'>MeowMix</span>",
+    "author": "<span style='color:#2C2C84'>MeowMix</span>",
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?21248-Vengeful-(non-peak-theme)",
-    "summary": "It's the village against the mafia, but the village has a way to bite back! Mafia is unable to kill, and if a villager is lynched they are able to kill one person of their choice before they die! Only to be played during non-peak times, 3-7 players.",
+    "summary": "It's the village against the mafia, but the village has a way to bite back! Mafia is unable to kill, and if a villager is lynched they are able to kill one person of their choice before they die! Only to be played during non-peak times, 3-10 players.",
     "minplayers": 3,
     "nonPeak": true,
     "ticks": {
@@ -88,8 +88,8 @@
         "villager",
         "goon",
         "villager",
-        "goon",
         "villager",
+        "goon",
         "villager"
     ],
     "villageCantLoseRoles": [
