@@ -31,7 +31,7 @@
             "help": "You are a member of the mafia, hoping to get rid of all of the Inspectors! Type /Kill [name] to kill someone! You cannot kill the first night!",
             "info": "Has a factional kill every night starting Night 2. Sided with the Mafia.",
             "actions": {
-				"dummy": { "silent": true, "mode": "ignore" },
+                "dummy": { "silent": true, "mode": "ignore" },
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -54,8 +54,8 @@
             "startupmsg": "variable:inspstart",
             "info": "Can inspect one person each night and will always get correct results. Sided with the Village.",
             "actions": {
-				"dummy2": { "silent": true, "mode": "ignore" },
-                "night": "variable:sane1",
+                "dummy2": { "silent": true, "mode": "ignore" },
+                "night": "variable:sane",
                 "inspect": {"revealAs": "mafia"},
                 "initialCondition": {
                     "curse": {
@@ -86,7 +86,7 @@
             "startupmsg": "variable:inspstart",
             "info": "Can inspect one person each night and will always get incorrect results. Sided with the Village.",
             "actions": {
-				"dummy2": { "silent": true, "mode": "ignore" },
+                "dummy2": { "silent": true, "mode": "ignore" },
                 "night": "variable:insane",
                 "inspect": {"revealAs": "mafia"},
                 "initialCondition": {
@@ -118,7 +118,7 @@
             "startupmsg": "variable:inspstart",
             "info": "Can inspect one person each night but will always get Mafia as a result. Sided with the Village.",
             "actions": {
-				"dummy2": { "silent": true, "mode": "ignore" },
+                "dummy2": { "silent": true, "mode": "ignore" },
                 "night": "variable:paranoid",
                 "inspect": {"revealAs": "mafia"},
                 "initialCondition": {
@@ -150,7 +150,7 @@
             "startupmsg": "variable:inspstart",
             "info": "Can inspect one person each night but will always get Inspector as a result. Sided with the Village.",
             "actions": {
-				"dummy2": { "silent": true, "mode": "ignore" },
+                "dummy2": { "silent": true, "mode": "ignore" },
                 "night": "variable:naive",
                 "inspect": {"revealAs": "mafia"},
                 "initialCondition": {
@@ -201,13 +201,13 @@
                 "hide": true
             }
         },
-		"sane1": {
+        "sane": {
             "inspect": {
-				"command": ["dummy", "dummy2"],
+                "command": ["dummy", "dummy2"],
                 "target": "AnyButSelf",
                 "common": "Self",
-				"dummyusermsg": "±Info: ~Target~ is the Inspector!!",
-				"dummy2usermsg": "±Info: ~Target~ is the Mafia!!",
+                "dummyusermsg": "±Info: ~Target~ is the Inspector!!",
+                "dummy2usermsg": "±Info: ~Target~ is the Mafia!!",
                 "priority": 2,
                 "hide": true
             }
