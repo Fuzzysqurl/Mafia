@@ -1,0 +1,2061 @@
+{
+	"name": "Geass",
+	"altname": "Code Geass",
+	"author": "<span style='color:#ff4e00'>Solace</span>",
+	"threadlink": "http://pokemon-online.eu/forums/showthread.php?20529-Code-Geass",
+	"ticks": {"night": 35, "standby": 35},
+	"summary": "Britannia has invaded Japan and colonized into Area 11. It's up to Zero and the Black Knights to liberate the Japanese people and defeat Emperor Charles. Suzaku and the other Knights of the Round are trying to quell the rebellion while the Purebloods are just out to clear their names! PM Solace with comments.",
+	"sides": [
+	    {
+            "side": "mafia1",
+            "translation": "Holy Britannian Empire",
+			"winmsg": "The Rebellion has been crushed! ~Players~ will reign in Area 11!"
+		},
+		{   "side": "village",
+            "translation": "The Black Knights",
+			"winmsg": "The Zero Requiem has been achieved! ~Players~ have liberated the Japanese people!"
+		},
+		{   "side": "rolo",
+            "translation": "Rolo",
+			"winmsg": "Rolo was tired of trying to figure out who the good guys are and just killed all of you. ~Players~ has won!"
+		},
+		{   "side": "mafia2",
+            "translation": "Purebloods",
+			"winmsg": "That'll clear the name of Jeremiah Gottwald for sure! The Purebloods, ~Players~ have regained their respect."
+		}
+	],
+	"roles": [
+        {
+            "role": "villager",
+            "translation": "Tamaki",
+            "side": "village",
+            "help": "You're Zero's self-proclaimed best buddy! Unfortunately, you're completely useless in battle, but you can vote to remove Britannians in the day!",
+            "actions": {}
+        },
+		{
+            "role": "villagera",
+            "translation": "Tamaki",
+			"hide": true,
+            "side": "village",
+            "help": "You're Zero's self-proclaimed best buddy! Unfortunately, you're completely useless in battle, but you can vote to remove Britannians in the day!",
+            "actions": {
+			"voteshield": 3,
+			"initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager",
+                        "curseCount": 2
+                    }
+                }
+			}	
+        },
+		{
+            "role": "villagerb",
+            "translation": "Tamaki",
+			"hide": true,
+            "side": "village",
+            "help": "You're Zero's self-proclaimed best buddy! Unfortunately, you're completely useless in battle, but you can vote to remove Britannians in the day!",
+            "actions": {
+			"voteshield": -3,
+			"initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager",
+                        "curseCount": 2
+                    }
+                }
+			}
+        },
+        {
+            "role": "inspector",
+            "translation": "Toudou",
+            "side": "village",
+            "help": "You're Kyoshirou Toudou the Military operations leader for the Black Knights. You can use your tactical intellect to /inspect a player at night and connect your allies.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+		{
+            "role": "inspectora",
+            "translation": "Toudou",
+			"hide": true,
+            "side": "village",
+            "help": "You're Kyoshirou the Military operations leader for the Black Knights. You can use your tactical intellect to /inspect a player at night and connect your allies.",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "hide": true,
+						"common": "Self",
+                        "priority": 30
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "inspector",
+                        "curseCount": 2
+                    }
+                }
+			}
+        },
+		{
+            "role": "inspectorb",
+            "translation": "Toudou",
+			"hide": true,
+            "side": "village",
+            "help": "You're Kyoshirou Toudou, the Military operations leader for the Black Knights. You can use your tactical intellect to /inspect a player at night and connect your allies.",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "hide": true,
+						"common": "Self",
+                        "priority": 30
+                    }
+                },
+			    "initialCondition": {
+                    "curse": {
+                        "cursedRole": "inspector",
+                        "curseCount": 2
+                    }
+                }	
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Ogi",
+            "side": "village",
+            "help": "You're Kaname Ogi, the Deputy Commander of the Black Knights and Zero's right-hand man. You can /protect one player at night and because you're so nice, you have a 50% of evading daykills.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "role"
+                    }
+                },
+                "startup": "role-reveal",
+				"daykill": {
+                "mode": { "evadeChance": 0.5 }
+				}
+            }   
+        },
+		{
+            "role": "bodyguarda",
+            "translation": "Ogi",
+			"hide": true,
+            "side": "village",
+            "help": "You're Kaname Ogi, the Deputy Commander of the Black Knights and Zero's right-hand man. You can /protect one player at night and because you're so nice, you have a 50% of evading daykills.",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "hide":true,
+						"priority": 5,
+                        "broadcast": "role"
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "bodyguard",
+                        "curseCount": 2
+                    }
+                },
+                "startup": "role-reveal",
+				"daykill": {
+                "mode": { "evadeChance": 0.5 }
+				}
+            }
+        },
+		{
+            "role": "bodyguardb",
+            "translation": "Ogi",
+			"hide": true,
+            "side": "village",
+            "help": "You're Kaname Ogi, the Deputy Commander of the Black Knights and Zero's right-hand man. You can /protect one player at night and because you're so nice, you have a 50% of evading daykills.",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "hide":true,
+						"priority": 5,
+                        "broadcast": "role"
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "bodyguard",
+                        "curseCount": 2
+                    }
+                },
+                "startup": "role-reveal",
+				"daykill": {
+                "mode": { "evadeChance": 0.5 }
+				}
+            }
+        },
+		{
+            "role": "safeguard",
+            "translation": "Nunnally",
+            "side": "village",
+            "help": "You're Zero's little sister. You're blind and crippled but your kind heart allows you to /safeguard one person at night, keeping them safe from poison and distractions. The only positive side of being blind is the fact that you can't be distracted!",
+            "actions": {
+                "night": {
+                    "safeguard": {
+            "target": "AnyButSelf",
+            "common": "Self",
+            "priority": 1,
+            "broadcast": "none"
+                }
+			},
+            "onDeath": {"convertRoles": {"zerob": "zeroab", "zero": "zeroa"},
+                    "convertmsg": "With the death of his sister Nunnally, Zero's efforts are re-doubled. He now gets extra votes."
+                },
+			"distract": {
+                    "mode": "ignore" }
+		    }
+		},
+        {
+            "role": "safeguarda",
+            "translation": "Nunnally",
+            "side": "village",
+			"hide": true,
+            "help": "You're Zero's little sister. You're blind and crippled but your kind heart allows you to /safeguard one person at night, keeping them safe from poison and distractions. The only positive side of being blind is the fact that you can't be distracted!",
+            "actions": {
+            "voteshield": 3,
+			    "night": {
+                    "safeguard": {
+            "target": "AnyButSelf",
+            "common": "Self",
+            "hide": true,
+			"priority": 2,
+            "broadcast": "none"
+                }
+			},
+			"initialCondition": {
+                    "curse": {
+                        "cursedRole": "safeguard",
+                        "curseCount": 2
+                    }
+                },
+            "onDeath": {"convertRoles": {"zerob": "zeroab", "zero": "zeroa"},
+                    "convertmsg": "With the death of his sister, Zero's efforts are re-doubled. He now gets extra votes."
+                },
+			"distract": {
+                    "mode": "ignore" }	
+		    }
+		},
+        {
+            "role": "safeguardb",
+            "translation": "Nunnally",
+			"hide": true,
+            "side": "village",
+            "help": "You're Zero's little sister. You're blind and crippled but your kind heart allows you to /safeguard one person at night, keeping them safe from poison and distractions. The only positive side of being blind is the fact that you can't be distracted!",
+            "actions": {
+            "voteshield": -3,
+			    "night": {
+                    "safeguard": {
+            "target": "AnyButSelf",
+            "common": "Self",
+            "hide": true,
+			"priority": 1,
+            "broadcast": "none"
+                }
+			},
+			"initialCondition": {
+                    "curse": {
+                        "cursedRole": "safeguard",
+                        "curseCount": 2
+                    }
+                },
+            "onDeath": {"convertRoles": {"zerob": "zeroab", "zero": "zeroa"},
+                    "convertmsg": "With the death of his sister, Zero's efforts are re-doubled. He now gets extra votes."
+                },
+			"distract": {
+                    "mode": "ignore" }
+		    }
+		},		
+	    {
+            "role": "ninja",
+            "translation": "Sayako",
+            "side": "village",
+            "help": "You're a ninja maid allied with Zero and the Black Knights. Use /throw to throw a poisoned kunai at one player each night, inflicting a two-day poison.",
+            "actions": {
+                "night": {
+                    "throw": {
+                        "command": [
+                            "poison"
+                        ],
+                        "target": "AnyButSelf",
+                        "priority": 20,
+                        "common": "Self",
+						"count": 3
+                    }
+                }
+            }
+        },
+		{
+            "role": "ninjaa",
+            "translation": "Sayako",
+			"hide": true,
+            "side": "village",
+            "help": "You're a ninja maid allied with Zero and the Black Knights. Use /throw to throw a poisoned kunai at one player each night, inflicting a two-day poison.",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "throw": {
+                        "command": [
+                            "poison"
+                        ],
+                        "target": "AnyButSelf",
+                        "hide": true,
+						"priority": 20,
+                        "common": "Self",
+						"count": 3
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninja",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "ninjab",
+            "translation": "Sayako",
+			"hide": true,
+            "side": "village",
+            "help": "You're a ninja maid allied with Zero and the Black Knights. Use /throw to throw a poisoned kunai at one player each night, inflicting a two-day poison.",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "throw": {
+                        "command": [
+                            "poison"
+                        ],
+                        "target": "AnyButSelf",
+                        "priority": 20,
+                        "hide": true,
+						"common": "Self",
+						"count": 3
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninja",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "zero",
+            "translation": "Zero",
+            "side": "village",
+            "help": "You are the Leader of the Black Knights! Type /geass during the day phase to kill anyone except Orange! Your mask keeps your identity safe when you do! You have a chance of evading nightkills and should PM C.C. to connect! Don't claim while Rolo and Orange are alive! Also, you grow stronger as your allies die so don't die first!.",
+            "actions": {
+                "standby": {
+                    "geass": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /geass [name] :",
+                        "killmsg": "Zero uses his Geass and commands ~Target~ to die!"
+                    }
+                },
+			"kill": {
+            "mode": { "evadeChance": 0.20 }
+            },
+			"startup": {
+                "revealRole": [
+                    "hooker"
+                    ]
+                },
+				"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Zero's mask prevents your Geass from working!"
+				}
+            }			
+		},
+		{
+            "role": "zeroa",
+			"translation": "Zero-A",
+            "side": "village",
+            "help": "You are the Leader of the Black Knights! Type /geass during the day phase to kill anyone except Orange! Your mask keeps your identity safe when you do! You have a chance of evading nightkills and should PM C.C. to connect! Don't claim while Rolo and Orange are alive! Nunnally died so your vote now counts as 2.",
+            "actions": {
+			    "vote" : 2,
+				"night" : {},
+				"standby": {
+                    "geass": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /geass [name] :",
+                        "killmsg": "Zero uses his Geass and commands ~Target~ to die!"
+                    }
+                },
+			"kill": {
+            "mode": { "evadeChance": 0.20 }
+            },
+			"startup": {
+                "revealRole": [
+                    "hooker"
+                    ]
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Zero's mask prevents your Geass from working!"
+				}
+            }	
+		},
+		{
+            "role": "zerob",
+			"translation": "Zero-B",
+            "side": "village",
+            "help": "You are the Leader of the Black Knights! Type /geass during the day phase to kill anyone except Orange! Your mask keeps your identity safe when you do! You have a chance of evading nightkills and should PM C.C. to connect! Don't claim while Rolo and Orange are alive! Kallen has died so have joined the fight on the front lines. You can now /kill one player during the night.",
+            "actions": {
+				"night" : {
+					"kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 20,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}},
+				"standby": {
+                    "geass": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /geass [name] :",
+                        "killmsg": "Zero uses his Geass and commands ~Target~ to die!"
+                    }
+                },
+			"kill": {
+            "mode": { "evadeChance": 0.20 }
+            },
+			"startup": {
+                "revealRole": [
+                    "hooker"
+                    ]
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Zero's mask prevents your Geass from working!"
+				}
+            }	
+		},
+		{
+            "role": "zeroab",
+            "translation": "Zero-AB",
+            "side": "village",
+            "help": "You are the Leader of the Black Knights! Type /geass during the day phase to kill anyone except Orange! Your mask keeps your identity safe when you do! You have a chance of evading nightkills and should PM C.C. to connect! Don't claim while Rolo is alive! Kallen and Nunnally have both died so your votes count as 2 and you can /kill one player at night.",
+            "actions": {
+				"vote" : 2,
+				"night" : {
+					"kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 20,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+				},
+				"standby": {
+                    "geass": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /geass [name] :",
+                        "killmsg": "Zero uses his Geass and commands ~Target~ to die!"
+                    }
+                },
+			"kill": {
+            "mode": { "evadeChance": 0.20 }
+            },
+			"startup": {
+                "revealRole": [
+                    "hooker"
+                    ]
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Zero's mask prevents your Geass from working!"
+				}
+            }	
+		},
+		{
+            "role": "kallen",
+            "translation": "Kallen Kozuki",
+            "side": "village",
+            "help": "You're the Black Knights' ace pilot. Use the Guren to /kill one person in the night! Be sure not to hit your comrades! You'll upgrade to the Guren Flight-Enabled in two days.",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 19,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"onDeath": {"convertRoles": {"zeroa": "zeroab", "zero": "zerob"}, 
+                    "convertmsg": "With the death of his ace pilot, Zero joins the fight on the front lines. He now has one kill during the night."
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "Kallen2",
+                        "curseCount": 2,
+                        "curseConvertMessage": "Kallen has upgraded the Guren to the Guren Flight-Enabled Mode!"
+                    }
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Kallen isn't dumb enough to leave her Knightmare during battle. You weren't able to use your Geass on her!"
+				}
+            }	
+        },
+		{
+		
+            "role": "Kallen2",
+            "translation": "Kallen (Guren Flight-Enabled)",
+            "side": "village",
+            "help": "You're the Black Knights' ace pilot now in a new, more badass Knightmare. Use your now flight-enabled Guren to /kill one person in the night! You cannot be distracted and you're a bit faster now that you can fly! Be sure not to hit your comrades! You will upgrade to the Guren S.E.I.T.E.N. in three days!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 16,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"onDeath": {"convertRoles": {"zeroa": "zeroab", "zero": "zerob"}, 
+                    "convertmsg": "With the death of his ace pilot, Zero joins the fight on the front lines. He now has one kill during the night."
+                },
+			    "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ came to you last night, but she had no effect on you!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "Kallen3",
+                        "curseCount": 3,
+                        "curseConvertMessage": "Kallen has upgraded the Guren to the Guren S.E.I.T.E.N.!"
+                    }
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Kallen isn't dumb enough to leave her Knightmare during battle. You weren't able to use your Geass on her!"
+				}
+            }
+        },
+		{
+		
+            "role": "Kallen3",
+            "translation": "Kallen (Guren SEITEN)",
+            "side": "village",
+            "help": "You're the Black Knights' ace pilot now in a new, even more badass Knightmare. Use the Guren S.E.I.T.E.N. to /kill one person in the night! You still cannot be distracted and will outspeed bodyguards and every killer except Orange! Be sure not to hit your comrades!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 4,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"onDeath": {"convertRoles": {"zeroa": "zeroab", "zero": "zerob"}, 
+                    "convertmsg": "With the death of his ace pilot, Zero joins the fight on the front lines. He now has one kill during the night."
+                },
+			"distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ came to you last night, but she had no effect on you!"
+                },
+            "convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Kallen isn't dumb enough to leave her Knightmare during battle. You weren't able to use your Geass on her!"
+				}
+            }					
+        },
+		{
+            "role": "hooker",
+            "translation": "C.C.",
+            "side": "village",
+            "help": "You're Zero's accomplice and thus, will always know his identity. Use your mind-influincing power to /distract one player during the night.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                },
+			"startup": {
+                    "revealRole": [
+                        "zero"
+                    ]
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "C.C.'s Code prevents your Geass from affecting her!"
+				}
+            }			
+        },
+		{
+            "role": "spy",
+            "translation": "Diethard",
+            "side": "village",
+            "help": "A fanatical follower of Zero and the Black Knights. Use your media connections toget hax on kills and inspects.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"inspect": {
+					"revealTeam": 0.33,
+                        "revealPlayer": 0.10
+					}	
+				}
+            }			
+        },
+		{
+            "role": "spya",
+            "translation": "Diethard",
+			"hide": true,
+            "side": "village",
+            "help": "A fanatical follower of Zero and the Black Knights. Uses his media connections to find out who's being killed at night.",
+            "actions": {
+			"voteshield": 3,
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"inspect": {
+					"revealTeam": 0.33,
+                        "revealPlayer": 0.10
+					}
+				},
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "spy",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "spyb",
+            "translation": "Diethard",
+			"hide": true,
+            "side": "village",
+            "help": "A fanatical follower of Zero and the Black Knights. Uses his media connections to find out who's being killed at night.",
+            "actions": {
+			"voteshield": -3,
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"inspect": {
+					"revealTeam": 0.33,
+                        "revealPlayer": 0.10
+					}
+				},
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "spy",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "knight1",
+            "translation": "Knight",
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /Kill to wipe out a rebel! Be careful not to hit your allies! Your partner can poison enemies! Work with him to win!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButRole",
+						"common": "Self",
+                        "priority": 18,
+						"broadcast": ["knight2", "knight2a", "knight2b"],
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"startup": {
+                "revealRole": [
+                        "knight2"
+                    ]
+				}
+            }
+        },
+		{
+            "role": "knight1a",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /Kill to wipe out a rebel! Be careful not to hit your allies! Your partner can poison enemies! Work with him to win!",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButRole",
+                        "hide": true,
+						"common": "Self",
+                        "priority": 18,
+						"broadcast": ["knight2", "knight2a", "knight2b"],
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"startup": {
+                "revealRole": [
+                        "knight2"
+                    ]
+				},
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight1",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "knight1b",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /Kill to wipe out a rebel! Be careful not to kill your allies! Your partner can poison enemies! Work with him to win!",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButRole",
+                        "hide": true,
+						"common": "Self",
+                        "priority": 18,
+						"broadcast": ["knight2", "knight2a", "knight2b"],
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"startup": {
+                "revealRole": [
+                        "knight2"
+                    ]
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight1",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "knight3",
+            "translation": "Knight",
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /Kill to wipe out a rebel! Be careful not to hit your allies! Your partner can poison enemies! Work with him to win!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"hide": true,
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButRole",
+						"common": "Self",
+                        "priority": 18,
+						"broadcast": ["knight4", "knight4a", "knight4b"],
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"startup": {
+                "revealRole": [
+                        "knight4"
+                    ]
+				}	
+            }
+        },
+		{
+            "role": "knight3a",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /Kill to wipe out a rebel! Be careful not to hit your allies! Your partner can poison enemies! Work with him to win!",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButRole",
+                        "hide": true,
+						"common": "Self",
+                        "priority": 18,
+						"broadcast": ["knight4", "knight4a", "knight4b"],
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"startup": {
+                "revealRole": [
+                        "knight4"
+                    ]
+				},	
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight3",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "knight3b",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /Kill to wipe out a rebel! Be careful not to kill your allies! Your partner can poison enemies! Work with him to win!",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButRole",
+                        "hide": true,
+						"common": "Self",
+                        "priority": 18,
+						"broadcast": ["knight4", "knight4a", "knight4b"],
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}
+                },
+				"startup": {
+                "revealRole": [
+                        "knight4"
+                    ]
+				},
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight3",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "knight2",
+            "translation": "Knight",
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /poison to wipe out a rebel! Be careful not to hit your allies! Your partner can kill enemies! Work with him to win!",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "priority": 20,
+						"broadcast": ["knight1", "knight1a", "knight1b"],
+                        "common": "Self",
+						"count": 3
+                    }
+                },
+				"startup": {
+				"revealRole": [
+                        "knight1"
+                    ]
+				}	
+			}	
+        },
+		{
+            "role": "knight2a",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /poison to wipe out a rebel! Be careful not to hit your allies! Your partner can kill enemies! Work with him to win!",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "priority": 20,
+                        "common": "Self",
+						"broadcast": ["knight1", "knight1a", "knight1b"],
+						"count": 3
+                    }
+                },
+				"startup": {
+				"revealRole": [
+                        "knight1"
+                    ]
+				},	
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight2",
+                        "curseCount": 2
+                    }
+                }
+			}	
+        },
+		{
+            "role": "knight2b",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /poison to wipe out a rebel! Be careful not to hit your allies! Your partner can kill enemies! Work with him to win!",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "priority": 20,
+                        "common": "Self",
+						"broadcast": ["knight1", "knight1a", "knight1b"],
+						"count": 3
+                    }
+                },
+				"startup": {
+				"revealRole": [
+                        "knight1"
+                    ]
+				},	
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight2",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "knight4",
+            "translation": "Knight",
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /poison to wipe out a rebel! Be careful not to hit your allies! Your partner can kill enemies! Work with him to win!",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "priority": 20,
+                        "common": "Self",
+						"broadcast": ["knight2", "knight2a", "knight2b"],
+						"count": 3
+                    }
+                },
+				"startup": {
+				"revealRole": [
+                        "knight3"
+                    ]
+				}	
+			}	
+        },
+		{
+            "role": "knight4a",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /poison to wipe out a rebel! Be careful not to hit your allies! Your partner can kill enemies! Work with him to win!",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "priority": 20,
+                        "common": "Self",
+						"broadcast": ["knight2", "knight2a", "knight2b"],
+						"count": 3
+                    }
+                },
+				"startup": {
+				"revealRole": [
+                        "knight3"
+                    ]
+				},	
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight4",
+                        "curseCount": 2
+                    }
+                }
+			}	
+        },
+		{
+            "role": "knight4b",
+            "translation": "Knight",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Knight of the Round in service of the Empire. Type /poison to wipe out a rebel! Be careful not to hit your allies! Your partner can kill enemies! Work with him to win!",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "priority": 20,
+                        "common": "Self",
+						"broadcast": ["knight2", "knight2a", "knight2b"],
+						"count": 3
+                    }
+                },
+				"startup": {
+				"revealRole": [
+                        "knight3"
+                    ]
+				},	
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "knight4",
+                        "curseCount": 2
+                    }
+                }
+            }
+        },
+		{
+            "role": "euphy",
+            "translation": "Euphemia",
+            "side": "mafia1",
+            "help": "You're a Princess of the Holy Britannian Empire and Sub-Viceroy of Area 11. Use your charming personality to /distract one player at night. Because Suzaku is the love of your life, you'll always know his identity. Your death converts Nina to Enraged Nina.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+						"broadcast": ["suzaku"]
+                    }
+                },
+			"startup": {
+                    "revealRole": [
+                        "suzaku"
+                    ]
+                },
+			"onDeath": {
+					"convertRoles": {
+                        "nina": "nina2", "ninaa": "nina2a", "ninab": "nina2b"
+                    },
+					"silentConvert": true,
+                    "convertmsg": "'Princess!!!' At the death of her idol, Nina becomes enraged and gains the courage to use the F.L.E.I.J.A.s."
+                }
+			}
+        },
+		{
+            "role": "euphya",
+            "translation": "Euphemia",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Princess of the Holy Britannian Empire and Sub-Viceroy of Area 11. Use your charming personality to /distract one player at night. Because Suzaku is the love of your life, you'll always know his identity. Your death converts Nina to Enraged Nina.",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "distract": {
+					    "hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+						"broadcast": ["suzaku"]
+                    }
+                },
+			"startup": {
+                    "revealRole": [
+                        "suzaku"
+                    ]
+                },
+			"onDeath": {
+					"convertRoles": {
+                        "nina": "nina2", "ninaa": "nina2a", "ninab": "nina2b"
+                    },
+					"silentConvert": true,
+                    "convertmsg": "'Princess!!! At the death of her idol, Nina becomes enraged and gains the courage to use the F.L.E.I.J.A.s."
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "euphy",
+                        "curseCount": 2
+                    }
+                }
+			}
+        },
+		{
+            "role": "euphyb",
+            "translation": "Euphemia",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a Princess of the Holy Britannian Empire and Sub-Viceroy of Area 11. Use your charming personality to /distract one player at night. Because Suzaku is the love of your life, you'll always know his identity. Your death converts Nina to Enraged Nina.",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "distract": {
+                        "hide": true,
+						"target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+						"broadcast": ["suzaku"]
+                    }
+                },
+			"startup": {
+                    "revealRole": [
+                        "suzaku"
+                    ]
+                },
+			"onDeath": {
+                    "convertRoles": {
+                        "nina": "nina2", "ninaa": "nina2a", "ninab": "nina2b"
+                    },
+					"silentConvert": true,
+                    "convertmsg": "'Princess!!! At the death of her idol, Nina becomes enraged and gains the courage to use the F.L.E.I.J.A.s."
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "euphy",
+                        "curseCount": 2
+                    }
+                }
+			}
+        },
+   		{
+            "role": "nina",
+            "translation": "Nina",
+            "side": "mafia1",
+            "help": "You're a rather gifted and itelligent girl with an obsessive love for your idol, Euphemia. Your vote counts as 0 because you're a commoner, but your intelligence allows you to /inspect a player a night. You reveal as Tamaki when inspected.",
+            "actions": {"vote": 0,
+			"night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                },
+			"inspect": {"revealAs": ["villager"]}
+			}
+        },
+		{
+            "role": "ninaa",
+            "translation": "Nina",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a rather gifted and itelligent girl with an obsessive love for your idol, Euphemia. Your vote counts as 0 because you're a commoner, but your intelligence allows you to /inspect a player a night. You reveal as Tamaki when inspected.",
+            "actions": { "vote": 0,
+			"night": {
+                    "inspect": {
+					    "hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }},
+			"voteshield": 3,
+			"initialCondition": {
+                    "curse": {
+                        "cursedRole": "nina",
+                        "curseCount": 2
+                    }
+                },
+				"inspect": {"revealAs": ["villager"]}}	
+		},
+		{
+            "role": "ninab",
+            "translation": "Nina",
+			"hide": true,
+            "side": "mafia1",
+            "help": "You're a rather gifted and itelligent girl with an obsessive love for your idol, Euphemia. Your vote counts as 0 because you're a commoner, but your intelligence allows you to /inspect a player a night. You reveal as Tamaki when inspected.",
+            "actions": { "vote": 0,
+			"night": {
+                    "inspect": {
+					    "hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }},
+			"voteshield": -3,
+			"initialCondition": {
+                    "curse": {
+                        "cursedRole": "nina",
+                        "curseCount": 2
+                    }
+                },
+				"inspect": {"revealAs": ["villager"]}}	
+        },
+		{
+            "role": "nina2",
+            "translation": "Enraged Nina",
+            "side": "mafia1",
+            "help": "Euphmia is dead and you are hell bent on avenging her, regardless of the consequences! Use /bomb during the standby to initiate a daykill with a 50% reveal chance (will not work on Orange). Your vote now counts as one but you've lost your inspect due to your single-minded desire for killing the Black Knights. You now reveal as yourself.",
+            "info": "Can kill one player during the standby with a 50% reveal chance.",
+			"actions": {
+                "standby": {
+                    "bomb": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /bomb [name] !:",
+                        "killmsg": "Nina pressed the red button and dropped a F.L.E.I.J.A. on ~Target~!",
+						"revealChance": 0.50,
+                        "revealmsg": "After the explosion, ~Self~ was revealed to be ~Role~!"
+                    }
+                }
+            }
+		},
+		{
+            "role": "nina2a",
+            "translation": "Enraged Nina",
+			"hide": true,
+            "side": "mafia1",
+            "help": "Euphmia is dead and you are hell bent on avenging her, regardless of the consequences! Use /bomb during the standby to initiate a daykill with a 50% reveal chance (will not work on Orange). Your vote now counts as one but you've lost your inspect due to your single-minded desire for killing the Black Knights. You now reveal as yourself.",
+            "actions": {
+			"voteshield": 3,
+                "standby": {
+                    "bomb": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /bomb [name] !:",
+                        "killmsg": "Nina pressed the red button and dropped a F.L.E.I.J.A. on ~Target~!",
+						"revealChance": 0.50,
+                        "revealmsg": "After the explosion, ~Self~ was revealed to be ~Role~!"
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "nina2",
+                        "curseCount": 2
+                    }
+                }
+            }
+		},
+		{
+            "role": "nina2b",
+            "translation": "Enraged Nina",
+			"hide": true,
+            "side": "mafia1",
+            "help": "Euphmia is dead and you are hell bent on avenging her, regardless of the consequences! Use /bomb during the standby to initiate a daykill with a 50% reveal chance (will not work on Orange). Your vote now counts as one but you've lost your /inspect due to your single-minded desire for killing the Black Knights. You now reveal as yourself.",
+            "actions": {
+			"voteshield": -3,
+                "standby": {
+                    "bomb": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /bomb [name] !:",
+                        "killmsg": "Nina pressed the red button and dropped a F.L.E.I.J.A. on ~Target~!",
+						"revealChance": 0.50,
+                        "revealmsg": "After the explosion, ~Self~ was revealed to be ~Role~!"
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "nina2",
+                        "curseCount": 2
+                    }
+                }
+            }
+		},
+		{
+            "role": "suzaku",
+            "translation": "Suzaku",
+            "side": "mafia1",
+            "help": "You're an Honorary Britannia fighting for your ideals. Use the Lancelot to /protect one of your fellow Britannians during the night. Because Euphemia is the love of your life, you will always know her identity. You will upgrade the Lancelot to its Conquista form in two days.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": ["euphy"]
+                    }
+                },
+                "startup": "role-reveal",
+			    "startup": {
+                    "revealRole": [
+                        "euphy"
+                    ]
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "Suzaku2",
+                        "curseCount": 2,
+                        "curseConvertMessage": "Suzaku has upgraded the Lancelot to the Lancelot Conquista!"
+                    }
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Suzaku was too busy piloting his Knightmare. You weren't able to use your Geass on him!"
+				}
+            }	
+        },
+		{
+            "role": "Suzaku2",
+            "translation": "Suzaku (Lancelot Conquista)",
+            "side": "mafia1",
+            "help": "You're an Honorary Britannia fighting for your ideals. Use the Lancelot to /protect one of your fellow Britannians during the night. Your protect now safeguards as well and you cannot be distracted. Because Euphemia is the love of your life, you will always know her identity. You will upgrade the Lancelot to its Albion form in three days.",
+            "actions": {
+                "night": {
+                    "protect": {
+					    "command" : ["protect", "safeguard"],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "hide": true,
+						"priority": 5,
+                        "broadcast": ["euphy"]
+                    }
+                },
+                "startup": "role-reveal",
+			    "startup": {
+                    "revealRole": [
+                        "euphy"
+                    ]
+                },
+				"distract": {
+                    "mode": "ignore",
+                "msg": "The ~Distracter~ came to you last night, but she had no effect on you!"
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "Suzaku3",
+                        "curseCount": 3,
+                        "curseConvertMessage": "Suzaku has upgraded the Lancelot to the Lancelot Albion!"
+                    }
+                },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Suzaku was too busy piloting his Knightmare. You weren't able to use your Geass on him!"
+				}
+            }		
+        },
+		{
+            "role": "Suzaku3",
+            "translation": "Suzaku (Lancelot Albion)",
+            "side": "mafia1",
+            "help": "You're an Honorary Britannia fighting for your ideals. Use the Lancelot to /protect one of your fellow Britannians during the night (still safeguards). You now also have a nifty /judge command which kills an enemy instantly with your blade of righteous justice (insta-poison). You still cannot be distracted. Because Euphemia is the love of your life, you will always know her identity.",
+            "actions": {
+                "night": {
+                    "protect": {
+					    "command" : ["protect", "safeguard"],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "hide": true,
+						"priority": 5,
+                        "broadcast": ["euphy"]
+                    },
+					"judge": {
+                        "command": [
+                            "poison"
+                        ],
+                        "target": "AnyButSelf",
+                        "priority": 20,
+						"hide": true,
+                        "common": "Self",
+						"count": 1,
+						"poisonDeadMessage": "Suzaku ran ~Role~ through with his blade of justice!",
+						"broadcast": ["euphy"],
+						"broadcastmsg": "Suzaku is going to kill ~Target~!"
+                }},
+                "startup": "role-reveal",
+			    "startup": {
+                    "revealRole": [
+                        "euphy"
+                    ]
+                },
+				"distract": {
+                    "mode": "ignore",
+                "msg": "The ~Distracter~ came to you last night, but she had no effect on you!"
+                },
+				"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Suzaku was too busy piloting his Knightmare. You weren't able to use your Geass on him!"
+				}
+            }	
+        },
+		{
+            "role": "emperor",
+            "translation": "Charles",
+            "side": "mafia1",
+            "help": "You are the Emperor of the Holy Britannian Empire. Your prestige makes your vote worth 3. Your Geass allows you to /remember [name] one player at night to give them a -3 voteshield (making them harder to lynch) or /forget [name] them to give them a +3 voteshield (making them eaiser to lynch). Your team will know who you're using these on but they won't know your identity. These cannot be used on Zero, Suzaku, Kallen, C.C., Rolo, Orange or yourself. You cannot be distracted at night and you have a 25% chance of evading nightkills.",
+            "info": "Grants one player per night a +3 voteshield or a -3 voteshield (does not affect Zero, Suzaku, Kallen, C.C., Rolo, or Orange) . Vote counts as 3. Cannot be distracted. 25% chance of evading nightkills. Sided with the Holy Britannian Empire.",
+			"actions": {
+			"vote": 3,
+                "night": {
+				   "remember": {
+				      "command": "convert",
+					  "common": "Self",
+					  "target": "AnyButSelf",
+					  "priority": 30,
+					  "broadcast": "team",
+					  "broadcastmsg": "Charles is going to grant ~Target~ a -3 voteshield!",
+					  "restrict": ["forget"],
+					  "silentConvert": true,
+					   "newRole":{"villagerb": ["villager"],
+					   "inspectorb": ["inspector"],
+					   "bodyguardb": ["bodyguard"],
+					   "safeguardb": ["safeguard"],
+					   "ninjab": ["ninja"],
+					   "spyb": ["spy"],
+						"knight1b": ["knight1"],
+						"knight2b": ["knight2"],
+						"knight3b": ["knight3"],
+						"knight4b": ["knight4"],
+						"euphyb": ["euphy"],
+						"ninab": ["nina"],
+						"nina2b": ["nina2"],
+						"bartleyb": ["bartley"],
+						"kaguyab": ["kaguya"],
+						"villettab": ["villetta"],
+						"fail": ["zero"],
+						"fail": ["zeroa"],
+						"fail": ["zerob"],
+						"fail": ["zeroab"],
+						"fail": ["hooker"],
+						"fail": ["kallen"],
+						"fail": ["kallen2"],
+						"fail": ["kallen3"],
+						"fail": ["suzaku"],
+						"fail": ["suzaku2"],
+						"fail": ["suzaku3"],
+						"fail": ["rolo"],
+						"fail": ["rolo2"],
+						"fail": ["orange"],
+						"fail": ["orange2"]},
+						"convertmsg": "Charles has used his Geass to grant someone a voteshield."
+					},
+					"forget": {
+				       "command": "convert",
+					   "common": "Self",
+					   "target": "AnyButSelf",
+					   "priority": 30,
+					   "broadcast": "team",
+					   "broadcastmsg": "Charles is going to grant ~Target~ a +3 voteshield!",
+					   "restrict": ["remember"],
+					   "silentConvert": true,
+					   "newRole":{"villagera": ["villager"],
+					   "inspectora": ["inspector"],
+					   "bodyguarda": ["bodyguard"],
+					   "safeguarda": ["safeguard"],
+					   "ninjaa": ["ninja"],
+						"spya": ["spy"],
+						"knight1a": ["knight1"],
+						"knight2a": ["knight2"],
+						"knight3a": ["knight3"],
+						"knight4a": ["knight4"],
+						"euphya": ["euphy"],
+						"ninaa": ["nina"],
+						"nina2a": ["nina2"],
+						"bartleya": ["bartley"],
+						"kaguyaa": ["kaguya"],
+						"villettaa": ["villetta"],
+						"fail": ["zero"],
+						"fail": ["zeroa"],
+						"fail": ["zerob"],
+						"fail": ["zeroab"],
+						"fail": ["hooker"],
+						"fail": ["kallen"],
+						"fail": ["kallen2"],
+						"fail": ["kallen3"],
+						"fail": ["suzaku"],
+						"fail": ["suzaku2"],
+						"fail": ["suzaku3"],
+						"fail": ["rolo"],
+						"fail": ["rolo2"],
+						"fail": ["orange"],
+						"fail": ["orange2"]},
+						"convertmsg": "Charles has used his Geass to grant someone a voteshield."
+					}
+				},
+				"kill": {
+            "mode": { "evadeChance": 0.25 }
+                    },
+                "distract": {
+                    "mode": "ignore",
+                "msg": "The ~Distracter~ came to you last night, but she had no effect on you!"
+                }				
+		    }
+		},
+		{
+            "role": "fail",
+			"hide": true,
+            "translation": "Taco",
+            "side": "mafia1",
+            "help": "Placeholder for the roles Charles can't convert. If you see this, I've borked something and you need to contact Solace or a Mafia QC.",
+            "actions": {}
+        },
+		{
+            "role": "orange",
+            "translation": "Orange",
+            "side": "mafia2",
+            "info": "Can kill one person during the night. Cannot be detected by spies and outspeeds Bodyguards. Survives being nightkilled once. Cannot be poisoned or daykilled. Sided with the Purebloods.",
+            "help": "With your cyborg skills, you outspeed bodyguards but can still be distracted. Put your blade through someone with /kill [name]! Also, you can't be daykilled, spies can't detect you, you're immune to poison, and you can survive being nightkilled once! If Villetta is in the game, join forces with her up to win!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                },
+                    "avoidHax": [
+                    "kill" ], 
+		            "daykill": {
+                "mode": { "evadeChance": 1 }
+            },
+			    "startup": {
+                "revealRole": [
+                    "villetta", "bartley"
+                    ]
+                },
+				"poison": {
+                    "mode": "ignore"
+                },
+				"kill": {
+				    "mode": "ignore",
+					"msg": "Orange laughs at your attempt to kill him and just keeps on keeping on! You'll have to hit him again if you want him gone!"
+				},
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Orange's Geass Canceller prevents your Geass from working on him!"
+				},
+			"safeguard": {
+				    "mode": {
+					"ignore": ["safeguard"]}
+				}
+			}	
+        },
+		{
+            "role": "orange2",
+            "translation": "Orange",
+			"hide": true,
+            "side": "mafia2",
+            "info": "Can kill one person during the night. Cannot be detected by spies and outspeeds Bodyguards. Sided with the Purebloods.",
+            "help": "With your cyborg skills, you outspeed bodyguards but can still be distracted. Put your blade through someone with /kill [name]! Also, you can't be daykilled and spies can't detect you. You took a big hit but you're still ok. Just try not to die again. If Villetta is in the game, join forces with her up to win!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+						"hide": true,
+                        "common": "Self",
+						"priority": 3
+                    }
+                },
+                    "avoidHax": [
+                    "kill" ], 
+		            "daykill": {
+                "mode": { "evadeChance": 1 }
+            },
+			    "startup": {
+                "revealRole": [
+                    "villetta", "bartley"
+                    ]
+                },
+				"poison": {
+                    "mode": "ignore"
+			    },
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Orange's Geass Canceller prevents your Geass from working on him!"
+				}
+            }	
+        },
+		{
+            "role": "villetta",
+            "translation": "Villetta",
+            "side": "mafia2",
+            "info": "Can expose one player during the standby and poison one player during the night. Sided with the Purebloods.",
+            "help": "You have connections on both sides of the battlefield but no true allegiance to either one. /Expose a player during the standby to stir up some fun! (You won't be revealed when you do). you can also /stab someone during the night to poison them! Team up with Orange to win!",
+            "actions": {
+			    "night": {
+                    "stab": {
+                        "command": [
+                            "poison"
+                        ],
+                        "target": "AnyButSelf",
+                        "priority": 20,
+                        "common": "Self",
+						"count": 3
+                    }
+				},
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /expose to reveal a player's role!:",
+                        "exposemsg": "Villetta would like everyone to know that ~Target~ is ~Role~!"
+                    }
+                },
+			"startup": {
+                    "revealRole": [
+                        "orange", "bartley"
+                    ]
+                }	
+		    }
+		},
+		{
+            "role": "villettaa",
+            "translation": "Villetta",
+			"hide": true,
+            "side": "mafia2",
+            "info": "Can expose one player during the standby. Sided with the Purebloods.",
+            "help": "You have connections on both sides of the battlefield, but no true allegiance to either one. /Expose a player during the standby to stir up some fun! (You won't be revealed when you do). You can also /stab someone during the night to poison them! Team up with Orange to win!",
+            "actions": {
+			"voteshield": 3,
+			    "night": {
+                    "stab": {
+                        "command": [
+                            "poison"
+                        ],
+                        "hide": true,
+						"target": "AnyButSelf",
+                        "priority": 20,
+                        "common": "Self",
+						"count": 3
+                    }
+				},
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /expose to reveal a player's role!:",
+                        "exposemsg": "Villetta would like everyone to know that ~Target~ is ~Role~!"
+                    }
+                },
+			    "startup": {
+                    "revealRole": [
+                        "orange", "bartley"
+                    ]
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villetta",
+                        "curseCount": 2
+                    }
+                }				
+		    }
+		},
+		{
+            "role": "villettab",
+            "translation": "Villetta",
+			"hide": true,
+            "side": "mafia2",
+            "info": "Can expose one player during the standby. Sided with the Purebloods.",
+            "help": "You have connections on both sides of the battlefield, but no true allegiance to either one. /Expose a player during the standby to stir up some fun! (You won't be revealed when you do). you can also /stab someone during the night to poison them! Team up with Orange to win!",
+            "actions": {
+			"voteshield": -3,
+			    "night": {
+                    "stab": {
+                        "command": [
+                            "poison"
+                        ],
+                        "hide": true,
+						"target": "AnyButSelf",
+                        "priority": 20,
+                        "common": "Self",
+						"count": 3
+                    }
+				},
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /expose to reveal a player's role!:",
+                        "exposemsg": "Villetta would like everyone to know that ~Target~ is ~Role~!"
+                    }
+                },
+			    "startup": {
+                    "revealRole": [
+                        "orange", "bartley"
+                    ]
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "villetta",
+                        "curseCount": 2
+					}	
+				}		
+		    }
+		},
+		{
+            "role": "rolo",
+            "translation": "Rolo",
+            "side": "rolo",
+            "help": "You are Rolo. You're tired of trying to figure out who the good guys are in this war so you're just gonna kill everyone. You can /kill once per night. You can also /protect (on yourself) once per game, /poison once per game, /distract once per game, and /assassinate someone (kill bypassing protections) once per game. You may chose one of those to use the same night you use /kill. Also, if you get lynched, you'll convert and be able to use all of your commands again as well as being able to use all of them in one night but still only once per game.",
+            "info": "Can kill once per night. Can either a shot- poison, one-shot distract, or one-shot assassinate (pierce kill) during the same night as his regular kill. One-shot commands are recharged upon lynch and can be used all in one night.",
+			"actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "priority": 20,
+                        "common": "Self",
+						"count": 3,
+						"charges": 1,
+						"restrict": ["assassinate", "distract", "protect"]
+						
+                    },
+					"kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 17,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						},
+					"distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+						"charges": 1,
+						"restrict": ["poison", "protect", "assassinate"]
+                    },
+					"protect": {
+                        "target": "Self",
+                        "common": "Self",
+                        "priority": 5,
+                        "charges": 1,
+						"restrict": ["distract", "poison", "assassinate"]
+                    },
+					"assassinate": {
+                        "command": [
+                            "kill"
+                        ],
+                        "command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 17,
+						"pierce": true,
+						"charges": 1,
+						"restrict": ["distract", "poison", "protect"],
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+						}},
+				"lynch": {
+                    "convertTo": "rolo2",
+                    "convertmsg": "Rolo didn't like that very much. There has been a time shift. Prepare yourselves."
+                },
+            "convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Rolo stopped time and ran away! You weren't able to use your Geass on him!"
+				}
+            }			
+        },
+		{
+            "role": "rolo2",
+            "translation": "Rolo",
+			"hide": true,
+            "side": "rolo",
+            "help": "You've been lynched and are now quite unhappy. Your /distract , /poison , /protect , and /assassinate commands have been recharged and can be used one more time each and can be used all in one night. You also still have a /kill every night.",
+            "info": "Can kill once per night. Can either a shot- poison, one-shot distract, or one-shot assassinate (pierce kill) all in the same night as his regular kill.",
+			"actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "priority": 20,
+						"hide": true,
+                        "common": "Self",
+						"count": 3,
+						"charges": 1
+						
+                    },
+					"kill": {
+						"command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 17,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+                    },
+					"distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+						"hide": true,
+                        "priority": 2,
+						"charges": 1
+                    },
+					"protect": {
+                        "target": "Self",
+                        "common": "Self",
+						"hide": true,
+                        "priority": 5,
+                        "charges": 1
+                    },
+					"assassinate": {
+                        "command": [
+                            "kill"
+                        ],
+                        "command":["kill", "convert"],
+						"silentConvert": true,
+						"silent": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 17,
+						"pierce": true,
+						"charges": 1,
+						"canConvert": ["orange"],
+						"newRole": "orange2"
+					}
+				},
+			"convert": {
+				    "mode": {
+					"ignore": ["emperor"]},
+					"msg": "Rolo stopped time and ran away! You weren't able to use your Geass on him!"
+				}
+            }
+        },
+		{
+            "role": "bartley",
+            "translation": "Bartley",
+            "side": "mafia2",
+            "help": "You're an ex-Britannia general who now oversees the Code R research team. Use your research methods to find out who's being killed and inspected at night.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"inspect": {
+					"revealTeam": 0.33,
+                        "revealPlayer": 0.10
+					}	
+				},
+			        "startup": {
+                    "revealRole": [
+                        "orange", "villetta"
+                    ]
+                }	
+            }			
+        },
+		{
+            "role": "bartleya",
+            "translation": "Bartley",
+			"hide": true,
+            "side": "mafia2",
+            "help": "You're an ex-Britannia general who now oversees the Code R research team. Use your research methods to find out who's being killed and inspected at night.",
+            "actions": {
+			"voteshield": 3,
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"inspect": {
+					"revealTeam": 0.33,
+                        "revealPlayer": 0.10
+					}
+				},	
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "bartley",
+                        "curseCount": 2
+                    }
+                },
+				"startup": {
+                    "revealRole": [
+                        "orange", "villetta"
+                    ]
+				}	
+            }
+        },
+		{
+            "role": "bartleyb",
+            "translation": "Bartley",
+			"hide": true,
+            "side": "mafia2",
+            "help": "You're an ex-Britannia general who now oversees the Code R research team. Use your research methods to find out who's being killed and inspected at night.",
+            "actions": {
+			"voteshield": -3,
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"inspect": {
+					"revealTeam": 0.33,
+                        "revealPlayer": 0.10
+					}
+				},
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "bartley",
+                        "curseCount": 2
+                    }
+                },
+				"startup": {
+                    "revealRole": [
+                        "orange", "villetta"
+                    ]
+				}	
+            }
+        },
+		{
+		"role": "kaguya",
+            "translation": "Kaguya Sumeragi",
+            "side": "village",
+            "help": "You're Kaguya Sumeragi, Zero's 'lover' and supporter. You can use your political influence as the representative of the United States of Japan to /stalk one person each night and see who they visited.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 31
+                    }
+                }
+            }
+        },
+		{
+		"role": "kaguyaa",
+            "translation": "Kaguya Sumeragi",
+            "side": "village",
+			"hide": true,
+            "help": "You're Kaguya Sumeragi, Zero's 'lover' and supporter. You can use your political influence as the representative of the United States of Japan to /stalk one person each night and see who they visited.",
+            "actions": {
+			"voteshield": 3,
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "common": "Self",
+                        "priority": 31
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "kaguya",
+                        "curseCount": 2
+					}	
+				}
+            }
+        },
+		{
+		"role": "kaguyab",
+            "translation": "Kaguya Sumeragi",
+            "side": "village",
+			"hide": true,
+            "help": "You're Kaguya Sumeragi, Zero's 'lover' and supporter. You can use your political influence as the representative of the United States of Japan to /stalk one person each night and see who they visited.",
+            "actions": {
+			"voteshield": -3,
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "common": "Self",
+                        "priority": 31
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "kaguya",
+                        "curseCount": 2
+					}	
+				}
+            }
+        }
+	],
+	"roles1": [
+	    "kallen",
+        "inspector",
+        "emperor",
+        "villager",
+        "knight1",
+        "hooker",
+		"bodyguard",
+		"knight2",
+		"suzaku",
+		"villager",
+		"zero",
+		"euphy",
+		"nina",
+		"orange",
+		"villager",
+		"knight3",
+		"safeguard",
+		"rolo",
+		"spy",
+		"villager",
+		"ninja",
+		"villager",
+		"villetta",
+		"knight4",
+		"villager",
+		"villager",
+		"bartley",
+		"kaguya",
+		"villager",
+		"villager"
+		],
+    "villageCantLoseRoles": [
+        "kallen",
+		"Kallen2",
+		"Kallen3",
+		"spyb",
+		"villagerb",
+		"inspectorb",
+		"ninjab",
+		"safeguardb",
+		"bodyguardb",
+        "zero",
+		"zeroa",
+		"zerob",
+		"zeroab",
+		"ninja",
+		"kaguyab"
+    ],
+	"killmsg": "+Milly Ashford: ~Player~ (~Role~) has been killed!",
+    "killusermsg": "You died!"
+}
