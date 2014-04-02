@@ -1,0 +1,990 @@
+{
+        "name": "Flock",
+		"altname": "KACAW",
+        "author": ["Roild", "<span style='color:#ff4e00'>Solace</span>"],
+        "ticks": {"night": 35, "standby": 35},
+		"minplayers": 6,
+		"threadlink": "http://pokemon-online.eu/forums/showthread.php?22157-Flock",
+        "summary": "A fight for dominance of the skies has begun! Which of the Flying type Pokemon will claim victory? PM Solace with comments. Use /changelog to see what's been updated and please post logs of this here http://pokemon-online.eu/forums/showthread.php?22157-Flock Thanks.",
+        "sides": [
+            {
+            "side": "village",
+            "translation": "Friendly Birds",
+                        "winmsg": "The good-natured birds of the day, ~Players~, have claimed the skies as their own!"
+                },
+                {   "side": "mafia1",
+            "translation": "Krow's Crew",
+                        "winmsg": "The dark- and cave-dwelling birds that make up Krow's Crew, ~Players~, have come out in force and claimed the skies as their own!"
+                },
+                {   "side": "odd",
+            "translation": "Odd Birds",
+                        "winmsg": "The odd-looking, wtf birds, ~Players~, have won and taken over the skies!"
+                },
+                {   "side": "johto",
+            "translation": "Johto Legend",
+                        "winmsg": "The true King of the sky, ~Players~, has won!"
+                },
+				{   "side": "trio",
+            "translation": "Kanto Trio",
+                        "winmsg": "Zapdos, Moltres, and Articuno, ( ~Players~ ), have joined forces and won!"
+                }
+        ],
+		"roles": [
+        {
+            "role": "villager",
+            "translation": "Pidgey",
+            "side": "village",
+            "help": "You're an adorable little Pidgey! You aren't very strong so you can't fight but you do have potential! Use /train [your name] at night to have a chance at becoming stronger! Vote during the day!",
+            "info": "Votes during the day. Has a 5% chance of evolving at night. Sided with the Friendly Birds.",
+			"actions": {
+			      "night" : {
+                        "train": {
+						"failChance": 0.95,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 42,
+						"pierce": true,
+                        "canConvert": ["villager"],
+                        "newRole": "villager2",
+						"convertmsg": "A Pidgey has evolved!"
+						}}}
+        },
+		{
+            "role": "villager2",
+            "translation": "Pidgeotto",
+            "side": "village",
+            "help": "You've evolved into a Pigeotto! You still can't fight but your vote now counts as two! You can still use /train [your name] at night to have a chance at becoming stronger!",
+            "info": "Vote counts as 2. Has a 15% chance of evolving at night. Sided with the Friendly Birds.",
+			"actions": {
+			"vote": 2,
+			      "night" : {
+                        "train": {
+						"failChance": 0.85,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+						"pierce": true,
+                        "priority": 40,
+                        "canConvert": ["villager2"],
+                        "newRole": "villager3",
+						"convertmsg": "A Pidgeotto has evolved!"
+						}}}
+        },
+		{
+            "role": "villager3",
+            "translation": "Pidgeot",
+            "side": "village",
+            "help": "You've evolved into a Pigeot! Being the beautiful bird you are, you get three votes during the day. You are now also strong enough to /kill one player at night!",
+            "info": "Vote counts as 3. Can kill one player during the night. Sided with the Friendly Birds.",
+			"actions": {
+			"vote": 3,
+			      "night" : {
+                       "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 17,
+						"msg": "Pidgeots's Wing Attack was enough to finish you off!"
+                                }}}
+        },
+		{
+            "role": "inspector",
+            "translation": "Hoothoot",
+            "side": "village",
+            "help": "Your big eyes help you see a player's role at night. You can /inspect one player each night! You can also /train [your name] during the same night and try to evolve!",
+            "info": "Can inspect one player each night. Has a 20% chance of evolving at night. Sided with the Friendly Birds.",
+			"actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    },
+					"train": {
+						"failChance": 0.80,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 42,
+						"pierce": true,
+                        "canConvert": ["inspector"],
+                        "newRole": "inspector2",
+						"convertmsg": "The Hoothoot has evolved!"
+						}}}
+        },
+		{
+            "role": "inspector2",
+            "translation": "Noctowl",
+            "side": "village",
+			"help": "Your big eyes help you see a player's role at night. You can /inspect one player each night! Also, now that you've evolved, your many years of experience and your wisdom help you stay out of trouble. Thus, you have a chance of evading kills at night!",
+            "info": "Can inspect one player each night. Has a 15% chance of evading nightkills. Sided with the Friendly Birds.",
+			"actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }},
+					"kill": {
+                "mode": { "evadeChance": 0.15 }
+				}}
+            },
+			{
+            "role": "hooker",
+            "translation": "Spearow",
+            "side": "village",
+            "help": "You're a fiesty little bird with a good heart. You can /glare at one player each night to keep them from acting! You can also use /train [your name] during the same night to try to become stronger and evolve! By the way, you know Farfetch'd from the start so don't distract him!",
+            "info": "Can distract one player each night. Has a 15% chance of evolving at night. Sided with the Friendly Birds.",
+			"actions": {
+"kill": {"mode": { "ignore": ["fetch"]}},
+                "night": {
+				    "glare": {
+                    "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+						"distractmsg": "Spearow shot a nasty look your way and you were too frightened to act!"
+                    },
+					"train": {
+						"failChance": 0.85,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+						"pierce": true,
+                        "priority": 42,
+                        "canConvert": ["hooker"],
+                        "newRole": "hooker2",
+						"convertmsg": "A Spearow has evolved!"
+						}},
+						"startup": {
+                    "revealRole": ["fetch"]}}
+			},
+			{
+            "role": "hooker2",
+            "translation": "Fearow",
+            "side": "village",
+            "help": "You're a bigger and more fiesty bird but still with a good heart. You can /glare at one player each night to keep them from acting! Your new Mirror Move attack allows you to revenge any bird who kills you!",
+            "info": "Can distract one player each night. Revenges kills. Sided with the Friendly Birds.",
+			"actions": {
+"kill": { "mode": { "ignore": ["fetch"]}},
+                "night": {
+				    "glare": {
+                    "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+						"distractmsg": "Fearow shot a nasty look your way and you were too frightened to act!"
+                    }},
+					"kill": {
+                    "mode": "killattacker"
+                }}
+	        },
+			{
+            "role": "xatu",
+            "translation": "Xatu",
+            "side": "village",
+            "help": "Your Future Sight move allows you to see into the future and become aware of threats against your team. You can use that knowledge to /protect one player each night. This will keep your target safe from kills AND poison! Also, your Magic Bounce ability keeps you safe from poison as well!",
+            "info": "Can protect and safeguard (single action) one player each night. Immune to poison (in games 17+ only). Sided with the Friendly Birds.",
+			"actions": {
+                "night": {
+                    "protect": {
+					    "command" : ["protect", "safeguard"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+						"priority": 5
+                    }},
+					"poison": {
+                        "mode": "ignore"}}
+			},
+			{
+            "role": "xatuS",
+            "translation": "Xatu",
+            "side": "village",
+			"hide": true,
+            "help": "Your Future Sight move allows you to see into the future and become aware of threats against your team. You can use that knowledge to /protect one player each night. This will keep your target safe from kills AND poison!",
+            "info": "Can protect and safeguard one player each night. Immune to poison (in games 17+ only). Sided with the Friendly Birds.",
+			"actions": {
+                "night": {
+                    "protect": {
+					    "command" : ["protect", "safeguard"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+						"priority": 5,
+						"hide": true
+                    }}}
+			},
+			{
+            "role": "gliscor",
+            "translation": "Gliscor",
+            "side": "village",
+            "help": "You're Gliscor, a big, scary-looking bird. Despite looking scary, you have a big heart and are more than willing to use your bulk to /protect one of your friends at night! Thanks to your Poison Heal ability, you are immune to poison!",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5
+                    }},
+				"poison": {
+                    "mode": "ignore"}}
+			},		
+			{
+			"role": "exposer",
+			"translation": "Chatot",
+			"side": "village",
+			"help": "You're a loud-mouthed bird who doesn't always know when to shut up. Use /expose during the day to tell the world what role your target is! You won't be revealed when you do.",
+			"actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                         "msg": "You can type /expose [name] to reveal someone's role!",
+                         "exposemsg": "Polly want a cracker! Polly want a cracker! ~Target~ is the ~Role~!"
+                    }}}
+			},
+			{
+            "role": "fetch",
+            "translation": "Farfetch'd",
+            "side": "village",
+            "help": "You're an adorable bird with a fierce attitude. You'll readily defend your turf at night with your trusty leek! Use /leek to remove one player from the game at night. Also, since you share a resemblance with Spearow, you always appear to be him during the game! You also know who the real Spearow is!",
+            "info": "Can kill one player at night. Reveals as Spearow when inspected and in the current roles list. Sided with the Friendly Birds.",
+			"actions": {
+"distract": { "mode": { "ignore": ["hooker"]}},
+                "night": {
+                    "leek": {
+                    "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+						"msg": "Farfetch'd smacked you with his leek! CH'DING!"
+					}},
+				"inspect": {"revealAs": ["hooker"]},
+				"onlist": "hooker",
+				"startup": {
+                    "revealRole": ["hooker"]}}	
+            },
+			{
+            "role": "spy",
+            "translation": "Delibird",
+            "side": "village",
+            "help": "You see them when they're sleeping. You know when they're awake. You get hax on what's going on at night so tell your teammates for goodness' sake!",
+            "info": "Gets hax on kills, distracts, and inspects. Sided with the Friendly birds.",
+			"actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.10
+                    },
+					"leek": {
+					    "revealTeam": 0.25,
+						"revealPlayer": 0.10
+					},	
+                    "inspect": {
+                    "revealTeam": 0.25,
+                        "revealPlayer": 0.10
+                    },
+					"blast": {
+                    "revealTeam": 0.25,
+                        "revealPlayer": 0.10					
+                    },
+					"blizzard": {
+                    "revealTeam": 0.25,
+                        "revealPlayer": 0.10					
+                    },
+					"twave": {
+                    "revealTeam": 0.25,
+                        "revealPlayer": 0.10
+                    },
+					"stamp": {
+                    "revealTeam": 0.25,
+                        "revealPlayer": 0.10					
+                    }}}                  
+        },
+		{
+            "role": "samurai",
+            "translation": "Braviary",
+            "side": "village",
+            "help": "You're a big, brave bird! You can /kill someone during the day but you will be revealed when you do!",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can /kill [name] someone now! You will revealed, though.",
+                        "killmsg": "Braviary, ~Self~, flies in bravely and uses Brave Bird on ~Target~, knocking them out of the sky!"
+					}}}
+		},
+		{
+            "role": "krow",
+            "translation": "Honchkrow",
+            "side": "mafia1",
+            "help": "You're the Big Boss bird and you rule the skies. You can /kill one player each night (shared with Mandibuzz) and /slash another (separate) in order to clear out the skies. You cannot be haxed so it's best if you make the choices for the team! Your vote counts as 0 during the day though, but you have a -2 voteshield because you're so intimidating! By the way, you can't kill your teammates so you should probably PM someone you're not allowed to kill.",
+            "info": "Can kill one player each night. Shares a second kill with Mandibuzz. Voteshield of -2 (-1 in games of 16 or fewer players). Vote of 0. Cannot be haxed. Sided with the Krow's Crew.",
+			"actions": {
+			"voteshield": -2,
+			"vote": 0,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 19,
+                        "broadcast": ["buzz"],
+                        "broadcastmsg": "±Game: Honchkrow has chosen to kill ~Target~!",
+						"msg": "You've fallen victim to the Big Boss Bird, Honchkrow. Have fun sleeping with the fishes!"
+						},
+					"slash": {
+					    "command": "kill",
+					    "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 19,
+                        "broadcast": ["buzz"],
+                        "broadcastmsg": "±Game: Honchkrow has chosen to slash ~Target~! Pick a different target!",
+						"msg": "You've fallen victim to the Big Boss Bird, Honchkrow. Have fun sleeping with the fishes!" }},
+					"avoidHax": [
+                    "kill", "slash"
+                    ],
+					"startup": {
+                    "revealRole": ["buzz"]
+                }}
+		},
+		{
+            "role": "krowS",
+            "translation": "Honchkrow",
+            "side": "mafia1",
+			"hide": true,
+            "help": "You're the Big Boss bird and you rule the skies. You can /kill one player each night (shared with Mandibuzz) and /slash another (separate) in order to clear out the skies. You cannot be haxed so it's best if you make the choices for the team! Your vote counts as 0 during the day though, but you have a -1 voteshield because you're so intimidating! By the way, you can't kill your teammates so you should probably PM someone you're not allowed to kill.",
+            "info": "Can kill one player each night. Shares a second kill with Mandibuzz. Voteshield of -2. Vote of 0. Sided with the Krow's Crew.",
+			"actions": {
+			"voteshield": -1,
+			"vote": 0,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+						"hide": true,
+                        "common": "Team",
+                        "priority": 19,
+                        "broadcast": ["buzz"],
+                        "broadcastmsg": "±Game: Honchkrow has chosen to kill ~Target~!",
+						"msg": "You've fallen victim to the Big Boss Bird, Honchkrow. Have fun sleeping with the fishes!"
+						},
+					"slash": {
+					    "command": "kill",
+						"hide": true,
+					    "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 19,
+                        "broadcast": ["buzz"],
+                        "broadcastmsg": "±Game: Honchkrow has chosen to slash ~Target~! Pick a different target!",
+						"msg": "You've fallen victim to the Big Boss Bird, Honchkrow. Have fun sleeping with the fishes!" }},
+					"avoidHax": [
+                    "kill", "slash"
+                    ],
+					"startup": {
+                    "revealRole": ["buzz"]
+                }}
+		},
+        {
+            "role": "buzz",
+            "translation": "Mandibuzz",
+            "side": "mafia1",
+            "help": "You're a big, irate buzzard and you just want all of this squaking to end. You can /kill one player each night but it's best to let Honchkrow make the choices while he's alive since he can't be haxed. By the way, you can't kill your teammates so you should probably PM someone you're not allowed to kill.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+						"common": "Team",
+                        "priority": 22,
+						"broadcast": ["krow"],
+						"msg": "You've fallen prey to one of Honchkrow's henchmen, Mandibuzz!"
+						}},
+				"startup": {
+                "revealRole": ["krow", "krowS"]
+				}}
+		},
+		{
+            "role": "skarm",
+            "translation": "Skarmory",
+            "side": "mafia1",
+            "help": "You're a Skarmory. You're big and sturdy and well-equipped to take a few hits during the fray. You can use your wings to /defend one player each night. Also, since you're a Steel type, you're immune to poison.",
+			"actions": {
+                "night": {
+                    "defend": {
+                    "command": "protect",
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5
+                    }},
+					"poison": {
+                        "mode": "ignore"}}
+		},				
+        {
+            "role": "golbat",
+            "translation": "Golbat",
+            "side": "mafia1",
+            "help": "You're a Golbat and you've come out of your cave to see what's going on. Use /venom to kill someone in two days. You can also use /train during the same night to try to grow stronger!",
+            "info": "Can poison one player at night. Has a 25% chance of evolving at night. Sided with Krow's Crew.",
+			"actions": {
+                "night": {
+					"venom": {
+					"command": "poison",
+                        "target": "AnyButSelf",
+                        "priority": 22,
+                        "common": "Self",
+						"count": 3,
+						"poisonDeadMessage": "Golbat's venom has run its course and you've fallen out of the sky!"
+                    },
+				"train": {
+						"failChance": 0.75,
+                        "command": "convert",
+                        "target": "OnlySelf",
+						"pierce": true,
+                        "common": "Self",
+                        "priority": 42,
+                        "canConvert": ["golbat"],
+                        "newRole": "crobat",
+						"convertmsg": "A Golbat has evolved!"
+						}}}	
+        },
+        {
+            "role": "crobat",
+            "translation": "Crobat",
+            "side": "mafia1",
+            "help": "You've evolved into a Crobat and your poison is now twice as deadly. Your /venom will kill someone instantly! You're also now faster than all of the killers.",
+            "info": "Can kill one player instantly with poison at night. Sided with Krow's Crew.",
+			"actions": {
+                "night": {
+					"venom": {
+                    "command": "poison",
+                        "target": "AnyButSelf",
+                        "priority": 14,
+                        "common": "Self",
+						"count": 1,
+						"poisonDeadMessage": "Crobat's venom was too much for you to handle!"
+                    }}}
+		},
+		{
+            "role": "heart",
+            "translation": "Swoobat",
+            "side": "mafia1",
+            "help": "You're a Swoobat and your Heart Stamp attack is your calling card. Use /stamp to distract a player at night!",
+            "info": "Can distract one played at night. Sided with Krow's Crew.",
+			"actions": {
+                "night": {
+				    "stamp": {
+                    "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+						"distractmsg": "Swoobat seems to like you! He kept you occupied with his Heart Stamp attack and you couldn't act!"
+                    }},
+					"startup": {
+                    "revealRole": ["sigi"]}}
+		},
+		{
+		"role": "sigi",
+            "translation": "Sigilyph",
+            "side": "mafia1",
+            "help": "Your Psychic abilities allow you to find out a little of what's happening at night. You get hax on kills, Skarmory's protect, and Golbat's poison so connect with your teammates if you find them! Also, since you share a psychic sense with Swoobat, you'll always know him! Your vote counts as -2!",
+            "actions": {
+			"vote": -2,
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"blast": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.10
+                    },
+					"defend":{
+						"revealTeam": 0.33,
+						"revealPlayer": 0.10
+					},
+					"venom":{
+						"revealTeam": 0.33,
+						"revealPlayer": 0.10}
+					},
+					"startup": {
+                    "revealRole": ["heart"]}}
+		},
+		{
+            "role": "balloon",
+            "translation": "Drifblim",
+            "side": "mafia1",
+            "help": "You're a Drifblim! You can't do anything during the night but your vote counts as 2 during the day! Also, if you get lynched, you'll use your Destiny Bond to revenge your death!",
+            "info": "Vote counts as 2. Gets a venegeful kill upon being lynched. Sided with Krow's Crew.",
+			"actions": {
+			"vote": 2,
+                "lynch": {
+                    "convertTo": "balloon2",
+                    "convertmsg": "Drifblim has been choosen for a lynching but before they go, ~Self~ has decided to Destiny Bond..."
+                }}
+        },
+        {
+            "role": "balloon2",
+            "translation": "Destiny Bond Drifblim",
+            "side": "mafia1",
+            "help": "You've been lynched, but you can have your revenge! You can use /kill to eliminate one person!",
+			"info": "Can kill one player after being lynched. Sided with Krow's Crew.",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": -1
+                    }},
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    }}}
+        },
+		
+        {
+            "role": "seasnake",
+            "translation": "Gyarados",
+            "side": "odd",
+            "help": "We're not sure if you're a bird, a dragon, or a fish but we do know that you're not happy. Use /kill to take a player out at night or you can use /bounce [yourname] (once per game) to become immune to all kills and poisons for one day. The turn you /bounce, your vote counts as 0. You know Tropius' identity.",
+            "info": "Can kill one player at night. Can self-protect once per game (immune to everything, vote of zero that day). Sided with the Odd Birds.",
+			"actions": {
+"poison": { "mode": { "ignore": ["seed"]}},
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 18,
+						"restrict": ["bounce"],
+						"msg": "Gyarados hit you with a Waterfall attack and finished you off!",
+						"broadcast": ["seed"],
+                        "broadcastmsg": "±Game: Gyarados has chosen to kill ~Target~!"
+						},
+					"bounce": {
+                        "command": "convert",	
+						"target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "charges": 1,
+						"restrict": ["kill"],
+                        "canConvert": ["seasnake"],
+                        "newRole": "seasnake2",
+						"convertmsg": "Gyarados sprang up!",
+						"broadcast": ["seed"],
+                        "broadcastmsg": "±Game: Gyarados is going to use Bounce!" }},
+						"startup" : {"revealRole": ["seed"] }}
+		},
+        {
+            "role": "seasnake2",
+            "translation": "Gyarados",
+            "hide": true,
+			"side": "odd",
+            "help": "You've bounced up and are safe for the day. Due to being airborne, your vote counts as zero today. You can /kill again during the night though.",
+            "actions": {
+"poison": { "mode": { "ignore": ["seed"]}},
+			    "distract": {
+                    "mode": "ignore"},
+				"kill": {
+                    "mode": "ignore"},
+                "poison": {
+                    "mode": "ignore"},
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "seasnake3",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }},
+				"startup" : {"revealRole": ["seed"] }}
+		},
+		{
+            "role": "seasnake3",
+            "translation": "Gyarados",
+            "hide": true,
+			"side": "odd",
+            "help": "You've bounced up and are safe for the day. Due to being airborne, your vote counts as zero today. You can /kill again during the night though.",
+            "actions": {
+"poison": { "mode": { "ignore": ["seed"]}},
+                "vote": 0,
+				"night": {
+                    "kill": {
+					    "hide": true,
+                        "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 18,
+						"restrict": ["bounce"],
+						"msg": "Gyarados hit you with a Waterfall attack and finished you off!",
+						"broadcast": ["seed"],
+                        "broadcastmsg": "±Game: Gyarados has chosen to kill ~Target~!"
+						}},
+                "daykill": {
+                    "mode": { "evadeChance": 1 }},
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "seasnake4",
+                        "curseCount": 1
+                    }},
+					"startup" : {"revealRole": ["seed"] }}		
+        },
+        {
+            "role": "seasnake4",
+            "translation": "Gyarados",
+			"hide": true,
+            "side": "odd",
+            "help": "We're not sure if you're a bird, a dragon, or a fish but we do know that you're not happy. Use /kill to take a player out at night. You've used Bounce already so /kill is all you get!",
+            "actions": {
+"poison": { "mode": { "ignore": ["seed"]}},
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+						"hide": true,
+						"common": "Self",
+                        "priority": 18,
+						"msg": "Gyarados hit you with a Waterfall attack and finished you off!",
+						"broadcast": ["seed"],
+                        "broadcastmsg": "±Game: Gyarados has chosen to kill ~Target~!"
+						}},
+						"startup": {"revealRole": ["seed"]}}
+		},
+		{
+            "role": "mantine",
+            "translation": "Mantine",
+            "side": "odd",
+            "help": "You're a manta-ray bird thing! Use your big 'wings' (fins!) to /protect one player from kills and poison (BG/SG). Your Aqua Ring attack gives you protection in the form of a -2 voteshield.",
+            "info": "Can protect and safeguard one player each night. Votesheild of -2. Sided with the Odd Birds.",
+			"actions": {
+			"voteshield": -2,
+                "night": {
+                    "protect": {
+					    "command" : ["protect", "safeguard"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+						"priority": 5,
+						"broadcast": ["charizard"],
+                        "broadcastmsg": "±Game: Mantine is protecting ~Target~!"
+                    }},
+                    "startup" : {"revealRole": ["charizard"] }}
+		},
+        {
+            "role": "seed",
+            "translation": "Tropius",
+            "side": "odd",
+            "help": "Are you a plant, a dinosaur, or a bird? Who cares? You can use /seed once per night to Leech Seed another player and kill them in two days (poison). During the day, you can hide in the shrubbery and /expose someone to determine their role (this will only be revealed to you, just like a night inspect). You know Gyarados' identity.",
+            "info": "Can poison one player each night. Can inspect one player during the standby. Sided with the Odd Birds.",
+			"actions": {
+"kill": { "mode": { "ignore": ["seasnake", "seasnake2", "seasnake3", "seasnake4"]}},
+                "night": {
+                    "seed": {
+					"command": "poison",
+                        "target": "AnyButSelf",
+                        "priority": 24,
+                        "common": "Self",
+						"count": 3,
+						"poisonDeadMessage": "Tropius' Leech Seed has sapped you dry!",
+						"broadcast": ["seasnake","seasnake2","seasnake3","seasnake4"],
+                        "broadcastmsg": "±Game: Tropius has chosen to poison ~Target~!"
+                    }
+					},
+					"standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                         "msg": "You can type /expose [name] to find out someone's role! This will only be revealed to you.",
+                         "exposedtargetmsg": "~Target~ is the ~Role~!",
+						 "exposemsg": "Tropius was hidden in the bushes and gained some useful information!"
+					}},
+					"startup": {"revealRole": ["seasnake"]}}
+		},
+		{
+            "role": "charizard",
+            "translation": "Charizard",
+            "side": "odd",
+            "help": "You are Charizard, the dragon that ended up being a bird. You can /blast one player every TWO nights to unleash your lethal Blast Burn attack. Bodyguards can't stop your attack (pierce) and you can't be distracted while using it. Also, your vote counts as 2 because of your status as a well-recognized and well-loved Gen 1 starter evolution. You know Mantine's identity.",
+            "info": "Can pierce kill one player every second night. Vote counts as 2. Cannot be distracted. Sided with the Odd Birds.",
+			"actions": {
+			"vote": 2,
+                "night": {
+				    "blast": {
+                      "command": "kill",
+                        "target": "AnyButSelf",
+						"common": "Self",
+						"recharge": 2,
+						"pierce": true,
+                        "priority": 20,
+						"msg": "Charizard turned up the heat with his Blast Burn! Unfortunately, you're the one he chose to toast!",
+						"broadcast": "team",
+                        "broadcastmsg": "±Game: Charizard has chosen to kill ~Target~!"
+						}},
+			    "distract": {
+                    "mode": "ignore"},
+					"startup": {"revealRole": ["mantine"]}}
+		},
+		{
+            "role": "zapdos",
+            "translation": "Zapdos",
+            "side": "trio",
+            "help": "You're the legendary thunder bird, Zapdos! Use your /twave attack to paralyze a foe and keep them from moving at night (distract)! Use /thunder during the day to call down a bolt from the blue and take out an enemy! Your vote counts as -1 since you're legendary and can help out a pal! If you're inspected, you reveal as Sigilyph because there's a resemblence, right?",
+            "info": "Vote counts as -1. Can distract one player each night. Can kill one player during the day. Reveals as Sigilyph. Sided with the Kanto Trio.",
+			"actions": {
+			"vote": -1,
+                "night": {
+				    "twave": {
+                    "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+						"broadcast": "team",
+                        "broadcastmsg": "±Game: Zapdos is distracting ~Target~!",
+						"msg": "You were paralyzed by Zapdos' Thunder Wave and couldn't move!"
+						}},
+				"standby": {
+                    "thunder": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /thunder [name]",
+                        "killmsg": "Zapdos called down a bolt of lightning and zapped ~Target~!"
+                    }},		
+            "inspect": {"revealAs": ["sigi"]},
+			"startup": "team-reveal-with-roles"}
+		},
+		{
+            "role": "articuno",
+            "translation": "Articuno",
+            "side": "trio",
+            "help": "You're the legendary ice bird, Articuno! After the first night, you can use /blizzard to eliminate two enemies in one night! You can only use it once every three nights, though! Your vote counts as 2 since you're legendary! If you're inspected, you reveal as Delibird.",
+            "info": "Can kill two players every three nights (after n1). Vote counts as 2. Reveals as Delibird.",
+			"actions": {
+			"vote": 2,
+                "night": {
+				    "blizzard": {
+					 "command": "kill",
+					 "target": "AnyButSelf",
+						"common": "Self",
+						"initialrecharge": 1,
+						"limit": 2,
+						"recharge": 3,
+                        "priority": 16,
+						"broadcast": "team",
+                        "broadcastmsg": "±Game: Articuno has chosen to kill ~Target~!",
+						"msg": "With your wings encased in ice you couldn't continue flying. You've fallen from the sky thanks to Articuno's Blizzard!"
+						}},
+						"inspect": {"revealAs": "spy"},
+			"startup": "team-reveal-with-roles"}
+		},
+		{
+            "role": "moltres",
+            "translation": "Moltres",
+            "side": "trio",
+            "help": "You're the legendary fire bird, Moltres! Your fire burns hot and you're not afraid to fry yourself a chicken! Use /magma to unleash a Magma Storm attack on one player, sentencing them to an inescapable two-turn death (poison). You can also use your fiery plumage to /protect one of your allies during the same night! Your -1 voteshield will help keep you safe! If you're inspected, you reveal as Charizard.",
+            "info": "Can poison one player each night. Can protect one player each night. Has a voteshield of -1. Reveals as Charizard.",
+			"actions": {
+			"voteshield": -1,
+                "night": {
+                    "magma": {
+					"command": "poison",
+                        "target": "AnyButSelf",
+                        "priority": 23,
+                        "common": "Self",
+						"broadcast": "team",
+						"broadcastmsg": "±Game: Moltres is going to poison ~Target~!",
+						"count": 2,
+						"poisonDeadMessage": "You tried to resist Moltres' Magma Storm but you just ended up fried!"
+                    },
+					"protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "team",
+						"broadcastmsg": "±Game: Moltres is protecting ~Target~!"
+                    }},
+					"inspect": {"revealAs": "charizard"},
+			"startup": "team-reveal-with-roles"}
+		},
+		{
+		    "role": "egg",
+            "translation": "Legendary Egg",
+            "side": "johto",
+            "help": "You have been brought into being by Arceus, the Creator Pokemon. You're an egg that is about to hatch into a legendary Pokemon. Use /gold [yourname] to hatch into Ho-Oh, the Rainbow Pokemon (one non-revealing daykill, one revealing daykill, 50% immunity to poison and daykills, vote of 5) or /silver [yourname] to hatch into Lugia, the Diving Pokemon (one regular nightkill, one piercing nightkill, 50% immunity to nightkills, voteshield of -5, cannot be distracted). You cannot be killed, distracted, or poisoned tonight. If someone happens to inspect you, you'll reveal as a Pidgey. If you don't choose which bird to hatch into on the second night, you will spoil and die! You will always know Raikou if he's in the game.",
+            "info": "Cannot be poisoned, distracted, or killed. Hatches into Lugia or Ho-Oh n1. Reveals as Pidgey.",
+			"actions": {
+				"night" : {
+                     "gold": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 42,
+						"pierce": true,
+                        "canConvert": ["egg"],
+                        "newRole": "ho-oh",
+						"restrict": ["silver"],
+						"convertmsg": "The Legendary Egg has hatched into Ho-Oh!"
+						},
+						"silver": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 42,
+						"pierce": true,
+                        "canConvert": ["egg"],
+                        "newRole": "lugia",
+						"restrict": ["gold"],
+						"convertmsg": "The Legendary Egg has hatched into Lugia!"
+						}},
+					"inspect": {"revealAs": ["villager"]},
+				    "poison": {
+                        "mode": "ignore"},
+					"kill": {
+				        "mode": "ignore"},
+					"distract": {
+                        "mode": "ignore"},
+					"initialCondition": {
+						"poison": {
+                        "count": 2
+                    }
+                },
+				"startup": {
+                    "revealRole": ["raikou"]
+                }}
+					
+		},
+		{
+		    "role": "ho-oh",
+            "translation": "Ho-Oh",
+            "side": "johto",
+            "help": "You are the legendary Rainbow Bird, Ho-Oh! You have a 50% of evading poison and daykills and, due to your prestige as a king of the skies, your vote counts as 5. During the standby you can kill one player with /sacred (you won't be revealed) and a second played with /brave (you will be revealed). Also, you evade 50% of kills during the day and 50% of poison attempts during the night.",
+            "info": "Can kill one player during the standby (non-revealing). Can kill a second player during the standby (reveals user). Vote of 5. 50% chance of evading daykills and poison. Sided with the Johto Legend.",
+			"actions": {
+			"vote": 5,
+				"standby": {
+                    "sacred": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /sacred [name]",
+                        "killmsg": "A rainbow arcs across the sky. ~Target~ was so entranced by it that they didn't see Ho-Oh's Sacred Fire coming!"
+                    },
+					"brave": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+						"limit": 2,
+                        "msg": "You can kill again with /brave [name] but you'll be revealed if you do!",
+                        "killmsg": "The sun is hidden in the clouds so Ho-Oh had to resort to using its Brave Bird attack! ~Self~ struck ~Target~ and knocked them out!"
+                    }},
+				"daykill": {
+                "mode": { "evadeChance": 0.5 }},
+						"poison": {
+						"mode": { "evadeChance": 0.5}},
+				"initialCondition": {"clearPoison": true}}
+				
+		},
+		{
+		    "role": "lugia",
+            "translation": "Lugia",
+            "side": "johto",
+            "help": "You are Lugia, the legendary Diving Pokemon! During the night, you can use /psychic [name] to kill one player and, once every two nights, use /aero [name] to hit someone with your Aeroblast attack that cannot be protected against (pierce kill). Since you can hide in the water before attacking, you cannot be distracted, you evade 50% of nightkills, and you're harder to lynch (-5 voteshield).",
+			"info": "Can kill one player at night. Can kill a second player with a pierce kill every second night. Voteshield of -5. Evades 50% of nightkills. Cannot be distracted. Sided with the Johto Legend.",
+			"actions": {
+			"voteshield": -5,
+				"night": {
+				   "psychic": {
+				        "command": "kill",
+					    "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 15,
+						"msg": "Lugia hit you with a powerful Psychic attack!" },
+					"aero": {
+						"command": "kill",
+					    "target": "AnyButSelf",
+						"common": "Self",
+                        "priority": 15,
+						"pierce": true,
+						"recharge": 2,
+						"msg": "Lugia hit you with his signature Aeroblast attack! Nothing could save you from that!" }},
+				"distract": {
+                        "mode": "ignore"},
+				"kill": {
+                        "mode": { "evadeChance": 0.50 }},
+				"initialCondition": {"clearPoison": true}}
+		},
+		{
+		    "role": "raikou",
+            "translation": "Raikou",
+            "side": "johto",
+            "help": "You are Raikou, the legendary dog of Thunder created by Ho-Oh and Lugia. You were called in to help them out, so use your nimble feet and keen eye to /stalk one of the birds at night. Since you are favoured by the Kings of the sky, you have a -2 voteshield!",
+            "actions": {
+			"voteshield": -2,
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 31
+                    }},
+				"startup": {
+                    "revealRole": ["egg"]
+                }}
+		}		
+	],
+	"roles1": [
+        "inspector",
+        "xatuS",
+        "hooker",
+        "krowS",
+        "seasnake",
+        "seed",
+        "villager",
+        "villager",
+        "villager2",
+        "buzz",
+        "villager",
+        "charizard",
+		"golbat",
+		"spy",
+		"fetch",
+		"heart"
+	],	
+	"roles2": [
+        "inspector",
+        "xatu",
+        "hooker",
+        "krow",
+        "seasnake",
+        "seed",
+        "villager",
+        "villager",
+        "villager2",
+        "buzz",
+        "villager",
+        "charizard",
+		"golbat",
+		"spy",
+		"fetch",
+		"heart",
+		"exposer",
+		"villager",
+		"egg",
+		"villager",
+		"villager",
+		"samurai",
+		"zapdos",
+		"moltres",
+		"balloon",
+		"gliscor",
+		"articuno",
+		"mantine",
+		"sigi",
+		"skarm",
+		"raikou"
+	],
+		"villageCantLoseRoles": [
+		"villager2",
+		"villager3",
+		"hooker2",
+		"fetch",
+		"samurai"
+	],
+		"changelog": {
+		"9.11.13": "Reduced Pidgey's /train success rate from 10% to 5%",
+		"9.12.13": "Edited mechanics on Gyarados' /bounce so it works as intended.",
+		"9.12.13(2)": "Reduced Spearow's /train success rate from 40% to 25%.",
+		"9.14.13": "Moved Legendary Egg and Raikou further down the spawnlist. Switched Farfetch'd and Golbat in the spawn. Reduced Pidgetto's /train success rate from 25% to 15%.",
+		"9.17.13": "Reduced Spearow's /train success rate from 25% to 15%. Removed poison immunity from Xatu in games of 16 or fewer players. Fixed Gyarados again.",
+		"9.23.13": "Lowered Honchkrow's voteshield from -2 to -1 in small games (16 or fewer players).",
+		"10.11.13": "Gave the Odd Birds full start-up reveal. Slowed Honchkrow's priority down.",
+		"10.15.13": "Minimum player count raised to 6.",
+		"10.23.13": "Broke the team-reveal on Odd Birds up. Tropius knows Gyarados and Mantine knows Charizard.",
+		"11.11.13": "Added Braviary to spawn because it seems that I never did that.",
+"3.31.14": "Roild fixing stuff. Always remember Solace 1894-2014."
+		}
+}
