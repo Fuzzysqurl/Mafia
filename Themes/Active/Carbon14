@@ -3,7 +3,7 @@
     "altname": "Carbon 14",
     "author": "Fuzzysqurl",
     "minplayers": 4,
-    "summary": "Carbon 14. Rumor has it, a group of Werewolves OR Mafia reside in the town, but no one knows which. A Cop, Seer, and group of Villagers band together to rid their land of any threat. However, the Cop can only tell if a person is a Mafia and the Seer can only tell if a person is Werewolf. [Note: Werewolf appears on Current Roles as \"Mafia\" to avoid using a closed setup which can be abused to scumhunt.]",
+    "summary": "Carbon 14. Rumor has it, a group of Werewolves OR Mafia threaten the town, but no one knows which. A Cop, Seer, and group of Villagers band together to rid their land of any suspects. However, the Cop can only tell if a person is a Mafia and the Seer can only tell if a person is Werewolf.",
     "noplur": true,
     "nonPeak": true,
     "ticks": {
@@ -46,7 +46,8 @@
             "actions": {
                 "night": "variable:kill",
                 "startup": "team-reveal",
-                "teamTalk": true
+                "teamTalk": true,
+                "onlist": "suspect"
             }
         },
         { "role": "mw",
@@ -59,6 +60,7 @@
                 "night": "variable:kill",
                 "startup": "team-reveal",
                 "teamTalk": true,
+                "onlist": "suspect",
                 "inspect": {"revealAs": "nw"}
             }
         },
@@ -71,7 +73,7 @@
                 "night": "variable:kill",
                 "startup": "team-reveal",
                 "teamTalk": true,
-                "onlist": "mm",
+                "onlist": "suspect",
                 "inspect": {"revealAs": "nm"}
             }
         },
@@ -85,7 +87,7 @@
                 "night": "variable:kill",
                 "startup": "team-reveal",
                 "teamTalk": true,
-                "onlist": "mm"
+                "onlist": "suspect"
             }
         },
         { "role": "sm",
@@ -171,6 +173,12 @@
             "side": "village",
             "hide": "both",
             "help": ""
+        },
+        { "role": "suspect",
+            "translation": "Suspect",
+            "side": "village",
+            "hide": "both",
+            "help": ""
         }
     ],
     "variables": {
@@ -185,7 +193,7 @@
         "cinfo": "Can inspect one person's role during the night. Results in the form of \"Mafia\" or \"Not Mafia\". Sided with Village.",
         "sinfo": "Can inspect one person's role during the night. Results in the form of \"Werewolf\" or \"Not Werewolf\". Sided with Village.",
         
-        "kill":  {"kill": { "target": "AnyButTeam", "common": "Team", "priority": 1, "broadcast": "team", "initialrecharge": 2}}        
+        "kill": {"kill": { "target": "AnyButTeam", "common": "Team", "priority": 1, "broadcast": "team", "initialrecharge": 2}}        
     },
     "spawnPacks": {
         "a": { 
