@@ -7,8 +7,9 @@
     "noplur": true,
     "nonPeak": true,
     "ticks": {
-        "standby": 45,
-        "night": 20
+        "night1": 5,
+        "night": 20,
+        "standby": 40
     },
     "sides": [
         { "side": "village",
