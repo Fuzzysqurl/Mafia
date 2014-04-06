@@ -3,7 +3,7 @@
     "altname": "Carbon 14",
     "author": "Fuzzysqurl",
     "minplayers": 4,
-    "summary": "Carbon 14. Rumor has it, a group of Werewolves OR Mafia threaten the town, but no one knows which. A Cop, Seer, and group of Villagers band together to rid their land of any suspects. However, the Cop can only tell if a person is a Mafia and the Seer can only tell if a person is Werewolf.",
+    "summary": "Carbon 14. Rumor has it, a group of Werewolves OR Mafia threaten the town, but no one knows which. A Cop, Seer, and group of Villagers band together to rid their land of any suspects. However, the Cop can only tell if a person is a Mafia and the Seer can only tell if a person is Werewolf. No plurality is enabled, all lynched must reach majority or no one is lynched.",
     "noplur": true,
     "nonPeak": true,
     "ticks": {
@@ -193,8 +193,8 @@
         "chelp": "±Abilities: Each night phase, you may investigate one player in the game using /inspect. You will get results back in the form of \"Mafia\" or \"Not Mafia\".",
         "shelp": "±Abilities: Each night phase, you may investigate one player in the game using /inspect. You will get results back in the form of \"Werewolf\" or \"Not Werewolf\".",
         
-        "cinfo": "Can inspect one person's role during the night. Results in the form of \"Mafia\" or \"Not Mafia\". Reveals as \"Not Werewolf\" to the Seer. Sided with the Village.",
-        "sinfo": "Can inspect one person's role during the night. Results in the form of \"Werewolf\" or \"Not Werewolf\". Reveals as \"Not Mafia\" to the Cop. Sided with the Village.",
+        "cinfo": "Can inspect one person's role during the night with results of \"Mafia\" or \"Not Mafia\". Reveals as \"Not Werewolf\" to the Seer. Sided with the Village.",
+        "sinfo": "Can inspect one person's role during the night with results of \"Werewolf\" or \"Not Werewolf\". Reveals as \"Not Mafia\" to the Cop. Sided with the Village.",
         "vinfo": "Reveals as \"Not Mafia\" and \"Not Werewolf\". Sided with the Village.",
         "minfo": "Can kill one person during the night. Reveals as \"Mafia\" and \"Not Werewolf\". Sided with the Mafia.",
         "winfo": "Can kill one person during the night. Reveals as \"Not Mafia\" and \"Werewolf\". Sided with the Werewolves.",
