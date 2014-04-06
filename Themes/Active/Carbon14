@@ -27,6 +27,8 @@
             "side": "village",
             "help": "variable:thelp",
             "help2": "variable:twin",
+            "info": "variable:vinfo",
+            "players": "variable:vplay",
             "actions": {"inspect": {"revealAs": "nm"}}
         },
         { "role": "vw",
@@ -42,6 +44,8 @@
             "side": "mafia",
             "help": "variable:mhelp",
             "help2": "variable:mwin",
+            "info": "variable:minfo",
+            "players": "variable:mplay",
             "actions": {
                 "night": "variable:kill",
                 "startup": "team-reveal",
@@ -68,6 +72,8 @@
             "side": "werewolf",
             "help": "variable:mhelp",
             "help2": "variable:mwin",
+            "info": "variable:winfo",
+            "players": "variable:wplay",
             "actions": {
                 "night": "variable:kill",
                 "startup": "team-reveal",
@@ -95,6 +101,7 @@
             "help": "variable:shelp",
             "help2": "variable:twin",
             "info": "variable:sinfo",
+            "players": "variable:tplay",
             "actions": {
                 "night": {
                     "inspect": {
@@ -129,6 +136,7 @@
             "help": "variable:chelp",
             "help2": "variable:twin",
             "info": "variable:cinfo",
+            "players": "variable:tplay",
             "actions": {
                 "night": {
                     "inspect": {
@@ -185,8 +193,16 @@
         "chelp": "±Abilities: Each night phase, you may investigate one player in the game using /inspect. You will get results back in the form of \"Mafia\" or \"Not Mafia\".",
         "shelp": "±Abilities: Each night phase, you may investigate one player in the game using /inspect. You will get results back in the form of \"Werewolf\" or \"Not Werewolf\".",
         
-        "cinfo": "Can inspect one person's role during the night. Results in the form of \"Mafia\" or \"Not Mafia\". Sided with Village.",
-        "sinfo": "Can inspect one person's role during the night. Results in the form of \"Werewolf\" or \"Not Werewolf\". Sided with Village.",
+        "cinfo": "Can inspect one person's role during the night. Results in the form of \"Mafia\" or \"Not Mafia\". Reveals as \"Not Werewolf\" to the Seer. Sided with the Village.",
+        "sinfo": "Can inspect one person's role during the night. Results in the form of \"Werewolf\" or \"Not Werewolf\". Reveals as \"Not Mafia\" to the Cop. Sided with the Village.",
+        "vinfo": "Reveals as \"Not Mafia\" and \"Not Werewolf\". Sided with the Village.",
+        "minfo": "Can kill one person during the night. Reveals as \"Mafia\" and \"Not Werewolf\". Sided with the Mafia.",
+        "winfo": "Can kill one person during the night. Reveals as \"Not Mafia\" and \"Werewolf\". Sided with the Werewolves.",
+        
+        "tplay": "4-11 Players. Only 1 will appear.",
+        "mplay": "4-11 Players. 1-3 will appear. Won't spawn with Werewolf.",
+        "wplay": "4-11 Players. 1-3 will appear. Won't spawn with Mafia.",
+        "vplay": "4-11 Players. 1-6 will appear.",
         
         "kill": {"kill": { "target": "AnyButTeam", "common": "Team", "priority": 1, "broadcast": "team"}}        
     },
@@ -201,6 +217,6 @@
     },
     "roles1": ["pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a"],
     "changelog": {
-        "April 5": "Removed Daystart."
+        "April 5": "Removed Daystart. Updated /roles."
     }
 }
