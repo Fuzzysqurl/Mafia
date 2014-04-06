@@ -118,7 +118,7 @@
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "initialrecharge": 2
+                        "priority": 2
                     }
                 }
             }
@@ -134,7 +134,7 @@
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "initialrecharge": 2
+                        "priority": 2
                     }
                 }
             }
@@ -200,7 +200,7 @@
         }
     },
     "roles1": ["pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a"],
-    "changelog": [
+    "changelog": {
         "April 5": "Removed Daystart."
-    ]
+    }
 }
