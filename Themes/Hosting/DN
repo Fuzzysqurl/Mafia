@@ -1,0 +1,675 @@
+
+{
+    "name": "DN",
+	"altname": "Death Note",
+	"threadlink": "http://pokemon-online.eu/forums/showthread.php?17938-Death-Note",
+	"minplayers": 6,
+    "author": ["<span style='color:#ff4e00'>Solace</span>"],
+    "summary": "Death Note! Task Force is the good side, and everyone else is bad! UPDATE: READ THE /changelog!!!. Contact Solace with comments, complaints, and suggestions. Theme originally written by Not L.",
+    "sides": [
+        {
+            "side": "mafia",
+            "translation": "Kira Team"
+        },
+        {
+            "side": "mafia1",
+            "translation": "Shinigami"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Wammy House"
+        },
+        {
+            "side": "village",
+            "translation": "Task Force"
+        },
+        {
+            "side": "godfather",
+            "translation": "False Kira"
+        },
+        {
+            "side": "sidoh",
+            "translation": "Sidoh"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Matsuda",
+            "side": "village",
+            "help": "You are just the scapegoat of the Death Note series! You can only vote...",
+            "actions": {}
+        },
+        {
+            "role": "inspector",
+            "translation": "L",
+            "side": "village",
+            "help": "The mastermind of Death Note, you can /inspect someone during the night! You have isolated yourself from distractions and you can /interpol [name] to tell everyone who to lynch, since your name (but not your identity!) is widely known.",
+            "info": "Can inspect during the night and can tell the village who to lynch during the day (non-revealing). Sided with the Task Force.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 11
+                    }
+                },
+                "standby": {
+                    "interpol": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "msg": "You can now /interpol to say who should be lynched!",
+                        "exposemsg": "A special news report from Interpol! L has asked that ~Target~ be sentenced to death!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to come to you last night, but you were too focused on your mission."
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Soichiro Yagami",
+            "side": "village",
+            "help": "You used to lead the police force, but now you are sided with the Task Force, so you will see L when he orders Interpol. Your natural protective tendencies as a father allow you to /protect someone during the night! This also protects from poison!",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "command": [
+                            "safeguard",
+                            "protect"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3
+                    }
+                },
+                "standbyHax": {
+                    "interpol": {
+                        "revealPlayer": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "misa",
+            "translation": "Misa Amane",
+            "side": "mafia",
+            "help": "Ever loyal to Light, you will help him at all costs! Your modeling skills allow you to /distract someone during the night, and your Shinigami eyes (/inspect) give you a 50% chance of finding out someone's role and a 50% chance of seeing a really cute dress! Your celebrity status gives you a 1.1 vote to break any ties.",
+            "actions": {
+                "vote": 1.1,
+				"teamTalk": true,
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcast": "team"
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 11,
+                        "failChance": 0.5,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mello",
+            "translation": "Mello",
+            "side": "mafia2",
+            "help": "One of L's successors. Your rage allows you to /kill one person during the night! Since you're so hard to find you have a -2 voteshield.",
+            "actions": {
+			    "voteshield": -2,
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 8,
+			"broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "hooker",
+            "translation": "Eraldo Coil",
+            "side": "village",
+            "help": "One of L's many secret identities, your natural charm and incredible smile allow you to /distract one person during the night! And since you share the same level of prestige as L, your vote counts as 2!",
+            "info": "Can distract one person during the night. Vote counts as 2. Sided with Task Force.",
+			"actions": {
+			"vote": 2,
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "mayor",
+            "translation": "Watari",
+            "side": "village",
+            "help": "You don't have any commands, but due to your money and influence over both the Wammy House and L, your vote counts as 4! You are technically sided with the Task Force, but can also win with the Wammy House!",
+            "winningSides": [
+                "village",
+                "mafia2"
+            ],
+            "actions": {
+                "vote": 4
+            }
+        },
+        {
+            "role": "badspy",
+            "translation": "Near",
+            "side": "mafia2",
+            "help": "Your deduction skills, sometimes even better than L's allow to /inspect one person every night, and you can also get hax on who is dying! You also receive a vote of 2 due to your adorable hair twirling tendencies! (wait, what?)",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "vote": 2,
+				"teamTalk": true,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.17
+                    }
+                }
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Higuchi",
+            "side": "godfather",
+            "help": "You are an executive at Yotsuba. Somehow you were able to obtain a Death Note. Your complete disregard for anyone means you can /kill two people per night! Your high status means you won't be haxed, you will automatically kill any distracters in your way, and you have a vote of 3.5!",
+            "actions": {
+                "vote": 3.5,
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+                        "limit": 2
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to seduce Higuchi... you were killed instead!",
+                    "msg": "~Distracter~ came to you last night! You killed him/her instead!"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "vigilante",
+            "translation": "Ide",
+            "side": "village",
+            "help": "You are Ide of the Task Force. Your police training gives you the skill to /kill one person per night! Though Matsuda drives you crazy, make sure you don't kill him or any of the other good guys. You ARE on their side...",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9
+                    }
+                }
+            }
+        },
+        {
+            "role": "ryuk",
+            "translation": "Ryuk",
+            "side": "mafia1",
+            "help": "Type /Kill [name] to kill someone! Also, once per game you can use /write [name] to kill someone even if they're protected. Both kills can be used in the same night. You cannot be distracted.",
+			"info": "Can kill one player at night. Once per game, can kill one player through protections. Cannot be distracted. Sided with the Shinigami.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 6,
+                        "broadcast": "team"
+                    },
+					"write": {
+					    "command": "kill",
+						"target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 6,
+						"broadcast": "team",
+						"pierce": true,
+						"charges": 1
+                }},
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "A Distracter came to you last night, but s/he had no effect on you!"
+                },
+				"startup": "team-reveal-with-roles"}
+        },
+        {
+            "role": "samurai",
+            "translation": "Mogi",
+            "side": "village",
+            "help": "You are allied with the Task Force. Type /Kill [name] during the day phase to kill someone! You won't be revealed, but get in touch with L to find out who you should kill!",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name]",
+                        "killmsg": "Mogi pulls out a gun and shoots at ~Target~'s chest! I am Mogi, I act for the Task Force!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "matt",
+            "translation": "Matt",
+            "side": "mafia2",
+            "help": "As violent as Mello, you can /kill, yours being in the day! Be careful , though! You'll be revealed when you use this one. Once per game, you can also /shoot one person during the day. This one doesn't reveal you when you use it!",
+            "info": "Can kill once each day (revealing). Has an additional, unrevealing daykill once per game. Sided with the Wammy House.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+						"limit": 2,
+                        "msg": "You can kill now using /kill [name] (revealing) and /shoot [name] (once for shoot)",
+                        "killmsg": "~Self~ pulls out a gun and shoots at ~Target~'s chest! I am Matt, long live the Wammy House!"
+                    },
+                    "shoot": {
+                        "command": "kill",
+                        "limit": 2,
+                        "target": "AnyButTeam",
+                        "killmsg": "Matt pulls out a gun and shoots at ~Target~'s chest! Long live the Wammy House!",
+                        "recharge": 999
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Aizawa",
+            "side": "village",
+            "help": "You are the scapegoat of the Death Note series! You can not do anything except vote...",
+            "actions": {
+                "inspect": {
+                    "revealAs": "ryuk"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "miller2",
+            "translation": "Aizawa",
+            "side": "village",
+            "help": "You are the scapegoat of the Death Note series! You can not do anything except vote...!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "matt"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "king",
+            "translation": "Shinigami King",
+            "side": "mafia1",
+            "help": "The true show begins now! You're the most powerful of the Shinigami, voting for anyone results in their immediate death!",
+            "actions": {
+                "vote": 9999,
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true
+            },
+            "winIfDeadRoles": [
+                "light",
+                "mello",
+                "matt",
+                "teru",
+                "godfather",
+                "samurai",
+				"vigilante"
+            ]
+        },
+        {
+            "role": "sidoh",
+            "translation": "Sidoh",
+            "side": "sidoh",
+            "help": "You are Sidoh, a horribly confused Shinigami. You lost your notebook, and don't know what to do, so you can /trust someone to join their side. You can also /stalk someone to find out what they did!",
+            "info": "Can stalk one person per night. Can /trust someone to join their side (once per game). Sided with Sidoh.",
+            "actions": {
+                "night": {
+                    "trust": {
+                        "command": "copy",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 101,
+                        "copyAs": {
+                            "sidohtf": [
+                                "villager",
+                                "inspector",
+                                "bodyguard",
+                                "hooker",
+                                "mayor",
+                                "vigilante",
+                                "samurai",
+                                "miller",
+                                "miller2",
+                                "miller3"
+                            ],
+                            "sidohk": [
+                                "misa",
+                                "light",
+                                "teru"
+                            ],
+                            "sidohw": [
+                                "mello",
+                                "matt",
+                                "badspy"
+                            ],
+                            "sidohhi": [
+                                "godfather"
+                            ],
+                            "sidohsh": [
+                                "ryuk",
+                                "rem",
+                                "king"
+                            ]
+                        },
+                        "copymsg": "Sidoh has decided to trust someone and has joined their side in anticipation to being able to get his Death Note back!"
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13
+                    }
+                }
+            }
+        },
+        {
+            "role": "sidohtf",
+            "translation": "Sidoh",
+            "side": "village",
+            "hide": true,
+            "help": "You decided to trust the Task Force! Use your ability to be unseen to /stalk someone during the night!",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": "true",
+                        "priority": 13
+                    }
+                }
+            }
+        },
+        {
+            "role": "sidohw",
+            "translation": "Sidoh",
+            "side": "mafia2",
+            "hide": true,
+            "help": "You decided to trust the Wammy House! Use your ability to be unseen to /stalk someone during the night!",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": "true",
+                        "priority": 13
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "sidohk",
+            "translation": "Sidoh",
+            "side": "mafia",
+            "hide": true,
+            "help": "You decided to trust Kira! Use your ability to be unseen to /stalk someone during the night!",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": "true",
+                        "priority": 13
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "sidohhi",
+            "translation": "Sidoh",
+            "side": "godfather",
+            "hide": true,
+            "help": "You decided to trust Higuchi, the False Kira! Use your ability to be unseen to /stalk someone during the night!",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": "true",
+                        "priority": 13
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "sidohsh",
+            "translation": "Sidoh",
+            "side": "mafia1",
+            "hide": true,
+            "help": "You decided to trust the Shinigami! Use your ability to be unseen to /stalk someone during the night!",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": "true",
+                        "priority": 13
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller3",
+            "translation": "Aizawa",
+            "side": "village",
+            "help": "You are the scapegoat of the Death Note series! You can not do anything except vote...",
+            "actions": {
+                "inspect": {
+                    "revealAs": "teru"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "light2",
+            "translation": "Light Yagami",
+            "side": "mafia",
+            "help": "The brightest student in Japan, you will bring to justice to the world by killing off anyone you deem unworthy! You will kill anyone who tries to kill you in the night! You can /write someone's name in the Death Note to kill them during the day.",
+            "info": "Can kill one person during the day (non-revealing). Revenges nightkills in games with 17 or more players (does not die). In games of 16 or fewer players, can protect himself at night. Cannot be distracted.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you, but you are used to girls swooning for you. It didn't phase you."
+                },
+                "kill": {
+                    "mode": "ChangeTarget",
+                    "targetmsg": "You tried to kill Light, but he wrote your name in the Death Note first!",
+                    "msg": "Someone tried to kill you... Tsk Tsk... You had their name and face!"
+                },
+                "standby": {
+                    "write": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "msg": "You can now kill those who do not believe in your brand of justice with /write [name]",
+                        "killmsg": "Light Yagami writes the name of ~Target~ in his Death Note! ~Target~ dies of a heart attack!"
+                    }
+                }
+            }
+        },
+		{
+            "role": "light",
+            "translation": "Light Yagami",
+            "side": "mafia",
+			"hide": true,
+            "help": "The brightest student in Japan, you will bring to justice to the world by killing off anyone you deem unworthy! You can /write someone's name in the Death Note to kill them during the day. Use your intelligence to /protect yourself at night!",
+            "info": "Can kill one person during the day (non-revealing). Revenges nightkills (does not die).",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you, but you are used to girls swooning for you. It didn't phase you."
+                },
+				"night": {
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                },
+                "standby": {
+                    "write": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "msg": "You can now kill those who do not believe in your brand of justice with /write [name]",
+                        "killmsg": "Light Yagami writes the name of ~Target~ in his Death Note! ~Target~ dies of a heart attack!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "rem",
+            "translation": "Rem",
+            "side": "mafia1",
+            "help": "A sadistic Shinigami, type /poison [name] to poison someone with your Death Note (you enjoy seeing them suffer), and they will die the following night!",
+            "actions": {
+				"teamTalk": true,
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to distract Rem, but he killed you!",
+                    "msg": "~Distracter~ came to you last night! You killed him/her instead!"
+                },
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 5,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "teru",
+            "translation": "Teru Mikami",
+            "side": "mafia",
+            "help": "You are the hand of Kira, chosen by the God himself! Type /delete [name] to kill someone for your God!",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "delete": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 4,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        }
+	],	
+    "roles1": [
+        "bodyguard",
+        "light",
+        "inspector",
+        "ryuk",
+        "villager",
+        "villager",
+        "hooker",
+        "mello",
+        "miller",
+        "badspy",
+        "villager",
+        "rem",
+        "misa",
+        "villager",
+        "sidoh",
+        "matt",
+        "mayor",
+        "teru",
+        "miller2",
+        "king",
+        "villager",
+        "godfather",
+        "vigilante",
+        "miller3",
+        "samurai",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+        "vigilante",
+		"hooker",
+        "samurai"
+    ],
+    "changelog": {
+        "09.06.2013": "L does not reveal daykillers. L can /interpol during the day to tell everyone to vote for somebody (like Hector's taunt, but with meaning). Soichiro gets 100% dayhax on /interpol. Order of millers is Ryuk, Matt, Teru (formerly Ryuk, Teru, Light). Light reveals as Matsuda. Spawnlist a bit different. Matt has /shoot instead of /eliminate. Added broadcast to Mello's kill. Matt can no longer kill his teammates.",
+        "12.06.2013": "Light can no longer kill his teammates.",
+	"6.14.13": "Light no longer has to self-protect (he doesn't die)",
+	"6.21.13": "Added 'info' to Sidoh, L, Light, and Matt. Hid Sidoh's other forms (and his actions) from /roles.",
+	"6.27.13": "Re-worded Light's 'info'",
+	"8.2.13": "Theme adopted by Solace. Mello's kill changed to 'AnyButTeam' to prevent TKs.",
+	"8.6.13": "Gave Eraldo Mayor vote.",
+	"9.8.13": "Removed Watari from the VCLR. It was preventing him from winning with Wammy.",
+	"9.18.13": "In games of 16 or fewer players, Light no longer revenges nightkills. Instead, he has a self-protect command. He remains the same in games 17+.",
+	"11.29.13": "Ryuk can no longer be daykilled. He also now has a one-shot pierce kill that hits through protections. L no longer gets hax during the night.",
+	"11.29.13(2)": "Removed Ryuk's daykill immunity. Raised game minimum players to 6.",
+	"12.15.13": "Light no longer revenge kills in any size game. He now has a self-BG during the night in all games. Matt's /shoot command is now non-revealing but still only has one shot. Lowered Eraldo's vote to 2. Mello now has a -2 voteshield."
+    }
+}
