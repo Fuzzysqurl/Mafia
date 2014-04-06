@@ -7,7 +7,6 @@
     "noplur": true,
     "nonPeak": true,
     "ticks": {
-        "night1": 5,
         "night": 20,
         "standby": 40
     },
@@ -102,7 +101,6 @@
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 2,
-                        "initialrecharge": 2,
                         "Sight": {"nw": 1}
                     }
                 },
@@ -120,7 +118,6 @@
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 2,
                         "initialrecharge": 2
                     }
                 }
@@ -137,7 +134,6 @@
                     "inspect": {
                         "target": "AnyButSelf",
                         "common": "Self",
-                        "priority": 2,
                         "initialrecharge": 2
                     }
                 }
@@ -155,7 +151,6 @@
                         "target": "AnyButSelf",
                         "common": "Self",
                         "priority": 2,
-                        "initialrecharge": 2,
                         "Sight": {"nm": 1}
                     }
                 },
@@ -186,14 +181,14 @@
         "mwin": "±Win Condition: You win when all members of the town have been eliminated or nothing can prevent this from occurring.",
         
         "thelp": "±Abilities: Your weapon is your vote. You have no night actions.",
-        "mhelp": "±Abilities: Each night phase after the first, you or your team may perform the factional kill using /kill. You can also use /tt to talk amongst your team.",
-        "chelp": "±Abilities: Each night phase after the first, you may investigate one player in the game using /inspect. You will get results back in the form of \"Mafia\" or \"Not Mafia\".",
-        "shelp": "±Abilities: Each night phase after the first, you may investigate one player in the game using /inspect. You will get results back in the form of \"Werewolf\" or \"Not Werewolf\".",
+        "mhelp": "±Abilities: Each night phase, you or your team may perform the factional kill using /kill. You can also use /tt to talk amongst your team.",
+        "chelp": "±Abilities: Each night phase, you may investigate one player in the game using /inspect. You will get results back in the form of \"Mafia\" or \"Not Mafia\".",
+        "shelp": "±Abilities: Each night phase, you may investigate one player in the game using /inspect. You will get results back in the form of \"Werewolf\" or \"Not Werewolf\".",
         
         "cinfo": "Can inspect one person's role during the night. Results in the form of \"Mafia\" or \"Not Mafia\". Sided with Village.",
         "sinfo": "Can inspect one person's role during the night. Results in the form of \"Werewolf\" or \"Not Werewolf\". Sided with Village.",
         
-        "kill": {"kill": { "target": "AnyButTeam", "common": "Team", "priority": 1, "broadcast": "team", "initialrecharge": 2}}        
+        "kill": {"kill": { "target": "AnyButTeam", "common": "Team", "priority": 1, "broadcast": "team"}}        
     },
     "spawnPacks": {
         "a": { 
@@ -204,5 +199,8 @@
             ]            
         }
     },
-    "roles1": ["pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a"]
+    "roles1": ["pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a"],
+    "changelog": [
+        "April 5": "Removed Daystart."
+    ]
 }
