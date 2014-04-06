@@ -200,8 +200,8 @@
         "winfo": "Can kill one person during the night. Reveals as \"Not Mafia\" and \"Werewolf\". Sided with the Werewolves.",
         
         "tplay": "4-11 Players. Only 1 will appear per game.",
-        "mplay": "4-11 Players. Between 1 and 3 will appear per game. Won't spawn with Werewolf.",
-        "wplay": "4-11 Players. Between 1 and 3 will appear per game. Won't spawn with Mafia.",
+        "mplay": "4-11 Players. Between 1 and 3 will appear per game. Won't appear with the Werewolf.",
+        "wplay": "4-11 Players. Between 1 and 3 will appear per game. Won't appear with the Mafia.",
         "vplay": "4-11 Players. Between 1 and 6 will appear per game.",
         
         "kill": {"kill": { "target": "AnyButTeam", "common": "Team", "priority": 1, "broadcast": "team"}}        
