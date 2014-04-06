@@ -53,35 +53,6 @@
                 "onlist": "suspect"
             }
         },
-        { "role": "mw",
-            "translation": "Mafia",
-            "side": "mafia",
-            "help": "variable:mhelp",
-            "help2": "variable:mwin",
-            "hide": "both",
-            "actions": {
-                "night": "variable:kill",
-                "startup": "team-reveal",
-                "teamTalk": true,
-                "onlist": "suspect",
-                "inspect": {"revealAs": "nw"}
-            }
-        },
-        { "role": "wm",
-            "translation": "Werewolf",
-            "side": "werewolf",
-            "help": "variable:mhelp",
-            "help2": "variable:mwin",
-            "info": "variable:winfo",
-            "players": "variable:wplay",
-            "actions": {
-                "night": "variable:kill",
-                "startup": "team-reveal",
-                "teamTalk": true,
-                "onlist": "suspect",
-                "inspect": {"revealAs": "nm"}
-            }
-        },
         { "role": "ww",
             "translation": "Werewolf",
             "side": "werewolf",
@@ -211,12 +182,12 @@
             "chance": [0.5, 0.5],
             "roles": [
                 ["vm", "cm", "sm", "mm", "vm", "mm", "vm", "vm", "mm", "vm", "vm"], 
-                ["vw", "cw", "sw", "mw", "vw", "mw", "vw", "vw", "mw", "vw", "vw"]
+                ["vw", "cw", "sw", "ww", "vw", "ww", "vw", "vw", "ww", "vw", "vw"]
             ]            
         }
     },
     "roles1": ["pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a"],
     "changelog": {
-        "April 5": "Removed Daystart. Updated /roles."
+        "April 5": "Removed Daystart. Updated /roles. Fixed issue with Werewolf not spawning correctly."
     }
 }
