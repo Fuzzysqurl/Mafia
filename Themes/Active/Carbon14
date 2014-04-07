@@ -153,7 +153,7 @@
             "side": "village",
             "hide": "side",
             "info": "variable:suspect",
-            "players": "",
+            "players": false,
             "help": ""
         }
     ],
