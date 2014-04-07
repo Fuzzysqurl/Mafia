@@ -59,6 +59,7 @@
             "help": "variable:mhelp",
             "help2": "variable:mwin",
             "info": "variable:winfo",
+            "players": "variable:wplay",
             "actions": {
                 "night": "variable:kill",
                 "startup": "team-reveal",
