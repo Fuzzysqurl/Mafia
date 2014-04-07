@@ -58,7 +58,6 @@
             "side": "werewolf",
             "help": "variable:mhelp",
             "help2": "variable:mwin",
-            "hide": "both",
             "actions": {
                 "night": "variable:kill",
                 "startup": "team-reveal",
@@ -151,7 +150,9 @@
         { "role": "suspect",
             "translation": "Suspect",
             "side": "village",
-            "hide": "both",
+            "hide": "side",
+            "info": "variable:suspect",
+            "players": "",
             "help": ""
         }
     ],
@@ -169,6 +170,7 @@
         "vinfo": "Reveals as \"Not Mafia\" and \"Not Werewolf\". Sided with the Village.",
         "minfo": "Can kill one person during the night. Reveals as \"Mafia\" and \"Not Werewolf\". Sided with the Mafia.",
         "winfo": "Can kill one person during the night. Reveals as \"Not Mafia\" and \"Werewolf\". Sided with the Werewolves.",
+        "suspect": "Can be either Werewolf or Mafia.",
         
         "tplay": "4-11 Players. Only 1 will appear per game.",
         "mplay": "4-11 Players. Between 1 and 3 will appear per game. Won't appear with the Werewolf.",
