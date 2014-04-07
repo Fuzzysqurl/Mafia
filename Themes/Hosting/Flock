@@ -667,7 +667,7 @@
             "side": "odd",
             "help": "Are you a plant, a dinosaur, or a bird? Who cares? You can use /seed once per night to Leech Seed another player and kill them in two days (poison). During the day, you can hide in the shrubbery and /expose someone to determine their role (this will only be revealed to you, just like a night inspect). You know Gyarados' identity.",
             "info": "Can poison one player each night. Can inspect one player during the standby. Sided with the Odd Birds.",
-			"actions": {"teamTalk": ["seasnake", "seasnake2", "seasnake3", "seasnake4"]},
+			"actions": {"teamTalk": ["seasnake", "seasnake2", "seasnake3", "seasnake4"],
 "kill": { "mode": { "ignore": ["seasnake", "seasnake2", "seasnake3", "seasnake4"]}},
                 "night": {
                     "seed": {
