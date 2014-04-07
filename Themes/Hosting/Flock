@@ -648,7 +648,7 @@
             "side": "odd",
             "help": "You're a manta-ray bird thing! Use your big 'wings' (fins!) to /protect one player from kills and poison (BG/SG). Your Aqua Ring attack gives you protection in the form of a -2 voteshield.",
             "info": "Can protect and safeguard one player each night. Votesheild of -2. Sided with the Odd Birds.",
-			"actions": {"teamTalk": true,
+			"actions": {"teamTalk": ["charizard"],
 			"voteshield": -2,
                 "night": {
                     "protect": {
@@ -696,7 +696,7 @@
             "side": "odd",
             "help": "You are Charizard, the dragon that ended up being a bird. You can /blast one player every TWO nights to unleash your lethal Blast Burn attack. Bodyguards can't stop your attack (pierce) and you can't be distracted while using it. Also, your vote counts as 2 because of your status as a well-recognized and well-loved Gen 1 starter evolution. You know Mantine's identity.",
             "info": "Can pierce kill one player every second night. Vote counts as 2. Cannot be distracted. Sided with the Odd Birds.",
-			"actions": {"teamTalk": true,
+			"actions": {"teamTalk": ["mantine"],
 			"vote": 2,
                 "night": {
 				    "blast": {
