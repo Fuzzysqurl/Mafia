@@ -319,7 +319,7 @@
             "side": "mafia1",
             "help": "You're the Big Boss bird and you rule the skies. You can /kill one player each night (shared with Mandibuzz) and /slash another (separate) in order to clear out the skies. You cannot be haxed so it's best if you make the choices for the team! Your vote counts as 0 during the day though, but you have a -2 voteshield because you're so intimidating! By the way, you can't kill your teammates so you should probably PM someone you're not allowed to kill.",
             "info": "Can kill one player each night. Shares a second kill with Mandibuzz. Voteshield of -2 (-1 in games of 16 or fewer players). Vote of 0. Cannot be haxed. Sided with the Krow's Crew.",
-			"actions": {"teamTalk": true,
+			"actions": {"teamTalk": ["buzz"],
 			"voteshield": -2,
 			"vote": 0,
                 "night": {
@@ -353,7 +353,7 @@
 			"hide": true,
             "help": "You're the Big Boss bird and you rule the skies. You can /kill one player each night (shared with Mandibuzz) and /slash another (separate) in order to clear out the skies. You cannot be haxed so it's best if you make the choices for the team! Your vote counts as 0 during the day though, but you have a -1 voteshield because you're so intimidating! By the way, you can't kill your teammates so you should probably PM someone you're not allowed to kill.",
             "info": "Can kill one player each night. Shares a second kill with Mandibuzz. Voteshield of -2. Vote of 0. Sided with the Krow's Crew.",
-			"actions": {"teamTalk": true,
+			"actions": {"teamTalk": ["buzz"],
 			"voteshield": -1,
 			"vote": 0,
                 "night": {
@@ -388,7 +388,7 @@
             "side": "mafia1",
             "help": "You're a big, irate buzzard and you just want all of this squaking to end. You can /kill one player each night but it's best to let Honchkrow make the choices while he's alive since he can't be haxed. By the way, you can't kill your teammates so you should probably PM someone you're not allowed to kill.",
             "actions": {
-            "teamTalk": true,
+            "teamTalk": ["krow"],
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -423,7 +423,7 @@
             "side": "mafia1",
             "help": "You're a Golbat and you've come out of your cave to see what's going on. Use /venom to kill someone in two days. You can also use /train during the same night to try to grow stronger!",
             "info": "Can poison one player at night. Has a 25% chance of evolving at night. Sided with Krow's Crew.",
-			"actions": {"teamTalk": true,
+			"actions": {
                 "night": {
 					"venom": {
 					"command": "poison",
@@ -451,7 +451,7 @@
             "side": "mafia1",
             "help": "You've evolved into a Crobat and your poison is now twice as deadly. Your /venom will kill someone instantly! You're also now faster than all of the killers.",
             "info": "Can kill one player instantly with poison at night. Sided with Krow's Crew.",
-			"actions": {"teamTalk": true,
+			"actions": {
                 "night": {
 					"venom": {
                     "command": "poison",
@@ -468,7 +468,7 @@
             "side": "mafia1",
             "help": "You're a Swoobat and your Heart Stamp attack is your calling card. Use /stamp to distract a player at night!",
             "info": "Can distract one played at night. Sided with Krow's Crew.",
-			"actions": {"teamTalk": true,
+			"actions": {
                 "night": {
 				    "stamp": {
                     "command": "distract",
@@ -545,7 +545,7 @@
             "side": "odd",
             "help": "We're not sure if you're a bird, a dragon, or a fish but we do know that you're not happy. Use /kill to take a player out at night or you can use /bounce [yourname] (once per game) to become immune to all kills and poisons for one day. The turn you /bounce, your vote counts as 0. You know Tropius' identity.",
             "info": "Can kill one player at night. Can self-protect once per game (immune to everything, vote of zero that day). Sided with the Odd Birds.",
-			"actions": {"teamTalk": true,
+			"actions": {"teamTalk": ["seed"],
 "poison": { "mode": { "ignore": ["seed"]}},
                 "night": {
                     "kill": {
@@ -577,7 +577,7 @@
             "hide": true,
 			"side": "odd",
             "help": "You've bounced up and are safe for the day. Due to being airborne, your vote counts as zero today. You can /kill again during the night though.",
-            "actions": {"teamTalk": true,
+            "actions": {"teamTalk": ["seed"],
 "poison": { "mode": { "ignore": ["seed"]}},
 			    "distract": {
                     "mode": "ignore"},
@@ -599,7 +599,7 @@
             "hide": true,
 			"side": "odd",
             "help": "You've bounced up and are safe for the day. Due to being airborne, your vote counts as zero today. You can /kill again during the night though.",
-            "actions": {"teamTalk": true,
+            "actions": {"teamTalk": ["seed"],
 "poison": { "mode": { "ignore": ["seed"]}},
                 "vote": 0,
 				"night": {
@@ -628,7 +628,7 @@
 			"hide": true,
             "side": "odd",
             "help": "We're not sure if you're a bird, a dragon, or a fish but we do know that you're not happy. Use /kill to take a player out at night. You've used Bounce already so /kill is all you get!",
-            "actions": {"teamTalk": true,
+            "actions": {"teamTalk": ["seed"],
 "poison": { "mode": { "ignore": ["seed"]}},
                 "night": {
                     "kill": {
@@ -667,7 +667,7 @@
             "side": "odd",
             "help": "Are you a plant, a dinosaur, or a bird? Who cares? You can use /seed once per night to Leech Seed another player and kill them in two days (poison). During the day, you can hide in the shrubbery and /expose someone to determine their role (this will only be revealed to you, just like a night inspect). You know Gyarados' identity.",
             "info": "Can poison one player each night. Can inspect one player during the standby. Sided with the Odd Birds.",
-			"actions": {"teamTalk": true,
+			"actions": {"teamTalk": ["seasnake", "seasnake2", "seasnake3", "seasnake4"]},
 "kill": { "mode": { "ignore": ["seasnake", "seasnake2", "seasnake3", "seasnake4"]}},
                 "night": {
                     "seed": {
