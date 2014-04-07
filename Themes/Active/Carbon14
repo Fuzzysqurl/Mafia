@@ -58,6 +58,7 @@
             "side": "werewolf",
             "help": "variable:mhelp",
             "help2": "variable:mwin",
+            "info": "variable:minfo",
             "actions": {
                 "night": "variable:kill",
                 "startup": "team-reveal",
