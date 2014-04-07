@@ -136,7 +136,7 @@
             "side": "village",
             "help": "You're a fiesty little bird with a good heart. You can /glare at one player each night to keep them from acting! You can also use /train [your name] during the same night to try to become stronger and evolve! By the way, you know Farfetch'd from the start so don't distract him!",
             "info": "Can distract one player each night. Has a 15% chance of evolving at night. Sided with the Friendly Birds.",
-			"actions": {
+			"actions": {"teamTalk": ["fetch"],
 "kill": {"mode": { "ignore": ["fetch"]}},
                 "night": {
 				    "glare": {
@@ -248,7 +248,7 @@
             "side": "village",
             "help": "You're an adorable bird with a fierce attitude. You'll readily defend your turf at night with your trusty leek! Use /leek to remove one player from the game at night. Also, since you share a resemblance with Spearow, you always appear to be him during the game! You also know who the real Spearow is!",
             "info": "Can kill one player at night. Reveals as Spearow when inspected and in the current roles list. Sided with the Friendly Birds.",
-			"actions": {
+			"actions": {"teamTalk": ["hooker"],
 "distract": { "mode": { "ignore": ["hooker"]}},
                 "night": {
                     "leek": {
@@ -388,7 +388,7 @@
             "side": "mafia1",
             "help": "You're a big, irate buzzard and you just want all of this squaking to end. You can /kill one player each night but it's best to let Honchkrow make the choices while he's alive since he can't be haxed. By the way, you can't kill your teammates so you should probably PM someone you're not allowed to kill.",
             "actions": {
-            "teamTalk": ["krow"],
+            "teamTalk": ["krow", "krowS"],
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -406,7 +406,7 @@
             "translation": "Skarmory",
             "side": "mafia1",
             "help": "You're a Skarmory. You're big and sturdy and well-equipped to take a few hits during the fray. You can use your wings to /defend one player each night. Also, since you're a Steel type, you're immune to poison.",
-			"actions": {"teamTalk": true,
+			"actions": {
                 "night": {
                     "defend": {
                     "command": "protect",
@@ -485,7 +485,7 @@
             "translation": "Sigilyph",
             "side": "mafia1",
             "help": "Your Psychic abilities allow you to find out a little of what's happening at night. You get hax on kills, Skarmory's protect, and Golbat's poison so connect with your teammates if you find them! Also, since you share a psychic sense with Swoobat, you'll always know him! Your vote counts as -2!",
-            "actions": {"teamTalk": true,
+            "actions": {
 			"vote": -2,
                 "hax": {
                     "kill": {
@@ -513,7 +513,7 @@
             "side": "mafia1",
             "help": "You're a Drifblim! You can't do anything during the night but your vote counts as 2 during the day! Also, if you get lynched, you'll use your Destiny Bond to revenge your death!",
             "info": "Vote counts as 2. Gets a venegeful kill upon being lynched. Sided with Krow's Crew.",
-			"actions": {"teamTalk": true,
+			"actions": {
 			"vote": 2,
                 "lynch": {
                     "convertTo": "balloon2",
@@ -526,7 +526,7 @@
             "side": "mafia1",
             "help": "You've been lynched, but you can have your revenge! You can use /kill to eliminate one person!",
 			"info": "Can kill one player after being lynched. Sided with Krow's Crew.",
-            "actions": {"teamTalk": true,
+            "actions": {
                 "initialCondition": {
                     "poison": {
                         "count": -1
