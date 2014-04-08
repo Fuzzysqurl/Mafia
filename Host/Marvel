@@ -1,0 +1,1871 @@
+{
+    "name": "Marvel",
+    "author": [
+        "Dark Phoenix",
+        "Roild"
+    ],
+    "summary": "Welcome to the Marvel Universe, where you can encounter the likes of the Fantastic Four, the Avengers, S.H.I.E.L.D., villains from all over the globe and even some not of this world... as well as Mercenaries from all around who would just as easily kill each other than find a way to work together!",
+    "minplayers": 7,
+    "sides": [
+        {
+            "side": "merc",
+            "translation": "Mercenaries",
+            "winmsg": "It seems ~Players~ defeated everyone in their bid for world domination!"
+        },
+        {
+            "side": "village",
+            "translation": "Heroes",
+            "winmsg": "~Players~ banded together and saved Planet Earth from destruction!"
+        },
+        {
+            "side": "sent",
+            "translation": "Sentinel Force",
+            "winmsg": "The ~Players~ was able to distribute the legacy virus! Earth was eradicated of all mutants."
+        },
+        {
+            "side": "hulk",
+            "translation": "Hulk",
+            "winmsg": "The ~Players~ smashed all other opposition, and continued to go on a rampage. ~Players~: HULK SMASH!!!"
+        },
+        {
+            "side": "aim",
+            "translation": "A.I.M",
+            "winmsg": "The organization A.I.M, led by ~Players~, were able to initiate their plans of world conquest."
+        },
+        {
+            "side": "cabal",
+            "translation": "Cabal",
+            "winmsg": "The ~Players~ of Cabal were able to nullify all other forces. The world was cast into a period of darkness!"
+        },
+        {
+            "side": "brother",
+            "translation": "Brotherhood",
+            "winmsg": "The Brotherhood defeated the x-men and other foes. ~Players~ laughed as the heroes languished in their defeat, and took turns terrorizing the humans of earth!"
+        },
+        {
+            "side": "apocalypse",
+            "translation": "Horsemen of Apocalypse",
+            "winmsg": "~Players~, led by Apocalypse himself, were able to impose their will against all opposition.  They ushered in a new era of dominance and chaos!"
+        },
+        {
+            "side": "thanos",
+            "translation": "Annihilation Wave",
+            "winmsg": "~Players~ defeated all opposition! With Thanos able to utilize the infinity gems, the heroes of Earth, and the universe, succumbed to a sad fate!"
+        },
+        {
+            "side": "symbiote",
+            "translation": "Symbiotes",
+            "winmsg": "The symbiotes ~Players~ began to ensnare the remaining forces in their web - oh the tyranny!"
+        },
+        {
+            "side": "doom",
+            "translation": "Dr. Doom",
+            "winmsg": "~Players~: I now claim Earth as New Doomstadt! Now.. Bring me Reed Richards' body!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "agent",
+            "translation": "Agent",
+            "side": "village",
+			"info": "An Agent of S.H.I.E.L.D. As footsoldiers of the organization, they each have their own identity, but have to work together to take down superpowered heroes or villains with their 1 vote. Hidden amongst their ranks may be the mighty Hulk, powerful Thor, or intelligent Iron Man!",
+            "help": "You are an Agent of S.H.I.E.L.D. You also seem to be adept with your hands. Unfortunately, you have no actions during the night. Vote to remove people during the day!",
+            "actions": {}
+        },
+		 {
+            "role": "agent2",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You are a shield agent who happens to expertise with medicine. Unfortunately, you have no commands during the night. Vote to remove people during the day!",
+            "actions": {}
+        },
+		 {
+            "role": "agent3",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You are a S.H.I.E.L.D. agent who happens to expertise with technology. Unfortunately, you have no commands during the night. Vote to remove people during the day!",
+            "actions": {}
+        }, {
+            "role": "agent4",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You're a S.H.I.E.L.D. Agent that happens to be incredibly strong, so you're with the task force! Unfortunately, you have no commands during the night. Vote to remove people during the day!",
+            "actions": {}
+        },
+		{
+            "role": "agent5",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You are a member of the Strategic Homeland Intervention, Enforcement and Logistics Division. You work hard during the day to find people who threaten your country by using your vote to remove them!",
+            "actions": {}
+        },
+		{
+            "role": "agent6",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You are one of the female members of S.H.I.E.L.D. who everyone fears. You love long walks on glass-covered beaches and drinking hard scotch near live volcanoes.",
+            "actions": {}
+        },
+		
+        {
+            "role": "invisible",
+            "translation": "Invisible Woman",
+            "side": "village",
+			"info": "Can distract. Vote of 0 and -1 voteshield. Sided with the Heroes.",
+            "help": "You are Susan Storm! With the ability to use /bind to mystify your target into confusion! You also have a -1 voteshield, but at the expense of having 0 votes.",
+            "actions": {
+                "night": {
+                    "bind": {
+                        "command": "distract",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 3
+                    }
+                },
+                "vote": 0,
+                "voteshield": -1
+            }
+        },
+        {
+            "role": "reed",
+            "translation": "Mr. Fantastic",
+            "side": "village",
+			"info": "Inspector. Sided with the Heroes.",
+            "help": "You are Mister Fantastic himself, Reed Richards! Utilizing the power of science, you are able to use /inspect to find out the targets true identity!",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 60,
+                        "Sight": "Team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "luke",
+            "translation": "Luke Cage",
+            "side": "village",
+            "help": "You are the Hero for Hire, Luke Cage! Your skin is nigh impenetrable, so you cannot be killed during the day!",
+            "info": "Can't be killed during the day. Sided with the Heroes.",
+            "actions": {
+                "daykill": "evade"
+            }
+        },
+        {
+            "role": "thing",
+            "translation": "The Thing",
+            "side": "village",
+            "help": "'It's Clobberin' Time! You are The Thing, you have the power to /protect a target without the fear of being distracted!",
+            "info": "Can protect 1 target at night. Cannot be distracted. Sided with the Heroes.",
+            "actions": {
+                "distract": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "priority": 5,
+                        "common": "Self"
+                    }
+                }
+            }
+        },
+        {
+            "role": "torch",
+            "translation": "Human Torch",
+            "side": "village",
+            "help": "Flame on! You are the Human Torch - sided with the village. Living up to your moniker, you are able to prevent people from deadly toxins with /guard and burning any lethal toxins out! You cannot be poisoned.",
+            "info": "Can safeguard 1 target at night. Cannot be poisoned. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "guard": {
+                        "command": "safeguard",
+                        "common": "Self",
+                        "priority": 5,
+                        "target": "AnyButSelf"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "storm",
+            "translation": "Storm",
+            "side": "village",
+            "help": "You are the African priestess, Storm - also sided with the village! Using your ability to conjure up weather, you can distract up to two people per night using /distract!",
+            "info": "Can distract up to two people at a time. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "limit": 2,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "cyclops",
+            "translation": "Cyclops",
+            "side": "village",
+            "help": "You are the fearless - yet strategic leader of the X-Men/Village, Cyclops! Do your best to find out where the remaining members are, because during the day you will release your optic blast with /kill - this will reveal you! Because you are very conscious however, you can only do this twice before exhausting yourself!",
+            "info": "Samurai with two charges. Sided with the Heroes.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "msg": "If you are ready to strike, use /kill to take out one target during the day! You will be revealed!",
+                        "killmsg": "~Self~ came from behind a corner, looking for his target. Before ~Target~ could have a say in the matter - 'OPTIC BLAST!' - was all he heard before being decimated by an omnipotent concussive beam.",
+                        "charges": 2,
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "iceman",
+            "translation": "Ice Man",
+            "side": "village",
+            "help": "You are the omnipotent Ice Man! Utilizing the command /freeze, you can actually protect two targets from being killed at night! However the drawback is that they will actually be unable to perform any actions! Use this wisely, as you cannot use this on yourself!",
+            "info": "Protect+Distracts 2 targets a night. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "freeze": {
+                        "command": [
+                            "protect",
+                            "distract"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "xavier",
+            "translation": "Professor Xavier",
+            "side": "village",
+            "help": "As the Professor, you can utilize your superior psychic abilities and locate friend and foes alike! Each night, you can /inspect one person.",
+            "info": "Basic Inspector that reveals side. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30,
+                        "Sight": "Team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "spider",
+            "translation": "Spider-Man",
+            "side": "village",
+            "help": "Your spidey-senses prevent you from taking hits at night. During the day you can kill one person, but you will be revealed.",
+            "info": "Can kill during the day. Sided with the Heroes.",
+            "actions": {
+                "kill": {
+                    "mode": "ignore"
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill to utilize your web swing and remove someone from the game! You will be revealed.",
+                        "killmsg": "~Self~ web swings towards ~Target~ and gives them a spidey beat-down!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "banner",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You are a S.H.I.E.L.D. agent who happens to expertise with medicine. Unfortunately, you have no commands during the night. Vote to remove people during the day!",
+            "actions": {
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "daykill": "evade",
+                "lynch": {
+                    "convertTo": "hulk",
+                    "convertmsg": "~Old~ was about to get lynched, so it was no surprised he got angry and became the ~New~!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "hulk",
+                        "curseCount": 4,
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "hulk",
+            "translation": "Hulk",
+            "side": "hulk",
+			"info": "Can kill during the night and day. Kills anyone who tries to night kill him. Immune to poison. Kills anyone who tries to daykill. Sided with himself.",
+            "help": "Your anger has taken control over you! No one is your ally! Attack your foes with /kill.  Additionally during the day, you can use /crush once to attack unrevealed! In addition to be incredibly powerful, you avoid poison and counter any type of kill thrown at you.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "msg": "Hulk came from space and crushed you with a rock.  Not a very pleasant way to die I would imagine.",
+                        "priority": 13
+                    }
+                },
+                "standby": {
+                    "crush": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "charges": 1,
+                        "msg": "Type /crush to immediately attack any foe without revealing yourself!",
+                        "killmsg": "'GAMMA CRUSH!' Those were the only words ~Target~ could hear before a giant meteor smashed them into the earth."
+                    }
+                },
+                "kill": {
+                    "mode": "ChangeTarget"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ tried to attack the Hulk; but instead he was hit with a meteorite from space. Not the smartest eh?"
+            }
+        },
+        {
+            "role": "beast",
+            "translation": "Beast",
+            "side": "village",
+            "help": "You are the political and ever knowledgeable Beast; who is sided with the village. Because you are more of a talker than a fighter, you are given an extra three votes.  However, because you are prone for trying to take one for the team, you are given a +1 to your voteshield!",
+            "info": "Mayor with +3 votes, but with a +1 voteshield. Sided with the Heroes.",
+            "actions": {
+                "vote": 3,
+                "voteshield": 1
+            }
+        },
+        {
+            "role": "frost",
+            "translation": "Emma Frost",
+            "side": "village",
+            "help": "You are the White Queen herself, Emma Frost! You have renounced your former shady dealings - and have become a key member with the village!  Utilizing the command /seduce to both inspect and distract a target, you can be very useful in identifying potential threats.  Because of your former dealings with opposing forces however, you are viewed as being mafia!",
+            "info": "Inspector and Distractor, but reveals as being on Magneto's side. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "seduce": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "Sight": "Team",
+                        "command": [
+                            "inspect",
+                            "distract"
+                        ]
+                    }
+                },
+                "inspect": {
+                    "seenSide": "brother"
+                }
+            }
+        },
+        {
+            "role": "gambit",
+            "translation": "Gambit",
+            "side": "village",
+            "help": "You are the notorious thief, Gambit! Apart of the village, you can utilize your kinectic energy with /gamble to potentially poison or distract a target.  Because of your time served as Apocalypse's henchmen, you are viewed as being on his side when inspected!",
+            "info": "Either distracts or poisons a target, but reveals as being on apocalypse's side. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "gamble": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "command": {
+                            "distract": 0.5,
+                            "poison": 0.5
+                        }
+                    }
+                },
+                "inspect": {
+                    "seenSide": "apocalypse"
+                }
+            }
+        },
+        {
+            "role": "psylocke",
+            "translation": "Psylocke",
+            "side": "village",
+            "help": "You are Lady Mandarin herself, Psylocke!  A leading force apart of the village, you are extremely versed in psionics.  Because of this, you are able to ignore such commands as distract, but cannot be protected or safeguarded.  You are able to /kill each night!",
+            "info": "Vigilante that negates distract, protect, safeguard. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "priority": 15,
+                        "common": "Self"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone attempted to distract you - you swept by them with ease and continued your action."
+                },
+                "protect": {
+                    "mode": "ignore",
+                    "msg": "You could feel that someone was desperately trying to protect you this evening, but you ignored their warnings anyway."
+                },
+                "safeguard": {
+                    "mode": "ignore",
+                    "msg": "You could feel that someone was desperately trying to protect you this evening, but you ignored their warnings anyway."
+                }
+            }
+        },
+        {
+            "role": "wolverine",
+            "translation": "Wolverine",
+            "side": "village",
+            "help": "You are the Wolverine, a vigilante among the village! You are always intense and looking to pick fights.  Because of this, sometimes you may get voted out, but you can stay in the game 'once'!  You can /kill each night! But be careful not to hit any of your team-mates!",
+            "info": "Vigilante that can be voted off once and still be in the game.",
+            "actions": {
+                "night": {
+                    "slice": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "priority": 15,
+                        "common": "Self"
+                    }
+                },
+                "lynch": {
+                    "convertTo": "wolverine2",
+                    "convertmsg": "You can't get rid of the ~Old~ - because the ~New~ never gets defeated!"
+                }
+            }
+        },
+        {
+            "role": "wolverine2",
+            "translation": "Wolverine",
+            "side": "village",
+            "help": "You are the Wolverine - a vigilante among the village! You are always intense and looking to pick fights. You can /kill each night! But be careful not to hit any of your team-mates!",
+            "info": "Vigilante that can be voted off once and still be in the game.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "priority": 15,
+                        "common": "Self"
+                    }
+                }
+            }
+        },
+        {
+            "role": "colossus",
+            "translation": "Colossus",
+            "side": "village",
+            "help": "You are Peter Rasputin, better known as Colossus! You are apart of the village - and you are built to withstand one attack! Because of your outer-shell, you can avoid being poisoned and have a 1x bulletproof shield! You can kill each night with /kill!",
+            "info": "Vigilante that is immune to poison. Has a 1x bulletproof shield.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "priority": 15,
+                        "common": "Self"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "Your outer shell has been destroyed! The next shot you take will defeat you!"
+                }
+            }
+        },
+        {
+            "role": "stark",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You are a S.H.I.E.L.D. agent who happens to expertise with technology. Unfortunately, you have no commands during the night. Vote to remove people during the day!",
+            "info": "No actions. Sided with the Heroes.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "iron",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "iron",
+            "translation": "Iron Man",
+            "side": "village",
+            "help": "You are Iron Man - in the flesh! Kinda. Regardless, you are able to /expose one person a day that will give you their role, in secret! Use this to potentially find any foes, or ally without any fear of retaliation!",
+            "info": "Can expose a role once per day. Sided with the Heroes.",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /expose to allow Jarvis to give you someone's identity!",
+                        "exposemsg": "IM: Jarvis, who is that? Tony, the person you have locked on is ~Role~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "hawkeye",
+            "translation": "Hawk-Eye",
+            "side": "village",
+            "help": "You are Clint Barton, the original Hawkeye! You are apart of the village. You are extremely avid - and sometimes considerably cocky. Because of that your performance has been lack luster recently.  Utilizing the command /arrow, you can either distract or kill a foe!",
+            "info": "Can distract one target per night, with a chance to kill them instead.",
+            "actions": {
+                "night": {
+                    "arrow": {
+                        "command": {
+                            "distract": 0.6,
+                            "kill": 0.4
+                        },
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5
+                    }
+                }
+            }
+        },
+        {
+            "role": "captain",
+            "translation": "Captain America",
+            "side": "village",
+            "help": "Hey, it's Steve Rogers!  The original Captain America, you are all about protecting and serving the innocent! With this in mind, you are able to /protect to any two targets each night - but don't think about protecting yourself!",
+            "info": "Can protect two people during the night. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "limit": 2,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5
+                    }
+                }
+            }
+        },
+        {
+            "role": "winter",
+            "translation": "Winter Soldier",
+            "side": "village",
+			"winningSides": ["village", "merc"],
+            "help": "You are the Winter Soldier himself, Bucky!  Because of some intense subliminal messaging, you have to control the urge to not fight Captain America - so you have no actions at night. However, when it comes down to it you have the ability to win with both the village or the mysterious Mercenaries group!",
+            "info": "No actions. Sided with the Heroes, but can with with the Mercenaries as well.",
+            "actions": {}
+        },
+        {
+            "role": "daredevil",
+            "translation": "Daredevil",
+            "side": "village",
+            "help": "You are the Daredevil! You are apart of the village, and although blinded since a young age, you have developed an incredible senses that allow you to have incredible reflexes.  Bound by your vows of justice, you do not kill anyone however that does not stop you from disabling them from fighting! You can achieve this with your +2 voting during the day, as well as having a -1 voteshield! You also evade all night-kills!",
+            "info": "Avoids nightkills. Has an extra vote of +2, with a voteshield of -1.",
+            "actions": {
+			"vote": 2,
+			"voteshield": -1,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "strange",
+            "translation": "Dr. Strange",
+            "side": "village",
+            "help": "You are the sorcerer supreme! Utilizing the eye of Agamotto, you are able to /inspect to gain a roles' side.  You also counter all daykills thrown at you!",
+            "info": "Inspector who can revenge daykills. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 29,
+                        "Sight": "Team"
+                    }
+                },
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ tried to attack the fabled Sorcerer Supreme. But the Eye of Agamotto allowed Dr. Strange to use the Spell of Vishanti to disperse his foe!"
+            }
+        },
+        {
+            "role": "silver",
+            "translation": "Silver Surfer",
+            "side": "village",
+            "help": "You are the cosmic herald, Silver Surfer! You have renounced your ways of leading Galactus' to eating planets, and have turned to help the Heroes of Earth. Utilizing /guard, you are able to both safeguard and remove any poison that target may have each night. In addition to this, you cannot be poisoned whatsoever!",
+            "info": "Can safeguard one person during the night (user is also cleared of poison). Can't be poisoned. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "guard": {
+                        "command": [
+                            "safeguard",
+                            "detox"
+                        ],
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 6
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "blake",
+            "translation": "Agent",
+            "side": "village",
+			"hide": true,
+            "help": "You're a S.H.I.E.L.D. Agent that happens to be incredibly strong, so you're with the task force! Unfortunately, you have no commands during the night. Vote to remove people during the day!",
+            "info": "No actions. Sided with the Heroes.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "thor",
+                        "curseCount": 3,
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "thor",
+            "translation": "Thor",
+            "side": "village",
+            "help": "You are infact the mighty asgardian, Thor! Wielding your mighty mjolnir, you can strke any foe down in front of you during the night with /kill! Because you are a proud warrior however, you refuse to be protected at night!",
+            "info": "Vigilante that cannot be protected. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 15
+                    }
+                },
+                "protect": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "pym",
+            "translation": "Henry Pym",
+            "side": "village",
+            "help": "You are the brilliant scientist, Henry Pym who is sided with the village.  Utilizing your 'special' particles, you can convert to 3 different roles that have different voting strengths! You can use this with the command /ingest!",
+            "info": "Can convert into 3 different roles.",
+            "actions": {
+                "night": {
+                    "ingest": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": {
+                            "ant": [
+                                "pym"
+                            ],
+                            "goliath": [
+                                "pym"
+                            ],
+                            "yellowjacket": [
+                                "pym"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "role": "ant",
+            "translation": "Ant-Man",
+            "side": "village",
+            "help": "You are the magnificent Ant-Man, and still aligned with the village! Because of this you are quite adept with negative votes.  Your vote accounts for -3, while also attaining a -1 voteshield! At the end of this night, you will revert back to your previous form.",
+            "info": " Has a vote of -3, with a voteshield of -1.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "pym",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }
+                },
+                "vote": -3,
+                "voteshield": -1
+            }
+        },
+        {
+            "role": "goliath",
+            "translation": "Goliath",
+            "side": "village",
+            "help": "You are the giant Goliath, and still aligned with the village! Because of this, you have an increase in your voting prowess. During the day you account for +4 votes, while also being a good chance of being targeted, so your voteshield is now +1! At the end of this night you will revert back to your previous form.xx",
+            "info": "Has a vote of +4, with a voteshield of +1",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "pym",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }
+                },
+                "vote": 4,
+                "voteshield": 1
+            }
+        },
+        {
+            "role": "yellowjacket",
+            "translation": "Yellow Jacket",
+            "side": "village",
+            "help": "You are the ever elusive Yellow Jacket, and still aligned with the village!  Because you spend more time trying to evade than voting, you are able to evade both night and daykills alike! However because of this, you have no voting prowess whatsoever. At the end of this night you will revert back to your previous form.",
+            "info": "Evades nightkill, but has 0 votes",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "pym",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }
+                },
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                },
+                "daykill": "evade"
+            }
+        },
+        {
+            "role": "ghost",
+            "translation": "Ghost Rider",
+            "side": "village",
+            "help": "You are the grim, Ghost Rider! With your affinity for finding our cursed souls, you are able to /inspect once a night to find someones side.  You are able to daykill each standby phase - one is an unrevealing daykill - while the other is a one-time only revealing kill that should only be used in dire situations!",
+            "info": "Can inspect once a night. Can daykill twice, the first concealed, the second one revealing and can only be used once per game. Sided with the Heroes.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 12,
+                        "Sight": "Team"
+                    }
+                },
+                "standby": {
+                    "stare": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "You are able to /stare to kill any target, this will not reveal you!",
+                        "killmsg": "~Target~ thought they were going to be safe for the day - until the Hellfire from Ghost Rider began to surround their skin and sear their soul!"
+                    },
+                    "blaze": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "killmsg": "~Self~: 'Look into my eyes..' Was all ~Target~ heard before they began to turn to dust - their soul had be burned!",
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "modok",
+            "translation": "M.O.D.O.K",
+            "side": "aim",
+            "help": "The mastermind M.O.D.O.K, you harbor a deep hatred for all things good! Utilize your command /aim, to either maim (poison) or kill your target! ",
+            "info": "AIM: chance to poison or kill a target.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "aim": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 12,
+                        "command": {
+                            "kill": 0.3,
+                            "poison": 0.7
+                        },
+                        "poisonDeadMessage": "The laser that was pulsating through your brain finally got through - in other words, your brain has dissolved."
+                    }
+                }
+            }
+        },
+        {
+            "role": "skull",
+            "translation": "Red Skull",
+            "side": "aim",
+            "help": "You are the cynical Red Skull! You share the same /aim command as MODOK; you also inspect as part of the Heroes. You have a revealing day-kill-with the drawback of being a one-time use!",
+            "info": "AIM (poison or kill). Reveals as a Hero when inspected. Can kill one person during the day (reveals user.) Sided with A.I.M.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "standby": {
+                    "kill": {
+                        "msg": "Type /kill to execute a target, and remove them from the game This will reveal you!",
+                        "target": "AnyButTeam",
+                        "killmsg": "'~Self~':'So I've decided that tonight, I will destroy you!' ~Target~ had no chance against the mighty Red Skull!",
+                        "charges": 1
+                    }
+                },
+                "night": {
+                    "aim": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 12,
+                        "command": {
+                            "kill": 0.3,
+                            "poison": 0.7
+                        },
+                        "poisonDeadMessage": "The laser that was boring into your skull finally melted your brain."
+                    }
+                },
+"inspect": {
+                    "seenSide": "village"
+            }
+}
+        },
+        {
+            "role": "taskmaster",
+            "translation": "Taskmaster",
+            "side": "cabal",
+            "help": "The mercernary for hire, you are the anti-hero Taskmaster! You are able to to uilize one /kill at night, as well as the ability to utilize the command /arrow, which has some pretty interesting side-effects that can go from poisoning your target, or protecting them! This cannot be used on your team-mate. You have a vote of 0, but contain a voteshield of -1.",
+            "info": "Basic Nightkill. Can arrow one person during the night which can either poison, inspect, distract, safeguard, or protect them. Vote counts as 0. Voteshield of -1. Sided with Cabal.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "vote": 0,
+                "voteshield": -1,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 10
+                    },
+                    "arrow": {
+                        "common": "Self",
+                        "command": {
+                            "inspect": 0.2,
+                            "protect": 0.2,
+                            "distract": 0.2,
+                            "safeguard": 0.2,
+                            "poison": 0.2
+                        },
+                        "poisonDeadMessage": "You were hit with a small arrow tipped with poison This resulted in your death.",
+                        "distractmsg": "You intended on doing your nightly actions, but you saw Taskmaster taking aim at you. You were too intimidated to proceed with your actions.",
+                        "target": "AnyButTeam",
+                        "Sight": "Team",
+                        "priority": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "namor",
+            "translation": "Namor",
+            "side": "cabal",
+            "help": "The submariner himself - who happens to be seeking revenge with the humans who destroyed your home! Utilize your shared nightkill with Taskmaster, as well as the ability to /protect him, but you can only do this 3 times!",
+            "info": "Can kill one person during the night. Can protect a teammate 3 times per game. Vote counts as 2. Sided with Cabal.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 10
+                    },
+                    "protect": {
+                        "charges": 3,
+                        "common": "Self",
+                        "priority": 5,
+                        "broadcast": "team",
+                        "target": "OnlyTeammates"
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "magneto",
+            "translation": "Magneto",
+            "side": "brother",
+            "help": "You are the revolutionary leader of the Brotherhood, Magneto! You are able to kill one target a night while also containing +3 votes.  Any attempts to distract you will be ignored effortlessly! Coordinate with your team with /teamtalk",
+            "info": "Can kill one role a night. Also contains +3 votes. Ignores distracts. Sided with the Brotherhood.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 10
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone attempted to distract you - you swept by them with ease and continued your action."
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "mystique",
+            "translation": "Mystique",
+            "side": "brother",
+            "help": "Blah",
+            "info": " Can copy one person during the night, getting their ability. Sided with the Brotherhood.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "juggernaut",
+            "translation": "Juggernaut",
+            "side": "brother",
+            "help": "You're the Juggernaut -- and you're sided with the brotherhood!  You can /kill one target a night that is shared with the Team. You also have a separate command /ram, that actually pierces all protections (but will not hit an evading target). You can only use it twice before you run out of the ability to use it. Use these wisely to defeat the village, and win!",
+            "info": "Can kill one person during the night. Can ram one person during the night, twice per game (pierce kill). Sided with the Brotherhood.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 10
+                    },
+                    "ram": {
+                        "command": "kill",
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 15,
+                        "pierce": true,
+                        "charges": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "sabre",
+            "translation": "Sabretooth",
+            "side": "brother",
+            "help": "You are the feral being - Sabretooth! Sided with the brotherhood, you can be voted off once and still be in the game! You also share a /kill with your team. Work together utilizing /teamtalk to coordinate with your team to defeat all opponents! Once you get lynched from the game you will come back stronger!",
+            "info": "Can kill one person during the night. Can be voted and survive once per game. Sided with the Brotherhood.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 10
+                    }
+                },
+                "lynch": {
+                    "convertTo": "sabre2",
+                    "convertmsg": "So you like to play fancy with me, huh? I, the ~New~ will come back with a new vengeance!"
+                }
+            }
+        },
+        {
+            "role": "sabre2",
+            "translation": "Sabretooth",
+            "side": "brother",
+            "help": "You are the feral being - Sabretooth! Sided with the brotherhood. You now have a 1-time only priority one kill utilizing the command Claw! You also share a /kill with your team. Work together utilizing /teamtalk to coordinate with your team to defeat all opponents!",
+            "info": "Can kill one person during the night. Has a one-time only priority 1 kill. Can be voted and survive once per game. Sided with the Brotherhood.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 10
+                    },
+                    "claw": {
+                        "command": "kill",
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 1,
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "toad",
+            "translation": "Toad",
+            "side": "brother",
+            "help": "You are rather slimy - you must be Toad! Sided with the brotherhood, you share one /kill with your team per night. You can also utilize the command /spit - which will both poison and distract one target a night! Utilize /teamtalk with your team to defeat all opposing forces!",
+            "info": "Can kill one person during the night. Can also spit (poison+distract) one target every two nights. Sided with the Brotherhood.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 10
+                    },
+                    "spit": {
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 3,
+						"recharge": 2,
+                        "command": [
+                            "poison",
+                            "distract"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "apocalypse",
+            "translation": "Apocalypse",
+            "side": "apocalypse",
+            "help": "You are the pinnacle of tyranny, Apocalypse! As a being of near perfection, you have one of the highest priority kills! As long as Mister Sinister is alive, you cannot die!",
+            "info": "Can kill one person during the night. Sided with the Horsemen of Apocalypse.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 9
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "apocalypse1",
+            "translation": "Apocalypse",
+            "side": "apocalypse",
+            "help": "You are the pinnacle of tyranny, Apocalypse! As a being of near perfection, you have one of the highest priority kills!",
+            "info": "Can kill one person during the night. Sided with the Horsemen of Apocalypse.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 9
+                    }
+                }
+            }
+        },
+        {
+            "role": "sinister",
+            "translation": "Mister Sinister",
+            "side": "apocalypse",
+            "help": "You are the crazed scientist, Nathaniel Essex! Sided with apocalypse, you have no physical night commands, however it is under your protection that both Ozymandias and Apocalypse can never be killed during the night. You can still however, vote during the day!",
+            "info": "On death, Ozymandias and Apocalypse lose their nightkill immunity. Sided with the Horsemen of Apocalypse.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "onDeath": {
+                    "convertRoles": {
+                        "apocalypse": "apocalypse1",
+                        "ozymandias": "ozymandias1"
+                    },
+				"singleconvertmsg": "How unfortunate for you...that Apocalypse is nowhere remotely in the vicinity. What a sinister turn of events this is, eh?"
+                }
+            }
+        },
+        {
+            "role": "ozymandias",
+            "translation": "Ozymandias",
+            "side": "apocalypse",
+            "help": "You are the undying Ozymandias, sided with Apocalypse!  You are able to /study one target each night, allowing you to both Inspect and Poison them! While Mister Sinister is alive, you will not be killed during the night.",
+            "info": "Can study one person during the night (inspects and poisons the target). Sided with the Horsemen of Apocalypse.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "study": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 15,
+                        "Sight": "Team",
+                        "command": [
+                            "inspect",
+                            "poison"
+                        ]
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "ozymandias1",
+            "translation": "Ozymandias",
+            "side": "apocalypse",
+            "help": "You are the undying Ozymandias, sided with Apocalypse!  You are able to /study one target each night, allowing you to both Inspect and Poison them!",
+            "info": "Can study one person during the night (inspects and poisons the target). Sided with the Horsemen of Apocalypse.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "study": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 15,
+                        "Sight": "Team",
+                        "command": [
+                            "inspect",
+                            "poison"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "klrt",
+            "translation": "Kl'rt",
+            "side": "thanos",
+            "help": "You are the original Super Skrull, Kl'Rt! You can /protect two targets each night, but cannot protect yourself. You also share a night-kill with your team-mates, utilizing /kill! Coordinate with team-talk and vote during the day!",
+            "info": "Reveals as Villager Side when inspected. Can protect two teammates during the night. Shared night kill. Sided with Thanos.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "limit": 2,
+                        "priority": 5,
+                        "target": "OnlyTeammates"
+                    },
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 12
+                    }
+                },
+                "inspect": {
+                    "seenSide": "village"
+                }
+            }
+        },
+        {
+            "role": "thanos",
+            "translation": "Thanos",
+            "side": "thanos",
+            "help": "You are the self proclaimed King of Eternals, Thanos! You cannot do any actions at this moment, but starting night 3 you will have all the gems collected! Utilize team-talk to converse with your team-mates.",
+            "info": "Cannot be killed/poisoned but has no actions until night 3. Sided with Thanos.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ig",
+                        "curseCount": 2,
+			"silentCurse": true
+			
+                    }
+                }
+            }
+        },
+        {
+            "role": "ig",
+            "translation": "Thanos",
+            "side": "thanos",
+            "help": "You have collected all the Infinity Gems! During the standby phase you have access to several exposes, one of which can be real, or could be faked. You also have a team-kill with your team-mates utilizing the command /kill. Converse with /teamtalk to coordinate strategies!",
+            "info": "Can utilize an expose (won't reveal self) that will 'fake' a role [only select few] or actually reveal a target. Shared night-kill. Sided with Thanos.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 12
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "Any",
+                        "msg": "You can reveal a role typing /expose [name], you won't be revealed.",
+                        "exposemsg": "Thanos: So it is decided, I have chosen to reveal you, ~Target~.  You are such a scrawny foe, you don't deserve the name ~Role~!"
+                    },
+                    "apocalypse": {
+                        "command": "expose",
+                        "target": "Any",
+                        "msg": "You can instead expose that person as a fake role by using /apocalypse, /magneto, /iceman, /phoenix, or /deadpool",
+                        "exposemsg": "Thanos: So it is decided, I have chosen to reveal you, ~Target~.  You are such a scrawny foe, you don't deserve the name Apocalypse!"
+                    },
+                    "magneto": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "Thanos: So it is decided, I have chosen to reveal you, ~Target~.  You are such a scrawny foe, you don't deserve the name Magneto!"
+                    },
+                    "iceman": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "Thanos: So it is decided, I have chosen to reveal you, ~Target~.  You are such a scrawny foe, you don't deserve the name Ice Man!"
+                    },
+                    "phoenix": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "Thanos: So it is decided, I have chosen to reveal you, ~Target~.  You are such a scrawny foe, you don't deserve the name Phoenix!"
+                    },
+                    "deadpool": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "Thanos: So it is decided, I have chosen to reveal you, ~Target~.  You are such a scrawny foe, you don't deserve the name Deadpool!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "loki",
+            "translation": "Loki",
+            "side": "thanos",
+            "help": "You are one who strives off of deceit and chaos. You are Loki - sided with Thanos! You have a shared night /kill with your team and can also coordinate with your team-mates utilizing /teamtalk.",
+            "info": "Shared night-kill. Fake expose of Loki. Can survive when voted out once. Sided with Thanos.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 12
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "Any",
+                        "msg": "You can use /expose to reveal yourself as Loki, or reveal someone else as Loki!",
+                        "exposemsg": "Well simmer down, simmer down ladies and gentle folk... I, ~Target~, am the true sorcerer and mastermind behind chaos!"
+                    }
+                },
+                "lynch": {
+                    "convertTo": "loki1",
+                    "convertmsg": "±Game: ~Player~ (~Role~) was forcefully thrown out the battlefield!"
+                }
+            }
+        },
+        {
+            "role": "loki1",
+            "translation": "Loki",
+            "side": "thanos",
+            "help": "You are one who strives off of deceit and chaos. You are Loki - sided with Thanos! You have a shared night /kill with your team and can also coordinate with your team-mates utilizing /teamtalk.",
+            "info": "Shared night-kill. Fake expose of Loki. Can survive when voted out once. Sided with Thanos.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 12
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "Any",
+                        "msg": "You can use /expose to reveal yourself as Loki, or reveal someone else as Loki!",
+                        "exposemsg": "Well simmer down, simmer down ladies and gentle folk... I, ~Target~, am the true sorcerer and mastermind behind chaos!"
+                    }
+                },
+                "onlist": "agent"
+            }
+        },
+        {
+            "role": "venom",
+            "translation": "Venom",
+            "side": "symbiote",
+            "help": "You are the symbiote, Venom! You share a teamkill /kill, and you also have a solo distract with the command /web. You also have an immunity to poison. Converse with your team-mates with /teamtalk!",
+            "info": "Shared night-kill. Can distract. Immune to poison. Powers up teammates upon death. Sided with the symbiotes.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 13,
+                        "target": "AnyButTeam"
+                    },
+                    "web": {
+                        "command": "distract",
+                        "common": "Self",
+                        "priority": 3,
+                        "target": "AnyButTeam"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "carnage": "carnage2",
+                        "stump": "toxin"
+                    },
+					"singleconvertmsg": "SCREEEEEEEEEEEEEEEEEEEEE! Venom's symbiote jumps to his surrounding teammates, empowering them!"
+                }
+            }
+        },
+        {
+            "role": "carnage",
+            "translation": "Carnage",
+            "side": "symbiote",
+            "help": "You are the rage filled symbiote, Carnage! Sharing your /kill with your team, plan with /teamtalk on who to strike.  You also have the ability to convert one target into a Stump, which will be converted if Venom were to die! You cannot be poisoned!",
+            "info": "Shared night-kill. Converts any target into a webbed stump. Immune to poison. Sided with the symbiotes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 13,
+                        "target": "AnyButTeam"
+                    },
+                    "stump": {
+                        "command": "convert",
+                        "common": "Self",
+                        "priority": 17,
+                        "target": "AnyButTeam",
+                        "newRole": {
+                            "toxin": [
+                                "stark",
+                                "captain",
+                                "hawkeye",
+                                "winter",
+                                "spider",
+                                "silver",
+                                "strange",
+                                "agent",
+                                "agent2",
+                                "agent3",
+                                "agent4",
+								"agent5",
+								"agent6",
+                                "klrt",
+                                "thanos",
+                                "loki",
+                                "doom",
+                                "doombot",
+                                "doombot2",
+                                "carnage",
+                                "venom",
+                                "deadpool",
+                                "shuma",
+                                "blake",
+                                "banner",
+                                "goblin",
+                                "doombot3",
+                                "pym",
+                                "doombot4",
+                                "daredevil",
+                                "agent",
+                                "agent",
+                                "ghost"
+                            ]
+                        }
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "carnage2",
+            "translation": "Carnage",
+            "side": "symbiote",
+            "help": "Venom has died, so now you have evolved to even higher standards! Among your normal abilities, you cannot convert any longer however you have a 1-time only day-kill! Use this wisely, as it will reveal you!",
+            "info": "Shared night-kill. Immune to poison. Has a one-time only revealing day-kill. Sided with the symbiotes.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 13,
+                        "target": "AnyButTeam"
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Use this opportunity if necessary, to use /kill and defeat any target! It will reveal you!",
+                        "killmsg": "~Self~ followed ~Target~ from above, and then savagely defeated them in an unfair battle!"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "stump",
+            "translation": "Webbed Victim",
+            "side": "symbiote",
+            "help": "You are now bound in webs - among other things.  You cannot be killed or poisoned, however at this moment all you can do is vote. You are now sided with the Symbiotes, Venom and Carnage! Communicate with /teamtalk.",
+            "info": "Cannot be killed/poisoned. Sided with the symbiotes.",
+            "actions": {
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "toxin",
+            "translation": "Toxin",
+            "side": "symbiote",
+            "help": "You have evolved into Toxin - a symbiote! You share a team /kill with Carnage, while also being able to use /web, which will now poison and distract any target at night! Use /teamtalk to communicate with your team-mate.",
+            "info": "Immune to poison. Shared night-kill. Can poison+distract one target. Sided with the symbiotes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 13,
+                        "target": "AnyButTeam"
+                    },
+                    "web": {
+                        "command": [
+                            "poison",
+                            "distract"
+                        ],
+                        "priority": 5,
+                        "target": "AnyButTeam",
+                        "common": "Self"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "goblin",
+            "translation": "Green Goblin",
+            "side": "merc",
+            "help": "You are the elusive and psychotic Green Goblin! Utilizing your ability to /poison any targets with your gas bombs, you can do so each night, and to two different targets! You are sided with the Mercenaries.",
+            "info": "Ignores distractions, evades day-kills. Poisons 2 targets a night with two nights to die. One of the Mercenaries.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "count": 3,
+                        "limit": 2,
+                        "priority": 17
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "shuma",
+            "translation": "Shuma-Gorath",
+            "side": "merc",
+			"info": "Night kill, daykill, kills anyone who attempts to distract. One of the Mercenaries.",
+            "help": "You are Shuma-Gorath, the ruler of the Chaos Dimension. Attack during the day with /kill to send an imbecile to their doom, and you also have a /kill at night! If anyone attempts to distract you at night, they will perish!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You were banished into the Chaos Dimension by Shuma-Gorath",
+                    "msg": "You were visited by the ~Distracter~ but you decided to send them into the Chaos Dimension!"
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Send another imbecile to the chaos dimension by typing /kill target!",
+                        "killmsg": "~Target~ was surrounded by a vortex of pure chaos energy.  No entity can escape this move.  Shuma-Gorath has banished another hopeless being into the Chaos Dimension for all of eternity."
+                    }
+                }
+            }
+        },
+        {
+            "role": "phoenix",
+            "translation": "Dark Phoenix",
+            "side": "merc",
+            "help": "You are the Dark Phoenix, strike at night with /burn! You're fiery feathers pierce even the mightiest barriers - while you also ignore distracts! You also now have the ability to kill regularly with just /kill in addition to; as well as having a powerful one time only poison with /trap! You also have a voteshield of -10000",
+            "info": "A night killer with a priority 1 kil and a normal kill. 1-Time Only Poison - voteshield -10000. One of the Mercenaries.",
+            "actions": {
+                "night": {
+                    "burn": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 16
+                    },
+                    "trap": {
+                        "command": "poison",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 23,
+                        "charges": 1,
+                        "count": 2
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "You were annoyed by the ~Distracter~ so you just decided to teleport and continue on with your action."
+                },
+                "voteshield": -10000,
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "bastion",
+            "translation": "Bastion",
+            "side": "sent",
+            "help": "You're the strongest version of Sentinel! Disperse the legacy virus using /poison, you can target 2 people, however you have to recharge your toxins the night after you utilize this. You also have a -5 vote. ",
+            "info": "Poisons 2 targets a night with a 1 night recharge. Has -5 votes. One of the Mercenaries.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "count": 3,
+                        "limit": 2,
+                        "recharge": 2,
+                        "msg": "A needle has been shot and it landed in your arm! It inject'd a mysterious liquid into your vein.",
+                        "poisonDeadMessage": "The legacy virus begins to run rampant in your body, you were unable to hold on any further. You died! "
+                    }
+                },
+                "vote": -5
+            }
+        },
+        {
+            "role": "doom",
+            "translation": "Dr. Doom",
+            "side": "doom",
+            "help": "Victor von Doom! The archnemesis of Reed Richard! Unfortunately he is not here - so you have decided to just conquer Earth!  In the midst of battle you are armed with individual bots to suit the necessary situation.  Plan at night and coordinate your bots' actions - while during the day you can kill without being revealed!",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill to imprison someone in Doomstadt!",
+                        "killmsg": " This game is over! ~Target~ was immediately crushed under the might of Doom and his army.  They stood no chance."
+                    }
+                },
+                "onDeath": {
+                    "killRoles": [
+                        "doombot",
+                        "doombot2",
+                        "doombot3"
+                    ],
+                    "convertRoles": {
+                        "doombot": "doom1"
+                    },
+                    "convertmsg": "Dr. Doom's body was destroyed - so he phase-shifted into the body of a Doom Bot and kept his powers!"
+                }
+            }
+        },
+        {
+            "role": "doom1",
+            "translation": "Dr. Doom",
+            "side": "doom",
+            "help": "Victor von Doom! The archnemesis of Reed Richard! Unfortunately he is not here - so you have decided to just conquer Earth! Your bots have failed you, but now you also have the ability to kill during the day, but this will reveal you! Use these wisely, and propel yourself to victory!",
+            "info": "Has an unrevealing daykill. Has a seperate revealing daykill.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Type /kill to imprison someone in Doomstadt! Or if necessary, use /doom to kill anyone, but this will reveal you!",
+                        "killmsg": " This game is over! ~Target~ was immediately crushed under the might of Doom and his army.  They stood no chance."
+                    },
+                    "doom": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "killmsg": "So, do you think you can stop me? No one can stop ~Self~, I am the true overlord of Earth! ~Target~ today is the day you meet true Doom!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "doombot",
+            "translation": "Doombot",
+            "side": "doom",
+            "help": "You are a replica made to be similar to Doom in every facet! However - you are outfitted only with the ability to phase in and out of this dimension. Because of this your vote is 0. Because of this feature you cannot be killed, or poisoned! If doom dies or is removed - he will automatically possess your body so it is wise to not attract attention to yourself!",
+            "info": "Cannot be killed during the day or night. Cannot be poisoned. Has 0 votes. Sided with Doom Army.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "inspect": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "onlist": "doom",
+                "vote": 0
+            }
+        },
+        {
+            "role": "doombot2",
+            "translation": "Doombot #2",
+            "side": "doom",
+            "help": "You are a replica made to be silimar to Doom in every facet!  However you are outfitted with the abilities to take life! Utilize the command /doom to either poison or kill a target!",
+            "info": "Can use the command doom, which will either kill or poison a target. Sided with the Doom.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "doom": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "command": {
+                            "kill": 0.4,
+                            "poison": 0.6
+                        }
+                    }
+                },
+                "onlist": "doom"
+            }
+        },
+        {
+            "role": "doombot3",
+            "translation": "Doombot #3",
+            "side": "doom",
+            "help": "You are a replica made to be similar to Doom in every facet!  However you are outfitted with the abilities to protect!  Utilize your command /defend to protect and safeguard! It'd be wise to protect Doom!",
+            "info": "Can use the command defend, which will protect&safeguard. Sided with Doom.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "defend": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 4,
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ]
+                    }
+                },
+                "onlist": "doom"
+            }
+        },
+        {
+            "role": "doombot4",
+            "translation": "Doombot 4",
+            "side": "doom",
+            "help": "You are a replica made to be similar to Doom in every facet!  However you are outfitted with the abilities to inspect and distract - all at once! Utilize this with your command /scout",
+            "info": "Uses the command scout, which will inspect and distract any target. Sided with Doom.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "scout": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 3,
+                        "Sight": "Team",
+                        "command": [
+                            "inspect",
+                            "distract"
+                        ]
+                    }
+                },
+                "onlist": "doom"
+            }
+        },
+        {
+            "role": "deadpool",
+            "translation": "Deadpool",
+            "side": "merc",
+            "help": "HEY YOU, stop sucking. Stop reading this role and use your 9999 votes to get rid of people! ... What? YOU'RE STILL READING? Well, you can also expose people with a taunt when you /expose them during the day!",
+            "info": "Exposes any target during the day without revealing self. Has 9999 votes. One of the Mercenaries.",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose to make someone pretty mad!",
+                        "exposemsg": "'LOOOOOOSERRRRR! ~Target~ is a horrible ~Role~! I mean, even I could be a ~Role~ better!'"
+                    }
+                },
+                "vote": 9999
+            },
+            "winIfDeadRoles": [
+                "cyclops",
+                "magneto",
+                "sabre",
+                "apocalypse",
+                "gambit",
+                "phoenix",
+                "bastion",
+                "juggernaut",
+                "toad",
+                "psylocke",
+                "wolverine",
+                "colossus",
+                "hawkeye",
+                "spider",
+                "klrt",
+                "thanos",
+                "loki",
+                "doom",
+                "doombot",
+                "doombot2",
+                "carnage",
+                "venom",
+                "shuma",
+                "thor",
+                "hulk",
+                "goblin",
+                "ghost"
+            ]
+        }
+    ],
+    "roles1": [
+        "invisible",
+        "reed",
+        "modok",
+        "taskmaster",
+        "thing",
+        "namor",
+        "luke",
+        "skull",
+        "agent",
+        "torch",
+        {"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1}
+    ],
+    "roles2": [
+        "xavier",
+        "iceman",
+        "cyclops",
+        "magneto",
+        "sabre",
+        "apocalypse",
+        "ozymandias",
+        {
+            "frost": 0.1,
+            "gambit": 0.1
+        },
+{"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+        {"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+        {"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+        {"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+        {
+            "phoenix": 0.1,
+            "bastion": 0.1
+        },
+        "storm",
+        {
+            "juggernaut": 0.1,
+            "toad": 0.1
+        },
+        "sinister",
+        "beast",
+        {
+            "psylocke": 0.1,
+            "wolverine": 0.1,
+            "colossus": 0.1
+        },
+        "deadpool"
+    ],
+    "roles3": [
+        "stark",
+        "captain",
+        "hawkeye",
+        "winter",
+        "spider",
+        "silver",
+        "strange",
+		{"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+		{"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+		{"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+		{"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+		{"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+        "klrt",
+        "thanos",
+        "loki",
+        "doom",
+        "doombot",
+        "doombot2",
+        "carnage",
+        "venom",
+        "deadpool",
+        "shuma",
+        "blake",
+        "banner",
+        "goblin",
+        "doombot3",
+        "pym",
+        "doombot4",
+        "daredevil",
+        {"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+		{"agent": 0.1, "agent2": 0.1, "agent3": 0.1, "agent4": 0.1, "agent5": 0.1, "agent6": 0.1},
+        "ghost"
+    ],
+    "villageCantLoseRoles": ["cyclops", "spider", "beast", "gambit", "psylocke", "wolverine", "wolverine2", "colossus", "hawkeye", "daredevil", "thor", "goliath", "ghost"],
+	"changelog": {
+	"2.6.14": "Crash course fix. Agents, spider man, spawn. Other things too."},
+    "killmsg": "±Game: ~Role~ (~Player~) was eliminated!",
+    "killusermsg": "***You have been destroyed!",
+    "lynchmsg": "±Game: ~Player~ (~Role~) was forcefully thrown out the battlefield!"
+}
