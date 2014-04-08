@@ -1,0 +1,268 @@
+{
+    "name": "Dethy",
+    "author": ["Fegelein", "Hey Day"],
+    "minplayers": 3,
+    "nonPeak": true,
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?18702-Non-Peak-Dethy",
+    "summary": "The mafia have found the Inspector Retirement home, and now it is up to the Inspectors to defend themselves! There are Sane Inspectors (always right), Insane Inspectors (always wrong), Paranoid Inspectors (always sees someone as Mafia), and Naive Inspectors (always sees someone as Inspector).",
+    "ticks": {
+        "standby": 45,
+        "night": 25
+    },
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Inspector",
+            "winmsg": "Congratulations. You, ~Players~ can retire in peace!"
+        },
+        {
+            "side": "mafia",
+            "translation": "Mafia",
+            "winmsg": "You've successfully taken over the Retirement Home! Now ~Players~ can use it as their secret hideout!"
+        }
+    ],
+    "roles": [
+        {"role": "insp", "translation": "Inspector", "side": "village", "hide": "both", "help": "Used for inspections", "actions": {"night": {"inspect": {"target": "AnyButSelf", "common": "Self", "priority": 2}}}
+        },
+        {
+            "role": "mafia",
+            "translation": "Mafia",
+            "side": "mafia",
+            "help": "You are a member of the mafia, hoping to get rid of all of the Inspectors! Type /Kill [name] to kill someone! You cannot kill the first night!",
+            "info": "Has a factional kill every night starting Night 2. Sided with the Mafia.",
+            "actions": {
+				"dummy": { "silent": true, "mode": "ignore" },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "initialrecharge": 2
+                    }
+                },
+                "startup": "team-reveal",
+                "inspect": {"revealAs": "insp"},
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "sane",
+            "translation": "Sane Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "info": "Can inspect one person each night and will always get correct results. Sided with the Village.",
+            "actions": {
+				"dummy2": { "silent": true, "mode": "ignore" },
+                "night": "variable:sane1",
+                "inspect": {"revealAs": "mafia"},
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "sane2",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "sane2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "hide": "both",
+            "actions": {
+                "night": "variable:sane",
+                "inspect": {"revealAs": "mafia"}
+            }
+        },
+        {
+            "role": "insane",
+            "translation": "Insane Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "info": "Can inspect one person each night and will always get incorrect results. Sided with the Village.",
+            "actions": {
+				"dummy2": { "silent": true, "mode": "ignore" },
+                "night": "variable:insane",
+                "inspect": {"revealAs": "mafia"},
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "insane2",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "insane2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "hide": "both",
+            "actions": {
+                "night": "variable:insane",
+                "inspect": {"revealAs": "mafia"}
+            }
+        },
+        {
+            "role": "paranoid",
+            "translation": "Paranoid Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "info": "Can inspect one person each night but will always get Mafia as a result. Sided with the Village.",
+            "actions": {
+				"dummy2": { "silent": true, "mode": "ignore" },
+                "night": "variable:paranoid",
+                "inspect": {"revealAs": "mafia"},
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "paranoid2",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "paranoid2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "hide": "both",
+            "actions": {
+                "night": "variable:paranoid",
+                "inspect": {"revealAs": "mafia"}
+            }
+        },
+        {
+            "role": "naive",
+            "translation": "Naive Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "info": "Can inspect one person each night but will always get Inspector as a result. Sided with the Village.",
+            "actions": {
+				"dummy2": { "silent": true, "mode": "ignore" },
+                "night": "variable:naive",
+                "inspect": {"revealAs": "mafia"},
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "naive2",
+                        "curseCount": 1,
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "naive2",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "variable:insphelp",
+            "startupmsg": "variable:inspstart",
+            "hide": "both",
+            "actions": {
+                "night": "variable:naive",
+                "inspect": {"revealAs": "mafia"}
+            }
+        }
+    ],
+    "roles1": [
+        "sane",
+        "insane",
+        "mafia",
+        "variable:halfrand",
+        "variable:halfrand",
+        "variable:rand",
+        "mafia",
+        "variable:rand",
+        "variable:rand",
+        "variable:rand"
+    ],
+    "variables": {
+        "inspstart": "You are an Inspector!",
+        "insphelp": "You are a retired Inspector, but now you're back to fight the Mafia! Type /inspect [name] to find his/her identity, but be warned, your results could be wrong! You might be Sane (get correct results), Insane (get incorrect results), Paranoid (always get a result of mafia), or Naive (always get a result of inspector).",
+        "sane": {
+            "inspect": {
+                "target": "AnyButSelf",
+                "common": "Self",
+                "priority": 2,
+                "Sight": {
+                    "true": 1
+                },
+                "hide": true
+            }
+        },
+		"sane1": {
+            "inspect": {
+				"command": ["dummy", "dummy2"],
+                "target": "AnyButSelf",
+                "common": "Self",
+				"dummyusermsg": "±Info: ~Target~ is the Inspector!!",
+				"dummy2usermsg": "±Info: ~Target~ is the Mafia!!",
+                "priority": 2,
+                "hide": true
+            }
+        },
+        "insane": {
+            "inspect": {
+                "target": "AnyButSelf",
+                "common": "Self",
+                "priority": 2,
+                "hide": true
+            }
+        },
+        "paranoid": {
+            "inspect": {
+                "target": "AnyButSelf",
+                "common": "Self",
+                "priority": 2,
+                "Sight": {
+                    "mafia": 1
+                },
+                "hide": true
+            }
+        },
+        "naive": {
+            "inspect": {
+                "target": "AnyButSelf",
+                "common": "Self",
+                "priority": 2,
+                "Sight": {
+                    "insp": 1
+                },
+                "hide": true
+            }
+        },
+        "rand": {
+            "paranoid": 0.25,
+            "naive": 0.25,
+            "sane": 0.25,
+            "insane": 0.25
+        },
+        "halfrand": {
+            "paranoid": 0.5,
+            "naive": 0.5
+        }
+    },
+    "changelog": {
+        "28.02.2013": "Theme completed, put up for review.",
+        "20.03.2013": "Lowered standby ticks to 45 (from 60).",
+        "22.03.2013": "Gave Inspectors names so that they would appear onlist correctly. Also fixed /roles.",
+        "24.03.2013": "Maximum amount of players has been lowered to 10; this is now a nonpeak theme.",
+        "11.06.2013": "Inspectors no longer reveal their sanity after death nor onlist. Fixed /roles for mafia and updated help messages for Inspectors to clarify the theme to newer players.",
+        "12.06.2013": "The sanities that are in the game are now revealed on Night 1, but hidden after that.",
+        "23.08.2013": "What's up with the weird date system? HD terrible imo. Silent Curse added. Also, fixed the 8 errors with the theme.",
+        "28.02.2014": "Exactly one year later, MAs can now see who was which inspector after the game. RIP Feg and HD :[",
+        "05.03.2014": "Removed team sight from Sane. Was causing some trouble.",
+        "10.03.2014": "Rewrote and condensed theme (Cut off 120 lines/33% of the theme)"
+    }
+}
