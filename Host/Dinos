@@ -1,0 +1,1418 @@
+
+{
+	"name": "Dinos",
+	"altname": "Dinosaurs",
+	"author": [
+		"Beast",
+		"Joeypals",
+		"Windblown"
+	],
+"summary": "Dinosaurs face off head to head to see which kind is the best. You have the peaceful Herbivores with their only violent side lying in the Supersaurus. You have the Carnivores trying to eat every dinosaur in sight. You also have the Omnivores trying to win in unorthodox ways with their balanced diet. Watch out for the Meteor and Ice Age though, they can destroy everything! Maybe some mysterious creatures will also show up. Please post concerns in the following thread: http://pokemon-online.eu/forums/showthread.php?22987-Dinosaurs-%28Dinos%29. Have fun in prehistoric times!",
+"sides": [
+	{
+		"side": "village",
+		"translation": "Herbivores",
+		"winmsg": "I guess eating meat really does make you stupid. The Herbivores, ~Players~, were smart enough to avoid their death."
+	},
+	{
+		"side": "carn",
+		"translation": "Carnivores",
+		"winmsg": "They might have small brains but their jaws are huge and their teeth sharp. The Carnivores, ~Players~, have eaten everyone into submission."
+	},
+	{
+		"side": "omni",
+		"translation": "Omnivores",
+		"winmsg": "A healthy mix of meat and leaves really does the dino body good. The Omnivores, ~Players~, have survived all hardships."
+	},
+	{
+		"side": "death",
+		"translation": "Extinction",
+		"winmsg": "Their jobs are done.  ~Players~ have taken out all of the dinosaurs!"
+	},
+	{
+		"side": "nessy",
+		"translation": "Loch Ness Monster",
+		"winmsg": "Did you see that?  Nessy, ~Players~, came out of nowhere and destroyed everyone!"
+	},
+	{
+			"side": "vepix",
+			"translation": "Vepix",
+			"winmsg": "Reptar (~Players~) has caused the extinction of all dinosaurs!",
+			"hide": true
+	}
+],
+"roles": [
+	{
+		"role": "egg",
+		"translation": "Egg",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though, because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"info": "Will do one of the following: Hatch into a village sided dinosaur (15% of the eggs spawned), a mafia sided dinosaur (10%), a strong dinosaur for one of the three main sides (5%), or be a dud egg (70%).",
+		"actions": {
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 0.5,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": {
+						"random": {
+							"tri": 0.02,
+							"long": 0.02,
+							"spike": 0.02,
+							"para": 0.02,
+							"stego": 0.02,
+							"ptero": 0.9
+						}
+					}
+				}
+			}
+		}
+	},
+	{
+		"role": "egg2",
+		"translation": "Egg",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"hide": true,
+		"actions": {
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 0.5,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": {
+						"random": {
+							"trex": 0.05,
+							"velo": 0.22,
+							"spine": 0.21,
+							"mega": 0.02,
+							"ovi": 0.17,
+							"troo": 0.17,
+							"orni": 0.16
+						}
+					}
+				}
+			}
+		}
+	},
+	{
+		"role": "egg3",
+		"translation": "Egg",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"hide": true,
+		"actions": {
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 0.5,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": {
+						"random": {
+							"trex": 0.16,
+							"mega": 0.17,
+							"ovi": 0.17,
+							"troo": 0.16,
+							"long": 0.17,
+							"super": 0.17
+						}
+					}
+				}
+			}
+		}
+	},
+	{
+		"role": "egg5",
+		"translation": "Egg",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"info": "Due to being spoiled by the Ornithomimus, it has a 50% chance of failing to hatch and a 40% chance of committing suicide while hatching. If it hatches, it will hatch into an Omnivore. Sided with Herbivores.",
+		"actions": {
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 0.5,
+					"suicideChance": 0.4,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": {
+						"random": {
+							"ovi": 0.5,
+							"troo": 0.5
+						}
+					}
+				}
+			}
+		}
+	},
+	{
+		"role": "egg4",
+		"translation": "Egg",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"hide": true,
+		"actions": {
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 1,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": "meteor3"
+				}
+			}
+		}
+	},
+	{
+		"role": "egg6",
+		"translation": "Egg",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"info": "Will hatch into either a Pterodactyl (80%), Velociraptor (10%), or Troodon (10%). Sided with the Herbivores",
+		"actions": {
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 0.5,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": {
+						"random": {
+							"velo": 0.1,
+							"troo": 0.1,
+							"ptero": 0.8
+						}
+					}
+				}
+			}
+		}
+	},
+	{
+		"role": "egg7",
+		"translation": "Egg",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"hide": true,
+		"actions": {
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 0.5,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": {
+						"random": {
+							"trex": 0.05,
+							"velo": 0.22,
+							"spine": 0.21,
+							"mega": 0.02,
+							"ovis": 0.17,
+							"troo": 0.17,
+							"orni": 0.16
+						}
+					}
+				}
+			}
+		}
+	},
+	{
+		"role": "dummy",
+		"translation": "Egg",
+		"info": "this isn't a real thing yo",
+		"hide": true,
+		"side": "village",
+		"help": "This is not the egg you are looking for.",
+		"actions": {
+			"initialCondition": {
+				"poison": {
+				"count": 1,
+				"poisonDeadMessage": "you died lol"
+				}
+			},
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"target": "OnlySelf",
+					"newRole": "ptero",
+					"priority": 99
+				}
+			}
+		}
+	},
+	{
+		"role": "ptero",
+		"translation": "Pterodactyl",
+		"side": "village",
+		"help": "KACAW! You're the first flying reptile, and being newly hatched, you don't do anything other than fly around. However, you may get a view of what dinosaurs are doing what during the night!",
+		"info": "Receives hax on kill. Sided with Herbivores.",
+		"actions": {
+			"hax": {
+				"kill": {
+					"revealTeam": 0.05,
+					"revealPlayer": 0.01
+				}
+			}
+		}
+	},
+	{
+		"role": "tri",
+		"translation": "Triceratops",
+		"side": "village",
+		"help": "You have three horns on your head that help you to stop those pesky dinosaurs that want to kill you and your friends.  Use /protect [name] to protect your friends from being killed.",
+		"info": "Can protect 1 person a night (shared among Triceratops). Sided with Herbivores.",
+		"actions": {
+			"night": {
+				"protect": {
+					"common": "Role",
+					"target": "AnyButSelf",
+					"priority": 18
+				}
+			}
+		}
+	},
+	{
+		"role": "long",
+		"translation": "Apatosaurus",
+		"side": "village",
+		"help": "You have a super long neck that helps you reach those leaves at the top of trees that almost no one else can reach.  You can use your long neck to inspect someone during the day. To do that use /stretch [name] during the day. You also have a one time night inspect using /inspect [name].",
+		"info": "Can inspect 1 person during the night (one use only). Can inspect 1 person during the day and may reveal. Sided with Herbivores.",
+		"actions": {
+			"night": {
+				"inspect": {
+					"common": "Self",
+					"target": "AnyButSelf",
+					"priority": 100,
+					"charges": 1
+				}
+			},
+			"standby": {
+				"stretch": {
+					"command": "expose",
+					"target": "AnyButSelf",
+					"msg": "You can now use /stretch to see someone's role.",
+					"exposemsg": "Apatosaurus stretched their neck out to find out who is ~Role~.",
+					"exposedtargetmsg": "~Target~ is the ~Role~!",
+					"revealChance": 0.1,
+					"revealmsg": "~Self~ stretched their neck a little too far and everyone saw."
+				}
+			}
+		}
+	},
+	{
+		"role": "spike",
+		"translation": "Ankylosaurus",
+		"side": "village",
+		"help": "You look like one tough cookie and many dinosaurs don't even want to mess with you.  You are not able to be killed at night, and you have a vote of -1! Just be careful, there is one kill that will take you down: The Tyrannosaurus Rex's /chomp. Beware of the Meteor and Ice Age too along with the Loch Ness Monster if they're around too! After he's used that, you're in the clear to claim and connect.",
+		"info": "Can't be night killed. Has a vote of -1. Sided with Herbivores.",
+		"actions": {
+			"vote": -1,
+				"kill": {
+					"mode": "ignore",
+					"msg": "Your target (~Self~) evaded your kill!"
+			}
+		}
+	},
+	{
+	"role": "para",
+	"translation":"Parasaurolophus",
+	"side": "village",
+	"help": "You look kind of weird and are super fast so you can distract your enemies using /distract [name] at night.  You don't have to worry about them eating you because of your speed.",
+	"info": "Can distract 1 person each night. Sided with Herbivores.",
+	"actions": {
+		"night": {
+			"distract": {
+				"common": "Self",
+				"target": "AnyButSelf",
+				"priority": 4
+				}
+			}
+		}
+	},
+	{
+	"role": "stego",
+	"translation": "Stegosaurus",
+	"side": "village",
+	"help": "You have a spiky back and boy do you hate it when people attack you.  If you get lynched you go crazy and can kill one person before you die.",
+	"info": "If lynched becomes enraged and can kill 1 person. Sided with Herbivores.",
+	"actions": {
+		"lynch": {
+			"convertTo": "stego2",
+			"convertmsg": "You tried to take out the Stegosaurus and now he is going to take you out!"
+			}
+		}
+	},
+	{
+	"role": "stego2",
+	"translation": "Mad Stegosaurus",
+	"side": "village",
+	"help": "They tried to lynch you so now you are going to take them down.  Type /kill [name] to kill that person.",
+	"info": "Can kill 1 person. Sided with Herbivores.",
+	"actions": {
+		"night": {
+			"kill": {
+				"target": "AnyButSelf",
+				"common": "Self",
+				"priority": 0
+			}
+		},
+		"initialCondition": {
+			"poison": {
+				"count": 1
+				}
+			}
+		}
+	},
+	{
+		"role": "super",
+		"translation": "Supersaurus",
+		"side": "village",
+		"help": "The longest dinosaur ever found, you can't help stomping around everywhere. Your tail is so long you can use it to /kill one person during the night to help defend the Herbivores!",
+		"info": "Can kill one person during the night. Sided with Herbivores.",
+		"actions": {
+			"night": {
+				"kill": {
+					"target": "AnyButSelf",
+					"common": "Self",
+					"priority": 45
+				}
+			}
+		}
+	},
+	{
+		"role": "iguana",
+		"translation": "Iguanadon",
+		"side": "village",
+		"help": "An herbivore with a dangerous spike on each of your thumbs, predators tend to think twice before they try to kill you! As such, you can evade the first nightkill directed towards you and can /stalk one person during the night.",
+		"info": "Evades one nightkill. Can stalk one person during the night. Sided with Herbivores.",
+		"actions": {
+			"night": {
+				"stalk": {	
+					"target": "AnyButSelf",
+					"common": "Self",
+					"priority": 110
+				}
+			},
+			"kill": {
+				"mode": {
+					"evadeCharges": 1
+				}
+			}
+		}
+	},
+	{
+		"role": "lanzhou",
+		"translation": "Lanzhousaurus",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though, because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"info": "Inspects as Tyrannosaurus Rex. Powers up if Tyrannosaurus Rex is removed from the game. Sided with Herbivores.",
+		"actions": {
+			"inspect": {
+				"revealAs": "trex"
+			},
+			"startup": {
+				"revealAs": "egg"
+			},
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 1,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": "meteor3"
+				}
+			}
+		}
+	},
+	{
+		"role": "lanzhou2",
+		"translation": "Lanzhousaurus",
+		"side": "village",
+		"help": "With the Tyrannosaurus out, you can now /kill during the night! You'll be inspected as yourself now, not that it really matters (cause T-Rex is dead).",
+		"info": "Can kill one person during the night. Sided with Herbivores.",
+		"actions": {
+			"night": {
+				"kill": {
+					"target": "AnyButSelf",
+					"common": "Self",
+					"priority": 45
+				}
+			}
+		}
+	},
+	{
+		"role": "hypselo",
+		"translation": "Hypselosaurus",
+		"side": "village",
+		"help": "You are but a lowly egg right now.  Later on you can change into a different role though.  Be careful though, because there is an egg eating dino out there just waiting to snap you up.  During the night you can use /hatch [yourname] to become a mighty, giant dinosaur but this'll fail half the time...",
+		"info": "Inspects as Troodon. Powers up if Troodon is removed from the game. Sided with Herbivores.",
+		"actions": {
+			"inspect": {
+				"revealAs": "troo"
+			},
+			"startup": {
+				"revealAs": "egg"
+			},
+			"night": {
+				"hatch": {
+					"command": "convert",
+					"common": "Self",
+					"failChance": 1,
+					"convertmsg": "An egg has hatched into a bizarre-looking ~New~!",
+					"target": "OnlySelf",
+					"priority": 99,
+					"hide": true,
+					"newRole": "meteor3"
+				}
+			}
+		}
+	},
+	{
+		"role": "hypselo2",
+		"translation": "Hypselosaurus",
+		"side": "village",
+		"help": "Your name means 'highest lizard' in Greek. Now with the Troodon gone, you can choose to either convert with /attack to take a form of +3 votes, or /defend to take a form of -2 votes and a one-time self-protect. Choose wisely!",
+		"info": "Can convert itself with attack (3 votes) or defend (-2 votes and one-time self-protect). Sided with Herbivores.",
+		"actions": {
+			"night": {
+				"attack": {
+					"command": "convert",
+					"target": "OnlySelf",
+					"common": "Self",
+					"priority": 2,
+					"newRole": "hypselo2a",
+					"convertmsg": "The Hypselosaurus has gone on the offensive!"
+				},
+				"defend": {
+					"command": "convert",
+					"target": "OnlySelf",
+					"common": "Self",
+					"priority": 2,
+					"newRole": "hypselo2d",
+					"convertmsg": "The Hypselosaurus has gone on the defensive!"
+				}
+			}
+		}
+	},
+	{
+		"role": "hypselo2a",
+		"translation": "Hypselosaurus",
+		"side": "village",
+		"hide": true,
+		"help": "You've chosen to attack this game and so you have a vote of 3 to aid the village!",
+		"info": "Vote of 3. Sided with Herbivores.",
+		"actions": {
+			"vote": 3
+		}
+	},
+	{
+		"role": "hypselo2d",
+		"translation": "Hypselosaurus",
+		"side": "village",
+		"hide": true,
+		"help": "You've chosen to defend this game and so you have a vote of -2 to aid the village. You also have a one-time self protect!",
+		"info": "Vote of -2. Can self-protect once per game. Sided with Herbivores.",
+		"actions": {
+			"vote": -2,
+			"night": {
+				"protect": {
+					"target": "OnlySelf",
+					"common": "Self",
+					"priority": 18,
+					"charges": 1
+				}
+			}
+		}
+	},
+	{
+		"role": "trex",
+		"translation": "Tyrannosaurus Rex",
+		"side": "carn",
+		"help": "The big bad dinosaur.  You hate everything smaller than you and that is almost the entire dinosaur population.  You are the leader of the carnivores... for now. You share a kill with your teammates using /kill [name] and you get your own one-time kill with /chomp [name]. Because you're so badass you also ignore distracts! (Hint: Use /tt to talk to your team!)",
+		"info": "Can kill during the night (shared with team). Also has a one-use second kill. Ignores distracts. Sided with Canivores.",
+		"actions": {
+			"night": {
+				"kill": {
+					"hide": true,
+					"target": "AnyButTeam",
+					"common": "Team",
+					"broadcast": "team",
+					"priority": 50
+				},
+				"chomp": {
+					"command": "poison",
+					"charges": 1,
+					"count": 1,
+					"poisonDeadMessage": "The big old T-Rex broke out a special pair of fangs just to remove you from existence.",
+					"common": "Self",
+					"priority": 59,
+					"broadcast": "team",
+					"target": "AnyButTeam"
+				}
+			},
+			"distract": {
+				"mode": "ignore",
+				"msg": "Some dinosaur tried to distract you last night! You were really hungry for meat though so you didn't notice!"
+			},
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true,
+			"onDeath": {
+				"convertRoles": {
+					"spine": "spine2",
+					"lanzhou": "lanzhou2"
+				},
+			"convertmsg": "With the death of the Tyrannosaurus Rex, a few more dinosaurs have less competition for their prey and now can kill during the night!"
+			}
+		}
+	},
+	{
+		"role": "velo",
+		"translation": "Velociraptor",
+		"side": "carn",
+		"help": "You are like the lackey of the Carnivores.  You come in and scoop up the leftovers.  That being said you don't really do much but share a kill with your team using /kill [name]. (Hint: Use /tt to talk to your team!)",
+		"info": "Can kill during the night (shared with team). Sided with Carnivores.",
+		"actions": {
+			"night": {
+				"kill": {
+					"hide": true,
+					"target": "AnyButTeam",
+					"priority": 50,
+					"common": "Team",
+					"broadcast": "team"
+				}
+			},
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true,
+			"onDeath": {
+				"convertRoles": {
+					"spine": "spine2"
+				},
+				"convertmsg": "With the death of the Velociraptor, the Spinosaurus now has less competition for its prey and now can kill during the night!"
+			}
+		}
+	},
+	{
+		"role": "spine",
+		"translation": "Spinosaurus",
+		"side": "carn",
+		"help": "You are one vicious dinosaur.  You strike fear into those that see you, especially those that don't until the last second.  Your scaring powers are marvelous! As such sometimes you scare people to death. Use the command /scare [name] to stop the person from acting and maybe even kill them. (Hint: Use /tt to talk to your team!)",
+		"info": "Can /scare on person each night to either distract or kill them.  Sided with Carnivores.",
+		"actions": {
+			"night": {
+				"scare": {
+					"command": {
+						"kill": 0.1,
+						"distract": 0.9
+						},
+					"common": "Self",
+					"hide": true,
+					"priority": 7,
+					"target": "AnyButTeam",
+					"broadcast": "team"
+				}
+			},
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true
+		}
+	},
+	{
+		"role": "spine2",
+		"translation": "Spinosaurus",
+		"side": "carn",
+		"help": "With the death of your teammate,  you've advanced in the evolutionary process and can /kill during the night! You can still /scare people to prevent them from acting during the night! (Hint: Use /tt to talk to your team!)",
+		"info": "Can kill one person during the night. Can scare (distract) one person during the night. Sided with Carnivores.",
+		"actions": {
+		"startup": "team-reveal-with-roles",
+		"teamTalk": true,
+		"night": {
+			"kill": {
+				"hide": true,
+				"target": "AnyButTeam",
+				"common": "Team",
+				"broadcast": "team",
+				"priority": 50
+			},
+			"scare": {
+				"command": "distract",
+				"target": "AnyButTeam",
+				"broadcast": "team",
+				"common": "Self",
+				"priority": 7
+				}
+			}
+		}
+	},
+	{
+		"role": "mega",
+		"translation": "Megalosaurus",
+		"side": "carn",
+		"help": "The true scary guy of the Carnivores.  You have obviously just hatched from your egg since it is the only way to get this role.  Aren't you the lucky one?  If you are inspected during the day you kill the person who inspected you.  You also have an unrevealing daykill using /devour [name]. (Hint: Use /tt to talk to your team!)",
+		"info": "Revenge kills Exposers. Has a unrevealing daykill. Sided with Carnivores.",
+		"actions": {
+			"standby": {
+				"devour": {
+					"command": "kill",
+					"target": "AnyButTeam",
+					"msg": "You can now /devour someone.",
+					"killmsg": "Megalosaurus thought ~Target~ looked good and devoured them.  Yummy!"
+				}
+			},
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true,
+			"expose": "revenge",
+			"exposerevengemsg": "Unfortunately for ~Target~ they tried to inspect the wrong dino today.  They got devoured by the Megalosaurus!"
+		}
+	},
+	{
+		"role": "ples",
+		"translation": "Plesiosaurus",
+		"side": "carn",
+		"help": "A sea-dwelling carnivore, your turtle-like body allows you to /protect one teammate during the night. You also have a vote of 2!",
+		"info": "Can protect one person during the night. Vote of 2. Sided with Carnivores.",
+		"actions": {
+			"vote": 2,
+			"night": {
+				"protect": {
+					"target": "AnyButSelf",
+					"common": "Self",
+					"priority": 18
+				}
+			}
+		}
+	},
+	{
+            "role": "carnivores",
+            "translation": "Carnivores",
+            "info": "If you somehow get this role, please contact Joeypals at http://pokemon-online.eu/forums/member.php?24510-Joeypals!!",
+            "hide": true,
+            "side": "carn",
+            "help": "If you somehow get this role, please contact Joeypals at http://pokemon-online.eu/forums/member.php?24510-Joeypals!!",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": 1,
+                        "poisonDeadMessage": "Time is up!"
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 50,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Velociraptor) has decided to kill ~Target~!"
+                    }
+                }
+            }
+	},
+	{
+		"role": "ovi",
+		"translation": "Oviraptor",
+		"side": "omni",
+		"help": "You sure do like eggs: scrambled, sunny side up, hard boiled. You will do anything to eat eggs and you know where they are hiding too, so you know the identity of half of the eggs from the start!  Sadly you don't know any of your allies so you can't tell them this info, so hope Troodon finds you!  You do have a vote of 3 though.",
+		"info": "Has reveal on Eggs. Vote of 3. Sided with Omnivores.",
+		"actions": {
+			"vote": 3,
+			"startup": {
+				"revealRole": "egg4"
+			}
+		}
+	},
+	{
+		"role": "ovis",
+		"translation": "Oviraptor",
+		"side": "omni",
+		"help": "You sure do like eggs: scrambled, sunny side up, hard boiled. You will do anything to eat eggs and you know where they are hiding too, so you know the identity of half of the eggs from the start!  Sadly you don't know any of your allies so you can't tell them this info, so hope Troodon finds you!  You do have a vote of 2 though.",
+		"info": "Has reveal on Eggs. Vote of 2. Sided with Omnivores.",
+		"actions": {
+			"vote": 2,
+			"startup": {
+				"revealRole": "egg4"
+			}
+		}
+	},
+	{
+		"role": "ovis2",
+		"translation": "Oviraptor",
+		"side": "omni",
+		"help": "With the Troodon down, it's up to you and the Ornithomimus to stand above the rest of the dinosaur crowd! While you've lost your vote of 2, you now have a /kill [name] you're able to use in light of the Troodon dying. You also still know several eggs, so manipulate away!",
+		"info": "Can kill one person during the night. Has reveal on Eggs. Sided with Omnivores.",
+		"actions": {
+			"night": {
+				"kill": {
+					"hide": true,
+					"target": "AnyButTeam",
+					"common": "Team",
+					"priority": 53
+				}
+			},
+			"startup": {
+			"revealRole": "egg4"
+			}
+		}
+	},
+	{
+		"role": "troos",
+		"translation": "Troodon",
+		"side": "omni",
+		"help": "With a mixture of diet, you are a Troodon! You simply love eggs, but no other egg lovers are around to support you in that endeavor. During the night, simply type /kill [name] to eat someone up! You outspeed both distractors and protectors, so no little roadblock is going to be in your way to victory!",
+		"info": "Can kill one person during the night (shared with team) and outspeeds distracters and protectors. Sided with Omnivores.",
+		"actions": {
+			"night": {
+				"kill": {
+					"hide": true,
+					"target": "AnyButTeam",
+					"common": "Team",
+					"priority": 2
+				}
+			}
+		}
+	},
+	{
+		"role": "troo",
+		"translation": "Troodon",
+		"side": "omni",
+		"help": "Like your partner Oviraptor you also like eggs. Sadly you aren't smart like them so you have to /search [name] to find out if they are an egg or not. You can also find Oviraptor with this, as you cannot inspect him! You also have access to your team kill with /kill [name], and you outspeed both distracters and bodyguards, so tell your team to let you kill! (Hint: Use /tt to talk to Ornithomimus)",
+		"info": "Can inspect 1 person each night with /search. Can kill one person during the night (shared with team) and outspeeds distracters and protectors. Sided with Omnivores.",
+		"actions": {
+			"teamTalk": ["orni"],
+			"night": {
+				"kill": {
+					"target": "AnyButTeam",
+					"common": "Team",
+					"priority": 2
+				},
+				"search": {
+					"command": "inspect",
+					"target": "AnyButTeam",
+					"priority": 101,
+					"common": "Self"
+				}
+			},
+			"startup":{
+			"revealRole": [
+				"orni", 
+				"troo"
+				]
+			},
+			"onDeath": {
+				"convertRoles": {
+					"ovis": "ovis2",
+					"ovi": "ovis2",
+					"hypselo": "hypselo2"
+				},
+				"convertmsg": "With the death of the Troodon, a few more dinosaurs are getting restless during the night!"
+			}
+		}
+	},
+	{
+		"role": "orni",
+		"translation": "Ornithomimus",
+		"side": "omni",
+		"help": "You are a large dinosaur and as such you can get in the way of people's kills.  Use /protect [name] to protect someone from harms way.  You can also use your team's kill with /kill [name]. Also, you have a /spoil [name] command you can use to turn an egg into a bad egg that could come to your side later! Be wary though, you will only get 2 uses of this. As an additional barricade to this awesome power, you can only start using this from night 2 on. (Hint: Use /tt to talk to Troodon!)",
+		"info": "Can protect 1 person each night. Team kill. Spoils eggs (twice during the game, starting night 2). Sided with Omnivores.",
+		"actions": {
+			"teamTalk": ["troo"],
+			"night": {
+				"protect": {
+					"common": "Self",
+					"priority": 20,
+					"target": "AnyButSelf"
+				},
+			"kill": {
+				"hide": true,
+				"common": "Team",
+				"priority": 53,
+				"target": "AnyButTeam"
+			},
+			"spoil": {
+				"command": "convert",
+				"convertmsg": "Oh no, an egg has been spoiled!",
+				"newRole": {
+					"egg5": [
+						"egg",
+						"egg2",
+						"egg3",
+						"egg4"
+					]
+				},
+				"common": "Self",
+				"silentConvert": true,
+				"priority": 5,
+				"charges": 2,
+				"initialrecharge": 2,
+				"target": "AnyButTeam"
+			}
+		},
+		"startup": {
+				"revealRole": [
+					"troo",
+					"orni"
+				]
+			}
+		}
+	},
+	{	
+		"role": "gall",
+		"translation": "Gallilimus",
+		"side": "omni",
+		"help": "An ostrich-like dinosaur with a small head, you may be related to the Oviraptor, so you know him from the start, but not the other omnivores. Your strangeness allows you one use of each command: one /protect, one /distract, one /inspect, and one /stalk. You also can /kill during the night (shared with team).",
+		"info": "Knows Oviraptor. Can protect, distract, inspect, and stalk once per game. Can kill one person during the night. Sided with Omnivores.",
+		"actions": {
+			"night": {
+				"kill": {
+					"target": "AnyButTeam",
+					"common": "Team",
+					"priority": 53
+				},
+				"protect": {
+					"target": "AnyButSelf",
+					"common": "Role",
+					"priority": 18,
+					"charges": 1
+				},
+				"distract": {
+					"target": "AnyButTeam",
+					"common": "Role",
+					"priority": 5,
+					"charges": 1
+				},
+				"inspect": {
+					"target": "AnyButTeam",
+					"common": "Role",
+					"priority": 100,
+					"charges": 1
+				},
+				"stalk": {
+					"target": "AnyButTeam",
+					"common": "Role",
+					"priority": 110,
+					"charges": 1
+				}
+			},
+			"startup":  {
+				"revealRole": [
+					"gall",
+					"ovi"
+				]
+			}
+		}
+	},
+	{
+            "role": "omnivores",
+            "translation": "Other Omnivores",
+            "info": "If you somehow get this role, please contact Joeypals at http://pokemon-online.eu/forums/member.php?24510-Joeypals!!",
+            "hide": true,
+            "side": "omni",
+            "help": "If you somehow get this role, please contact Joeypals at http://pokemon-online.eu/forums/member.php?24510-Joeypals!!",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": 1,
+                        "poisonDeadMessage": "Time is up!"
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 53,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Oviraptor) has decided to kill ~Target~!"
+                    }
+                }
+            }
+	},
+	{
+		"role": "nessy",
+		"translation": "Loch Ness Monster",
+		"side": "nessy",
+		"help": "The mysterious Loch Ness monster.  No one knows what you look like so you inspect as an egg.  I mean come on, pictures of you make you look like an egg.  You have the power to vote anyone off with your vote of 999. You also have a /kill which will either kill the target or poison them!",
+		"info": "Vote of 999. Can kill during the night, which will either actually kill or poison. Sided with Loch Ness Monster.",
+		"actions": {
+			"night": {
+				"kill": {
+					"command": {
+						"kill": 0.5,
+						"poison": 0.5
+					},
+					"target": "AnyButSelf",
+					"common": "Self",
+					"priority": 59
+				}	
+			},
+			"vote": 999,
+			"inspect": {
+				"revealAs": "egg"
+			}
+		},
+		"winIfDeadRoles": [
+			"velo",
+			"super",
+			"trex",
+			"spine",
+			"spine2",
+			"mega",
+			"troo",
+			"orni",
+			"meteor",
+			"meteor2",
+			"meteor3",
+			"iceage",
+			"iceage2",
+			"lanzhou2"
+		]
+	},
+	{
+		"role": "meteormini",
+		"translation": "Meteor",
+		"side": "death",
+		"help": "Thought to have caused the extinction of the dinosaurs 65 million years ago, you're here to cause some mayhem! You can /flame to kill during the night and also use this to kill during the day. As the game goes on you will gain more daykills, but with a higher chance of being revealed!",
+		"info": "Can flame (kill) one person during the night. Can flame (kill) one person during the day without being revealed. Sided with Extinction.",
+		"actions": {
+			"startup": "team-reveal-with-roles",
+			"night": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"common": "Self",
+					"hide": true,
+					"priority": 55
+				}
+			},
+			"standby": {
+				"flame": {
+					"command": "kill",
+						"target": "AnyButSelf",
+						"msg": "You can kill now using /flame!",
+						"killmsg": "The sky suddenly turns a crimson red and a giant ball of flame falls out of it, brutally smashing into ~Target~!"
+					}
+				},
+		"initialCondition": {
+			"curse": {
+				"cursedRole": "meteormini2",
+					"curseCount": 4
+				}
+			}
+		}
+	},
+	{
+		"role": "meteor",
+		"translation": "Meteor",
+		"side": "death",
+		"help": "Thought to have caused the extinction of the dinosaurs 65 million years ago, you're here to cause some mayhem! You can /flame to kill during the night and also use this to kill during the day. As the game goes on you will gain more daykills, but with a higher chance of being revealed! (Hint: Use /tt to talk to your team!)",
+		"info": "Can flame (kill) one person during the night. Can flame (kill) one person during the day without being revealed. Sided with Extinction.",
+		"actions": {
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true,
+			"night": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"common": "Self",
+					"hide": true,
+					"priority": 55
+				}
+			},
+			"standby": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"msg": "You can kill now using /flame!",
+					"killmsg": "The sky suddenly turns a crimson red and a giant ball of flame falls out of it, brutally smashing into ~Target~!"
+				}
+			},
+			"initialCondition": {
+				"curse": {
+					"cursedRole": "meteor2",
+					"curseCount": 3
+				}
+			},
+			"onDeath": {
+				"convertRoles": {
+					"iceage": "iceage2"
+				},
+				"convertmsg": "The meteor crashed and now there is a dust cloud blocking out the sun. The Ice Age is coming!"
+			}
+		}
+	},
+	{
+		"role": "meteor2",
+		"translation": "Meteor",
+		"side": "death",
+		"help": "Thought to have caused the extinction of the dinosaurs 65 million years ago, you're here to cause some mayhem! You can /flame to kill during the night and also use this to kill during the day. Now you can use /flame twice during the day, but you may be revealed when you do so! (Hint: Use /tt to talk to your team!)",
+		"info": "Can flame (kill) one person during the night. Can flame (kill) two people during the day with a 35% chance of being revealed. Sided with Extinction.",
+		"actions": {
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true,
+			"night": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"common": "Self",
+					"hide": true,
+					"priority": 55
+				}
+			},
+			"standby": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"msg": "You can kill now using /flame!",
+					"killmsg": "The sky suddenly turns a crimson red and a giant ball of flame falls out of it, brutally smashing into ~Target~!",
+					"limit": 2,
+					"revealChance": 0.35,
+					"revealmsg": "As the flames are extinguished and the smoke clears away, the dinosaurs found the meteor  to be a ~Self~ type of rock from outer space!"
+				}
+			},
+			"initialCondition": {
+				"curse": {
+					"cursedRole": "meteor3",
+					"curseCount": 2
+				}
+			},
+			"onDeath": {
+				"convertRoles": {
+					"iceage": "iceage2"
+				},
+				"convertmsg": "The meteor crashed and now there is a dust cloud blocking out the sun. The Ice Age is coming!"
+			}
+		}
+	},
+	{
+		"role": "meteormini2",
+		"translation": "Meteor",
+		"side": "death",
+		"help": "Thought to have caused the extinction of the dinosaurs 65 million years ago, you're here to cause some mayhem! You can /flame to kill during the night and also use this to kill during the day. Now you can use /flame twice during the day, but you may be revealed when you do so!",
+		"info": "Can flame (kill) one person during the night. Can flame (kill) two people during the day with a 60% chance of being revealed. Sided with Extinction.",
+		"actions": {
+			"startup": "team-reveal-with-roles",
+			"night": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"common": "Self",
+					"hide": true,
+					"priority": 55
+				}
+			},
+			"standby": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"msg": "You can kill now using /flame!",
+					"killmsg": "The sky suddenly turns a crimson red and a giant ball of flame falls out of it, brutally smashing into ~Target~!",
+					"limit": 2,
+					"revealChance": 0.6,
+					"revealmsg": "As the flames are extinguished and the smoke clears away, the dinosaurs found the meteor  to be a ~Self~ type of rock from outer space!"
+				}
+			}
+		}
+	},
+	{
+		"role": "meteor3",
+		"translation": "Meteor",
+		"side": "death",
+		"help": "Thought to have caused the extinction of the dinosaurs 65 million years ago, you're here to cause some mayhem! You can /flame to kill during the night and also use this to kill during the day. Now you can use /flame three times during the day, but you may very well be revealed when you do so! (Hint: Use /tt to talk to your team!)",
+		"info": "Can flame (kill) one person during the night. Can flame (kill) three people during the day, but will be revealed. Sided with Extinction.",
+		"actions": {
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true,
+			"night": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"common": "Self",
+					"hide": true,
+					"priority": 55
+				}
+			},
+			"standby": {
+				"flame": {
+					"command": "kill",
+					"target": "AnyButSelf",
+					"msg": "You can kill now using /flame!",
+					"killmsg": "The sky suddenly turns a crimson red and a giant ball of flame named ~Self~ falls out of it, brutally smashing into ~Target~!",
+					"limit": 3
+				}
+			},
+			"onDeath": {
+				"convertRoles": {
+					"iceage": "iceage2"
+				},
+				"convertmsg": "The meteor crashed and now there is a dust cloud blocking out the sun. The Ice Age is coming!"
+			}
+		}
+	},
+	{
+	"role": "meteordummy",
+	"translation": "Meteor",
+	"info": "this isn't a thing lol",
+	"hide": true,
+	"side": "death",
+	"help": "This is not a meteor. You can't kill. Game over. Die.",
+	"actions": {
+	"initialCondition": {
+	"poison": {
+	"count": 1,
+	"poisonDeadMessage": "you're dead. tyrenitr."
+	}
+	},
+	"night": {
+	"flame": {
+	"command": "kill",
+	"target": "AnyButTeam",
+	"common": "Self",
+	"priority": 55
+	}
+	}
+	}
+	},
+	{
+		"role": "iceage",
+		"translation": "Ice Age",
+		"side": "death",
+		"help": "Another theory for the extinction of dinosaurs, the fall of the Earth's temperature has brought you here! You can /poison every night to give dinosaurs frostbite and your cold nature allows you to /protect anyone during the night, including yourself. The death of the meteor will power you up! (Hint: Use /tt to talk to your team!)",
+		"info": "Can poison one person during the night. Can protect one person during the night. Powers up if Meteor dies. Sided with Extinction.",
+		"actions": {
+			"startup": "team-reveal-with-roles",
+			"teamTalk": true,
+			"night": {
+				"poison": {
+					"target": "AnyButTeam",
+					"common": "Self",
+					"hide": true,
+					"priority": 70
+				},
+			"protect": {
+				"target": "Any",
+				"common": "Self",
+				"priority": 18
+				}
+			}
+		}
+	},
+	{
+		"role": "iceage2",
+		"translation": "Ice Age",
+		"side": "death",
+		"help": "Now that the meteor has gone, the Earth has become colder. You now can /poison two people during the night in addition to being able to /protect yourself during the night, which outspeeds distracters! Be careful though, as this only has one use.",
+		"info": "Can poison two people during the night. Can protect itself during the night once per game, outspeeding distracts. Sided with Extinction.",
+		"actions": {
+			"startup": "team-reveal-with-roles",
+			"night": {
+				"poison": {
+					"target": "AnyButTeam",
+					"common": "Self",
+					"priority": 70,
+					"hide": true,
+					"limit": 2
+				},
+				"protect": {
+					"target": "Self",
+					"common": "Self",
+					"priority": 3,
+					"charges": 1
+				}
+			}
+		}
+	},
+	{
+	"role": "icedummy",
+	"translation": "Ice Age",
+	"hide": "true",
+	"side": "death",
+	"help": "so cold omg freezing to death",
+	"info": "This is a block of ice. You don't do anything. gg.",
+	"actions": {
+	"initialCondition": {
+	"poison": {
+	"count": 1,
+	"poisonDeadMessage": "HNNNNG SO COLD FRO-"
+	}
+	},
+	"night": {
+	"poison": {
+	"target": "AnyButTeam",
+	"common": "Team",
+	"priority": 70
+	}
+	}
+	}
+	}
+	],
+	"roles1": [
+		"long",
+		"tri",
+		"velo",
+		"para",
+		"troos",
+		"egg6"
+	],
+	"roles2": [
+		"long",
+		"tri",
+		"para",
+		"velo",
+		{
+			"egg": 0.15,
+			"egg7": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"troo",
+		{
+			"egg": 0.15,
+			"egg7": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		{
+			"egg": 0.15,
+			"egg7": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"trex",
+		{
+			"egg": 0.15,
+			"egg7": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"spike",
+		"ovis",
+		"hypselo",
+		"spine",
+		"iguana",
+		"meteormini",
+		"stego",
+		"orni",
+		"lanzhou",
+		"velo",
+		{
+			"egg": 0.15,
+			"egg7": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		}
+	],
+	"roles3": [
+		"long",
+		"tri",
+		"para",
+		"velo",
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"troo",
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"trex",
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"spike",
+		"ovi",
+		"hypselo",
+		"spine",
+		"iguana",
+		"orni",
+		"stego",
+		"lanzhou",
+		"velo",
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"meteor",
+		"iceage",
+		"super",
+		"nessy",
+		"spike",
+		"ples",
+		"gall",
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"long",
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+			"stego",
+		{
+			"egg": 0.15,
+			"egg2": 0.1,
+			"egg3": 0.05,
+			"egg4": 0.7
+		},
+		"stego",
+		"velo",
+		"ovi"
+	],
+	"villageCantLoseRoles": [
+		"super",
+		"stego",
+		"stego2"
+	],
+	"changelog": {
+            "11/2/13": "Moved roles around so that the game is more balanced, solidifying spawn order for now.",
+            "12/7/13": "Added teamtalk and sorted the spawn out to balance the theme more. Oviraptor gets to know the villager eggs instead of the eggs that hatch into village PRs now.",
+            "12/17/13": "Added an egg6 for roles1 along with making Oviraptor useful after Troodon dies in roles2 though, gaining a kill while getting its vote reduced to 1.",
+			"2.19.13": "Added Iguanadon due to too many eggs in spawn list.",
+			"2.22.13": "Added Lanzhousaurus, Hypselosaurus, Plesiosaurus, and Gallilimus. Slightly buffed Loch Ness Monster."
+	},
+	"killmsg": "±Human: Ha, ~Player~ (~Role~) is now extinct.",
+	"killusermsg": "±Human: You couldn't survive extinction."
+}
