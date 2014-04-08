@@ -1,0 +1,463 @@
+{
+    "name": "Default",
+	"threadlink": "http://pokemon-online.eu/forums/showthread.php?22345-Default",
+    "summary": "The classic Mafia theme for all people! Now with teamTalk! (/tt for mafia)",
+    "author": "Mafia QC",
+    "tips": {
+        "Inspector": "Be wary of hidden millers!",
+        "Samurai": "Be careful who you kill!",
+        "Bodyguard": "Use your action to protect the most important role(s)."
+    },
+    "sides": [
+        {
+            "side": "mafia",
+            "translation": "Mafia"
+        },
+        {
+            "side": "mafia1",
+            "translation": "French Canadian Mafia"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Italian Mafia"
+        },
+        {
+            "side": "village",
+            "translation": "Village"
+        },
+        {
+            "side": "werewolf",
+            "translation": "WereWolf"
+        },
+        {
+            "side": "godfather",
+            "translation": "Godfather"
+        },
+		{
+			"side": "serp",
+			"translation": "Conspirator"
+		}
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Villager",
+            "side": "village",
+            "help": "You don't have any special commands during the night! Vote to remove people in the day!",
+            "actions": {}
+        },
+        {
+            "role": "inspector",
+            "translation": "Inspector",
+            "side": "village",
+            "help": "Type /Inspect [name] to find out someone's side!",
+            "info": "Can inspect one person's role during the night. Sided with Village.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Bodyguard",
+            "side": "village",
+            "help": "Type /Protect [name] to protect someone!",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "role"
+                    }
+                },
+                "startup": "role-reveal"
+            }
+        },
+        {
+            "role": "mafia",
+            "translation": "Mafia",
+            "side": "mafia",
+            "help": "Type /Kill [name] to kill someone! You share this action with your team.",
+            "actions": {
+"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "werewolf",
+            "translation": "WereWolf",
+            "side": "werewolf",
+            "help": "Type /Kill [name] to kill someone! You share this action with your team.",
+            "actions": {
+"teamTalk": true, 
+"startup": "team-reveal",
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to distract the Werewolf, but were devoured instead!",
+                    "msg": "The ~Distracter~ came to you last night! You devoured her instead!"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "pl",
+            "translation": "Pretty Lady",
+            "side": "village",
+            "help": "Type /Distract [name] to distract someone! Vote to remove people in the day!",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "mayor",
+            "translation": "Mayor",
+            "side": "village",
+            "help": "You don't have any special commands during the night but your vote counts as 2. Vote to remove people in the day!",
+            "actions": {
+                "vote": 2
+            }
+        },
+        {
+            "role": "spy",
+            "translation": "Spy",
+            "side": "village",
+            "help": "You can find out who may be getting killed next (no command for this ability)! Vote to remove people in the day!",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.06
+                    }
+                }
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Godfather",
+            "side": "godfather",
+            "help": "Type /Kill [name] to kill someone! You can kill 2 targets, Type /kill [name2] again to select your second target! You can't be distracted or hax'd.",
+            "actions": {
+			"inspect": { "revealAs": "villager"},
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "limit": 2
+                    }
+                },
+                "distract": {
+                    "mode": "ignore","msg": "The ~Distracter~ came to you last night, but you managed to kill anyway!"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "vigilante",
+            "translation": "Vigilante",
+            "side": "village",
+            "help": "Type /Kill [name] to kill someone! Try not to kill the good people!",
+            "actions": {
+			"avoidHax": ["kill"],
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 19
+                    }
+                }
+            }
+        },
+        {
+            "role": "mafia1",
+            "translation": "French Canadian Mafia",
+            "side": "mafia1",
+            "help": "Type /Kill [name] to kill someone! You share this action with your team.",
+            "actions": {
+"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia2",
+            "translation": "Italian Mafia",
+            "side": "mafia2",
+            "help": "Type /Kill [name] to kill someone! You share this action with your team.",
+            "actions": {
+"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafiaboss1",
+            "translation": "Don French Canadian Mafia",
+            "side": "mafia1",
+            "help": "Type /Kill [name] to kill someone! You can't be distracted or hax'd! You share this action with your team.",
+            "actions": {
+"teamTalk": true,
+			"avoidHax": ["kill"],
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The Pretty Lady came to you last night, but she had no effect on you!"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafiaboss2",
+            "translation": "Don Italian Mafia",
+            "side": "mafia2",
+            "help": "Type /Kill [name] to kill someone! You can't be distracted or hax'd! You share this action with your team.",
+            "actions": {
+
+			"avoidHax": ["kill"],
+			"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The Pretty Lady came to you last night, but she had no effect on you!"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "samurai",
+            "translation": "Samurai",
+            "side": "village",
+            "help": "Type /Kill [name] during the day phase to kill someone! You will be revealed when you kill, so make wise choices!",
+            "actions": {
+                "daykill": "evade",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "~Self~ pulls out a sword and strikes it through ~Target~'s chest!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "truemiller",
+            "translation": "Miller",
+            "side": "village",
+            "help": "You don't have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "mafia"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "mafia"
+            }
+        },
+        {
+            "role": "miller1",
+            "translation": "Miller",
+            "side": "village",
+            "help": "You don't have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "mafia1"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "mafia1"
+            }
+        },
+        {
+            "role": "miller2",
+            "translation": "Miller",
+            "side": "village",
+            "help": "You don't have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "mafia2"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "mafia2"
+            }
+        },
+        {
+            "role": "bomb",
+            "translation": "Bomb",
+            "side": "village",
+            "help": "You are sided with the village! If anyone tries to kill you, you kill back!",
+            "actions": {
+                "kill": {
+                    "mode": "killattacker"
+                }
+            }
+        },
+		{
+			"role": "serpentine",
+			"translation": "Conspirator",
+			"side": "serp",
+			"winningSides": ["godfather", "mafia1", "mafia2", "village"],
+			"help": "You win with everyone but the wolf! Be careful not to be voted though, as a single vote may lynch you...",
+			"actions": {
+				"voteshield": 99,
+				"onlist": "villager",
+				"inspect": {
+					"revealAs": "villager"
+				}
+			}
+		}
+    ],
+    "roles1": [
+        "bodyguard",
+        "mafia",
+        "inspector",
+        "werewolf",
+        "pl",
+        "villager",
+        "truemiller",
+        "villager",
+        "mafia",
+        "villager",
+        "mayor"
+    ],
+    "roles2": [
+        "bodyguard",
+        "mafia1",
+        "mafia1",
+        "inspector",
+        "pl",
+        "villager",
+        "mafia2",
+        "mafia2",
+        "villager",
+        "villager",
+        "villager",
+        "mayor",
+        "villager",
+        "spy",
+        "villager",
+        "miller1",
+        "miller2",
+        "mafiaboss1",
+        "villager",
+        "vigilante",
+        "villager",
+        "godfather",
+        "mafiaboss2",
+        "samurai",
+        "villager",
+        "villager"
+    ],
+    "roles3": [
+        "bodyguard",
+        "mafia1",
+        "mafia1",
+        "inspector",
+        "pl",
+        "villager",
+        "mafia2",
+        "mafia2",
+        "villager",
+        "villager",
+        "villager",
+        "mayor",
+        "villager",
+        "spy",
+        "villager",
+        "miller1",
+        "miller2",
+        "mafiaboss1",
+        "villager",
+        "vigilante",
+        "villager",
+        "godfather",
+        "mafiaboss2",
+        "samurai",
+        "villager",
+        "werewolf",
+        "werewolf",
+        "mafia2",
+        "miller1",
+        "mayor",
+        "pl",
+        "mafia1",
+        "mafia2",
+        "spy",
+        "miller2",
+        "werewolf",
+        "vigilante",
+        "bodyguard",
+        "villager",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+        "mayor",
+        "vigilante",
+        "samurai"
+    ],
+    "changelog": {
+        "December 12, 2013": "Added changelog. Dons now can't be haxed. Changed help messages. Werewolf now spawn in teams in large games, for a total of up to 3 of them at the same time. Spawn adjusted. Vigilante can't be haxed by Spy. Godfather inspects as Villager and now ignores distractions. Teamtalk added. Help messages changed. Millers now flip as millers when lynched."
+    }
+}
