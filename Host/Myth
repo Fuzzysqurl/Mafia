@@ -1,0 +1,3222 @@
+{
+    "name": "Myth",
+    "author": [
+		"Redsnake",
+		"Windblown",
+		"aei"
+	],
+	"altname": "Mythology",
+	"minplayers": 3,
+	"threadlink": "http://pokemon-online.eu/forums/showthread.php?16001-Mythology",
+    "summary": "The Heavens are at war in this epic struggle for Mount Olympus.  The mighty powers of Good, including Zeus, Apollo, and Athena are supported by numerous Demigods as they combat their enemies. NEW ROLES: Endymion, Odysseus, Ajax, Perseus. Santa, Cupid, or Leprechaun may appear in large games. Is Hydra OP in small games? Help please. PM Windblown or aei with any comments or suggestions.",
+    "sides": [
+        {
+            "side": "mafia1",
+            "translation": "Underworld",
+            "winmsg": "±Olympus: The world descends into everlasting Darkness as ~Players~ bring Mount Olympus under the power of the Underworld!"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Gorgons",
+            "winmsg": "±Olympus: Statues of the Gods litter Mount Olympus, as they have been turned into stone by ~Players~!"
+        },
+        {
+            "side": "village",
+            "translation": "Olympians",
+            "winmsg": "±Olympus: Mount Olympus has been protected! Good work, ~Players~!"
+        },
+        {
+            "side": "basilisk",
+            "translation": "Basilisk",
+            "winmsg": "±Olympus: Successfully striking from the shadows, ~Players~ coils contently atop his throne on Mount Olympus."
+        },
+        {
+            "side": "kronos",
+            "translation": "Kronos",
+            "winmsg": "±Olympus: Masterful manipulation has allowed ~Players~ to overthrow the Gods and claim Mount Olympus for their own!"
+        },
+        {
+            "side": "titans",
+            "translation": "Titans",
+            "winmsg": "±Olympus: In a display of their vast primordial power, The Titans (~Players~) have toppled the Gods from Mount Olympus!"
+        },
+		{
+			"side": "norse",
+			"translation": "Norse",
+			"winmsg": "±Olympus: The Norse Gods(~Players~) has conquered Mount Olympus!",
+			"hide": true
+		}
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Demigod",
+            "side": "village",
+            "help": "You dont have any special commands during the night, but you may be a Greek hero in disguise! But for now, vote to remove people in the day!",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.01
+                    }
+                }
+            }
+        },
+		{
+			"role": "villagere",
+			"translation": "Demigod",
+			"side": "village",
+			"help": "You dont have any special commands during the night, but you may be a Greek hero in disguise! But for now, vote to remove people in the day!",
+			"actions": {
+				"hax": {
+                    "kill": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.01
+                    }
+                },
+				"initialCondition": {
+					"curse": {
+						"curseCount": 3,
+						"cursedRole": "endymion",
+						"curseConvertMessage": "A Demigod has realized his true potential as the Greek hero Endymion!"
+					}
+				}
+			}
+		},
+		{
+			"role": "endymion",
+			"translation": "Endymion",
+			"side": "village",
+			"help": "The lover of Selene, who wanted you to remain handsome forever, so Zeus put you to perpetual sleep. This makes you immune to nightkills and daykills, but your vote is only 0.5.",
+			"actions": {
+				"vote": 0.5,
+				"kill": {
+					"mode": "ignore"
+				},
+				"daykill": "evade"
+			}
+		},
+		{
+			"role": "villagero",
+			"translation": "Demigod",
+			"side": "village",
+			"hide": true,
+			"help": "You dont have any special commands during the night, but you may be a Greek hero in disguise! But for now, vote to remove people in the day!",
+			"actions": {
+				"hax": {
+                    "kill": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.01
+                    }
+                },
+				"initialCondition": {
+					"curse": {
+						"curseCount": 3,
+						"cursedRole": "odysseus",
+						"curseConvertMessage": "A Demigod has realized his true potential as the Greek hero Odysseus!"
+					}
+				}
+			}
+		},
+		{
+			"role": "odysseus",
+			"translation": "Odysseus",
+			"side": "village",
+			"help": "King of Ithaca and creator of the Trojan Horse, your trickery and cunning allows you to send fake hax to the Cerberus and Gorgons with /trick or /trick2 every other night. (/trick sends fake Aphrodite hax to the Cerberus, and /trick2 sends fake Ares hax to the Gorgons)",
+			"info": "Can send fake hax to either the Underworld or the Gorgons every other night (cannot use the same command on consecutive nights). Sided with Olympians.",
+			"actions": {
+				"night": {
+					"trick": {
+						"command": "dummy",
+						"common": "Self",
+						"target": "AnyButSelf",
+						"priority": 19,
+						"broadcast": ["mafia1"],
+						"restrict": ["trick2"],
+						"recharge": 2,
+						"broadcastmsg": "~Target~ is Aphrodite!"
+					},
+					"trick2": {
+						"command": "dummy",
+						"common": "Self",
+						"target": "AnyButSelf",
+						"priority": 19,
+						"hide": true,
+						"broadcast": ["mafia2"],
+						"restrict": ["trick"],
+						"recharge": 2,
+						"broadcastmsg": "~Target~ is Ares!"
+					}
+				}
+			}
+		},
+		{
+			"role": "villagera",
+			"translation": "Demigod",
+			"side": "village",
+			"hide": true,
+			"help": "You dont have any special commands during the night, but you may be a Greek hero in disguise! But for now, vote to remove people in the day!",
+			"actions": {
+				"hax": {
+                    "kill": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.01
+                    }
+                },
+				"initialCondition": {
+					"curse": {
+						"curseCount": 3,
+						"cursedRole": "ajax",
+						"curseConvertMessage": "A Demigod has realized his true potential as the Greek hero Ajax!"
+					}
+				}
+			}
+		},
+		{
+			"role": "ajax",
+			"translation": "Ajax",
+			"side": "village",
+			"help": "One of the most powerful Greek heroes, your great strength allows you to take down anyone who targets you during the night!",
+			"info": "Revenges nightkills. Sided with Olympians.",
+			"actions": {
+				"kill": {
+					"mode": "killattacker"
+				}
+			}
+		},
+		{
+			"role": "villagerp",
+			"translation": "Demigod",
+			"side": "village",
+			"hide": true,
+			"help": "You dont have any special commands during the night, but you may be a Greek hero in disguise! But for now, vote to remove people in the day!",
+			"actions": {
+				"hax": {
+                    "kill": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.01
+                    }
+                },
+				"initialCondition": {
+					"curse": {
+						"curseCount": 3,
+						"cursedRole": "perseus",
+						"curseConvertMessage": "A Demigod has realized his true potential as the Greek hero Perseus!"
+					}
+				}
+			}
+		},
+		{
+			"role": "perseus",
+			"translation": "Perseus",
+			"side": "village",
+			"help": "Slayer of Medusa. With the shield of Athena, the aegis, you can /petrify one person during the game to convert them into stone. This will only work on either a Cerberus or a Gorgon, and you only have one shot, so be careful!",
+			"info": "Can petrify one person during a game to turn them into stone. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"petrify": {
+						"command": "convert",
+						"common": "Self",
+						"target": "AnyButSelf",
+						"priority": 60,
+						"charges": 1,
+						"newRole": {
+							"stone": ["mafia1"],
+							"stone2": ["mafia2"]
+						},
+						"convertmsg": "Perseus has turned a ~Role~ into stone!"
+					}
+				}
+			}
+		},
+		{
+			"role": "stone",
+			"translation": "Stone",
+			"side": "mafia1",
+			"help": "You've been turned into stone! You can do nothing, and your vote is 0...",
+			"actions": {
+				"vote": 0
+			}
+		},
+		{
+			"role": "stone2",
+			"translation": "Stone",
+			"side": "mafia2",
+			"help": "You've been turned into stone! You can do nothing, and your vote is 0...",
+			"actions": {
+				"vote": 0
+			}
+		},
+		{
+			"hide": true,
+			"role": "villagerg",
+			"translation": "Demigod",
+			"side": "village",
+			"help": "You got a gift from Santa Claus! Use /open to open it on someone. Who knows what it will do!",
+			"actions": {
+				"night": {
+					"open": {
+						"command": {
+							"kill": 0.05,
+							"distract": 0.15,
+							"protect": 0.15,
+							"inspect": 0.1,
+							"dummy": 0.55
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 22,
+						"hide": true,
+						"dummytargetmsg": "Someone opened up a bag of confetti in your face. You were not amused.",
+						"dummyusermsg": "You opened your present in front of ~Target~!"
+					}
+				}
+			}
+		},
+		{
+			"hide": true,
+			"role": "villagerc",
+			"translation": "Demigod",
+			"side": "village",
+			"help": "You got a lump of coal from Santa Claus. :( Use /throw to throw it at someone. You might kill them!",
+			"actions": {
+				"night": {
+					"throw": {
+						"command": {
+							"kill": 0.01,
+							"dummy": 0.99
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 22,
+						"hide": true,
+						"dummytargetmsg": "Someone threw a lump of coal at you. You died!",
+						"dummyusermsg": "You threw your coal at ~Target~!"
+					}
+				}
+			}
+		},
+		{
+            "hide": true,
+			"role": "villager0",
+            "translation": "Demigod",
+            "side": "village",
+            "help": "You dont have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+				"vote": 0.5,
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.01
+                    }
+                }
+            }
+        },
+        {
+            "role": "apollo",
+            "translation": "Apollo",
+            "side": "village",
+            "help": "God of Light and Truth.  Every other day your powers are magnified, allowing you to /illuminate someone, revealing both of your roles.  If you are killed during the day, as a dying wish your killer is revealed. ",
+            "info": "Can illuminate (expose) someone every other day (reveals self as well).  If daykilled, reveals role of attacker before dying. Sided with Olympians.",
+            "actions": {
+                "standby": {
+                    "illuminate": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "recharge": 2,
+                        "msg": "Use /illuminate now to reveal yourself and your target!",
+                        "exposemsg": "~Self~ (Apollo) flashes a smile at ~Target~.  Suddenly, the sun glints bright overhead, and in a moment of truth, he is revealed to be ~Role~!"
+                    }
+                },
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "In a dying explosion of light, ~Self~ reveals ~Target~ as ~Role~!",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "apollog",
+			"hide": true,
+            "translation": "Apollo",
+            "side": "village",
+            "help": "God of Light and Truth.  Every other day your powers are magnified, allowing you to /illuminate someone, revealing both of your roles.  If you are killed during the day, as a dying wish your killer is revealed. ",
+            "info": "Can illuminate (expose) someone every other day (reveals self as well).  If daykilled, reveals role of attacker before dying. Sided with Olympians.",
+            "actions": {
+				"vote": 3,
+                "standby": {
+                    "illuminate": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "recharge": 2,
+                        "msg": "Use /illuminate now to reveal yourself and your target!",
+                        "exposemsg": "~Self~ (Apollo) flashes a smile at ~Target~.  Suddenly, the sun glints bright overhead, and in a moment of truth, he is revealed to be ~Role~!"
+                    }
+                },
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "In a dying explosion of light, ~Self~ reveals ~Target~ as ~Role~!",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "apolloc",
+			"hide": true,
+            "translation": "Apollo",
+            "side": "village",
+            "help": "God of Light and Truth.  Every other day your powers are magnified, allowing you to /illuminate someone, revealing both of your roles.  If you are killed during the day, as a dying wish your killer is revealed. ",
+            "info": "Can illuminate (expose) someone every other day (reveals self as well).  If daykilled, reveals role of attacker before dying. Sided with Olympians.",
+            "actions": {
+				"vote": -2,
+                "standby": {
+                    "illuminate": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "recharge": 2,
+                        "msg": "Use /illuminate now to reveal yourself and your target!",
+                        "exposemsg": "~Self~ (Apollo) flashes a smile at ~Target~.  Suddenly, the sun glints bright overhead, and in a moment of truth, he is revealed to be the ~Role~!"
+                    }
+                },
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "In a dying explosion of light, ~Self~ reveals ~Target~ as the ~Role~!",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "inspector",
+            "translation": "Athena",
+            "side": "village",
+            "help": "Goddess of Wisdom.  Use your powers to find out someones role.  Type /Inspect [name] to find his/her identity! ",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "inspectorg",
+			"hide": true,
+            "translation": "Athena",
+            "side": "village",
+            "help": "Goddess of Wisdom.  Use your powers to find out someones role.  Type /Inspect [name] to find his/her identity! ",
+            "actions": {
+				"vote": 3,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30,
+						"hide": true
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "inspectorc",
+			"hide": true,
+            "translation": "Athena",
+            "side": "village",
+            "help": "Goddess of Wisdom.  Use your powers to find out someones role.  Type /Inspect [name] to find his/her identity! ",
+            "actions": {
+				"vote": -2,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30,
+						"hide": true
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "inspectork",
+            "translation": "Athena",
+            "side": "village",
+            "help": "Goddess of Wisdom.  Use your powers to find out someones role.  Type /Inspect [name] to find his/her identity! ",
+            "actions": {
+                "night": {
+                    "inspect": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "poseidon",
+            "translation": "Poseidon",
+            "side": {
+                "random": {
+                    "village": 0.5,
+                    "mafia1": 0.5
+                }
+            },
+			"winningSides": ["village", "mafia1"],
+            "help": "God of the Seas. Brother of both Zeus and Hades, you decided to help the ~Side~ this time. Every night, you can use /flipper to send a dolphin after someone to discover who they visit.",
+            "info": "Can send a dolphin to stalk someone during the night. Can be sided with Olympians OR Underworld, but can win with both.",
+            "actions": {
+                "night": {
+                    "flipper": {
+                        "command": "stalk",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 69
+                    }
+                },
+                "startup": {
+                    "team-revealif": [
+                        "mafia1"
+                    ]
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "poseidong",
+			"hide": true,
+            "translation": "Poseidon",
+            "side": {
+                "random": {
+                    "village": 0.5,
+                    "mafia1": 0.5
+                }
+            },
+            "help": "God of the Seas. Brother of both Zeus and Hades, you decided to help the ~Side~ this time. Every night, you can use /flipper to send a dolphin after someone to discover who they visit.",
+            "info": "Can send a dolphin to stalk someone during the night. Can be sided with Olympians OR Underworld.",
+            "actions": {
+				"vote": 3,
+                "night": {
+                    "flipper": {
+                        "command": "stalk",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+						"hide": true,
+                        "priority": 69
+                    }
+                },
+                "startup": {
+                    "team-revealif": [
+                        "mafia1"
+                    ]
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "poseidonc",
+			"hide": true,
+            "translation": "Poseidon",
+            "side": {
+                "random": {
+                    "village": 0.5,
+                    "mafia1": 0.5
+                }
+            },
+            "help": "God of the Seas. Brother of both Zeus and Hades, you decided to help the ~Side~ this time. Every night, you can use /flipper to send a dolphin after someone to discover who they visit.",
+            "info": "Can send a dolphin to stalk someone during the night. Can be sided with Olympians OR Underworld.",
+            "actions": {
+				"vote": -2,
+                "night": {
+                    "flipper": {
+                        "command": "stalk",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+						"hide": true,
+                        "priority": 69
+                    }
+                },
+                "startup": {
+                    "team-revealif": [
+                        "mafia1"
+                    ]
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "poseidonk",
+            "translation": "Poseidon",
+			"side": "kronos",
+            "help": "God of the Seas. Brother of both Zeus and Hades, you decided to help the ~Side~ this time. Every night, you can use /flipper to send a dolphin after someone to discover who they visit.",
+            "info": "Can send a dolphin to stalk someone during the night. Can be sided with Olympians OR Underworld.",
+            "actions": {
+                "night": {
+                    "flipper": {
+                        "command": "dummy",
+						"hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 69
+                    }
+                }
+			}
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Ares",
+            "side": "village",
+            "help": "God of War.  Use your powers to prevent someone's death. You may protect one person per night, make it count! Type /Protect [name] to protect someone! Your vote also counts as 2.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3
+                    }
+                },
+                "vote": 2,
+                "startup": "role-reveal",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "bodyguardg",
+			"hide": true,
+            "translation": "Ares",
+            "side": "village",
+            "help": "God of War.  Use your powers to prevent someone's death. You may protect one person per night, make it count! Type /Protect [name] to protect someone! Your vote also counts as 2.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+						"hide": true
+                    }
+                },
+                "vote": 4,
+                "startup": "role-reveal",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "bodyguardc",
+			"hide": true,
+            "translation": "Ares",
+            "side": "village",
+            "help": "God of War.  Use your powers to prevent someone's death. You may protect one person per night, make it count! Type /Protect [name] to protect someone! Your vote also counts as 2.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+						"hide": true
+                    }
+                },
+                "vote": -1,
+                "startup": "role-reveal",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "bodyguardk",
+            "translation": "Ares",
+            "side": "village",
+            "help": "God of War.  Use your powers to prevent someone's death. You may protect one person per night, make it count! Type /Protect [name] to protect someone! Your vote also counts as 2.",
+            "actions": {
+                "night": {
+                    "protect": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3
+                    }
+                },
+                "vote": 2,
+                "startup": "role-reveal",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "hide": "side",
+			"role": "bodyguard0",
+            "translation": "Ares",
+            "side": "village",
+            "help": "God of War.  Use your powers to prevent someone's death. You may protect one person per night, make it count! Type /Protect [name] to protect someone! You have a vote of 1.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3
+                    }
+                },
+                "startup": "role-reveal",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "hooker",
+            "translation": "Aphrodite",
+            "side": "village",
+            "help": "Goddess of Love. Use your powers to pacify someone for a single night. Type /Distract [name] to distract someone! Vote to remove people in the day!",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "distractmsg": "While you attempted to carry out your nightly activities, you instead found yourself irresistibly enamoured with a breathtaking woman who appeared from nowhere.  You have no regrets the next morning, though your partners seem to be a bit miffed.",
+                        "teammsg": "You were unable to act last night, as your teammate was too busy with Aphrodite."
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "hookerg",
+			"hide": true,
+            "translation": "Aphrodite",
+            "side": "village",
+            "help": "Goddess of Love. Use your powers to pacify someone for a single night. Type /Distract [name] to distract someone! Vote to remove people in the day!",
+            "actions": {
+				"vote": 3,
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+						"hide": true,
+                        "distractmsg": "While you attempted to carry out your nightly activities, you instead found yourself irresistibly enamoured with a breathtaking woman who appeared from nowhere.  You have no regrets the next morning, though your partners seem to be a bit miffed.",
+                        "teammsg": "You were unable to act last night, as your teammate was too busy with Aphrodite."
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "hookerc",
+			"hide": true,
+            "translation": "Aphrodite",
+            "side": "village",
+            "help": "Goddess of Love. Use your powers to pacify someone for a single night. Type /Distract [name] to distract someone! Vote to remove people in the day!",
+            "actions": {
+				"vote": -2,
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+						"hide": true,
+                        "distractmsg": "While you attempted to carry out your nightly activities, you instead found yourself irresistibly enamoured with a breathtaking woman who appeared from nowhere.  You have no regrets the next morning, though your partners seem to be a bit miffed.",
+                        "teammsg": "You were unable to act last night, as your teammate was too busy with Aphrodite."
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "hookerk",
+            "translation": "Aphrodite",
+            "side": "village",
+            "help": "Goddess of Love. Use your powers to pacify someone for a single night. Type /Distract [name] to distract someone! Vote to remove people in the day!",
+            "actions": {
+                "night": {
+                    "distract": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "mayor",
+            "translation": "Zeus",
+            "side": "village",
+            "help": "God of the Gods.  You rule the Olympians, and thus your vote counts as 4. You dont have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+                "vote": 4,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mayorg",
+			"hide": true,
+            "translation": "Zeus",
+            "side": "village",
+            "help": "God of the Gods.  You rule the Olympians, and thus your vote counts as 4. You dont have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+                "vote": 6,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mayorc",
+			"hide": true,
+            "translation": "Zeus",
+            "side": "village",
+            "help": "God of the Gods.  You rule the Olympians, and thus your vote counts as 4. You dont have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "mayork",
+            "translation": "Zeus",
+            "side": "village",
+            "help": "God of the Gods.  You rule the Olympians, and thus your vote counts as 4. You dont have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+                "vote": 0,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+			"hide": "side",
+			"role": "mayor2",
+			"translation": "Zeus",
+			"side": "village",
+			"help": "God of the Gods.  You rule the Olympians, and thus your vote counts as 2. You dont have any special commands during the night! Vote to remove people in the day!",
+			"actions": {
+				"vote": 2,
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+		{
+			"role": "hera",
+			"translation": "Hera",
+			"side": "village",
+			"help": "Goddess of marriage and wife of Zeus. Your jealousy towards your unfaithful spouse causes you to halve the votes of the demigods upon your death!",
+			"info": "Upon death, cuts the votes of all demigods in half. Sided with Olympians.",
+			"actions": {
+				"onDeath": {
+					"convertRoles": {
+						"villager": "villager0"
+					},
+					"convertmsg": "At the death of Hera, the demigods' vote power has been halved!"
+				}
+			}
+		},
+		{
+            "role": "spy",
+            "translation": "Hermes",
+            "side": "village",
+            "help": "God of Spies and Thievery.  You can /message one person during the night to reveal your role to them. Try to find people aligned with the village with this! Vote to remove people in the day!",
+            "actions": {
+                "night": {
+					"message": {
+						"command": "dummy",
+						"common": "Self",
+						"target": "AnyButSelf",
+						"priority": 25,
+						"dummytargetmsg": "You see a man with winged sandals descending from the heavens towards you, and you realize it is ~Self~, Hermes!",
+						"dummyusermsg": "You revealed your identity to ~Target~!"
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "spyg",
+			"hide": true,
+            "translation": "Hermes",
+            "side": "village",
+            "help": "God of Spies and Thievery.  You can /message one person during the night to reveal your role to them. Try to find people aligned with the village with this! Vote to remove people in the day!",
+            "actions": {
+				"vote": 3,
+                "night": {
+					"message": {
+						"command": "dummy",
+						"common": "Self",
+						"target": "AnyButSelf",
+						"priority": 25,
+						"hide": true,
+						"dummytargetmsg": "You see a man with winged sandals descending from the heavens towards you, and you realize it is ~Self~, Hermes!",
+						"dummyusermsg": "You revealed your identity to ~Target~!"
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "spyc",
+			"hide": true,
+            "translation": "Hermes",
+            "side": "village",
+            "help": "God of Spies and Thievery.  You can /message one person during the night to reveal your role to them. Try to find people aligned with the village with this! Vote to remove people in the day!",
+            "actions": {
+				"vote": -2,
+                "night": {
+					"message": {
+						"command": "dummy",
+						"common": "Self",
+						"target": "AnyButSelf",
+						"priority": 25,
+						"hide": true,
+						"dummytargetmsg": "You see a man with winged sandals descending from the heavens towards you, and you realize it is ~Self~, Hermes!",
+						"dummyusermsg": "You revealed your identity to ~Target~!"
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "spyk",
+            "translation": "Hermes",
+            "side": "village",
+            "help": "God of Spies and Thievery.  You can /message one person during the night to reveal your role to them. Try to find people aligned with the village with this! Vote to remove people in the day!",
+            "actions": {
+                "night": {
+					"message": {
+						"command": "dummy",
+						"common": "Self",
+						"target": "AnyButSelf",
+						"priority": 25,
+						"hide": true,
+						"dummyusermsg": "You revealed your identity to ~Target~!"
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+			"role": "hephaestus",
+			"translation": "Hephaestus",
+			"side": "village",
+			"help": "God of the Forge. You cannot walk, and therefore cannot actively fight against Olympus' enemies, but you can /forge a weapon for yourself. The effect depends on the weapon you receive! However, there is a 25% chance you will be unable to make anything, and even if you succeed, a 15% chance to kill yourself with what you've made.",
+			"info": "Can forge a weapon for himself, gaining a random power (bomb, knows identity of Hydra, or 2 votes). This fails 25% of the time, and he has a 15% chance to kill himself if he does not fail. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"forge": {
+						"command": "convert",
+						"common": "Self",
+						"target": "OnlySelf",
+						"priority": 6,
+						"suicideChance": 0.15,
+						"failChance": 0.25,
+						"convertmsg": "Hephaestus has forged a weapon out of the flames of Olympus!",
+						"newRole": {
+							"random": {
+								"hephaestusb": 1,
+								"hephaestusi": 1,
+								"hephaestusv": 1
+							}
+						}
+					}
+				}
+			}
+		},
+		{
+			"role": "hephaestusb",
+			"hide": true,
+			"translation": "Hephaestus",
+			"side": "village",
+			"help": "Your forgery has created you a weapon that will take down your attacker as well should someone kill you!",
+			"info": "Revenges nightkills. Sided with Olympians.",
+			"actions": {
+				"kill": {
+					"mode": "killattacker"
+				}
+			}
+		},
+		{
+			"role": "hephaestusi",
+			"hide": true,
+			"translation": "Hephaestus",
+			"side": "village",
+			"help": "Your forgery has created you a glass that allows you to determine the identity of the Hydra!",
+			"info": "Knows Hydra. Sided with Olympians.",
+			"actions": {
+				"startup": {
+					"revealRole": "hydra"
+				}
+			}
+		},
+		{
+			"role": "hephaestusv",
+			"hide": true,
+			"translation": "Hephaestus",
+			"side": "village",
+			"help": "Your forgery has given you a weapon that grants you 2 votes!",
+			"actions": {
+				"vote": 2
+			}
+		},
+        {
+            "role": "samurai",
+            "translation": "Achilles",
+            "side": "village",
+            "help": "While mortal, the Olympians have deemed you strong enough to survive their cause. However, you are not beyond disposable, and so you kill in the daylight where your name will be revealed.  Type /Kill [name] during the day phase to kill someone! You will be revealed when you kill, so make wise choices! You are allied with the Olympians.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "~Self~ (Achilles) pulls out a sword and strikes it through ~Target~'s chest!"
+                    }
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+			"role": "samurai2",
+			"translation": "Heracles",
+			"side": "village",
+			"help": "Most famous son of Zeus and completer of the Twelve Labours. Your superhuman strength allows you to /kill during the day every other day. This will not reveal you!",
+			"info": "Can daykill one person during the day every other day (nonrevealing). Sided with Olympians.",
+			"actions": {
+				"standby": {
+					"kill": {
+						"target": "AnyButSelf",
+						"msg": "You can kill now using /kill [name] :",
+						"killmsg": "Heracles challenged ~Target~ to hand-to-hand combat! But Heracles was too strong for them and killed them.",
+						"recharge": 2
+					}
+				}
+			}
+		},
+		{
+			"role": "santa",
+			"translation": "Santa Claus",
+			"side": "village",
+			"help": "Merry Christmas! Deliverer of gifts, you decide who is naughty or nice. During the night you can either /gift (increase a person's votes by 3) or /coal (reduce a person's votes by 2). You also have a one-time daykill which reveals you in the spirit of Christmas.",
+			"info": "Can gift OR coal one person during the night. Can kill one person during the day once per game (user is revealed).",
+			"actions": {
+				"night": {
+					"gift": {
+						"command": "convert",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 2525,
+						"hide": true,
+						"newRole":
+							{
+								"villagerg": ["villager"],
+								"inspectorg": ["inspector"],
+								"bodyguardg": ["bodyguard"],
+								"hookerg": ["hooker"],
+								"spyg": ["spy"],
+								"mayorg": ["mayor"],
+								"miller": ["miller"],
+								"apollog": ["apollo"],
+								"mafia1g": ["mafia1"],
+								"mafia2g": ["mafia2"],
+								"mafiaboss1g": ["mafiaboss1"],
+								"mafiaboss2g": ["mafiaboss2"],
+								"safeguardg": ["safeguard"],
+								"poseidong": ["poseidon"]
+							},
+						"cancel": ["coal"],
+						"silentConvert": true,
+						"convertmsg": "Santa has delivered a gift to someone on his nice list!"
+					},
+					"coal": {
+						"command": "convert",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 2525,
+						"hide": true,
+						"newRole":
+							{
+								"villagerc": ["villager"],
+								"inspectorc": ["inspector"],
+								"bodyguardc": ["bodyguard"],
+								"hookerc": ["hooker"],
+								"spyc": ["spy"],
+								"mayorc": ["mayor"],
+								"miller": ["miller"],
+								"apolloc": ["apollo"],
+								"mafia1c": ["mafia1"],
+								"mafia2c": ["mafia2"],
+								"mafiaboss1c": ["mafiaboss1"],
+								"mafiaboss2c": ["mafiaboss2"],
+								"safeguardc": ["safeguard"],
+								"poseidonc": ["poseidon"]
+							},
+						"cancel": ["gift"],
+						"silentConvert": true,
+						"convertmsg": "Santa has delivered some coal to someone on his naughty list!"
+					}
+				},
+				"standby": {
+					"kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "~Target~ got in the way of Santa's sleigh as he was delivering presents! ~Self~ showed no mercy as he ran him over. Ho ho ho!",
+						"charges": 1
+					}
+				}
+			}
+		},
+		{
+			"role": "cupid",
+			"translation": "Cupid",
+			"side": "village",
+			"help": "God of desire and affection. You can /shoot two people during the night - they will become Lovers and know each other's identity, but if you target anyone who isn't already on your team you will die! You can only shoot two people during the entire of game, so use those arrows wisely.",
+			"info": "Can shoot two people during the game (can use both shots in one night) to turn them into Lovers. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"shoot": {
+						"command": "convert",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"newRole": "lover",
+						"priority": 1414,
+						"hide": true,
+						"charges": 2,
+						"limit": 2
+					}
+				}
+			}
+		},
+		{
+			"role": "lover",
+			"translation": "Lover",
+			"side": "village",
+			"help": "You are a Lover and know your fellow Lover. If one of you dies, you both die, but you two can choose who to /protect between the two of you!",
+			"info": "Knows the other Lover. If one dies, both die. Shares a protect with the other Lover. Sided with Olympians.",
+			"actions": {
+				"startup": {
+					"revealRole": "lover"
+				},
+				"night": {
+					"protect": {
+						"target": "AnyButSelf",
+						"common": "Role",
+						"priority": 8,
+						"hide": true
+					}
+				},
+				"onDeath": {
+					"killRoles": ["lover"],
+					"killmsg": "With the death of their lover, ~Target~ refused to live without them, and died as well!"
+				}
+			}
+		},
+		{
+			"role": "leprechaun",
+			"translation": "Leprechaun",
+			"side": "village",
+			"help": "The most powerful God of St. Patrick's Day, of course. You can /loot someone's voting powers every night to copy their number of votes! You are sided with the village, though, so don't vote them out accidentally!",
+			"info": "Can loot one person during the night to copy their vote (starts off with a vote of 0). Has maximum priority. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 0
+			}
+		},
+		{
+			"role": "leprechaun-6",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of -6! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": -6
+			}
+		},
+		{
+			"role": "leprechaun-3",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of -3! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": -3
+			}
+		},
+		{
+			"role": "leprechaun0",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of 0! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 0
+			}
+		},
+		{
+			"role": "leprechaun.5",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of 0.5! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 0.5
+			}
+		},
+		{
+			"role": "leprechaun1",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of 1! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 1
+			}
+		},
+		{
+			"role": "leprechaun2",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of 2! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 2
+			}
+		},
+		{
+			"role": "leprechaun4",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of 4! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 4
+			}
+		},
+		{
+			"role": "leprechaun5",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of 5! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 5
+			}
+		},
+		{
+			"role": "leprechaun100",
+			"translation": "Leprechaun",
+			"hide": true,
+			"side": "village",
+			"help": "You now have a vote of 100! If you're not happy with your gold yet, use /loot again to change up your vote!",
+			"info": "Can loot one person during the night to copy their vote. Sided with Olympians.",
+			"actions": {
+				"night": {
+					"loot": {
+						"command": "copy",
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 0,
+						"hide": true,
+						"copymsg": "The Leprechaun strikes again! Heh heh heh!",
+						"usermsg": "You copied someone's vote!",
+						"copyAs": {
+							"leprechaun-6": ["eprometheus"],
+							"leprechaun-3": ["prometheus", "prometheusk"],
+							"leprechaun0": ["stone", "stone2"],
+							"leprechaun.5": ["endymion", "villager0"],
+							"leprechaun1": ["villager", "villagere", "villagero", "odysseus", "villagera", "ajax", "villagerp", "perseus", "inspector", "inspectork", "poseidon", "poseidonk", "bodyguard0", "hooker", "hookerk", "hera", "spy", "spyk", "hephaestus", "hephaestusb", "hephaestusi", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "safeguard", "safeguardk", "gaia", "ouranos", "mafia2", "mafia2k", "mafiaboss2", "mafiaboss2k", "mafia1", "mafia1k", "mafiaboss1", "mafiaboss1k", "miller2", "werewolf", "werewolfk", "werewolf2", "bulletproof", "bulletproofk", "hydras", "hydra", "hydra2s", "hydra2", "oceanus", "oceanusk", "phoebe", "ephoebe", "phoebek", "miller"],
+							"leprechaun2": ["bodyguard", "bodyguardk", "mayor2", "hephaestusv"],
+							"leprechaun4": ["mayor", "mayork"],
+							"leprechaun5": ["eoceanus"],
+							"leprechaun100": ["kronos"]
+						}
+					}
+				},
+				"vote": 100
+			}
+		},
+	    {
+            "role": "dionysus",
+            "translation": "Dionysus",
+            "side": "village",
+            "help": "God of Wine and Ecstasy. During the night, you can /drink with a player, which will be seen by all. Half of the time, this will poison them, but the other half of the time you will be poisoned instead. Be careful.",
+			"info": "Can drink with one person during the night (50% chance of poisoning them, 50% chance of poisoning self, killing after two days). Broadcast to all. Sided with Olympians.",
+            "actions": {
+                "night": {
+					"drink": {
+						"command": {
+							"poison": 0.5,
+							"copy": 0.5
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "ouranos",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
+						"restrict": ["drink"],
+						"priority": 23,
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying with Dionysus, and died of alcohol poisoning...",
+						"copyAs": "dionysuspo",
+						"silentCopy": true,
+						"silent": true
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+			"hide": true,
+            "role": "dionysuspo",
+            "translation": "Dionysus",
+            "side": "village",
+            "help": "God of Wine and Ecstasy. During the night, you can /drink with a player, which will be seen by all. Half of the time, this will poison them, but the other half of the time you will be poisoned instead. Be careful.",
+            "actions": {
+                "night": {
+					"drink": {
+						"command": {
+							"poison": 0.5,
+							"copy": 0.5
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "ouranos",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
+						"restrict": ["drink"],
+						"priority": 22,
+						"hide": true,
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying with Dionysus, and died of alcohol poisoning...",
+						"copyAs": "dionysuspo2",
+						"silentCopy": true
+					}
+				},
+				"initialCondition": {
+					"poison": {
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying, and died of alcohol poisoning..."
+					}
+				}
+            }
+        },
+        {
+			"hide": true,
+            "role": "dionysuspo2",
+            "translation": "Dionysus",
+            "side": "village",
+            "help": "God of Wine and Ecstasy. During the night, you can /drink with a player, which will be seen by all. Half of the time, this will poison them, but the other half of the time you will be poisoned instead. Be careful.",
+            "actions": {
+                "night": {
+					"drink": {
+						"command": {
+							"poison": 0.5,
+							"copy": 0.5
+						},
+						"target": "AnyButSelf",
+						"common": "Self",
+						"broadcast": [
+							"villager", "apollo", "inspector", "poseidon", "bodyguard", "bodyguard0", "mafia1", "werewolf", "hooker", "mayor", "spy", "samurai", "samurai2", "dionysus", "dionysuspo", "dionysuspo2", "vigilante", "kronos", "gaia", "ouranos",  "mafia2", "mafiaboss2", "mafiaboss1", "oceanus", "eoceanus", "phoebe", "ephoebe", "prometheus", "eprometheus", "miller"
+						],
+						"broadcastmsg": "*** Dionysus shall go out drinking with ~Target~ tonight! ***",
+						"restrict": ["drink"],
+						"priority": 21,
+						"hide": true,
+						"count": 3,
+						"poisonDeadMessage": "You stayed out too late partying with Dionysus, and died of alcohol poisoning...",
+						"copyAs": "dionysuspo2",
+						"silentCopy": true,
+						"silent": true
+					}
+				}
+            }
+        },
+        {
+            "role": "vigilante",
+            "translation": "Artemis",
+            "side": "village",
+            "help": "Goddess of the Hunt. The Olympians have requested your help to keep the peace. Type /Kill [name] to kill someone! Your expertise in hunting makes it so that no one can track you while killing.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 19
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+			"role": "safeguard",
+			"translation": "Hestia",
+			"side": "village",
+			"help": "Goddess of the Hearth. Though sometimes referred to as 'the forgotten Olympian,' your skills are invaluable in guarding Mount Olympus! Type /safeguard to protect someone from being poisoned!",
+			"actions": {
+				"night": {
+					"safeguard": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 3
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+		{
+			"role": "safeguardg",
+			"hide": true,
+			"translation": "Hestia",
+			"side": "village",
+			"help": "Goddess of the Hearth. Though sometimes referred to as 'the forgotten Olympian,' your skills are invaluable in guarding Mount Olympus! Type /safeguard to protect someone from being poisoned!",
+			"actions": {
+				"vote": 3,
+				"night": {
+					"safeguard": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"hide": true,
+						"priority": 3
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+		{
+			"role": "safeguardc",
+			"hide": true,
+			"translation": "Hestia",
+			"side": "village",
+			"help": "Goddess of the Hearth. Though sometimes referred to as 'the forgotten Olympian,' your skills are invaluable in guarding Mount Olympus! Type /safeguard to protect someone from being poisoned!",
+			"actions": {
+				"vote": -2,
+				"night": {
+					"safeguard": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"hide": true,
+						"priority": 3
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+		{
+			"hide": true,
+			"role": "safeguardk",
+			"translation": "Hestia",
+			"side": "village",
+			"help": "Goddess of the Hearth. Though sometimes referred to as 'the forgotten Olympian,' your skills are invaluable in guarding Mount Olympus! Type /safeguard to protect someone from being poisoned!",
+			"actions": {
+				"night": {
+					"safeguard": {
+						"command": "dummy",
+						"hide": true,
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 3
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+        {
+            "role": "kronos",
+            "translation": "Kronos",
+            "side": "kronos",
+            "help": "Leader of the Titans, you are (almost) all alone after your tyranny.  However, you control immense power, and a single vote by you will vote someone out. You can /devour one person during the night to deprive them of any abilities, and if you die, so will they! You can only do this twice per game. Vote to remove people in the day! If Gaia and Ouranos are alive, team up with them to win!",
+			"info": "Has 100 votes. Voteshield of -200. Can /devour one person per night to strip them of their powers. Limit use to twice a game. Does not initially know team. Sided with Kronos.",
+            "winIfDeadRoles": [
+                "mafia1",
+                "werewolf",
+                "vigilante",
+                "mafia2",
+                "mafiaboss2",
+                "mafiaboss1",
+                "samurai",
+				"samurai2",
+                "prometheus",
+                "eprometheus",
+                "phoebe",
+                "ephoebe",
+				"dionysus",
+				"dionysuspo",
+				"dionysuspo2"
+            ],
+            "actions": {
+                "vote": 100,
+				"night": {
+					"devour": {
+						"command": "convert",
+						"common": "Role",
+						"target": "AnyButTeam",
+						"priority": 50,
+						"charges": 2,
+						"convertmsg": "Kronos has devoured a god of their powers!",
+						"silentConvert": true,
+						"newRole":
+							{
+								"villager": ["villager"],
+								"inspectork": ["inspector"],
+								"bodyguardk": ["bodyguard"],
+								"hookerk": ["hooker"],
+								"spyk": ["spy"],
+								"mayork": ["mayor"],
+								"samurai": ["samurai"],
+								"samurai2": ["samurai2"],
+								"miller": ["miller"],
+								"apollo": ["apollo"],
+								"vigilante": ["vigilante"],
+								"mafia1k": ["mafia1"],
+								"mafia2k": ["mafia2"],
+								"mafiaboss1k": ["mafiaboss1"],
+								"mafiaboss2k": ["mafiaboss2"],
+								"poseidonk": ["poseidon"],
+								"prometheusk": ["prometheus"],
+								"phoebek": ["phoebe"],
+								"oceanusk": ["oceanus"],
+								"werewolfk": ["werewolf"],
+								"bulletproofk": ["bulletproof"],
+								"safeguardk": ["safeguard"]
+								}
+							}
+						},
+					"onDeath": {
+						"killRoles": [
+                        "inspectork",
+						"bodyguardk",
+						"hookerk",
+						"spyk",
+						"mayork",
+						"mafia1k",
+						"mafia2k",
+						"mafiaboss1k",
+						"mafiaboss2k",
+						"poseidonk",
+						"prometheusk",
+						"phoebek",
+						"oceanusk",
+						"werewolfk",
+						"bulletproofk",
+						"safeguardk"
+                    ],
+						"killmsg": "With the fall of Kronos, all the gods he has devoured (~Target~) have also fallen into Tartarus!"
+						},
+					"voteshield": -200,
+					"initialCondition": {
+						"clearPoison": true
+				},
+				"convert": {
+					"mode": "ignore"
+				}
+			}
+        },
+        {
+            "role": "gaia",
+            "translation": "Gaia",
+            "side": "kronos",
+			"info": "Can expose one person (including self) during the standby either as Demigod, Kronos, Ouranos, or their real role. Does not initially know team. Sided with Kronos.",
+            "help": "Mother Earth as you are known today. You have temporarily teamed up with your son Kronos and his father Ouranos to eliminate all others. You may /expose someone during the day to reveal their role, or use /demi, /kronos, or /ouranos to reveal them falsely. Find and team up with your partners to win!",
+            "actions": {
+                "standby": {
+					"expose": {
+						"target": "Any",
+						"msg": "Use /expose now to show off someone's role! You will not be revealed.",
+						"exposemsg": "Mother Gaia would like all the world to know that ~Target~ is the ~Role~."
+					},
+					"demi": {
+						"command": "expose",
+						"target": "Any",
+						"msg": "You can also use /demi, /kronos, or /ouranos to fake-reveal someone instead, and even on yourself if you want.",
+						"exposemsg": "Mother Gaia would like all the world to know that ~Target~ is the Demigod."
+					},
+					"kronos": {
+						"command": "expose",
+						"target": "Any",
+						"exposemsg": "Mother Gaia would like all the world to know that ~Target~ is the Kronos."
+					},
+					"ouranos": {
+						"command": "expose",
+						"target": "Any",
+						"exposemsg": "Mother Gaia would like all the world to know that ~Target~ is the Ouranos."
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "ouranos",
+            "translation": "Ouranos",
+            "side": "kronos",
+            "help": "The Original Ruler of the Universe. You have temporarily teamed up with your son Kronos and his mother Gaia to eliminate all others. You can /poison 2 people during the night, and they will die after 2 more nights. Be careful not to poison your own family. Find and team up with your partners to win!",
+			"info": "Can poison two people during the night, killing them after 2 nights. Does not initially know team. Sided with Kronos.",
+            "actions": {
+                "night": {
+					"poison": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 25,
+						"count": 3,
+						"limit": 2,
+						"poisonDeadMessage": "Be wary of the power of mighty Ouranos..."
+					}
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "fish",
+            "translation": "Fish",
+            "side": "kronos",
+		"hide": true,
+            "help": "You are alone, mostly. Sad, small, little fish. You aren't even supposed to win, but if you do, gz. Type /protect to avoid getting killed at night. Type /Kill during standby to kill.",
+	    "info": "Has a 2% chance of spawning instead of Kronos. Can daykill during the day. Sided with Kronos.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 4,
+			"hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "It's time to troll. Type /Kill to get rid of your nemesis.",
+                        "killmsg": "Pisces' Fish used Splash! ~Target~ fainted!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "mafia2",
+            "translation": "Gorgon",
+            "side": "mafia2",
+            "help": "Your head is writhing with snakes that terrify even the most hardened God. You have a small chance to discover the Bodyguard! Type /Kill [name] to kill someone!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Gorgon) has decided to kill ~Target~!"
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealPlayer": 0.1
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mafia2g",
+			"hide": true,
+            "translation": "Gorgon",
+            "side": "mafia2",
+            "help": "Your head is writhing with snakes that terrify even the most hardened God. You have a small chance to discover the Bodyguard! Type /Kill [name] to kill someone!",
+            "actions": {
+				"vote": 3,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Gorgon) has decided to kill ~Target~!"
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealPlayer": 0.1
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mafia2c",
+			"hide": true,
+            "translation": "Gorgon",
+            "side": "mafia2",
+            "help": "Your head is writhing with snakes that terrify even the most hardened God. You have a small chance to discover the Bodyguard! Type /Kill [name] to kill someone!",
+            "actions": {
+				"vote": -2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Gorgon) has decided to kill ~Target~!"
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealPlayer": 0.1
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "mafia2k",
+            "translation": "Gorgon",
+            "side": "mafia2",
+            "help": "Your head is writhing with snakes that terrify even the most hardened God. You have a small chance to discover the Bodyguard! Type /Kill [name] to kill someone!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "mafiaboss2",
+            "translation": "Medusa",
+            "side": "mafia2",
+            "help": "Most powerful of the Gorgons.  You have the power to appear as a normal Demigod at will, and so the Inspector will see you as a villager. You may type /kill [name] to kill someone (shared with team), as well as use /gaze to have another, individual kill per night. You are immune to the charms of Aphrodite. ",
+            "info": "Can kill one person per night (shared with team) as well as one extra (not shared).  Inspects as Demigod, unable to be distracted. Sided with Gorgons.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Medusa) has decided to kill ~Target~!"
+                    },
+                    "gaze": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Medusa) has decided to gaze ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				},
+				"convert": {
+					"mode": "ignore"
+				}
+            }
+        },
+		{
+            "role": "mafiaboss2g",
+			"hide": true,
+            "translation": "Medusa",
+            "side": "mafia2",
+            "help": "Most powerful of the Gorgons.  You have the power to appear as a normal Demigod at will, and so the Inspector will see you as a villager. You may type /kill [name] to kill someone (shared with team), as well as use /gaze to have another, individual kill per night. You are immune to the charms of Aphrodite. ",
+            "info": "Can kill one person per night (shared with team) as well as one extra (not shared).  Inspects as Demigod, unable to be distracted. Sided with Gorgons.",
+            "actions": {
+				"vote": 3,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Medusa) has decided to kill ~Target~!"
+                    },
+                    "gaze": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Medusa) has decided to gaze ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mafiaboss2c",
+			"hide": true,
+            "translation": "Medusa",
+            "side": "mafia2",
+            "help": "Most powerful of the Gorgons.  You have the power to appear as a normal Demigod at will, and so the Inspector will see you as a villager. You may type /kill [name] to kill someone (shared with team), as well as use /gaze to have another, individual kill per night. You are immune to the charms of Aphrodite. ",
+            "info": "Can kill one person per night (shared with team) as well as one extra (not shared).  Inspects as Demigod, unable to be distracted. Sided with Gorgons.",
+            "actions": {
+				"vote": -2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Medusa) has decided to kill ~Target~!"
+                    },
+                    "gaze": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Medusa) has decided to gaze ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "mafiaboss2k",
+            "translation": "Medusa",
+            "side": "mafia2",
+            "help": "Most powerful of the Gorgons.  You have the power to appear as a normal Demigod at will, and so the Inspector will see you as a villager. You may type /kill [name] to kill someone (shared with team), as well as use /gaze to have another, individual kill per night. You are immune to the charms of Aphrodite. ",
+            "info": "Can kill one person per night (shared with team) as well as one extra (not shared).  Inspects as Demigod, unable to be distracted. Sided with Gorgons.",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    },
+                    "gaze": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 2,
+                        "broadcast": "none"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "inspect": {
+                    "revealAs": "kronos"
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mafia1",
+            "translation": "Cerberus",
+            "side": "mafia1",
+            "help": "Three-headed dog of the Underworld, and servant of Hades. You have a small chance to discover the Pretty Lady.  Type /Kill [name] to kill someone, although it may be best to leave the killing to your master Hades!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Cerberus) has decided to kill ~Target~!"
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealPlayer": 0.1
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mafia1g",
+			"hide": true,
+            "translation": "Cerberus",
+            "side": "mafia1",
+            "help": "Three-headed dog of the Underworld, and servant of Hades. You have a small chance to discover the Pretty Lady.  Type /Kill [name] to kill someone, although it may be best to leave the killing to your master Hades!",
+            "actions": {
+				"vote": 3,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Cerberus) has decided to kill ~Target~!"
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealPlayer": 0.1
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mafia1c",
+			"hide": true,
+            "translation": "Cerberus",
+            "side": "mafia1",
+            "help": "Three-headed dog of the Underworld, and servant of Hades. You have a small chance to discover the Pretty Lady.  Type /Kill [name] to kill someone, although it may be best to leave the killing to your master Hades!",
+            "actions": {
+				"vote": -2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Cerberus) has decided to kill ~Target~!"
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealPlayer": 0.1
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "mafia1k",
+            "translation": "Cerberus",
+            "side": "mafia1",
+            "help": "Three-headed dog of the Underworld, and servant of Hades. You have a small chance to discover the Pretty Lady.  Type /Kill [name] to kill someone, although it may be best to leave the killing to your master Hades!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+        {
+            "role": "mafiaboss1",
+            "translation": "Hades",
+            "side": "mafia1",
+            "help": "Lord of the Underworld. Your veil of darkness protects you from the feeble spying attempts of the Demigods. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "startup": "team-reveal-with-roles",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "It's daytime, but you are cloaked in Darkness. Type /Kill to get rid of your nemesis.",
+                        "killmsg": "A dark shadow appears behind ~Target~ and grows into a menacing form.  A black aura surrounds them, and both Hades and ~Target~ are taken to the Underworld."
+                    }
+                },
+				"teamTalk": true,
+				"initialCondition": {
+					"clearPoison": true
+				},
+				"convert": {
+					"mode": "ignore"
+				}
+            }
+        },
+		{
+            "role": "mafiaboss1g",
+			"hide": true,
+            "translation": "Hades",
+            "side": "mafia1",
+            "help": "Lord of the Underworld. Your veil of darkness protects you from the feeble spying attempts of Hermes and the Demigods. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
+            "actions": {
+				"vote": 3,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team"
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "startup": "team-reveal-with-roles",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "It's daytime, but you are cloaked in Darkness. Type /Kill to get rid of your nemesis.",
+                        "killmsg": "A dark shadow appears behind ~Target~ and grows into a menacing form.  A black aura surrounds them, and both Hades and ~Target~ are taken to the Underworld."
+                    }
+                },
+				"teamTalk": true,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "role": "mafiaboss1c",
+			"hide": true,
+            "translation": "Hades",
+            "side": "mafia1",
+            "help": "Lord of the Underworld. Your veil of darkness protects you from the feeble spying attempts of Hermes and the Demigods. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
+            "actions": {
+				"vote": -2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"hide": true,
+                        "broadcast": "team"
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "startup": "team-reveal-with-roles",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "It's daytime, but you are cloaked in Darkness. Type /Kill to get rid of your nemesis.",
+                        "killmsg": "A dark shadow appears behind ~Target~ and grows into a menacing form.  A black aura surrounds them, and both Hades and ~Target~ are taken to the Underworld."
+                    }
+                },
+				"teamTalk": true,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "mafiaboss1k",
+            "translation": "Hades",
+            "side": "mafia1",
+            "help": "Lord of the Underworld. Your veil of darkness protects you from the feeble spying attempts of Hermes and the Demigods. (Perhaps it would be wise for your minions to allow you to make the killing decisions?) You may also kill one person during the day, while your aura of Night keeps you hidden.  Type /Kill [name] to kill someone, during either phase!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Hades) has decided to kill ~Target~!"
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+			"role": "miller2",
+			"translation": "Charon",
+			"side": "village",
+			"help": "You dont have any special commands during the night! Vote to remove people in the day!",
+			"info": "Reveals as Cerberus. Sided with Olympians.",
+			"actions": {
+				"inspect": {
+					"revealAs": "mafia1"
+				},
+				"startup": {
+					"revealAs": "villager"
+				},
+				"hax": {
+                    "kill": {
+                        "revealTeam": 0.05
+					}
+				}
+			}
+		},
+		{
+            "role": "werewolf",
+            "translation": "Basilisk",
+            "side": "basilisk",
+            "help": "Feared creature of the night. You can paralyze and consume one person per night.  Type /Kill [name] to kill someone! You kill anyone who tries to distract you!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 10,
+						"broadcastmsg": "Your partner (Basilisk) has decided to kill ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You sway seductively to your target but it's the Basilisk! You attempt to scream but its menacing gaze is stifling and you are unable to utter a sound as the creature slithers towards you...",
+                    "msg": "The ~Distracter~ tried to distract you last night. You found her to be a pleasant meal."
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "werewolfk",
+            "translation": "Basilisk",
+            "side": "basilisk",
+            "help": "Feared creature of the night. You can paralyze and consume one person per night.  Type /Kill [name] to kill someone! You kill anyone who tries to distract you!",
+            "actions": {
+                "night": {
+                    "kill": {
+						"command": "dummy",
+						"hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 10
+                    }
+                },
+				"teamTalk": true
+			}
+        },
+		{
+            "hide": "side",
+			"role": "werewolf2",
+            "translation": "Basilisk",
+            "side": "basilisk",
+            "help": "Feared creature of the night. You can paralyze and consume one person per night.  Type /Kill [name] to kill someone! You ignore anyone who tries to distract you!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 10,
+						"hide": true,
+						"broadcastmsg": "Your partner (Basilisk) has decided to kill ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to distract you last night. You ignored her and slithered on towards your work."
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+			"role": "bulletproof",
+			"translation": "Chimera",
+			"side": "basilisk",
+			"help": "Terrible monstrosity composed of a lion, snake, and goat. Your multiple heads give you a variety of actions during the night. Type /kill to kill someone, OR type /poison to poison someone, OR type /protect to protect someone. You cannot be killed during the night!",
+			"info": "Can kill, poison, OR protect one person during the night. Can't be nightkilled. Sided with Basilisk.",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButTeam",
+						"common": "Team",
+						"priority": 10,
+						"restrict": ["poison", "protect"],
+						"broadcastmsg": "Your partner (Chimera) has decided to kill ~Target~!"
+					},
+					"poison": {
+						"target": "AnyButTeam",
+						"common": "Self",
+						"priority": 25,
+						"restrict": ["kill", "protect"],
+						"broadcastmsg": "Your partner (Chimera) has decided to poison ~Target~!"
+					},
+					"protect": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 3,
+						"restrict": ["kill", "poison"],
+						"broadcastmsg": "Your partner (Chimera) has decided to protect ~Target~!"
+					}
+				},
+				"kill": {
+					"mode": "ignore"
+				},
+				"teamTalk": true,
+				"startup": "team-reveal-with-roles",
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+		{
+			"hide": true,
+			"role": "bulletproofk",
+			"translation": "Chimera",
+			"side": "basilisk",
+			"help": "Terrible monstrosity composed of a lion, snake, and goat. Your multiple heads give you a variety of actions during the night. Type /kill to kill someone, OR type /poison to poison someone, OR type /protect to protect someone. You cannot be killed during the night!",
+			"actions": {
+				"night": {
+					"kill": {
+						"command": "dummy",
+						"hide": true,
+						"target": "AnyButTeam",
+						"common": "Team",
+						"priority": 10,
+						"restrict": ["poison", "protect"]
+					},
+					"poison": {
+						"command": "dummy",
+						"hide": true,
+						"target": "AnyButTeam",
+						"common": "Self",
+						"priority": 25,
+						"restrict": ["kill", "protect"]
+					},
+					"protect": {
+						"command": "dummy",
+						"hide": true,
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 3,
+						"restrict": ["kill", "poison"]
+					}
+				},
+				"startup": "team-reveal-with-roles",
+				"teamTalk": true
+			}
+		},
+		{
+			"role": "hydras",
+			"translation": "Hydra",
+			"side": "basilisk",
+			"info": "Can kill one person during the standby every other day. If lynched, can kill once during the night before dying. Sided with Basilisk.",
+			"help": "Ancient many-headed water monster. You can /kill every other day and not be revealed! And since two heads grow back when one is cut, when you are lynched you get one high-priority kill before you die.",
+			"actions": {
+				"startup": "team-reveal-with-roles",
+				"teamTalk": true,
+				"standby": {
+					"kill": {
+						"target": "AnyButTeam",
+						"recharge": 2,
+						"msg": "You can now use /kill during the day (remember you cannot do this on consecutive days)!",
+						"killmsg": "The Lernaean Hydra has risen from the swamp and makes ~Target~ its next meal!"
+					}
+				},
+				"lynch": {
+					"convertTo": "hydra2s",
+					"convertmsg": "The Hydra has been slain! But ~Self~ has spawned two more heads before going down and is unstoppable!"
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+		{
+			"role": "hydra",
+			"translation": "Hydra",
+			"side": "basilisk",
+			"info": "Can kill one person during the standby every other day. If lynched, can kill during the night.",
+			"help": "Ancient many-headed water monster. You can /kill every other day and not be revealed! And since two heads grow back when one is cut, when you are lynched you gain a nightkill (but lose your daykill)!",
+			"actions": {
+				"startup": "team-reveal-with-roles",
+				"teamTalk": true,
+				"standby": {
+					"kill": {
+						"target": "AnyButTeam",
+						"recharge": 2,
+						"msg": "You can now use /kill during the day (remember you cannot do this on consecutive days)!",
+						"killmsg": "The Lernaean Hydra has risen from the swamp and makes ~Target~ its next meal!"
+					}
+				},
+				"lynch": {
+					"convertTo": "hydra2",
+					"convertmsg": "The Hydra has been slain! But ~Self~ has spawned two more heads instead!"
+				},
+				"initialCondition": {
+					"clearPoison": true
+				}
+			}
+		},
+		{
+			"hide": true,
+			"role": "hydra2s",
+			"translation": "Hydra",
+			"side": "basilisk",
+			"help": "You've been lynched, but before you go down you can make one kill which ignores distracters and any bodyguards protecting your target! Make it count!",
+			"info": "Can kill during the night before it dies. Ignores distracters and bodyguards on its target.",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButTeam",
+						"common": "Self",
+						"priority": 5,
+						"charges": 1,
+						"pierce": true,
+						"hide": true
+					}
+				},
+				"initialCondition": {
+					"poison": {
+						"count": -1
+					}
+				},
+				"distract": {
+					"mode": "ignore",
+					"msg": "Someone attempted to distract you last night, but in your dying moments you barely paid attention to it."
+				}
+			}
+		},
+		{
+			"hide": true,
+			"role": "hydra2",
+			"translation": "Hydra",
+			"side": "basilisk",
+			"help": "You've been lynched, but now you have a nightkill in place of your daykill which ignores distracters!",
+			"info": "Can kill during the night. Ignores distracters.",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButTeam",
+						"common": "Self",
+						"priority": 5,
+						"charges": 1
+					}
+				},
+				"distract": {
+					"mode": "ignore",
+					"msg": "Someone attempted to distract you last night, but in your dying moments you barely paid attention to it."
+				}
+			}
+		},
+        {
+            "role": "oceanus",
+            "translation": "Oceanus",
+            "side": "titans",
+            "help": "Titan of the Oceans.  Bodies of water are everywhere, giving you a wide range of influence, and you are sometimes able to detect any command each night.  During the first night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Has a chance of hax on every command. Empowers after the first night.  Sided with the Titans.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "distract": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "inspect": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "protect": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "gaze": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "flipper": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "poison": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "drink": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+				"initialCondition": {
+					"curse": {
+                        "curseCount": 1,
+                        "cursedRole": "eoceanus",
+                        "curseConvertMessage": "The Tides swell and the Sea surges; Oceanus has become Empowered."
+                    },
+					"clearPoison": true
+                }
+            }
+        },
+        {
+            "role": "eoceanus",
+            "translation": "Empowered Oceanus",
+            "side": "titans",
+            "help": "Titan of the Oceans.  Bodies of water are everywhere, giving you a wide range of influence, and you are sometimes able to detect any command each night.  In your empowered form, you have a far superior ability to detect actions as well as a voting power of 5!  You are allied with the Titans.",
+            "info": "Has a massive hax chance on every command. Vote of 5. Sided with the Titans.",
+            "actions": {
+                "vote": 5,
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "distract": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "inspect": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "protect": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "gaze": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "flipper": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "poison": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    },
+                    "drink": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.5
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "oceanusk",
+            "translation": "Oceanus",
+            "side": "titans",
+            "help": "Titan of the Oceans.  Bodies of water are everywhere, giving you a wide range of influence, and you are sometimes able to detect any command each night.  During the first night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Has a chance of hax on every command. Empowers after the first night.  Sided with the Titans.",
+            "actions": {}
+        },
+        {
+            "role": "phoebe",
+            "translation": "Phoebe",
+            "side": "titans",
+            "help": "Titan of the Moon.  During the day, you may /eclipse someone to kill them; however, you have a 50% chance to be revealed.  During the third night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Can daykill someone with a 50% chance of revealing. Empowers on the third night. Sided with the Titans.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+				"initialCondition": {
+					"curse": {
+                        "curseCount": 3,
+                        "cursedRole": "ephoebe",
+                        "curseConvertMessage": "The Moon glistens and Shadows lengthen; Phoebe has become Empowered."
+                    },
+					"clearPoison": true
+                },
+                "standby": {
+                    "eclipse": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "msg": "Use /eclipse now to remove your enemy from Mount Olympus!",
+                        "killmsg": "The world plunges into twilight as the Moon momentarily crosses over the Sun.  As the eclipse ends, ~Target~ is nowhere to be seen, and the fading laughs of Phoebe echo through the clouds.",
+                        "revealChance": 0.5,
+                        "revealmsg": "You witness ~Self~ silhouetted against the Moon!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "ephoebe",
+            "translation": "Empowered Phoebe",
+            "side": "titans",
+            "help": "Titan of the Moon.  During the day, you may /eclipse someone to kill them in secret; in your empowered form, you only have a 15% chance to be revealed.  You are allied with the Titans.",
+            "info": "Can daykill someone with a 15% chance of revealing. Sided with the Titans.",
+            "actions": {
+                "standby": {
+                    "eclipse": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "msg": "Use /eclipse now to remove your enemy from Mount Olympus!",
+                        "killmsg": "The world plunges into twilight as the Moon momentarily crosses over the sun.  As the eclipse ends, ~Target~ is nowhere to be seen, and the fading laughs of Phoebe echo through the clouds.",
+                        "revealChance": 0.15,
+                        "revealmsg": "You witness ~Self~ silhouetted against the Moon!"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "phoebek",
+            "translation": "Phoebe",
+            "side": "titans",
+            "help": "Titan of the Moon.  During the day, you may /eclipse someone to kill them; however, you have a 50% chance to be revealed.  During the third night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Can daykill someone with a 50% chance of revealing. Empowers on the third night. Sided with the Titans.",
+            "actions": {}
+        },
+        {
+            "role": "prometheus",
+            "translation": "Prometheus",
+            "side": "titans",
+            "help": "Titan best known for stealing Fire and giving it to mankind.  For this act, you were punished by the Gods.  This act also gave you a voting power of -3. During the second night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Has a vote of -3. Empowers on the second night.  Sided with the Titans.",
+            "actions": {
+               "initialCondition": {
+					"curse": {
+                        "curseCount": 2,
+                        "cursedRole": "eprometheus",
+                        "curseConvertMessage": "The Sky flares in a momentary blaze; Prometheus has become Empowered."
+                    },
+					"clearPoison": true
+                },
+                "vote": -3,
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "eprometheus",
+            "translation": "Empowered Prometheus",
+            "side": "titans",
+            "help": "Titan best known for stealing Fire and giving it to mankind.  For this act, you were punished by the Gods. In your empowered state, your voting power has been changed doubled to -6. In addition, you may use /incinerate once per night to kill someone (bypasses protection). You are allied with the Titans.",
+            "info": "Has a vote of -6, and can incinerate (kill) someone each night, bypassing protection.  Sided with the Titans.",
+            "actions": {
+                "night": {
+                    "incinerate": {
+                        "command": "kill",
+                        "common": "Role",
+                        "target": "AnyButTeam",
+                        "priority": 2,
+                        "broadcast": "team",
+						"broadcastmsg": "Your partner (Prometheus) has decided to kill ~Target~!"
+                    }
+                },
+                "vote": -6,
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+            "hide": true,
+			"role": "prometheusk",
+            "translation": "Prometheus",
+            "side": "titans",
+            "help": "Titan best known for stealing Fire and giving it to mankind.  For this act, you were punished by the Gods.  This act also gave you a voting power of -3. During the second night, you will empower and gain a boost to your strengths.  You are allied with the Titans.",
+            "info": "Has a vote of -3. Empowers on the second night.  Sided with the Titans.",
+            "actions": {
+                "vote": 0,
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Chronos",
+            "side": "village",
+            "help": "God of Time, you are allied with the Olympians.  However, you are too often confused with Kronos, and thus the Inspector sees you as him.  You don't have any special commands during the night! Vote to remove people in the day!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "kronos"
+                },
+				"initialCondition": {
+					"clearPoison": true
+				}
+            }
+        },
+		{
+			"role": "odin",
+			"translation": "Odin",
+			"side": "norse",
+			"hide": true,
+			"help": "The Allfather of the gods, you have come to replace Olympus with Valhalla! You can /kill during the day without being revealed. You evade nightkills and daykills and you appear on the list and inspect as a Demigod.",
+			"actions": {
+				"startup": "team-reveal-with-roles",
+				"standby": {
+					"kill": {
+						"target": "AnyButSelf",
+						"msg": "You can kill now with /kill! You won't be revealed.",
+						 "killmsg": "Ragnarok is upon Mount Olympus! In the chaos Odin smites ~Target~ with his spear, maiming him!"
+					}
+				},
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"onlist": "villager",
+				"kill": {
+					"mode": "ignore"
+				},
+				"daykill": "evade"
+			}
+		},
+		{
+			"role": "thor",
+			"translation": "Thor",
+			"side": "norse",
+			"hide": true,
+			"help": "You are a hammer-wielding god from Norse mythology, here to topple Zeus off his throne! You can /hammer during the night to kill someone, and you evade the first nightkill and daykill aimed against you!",
+			"actions": {
+				"startup": "team-reveal-with-roles",
+				"night": {
+					"hammer": {	
+						"command": "kill",
+						"target": "AnyButTeam",
+						"common": "Team",
+						"priority": 18,
+						"hide": true
+					}
+				},
+				"kill": {
+					"mode": {
+						"evadeCharges": 1
+					}
+				},
+				"daykill": {
+					"mode": {
+						"evadeCharges": 1
+					}
+				}
+			}
+		},
+		{
+			"role": "ragnarok",
+			"translation": "Ragnarok",
+			"side": "norse",
+			"hide": true,
+			"help": "You are literally the end of the world in Norse mythology! Herald your coming with the power to /distract as many people as you can. You will convert on the third night. Right now, you can't be killed!",
+			"actions": {
+				"startup": "team-reveal-with-roles",
+				"night": {
+					"distract": {
+						"command": ["distract", "dummy"],
+						"target": "AnyButTeam",
+						"common": "Self",
+						"priority": 3,
+						"hide": true,
+						"limit": 99,
+						"distractmsg": "Fimbulvetr has come. You were too frozen to do anything.",
+						"dummybroadcastmsg": "Fimbulvetr has come. There will be three winters without a summer..."
+					}
+				},
+				"kill": {
+					"mode": "ignore"
+				},
+				"initialCondition": {
+					"curse": {
+						"curseCount": 3,
+						"cursedRole": "vepix3b",
+						"curseConvertMessage": "The shaking of the earth during Fimbulvetr has awoken the serpent Jormungandr from the sea and has broken the bonds of the wolf Fenrir!"
+					}
+				}
+			}
+		},
+		{
+			"role": "vepix3b",
+			"translation": "Ragnarok",
+			"side": "norse",
+			"hide": true,
+			"help": "You are literally the end of the world. You can summon the serpent Jormungandr to /poison infinite targets during the night (they will die in 6 nights), and send Fenrir to /kill during the day once per game!",
+			"actions": {
+				"startup": "team-reveal-with-roles",
+				"night": {
+					"poison": {
+						"target": "AnyButTeam",
+						"common": "Self",
+						"priority": 17,
+						"hide": true,
+						"limit": 99,
+						"count": 6
+					}
+				},
+				"standby": {
+					"kill": {
+						"target": "AnyButTeam",
+						"msg": "You can kill with /kill (only once per game)! You won't be revealed!",
+						"killmsg": "Fenrir appears out of nowhere and swallows ~Target~ whole as the chaos of Ragnarok rages on!",
+						"charges": 1
+					}
+				},
+				"initialCondition": {
+					"curse": {
+						"curseCount": 2,
+						"cursedRole": "vepix3c",
+						"curseConvertMessage": "The sky splits in two and the sons of Muspell ride forth!"
+					}
+				}
+			}
+		},
+		{
+			"role": "vepix3c",
+			"translation": "Ragnarok",
+				"side": "norse",
+			"hide": true,
+			"help": "You are literally the end of the world! With the power of the sons of Muspell you have a vote of 99999!",
+			"actions": {
+				"vote": 99999,
+				"initialCondition": {
+					"curse": {
+						"curseCount": 2,
+						"cursedRole": "vepix3d",
+						"curseConvertMessage": "The Earth is covered in flames as the gods fight amongst each other! Is this the end?"
+					}
+				}
+			}
+		},
+		{
+			"role": "vepix3d",
+			"translation": "Ragnarok",
+				"side": "norse",
+			"hide": true,
+			"help": "You are literally the end of the world! In 3 turns your side will automatically win the game, and you can /kill during the night and during the day.",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButTeam",
+						"common": "Team",
+						"priority": 18,
+						"hide": true
+					}
+				},
+				"standby": {
+					"kill": {
+						"target": "AnyButTeam",
+						"msg": "You can now /kill! You won't be revealed.",
+						"killmsg": "The world is falling apart as the fires of Ragnarok threatening to scorch even the buildings of Olympus to the ground. ~Target~ was lost in the flames!"
+					}
+				},
+				"initialCondition": {
+					"curse": {
+						"curseCount": 3,
+						"cursedRole": "vepix3e",
+						"curseConvertMessage": "It's over... the world is gone."
+					}
+				}
+			}
+		},
+		{
+			"role": "vepix3e",
+			"translation": "Ragnarok",
+				"side": "norse",
+			"hide": true,
+			"help": "If you've received this role you have already won the game.",
+			"winIfDeadRoles": ["hydra"],
+			"actions": {
+			}
+		}
+    ],
+	"roles1": [
+		"ouranos",
+		"villager",
+		"villager",
+		"villager"
+	],
+	"roles2": [
+		"ouranos",
+		"ouranos",
+		"villager",
+		"villager",
+		"spy"
+	],
+	"roles3": [
+		"ouranos",
+		"gaia",
+		"spy",
+		"villager",
+		"villager",
+		"villager",
+		"villager"
+	],
+	"roles4": [
+		"bodyguard0",
+		"mafia1",
+		"mayor2",
+		"mafia1",
+		"spy",
+		"werewolf",
+		"villager",
+		"villager",
+		{"leprechaun": 1},
+		"hydras",
+		"hooker"
+    ],
+    "roles5": [
+        "bodyguard",
+        "mafia1",
+        "mafia1",
+        "inspector",
+        "hooker",
+        "villager",
+        "mafia2",
+        "mafia2",
+        "villager",
+        "spy",
+        "hydra",
+		"miller2",
+        "villager"
+    ],
+    "roles6": [
+        "bodyguard",
+        "mafia1",
+        "mafia1",
+        "inspector",
+        "hooker",
+        "villager",
+        "mafia2",
+        "mafia2",
+        {
+			"villager": 0.8,
+			"villagere": 0.05,
+			"villagero": 0.05,
+			"villagera": 0.05,
+			"villagerp": 0.05
+		},
+        "spy",
+        "villager",
+        "mayor",
+        {"kronos": 0.98, "fish": 0.02},
+		{
+			"samurai": 0.5,
+			"samurai2": 0.5
+		},
+        "mafiaboss1",
+        "miller",
+        "mafiaboss2",
+        "apollo",
+        "villager",
+		{
+			"santa": 0,
+			"cupid": 0,
+			"leprechaun": 1,
+			"villager": 0
+		},
+        "vigilante",
+        "poseidon",
+        {
+			"villager": 0.99,
+			"ragnarok": 0.01
+		},
+        "prometheus",
+        "oceanus",
+        "phoebe",
+        "werewolf",
+        "villager",
+        "bulletproof",
+        "werewolf",
+		"samurai",
+        "safeguard",
+		"gaia",
+        "villager",
+        "bodyguard",
+		"dionysus",
+		"ouranos",
+        "hydra",
+		"miller",
+        "mafia2",
+        "mafia1",
+		"spy",
+		"werewolf",
+        "villager",
+		"villager"
+    ],
+    "villageCantLoseRoles": [
+        "mayor",
+		"mayor2",
+        "vigilante",
+        "samurai",
+		"samurai2",
+		"santa",
+        "bodyguard",
+		"dionysus",
+		"dionysuspo",
+		"dionysuspo2",
+		"hephaestusv",
+		"leprechaun-6",
+		"leprechaun-3",
+		"leprechaun2",
+		"leprechaun4",
+		"leprechaun5",
+		"leprechaun100"
+    ],
+    "killmsg": "±Olympus: ~Player~ (~Role~) has been cast off from Mount Olympus!",
+	"changelog": {
+		"2.14.2014": "HAPPY VALENTINE'S DAY!",
+		"2.26.2014": "Argonauts removed. Hydra is still in as a partner to Basilisk in small games. One Demigod has the chance of turning into Endymion, Odysseus, Ajax, or Perseus.",
+		"2.27.2014": "Santa, Cupid, and Leprechaun have the chance to appear instead of a Demigod in large games (individually, but not together).",
+		"3.04.2014": "Gaia can self-expose. Clarified Ouranos' 2 poisons. Adjusted small game balance."
+	}
+}
