@@ -1,0 +1,1699 @@
+{
+    "name": "DBZ",
+    "altname": "Dragon Ball Z",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?19323-DBZ-V2-0",
+    "author": [
+        "MewtwoHidden",
+        "Roild",
+        "XxkakapaxX"
+    ],
+    "minplayers": 8,
+    "summary": "Goku and the Z-Fighters were minding their own business until a bunch of villains from their past adventures came to cause trouble. Cooler and Frieza are trying to find the Dragon Balls while leading a path of destruction avenging each other if they die, while King Cold protects one of them, but remember: a father's wrath is almost unstoppable! Cell is looking for the Androids. Fear his perfection!. Majin Buu, with his chocolaty minions is on a rampage. Broly however is looking to wipe out all life! Who's side will you take? Even I don't know who will win this time!",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Z-Fighters",
+            "winmsg": "The Z-Fighters, ~Players~ have saved the world from being destroyed!"
+        },
+        {
+            "side": "mafia1",
+            "translation": "Cold Mafia",
+            "winmsg": "The Cold Mafia, ~Players~, have gained immortality!"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Android's Mafia",
+            "winmsg": "The Android Mafia, ~Players~, have absorbed all opposition!"
+        },
+        {
+            "side": "mafia3",
+            "translation": "Cell Mafia",
+            "winmsg": "The Cell mafia, ~Players~, has shown everyone true perfection!"
+        },
+        {
+            "side": "mafia4",
+            "translation": "Buu's Mafia",
+            "winmsg": "The Buu Mafia, ~Players~, have turned everybody into chocolate!"
+        },
+        {
+            "side": "mafia5",
+            "translation": "Broly's Mafia",
+            "winmsg": "The legendary Super Saiyan, ~Players~, has destroyed everyone!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "human",
+            "translation": "Human",
+            "side": "village",
+            "help": "You are an almost helpless human being! While you don't have a big power, you can still vote during the day (You have a vote of 1). You just love watching television, so you might occasionally see something good on it!",
+            "info": "Has a vote of 1. Gets hax on kill and absorb. Sided with Z-Fighters.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.1
+                    },
+                    "absorb": {
+                        "revealTeam": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "namek",
+            "translation": "Namekian",
+            "side": "village",
+            "help": "You are a citizen from planet Namek. After being brought to Earth because your planet exploded, you have become a villager of Earth. People mistake you with Piccolo, since you are of the same race. Namekians are also known to regenerate, so you will not get poisoned. Since you don't know much about Earth's customs, you have 0.51 votes.",
+            "info": "Has a vote of 0.51. Can't be poisoned. Appear as Piccolo when inspected. Sided with Z-Fighters.",
+            "actions": {
+                "poison": {
+                    "mode": "ignore"
+                },
+                "vote": 0.51,
+                "inspect": {
+                    "revealAs": "piccolo"
+                }
+            }
+        },
+        {
+            "role": "roshi",
+            "translation": "Master Roshi",
+            "side": "village",
+            "help": "You are an old hermit that no girl would dare to be around. You have a vote of -1 because you push others away!",
+            "info": "Has a vote of -1. If Goku dies, will have a vote of -3. Sided with Z-Fighters.",
+            "actions": {
+                "vote": -1
+            }
+        },
+        {
+            "role": "roshia",
+            "translation": "Master Roshi",
+            "side": "village",
+            "hide": true,
+            "help": "As an old, pervy hermit, no female dares to be near you. Now that Goku is dead, you have decided to work out more and try to look younger and stronger. This had the unfortunate effect of making people even more unattracted to you! Your vote is now -3.",
+            "actions": {
+                "vote": -3
+            }
+        },
+        {
+            "role": "yaj",
+            "translation": "Yajirobe",
+            "side": "village",
+            "help": "An old friend of Goku and one of the strongest people on Earth at one point, you have since stayed in the shadows and helped Goku however you can. You have a special hidden power and 33% of the time, your vote will count for 3. Otherwise, it is 1.",
+            "info": "33% chance for 3 votes. Otherwise is 1. Sided with the Z-fighters.",
+            "actions": {
+                "vote": [
+                    1,
+                    1,
+                    3
+                ]
+            }
+        },
+        {
+            "role": "chichi",
+            "translation": "Chi-Chi",
+            "side": "village",
+            "help": "You are the daughter of the Ox King and the wife of the great Goku. You have no actions, but upon your death, Goku will become enraged.",
+            "info": "Has a vote of 1. If Goku dies, will have a vote of 1.5. If Chi-Chi dies, Goku will become angrier. Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "ssj3": "ssj4",
+                        "ssj2": "ssj3",
+                        "ssj": "ssj2",
+                        "goku": "ssj"
+                    },
+                    "convertmsg": "Goku's wife has been killed. Goku's rage is evident. He powers up to avenge her!"
+                }
+            }
+        },
+        {
+            "role": "chichia",
+            "translation": "Chi-Chi",
+            "side": "village",
+            "hide": true,
+            "help": "You have witnessed the death of your husband, but you can't give up in this world. Goku would want you to be strong, so your vote has increased to 1.5.",
+            "actions": {
+                "vote": 1.5
+            }
+        },
+        {
+            "role": "bulma",
+            "translation": "Bulma",
+            "side": "village",
+            "help": "You are Vegeta's wife as well as a genius and very pretty girl. You don't know what could happen in battle, so you stay away from them. Even your beloved Vegeta could die...",
+            "info": "If Vegeta dies, can distract one person during the night. If Bulma dies, Yamcha will become suicidal. Sided with the Z-fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "yamcha": "yamchaa"
+                    },
+                    "convertmsg": "When Bulma died Yamcha began to exhibit suicidal thoughts and actions... due to Bulma, who Yamcha loved dying. Yamcha can now perform one last suicidal attack during the night."
+                }
+            }
+        },
+        {
+            "role": "bulmaa",
+            "translation": "Bulma",
+            "side": "village",
+            "hide": true,
+            "help": "You have just witnessed the death of a loved one. You can now /distract someone during the night, because you need to prove that you are a strong human being. Distracting Broly will kill you, though. Perfect Cell can outspeed your distracts.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "yamcha": "yamchaa"
+                    }
+                },
+                "night": {
+                    "distract": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 1,
+                        "distractmsg": "Bulma waltzed into your bedroom and she stopped you from doing your action."
+                    }
+                }
+            }
+        },
+        {
+            "role": "gohan",
+            "translation": "Gohan",
+            "side": "village",
+            "help": "You are one of Goku's sons. You can /inspect during the night, but you are still young and the action will likely fail (70% chance of fail) however, if Goku dies this inspect will be augmented to a 100% successful inspect.",
+            "info": "Can inspect one person during the night with a 70% chance to fail. If Goku dies, can inspect one person during the night with no fail chance. Goku and Krillin will upgrade if Gohan dies. Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "ssj3": "ssj4",
+                        "ssj2": "ssj3",
+                        "ssj": "ssj2",
+                        "goku": "ssj",
+                        "krillin": "krillina"
+                    },
+                    "singleconvertmsg": "When Gohan died a few Z-Fighters got angry and powered up!"
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "failChance": 0.7,
+                        "priority": 80
+                    }
+                }
+            }
+        },
+        {
+            "role": "gohana",
+            "translation": "Gohan",
+            "side": "village",
+            "help": "You have just witnessed the death of your dear father, Goku. This has caused you to train harder, and so, your /inspect will not fail anymore. You must stop all the evil that lives in the world, for Goku...",
+            "hide": true,
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "krillin": "krillina"
+                    },
+                    "singleconvertmsg": "When Gohan died, Krillin got angry and powered up! Krillin's hax is now improved."
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 80
+                    }
+                }
+            }
+        },
+        {
+            "role": "tien",
+            "translation": "Tien",
+            "side": "village",
+            "help": "You are the three-eyed fighter, Tien! You are always with your friend Chiaotzu, who you know from the start. You should help Goku and the gang by voting bad guys out.",
+            "info": "Knows Chiaotzu. Sided with Z-Fighters.",
+            "actions": {
+                "startup": {
+                    "revealRole": "chiaotzu"
+                }
+            }
+        },
+        {
+            "role": "chiaotzu",
+            "translation": "Chiaotzu",
+            "side": "village",
+            "help": "You are the small but powerful Chiaotzu! You are friends with Tien, who you know the identity of. You have 1 vote, so try using it to help the village!",
+            "info": "Knows Tien. Sided with Z-Fighters.",
+            "actions": {
+                "startup": {
+                    "revealRole": "tien"
+                }
+            }
+        },
+        {
+            "role": "dende",
+            "translation": "Dende",
+            "side": "village",
+            "help": "Currently, you are a young Namekian with the ability to heal others. You are the God of the Earth and you want to help the Z-Warriors, but you aren't strong enough to do so...",
+            "info": "If Piccolo dies, can protect one person during the night. Sided with Z-Fighters.",
+            "actions": {}
+        },
+        {
+            "role": "dendea",
+            "translation": "Dende",
+            "side": "village",
+            "hide": true,
+            "help": "Piccolo died, and no one is there to take his place, so you prepared yourself to the battle. Use /protect during the night to watch over a person and keep them safe.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 5,
+                        "broadcast": "role"
+                    }
+                }
+            }
+        },
+        {
+            "role": "yamcha",
+            "translation": "Yamcha",
+            "side": "village",
+            "help": "You are Yamcha. Since you never were very important, you have no commands, but try to help the village by voting!",
+            "info": "Has a vote of 1. If Bulma dies can kill with a 100% chance of dying during the night. Sided with Z-Fighters.",
+            "actions": {}
+        },
+        {
+            "role": "yamchaa",
+            "translation": "Yamcha",
+            "side": "village",
+            "hide": true,
+            "help": "Bulma... Oh god... They killed Bulma... All the rage you feel allows you to make a last ditch suicidal attack on one target with /kill. You will blow up an enemy... and yourself. Oh God, BULMA! *Cries*...",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "priority": 17,
+                        "common": "Self",
+                        "suicideChance": 1,
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "goten",
+            "translation": "Goten",
+            "side": "village",
+            "help": "You are Goten. You and Trunks can both /stalk one target separately during the night to gain information, but you can do this only once. If either of you gets injured, you will fuse into Gotenks.",
+            "info": "Can stalk one person, once per game. If Goten or Trunks dies, the other will become Gotenks; Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "trunks": "gotenks"
+                    },
+                    "convertmsg": "Goten was targetted by a lethal attack, so Goten and Trunks prepared the Fusion Dance! FU! SION! HAAAAAA!- and they became Gotenks! Gotenks can kill during the night."
+                },
+                "night": {
+                    "stalk": {
+                        "priority": 99,
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "trunks",
+            "translation": "Trunks",
+            "side": "village",
+            "help": "You are Trunks. You and Goten can both /stalk one target separately during the night to gain information, but you can do this only once. If either of you gets injured, you will fuse into Gotenks.",
+            "info": "Can stalk one person, once per game. If Goten or Trunks dies, the other will become Gotenks; Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "goten": "gotenks"
+                    },
+                    "convertmsg": "Trunks was targeted by a lethal attack, so Goten and Trunks performed the Fusion Dance FU! SION! HAAAAAA!-  and they became Gotenks! Gotenks can kill during the night."
+                },
+                "night": {
+                    "stalk": {
+                        "priority": 99,
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "gotenks",
+            "translation": "Gotenks",
+            "side": "village",
+            "help": "TAA-DAA! You're Gotenks, the amazing fusion of Trunks and Goten! You can kill someone at night using /kill! The bad thing is that the fusion only lasts 2 days...",
+            "info": "Can kill one person during the night. Has two days to live. Sided with Z-Fighters.",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": 3
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "priority": 18,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "piccolo",
+            "translation": "Piccolo",
+            "side": "village",
+            "help": "You are a Namekian that was sent to Earth. You fused with the God of Earth and so you can use /protect to watch over one person and keep them safe.",
+            "info": "Can protect one person during the night. If Goku dies, can protect two people during the night. Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "dende": "dendea"
+                    },
+                    "convertmsg": "Dende has assumed Piccolo's place on Kami's Tower, and can use a protect to defend people during the night!"
+                },
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "piccoloa",
+            "translation": "Piccolo",
+            "side": "village",
+            "hide": true,
+            "help": "Goku has died... you have failed as a guardian of Earth. Now you must protect 2 people to recover your pride...",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "dende": "dendea"
+                    },
+                    "convertmsg": "Dende has assumed Piccolo's place on Kami's Tower, and can use a protect to defend people during the night!"
+                },
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 2,
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "krillin",
+            "translation": "Krillin",
+            "side": "village",
+            "help": "You are Krillin, the best friend of Goku. If you die, Goku surely will get angry. For now you can get hax during the night. Your hax rate heighthens if Goku or Gohan dies.",
+            "info": "Can get hax on kills during the night.  If Goku or Gohan dies, can hax kills with a higher rate. If Krillin dies, Goku will become angrier. Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "ssj3": "ssj4",
+                        "ssj2": "ssj3",
+                        "ssj": "ssj2",
+                        "goku": "ssj"
+                    },
+                    "singleconvertmsg": "Upon Krillin's death Goku feels angry at the death of his best friend and powers up."
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.06
+                    }
+                }
+            }
+        },
+        {
+            "role": "krillina",
+            "translation": "Krillin",
+            "side": "village",
+            "hide": true,
+            "help": "One of the Z-Warriors has died and so, you are keeping a better watch for bad guys. Your hax has risen dramatically.",
+            "actions": {
+"onDeath": {
+                    "convertRoles": {
+                        "ssj3": "ssj4",
+                        "ssj2": "ssj3",
+                        "ssj": "ssj2",
+                        "goku": "ssj"
+                    },
+                    "singleconvertmsg": "Upon Krillin's death Goku feels angry at the death of his best friend and powers up."
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "kai",
+            "translation": "King Kai",
+            "side": "village",
+            "help": "As the Kai of the North, you were the one who trained Goku after he died. You can inspect twice per game and you know Goku, but talk to him because he doesn't know you!",
+            "info": "Knows Goku from the start (Goku doesn't know him). Can inspect two times per game. Powers up Goku if dies. Sided with the Z-fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "ssj3": "ssj4",
+                        "ssj2": "ssj3",
+                        "ssj": "ssj2",
+                        "goku": "ssj"
+                    },
+                    "singleconvertmsg": "King Kai was forced to help for as long as he could, but his utimely demise boosts Goku to the next level!"
+                },
+                "startup": {
+                    "revealRole": [
+                        "goku",
+                        "ssj",
+                        "ssj2",
+                        "ssj3",
+                        "ssj4"
+                    ]
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "charges": 2,
+                        "target": "AnyButSelf",
+                        "priority": 80
+                    }
+                }
+            }
+        },
+        {
+            "role": "goku",
+            "translation": "Goku",
+            "side": "village",
+            "help": "You are Son Goku! You can /fight during the night to have a quick spar with one person. This will let you know their identity, but neither of you will be injured! If Chi-Chi, Krillin, King Kai or Gohan die you will unlock your true saiyan powers.",
+            "info": "Can inspect one person during the night. Has a vote of 1. If Chi-Chi, Gohan, King Kai, or Krillin dies, will become Super Saiyan. If Goku dies, he will upgrade his close friends. Sided with Z-Fighters.",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "gohan": "gohana",
+                        "chichi": "chichia",
+                        "krillin": "krillina",
+                        "piccolo": "piccoloa",
+                        "vegeta": "vegetaa",
+                        "roshi": "roshia"
+                    },
+                    "singleconvertmsg": "The world's hero has fallen. It is up to Goku's friends, family, and other citizens of the world to finish purging the world of evil."
+                },
+                "night": {
+                    "fight": {
+                        "command": [
+                            "inspect"
+                        ],
+                        "common": "Self",
+                        "priority": 82,
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "ssj",
+            "translation": "Super Saiyan Goku",
+            "side": "village",
+            "help": "At the death of one of your closest comrades, you have become a Super Saiyan. You can /kame (kill) once during the day and you also have 3 votes",
+            "info": "Can kill one person during the day once per game. Has a vote of 3. If Chi-Chi, Gohan, or Krillin dies, will become Super Saiyan 2. If Goku dies, he will upgrade his close friends; Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "singleconvertmsg": "The world's hero has fallen. It is up to Goku's friends, family, and other citizens of the world to finish purging the world of evil.",
+                    "convertRoles": {
+                        "gohan": "gohana",
+                        "chichi": "chichia",
+                        "piccolo": "piccoloa",
+                        "krillin": "krillina",
+                        "vegeta": "vegetaa",
+                        "roshi": "roshia"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "vote": 3,
+                "standby": {
+                    "kame": {
+                        "target": "AnyButSelf",
+                        "command": "kill",
+                        "killmsg": "Goku puts his hands in his signature position and starts shouting 'KAAAAAAAA-MEEEEEEEEE-HAAAAAAAAAAAAA-MEEEEEEEEEEEEEE......' ~Target~ is paralyzed with fear...'HAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!!'... And ~Target~ was destroyed in the force of Goku's blast.",
+                        "msg": "Use /kame to fire a Kamehameha! You can only kill once, but won't be revealed. IF YOU KILL NOW YOU CANNOT DAYKILL AGAIN UNTIL YOU BECOME A SUPER SAIYAN 2!",
+                        "recharge": 40
+                    }
+                }
+            }
+        },
+        {
+            "role": "ssj2",
+            "translation": "Super Saiyan 2 Goku",
+            "side": "village",
+            "help": "Another of your friends died... Your rage went even higher and now you're Super Sayan 2! You can daykill once every two days with a warp kamehameha too and you still have your +3 votes..",
+            "info": "Can kill once every other day; Has a vote of 3; If Chi-Chi, Krillin, or Gohan dies, can kill once every day and have a vote of 4; If Goku dies will upgrade his close friends; Sided with Z-Fighters.",
+            "actions": {
+                "vote": 3,
+                "onDeath": {
+                    "singleconvertmsg": "The world's hero has fallen. It is up to Goku's friends, family, and other citizens of the world to finish purging the world of evil.",
+                    "convertRoles": {
+                        "gohan": "gohana",
+                        "chichi": "chichia",
+                        "piccolo": "piccoloa",
+                        "krillin": "krillina",
+                        "vegeta": "vegetaa",
+                        "roshi": "roshia"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to use your Warp Kamehameha. This can reveal you, so be careful... IF YOU KILL NOW YOU CANNOT DAYKILL AGAIN UNTIL YOU BECOME A SUPER SAIYAN 3!",
+                        "killmsg": "Goku charged up a ball into the palm of his hands and he said KAA MEE HAA MEE- He dissapeared!... He suddenly appears behind ~Target~  and... HAAAA!! ~Target~ blew up!",
+                        "revealChance": 0.45,
+                        "revealmsg": "Goku's victim saw Goku for a second, and he screamed: IT'S ~Self~!!",
+                        "recharge": 40
+                    }
+                }
+            }
+        },
+        {
+            "role": "ssj3",
+            "translation": "Super Saiyan 3 Goku",
+            "side": "village",
+            "help": "You lost another friend... Now you're ANGRY! You can /kill during the day and during the night. Your vote has increased to 4. Get revenge from the ones that killed the people you loved...",
+            "info": "Can kill once each day and night; Has a vote of 4; If Goku dies, will upgrade his closes friends. Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "singleconvertmsg": "The world's hero has fallen. It is up to Goku's friends, family, and other citizens of the world to finish purging the world of evil.",
+                    "convertRoles": {
+                        "gohan": "gohana",
+                        "chichi": "chichia",
+                        "piccolo": "piccoloa",
+                        "krillin": "krillina",
+                        "vegeta": "vegetaa",
+                        "roshi": "roshia"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "kill": {
+                        "priority": 11,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                },
+                "vote": 4,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to use every bit of your power in an epic daykill! But be warned, IT WILL REVEAL YOU.",
+                        "killmsg": "~Self~ Screamed 'IF I DON'T, WHO WILL!!' Immediately, a dragon emerged out of his hand and destroyed ~Target~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "ssj4",
+            "translation": "Super Saiyan God Goku",
+            "side": "village",
+            "help": "The death of your family... You feel great sadness, but then something happens. A bright moon appears in the sky, and you transform into a giant gorilla. You remember their deaths and control yourself, transforming into Golden Ape form. You can kill during the day and night, your vote is 6, and you now ignore other daykills.",
+            "info": "Can kill once each day and night. Can't be day killed. Has a vote of 6. If Goku dies, will upgrade his closest friends. Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "singleconvertmsg": "The world's hero has fallen. It is up to Goku's friends, family, and other citizens of the world to finish purging the world of evil.",
+                    "convertRoles": {
+                        "gohan": "gohana",
+                        "chichi": "chichia",
+                        "piccolo": "piccoloa",
+                        "krillin": "krillina",
+                        "vegeta": "vegetaa",
+                        "roshi": "roshia"
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "daykill": "evade",
+                "night": {
+                    "kill": {
+                        "priority": 11,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                },
+                "vote": 6,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill to use every bit of your power in an epic daykill! But be warned, IT WILL REVEAL YOU.",
+                        "killmsg": "Goku remembers the loss of his friends. ~Self~ hears them from beyond saying 'You can do it, Goku! We believe in you!' Goku flies into the sky and raised his hands and asks for the power from every creature on Earth, space, and beyond! ~Self~ gathers this energy into a massive Spirit Bomb and throws it at ~Target~, who was obliterated by the force of the impact."
+                    }
+                }
+            }
+        },
+        {
+            "role": "vegeta",
+            "translation": "Vegeta",
+            "side": "village",
+            "help": "You are Vegeta, son of King Vegeta, father of  Trunks, and husband of Bulma! You used to be a bad guy, but now you're a 'sort of' good guy. Since you're not as strong as Kakarot (Goku), you kill during the night with /kill. Everybody will know who you are targetting, and you won't be able to switch your kill, so choose carefully!",
+            "info": "Can kill during the night, which is broadcasted to every other role. Sided with Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "bulma": "bulmaa"
+                    },
+                    "convertmsg": "Bulma's husband is dead. Alas, it is time to move on! Bulma can now distract once per night."
+                },
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 9,
+                        "restrict": [
+                            "kill"
+                        ],
+                        "broadcast": "*",
+                        "broadcastmsg": "*** Vegeta, the Prince of Saiyans, has chosen to kill ~Target~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "vegetaa",
+            "translation": "Super Vegeta",
+            "side": "village",
+            "help": "Goku has died. Now you must prove you are the better since you are now in your Super Saiyan form. You get a revealing daykill .",
+            "info": "Can kill during the day. Sided with the Z-Fighters.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "bulma": "bulmaa"
+                    },
+                    "convertmsg": "Bulma's husband is dead. Alas, it is time to move on! Bulma can now distract once per night."
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill to fire your Big Bang Attack. You will be revealed",
+                        "killmsg": "Super Vegeta, ~Self~, screamed 'BIG BANG ATTACK' and fired a yellow ball of energy at ~Target~, who exploded."
+                    }
+                }
+            }
+        },
+        {
+            "role": "friezas",
+            "translation": "Frieza",
+            "side": "mafia1",
+            "help": "You are Frieza, an alien overlord who ruled, then destroyed the planet Vegeta. Now you, Cooler, and King Cold are searching for the dragon balls so you can obtain immortality. If you die, Cooler will beome Meta Cooler and your father will power up! Kill anyone who stands in your way with /kill. (It's shared with your brother Cooler)",
+            "info": "Can kill during the night, shared with Cooler. If Cooler dies, it gets powered up. If it dies, will increase King Cold and Cooler's power. Sided with Cold Mafia",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    }
+                }
+            }
+        },
+        {
+            "role": "frieza",
+            "translation": "Frieza",
+            "side": "mafia1",
+            "help": "You are Frieza, an alien overlord who ruled, then destroyed the planet Vegeta. Now you, Cooler, and King Cold are searching for the dragon balls so you can obtain immortality. If you die, Cooler will beome Meta Cooler and your father will power up! Kill anyone who stands in your way with /kill. (It's shared with your brother Cooler)",
+            "info": "Can kill during the night, shared with Cooler. If Cooler dies, it gets powered up. If it dies, will increase King Cold and Cooler's power. Sided with Cold Mafia",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "onDeadRoles": {
+                    "convertTo": {
+                        "frieza1": [
+                            "cooler"
+                        ]
+                    },
+                    "convertmsg": "After Cooler's death, Frieza vowed to get stronger and avenge him!"
+                },
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    }
+                }
+            }
+        },
+        {
+            "role": "frieza1",
+            "translation": "Mecha Frieza",
+            "side": "mafia1",
+            "help": "You used to be an alien, but when your brother Cooler died, you wanted revenge. You transformed yourself into a cyborg to kill all of those pesky people once for all! Your raw power may give you a chance to have 3 votes sometimes and you use your kill to get rid of anyone that dares to fight you and /beam to use death beam and give a person 2 days to live.",
+            "info": "Can both kill and poison during the night. Chance for 3 votes. Sided with Cold Mafia",
+            "actions": {
+                "vote": [
+                    1,
+                    1,
+                    3
+                ],
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 12,
+                        "target": "AnyButTeam"
+                    },
+                    "beam": {
+                        "command": "poison",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "target": "AnyButTeam",
+                        "count": 3,
+                        "priority": 20
+                    }
+                }
+            }
+        },
+        {
+            "role": "ginyu",
+            "translation": "Ginyu",
+            "side": "mafia1",
+            "help": "As one of Frieza's main henchmen, you have always been in charge of all the dirty work. You are skilled in a multitude of actions, including /inspect, /distract, /protect (on anyone), /stalk, and /poison. You can only use one action per night and only once per game though. Make sure to use your actions efficiently!",
+            "info": "Can inspect, distract, protect (even self), stalk, and poison once per game each, once per night. Sided with the Cold Mafia.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "priority": 90,
+                        "charges": 1,
+                        "restrict": [
+                            "distract",
+                            "protect",
+                            "stalk",
+                            "poison"
+                        ],
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    },
+                    "distract": {
+                        "common": "Self",
+                        "priority": 3,
+                        "restrict": [
+                            "inspect",
+                            "protect",
+                            "stalk",
+                            "poison"
+                        ],
+                        "charges": 1,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    },
+                    "protect": {
+                        "common": "Self",
+                        "priority": 5,
+                        "charges": 1,
+                        "restrict": [
+                            "distract",
+                            "inspect",
+                            "stalk",
+                            "poison"
+                        ],
+                        "broadcast": "team",
+                        "target": "Any"
+                    },
+                    "stalk": {
+                        "common": "Self",
+                        "priority": 87,
+                        "restrict": [
+                            "distract",
+                            "protect",
+                            "inspect",
+                            "poison"
+                        ],
+                        "charges": 1,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    },
+                    "poison": {
+                        "common": "Self",
+                        "charges": 1,
+                        "restrict": [
+                            "distract",
+                            "protect",
+                            "stalk",
+                            "inspect"
+                        ],
+                        "priority": 30,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    }
+                }
+            }
+        },
+        {
+            "role": "cooler",
+            "translation": "Cooler",
+            "side": "mafia1",
+            "help": "You are Cooler, Frieza's brother and son of King Cold. Use your /kill to take out one of your enemies at night time. It's shared with your brother, so try to ask him before acting.",
+            "info": "Can kill during the night, shared with Cooler. If Frieza dies, it gets powered up. If it dies, will increase King Cold and Frieza's power. Sided with Cold Mafia",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "onDeadRoles": {
+                    "convertTo": {
+                        "cooler1": [
+                            "frieza"
+                        ]
+                    },
+                    "convertmsg": "After Frieza's death, Cooler vowed to get stronger and avenge him!"
+                },
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    }
+                }
+            }
+        },
+        {
+            "role": "cooler1",
+            "translation": "Meta Cooler",
+            "side": "mafia1",
+            "help": "How does being a cyborg feel? You wanted to get revenge for your dead brother, and the best way to achieve that is to get stronger! You have a chance of having 3 votes at times. Use /kill to deal with one of them and /beam to leave them with serious wounds. They'll die after 2 nights.",
+            "info": "Can both kill and poison during the night. Chance for 3 votes. Sided with Cold Mafia",
+            "actions": {
+                "vote": [
+                    1,
+                    1,
+                    3
+                ],
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    },
+                    "beam": {
+                        "command": "poison",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "target": "AnyButTeam",
+                        "count": 3,
+                        "priority": 20
+                    }
+                }
+            }
+        },
+        {
+            "role": "kingcold",
+            "translation": "King Cold",
+            "side": "mafia1",
+            "help": "You are King Cold, Father of Frieza and Cooler. Use your /protect to defend one of your sons from getting harmed. Since you're a king you get 4 votes.",
+            "info": "Bodyguard + 4 votes. Sided with Cold Mafia.",
+            "actions": {
+                "onDeadRoles": {
+                    "convertTo": {
+                        "kingcold2": [
+                            "cooler",
+                            "cooler1",
+                            "frieza",
+                            "frieza1"
+                        ]
+                    },
+                    "convertmsg": "After the death of his two sons, King Cold begins his rampage"
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 4,
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 4,
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "kingcold1",
+            "translation": "King Cold",
+            "side": "mafia1",
+            "hide": true,
+            "help": "One of your children has died. You are a little mad about that. Better protect your last son. If your last son dies, you will become insane and maybe you will cause harm to your victims during the day..",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 4,
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 4,
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "kingcold2",
+            "translation": "King Cold",
+            "side": "mafia1",
+            "help": "Both of your sons died... A father's fury is almost unstoppable. Once each day, you can use /db to get rid of everyone in your way with a death beam. Your vote has increased by 1. Revenge of your sons is a must. ",
+            "info": "Can kill during the day. Has a vote of 5. Sided with Cold Mafia.",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "vote": 5,
+                "standby": {
+                    "db": {
+                        "target": "AnyButSelf",
+                        "command": "kill",
+                        "killmsg": "King Cold has fired his Death Beam at ~Target~, piercing his body!",
+                        "msg": "Use /db to kill one person with a death beam, you will not be revealed"
+                    }
+                }
+            }
+        },
+        {
+            "role": "17",
+            "translation": "Android 17",
+            "side": "mafia2",
+            "help": "You're the mighty Android 17! You and your sister share a kill with /kill. Watch out though, because Cell is looking for you...",
+            "info": "Can kill during the night, shared with Android 18. Sided with Android Mafia.",
+            "actions": {
+"teamTalk": ["18", "drgero", "16"],
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 10,
+                        "target": "AnyButTeam",
+                        "broadcast": [
+                            "18",
+                            "16",
+                            "drgero"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "18",
+            "translation": "Android 18",
+            "side": "mafia2",
+            "help": "You're the beautiful Android 18! You and your brother share a kill with /kill. Watch out though, because Cell is looking for you...",
+            "info": "Can kill during the night, shared with Android 17. Sided with Android Mafia.",
+            "actions": {
+"teamTalk": ["17", "drgero", "16"],
+
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "priority": 10,
+                        "target": "AnyButTeam",
+                        "broadcast": [
+                            "17",
+                            "16",
+                            "drgero"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "8",
+            "translation": "Android 8",
+            "side": "mafia2",
+            "help": "Long ago, you met Son Goku when he was just a child. You were enlisted to kill everyone by the Red Ribbon Army, but you made friends with Goku instead! Now you are a caring android who works with the village, but the other Androids still treat you like family as well, so you win with both. You only have a vote of 1. Careful, Cell is looking for you...",
+            "info": "Vote of 1. Wins with Androids or Z-fighters.",
+            "winningSides": [
+                "village",
+                "mafia2"
+            ]
+        },
+        {
+            "role": "16",
+            "translation": "Android 16",
+            "side": "mafia2",
+            "help": "As an android with a bomb implanted in your chest, you grab on to anyone who attacks you during the day and kill them. Your soft nature gives you a voteshield of -3, but you do not actively fight anyone. Careful, Cell is looking for you...",
+            "info": "Kills anyone who targets him during the day. Voteshield of -3. Sided with the Androids.",
+            "actions": {
+"teamTalk": ["17", "drgero", "16"],
+
+                "startup": "team-reveal-with-roles",
+                "daykill": "bomb",
+                "voteshield": -3
+            }
+        },
+        {
+            "role": "drgero",
+            "translation": "Dr. Gero.",
+            "side": "mafia2",
+            "help": "You are Dr. Gero, a very intelligent scientist. With your knowledge you made androids, who are now at your service. Use /study every other night to inspect someone's role. Use /drain to begin to drain part of an enemies' life force. It will paralyze them as well as poison them, they will die the next night. Your position as a top ranking scientist gives you a -1 voteshield. Also watch out! Cell is looking for you...",
+            "info": " Can study (inspect) or drain (poison/distract) during the night, but can't use an action twice in a row. Has a voteshield of -1. Sided with the Android Mafia.",
+            "actions": {
+"teamTalk": ["18", "17", "16"],
+
+                "voteshield": -1,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "drain": {
+                        "command": [
+                            "poison",
+                            "distract"
+                        ],
+                        "priority": 3,
+                        "common": "Self",
+                        "restrict": [
+                            "study"
+                        ],
+                        "initialrecharge": 1,
+                        "broadcast": [
+                            "16",
+                            "17",
+                            "18"
+                        ],
+                        "target": "AnyButTeam",
+                        "recharge": 2
+                    },
+                    "study": {
+                        "command": [
+                            "inspect"
+                        ],
+                        "common": "Self",
+                        "priority": 99999,
+                        "recharge": 2,
+                        "restrict": [
+                            "drain"
+                        ],
+                        "broadcast": [
+                            "16",
+                            "17",
+                            "18"
+                        ],
+                        "target": "AnyButTeam"
+                    }
+                }
+            }
+        },
+        {
+            "role": "cell",
+            "translation": "Cell",
+            "side": "mafia3",
+            "help": "You are the basic form of Cell, the evil creation of Dr. Gero. Long time passed since you rebelled from him. Your goal now is to become perfect. To do this, use /drain to convert to the next phase and give your target 2 days to live. You can /inspect too to make sure you'll hit a powerful enemy. You can do both of these during the same night.",
+            "info": "Can inspect one target. Can drain one target, poisoning them and converting Cell into Semi-perfect Cell. Sided with Cell Mafia.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "cell jr"
+                        ]
+                    }
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "priority": 71,
+                        "target": "AnyButSelf"
+                    },
+                    "drain": {
+                        "command": [
+                            "copy",
+                            "poison"
+                        ],
+                        "count": 3,
+                        "common": "Self",
+                        "copymsg": "Cell has grown and is now stronger!",
+                        "target": "AnyButSelf",
+                        "copyAs": "cell1",
+                        "priority": 72
+                    }
+                }
+            }
+        },
+        {
+            "role": "cell1",
+            "translation": "Semi-Perfect Cell",
+            "side": "mafia3",
+            "help": "Ah yes! You are now in the next phase. Here's where achieving perfection becomes difficult. You can use /absorb which will kill people. If you hit an android with this absorb, you will power up and become perfect! You can use /inspect during the night to try to aid finding them.",
+            "info": "Can /absorb (kill with chance to power up) one target. Can inspect one target. If Semi-perfect Cell absorbs an android, will convert into Perfect Cell. sided with Cell Mafia",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "cell jr"
+                        ]
+                    }
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "priority": 73,
+                        "target": "AnyButSelf"
+                    },
+                    "absorb": {
+                        "common": "Self",
+                        "command": [
+                            "copy",
+                            "kill"
+                        ],
+                        "target": "AnyButSelf",
+                        "priority": 11,
+                        "copyAs": {
+                            "cell2": [
+                                "17",
+                                "16",
+                                "8",
+                                "18",
+                                "drgero"
+                            ]
+                        },
+                        "copymsg": "Cell has absorbed an android and has become Perfect! His power is now unparalleled, Cell can now kill before any other action and inspect during the night."
+                    }
+                }
+            }
+        },
+        {
+            "role": "cell jr",
+            "translation": "Cell Jr.",
+            "side": "mafia3",
+            "help": "When you were created by Cell, he made sure to make you into the perfect assistant. You know the identity of whoever inspects, distracts, or stalks you. You can /protect a target, which will kill them if they are not Cell (Protects Cell) up to three times per game. Since you are helping Cell, your goal is to keep Cell in the game with -4 votes, but if you are voted for then 2 votes are added to the total. Try to make the best of what you have to help Cell though!",
+            "info": "Identifies anyone who attempts to inspect, distract, or stalk him. Can protect three times per game, which protects Cell and kills others. Vote of -4. Voteshield of +2. Sided with Cell.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 6,
+                        "target": "AnyButSelf",
+                        "charges": 3,
+                        "command": [
+                            "kill",
+                            "protect"
+                        ]
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "cell jr"
+                        ]
+                    }
+                },
+                "inspect": {
+                    "revealAs": "piccolo",
+                    "mode": "identify"
+                },
+                "distract": {
+                    "mode": "identify"
+                },
+                "stalk": {
+                    "mode": "identify"
+                },
+                "vote": -4,
+                "voteshield": 2
+            }
+        },
+        {
+            "role": "cell2",
+            "translation": "Perfect Cell",
+            "side": "mafia3",
+            "help": "Oh YES!! You have found an android and are now in your perfect form! As a reward, once per game, you can /protect to protect yourself during th night. You can't be made into chocolate by Majin Buu and can't be poisoned. You can use /kill. You WILL hit through Piccolo, King Cold and Dende, and your kill is faster than everyone's else. You also have became quite good at noticing what people are so you can still /inspect at night.",
+            "info": "Can both kill and inspect once per night. Can protect himself once per game. Sided with Cell.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "cell jr"
+                        ]
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 4
+                    },
+                    "kill": {
+                        "priority": 1,
+                        "common": "Self",
+                        "broadcast": "team",
+                        "target": "AnyButSelf",
+                        "msg": "Cell killed you with a powerful energy blast!"
+                    },
+                    "inspect": {
+                        "common": "Self",
+                        "priority": 75,
+                        "broadcast": "team",
+                        "target": "AnyButTeam"
+                    }
+                }
+            }
+        },
+        {
+            "role": "buu",
+            "translation": "Majin Buu",
+            "side": "mafia4",
+            "help": "You are Majin Buu, a pink fat blob. You can use /choco to convert and poison a foe (Goku, Broly, Perfect Cell, and King Cold are unaffected by it). This will also transform you into Super Buu.",
+            "info": "Can /choco one target, turning that person into a poisoned chocolate and transforming Buu into Super Buu. Sided with Buu Mafia.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "choco": {
+                        "command": [
+                            "copy",
+                            "poison",
+                            "convert"
+                        ],
+                        "priority": 3,
+                        "newRole": "chocolate",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "copyAs": "buu1",
+                        "convertmsg": "Teehee, Majin Buu has transformed one person into his own chocolate minion! Majin Buu has also became Super Buu who can kill during the night."
+                    }
+                }
+            }
+        },
+        {
+            "role": "babidi",
+            "translation": "Babidi",
+            "side": "mafia4",
+            "help": "Your father is the powerful wizard, Bibidi. You come into the battlefield with your Wizard's Barrier. You ignore 80% of all night kills and ignore all poisons, as a powerful wizard you have 4 votes in this form also! You can /papa [own name] to use Paparapapa, allowing you to ignore all day kills and votes. You convert back in 3 nights or if you manually convert.",
+            "info": "Ignores 80% of night kills and all poisons. Vote of 4. Can convert to avoid daykills and votes. Sided with the Buu mafia.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "vote": 4,
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.8
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "papa": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "priority": 0,
+                        "common": "Self",
+                        "newRole": "babidi1",
+                        "convertmsg": "Babidi teleports away from the fight, granting him an immunity to day kills and votes!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "babidi1",
+            "translation": "Babidi",
+            "side": "mafia4",
+            "help": "You have left the fight and ignore all kills during the day and you can't be voted out. Your vote is 0. You can /barr [own name] to ignore night kills and poisons again.",
+            "info": "Ignores daykills and can't be voted out. Vote of 0. Returns to night kill evade mode in three turns or manually. Sided with the Buu Mafia.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "babidi",
+                        "curseCount": 4,
+                        "curseConvertMessage": "Babidi rejoins the fight with his Wizard Barrier!"
+                    }
+                },
+                "vote": 0,
+                "daykill": "evade",
+                "voteshield": -10000,
+                "night": {
+                    "barr": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "priority": 77,
+                        "common": "Self",
+                        "newRole": "babidi1",
+                        "convertmsg": "Babidi returns to the fight and uses his Wizard Barrier! He will ignore most kills."
+                    }
+                }
+            }
+        },
+        {
+            "role": "buu1",
+            "translation": "Super Buu",
+            "side": "mafia4",
+            "help": "You have converted a person into your chocolatey minion! You can /kill during the night. You can only pick one target so be sure when you choose a target. You're faster than everyone but Perfect Cell. It also broadcasts to everybody that Vegeta is making the kill and not you!",
+            "info": "Can kill one person every night, which is broadcasted to everyone as Vegeta. Will convert to Kid Buu if chocolate dies. Sided with Buu Mafia.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "restrict": [
+                            "kill"
+                        ],
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 9,
+                        "broadcast": "*",
+                        "broadcastmsg": "*** Vegeta, the Prince of Saiyans, has chosen to kill ~Target~"
+                    }
+                }
+            }
+        },
+        {
+            "role": "buu2",
+            "translation": "Kid Buu",
+            "side": "mafia4",
+            "help": "Your Chocolatey minion has died. Now you can use /kill during the standby. You won't be revealed.",
+            "info": "Can kill during the day. Sided with Buu Mafia.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Type /kill to eat someone. You won't be revealed.",
+                        "killmsg": "Kid Buu turned ~Target~ into a chocolate! OM NOM NOM!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "chocolate",
+            "translation": "Chocolate",
+            "side": "mafia4",
+            "help": "You are one of Majin Buu's chocolates. If you die or are voted out and Majin Buu has already converted into Super Buu, Super Buu will become Kid Buu. You have a vote of 0.5 and a voteshield of -3",
+            "info": "0.75 votes, voteshield of -3. If dies, Super Buu becomes Kid Buu. Sided with Buu Mafia",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "vote": 0.5,
+                "voteshield": -3,
+                "inspect": {
+                    "revealAs": "buu1"
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "buu1": "buu2"
+                    },
+                    "convertmsg": "Teeeeheeee. Super Buu ate his chocolate and was converted into Kid Buu!"
+                }
+            }
+        },
+        {
+            "role": "broly",
+            "translation": "Broly",
+            "side": "mafia5",
+            "help": "You are the mighty Broly. Since you are so big and powerful, you may /evade just once to protect yourself. Distractors have little effect on you, you will kill them. It takes time to charge your power, so you can only start killing on the third night (Use /kill). After your first kill, you will quickly gain more power. Let the fun begin!",
+            "info": "Can protect himself once. Will kill anyone who distracts him. Will be able to kill one starting night 3, which will convert him into a stronger form. Sided with Broly.",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You approached Broly, attempting to use your feminine wiles. Unfortunately, Broly only thinks about one thing. And that's killing.",
+                    "msg": "A misguided Insect approached you during the night. Instead of destroying worlds, you decided to take an evening to squash this simple worm."
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "night": {
+                    "evade": {
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ],
+                        "common": "Team",
+                        "target": "OnlySelf",
+                        "charges": 1,
+                        "priority": 2
+                    },
+                    "kill": {
+                        "command": [
+                            "copy",
+                            "kill"
+                        ],
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "copyAs": "ssbroly",
+                        "copymsg": "Broly's power has awoken. Whole planets disappear as Broly breaks through them to reach Goku! Broly now can kill twice during the night.",
+                        "priority": 36,
+                        "initialrecharge": 3,
+                        "msg": "Broly's power has awakened, and you were his first victim."
+                    }
+                }
+            }
+        },
+        {
+            "role": "ssbroly",
+            "translation": "Super Saiyan Broly",
+            "side": "mafia5",
+            "help": "You have killed your first victim. Now you have a vote of 2, and can kill twice per night. You kill any insignificant distractors and, on the following night, you will convert into Legendary Super Saiyan mode, who can kill three times during the night!",
+            "info": "Can kill twice per night, Has a vote of 2. Kills anyone who distracts him. Converts to legendary Broly at the end of the next night. Sided with Broly.",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "vote": 2,
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You approached Broly, attempting to use your feminine wiles. Unfortunately, Broly only thinks about one thing. And that's killing.",
+                    "msg": "A misguided insect approached you during the night. Instead of destroying worlds, you decided to take an evening to squash this simple worm."
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "lssbroly",
+                        "curseCount": 2,
+                        "curseConvertMessage": "Broly's power has increased dramatically! Everybody feels a chill run down their spine... as Broly can now kill three times during the night."
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "hide": true,
+                        "priority": 36,
+                        "limit": 2,
+                        "msg": "Broly's might is unparalleled. Be happy that your death was swift and merciless, because others won't be so lucky."
+                    }
+                }
+            }
+        },
+        {
+            "role": "lssbroly",
+            "translation": "Legendary Super Saiyan Broly",
+            "side": "mafia5",
+            "help": "You are now awakened to full power. You can /kill three times during the night as well as /evade, but you can use it only once. You have a vote of 3, and you will also kill any insignifigant distractors during the night.",
+            "info": "Can kill three times per night and protect himself once. Has a vote of 3. Kills any person who distracts him. Sided with Broly.",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You approached Broly, attempting to use your feminine wiles. Unfortunately, Broly only thinks about one thing. And that's killing.",
+                    "msg": "A misguided insect approached you during the night. Instead of destroying worlds, you decided to take an evening to squash this simple worm."
+                },
+                "vote": 3,
+                "night": {
+                    "evade": {
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ],
+                        "common": "Team",
+                        "target": "OnlySelf",
+                        "charges": 1,
+                        "hide": true,
+                        "priority": 2
+                    },
+                    "kill": {
+                        "command": "kill",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "limit": 3,
+                        "hide": true,
+                        "priority": 36,
+                        "msg": "Broly's power has awakened, and you were his first victim."
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "goku",
+        "piccolo",
+        "chichi",
+        "8",
+        "cell",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "17",
+        "bulma",
+        "18",
+        {
+            "frieza1": 0.1,
+            "cooler1": 0.1
+        },
+        "trunks",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "yaj"
+    ],
+    "roles2": [
+        "goku",
+        "piccolo",
+        "chichi",
+        "cell",
+        "trunks",
+        "frieza",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "17",
+        "gohan",
+        "18",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "bulma",
+        "cooler",
+        "drgero",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "cell jr"
+    ],
+    "roles3": [
+        "goku",
+        "piccolo",
+        "chichi",
+        "cell",
+        "trunks",
+        "frieza",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "17",
+        "gohan",
+        "18",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "bulma",
+        "cooler",
+        "drgero",
+        "vegeta",
+        "kingcold",
+        "krillin",
+        "8",
+        "cell jr",
+        "goten",
+        "buu",
+        "broly",
+        "tien",
+        "chiaotzu",
+        "yaj",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "dende",
+        "ginyu",
+        "roshi",
+        "babidi",
+        "yamcha",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        "16",
+        "kai",
+        "chocolate",
+        {
+            "human": 0.7,
+            "namek": 0.3
+        },
+        {
+            "human": 0.7,
+            "namek": 0.3
+        }
+    ],
+    "villageCantLoseRoles": [
+        "chichia",
+        "goku",
+        "ssj",
+        "ssj2",
+        "ssj3",
+        "vegeta",
+        "gotenks",
+        "ssj4",
+        "yaj",
+        "vegetaa"
+    ],
+    "killmsg": "±Shenron: ~Player~ (~Role~) died. What a shame!",
+    "changelog": {
+        "7.31.13": "Changelog re-added. Fixed a bunch of small bugs and roles. Upped goku's /fight prio.",
+        "8.1.13": "Slight change to humans watching televisions. Fixed Goku v2's DK message.",
+        "8.15.13": "New roles -- Android 8, Android 16, Cell Jr., Babidi, King Kai, Ginyu, Yajirobe.",
+        "8.18.13": "Fixed a couple helps and messages.",
+        "10.23.13": "Gave Perfect Cell a 1x self protect to keep him alive against other mafias.",
+        "11.10.13": "Changing spawn to get more balance.",
+        "11.29.13": "Upgraded Cold Mafia metal versions. Testing Cell Jr. at an earlier point, temporary.",
+"1.7.14": "New spawn fixing for balance, yaaaay."
+    },
+    "killusermsg": "±Shenron: You died. Better train more!"
+}
