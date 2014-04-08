@@ -1,0 +1,2721 @@
+{
+    "name": "Naruto",
+    "author": [
+        "Crobat",
+        "Espeon",
+        "Arcanine"
+    ],
+    "summary": "Your favorite Naruto heroes are back to take on some of the greatest villains from the original series! Find and team up with Naruto, Sasuke, and others from the leaf village to defeat the sand ninja, Orochimaru and Kabuto, the Akatsuki, the mist ninja, and the Sound Ninja Four and restore peace in the village hidden in the leaves! [The Sound Ninja Four and Orochimaru's forces are separate mafia factions in this game for the sake of balancing.] Only Tenten may claim due to her vote of zero (be careful because Kabuto also has a vote of 0). Hinata can also claim due to her vote of -3.",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Leaf Village",
+            "winmsg": "±Minato: The leaf village has been successfully defended from all enemies thanks to the noble efforts of ~Players~!"
+        },
+        {
+            "side": "sand",
+            "translation": "Sand Shinobi",
+            "winmsg": "±Minato: The Sand Shinobi, ~Players~, were able to carry out their plan and invade the leaf village!"
+        },
+        {
+            "side": "snake",
+            "translation": "Orochimaru's Forces",
+            "winmsg": "±Minato: The forces of Orochimaru have overthrown the leaf village! Now ~Players~ can achieve more power and forbidden jutsu!"
+        },
+        {
+            "side": "mist",
+            "translation": "Mist Shinobi",
+            "winmsg": "±Minato: The rogue ninja exiles from the mist have made their presence known. ~Players~ stand proudly above their opposition, strong and victorious."
+        },
+        {
+            "side": "sound",
+            "translation": "Sound Four",
+            "winmsg": "±Minato: Looks like teamwork really can overcome everything, including the leaf village! ~Players~, the Sound Four, have done exactly just that."
+        },
+        {
+            "side": "akatsuki",
+            "translation": "Akatsuki",
+            "winmsg": "±Minato: With the fall of the Leaf Village, the Akatsuki are able to acquire more power. Who knows what ~Players~ will be able to do now..."
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Leaf Shinobi",
+            "side": "village",
+            "help": "You are a Leaf Shinobi tasked with defending your village! Unfortunately, you don't have any special commands or abilities. Vote to remove people during the day!",
+            "info": "Small hax on kill. Sided with the Leaf Village.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.03
+                    }
+                }
+            }
+        },
+		{
+            "role": "villagerbomb",
+            "translation": "Strong Leaf Shinobi",
+            "side": "village",
+            "help": "You are a Leaf Shinobi tasked with defending your village! Unfortunately, you don't have any special commands or abilities. Vote to remove people during the day!",
+            "info": "Small hax on kill. Revenges all nightkills. Reveals as Leaf Shinobi when inspected. Onlist as Leaf Shinobi. Onteam as Leaf Shinobi. Sees itself as Leaf Shinobi. Sided with the Leaf Village.",
+			"actions": {
+				"hax": {
+					"kill": {
+						"revealTeam": 0.03
+					}
+				},
+				"kill": {
+					"mode": "killattacker",
+					"msg": "You found the Strong Leaf Shinobi, and they fought back. You were able to kill them, but they were also able to kill you."
+				},
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"startup": {
+					"revealAs": "villager"
+				},
+				"onlist": "villager",
+				"onteam": "villager"
+			}
+		},
+		{
+            "role": "villagersuperbomb",
+            "translation": "Super Strong Leaf Shinobi",
+            "side": "village",
+			"hide": "side",
+            "help": "You are a Leaf Shinobi tasked with defending your village! Unfortunately, you don't have any special commands or abilities. Vote to remove people during the day!",
+            "info": "Small hax on kill. Revenges all nightkills. Revenges all daykills. Reveals as Leaf Shinobi when inspected. Onlist as Leaf Shinobi. Onteam as Leaf Shinobi. Sees itself as Leaf Shinobi. This role has a 25% chance of appearing in place of the Strong Leaf Shinobi. Sided with the Leaf Village.",
+			"actions": {
+				"hax": {
+					"kill": {
+						"revealTeam": 0.03
+					}
+				},
+				"kill": {
+					"mode": "killattacker",
+					"msg": "You found the Super Strong Leaf Shinobi, and they fought back. You were able to kill them, but they were also able to kill you."
+				},
+				"daykill": "bomb",
+				"daykillrevengemsg": "~Target~ attacks ~Self~, but ~Self~ is no ordinary Leaf Shinobi, and is able to fight back with fierce strength. At the end of the battle, neither person is left alive.",
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"startup": {
+					"revealAs": "villager"
+				},
+				"onlist": "villager",
+				"onteam": "villager"
+			}
+		},
+		{
+            "role": "villagersuperbomb2",
+            "translation": "Super Strong Leaf Shinobi",
+            "side": "village",
+			"hide": "side",
+            "help": "You are a devoted and loyal Leaf Shinobi! Due to your dedication to defending your village, you will revenge all nightkills and daykills!",
+            "info": "Small hax on kill. Revenges all nightkills. Revenges all daykills. Sided with the Leaf Village.",
+			"actions": {
+				"hax": {
+					"kill": {
+						"revealTeam": 0.03
+					}
+				},
+				"kill": {
+					"mode": "killattacker",
+					"msg": "You found the Super Strong Leaf Shinobi, and they fought back. You were able to kill them, but they were also able to kill you."
+				},
+				"daykill": "bomb",
+				"daykillrevengemsg": "~Target~ attacks ~Self~, but ~Self~ is no ordinary Leaf Shinobi, and is able to fight back with fierce strength. At the end of the battle, neither person is left alive."
+			}
+		},
+        {
+            "role": "samurai",
+            "translation": "Naruto",
+            "side": "village",
+            "help": "You are Naruto Uzumaki, the #1 hyperactive, knucklehead ninja from the Leaf Village! Your dedication and training with Jiraiya has allowed you to learn how to use the Rasengan, a powerful jutsu! You can use this during the day and you won't be revealed! Your strong will and fierce determination gives you a slight resistance to poison! Also, since you are always trying to keep up with Sasuke, you know his identity from the start and can use /tt to talk to him.",
+            "info": "Can kill one person during the standby. User is not revealed. Takes 2 days to die from poison. Knows Sasuke. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "poison": {
+                    "mode": "resistance"
+                },
+				"kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Your shadow clones are all set and the rasengan is in your hand! Use /kill [name] to kill someone using your rasengan! You won't be revealed.",
+                        "killmsg": "RASENGAN! ~Target~ turns around to see Naruto rushing at them with a large ball of blue pure chakra. Before ~Target~ can even react, they are nailed in the stomach by the rasengan, and are no more."
+                    }
+                },
+				"teamTalk": ["inspector"],
+                "startup": {
+                    "revealRole": [
+                        "inspector"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "inspector",
+            "translation": "Sasuke",
+            "side": "village",
+            "help": "You are the sole survivor of the Uchiha clan's massacre (led by your brother, Itachi). Since this, you have been concerned only with getting stronger and stronger. Your sharingan allows you to do /inspect one person at night to figure out their role! Your desire to find Itachi and avenge your clan has given you a slight resistance to poison. Also, you are best friends and rivals with Naruto, so you know him from the start and can't be daykilled by him. You can also talk to him using /tt.",
+            "info": "Can inspect one person during the night. Can't be daykilled by Naruto. Takes 2 days to die from poison. Knows Naruto. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 27
+                    }
+                },
+				"kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"daykill": {
+                     "mode": {
+                         "ignore": ["samurai"]
+                    },
+                    "msg": "You cannot kill ~Target~! They are ~Role~!"
+                },
+                "poison": {
+                    "mode": "resistance"
+                },
+				"teamTalk": ["samurai"],
+                "startup": {
+                    "revealRole": [
+                        "samurai"
+                    ]
+                }
+            }
+        },
+		{
+            "role": "inspector2",
+            "translation": "Sasuke",
+            "side": "village",
+			"hide": "side",
+            "help": "You are the sole survivor of the Uchiha clan's massacre (led by your brother, Itachi). Since this, you have been concerned only with getting stronger and stronger. Your sharingan allows you to do /inspect one person at night to figure out their role! Your desire to find Itachi and avenge your clan has given you a slight resistance to poison.",
+            "info": "Can inspect one person during the night. Can't be daykilled by Naruto. Takes 2 days to die from poison. Knows Naruto. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+						"pierce": true,
+						"hide": true,
+                        "priority": 27
+                    }
+                },
+				"kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"daykill": {
+                     "mode": {
+                         "ignore": ["samurai"]
+                    },
+                    "msg": "You cannot kill ~Target~! They are ~Role~!"
+                },
+                "poison": {
+                    "mode": "resistance"
+                },
+                "startup": {
+                    "revealRole": [
+                        "samurai"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "hooker",
+            "translation": "Sakura",
+            "side": "village",
+            "help": "While caring towards others, you often tend to display bursts of great strength, especially in your anger normally directed at Naruto. You can use this strength to /distract one person every night. However, such a display of strength often makes others see you as Temari, an equally powerful adversary.",
+            "info": "Can distract one person during the night. Inspects as Temari. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "temari"
+                },
+				"kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+                        "distractmsg": "While you were trying to carry out your nightly activities, a flurry of fists suddenly struck you, stunning you for the entire night and preventing you from doing anything.",
+                        "teammsg": "You couldn't do anything last night as you were too busy trying to help your teammate recover from some serious injuries (most likely from fists)."
+                    }
+                }
+            }
+        },
+        {
+            "role": "vigilante",
+            "translation": "Kakashi",
+            "side": "village",
+            "help": "As the leader of Squad 7, you take charge of the missions at all costs. Your powerful sharingan and your intense training has allowed you to master the raikiri, or lightning blade jutsu. Use /blade to kill one person every night, even if they are protected. Be careful though, as such power has a good chance to be detected by enemy shinobi! Furthermore, if you try to kill a power role on your team, they will kill you instead!",
+            "info": "Can kill one person during the night (command is /blade), even if that person is protected. Has a chance to be haxed by mafia. Dies if he kills a village power role (the village power role will not die though). Sided with the Leaf Village.",
+            "actions": {
+                "night": {
+                    "blade": {
+                        "command": "kill",
+						"target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 16,
+                        "pierce": true,
+                        "msg": "All you could see were sparks of a giant lightning blade as it passed through your heart..."
+                    }
+                }
+            }
+        },
+        {
+            "role": "kiba",
+            "translation": "Kiba",
+            "side": "village",
+            "help": "As part of the Inuzuka clan, you specialize in training and fighting side by side with dogs. You are always with your own dog, Akamaru, and thus you can protect one person a night with /protect.",
+            "info": "Can protect one person during the night. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+						"hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "kiba2",
+            "translation": "Kiba",
+            "side": "village",
+            "hide": "side",
+            "help": "As part of the Inuzuka clan, you specialize in training and fighting side by side with dogs. You are always with your own dog, Akamaru, and thus you can protect one person a night with /protect and safeguard one person with /safeguard.",
+            "info": "Can protect one person during the night. Can safeguard one person during the night. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+				"kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13
+                    },
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4
+                    }
+                }
+            }
+        },
+        {
+            "role": "stalker",
+            "translation": "Shino",
+            "side": "village",
+            "help": "As a member of the Aburame clan, you specialize in using bugs to gather chakra and information from others. Thanks to your bugs, you are able to stalk one person each night using /stalk to see who they visited!",
+            "info": "Can stalk one person during the night. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 28
+                    }
+                }
+            }
+        },
+        {
+            "role": "spy",
+            "translation": "Neji",
+            "side": "village",
+            "help": "Neji Hyuga...you are the believed to be the strongest of the Hyuga clan. With the power of your Byakugan, you have the power to see what is happening during the night. This ability also allows you to defend yourself using /protect [your name] (50% fail chance) to avoid being nightkilled.",
+            "info": "Has a small chance of hax on every night command. Can self-protect (50% fail chance) during the night. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "protect": {
+                        "failChance": 0.5,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 13
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "distract": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "inspect": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "protect": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "safeguard": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "poison": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "stalk": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "shield": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "wind": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "coffin": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "convert": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "mist": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    },
+                    "shadow": {
+                        "revealTeam": 0.08,
+                        "revealPlayer": 0.02
+                    }
+                }
+            }
+        },
+        {
+            "role": "mayor",
+            "translation": "Sarutobi",
+            "side": "village",
+            "help": "You are the great Third Hokage of the leaf village! As the top of the authority pyramid, you have a +5 vote. In addition, your strong sense of protection and urgency in battle allows you to avoid all daykills!",
+            "info": "Mayor with a +5 vote. Evades all daykills. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "vote": 5
+            }
+        },
+        {
+            "role": "hinata",
+            "translation": "Hinata",
+            "side": "village",
+            "help": "Just like Neji, you too are from the Hyuga clan. However, you are much more quiet and timid, and as a result, you have a -3 vote. It is safe for you to claim in order to connect the village.",
+            "info": "Vote of -3. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"vote": -3
+            }
+        },
+        {
+            "role": "tenten",
+            "translation": "Tenten",
+            "side": "village",
+			"hide": "side",
+            "help": "You specialize in long range distance combat using an arsenal of weapons from a distance. However, this causes you to be seen as Haku, who also attacks from a distance, and gives you a vote of zero. Use this lack of voting power to your advantage if you can! It is also safe for you to claim in order to connect the village.",
+            "info": "Inspects as Haku. Has a vote of 0. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"inspect": {
+                    "revealAs": "haku"
+                },
+                "vote": 0
+            }
+        },
+		{
+            "role": "tentens",
+            "translation": "Tenten",
+            "side": "village",
+            "help": "You specialize in long range distance combat using an arsenal of weapons from a distance, allowing you to /kill one person during the night once per game. However, this causes you to be seen as Haku, who also attacks from a distance, and gives you a vote of 0.1.",
+            "info": "Can kill one person during the night once a game. Inspects as Haku. Has a vote of 0.1. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+				"night": {
+					"kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 16,
+						"charges": 1,
+                        "msg": "You were torn to shreds by a plethora of various weapons from a distance."
+                    }
+				},						
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"inspect": {
+                    "revealAs": "haku"
+                },
+                "vote": 0.1
+            }
+        },
+        {
+            "role": "lee",
+            "translation": "Lee",
+            "side": "village",
+            "help": "You are Rock Lee, the leaf village's handsome devil. You are recognized for your fierce, high-speed taijutsu. For now, you can't do anything, but you are able to open up to 5 gates. You can open 1 gate each night to increase your power. Once you have opened the 5th gate, you will have maxed out your potential. Be warned that after you open the first gate, you ignore all protection. Open the first gate by using /convert [your name]!",
+            "info": "Can open the 1st gate during the night using /convert. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "convert": {
+                        "convertmsg": "Lee has opened the first gate and can now nightkill, but will ignore all protection!",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "lee1",
+                        "canConvert": [
+                            "lee"
+                        ],
+                        "silent": false,
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "lee1",
+            "translation": "Lee",
+            "side": "village",
+            "hide": "side",
+            "help": "You have now opened the first gate, the Gate of Opening, and can now kill at night using /kill! You can also open the second gate using /change [your name].",
+            "info": "Has the lowest-priority nightkill. Ignores protection. Can open the 2nd gate during the night using /change. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "change": {
+                        "command": "convert",
+                        "convertmsg": "Lee has opened the second gate and has increased the priority of his nightkill!",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "lee2",
+                        "canConvert": [
+                            "lee1"
+                        ],
+                        "silent": false,
+                        "pierce": true
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 25,
+						"hide": true,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                },
+                "protect": {
+                    "mode": "ignore"
+                }
+            }
+        },
+		{
+            "role": "1lee",
+            "translation": "1st Gate Lee",
+            "side": "village",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 25,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                }
+            }
+        },
+        {
+            "role": "lee2",
+            "translation": "Lee",
+            "side": "village",
+            "hide": "side",
+            "help": "You have now opened the second gate, the Gate of Opening, allowing you to be faster and get a faster kill than before! You can also open the third gate by using /convert [your name], but be warned that this will cause some collateral damage to yourself.",
+            "info": "Has a medium-priority nightkill. Ignores protection. Can open the 3rd gate during the night using /convert. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "convert": {
+                        "convertmsg": "Lee has opened the third gate and now ignores all distractors, but his muscles are beginning to tear and his skin is turning red.",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "lee3",
+                        "canConvert": [
+                            "lee2"
+                        ],
+                        "silent": false,
+						"hide": true,
+                        "pierce": true
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+						"hide": true,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                },
+                "protect": {
+                    "mode": "ignore"
+                }
+            }
+        },
+		{
+            "role": "23lee",
+            "translation": "2nd and 3rd Gate Lee",
+            "side": "village",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                }
+            }
+        },
+        {
+            "role": "lee3",
+            "translation": "Lee",
+            "side": "village",
+            "hide": "side",
+            "help": "You have now opened the third gate, the Gate of Life! Your nightkill is now guaranteed as you ignore distractors!  However, you have overexerted yourself and only have 3 days to live. You can open the fourth gate using /change [your name].",
+            "info": "Has a medium-priority nightkill. Ignores distractors. Ignores protection. Can open the 4th gate during the night using /change. Dies in 3 days. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": 3,
+                        "poisonDeadMessage": "Your body has reached its limit."
+                    }
+                },
+				"kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+                "night": {
+                    "change": {
+                        "command": "convert",
+                        "convertmsg": "Lee has opened the fourth gate and has increased the priority of his nightkill! He now has one of the fastest nightkills!",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "lee4",
+                        "canConvert": [
+                            "lee3"
+                        ],
+                        "silent": false,
+						"hide": true,
+                        "pierce": true
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+						"hide": true,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                },
+                "protect": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you, but your sheer power fought them off and you went on with your business."
+                }
+            }
+        },
+        {
+            "role": "lee4",
+            "translation": "Lee",
+            "side": "village",
+            "hide": "side",
+            "help": "The fourth gate, the Gate of Pain, has been opened, and your nightkill is outsped only by a few people. You can open the fifth and final gate using /convert [your name].",
+            "info": "Has one high-priority nightkill. Ignores distractors. Ignores protection. Counters Kakashi's kill. Can open the 5th and final gate using /convert. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "convert": {
+                        "convertmsg": "Lee has opened the fifth gate! He can no longer open any more gates, but his nightkill is now the fastest in the game and outspeeds everyone!",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "lee5",
+                        "canConvert": [
+                            "lee4"
+                        ],
+                        "silent": false,
+						"hide": true,
+                        "pierce": true
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 14,
+						"hide": true,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                },
+                "protect": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you, but your sheer power fought them off and you went on with your business."
+                }
+            }
+        },
+		{
+            "role": "4lee",
+            "translation": "4th Gate Lee",
+            "side": "village",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 14,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                }
+            }
+        },
+        {
+            "role": "lee5",
+            "translation": "Lee",
+            "side": "village",
+            "hide": "side",
+            "help": "The fifth gate, the Gate of Limit, has been opened. You now posess the fastest nightkill and outspeed literally everyone and every single command. This will be your final night, so if you choose to kill, make it count.",
+            "info": "Has the fastest priority command (/kill) in the game. Ignores distractors. Ignores protection. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+						"hide": true,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                },
+                "protect": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you, but your sheer power fought them off and you went on with your business."
+                }
+            }
+        },
+		{
+            "role": "5lee",
+            "translation": "5th Gate Lee",
+            "side": "village",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "msg": "The speed and power of Lee was too much; you didn't stand a chance."
+                    }
+                }
+            }
+        },
+        {
+            "role": "exposer",
+            "translation": "Shikamaru",
+            "side": "village",
+            "help": "You are considered the smartest and laziest ninja in the entire leaf village. Your laziness prevents you from being able to battle seriously, so you can't kill, but you are able to distract during the night using /shadow. You can only do this once though. However, your intelligence and mastery of manipulation of shadows allows you to sneak up on someone and reveal their role during the day without revealing yourself! You can only do this one time though!",
+            "info": "Has a one time distract (/shadow). Can expose one person's role during the standby once per game (user is not revealed). Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "shadow": {
+                        "command": [
+                            "distract"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "charges": 1,
+                        "distractmsg": "You were stunned the entire night. Seems like someone took over your shadow.",
+                        "teammsg": "You were unable to carry out your nightly activities because you had to tend to your ally, who seemed to have been held immobile by a shadow."
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "charges": 1,
+                        "msg": "Now is your chance! Use your shadow posession jutsu to sneak up on someone and reveal their role using /expose [name]! Since you are far away from others, you can hide behind your shadows and you won't be revealed! Remember you can only do this once.",
+                        "exposemsg": "A shadow quickly moves toward ~Role~ and stops it right in its place! ~Target~ tries to break from the grasp of the shadow."
+                    }
+                }
+            }
+        },
+        {
+            "role": "choji",
+            "translation": "Choji",
+            "side": "village",
+            "help": "You are known for your expansion abilities, but some others look down on you for your large appetite and...slightly chubby appearance. Despite that, you and Shikamaru have been close friends, and therefore you get perfect hax on his /expose during the day and his /distract during the night. You yourself have no special commands.",
+            "info": "Gets perfect hax on Shikamaru's expose and distract. Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"hax": {
+                    "shadow": {
+                        "revealPlayer": 1
+                    }
+                },
+                "standbyHax": {
+                    "expose": {
+                        "revealPlayer": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "hooker2",
+            "translation": "Ino",
+            "side": "village",
+            "help": "You specialize in the mind transfer jutsu, and can use this to take over someone's body, preventing them from doing anything during the night (by using /distract [name]). This jutsu requires a lot of focus, so you are only able to use this command 3 times.",
+            "info": "Can distract one person during the night (can do this 3 times in a game). Counters Kakashi's kill. Sided with the Leaf Village.",
+            "actions": {
+                "kill": {
+					"mode": {
+						"killif": ["vigilante"]
+					},
+					"targetmsg": "You attacked someone, but they turned out to be a vigilant ally! Startled, they fought back and killed you!",
+					"msg": "Someone attacked you. Vigilant as you are, you were able to kill them. Unfortunately, your attacker turned out to be Kakashi."
+				},
+				"night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "charges": 3,
+                        "distractmsg": "You suddenly lost complete control of your body and couldn't do anything during the night.",
+                        "teammsg": "You were unable to carry out your nightly activities because you had to tend to your ally, who seemed to have lost control of their body."
+                    }
+                }
+            }
+        },
+        {
+            "role": "gaara",
+            "translation": "Gaara",
+            "side": "sand",
+            "help": "Ever since that fateful day where you found out the one person who cared about you actually hated you and tried to kill you, you have been a heartless and ruthless killer. You share a /kill with your team every night, but you also can /coffin someone for an additional unshared kill every night. You can also use /convert [your name] to change yourself into a more defensive form (can no longer use /coffin, but ignores stalk, has a -5 voteshield, and gains a 35% chance to evade nightkills). Regardless of your form, the defensive ability of your sand grants you a slight resistance to poison. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can coffin one person (unshared kill) during the night. Can convert himself during the night. Takes 2 days to die from poison. Gets hax on blade. Sided with the Sand Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"poison": {
+                    "mode": "resistance"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+						"msg": "Gaara is a heartless killer. His sand destroyed you with ease.",
+						"hide": true
+                    },
+                    "coffin": {
+                        "command": [
+                            "kill"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 24,
+						"msg": "You were completely crushed by the brute power of Gaara's sand coffin.",
+                        "broadcast": "team"
+                    },
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "gaara2",
+                        "canConvert": [
+                            "gaara"
+                        ],
+                        "silent": true,
+                        "pierce": true
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "gaara2",
+            "translation": "Gaara",
+            "side": "sand",
+            "hide": "side",
+            "help": "You have changed to your more defensive stance. You no longer have an additional unshared kill, but you still share a kill with your team. Furthermore, you have a -5 voteshield, a 35% chance to evade nightkills, and ignore all stalks! You can change back to your previous form using /change [your name]. Regardless of your form, the defensive ability of your sand grants you a slight resistance to poison. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Has a voteshield of -5. Has a 35% chance to evade nightkills. Ignores stalk. Can change himself during the night. Takes 2 days to die from poison. Gets hax on blade. Sided with the Sand Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"poison": {
+                    "mode": "resistance"
+                },
+                "night": {
+                    "change": {
+                        "command": "convert",
+						"target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "gaara",
+                        "canConvert": [
+                            "gaara2"
+                        ],
+                        "silent": true,
+                        "pierce": true
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+						"msg": "Gaara is a heartless killer. His sand destroyed you with ease.",
+						"hide": true
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.35
+                    }
+                },
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "voteshield": -5,
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "kankuro",
+            "translation": "Kankuro",
+            "side": "sand",
+            "help": "You are a skilled puppet user who specializes in using poison in your puppets. This gives you the ability to poison 1 person per night using /poison. You share a /kill with your sand siblings, but you also have the ability to use /convert [your name] to make your puppets play defensively. This means they won't be able to poison, but you can instead use them to protect one of your teammates at night. Since you specialize in poison, you have taught yourself how to endure some of it, and you therefore have a slight resistance to poison. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can poison one person during the night. Can convert himself during the night to drop the ability to poison but gain the ability to protect 1 person during the night. Takes 2 days to die from poison. Gets hax on blade. Sided with the Sand Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"poison": {
+                    "mode": "resistance"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "kankuro2",
+                        "canConvert": [
+                            "kankuro"
+                        ],
+                        "silent": true,
+                        "pierce": true
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+						"msg": "Out of nowhere, a puppet with numerous blades charges at you. You have no time to react, and you are pierced and killed on the spot.",
+						"hide": true
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 19,
+						"poisonDeadMessage": "The venom of Kankuro's puppet was too much.",
+                        "broadcast": "team"
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "kankuro2",
+            "translation": "Kankuro",
+            "side": "sand",
+            "hide": "side",
+            "help": "This is your more defensive stance. While your puppets no longer can poison, you can use them to /protect an ally during the night. You still retain your shared /kill with your teammates. You can change back to your previous form using /change [your name]. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can protect one person during the night. Can change himself during the night. Gets hax on blade. Sided with the Sand Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"poison": {
+                    "mode": "resistance"
+                },
+                "night": {
+                    "change": {
+                        "command": "convert",
+						"target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "kankuro",
+                        "canConvert": [
+                            "kankuro2"
+                        ],
+                        "silent": true,
+                        "pierce": true
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+						"msg": "Out of nowhere, a puppet with numerous blades charges at you. You have no time to react, and you are pierced and killed on the spot.",
+						"hide": true
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+                        "broadcast": "team"
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "temari",
+            "translation": "Temari",
+            "side": "sand",
+            "help": "As a master of creating powerful wind jutsus using your 3 large fans, you are able to stop an enemy in its tracks using /wind (which will distract your target). You also share a /kill with your team. You ignore all stalks and you have a 25% chance to evade daykills! Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can wind (distract) one person during the night. Ignores stalk. Has a 25% chance to evade daykills. Gets hax on blade. Sided with the Sand Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+						"msg": "You were decimated by Temari's Cutting Whirlwind technique.",
+						"hide": true
+                    },
+                    "wind": {
+                        "command": [
+                            "distract"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 9,
+                        "distractmsg": "A fierce wind suddenly stopped you right in your tracks! You were unable to perform any of your actions.",
+                        "teammsg": "It seems like your partner got caught up in a massive gust. You spent the entire night making sure they were all right, and thus didn't perform any of your actions.",
+                        "broadcast": "team"
+                    }
+                },
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "sandninja",
+            "translation": "Sand Ninja",
+            "side": "sand",
+            "help": "You have been sent to take down the Leaf Village and any other opposition! You can /kill during the night (shared with your team). Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Gets hax on blade. Sided with the Sand Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team",
+						"msg": "You were killed in the name of the village hidden in the sand.",
+						"hide": true
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+		{
+            "role": "sandshinobi",
+            "translation": "Sand Shinobi",
+            "side": "sand",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "orochimarus",
+            "translation": "Orochimaru",
+            "side": "snake",
+            "help": "A former student under the Third Hokage, your lust for power and forbidden jutsu has led you to become a very powerful and dangerous individual. Now you are back for revenge! Achieve vengeance using /kill during the night and /kill during the day. You only get one daykill (the daykill won't reveal you). Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can kill one person during the day (user is not revealed) once a game. Gets hax on blade. Sided with Orochimaru's Forces.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+						"msg": "±Orochimaru: 'Looks like I found an intruder. IT'S OVER!'",
+						"hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "It's time you showed people just what you are capable of doing! Eliminate someone using /kill! Be warned that you can only do this once, but you won't be revealed.",
+                        "killmsg": "±Orochimaru: 'IT'S OVER!' Orochimaru opens his mouth and regurgitates the Kusanagi Sword! He then rushes up to ~Target~ and fatally stabs them in the chest.",
+						"charges": 1
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+		{
+            "role": "orochimaru",
+            "translation": "Orochimaru",
+            "side": "snake",
+			"hide": "side",
+            "help": "A former student under the Third Hokage, your lust for power and forbidden jutsu has led you to become a very powerful and dangerous individual. Now you are back for revenge! Achieve vengeance using /kill during the night and /kill during the day. Each daykill has a 35% chance to reveal you. As a former leaf shinobi, people will also see you as a Leaf Shinobi when they inspect you! Lastly, you have a chance to hax Kakashi, and your wide variety of jutsu gives you a vote of 2.",
+            "info": "Can kill one person during the night. Can kill one person during the day (35% chance to reveal user). Reveals as Leaf Shinobi when inspected. Gets hax on blade. Vote of 2. Sided with Orochimaru's Forces.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+						"msg": "±Orochimaru: 'Looks like I found an intruder. IT'S OVER!'",
+						"hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "It's time you showed people just what you are capable of doing! Eliminate someone using /kill! Be warned that this has a 35% chance to reveal you.",
+                        "killmsg": "±Orochimaru: 'IT'S OVER!' Orochimaru opens his mouth and regurgitates the Kusanagi Sword! He then rushes up to ~Target~ and fatally stabs them in the chest.",
+						"revealChance": 0.35,
+						"revealmsg": "~Self~ (Orochimaru) lets out a demonic laugh as another person has fallen victim to him."
+                    }
+                },
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"vote": 2,
+				"teamTalk": true
+            }
+        },
+		{
+            "role": "orochimaruz",
+            "translation": "Orochimaru",
+            "side": "snake",
+			"hide": "side",
+            "help": "A former student under the Third Hokage, your lust for power and forbidden jutsu has led you to become a very powerful and dangerous individual. Now you are back for revenge! Achieve vengeance using /kill during the night and /kill during the day (without being revealed). As a former leaf shinobi, people will also see you as a Leaf Shinobi when they inspect you! Lastly, you have a chance to hax Kakashi, and your wide variety of jutsu gives you a vote of 2.",
+            "info": "Can kill one person during the night. Can kill one person during the day (user is not revealed). Reveals as Leaf Shinobi when inspected. Gets hax on blade. Vote of 2. Sided with Orochimaru's Forces.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+						"msg": "±Orochimaru: 'Looks like I found an intruder. IT'S OVER!'",
+						"hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "It's time you showed people just what you are capable of doing! Eliminate someone using /kill! You won't be revealed!",
+                        "killmsg": "±Orochimaru: 'IT'S OVER!' Orochimaru opens his mouth and regurgitates the Kusanagi Sword! He then rushes up to ~Target~ and fatally stabs them in the chest."
+                    }
+                },
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"vote": 2,
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "orochimaru2",
+            "translation": "Orochimaru",
+            "side": "snake",
+            "hide": "side",
+            "help": "A former student under the Third Hokage, your lust for power and forbidden jutsu has led you to become a very powerful and dangerous individual. Now you are back for revenge! Achieve vengeance using /kill during the night (shared with your team). To further augment your power, you kill anyone that tries to distract you, you can't be haxed, and your variety of jutsu has given you a strong resistance to poison! Lastly, you can /kill during the day, and you won't be revealed! As a former leaf shinobi, people will also see you as a Leaf Shinobi when they inspect you! Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can kill one person during the day (user is not revealed). Kills distractors. Can't be detected by spies. Takes 3 days to die from poison. Reveals as Leaf Shinobi when inspected. Gets hax on blade. Sided with Orochimaru's Forces.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"poison": {
+                    "mode": "resistance",
+                    "constant": 2
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 21,
+                        "broadcast": "team",
+						"msg": "±Orochimaru: 'Looks like I found an intruder. IT'S OVER!'",
+						"hide": true
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "Anyone who tries to stop Orochimaru is killed. You are no exception.",
+                    "msg": "The ~Distracter~ made a poor decision in trying to stop you. With one slash of your blade, you instantly killed them."
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "It's time you showed people just what you are capable of doing! Eliminate someone using /kill! You won't be revealed.",
+                        "killmsg": "±Orochimaru: 'IT'S OVER!' Orochimaru opens his mouth and regurgitates the Kusanagi Sword! He then rushes up to ~Target~ and fatally stabs them in the chest."
+                    }
+                },
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"teamTalk": true,
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "orochimaru3",
+            "translation": "Orochimaru",
+            "side": "snake",
+            "hide": "side",
+            "help": "A former student under the Third Hokage, your lust for power and forbidden jutsu has led you to become a very powerful and dangerous individual. Now you are back for revenge! Achieve vengeance using /kill during the night (shared with your team). Your fierce determination allows you to kill anyone that tries to distract you, and your kills can't be haxed! Like a snake, you always shed your skin to protect yourself; therefore, you can't be lynched because you have a -9999 voteshield! Furthermore, you have the ability to kill during the day using /kill (this won't reveal you either) and your variety of jutsu grants you a strong resistance to poison! Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can kill one person during the day (user is not revealed). Kills distractors. Can't be detected by spies. Has a -9999 voteshield. Takes 3 days to die from poison. Gets hax on blade. Sided with Orochimaru's Forces.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"poison": {
+                    "mode": "resistance",
+                    "constant": 2
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 21,
+                        "broadcast": "team",
+						"msg": "±Orochimaru: 'Looks like I found an intruder. IT'S OVER!'",
+						"hide": true
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "Anyone who tries to stop Orochimaru is killed. You are no exception.",
+                    "msg": "The ~Distracter~ made a poor decision in trying to stop you. With one slash of your blade, you instantly killed them."
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "It's time you showed people just what you are capable of doing! Eliminate someone using /kill! You won't be revealed.",
+                        "killmsg": "±Orochimaru: 'IT'S OVER!' Orochimaru opens his mouth and regurgitates the Kusanagi Sword! He then rushes up to ~Target~ and fatally stabs them in the chest."
+                    }
+                },
+                "voteshield": -9999,
+				"teamTalk": true,
+                "avoidHax": [
+                    "kill"
+                ]
+            },
+            "winIfDeadRoles": [
+                "samurai",
+                "temari",
+                "haku",
+                "haku2",
+                "zabuza",
+                "vigilante",
+                "gaara",
+                "gaara2",
+                "kankuro",
+                "kankuro2",
+                "jirobo",
+                "jirobo2",
+                "kidomaru",
+                "kidomaru2",
+                "tayuya",
+                "tayuya2",
+                "sakon",
+                "sakon2",
+                "itachi",
+                "kisame",
+                "lee1",
+                "lee2",
+                "lee3",
+                "lee4",
+                "lee5",
+                "sandninja"
+            ]
+        },
+        {
+            "role": "kabuto",
+            "translation": "Kabuto",
+            "side": "snake",
+            "help": "You are the loyal servant of the infamous Orochimaru. Your ability to use jutsu to manipulate the dead is one way to avoid danger. With the power of your Dead Soul Jutsu, you are able to revenge any and all nightkills and daykills. Your ability as a medical ninja allows you to /protect one person during the night. Lastly, you share a /kill at night with your team, but you should probably let your leader, Orochimaru, do the killing since he can't be haxed. However, since you try to stay under the radar, your vote counts as 0. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can protect one person during the night. Revenges all nightkills and daykills. Has a vote of 0. Gets hax on blade. Sided with Orochimaru's Forces.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 21,
+                        "broadcast": "team",
+						"msg": "±Kabuto: 'I can't have you meddling around, so I'll have to get rid of you!'",
+						"hide": true
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+                        "broadcast": "team"
+                    }
+                },
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "Your target (Kabuto) falls to the ground as you kill them. Unfortunately, you let your guard down, and the Dead Soul Jutsu he posesses takes you down with him."
+                },
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ attacks ~Self~, who is caught off guard. After an exchange of blows, ~Target~ stands victorious, but ~Self~'s Dead Soul Jutsu kills him when he isn't expecting it.",
+                "vote": 0,
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "pawn",
+            "translation": "Pawn",
+            "side": "snake",
+            "help": "You are simply going to be used by Orochimaru. However, since he has offered you power for your loyalty, you decide to take him up on his offer. Use /kill (shared with your team) during the night to eliminate any opposition! Be aware that you should probably let Orochimaru kill since his kills can't be haxed. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Gets hax on blade. Sided with Orochimaru's Forces.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 21,
+                        "broadcast": "team",
+						"msg": "You were killed by one of Orochimaru's many pawns.",
+						"hide": true
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+		{
+            "role": "oro",
+            "translation": "Orochimaru's Forces",
+            "side": "snake",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 21,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "zabuzas",
+            "translation": "Zabuza",
+            "side": "mist",
+			"hide": "side",
+            "help": "A rogue ninja from the village hidden in the mist, you brutally kill others for money. Since your speed and power is unparalleled in the mist, your /kill is swift, you outspeed bodyguards, and you ignore distractors! However, if you choose not to kill, you can use /mist [your name] (35% fail chance) to protect yourself from all nightkills-this will also protect you from being poisoned and make you reveal as a Leaf Shinobi if inspected. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can either kill one person during the night, outspeeding bodyguards, or can mist himself during the night (35% fail chance) to evade nightkills, poison, and reveal as a Leaf Shinobi when inspected. Ignores distractors. Powers up Haku upon death. Gets hax on blade. Sided with the Mist Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 2,
+                        "broadcast": "team",
+						"msg": "A blade of gargantuan size swiftly slices you in half before you can even see it coming.",
+						"hide": true,
+                        "restrict": [
+                            "mist"
+                        ]
+                    },
+                    "mist": {
+                        "command": [
+                            "convert",
+                            "protect",
+							"safeguard"
+                        ],
+                        "target": "OnlySelf",
+						"newRole": {
+							"zabuzam": [
+								"zabuzas"
+							]
+						},
+						"convertmsg": "Zabuza has hidden himself in the mist.",
+						"silentConvert": true,
+						"silent": true,
+                        "common": "Self",
+                        "priority": 13,
+                        "failChance": 0.35,
+                        "broadcast": "team",
+						"hide": true,
+                        "restrict": [
+                            "kill"
+                        ]
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you, but you were so fast, your nighty duties were already accomplished."
+                },
+				"onDeath": {
+                    "convertRoles": {
+                        "hakus": "hakus2"
+                    },
+                    "convertmsg": "±Zabuza: Haku...this is the end for me.",
+					"exposeRoles": [
+						"hakus2"
+					],
+					"exposemsg": "*** Haku (~Target~) has vowed to avenge Zabuza."
+				},
+                "teamTalk": true
+            }
+        },
+		{
+            "role": "zabuzam",
+            "translation": "Zabuza",
+            "side": "mist",
+			"hide": true,
+			"help": "If you're reading this, something went wrong. Please notify Crobat.",
+			"actions": {
+				"hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "zabuzas",
+						"silentCurse": true
+                    }
+                }
+			}
+		},
+		{
+            "role": "zabuzam2",
+            "translation": "Zabuza",
+            "side": "mist",
+			"hide": true,
+			"help": "If you're reading this, something went wrong. Please notify Crobat.",
+			"actions": {
+				"hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"inspect": {
+					"revealAs": "villager"
+				},
+				"initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "zabuza",
+						"silentCurse": true
+                    }
+                }
+			}
+		},
+		{
+            "role": "zabuza",
+            "translation": "Zabuza",
+            "side": "mist",
+            "help": "A rogue ninja from the village hidden in the mist, you brutally kill others for money. Since your speed and power is unparalleled in the mist, your /kill is swift, you outspeed bodyguards, and you ignore distractors! However, if you choose not to kill, you can use /mist [your name] (35% fail chance) to protect yourself from all nightkills-this will also protect you from being poisoned and make you reveal as a Leaf Shinobi if inspected. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can either kill one person during the night, outspeeding bodyguards, or can mist himself during the night (35% fail chance) to evade nightkills, poison, and reveal as a Leaf Shinobi when inspected. Ignores distractors. Powers up Haku upon death. Gets hax on blade. Sided with the Mist Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 2,
+                        "broadcast": "team",
+						"msg": "A blade of gargantuan size swiftly slices you in half before you can even see it coming.",
+                        "restrict": [
+                            "mist"
+                        ]
+                    },
+                    "mist": {
+                        "command": [
+                            "convert",
+                            "protect",
+							"safeguard"
+                        ],
+                        "target": "OnlySelf",
+						"newRole": {
+							"zabuzam2": [
+								"zabuza"
+							]
+						},
+						"convertmsg": "Zabuza has hidden himself in the mist.",
+						"silentConvert": true,
+						"silent": true,
+                        "common": "Self",
+                        "priority": 13,
+                        "failChance": 0.35,
+                        "broadcast": "team",
+						"hide": true,
+                        "restrict": [
+                            "kill"
+                        ]
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you, but you were so fast, your nighty duties were already accomplished."
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "haku": "haku2"
+                    },
+                    "convertmsg": "±Haku: Zabuza...I will avenge you."
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "hakus2",
+            "translation": "Haku",
+            "side": "mist",
+            "hide": "side",
+            "help": "With the death of the one person who cared for you, you now feel the need to kill in order to avenge him. You can still kill during the day using /kill, but now your vote has been increased to 100 and you have a -200 voteshield, so anyone you vote will be lynched. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the day (reveals user). Has a vote of 100. Has a voteshield of -200. Gets hax on blade. Sided with the Mist Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Now is the time for you to show your power and avenge Zabuza! Use /kill to eliminate someone now!",
+                        "killmsg": "A voice is heard all around. 'Secret jutsu, Crystal Ice Mirrors!' Numerous amounts of mirrors made of pure ice form from the ground and surround ~Target~. Suddenly, a fierce flurry of needles strike ~Target~, piercing all of his vital spots. Once the barrage of needles subsides, ~Target~ is left lying on the ground bleeding, motionless...dead.",
+						"revealChance": 1,
+						"revealmsg": "*** ~Self~ (Haku) puts his mask back on, as it fell off during his attack."
+                    }
+                },
+				"vote": 100,
+				"voteshield": -200,
+				"teamTalk": true
+            },
+			"winIfDeadRoles": [
+				"orochimaruz",
+				"temari",
+				"sandninja",
+				"tentens"
+			]
+        },
+		{
+            "role": "hakus",
+            "translation": "Haku",
+            "side": "mist",
+            "hide": "side",
+            "help": "A troubled young boy from the mist village, you were orphaned at a young age, forced to wander the streets. One day, someone named Zabuza saw you, and took you under his wing. You have been loyally serving him ever since. You're a sometimes quiet person, and you dislike fighting, so you leave all of the kills up to him. Your secret jutsu, Crystal Ice Mirrors, allows you to /kill during the day, but you have a 40% chance to be revealed! Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the day (40% chance to reveal user). Gets hax on blade. Sided with the Mist Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Now is the time for you to show your power! Use /kill to eliminate someone now! This has a 40% chance to reveal you, so be careful!",
+                        "killmsg": "A voice is heard all around. 'Secret jutsu, Crystal Ice Mirrors!' Numerous amounts of mirrors made of pure ice form from the ground and surround ~Target~. Suddenly, a fierce flurry of needles strike ~Target~, piercing all of his vital spots. Once the barrage of needles subsides, ~Target~ is left lying on the ground bleeding, motionless...dead.",
+						"revealChance": 0.4,
+						"revealmsg": "*** In the midst of battle, Haku's mask fell off. His true identity was revealed: ~Self~!"
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "haku",
+            "translation": "Haku",
+            "side": "mist",
+            "help": "A troubled young boy from the mist village, you were orphaned at a young age, forced to wander the streets. One day, someone named Zabuza saw you, and took you under his wing. You have been loyally serving him ever since. You're a sometimes quiet person, and you dislike fighting, so you leave all of the kills up to him. Your secret jutsu, Crystal Ice Mirrors, allows you to /kill during the day without being revealed! Furthermore, you kill all distractors and have a 35% chance to evade all nightkills. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the day (user is not revealed). Kills distractors. Has a 35% chance to evade nightkills. Gets hax on blade. Sided with the Mist Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"kill": {
+					"mode": {
+						"evadeChance": 0.35
+					}
+				},
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Now is the time for you to show your power! Use /kill to eliminate someone now! Since you are safely behind your mirrors, you won't be revealed!",
+                        "killmsg": "A voice is heard all around. 'Secret jutsu, Crystal Ice Mirrors!' Numerous amounts of mirrors made of pure ice form from the ground and surround ~Target~. Suddenly, a fierce flurry of needles strike ~Target~, piercing all of his vital spots. Once the barrage of needles subsides, ~Target~ is left lying on the ground bleeding, motionless...dead."
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to distract Haku, who doesn't even kill during the night. He pulled out a few needles, and your life swiftly came to an end.",
+                    "msg": "Looks like ~Distracter~ decided to pick on the wrong person. You pulled out a few needles and swiftly ended their life."
+                },
+				"teamTalk": true
+            }
+        },
+		{
+            "role": "haku1",
+            "translation": "Haku",
+            "side": "mist",
+			"hide": "side",
+            "help": "A troubled young boy from the mist village, you were orphaned at a young age, forced to wander the streets. One day, someone named Zabuza saw you, and took you under his wing. You have been loyally serving him ever since. You're a sometimes quiet person, and you dislike fighting, so you leave all of the kills up to him. Your secret jutsu, Crystal Ice Mirrors, allows you to /kill during the day without being revealed! Furthermore, you kill all distractors and have an 80% chance to evade all nightkills. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the day (user is not revealed). Kills distractors. Has an 80% chance to evade nightkills. Gets hax on blade. Sided with the Mist Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"kill": {
+					"mode": {
+						"evadeChance": 0.8
+					}
+				},
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Now is the time for you to show your power! Use /kill to eliminate someone now! Since you are safely behind your mirrors, you won't be revealed!",
+                        "killmsg": "A voice is heard all around. 'Secret jutsu, Crystal Ice Mirrors!' Numerous amounts of mirrors made of pure ice form from the ground and surround ~Target~. Suddenly, a fierce flurry of needles strike ~Target~, piercing all of his vital spots. Once the barrage of needles subsides, ~Target~ is left lying on the ground bleeding, motionless...dead."
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to distract Haku, who doesn't even kill during the night. He pulled out a few needles, and your life swiftly came to an end.",
+                    "msg": "Looks like ~Distracter~ decided to pick on the wrong person. You pulled out a few needles and swiftly ended their life."
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "haku2",
+            "translation": "Haku",
+            "side": "mist",
+            "hide": "side",
+            "help": "With the death of Zabuza, your heart has become filled with rage. Your violent side begins to show, as you now have the ability to /kill during the night. Your chance to evade nightkills has increased to 50% and you will now counter all daykillers! To ensure that your kills aren't stopped at night, you kill all distractors! Furthermore, your vote now counts as 2 to make up for what would have been part of Zabuza's vote. You still have the ability to kill during the day. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can kill one person during the day (user is not revealed). Kills distractors. Has a 50% chance to evade nightkills. Counters daykills. Has a vote of 2. Gets hax on blade. Sided with the Mist Shinobi.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"kill": {
+					"mode": {
+						"evadeChance": 0.5
+					}
+				},
+				"night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 17,
+						"msg": "You were unlucky enough to run into Haku. 'This is for Zabuza!' Just like that, you're dead."
+                    }
+                },
+				"daykill": "revenge",
+                "daykillrevengemsg": "~Target~ made the mistake of trying to attack Haku. Mirrors rise from the ground, surround ~Target~, and a vicious barrage of needles kills them.",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Now is the time for you to show your power and avenge Zabuza! Use /kill to eliminate someone now! Since you are safely behind your mirrors, you won't be revealed!",
+                        "killmsg": "A voice is heard all around. 'Secret jutsu, Crystal Ice Mirrors!' Numerous amounts of mirrors made of pure ice form from the ground and surround ~Target~. Suddenly, a fierce flurry of needles strike ~Target~, piercing all of his vital spots. Once the barrage of needles subsides, ~Target~ is left lying on the ground bleeding, motionless...dead."
+                    }
+                },
+				"distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to distract Haku, but with him on a rampage, you had no chance. He pulled out a few needles, and your life swiftly came to an end.",
+                    "msg": "Looks like ~Distracter~ decided to pick on the wrong person. You pulled out a few needles and swiftly ended their life."
+                },
+                "vote": 2,
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "kisame",
+            "translation": "Kisame",
+            "side": "akatsuki",
+            "help": "A missing-nin that has joined the Akatsuki, you have a shared /kill with your partner during the night. You can use your blade to /shield 2 people each night (yourself and your partner), which will both protect and safeguard them. You may get hax on kills, cannot be distracted, and have a vote of 2. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can shield (protect + safeguard) two people during the night. Gets small hax on kill. Gets hax on blade. Ignores all distractors. Has a vote of 2. Sided with the Akatsuki.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.2
+                    },
+					"blade": {
+						"revealTeam": 0.35,
+						"revealRole": 0.2
+					}
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 23,
+                        "broadcast": "team",
+						"msg": "Your energy was drained by the shark skin of Kisame's blade. With one swing of this blade, you were put out of misery.",
+						"hide": true
+                    },
+                    "shield": {
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 13,
+						"limit": 2,
+                        "broadcast": "team"
+                    }
+                },
+				"distract": {
+                    "mode": "ignore"
+                },
+				"vote": 2,
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "itachi",
+            "translation": "Itachi",
+            "side": "akatsuki",
+            "help": "You single-handedly assassinated everyone in your clan, except for your brother, Sasuke. Ever since that night, you have been a rogue ninja, capable of performing many genjutsus, one of which allows you to revenge all daykills (no command needed). You eventually joined the Akatsuki for the sake of finding the power within the nine-tailed fox (Naruto). You share a /kill at night with your partner. Your access to genjutsu allows you to also /poison once a game, /distract once a game, and /inspect every night. Lastly, you have a 30% chance to evade nightkills as well as a small chance who discover who the nightkillers are.",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Can poison one person during the night once a game. Can distract one person during the night once per game. Small chance to identify nightkillers. Gets hax on blade. Has a 30% chance to evade nightkills. Revenges all daykills. Sided with the Akatsuki.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"hax": {
+                    "kill": {
+                        "revealPlayer": 0.2
+                    },
+					"blade": {
+						"revealTeam": 0.35,
+						"revealRole": 0.2
+					}
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 23,
+                        "broadcast": "team",
+						"msg": "±Itachi: 'Tsukuyomi!'",
+						"hide": true
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 15,
+                        "broadcast": "team",
+						"poisonDeadMessage": "Itachi can only poison once, and you were his victim.",
+                        "charges": 1
+                    },
+					"distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 5,
+                        "broadcast": "team",
+						"distractmsg": "You were tormented for what felt like 72 hours. You regain conciousness the next day, but at the expense of being unable to perform any of your actions last night.",
+						"teammsg": "You were unable to do anything, as you spent the entire night trying to wake up your suddenly traumatized partner.",
+						"charges": 1
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 27,
+                        "broadcast": "team"
+                    }
+                },
+				"kill": {
+					"mode": {
+						"evadeChance": 0.3
+					}
+				},
+				"teamTalk": true,
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ was foolish enough to attack ~Self~. The physical pain was too much for ~Self~, but the mental pain inflicted on ~Target~ by ~Self~'s Tsukuyomi was too much for ~Target~. No one leaves this fight alive."
+            }
+        },
+		{
+            "role": "itachis",
+            "translation": "Itachi",
+            "side": "akatsuki",
+            "help": "You single-handedly assassinated everyone in your clan, except for your brother, Sasuke. Ever since that night, you have been a rogue ninja, capable of performing many genjutsus, one of which allows you to revenge all daykills (no command needed). You eventually joined the Akatsuki for the sake of finding the power within the nine-tailed fox (Naruto). You can /kill at night, while your access to genjutsu allows you to also /poison once a game, /distract once a game, and /inspect every night. Lastly, you have a small chance who discover who the nightkillers are.",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Can poison one person during the night once a game. Can distract one person during the night once per game. Small chance to identify nightkillers. Gets hax on blade. Revenges all daykills. Sided with the Akatsuki.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"hax": {
+                    "kill": {
+                        "revealPlayer": 0.2
+                    },
+					"blade": {
+						"revealTeam": 0.35,
+						"revealRole": 0.2
+					}
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 23,
+                        "broadcast": "team",
+						"msg": "±Itachi: 'Tsukuyomi!'",
+						"hide": true
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 15,
+                        "broadcast": "team",
+						"poisonDeadMessage": "Itachi can only poison once, and you were his victim.",
+                        "charges": 1
+                    },
+					"distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 5,
+                        "broadcast": "team",
+						"distractmsg": "You were tormented for what felt like 72 hours. You regain conciousness the next day, but at the expense of being unable to perform any of your actions last night.",
+						"teammsg": "You were unable to do anything, as you spent the entire night trying to wake up your suddenly traumatized partner.",
+						"charges": 1
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 27,
+                        "broadcast": "team"
+                    }
+                },
+				"teamTalk": true,
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ was foolish enough to attack ~Self~. The physical pain was too much for ~Self~, but the mental pain inflicted on ~Target~ by ~Self~'s Tsukuyomi was too much for ~Target~. No one leaves this fight alive."
+            }
+        },
+		{
+            "role": "duo",
+            "translation": "Akatsuki",
+            "side": "akatsuki",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 23,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "jirobo",
+            "translation": "Jirobo",
+            "side": "sound",
+            "help": "You are considered the brawn of your group, and your brute strength is displayed through your powerful earth style jutsu. You can /kill during the night (shared with your team) and you can /shield (protect + safeguard) an ally to protect them from harm. On the 4th night, your cursed seal will activate, and you will become stronger. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can shield (protect + safeguard) one person during the night. Powers up on the 4th night. Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "curseCount": 4,
+                        "cursedRole": "jirobo2",
+                        "curseConvertMessage": "Jirobo has activated his cursed seal to become stronger."
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "The ground suddenly rises around you and encases you. It slowly contracts with you inside until all your organs are crushed and your life ceases to exist.",
+						"hide": true
+                    },
+                    "shield": {
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "broadcast": "team",
+						"hide": true
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "jirobo2",
+            "translation": "Jirobo",
+            "side": "sound",
+            "hide": "side",
+            "help": "Your cursed seal has been activated. In addition to the shared /kill and your /shield (protect + safeguard), you now have a 50% chance to evade nightkills and a 50% chance to evade daykills. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can shield (protect + safeguard) one person during the night. Has a 50% chance to evade nightkills. Has a 50% chance to evade daykills. Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "The ground suddenly rises around you and encases you. It slowly contracts with you inside until all your organs are crushed and your life ceases to exist.",
+						"hide": true
+                    },
+                    "shield": {
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "broadcast": "team"
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "tayuya",
+            "translation": "Tayuya",
+            "side": "sound",
+            "help": "As the 'bully' of the Sound Four, you care for absolutely no one. You specialize in paralyzing opponents using genjutsu from your flute. This allows you to /distract one person every night. You also share a /kill with your team. On the 4th night, your cursed seal will activate to make you stronger. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can distract one person during the night. Powers up on the 4th night. Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "curseCount": 4,
+                        "cursedRole": "tayuya2",
+                        "curseConvertMessage": "Tayuya has activated her cursed seal to become stronger."
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "The music of Tayuya's flute summoned demons, who killed you mercilessly.",
+						"hide": true
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+						"distractmsg": "You were paralyzed the entire night by a deafening sound and couldn't perform any of your actions.",
+						"teammsg": "You did nothing last night as you tended to your teammate, who suddenly became paralyzed.",
+						"hide": true
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "tayuya2",
+            "translation": "Tayuya",
+            "side": "sound",
+            "hide": "side",
+            "help": "Your cursed seal has been activated. In addition to your /distract and your shared /kill, you can now find out someone's role using /inspect, ignore distractors, and can't be stalked! Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can distract one person during the night. Can inspect one person during the night. Ignores all distractors. Ignores stalk. Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "The music of Tayuya's flute summoned demons, who killed you mercilessly.",
+						"hide": true
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+						"distractmsg": "You were paralyzed the entire night by a deafening sound and couldn't perform any of your actions.",
+						"teammsg": "You did nothing last night as you tended to your teammate, who suddenly became paralyzed.",
+                        "broadcast": "team"
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 27,
+                        "broadcast": "team"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "stalk": {
+                    "mode": "noVisit"
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "sakon",
+            "translation": "Sakon",
+            "side": "sound",
+            "help": "You are seen as the scariest of the Sound Four. You share a /kill with your teammates, but you also wield a powerful weapon. Attached to you is your brother, Ukon. He is able to detach from you and attach to someone else to slowly drain the life out of them. Due to this, you can /poison one person every night. On the 4th night, your cursed seal will activate to make you stronger. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can poison one person during the night. Powers up on the 4th night. Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "curseCount": 4,
+                        "cursedRole": "sakon2",
+                        "curseConvertMessage": "Sakon has activated his cursed seal to become stronger."
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "Sakon leeched onto your body and slowly sucked the life out of you.",
+						"hide": true
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 26,
+                        "broadcast": "team",
+						"poisonDeadMessage": "You were drained of all your energy and succumbed to Sakon.",
+						"hide": true
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "sakon2",
+            "translation": "Sakon",
+            "side": "sound",
+            "hide": "side",
+            "help": "Your cursed seal is activated. In addition to your /poison and the shared /kill, your brother Ukon can now defend you from actions. This means that you will kill anyone that uses an action on you (the action done will still affect you though). Be careful though, as Shikamaru can still safely expose you during the day. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can poison one person during the night. Kills anyone that uses an action on him (except for Shikamaru's /expose). Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "Sakon leeched onto your body and slowly sucked the life out of you.",
+						"hide": true
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 26,
+						"poisonDeadMessage": "You were drained of all your energy and succumbed to Sakon.",
+                        "broadcast": "team"
+                    }
+                },
+                "kill": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to kill Sakon. Big mistake. The penalty was your life."
+                },
+                "distract": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to distract Sakon. Big mistake. The penalty was your life."
+                },
+                "protect": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to protect Sakon. Big mistake. The penalty was your life."
+                },
+                "inspect": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to inspect Sakon. Big mistake. The penalty was your life."
+                },
+                "safeguard": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to safeguard Sakon. Big mistake. The penalty was your life."
+                },
+                "poison": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to poison Sakon. Big mistake. The penalty was your life."
+                },
+                "stalk": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to stalk Sakon. Big mistake. The penalty was your life."
+                },
+                "shield": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Looks like you tried to shield Sakon. Big mistake. The penalty was your life."
+                },
+				"teamTalk": true,
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ appears out of nowhere and ambushes ~Self~, but ~Self~ is able to take ~Target~ down with him!"
+            }
+        },
+        {
+            "role": "kidomaru",
+            "translation": "Kidomaru",
+            "side": "sound",
+            "help": "You are the fastest of the Sound Four and your abilities and attacks cover a wide range, making it difficult for others to face you in hand-to-hand combat. This allows you to /stalk one person at night. You also share a /kill with your teammates. On the 4th night, your cursed seal will activate and you will become stronger. Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can stalk one person during the night. Powers up on the 4th night. Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "curseCount": 4,
+                        "cursedRole": "kidomaru2",
+                        "curseConvertMessage": "Kidomaru has activated his cursed seal to become stronger."
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "You turn around to see a giant spear headed straight for your heart. You had no chance to dodge it.",
+						"hide": true
+                    },
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 28,
+                        "broadcast": "team",
+						"hide": true
+                    }
+                },
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "kidomaru2",
+            "translation": "Kidomaru",
+            "side": "sound",
+            "hide": "side",
+            "help": "Your cursed seal has been activated and you are even faster now. While you still can /stalk and you share a /kill with your team, you should be the one who kills. This is because your kill (and only yours, out of your entire team) can't be haxed! Lastly, you have a chance to hax Kakashi.",
+            "info": "Can kill one person during the night. Can stalk one person during the night. Can't be detected by spies. Gets hax on blade. Sided with the Sound Four.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "blade": {
+                        "revealTeam": 0.35,
+						"revealRole": 0.2
+                    }
+                },
+				"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+						"msg": "You turn around to see a giant spear headed straight for your heart. You had no chance to dodge it.",
+						"hide": true
+                    },
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 28,
+                        "broadcast": "team"
+                    }
+                },
+				"teamTalk": true,
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+		{
+            "role": "soundfour",
+            "translation": "Sound Four",
+            "side": "sound",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        }
+    ],
+	"roles1": [
+		"samurai",
+		"vigilante",
+		"itachis",
+		"villagersuperbomb2"
+	],
+    "roles2": [
+        "inspector2",
+        "kiba",
+        "hooker",
+        "orochimarus",
+        "temari",
+        "villager",
+        "villager",
+        "sandninja",
+        {
+			"villager": 0.90,
+			"villagerbomb": 0.07,
+			"villagersuperbomb": 0.03
+		}
+	],
+	"roles3": [
+        "inspector2",
+        "kiba",
+        "hooker",
+        "orochimaru",
+        "temari",
+        "villager",
+        "villager",
+        "sandninja",
+        {
+			"villager": 0.90,
+			"villagerbomb": 0.07,
+			"villagersuperbomb": 0.03
+		},
+        "zabuzas",
+        "tenten"
+    ],
+	"roles4": [
+		"inspector2",
+        "kiba",
+        "hooker",
+        "orochimaruz",
+        "temari",
+		{
+			"villager": 0.80,
+			"villagerbomb": 0.15,
+			"villagersuperbomb": 0.05
+		},
+        "villager",
+        "sandninja",
+        "villager",
+        "zabuzas",
+        "tentens",
+		"hakus"
+	],
+	"roles5": [
+        "inspector",
+        "kiba",
+        "hooker",
+        "samurai",
+        "vigilante",
+        {
+			"villagerbomb": 0.75,
+			"villagersuperbomb": 0.25
+		},
+        "villager",
+        "kisame",
+        "itachi",
+        "villager",
+        "orochimaru2",
+        "kabuto",
+        "haku1",
+        "villager",
+        "hinata",
+        "stalker",
+        "gaara",
+        "villager",
+        "temari",
+        "pawn",
+        "villager",
+        "kankuro",
+        "mayor",
+        "spy",
+        "sandninja"
+	],
+    "roles6": [
+        "inspector",
+        "kiba",
+        "hooker",
+        "samurai",
+        "vigilante",
+        {
+			"villagerbomb": 0.75,
+			"villagersuperbomb": 0.25
+		},
+        "villager",
+        "kisame",
+        "itachi",
+        "villager",
+        "orochimaru2",
+        "kabuto",
+        "haku",
+        "villager",
+        "hinata",
+        "stalker",
+        "gaara",
+        "villager",
+        "temari",
+        "pawn",
+        "villager",
+        "kankuro",
+        "mayor",
+        "spy",
+        "sandninja",
+        "zabuza",
+        "pawn",
+        "exposer",
+        "choji"
+    ],
+    "roles7": [
+        "inspector",
+        "samurai",
+        "hooker",
+        "temari",
+        "tenten",
+        "kiba2",
+        "vigilante",
+		{
+			"villagerbomb": 0.75,
+			"villagersuperbomb": 0.25
+		},
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "mayor",
+        "gaara",
+        "kankuro",
+        "orochimaru3",
+        "kabuto",
+        "stalker",
+        "hinata",
+        "spy",
+        "exposer",
+        "choji",
+        "lee",
+        "jirobo",
+        "kidomaru",
+        "tayuya",
+        "sakon",
+        "villager",
+        "pawn",
+        "hooker2",
+        "sandninja",
+        "villager",
+        "villager",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+        "mayor",
+        "vigilante",
+        "samurai",
+		"lee1",
+        "lee2",
+        "lee3",
+        "lee4",
+        "lee5",
+		"tentens"
+    ],
+    "killmsg": "±Minato: ~Player~ (~Role~) has been killed in battle!",
+    "killusermsg": "You have been killed in battle!",
+    "votemsg": "~Player~ charges at and begins to attack ~Target~!",
+    "lynchmsg": "±Minato: ~Player~ (~Role~) will no longer be seen in battle!",
+    "drawmsg": "The wages of war were simply too much. Everyone has paid for this with their lives.",
+    "minplayers": 3,
+    "changelog": [
+        "10/4/2013: Theme created.",
+        "10/26/2013: Removed Kabuto's -1 voteshield and reduced his vote from 1 to 0.",
+        "10/31/2013: Slightly changed the spawn list so that sand ninja appears with Orochimaru in very small games.",
+        "10/31/2013: Slightly changed the span list so that Temari (instead of sand ninja) appears with Orochimaru in very small games.",
+        "10/31/2013: Gave Kisame small hax on kills.",
+        "10/31/2013: Haku now daykills instead of distracts in small games.",
+        "10/31/2013: Itachi now has a one-time non-revealing daykill. Itachi now counters all daykills.",
+        "11/1/2013: Itachi no longer has a daykill. Itachi now revenges all daykills instead of countering them.",
+        "11/2/2013: Haku now kills distractors in games of 14 and larger. He loses the ability to kill distractors when he powers up.",
+		"11/3/2013: Haku now has a 25% chance to evade nightkills in games of 14 and larger. (He has no chance to evade nightkills if he powers up.)",
+		"11/3/2013: Added a night bomb role (Strong Leaf Shinobi) to the village in games of 14 and larger.",
+		"11/3/2013: Switched Gaara and Kankuro on the spawn list for roles2. Switched Temari and Leaf Shinobi on the spawn list for roles2.",
+		"11/3/2013: Boosted Haku's chance to evade nightkills to 35%.",
+		"11/5/2013: Added a line to make Orochimaru's reveal more obvious.",
+		"11/14/2013: Gave Haku's daykills a 40% chance to reveal himself in games of 12.",
+		"11/14/2013: Orochimaru's daykill no longer reveals in games of 9 or fewer. His daykill still reveals in games of 10 through 12. In games of 10 through 29, Orochimaru reveals as Leaf Shinobi when inspected.",
+		"11/20/2013: Haku now kills distractors when he powers up. In games of 13 through 25 where Haku is a solo role, his chance to evade nightkills has been increased to 65%.",
+		"12/3/2013: In games of 13 to 25 where Haku is a solo role, his chance to evade nightkills has been increased to 80%.",
+		"12/3/2013: Kisame now ignores all distractors and has a vote of 2. Kisame is now able to stalk 2 people per night instead of 1.",
+		"12/3/2013: Itachi has a 30% chance to evade nightkills. Itachi has a chance to identify nightkillers.",
+		"12/3/2013: The Strong Leaf Shinobi no longer can kill its attacker(s) if it is protected. It can only revenge nightkills if it is NOT protected.",
+		"12/3/2013: Kisame can no longer stalk, but he can now shield 2 people during the night (himself and his partner).",
+		"12/5/2013: Sasuke can no longer be daykilled (teamkilled) by Naruto.",
+		"2/16/2014: The Strong Leaf Shinobi now has a 25% chance to spawn with the ability to also revenge daykills.",
+		"2/19/2014: In games of 12, Haku gains a vote of 100 and a voteshield of -200 when Zabuza dies.",
+		"2/20/2014: Itachi can no longer protect or safeguard, but can now distract once a game and inspect every night (instead of only once a game).",
+		"2/20/2014: Cleaned up the priority list a bit.",
+		"2/21/2014: Added kill messages for every role so players can see what role killed them.",
+		"2/21/2014: Changed Zabuza's mist command so that he will also reveal as a Leaf Shinobi if inspected that night. Sasuke's inspect now pierces safeguard in games of 10 through 12 so that he can inspect Zabuza as a Leaf Shinobi.",
+		"2/28/2014: All power roles (any person sided with the village that isn't a Leaf Shinobi) will counter Kakashi's kill. All mafia now gets hax on blade (Kakashi's kill).",
+		"3/2/2014: Naruto and Sasuke can now use team talk (command is /tt) to talk to each other.",
+		"3/6/2014: The Strong Leaf Shinobi that can revenge daykills is now known as the Super Strong Leaf Shinobi. Both the Strong Leaf Shinobi and the Super Strong Leaf Shinobi now appear on their team (Current Team list) as Leaf Shinobi.",
+		"3/6/2014: In games of 9, 10, and 11, there is a 7% chance for the Strong Leaf Shinobi to spawn in place of the Leaf Shinobi, and a 3% chance for a Super Strong Leaf Shinobi to spawn in place of the Leaf Shinobi.",
+		"3/6/2014: In games of 12, there is a 15% chance for the Strong Leaf Shinobi to spawn in place of the Leaf Shinobi, and a 5% chance for a Super Strong Leaf Shinobi to spawn in place of the Leaf Shinobi.",
+		"3/12/2014: In games of 12, Tenten now has a one time nightkill (meant to be used to kill the empowered Haku) and her vote has been increased to 0.1.",
+		"3/16/2014: In games of 10, 11, and 12, Orochimaru's vote has been increased to 2 and he can now daykill every day (instead of only once a game). In games of 10 and 11, this has a 35% chance to reveal him. In games of 12, this will not reveal him.",
+		"3/19/2014: Expanded theme to include games of 3 and 4 players.",
+		"3/19/2014: In games of 26 through 29, when Zabuza dies or is lynched, Haku's chance to evade nightkills increases to 50% and he gains the ability to counter daykills. He still has a vote of 2 and kills distractors."
+    ]
+}
