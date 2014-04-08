@@ -1,0 +1,594 @@
+{
+    "name": "Cosa",
+    "altname": "Cosa Nostra",
+    "author": "Hopkirk",
+    "summary": "The Sicilian mafia are (debatably) nasty people, so when a group of them invade your village it’s going to cause trouble. You thought you were safe but you were wrong so tonight someone will die. The mafia, werewolves and the potato cult will try to destroy the village, but will this one be able to destroy them first?",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Village"
+        },
+        {
+            "side": "cult",
+            "translation": "Cult"
+        },
+        {
+            "side": "Werewolves",
+            "translation": "Werewolves"
+        },
+        {
+            "side": "mafia",
+            "translation": "Mafia"
+        }
+    ],
+    "roles": [
+        {
+            "role": "Vanillatownie",
+            "translation": "Vanilla Townie",
+            "side": "village",
+            "help": "The Sicilian mafia have invaded your town. You could leave the work to everyone else on account of you not having any special powers but where’s the fun in that? You’ve got a vote and a voice so should easily be able to lynch all the scum!",
+            "info": "No night actions. Sided with village.",
+            "actions": {}
+        },
+        {
+            "role": "friendlyneighbor",
+            "translation": "Friendly Neighbor",
+            "side": "village",
+            "help": "You’re pretty annoyed about the mafia moving into your neighbourhood and worried that the mafia might be your neighbours! In order to stop the mafia you’ll need to find people you can trust so use /send during the night to send someone a message confirming who you are.",
+            "info": " Use /send during the night to send someone a message confirming you are the Friendly Neighbor. Sided with village.",
+            "actions": {
+                "night": {
+                    "send": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 17,
+                        "dummytargetmsg": "Hello, ~Target~, I'm ~Self~, your Neighbour. I am town aligned and you know this to be true!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "Bodyguard",
+            "translation": "Bodyguard",
+            "side": "village",
+            "help": "You’ve been hired to help protect the village from the scum so that’s what you’re going to do. Use /shield during the night to protect them causing any actions used on them to be diverted to you!",
+            "info": "Use /shield during the night, any actions used on the target will be used on you instead. Sided with village.",
+            "actions": {
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "Mayor",
+            "translation": "Mayor",
+            "side": "village",
+            "help": "You won the election to be mayor and now it’s your job to try and stop the scum who’ve invaded your town (maybe you should have stood elsewhere). You’re very important so you gave yourself 2 extra votes to use during the voting phase (Hopkirk’s handy hint: 2+1=3)!",
+            "info": " Vote counts as 3. Sided with village.",
+            "actions": {
+                "vote": 3
+            }
+        },
+        {
+            "role": "Mason",
+            "translation": "Mason",
+            "side": "village",
+            "help": "Until the mafia came along you were the only secret society in town, now  you need to get rid of them. Work with the other masons to find the mafia so to prove the masons are better than mafias! ",
+            "info": "You knows other masons from the start. Sided with village.",
+            "actions": {
+                "startup": "role-reveal"
+            }
+        },
+        {
+            "role": "Exposer",
+            "translation": "Exposer",
+            "side": "village",
+            "help": "You’re an expert on the history of the mafia so a group of them invading your town is great (if you discount the high probability of your death). You know a lot about them so can /expose them during the day to share your knowledge.",
+            "info": "Use /expose during the day to reveal another players role. Sided with village.",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "exposemsg": "~Self~ gave a lecture on the mafia and everyone realised: ~Target~ is the ~Role~!\""
+                    }
+                }
+            }
+        },
+        {
+            "role": "Bulletproof",
+            "translation": "Bulletproof",
+            "side": "village",
+            "help": "Unlike the rest of those idiots when the bullets started flying you put on a bulletproof vest. Due to this you can’t be killed during the night since the mafia are too (stupid to shoot you in the head).",
+            "info": "Immune to night kills (other than arsonist). Sided with village.",
+            "actions": {
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "Safeguarder",
+            "translation": "Safeguarder",
+            "side": "village",
+            "help": "You're the safeguarder. After working with poisons your whole life you’re good at stopping them affecting people thus you can use /safeguard during the night to stop actions such as poisons and distractions working on the target.. You are also immune to poison yourself.",
+            "info": "Use /safeguard during the night to protect someone from poison, conversion, distraction and inspection. Sided with village.",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "Vengefultownie",
+            "translation": "Vengeful Townie",
+            "side": "village",
+            "help": "You’re a normal member of the village. However while most villagers just lie down and let the mafia kill them you won’t go without a fight. If you are lynched you will have one to last chance to kill the scum and get revenge!",
+            "info": "Converts when lynched. New role is able to kill then dies at the end of the night. Sided with village.",
+            "actions": {
+                "lynch": {
+                    "convertTo": "vengefultownie2",
+                    "convertmsg": " ~Self~ makes his last stand."
+                }
+            }
+        },
+        {
+            "role": "vengefultownie2",
+            "translation": " Vengeful Townie (2)",
+            "side": "village",
+            "help": "You got lynched but there’s still time to take revenge. Use /kill for one last shot at saving the village!",
+            "info": "Use /kill to kill someone. You will die at the end of the night. Sided with village.",
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": -1
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 7
+                    }
+                }
+            }
+        },
+        {
+            "role": "Commuter",
+            "translation": "Commuter",
+            "side": "village",
+            "help": "There’s one thing that the mafia can’t beat: Flexible working hours. Up to 3 times a game you can /protect yourself in order to leave town and become immune to kills!",
+            "info": "Use /protect during the night up to 3 times per game to protect yourself from kills. Sided with village.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "Self",
+                        "common": "Self",
+                        "priority": 6,
+                        "charges": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "Oneshotvigilante",
+            "translation": "One Shot Vigilante",
+            "side": "village",
+            "help": "When the scum attacked your village they didn’t seem to realise some of you had guns to help you fight back. On the other hand you didn’t seem to realise that you needed more that one bullet to fight a crime syndicate so use your only /kill wisely!",
+            "info": "Once per game use /kill during the night to kill your target. Sided with village.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9,
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "Tracker",
+            "translation": "Tracker",
+            "side": "village",
+            "help": "You like going out and watching people at night…not like how you’re thinking though. This is pretty useful since the mafia is paying off all the cops so not many other people will get information. Use /stalk to stalk people and try not to get any restraining orders",
+            "info": "Use /stalk during the night to see who your target visited. Sided with village.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 15
+                    }
+                }
+            }
+        },
+        {
+            "role": "Jailkeeper",
+            "translation": "Jailkeeper",
+            "side": "village",
+            "help": "You’re kind of like a “pretty lady” but when you’re doing your “job” you don’t want the client dying (since you won’t get paid). Use /protect during the night to prevent someone performing their night actions as well as stop them from dying and have a lot of “fun” ",
+            "info": "Use /protect during the night, the target will be protected and distracted. Sided with village.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "command": [
+                            "distract",
+                            "protect"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "Cultleader",
+            "translation": "Cult Leader",
+            "side": "cult",
+            "help": "You're the head of your very own group: The cult of the holy potato. You want everyone to be happy/give you all their money and you’re pretty good at persuading people to join your cult so use /convert up to 5 times per game to get new friends/pathetic minions!",
+            "info": "Use /convert during the night to convert someone to you cult. This ability can only be used 5 times per game.",
+            "actions": {
+                "night": {
+                    "convert": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 16,
+                        "charges": 5,
+                        "newRole": "cultmember",
+                        "silent": false,
+                        "recharge": 1,
+                        "convertmsg": "A player has joined a cult!"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "cultmember",
+            "translation": "Cult Member",
+            "side": "cult",
+            "help": "You don’t remember anything except that you have an almost fanatical devotion to your cult and a nice red uniform. Being part of the cult of the holy potato does have some advantages as having a potato gives you 1.1 votes",
+            "info": "You have 1.1 votes. Your win condition has changed from “you win if the town wins” to “you win if the cult wins”.",
+            "actions": {
+                "vote": 1.1
+            }
+        },
+        {
+            "role": "Mafiagoon",
+            "translation": "Mafia Goon",
+            "side": "mafia",
+            "help": "After your family took control of the last village they want to spread their influence to this one. Use /kill during the night (shared) to remove threats to your team!",
+            "info": "Use /kill during the night to kill your target, this is shared with your team.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Mafiapoisoner",
+            "translation": "Mafia Poisoner",
+            "side": "mafia",
+            "help": "You used to be a chemist but being part of the mafia is much more profitable. You’re skills come in useful as you can make poison and /poison someone at night!",
+            "info": "Use /poison during the night to poison your target.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 13,
+                        "broadcast": "team",
+                        "poisonDeadMessage": "You shouldn’t have picked the wine in front of you!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Mafiadoctor",
+            "translation": "Mafia Doctor",
+            "side": "mafia",
+            "help": "You’re part of the mafia and you’re trained in medicine. This is useful as it means you can stop the constant nasty deaths that mafia frequently suffer (other than being hung which is the most common) with /protect. Also you can /kill to kill someone during the night (shared)",
+            "info": "Use /kill during the night to kill your target, this is shared with your team. Use /protect during the night to protect your target from kills.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Mafiaoneshotvigilante",
+            "translation": "Mafia One Shot Vigilante",
+            "side": "mafia",
+            "help": "You’re part of the mafia and you like collecting guns thus you have more than anyone else (although you’re not too keen on collecting ammunition). To aid you you’ve got a /kill shared with your family and your own one time only /shoot!",
+            "info": "Use /kill during the night to kill your target, this is shared with your team. Once per game use /shoot during the night to kill your target (not shared with your team).",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    },
+                    "shoot": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 8,
+                        "charges": 1
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Werewolfroleblocker",
+            "translation": "Werewolf Roleblocker",
+            "side": "Werewolves",
+            "help": "You know two things: Firstly the mafia wanted to take over your village. Secondly they were stupid enough to try it when the moon was full. Kill them before they can kill you and get a good meal from the village at the same kill with /kill during the night. You can also stop people from acting with /distract by pretending to be their granny.",
+            "info": "Use /kill during the night to kill your target, this is shared with your team. Use /distract during the night to distract your target.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 3,
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 10,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Werewolfcop",
+            "translation": "Werewolf Cop",
+            "side": "Werewolves",
+            "help": "Most of the time when mafia come along you work as a detective, but this time they came along when the moon was full. Use /kill during the night to make sure you’re well fed. Use /inspect during the night to find a target’s role..",
+            "info": "Use /kill during the night to kill your target, this is shared with your team. Use /inspect during the night to find your targets role.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "command": [
+                            "inspect"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 18,
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 10,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Werewolfprettycop",
+            "translation": "Werewolf Pretty Cop",
+            "side": "Werewolves",
+            "help": "Most of the time when mafia come along you work as a detective, but this time they came along when the moon was full. Use /kill during the night to make sure you’re well fed. Use /inspect during the night to find a target’s role, this will also distract them.",
+            "info": "Use /kill during the night to kill your target, this is shared with your team. Use /inspect during the night to find your targets role, this will also distract them.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "command": [
+                            "inspect",
+                            "distract"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 4,
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 10,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Werewolfarsonist",
+            "translation": "Werewolf Arsonist",
+            "side": "Werewolves",
+            "help": "Normally you like setting stuff on fire so when you turn into a werewolf you can combine your skills to set your food on fie before you eat it with /burn. This kill isn’t shared with anybody since they find your obsessions weird and nothing is immune to your fire so it’s the first action!",
+            "info": "Use /burn during the night to kill (and poison) your target, this is not shared with your team. Your kill will kill anyone even if they are protected but the bodyguard will still protect from your kill. ",
+            "actions": {
+                "night": {
+                    "burn": {
+                        "command": [
+                            "kill",
+                            "poison"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "priority": 2,
+                        "count": -1
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "Werewolfvoteshield",
+            "translation": "Werewolf Voteshield",
+            "side": "Werewolves",
+            "help": "You’re a werewolf and you do some work counting the votes. Nobody will notice if you rip a couple up so two votes on you don’t count. You also have a /kill during the night because werewolves need to eat.",
+            "info": "Use /kill during the night to kill your target, this is shared with your team. The first two votes against you will do nothing.",
+            "actions": {
+                "voteshield": -2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 10,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        }
+    ],
+    "roles1": [
+        "Bodyguard",
+        "Vanillatownie",
+        "Tracker",
+        "Mafiadoctor",
+        "Werewolfcop",
+        "Vanillatownie",
+        "Mayor",
+        "Mafiagoon",
+        "friendlyneighbor",
+        "Werewolfvoteshield",
+        "Oneshotvigilante"
+    ],
+    "roles2": [
+        "Vanillatownie",
+        "Vanillatownie",
+        "Vengefultownie",
+        "Tracker",
+        "Mayor",
+        "Bodyguard",
+        "friendlyneighbor",
+        "Oneshotvigilante",
+        "Werewolfcop",
+        "Werewolfroleblocker",
+        "Mafiapoisoner",
+        "Mafiadoctor",
+        "Oneshotvigilante",
+        "Jailkeeper",
+        "Mafiagoon",
+        "friendlyneighbor",
+        "Werewolfvoteshield",
+        "Vanillatownie",
+        "Exposer",
+        "Vanillatownie"
+    ],
+    "roles3": [
+        "Mafiaoneshotvigilante",
+        "Mafiapoisoner",
+        "Mafiadoctor",
+        "Werewolfarsonist",
+        "Werewolfroleblocker",
+        "Werewolfcop",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Tracker",
+        "Bulletproof",
+        "Commuter",
+        "Jailkeeper",
+        "friendlyneighbor",
+        "Oneshotvigilante",
+        "Exposer",
+        "Mason",
+        "Mason",
+        "Cultleader",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Mayor",
+        "Mafiagoon",
+        "Vanillatownie",
+        "Werewolfvoteshield",
+        "Vanillatownie",
+        "Vengefultownie",
+        "Oneshotvigilante",
+        "Mafiagoon"
+    ],
+    "roles4": [
+        "Cultleader",
+        "Cultleader",
+        "Mafiadoctor",
+        "Mafiapoisoner",
+        "Mafiagoon",
+        "Mafiaoneshotvigilante",
+        "Mafiaoneshotvigilante",
+        "Werewolfroleblocker",
+        "Werewolfarsonist",
+        "Werewolfvoteshield",
+        "Werewolfprettycop",
+        "Commuter",
+        "Bulletproof",
+        "Exposer",
+        "Mason",
+        "Vengefultownie",
+        "Jailkeeper",
+        "Safeguarder",
+        "Tracker",
+        "Mason",
+        "Bodyguard",
+        "Mayor",
+        "Oneshotvigilante",
+        "friendlyneighbor",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Vanillatownie",
+        "Mason",
+        "Mayor",
+        "Vengefultownie",
+        "Safeguarder",
+        "Vanillatownie",
+        "Werewolfroleblocker",
+        "Commuter",
+        "Oneshotvigilante",
+        "Mafiagoon",
+        "friendlyneighbor",
+        "Vanillatownie"
+    ],
+    "villageCantLoseRoles": [
+        "Mayor",
+        "Oneshotvigilante",
+        "Vengefultownie"
+    ],
+    "killmsg": "±:Game: ~Player~ (~Role~) didn’t pay their pizzo and was murdered!",
+    "killusermsg": "You died horribly, remember the omertà!"
+}
