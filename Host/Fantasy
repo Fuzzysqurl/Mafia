@@ -1,0 +1,4019 @@
+{
+    "name": "Fantasy",
+    "author": [
+        "Kurapika"
+    ],
+    "summary": "The days of Peace are long ago gone, creatures of Seas and creatures of Skies raged a war to claim the lands, an opportunity for the Undead to unite and spread their dark curse as well. When the war goes too far, strange creatures will take part of it, such as the legendary Millenium Fox, the venomous Naga, the impartial Shapeshifters or even a foolish Demonologist who mastered a forbidden spell allowing him to summon a god-like Demon. Even the Heavens may send their messenger, an Avatar, tasked to enlighten the path of the long forgotten Peace.",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?16513-Fantasy",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Peaceful Beings",
+            "winmsg": "±The Peaceful Beings: HURRAY!! ~Players~ succeeded into bringing back the Peace to the lands!"
+        },
+        {
+            "side": "conspirators",
+            "translation": "Shapeshifters",
+            "winmsg": "±Game: Unbelievable!! ~Players~, the shapeshifter(s), is/are the last creature(s) standing!"
+        },
+        {
+            "side": "sky",
+            "translation": "Winged Beasts",
+            "winmsg": "±Game: It's a bird... It's a cloud... It's ~Players~ flying high and proud. The lands and skies both belong to the Winged Beasts now!!"
+        },
+        {
+            "side": "foxes",
+            "translation": "Millennium Foxes",
+            "winmsg": "±Game: How beautiful! How fabulous! ~Players~ won this war, the lands are now under the control of the Millennium Foxes."
+        },
+        {
+            "side": "undead",
+            "translation": "Undead Horde",
+            "winmsg": "±Game: MUHAHAHAAA!!! from now on, the lands belong to the Undead Horde, led by ~Players~! DARKNESS SHALL PREVAIL!!"
+        },
+        {
+            "side": "sea",
+            "translation": "Sea Creatures",
+            "winmsg": "±SPLASH: And the war is over! Now both lands and waters are under the control of the legendary Sea Creatures, led by ~Players~!"
+        },
+        {
+            "side": "demon",
+            "translation": "Demonologist",
+            "winmsg": "±Game: ~Players~ eliminated all the other creatures. \"Dead corpses everywhere! More material for my demonic experiences! HAHA!!\" Said the Demonologist while the Summoned Demon was letting a terrifying roar!"
+        },
+        {
+            "side": "thenaga",
+            "translation": "Naga",
+            "winmsg": "±Game: S-s-s-s-s! ~Players~ s-s-s-succeeded to eliminate all the th-th-th-threats by poisoning everyone to death ..."
+        }
+    ],
+    "roles": [
+        {
+            "role": "conspirator",
+            "translation": "Shapeshifter",
+            "side": "conspirators",
+            "help": "You're all by yourself, but you can also use your morphing ability to join a specific side and thus gain new abilities. To do so, use the command /teamup on the creature you want to be allied with, your form will change depending on the side you join. The possible forms you can take are: Peaceful Unicorn, Winged Tengu, Sea Hydra, Undead Ghoul and Kitsune Fox.",
+            "info": "A Conspirator who can team up with any creature, joining their side and converting itself into one of these roles: Peaceful Unicorn (Haxes many night actions), Winged Tengu (Night kill immunity, vote = -5, voteshield = +5), Kitsune Fox (Lynch immunity, vote = 0), Undead Ghoul (Poison immunity, can /protect someone) or Sea Hydra (Kill immunity, vote = 0), depending on the side it joined. Sided with Shapeshifters, can team up with any side except Naga and Demonologist.",
+            "actions": {
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "night": {
+                    "teamup": {
+                        "command": "copy",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "silent": true,
+                        "copyAs": {
+                            "conspvillagespy": [
+                                "god",
+                                "villager",
+                                "villagerN",
+                                "villagerO",
+                                "villagerD",
+                                "villagerNO",
+                                "villagerOD",
+                                "villagerND",
+                                "villagerNOD",
+                                "miller",
+                                "bodyguard",
+                                "bodyguard2",
+                                "prettylady",
+                                "prettylady2",
+                                "safeguarder",
+                                "mayor",
+                                "antimayor",
+                                "inspector",
+                                "samurai",
+                                "samuraiNoReveal",
+                                "spy"
+                            ],
+                            "conspmafia1": [
+                                "mafia1minion",
+                                "mafia1godfather",
+                                "mafia1boss1",
+                                "mafia1boss2"
+                            ],
+                            "conspmafia2": [
+                                "mafia2bg",
+                                "mafia2decoy",
+                                "mafia2spy",
+                                "mafia2boss1",
+                                "mafia2boss2",
+                                "mafia2boss3",
+                                "mafia2boss4"
+                            ],
+                            "conspfox": [
+                                "vulpix1",
+                                "vulpix2",
+                                "ninetales1",
+                                "ninetales2",
+                                "ninetales3",
+                                "ninetales4",
+                                "ninetales5",
+                                "ninetales6",
+                                "ninetales7",
+                                "ninetales8",
+                                "ninetales9",
+                                "ninetales10",
+                                "ninetales11",
+                                "ninetales12",
+                                "ninetales13",
+                                "ninetales14",
+                                "ninetales15",
+                                "ninetales16",
+                                "ninetales17",
+                                "ninetales18",
+                                "ninetales19",
+                                "ninetales20"
+                            ],
+                            "conspundead": [
+                                "zombie3",
+                                "zombie2",
+                                "zombie1",
+                                "dhampir",
+                                "vampire2",
+                                "vampire1",
+                                "vampire2a",
+                                "vampire1a",
+                                "fallen"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "role": "copycat",
+            "translation": "Doppelganger",
+            "side": "conspirators",
+            "help": "None knows your true nature, not even the Shapeshifter. You can't be poisoned. You can use /copy during the night to copy the physical appearance and the powers of any creature, draining their life energy to death and letting their soul roam as a Lost Soul. However, you are not powerful enough to copy Shapeshifter, Leviathan (Asleep), Summoned Demon or Avatar.",
+            "info": "Can steal a creature's body and abilities. Immune to poison. Sided with Shapeshifters.",
+            "actions": {
+                "copy": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "copy": {
+                        "command": [
+                            "copy",
+                            "convert"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 55,
+                        "newRole": "possessor",
+                        "silent": false,
+                        "copyAs": "*",
+                        "copymsg": "The Doppelganger copied ~Target~ and drained all his/her life energy. Now, ~Target~ is nothing but a Lost Soul!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "possessor",
+            "translation": "Lost Soul",
+            "side": "conspirators",
+            "winningSides": [
+                "conspirators",
+                "village",
+                "foxes",
+                "demon",
+                "thenaga",
+                "undead",
+                "sky",
+                "sea"
+            ],
+            "help": "You lost your body; now you’re just a wandering soul and any action on you can easily cause your soul to shatter sending you to the after-life. Your vote is 0 because you're just a lame ghost! You also win with any side, because you can.",
+            "info": "Dies to almost ANY action. Vote counts as 0. Sided with Shapeshifters, Wins with ANY side.",
+            "actions": {
+                "avoidStandbyHax": [
+                    "scare"
+                ],
+                "kill": {
+                    "mode": "die"
+                },
+                "poison": {
+                    "mode": "die"
+                },
+                "convert": {
+                    "mode": "die"
+                },
+                "protect": {
+                    "mode": "die"
+                },
+                "safeguard": {
+                    "mode": "die"
+                },
+                "distract": {
+                    "mode": "die"
+                },
+                "vote": 0,
+                "standby": {
+                    "scare": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "msg": "You can type /scare [name] to annoy someone!",
+                        "exposemsg": "The Lost Soul suddenly showed up in front of ~Target~!",
+                        "revealChance": 1,
+                        "revealmsg": "~Self~ \"ABOOOH!!!\"",
+                        "recharge": 4,
+                        "initialrecharge": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Has a chance going from 1% to 10% to randomly convert into Oread, Dryad or Naiad. Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.1,
+                                "prettyladyExVillager": 0.45,
+                                "safeguarderExVillager": 0.45
+                            }
+                        },
+                        "failChance": 0.99,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerN",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.4,
+                                "prettyladyExVillager": 0.3,
+                                "safeguarderExVillager": 0.3
+                            }
+                        },
+                        "failChance": 0.98,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerO",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.05,
+                                "prettyladyExVillager": 0.65,
+                                "safeguarderExVillager": 0.3
+                            }
+                        },
+                        "failChance": 0.95,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerD",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.05,
+                                "prettyladyExVillager": 0.3,
+                                "safeguarderExVillager": 0.65
+                            }
+                        },
+                        "failChance": 0.96,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerNO",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.25,
+                                "prettyladyExVillager": 0.6,
+                                "safeguarderExVillager": 0.15
+                            }
+                        },
+                        "failChance": 0.94,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerND",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.25,
+                                "prettyladyExVillager": 0.15,
+                                "safeguarderExVillager": 0.6
+                            }
+                        },
+                        "failChance": 0.95,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerOD",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.02,
+                                "prettyladyExVillager": 0.49,
+                                "safeguarderExVillager": 0.49
+                            }
+                        },
+                        "failChance": 0.93,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerNOD",
+            "translation": "Nymph",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "Sided with Peaceful Beings.",
+            "actions": {
+                "avoidHax": [
+                    "convert"
+                ],
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": {
+                            "random": {
+                                "millerExVillager": 0.14,
+                                "prettyladyExVillager": 0.43,
+                                "safeguarderExVillager": 0.43
+                            }
+                        },
+                        "failChance": 0.9,
+                        "silent": false,
+                        "convertmsg": "A Nymph changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Naiad",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "info": "A water Nymph who reveals as Siren. Becomes a Siren if lynched. Sided with Peaceful Beings.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "mafia1miller"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "lynch": {
+                    "convertTo": "mafia1minion",
+                    "convertmsg": "A Naiad (water Nymph) received ~Count~ votes and was chased to the sea. Now ~Self~ is a Siren: \"Revenge is a fish best served cold!\""
+                },
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": "miller",
+                        "failChance": 1,
+                        "silent": false,
+                        "convertmsg": "A Naiad changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "villager": "villagerN",
+                        "villagerO": "villagerNO",
+                        "villagerD": "villagerND",
+                        "villagerOD": "villagerNOD",
+                        "miller": "miller"
+                    },
+                    "silentConvert": true,
+                    "convertmsg": "A Naiad died. Nymphs' will to protect water sources is now stronger."
+                }
+            }
+        },
+        {
+            "role": "millerExVillager",
+            "translation": "Naiad",
+            "side": "village",
+            "help": "You're a young & peaceful Nymph with no special powers, you can seek power from nature using /convert. Help your side by voting the enemies during the day.",
+            "hide": true,
+            "actions": {
+                "inspect": {
+                    "revealAs": "mafia1miller"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "lynch": {
+                    "convertTo": "mafia1minion",
+                    "convertmsg": "A Naiad (water Nymph) received ~Count~ votes and was chased to the sea. Now ~Self~ is a Siren: \"Revenge is a fish best served cold!\""
+                },
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 100,
+                        "newRole": "miller",
+                        "failChance": 1,
+                        "silent": false,
+                        "convertmsg": "A Naiad changed speciality and is now a ~New~!",
+                        "restrict": [
+                            "convert"
+                        ],
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "safeguarder",
+            "translation": "Dryad",
+            "side": "village",
+            "help": "You're a tree Nymph. Your nature makes you immune to zombies and grants you the power to safeguard your allies using /guard every night. During the day, you have a little chance to find the killers. (Note that your safeguard will not protect from distractors.)",
+            "info": "A tree Nymph and the only nymph that can't be zombified. Can guard (safeguard) a creature during the night. Gets hax on kill during the day. Sided with Peaceful Beings.",
+            "actions": {
+                "standbyHax": {
+                    "kill": {
+                        "revealPlayer": 0.1
+                    }
+                },
+                "night": {
+                    "guard": {
+                        "command": "safeguard",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "villager": "villagerD",
+                        "villagerN": "villagerND",
+                        "villagerO": "villagerOD",
+                        "villagerNO": "villagerNOD",
+                        "miller": "miller"
+                    },
+                    "silentConvert": true,
+                    "convertmsg": "A Dryad died. Nymphs' will to protect the trees is now stronger."
+                }
+            }
+        },
+        {
+            "role": "safeguarderExVillager",
+            "translation": "Dryad",
+            "side": "village",
+            "help": "You're a tree Nymph. Your nature makes you immune to zombies and grants you the power to safeguard your allies using /guard every night. During the day, you have a little chance to find the killers. (Note that your safeguard will not protect from distractors.)",
+            "hide": true,
+            "actions": {
+                "standbyHax": {
+                    "kill": {
+                        "revealPlayer": 0.1
+                    }
+                },
+                "night": {
+                    "guard": {
+                        "command": "safeguard",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "prettylady",
+            "translation": "Oread",
+            "side": "village",
+            "help": "You're a mountain Nymph. You can use /distract to prevent other creatures from performing their nocturnal actions, but be sure not to paralyze an ally.",
+            "info": "A mountain Nymph that can distract during the night. Sided with Peaceful Beings.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12,
+                        "distractmsg": "The Oread used his powers and raised a wall from ground blocking you and preventing you from doing anything!",
+                        "teammsg": "You and your partners were blocked by a wall the Oread raised from the ground, you couldn't perform your ~Action~..."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "villager": "villagerO",
+                        "villagerN": "villagerNO",
+                        "villagerD": "villagerOD",
+                        "villagerND": "villagerNOD",
+                        "miller": "miller"
+                    },
+                    "silentConvert": true,
+                    "convertmsg": "An Oread died. Nymphs' will to protect mountains is now stronger."
+                }
+            }
+        },
+        {
+            "role": "prettyladyExVillager",
+            "translation": "Oread",
+            "side": "village",
+            "help": "You're a mountain Nymph. You can use /distract to prevent other creatures from performing their nocturnal actions, but be sure not to paralyze an ally.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12,
+                        "distractmsg": "The Oread used his powers and raised a wall from ground blocking you and preventing you from doing anything!",
+                        "teammsg": "You and your partners were blocked by a wall the Oread raised from the ground, you couldn't perform your ~Action~...",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "prettylady2",
+            "translation": "Orestiad",
+            "side": "village",
+            "help": "You're an expert mountain Nymph. You can /stalk a creature to discover if they visited someone during the night, you can also use /distract to prevent creatures from performing their nocturnal actions, but be sure not to paralyze an ally. During the day, you can find Human or Lycan, one of your allies.",
+            "info": "A mountain Nymph that can distract and stalk during the night. Gets hax on howl. Sided with Peaceful Beings.",
+            "actions": {
+                "standbyHax": {
+                    "howl": {
+                        "revealPlayer": 0.2
+                    }
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12,
+                        "distractmsg": "The Orestiad used his powers and raised a wall from ground blocking you and preventing you from doing anything!",
+                        "teammsg": "You and your partners were blocked by a wall the Orestiad raised from the ground, you couldn't perform your ~Action~..."
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 85
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "villager": "villagerO",
+                        "villagerN": "villagerNO",
+                        "villagerD": "villagerOD",
+                        "villagerND": "villagerNOD",
+                        "miller": "miller"
+                    },
+                    "silentConvert": true,
+                    "convertmsg": "The Orestiad died. Nymphs' will to protect mountains is now stronger."
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Fairy",
+            "side": "village",
+            "help": "You're a supernatural and friendly creature, you can use your magical powers to /protect a creature every night. You also have a chance to find Pegasus, Human or Lycan during the day.",
+            "info": "Can protect someone during the night. Gets hax on expose and howl during the day. Sided with Peaceful Beings.",
+            "actions": {
+                "standbyHax": {
+                    "expose": {
+                        "revealRole": 0.4
+                    },
+                    "howl": {
+                        "revealRole": 0.25
+                    }
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20
+                    }
+                }
+            }
+        },
+        {
+            "role": "bodyguard2",
+            "translation": "Fairy & Elf",
+            "side": "village",
+            "help": "Two supernatural and friendly creatures teaming-up and using their magical powers to /protect up to 2 creatures every night. You also have a chance to find Human, Lycan or Pegasus during the day. Your vote counts as 2.",
+            "info": "Can protect up to 2 creatures per night. Gets hax on expose and howl during the day. Vote counts as 2. Sided with Peaceful Beings.",
+            "actions": {
+                "vote": 2,
+                "standbyHax": {
+                    "expose": {
+                        "revealRole": 0.35
+                    },
+                    "howl": {
+                        "revealRole": 0.2
+                    }
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "antimayor",
+            "translation": "Werewolf -Lycan",
+            "side": "village",
+            "help": "You're a werewolf, your beastial nature grants a 50% resistance to poison. Everyone fears you while you're in this form so your vote counts as -2. You can /poison someone during the night, your targets die after 2 days of suffering. You can use /Shift in order to take your human form (+2 votes and 50 % daykills evasion + Can /inspect instead of /poison).",
+            "info": "A misunderstood creature that evades poison 50% of the time and can shift into its Human form. Can poison someone (2 days to live). Can howl during the day. Vote counts as -2. Sided with Peaceful Beings.",
+            "actions": {
+                "vote": -2,
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 25,
+                        "count": 3
+                    },
+                    "shift": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "mayor",
+                        "silent": true,
+                        "initialrecharge": 2
+                    }
+                },
+                "standby": {
+                    "howl": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "Deep in the forest, the werewolf let out a fearsome howl! AWOOOOH!!",
+                        "msg": "Type /howl [name]",
+                        "recharge": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "mayor",
+            "translation": "Werewolf -Human",
+            "side": "village",
+            "help": "You're a werewolf, but now you're in your human form, you lost your day evasion but now you have a 50% evasion to daykills. Your vote counts as 2 since everyone respects you. You can /inspect someone during the night. You can shift back to your bestial form using the command /Shift (-2 votes and 50% poison evasion + Can /poison (2 days) instead of /inspect).",
+            "info": "A werewolf that evades daykills 50% of the time and can shift to its Lycan form. Can inspect someone during the night. Can howl during the day. Vote counts as 2. Sided with Peaceful Beings.",
+            "actions": {
+                "vote": 2,
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 75
+                    },
+                    "shift": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "antimayor",
+                        "silent": true,
+                        "initialrecharge": 2
+                    }
+                },
+                "standby": {
+                    "howl": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "Deep in the forest, the werewolf let out a fearsome howl! AWOOOOH!!",
+                        "msg": "Type /howl [name]",
+                        "recharge": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "spy",
+            "translation": "Lamia",
+            "side": "village",
+            "winningSides": [
+                "village",
+                "thenaga"
+            ],
+            "help": "You're half a woman and half a snake. You are a peaceful creature, yet if someone attacks you you leave them suffer from a deadly poison! You know other Lamias, so cooperate with them. Your sharp senses allow you to hear what's happening around you during the night, that's why you get hax on kill. ONCE per game only, you can /protect someone, including yourself. Also, if your Peaceful allies are dead, you can win with the Naga.",
+            "info": "Revenge poisons when killed (takes 2 days). Can protect someone ONCE, inculding herself. Knows other Lamias. Gets hax on kill and bite during the night. Sided with both Peaceful Beings, can win with the Naga.",
+            "actions": {
+                "teamTalk": [
+                    "spy"
+                ],
+                "hax": {
+                    "kill": {
+                        "revealRole": 0.3,
+                        "revealPlayer": 0.1
+                    },
+                    "bite": {
+                        "revealRole": 0.3,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "spy"
+                    ]
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "naga"
+                        ]
+                    }
+                },
+                "kill": {
+                    "mode": "poisonattacker",
+                    "msg": "You have won an intense fight against the Lamia, but you cannot enjoy your victory because her deadly poison will kill you in about 2 days!",
+                    "poisonDeadMessage": "You succumbed to Lamia's deadly venom!",
+                    "count": 3
+                },
+                "night": {
+                    "protect": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 20,
+                        "charges": 1,
+                        "chargesmsg": "You cannot use /protect anymore!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "inspector",
+            "translation": "Pegasus",
+            "side": "village",
+            "help": "You're a beautiful winged horse who was born from Medusa's blood. You're rather peaceful but you had no choice other than joining this war to protect your home. During the standby phase, use /expose to reveal a creature, you won't be revealed. Your word is resptected, so you have a vote of 1.5.",
+            "info": "Can expose one creature during the standby. Vote counts as 1.5. Sided with Peaceful Beings.",
+            "actions": {
+                "vote": 1.5,
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role! (You will not be revealed)",
+                        "exposemsg": "While the Pegasus was flying nearby he identified ~Target~ as the ~Role~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "samuraiNoReveal",
+            "translation": "Centaur",
+            "side": "village",
+            "help": "You're a mighty Centaur, half a man and half a horse. Your strength and speed allow you to /kill one creature during the day, you will be revealed! You also reveal anyone who kills you during the day.",
+            "info": "A revealing daykiller. When killed, it has a 20% chance to reveal the daykiller. Sided with Peaceful Beings.",
+            "actions": {
+                "avoidStandbyHax": [
+                    "kill"
+                ],
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill [name] to defeat a creature! (You'll be revealed)",
+                        "killmsg": "~Self~ draws his huge spear and charges at ~Target~ who's instantly killed!",
+                        "revealChance": 1,
+                        "revealmsg": "\"THIS IS CENTAUR!!!\""
+                    }
+                }
+            }
+        },
+        {
+            "role": "samurai",
+            "translation": "Centaur",
+            "side": "village",
+            "help": "You're a mighty Centaur, half a man and half a horse. Your strength and speed allow you to /kill one creature during the day, you will be revealed! You also reveal anyone who kills you during the day.",
+            "hide": true,
+            "actions": {
+                "avoidStandbyHax": [
+                    "kill"
+                ],
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "Before dying, the Centaur threw his spear against the ~Role~; but ~Target~ dodged it!",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill [name] to defeat a creature! (You'll be revealed)",
+                        "killmsg": "~Self~ draws his huge spear and charges at ~Target~ who's instantly killed!",
+                        "revealChance": 1,
+                        "revealmsg": "\"THIS IS CENTAUR!!!\""
+                    }
+                }
+            }
+        },
+        {
+            "role": "god",
+            "translation": "Avatar",
+            "side": "village",
+            "help": "Thou are the material manifestation of a Hindu Deity. Thou shall bring back the Peace to these lands. Punish the sinful warlike creatures with thine Divine word that the mortal creatures fear to disobey to. Thine Divine wrath kills anyone who tries to harm thou. Mortal creatures cannot affect thou with their meaningless protect, safeguard, distract ... et caetera.",
+            "info": "Can self-expose during the day. Kills (bomb) anyone who tries to harm them. Cannot be distracted, zombified, protected nor safeguarded. Sided with Peaceful Beings.",
+            "actions": {
+                "convert": {
+                    "mode": "ignore"
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "safeguarder": "safeguarder"
+                    },
+                    "singleconvertmsg": "Avatar: \"Why would mortal creatures oppose the Gods' will to restore Peace? Thine deserve not our divine grace!\"",
+                    "silentConvert": true
+                },
+                "avoidStandbyHax": [
+                    "light"
+                ],
+                "daykill": "bomb",
+                "kill": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Trying to harm the Messenger of Gods? Thou are a foolish mortal."
+                },
+                "poison": {
+                    "mode": "killattackerevenifprotected",
+                    "msg": "Trying to harm the Messenger of Gods? Thou are a foolish mortal."
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Trying to distract the Messenger of Gods? Thou are a foolish mortal."
+                },
+                "protect": {
+                    "mode": "ignore"
+                },
+                "safeguard": {
+                    "mode": "ignore"
+                },
+                "copy": {
+                    "mode": "ignore"
+                },
+                "standby": {
+                    "light": {
+                        "command": "expose",
+                        "target": "Any",
+                        "msg": "Use the command /Light to reveal yourself.",
+                        "exposemsg": "Holy rays of light are appearing from the highest skies. A divine voice is heard from nowhere and from everywhere.",
+                        "revealChance": 1,
+                        "revealmsg": "\"Thou shall kneel before (~Self~), the Messenger of Gods!\"",
+                        "recharge": 9999
+                    }
+                }
+            }
+        },
+        {
+            "role": "conspvillagespy",
+            "translation": "Peaceful Unicorn",
+            "side": "village",
+            "help": "You took the form of the most legendary and fabulous creature, sweet! You get hax on many night actions, use that to help the Peaceful Beings. You can't be zombified. You can use /original on yourself to convert back into your original form (Shapeshifter)",
+            "info": "One of the Shapeshifter's forms, under this form he gets hax during the night on most of the actions (kill, poison, bite, inspect, stalk and distract). Sided with Shapeshifters, wins with Peaceful Beings.",
+            "actions": {
+                "onlist": "conspirator",
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.1
+                    },
+                    "poison": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.1
+                    },
+                    "bite": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.1
+                    },
+                    "distract": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.1
+                    },
+                    "inspect": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.1
+                    },
+                    "stalk": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "night": {
+                    "original": {
+                        "initialrecharge": 2,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "conspirator",
+                        "silent": false,
+                        "convertmsg": "The Peaceful Unicorn shifted back to its original form: Shapeshifter."
+                    }
+                }
+            }
+        },
+        {
+            "role": "mafia1boss1",
+            "translation": "Leviathan (Asleep)",
+            "side": "sea",
+            "help": "You're a legendary sea serpent and the lord of the seas. But, for now, you have been sealed in a magical barrier and you're Asleep deep in the sea. The magical veil surrounding you grants you a total immunity to poison, nightkills and daykills. When Kraken, Hydra or a Siren dies you will be disturbed and you will awaken from your slumber! You cannot be zombified. Your vote counts as 0 but the total of votes against you is always reduced by -1.",
+            "info": "Evades nightkills, daykills and poison. Vote counts as 0. Has a voteshield of -1. When Hydra, Kraken or a Siren dies he awakens and becomes Leviathan (Awakened). Sided with Sea Creatures.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 0,
+                "voteshield": -1,
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia1boss2",
+            "translation": "Leviathan (Awakened)",
+            "side": "sea",
+            "help": "You have been disturbed and awakened from your deep sleep, the magical seal is no longer protecting you. Now, during the day, you can /kill any creature. Your vote counts as 1.",
+            "info": "A non-revealed daykiller. Vote counts as 1. Sided with Sea Creatures.",
+            "actions": {
+                "teamTalk": true,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Type /kill [name] to kill a creature! (You won't be revealed!)",
+                        "killmsg": "The great Leviathan raised up from the water and assaulted ~Target~!",
+                        "revealChance": 1,
+                        "revealmsg": "SPLASH!! Now you know why the ancestors sealed the Leviathan!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia1godfather",
+            "translation": "Kraken",
+            "side": "sea",
+            "help": "You're a legendary and huge sea monster, you have so many tentacles that's why you can use /wrap to protect someone from any harm but also paralyzing their movement during the night, you can use /bind instead to target up to 2 creatures, but it may fail 40% chance. Your multiple tentacles grant you also a random vote and voteshield both varying between 0 and 3.",
+            "info": "Can wrap one creature or bind two creatures (protect + guard + distract) during the night, bind has a 40% fail chance however. Vote randomly counts between 0 and 3. Sided with Sea Creatures.",
+            "actions": {
+                "teamTalk": true,
+                "vote": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "night": {
+                    "wrap": {
+                        "command": [
+                            "distract",
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "distractmsg": "Eww... The Kraken wrapped you with its huge tentacles! You couldn't move this night, but, at least, you were protected from any harm.",
+                        "teammsg": "Your ally was wrapped in Kraken's huge tentacles! You couldn't perform your ~Action~!",
+                        "restrict": [
+                            "bind"
+                        ]
+                    },
+                    "bind": {
+                        "command": [
+                            "distract",
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "distractmsg": "Eww... The Kraken binded you with its huge tentacles! You couldn't move this night, but, at least, you were protected from any harm.",
+                        "teammsg": "Your ally was wrapped with Kraken's huge tentacles! You couldn't perform your ~Action~!",
+                        "limit": 2,
+                        "failChance": 0.4,
+                        "restrict": [
+                            "wrap"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "mafia1boss1": "mafia1boss2"
+                    },
+                    "convertmsg": "The Kraken has been killed. The seas were disturbed enough and the Leviathan woke up from its slumber. Soon, you will witness its wrath and its revenge!"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia1miller",
+            "translation": "Water Creature",
+            "side": "sea",
+            "hide": "side",
+            "info": "It's either a Naiad or a Siren. The Naiad is a peaceful Nymph that becomes a Siren if lynched.",
+            "help": "If you see this report a bug."
+        },
+        {
+            "role": "mafia1minion",
+            "translation": "Siren",
+            "side": "sea",
+            "help": "You're half a woman and half a fish. You can use /distract (NOT Shared) to distract a creature with your beautiful voice ONLY 3 times per game. You can also use /kill (Shared with the other Sirens) to kill a creature during the night. If someone tries to distract you, you'll identify them.",
+            "info": "Shares a kill with the other Sirens. Can distract (not shared) up to 3 times per game. Identifies who distracted them the previous night. Has a high chance to see a Naiad during the night. Sided with Sea Creatures.",
+            "actions": {
+                "teamTalk": true,
+                "hax": {
+                    "convert": {
+                        "revealRole": 0.3
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia1miller"
+                },
+                "distract": {
+                    "mode": "identify"
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 8,
+                        "charges": 3,
+                        "chargesmsg": "*** You can distract ~Charges~ more creature(s). ***",
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, is going to distract ~Target~ this night!",
+                        "distractmsg": "A charming voice coming from the shore distracted you!",
+                        "teammsg": "Your partner was distracted by a charming voice singing! You couldn't perform your ~Action~!"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 45,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: The Siren(s) is/are going to kill ~Target~!",
+                        "msg": "You let your guard down and you got savagely murdered by a charming Siren!"
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "mafia1boss1": "mafia1boss2"
+                    },
+                    "convertmsg": "A Siren has been killed. The seas were disturbed enough and the Leviathan woke up from its slumber. Soon, you will witness its wrath and its revenge!"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "conspmafia1",
+            "translation": "Sea Hydra",
+            "side": "sea",
+            "help": "You took the form of a mythological creature, the hydra. Under this form, you keep regenerating your heads, so you can only be killed by poison. You can use /guard on any creature once every other night. Your vote is 0, meaningless. You receive +1 extra vote if voted for at all. You can use /Original to convert back into your original form (The Shapeshifter)",
+            "info": "One of the Shapeshifter's forms, under this form he evades nightkills and daykills. Vote counts as 0. Has a voteshield of 1. Sided with Shapeshifters, wins with Sea Creatures.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 0,
+                "voteshield": 1,
+                "onlist": "conspirator",
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "night": {
+                    "guard": {
+                        "command": "safeguard",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team",
+                        "recharge": 2
+                    },
+                    "original": {
+                        "initialrecharge": 3,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "conspirator",
+                        "broadcast": "team",
+                        "silent": false,
+                        "convertmsg": "The Sea Hydra shifted back to its original form: Shapeshifter."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "mafia1boss1": "mafia1boss2"
+                    },
+                    "convertmsg": "The Sea Hydra has been killed. The seas were disturbed enough and the Leviathan woke up from its slumber. Soon, you will witness its wrath and its revenge!"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia2miller",
+            "translation": "Winged Fire Beast",
+            "side": "sky",
+            "hide": "side",
+            "info": "It's either a Dragon or a Phoenix. The Dragon counters daykills while the Phoenix recharges its super fast night kill when lynched.",
+            "help": "If you see this report a bug."
+        },
+        {
+            "role": "mafia2boss1",
+            "translation": "Phoenix",
+            "side": "sky",
+            "help": "You're a fabulous bird associated with the fire. You can kill separate ignoring protectors and distractors using the command /fire (only once every 3 days). You can't be zombified. Every time you're lynched, you are reborn from your ashes and you can blast your fire again! So, try taunting others into voting you. Your vote is 0 and you reveal as Dragon.",
+            "info": "Can kill once every 3 days, outspeeding protectors and ignoring distractors. Whenever he is lynched, he comes back and can kill IMMEDIATELY! Can't be zombified. Vote counts as 0. Sided with Winged Beasts.",
+            "actions": {
+                "teamTalk": true,
+                "inspect": {
+                    "revealAs": "mafia2miller"
+                },
+                "vote": 0,
+                "distract": {
+                    "mode": "ignore"
+                },
+                "lynch": {
+                    "convertTo": "mafia2boss2",
+                    "convertmsg": "The Phoenix, ~Self~, received ~Count~ votes. But, from its ashes it reborn. He then shouted a loud and proud roar! You fools, now he is able to use his blast of fire again...: \"RAAAAWWR!! THIS IS NOT EVEN MY FINAL FORM!!\""
+                },
+                "night": {
+                    "fire": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "recharge": 3,
+                        "initialrecharge": -4,
+                        "broadcastmsg": "±Game: Your leader, ~Player~ (The Phoenix), is going after ~Target~! Choose a different target!",
+                        "msg": "A winged beast killed you, blazing fire was the last thing your eyes saw!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "mafia2boss2",
+            "translation": "Phoenix",
+            "side": "sky",
+            "hide": true,
+            "help": "You just reborn from your ashes, your energy is renewed and you can kill IMMEDIATELY using the command /fire (only once every 3 days). Exhibit your wrath and your majesty!",
+            "actions": {
+                "teamTalk": true,
+                "inspect": {
+                    "revealAs": "mafia2miller"
+                },
+                "vote": 0,
+                "distract": {
+                    "mode": "ignore"
+                },
+                "lynch": {
+                    "convertTo": "mafia2boss3",
+                    "convertmsg": "The Phoenix, ~Self~, received ~Count~ votes. But, from its ashes it reborn. He then shouted, a loud and proud roar! You fools, now he is able to use his blast of fire again... RAAAAWWR!! THIS IS NOT EVEN MY FINAL FORM!!"
+                },
+                "night": {
+                    "fire": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "recharge": 3,
+                        "initialrecharge": -4,
+                        "broadcastmsg": "±Game: Your leader, ~Player~ (The Phoenix), is going after ~Target~! Choose a different target!",
+                        "msg": "A winged beast killed you, blazing fire was the last thing your eyes saw!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "mafia2boss3",
+            "translation": "Phoenix",
+            "side": "sky",
+            "hide": true,
+            "help": "You just reborn from your ashes, your energy is renewed and you can kill IMMEDIATELY using the command /fire (only once every 3 days). Exhibit your wrath and your majesty!",
+            "actions": {
+                "teamTalk": true,
+                "inspect": {
+                    "revealAs": "mafia2miller"
+                },
+                "vote": 0,
+                "distract": {
+                    "mode": "ignore"
+                },
+                "lynch": {
+                    "convertTo": "mafia2boss4",
+                    "convertmsg": "The Phoenix, ~Self~, received ~Count~ votes. But, from its ashes it reborn. He then shouted, a loud and proud roar! You fools, now he is able to use his blast of fire again... RAAAAWWR!! THIS IS NOT EVEN MY FINAL FORM!!"
+                },
+                "night": {
+                    "fire": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "recharge": 3,
+                        "initialrecharge": -4,
+                        "broadcastmsg": "±Game: Your leader, ~Player~ (The Phoenix), is going after ~Target~! Choose a different target!",
+                        "msg": "A winged beast killed you, blazing fire was the last thing your eyes saw!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "mafia2boss4",
+            "translation": "Phoenix",
+            "side": "sky",
+            "hide": true,
+            "help": "You just reborn from your ashes, your energy is renewed and you can kill IMMEDIATELY using the command /fire (only once every 3 days). Exhibit your wrath and your majesty!",
+            "actions": {
+                "teamTalk": true,
+                "inspect": {
+                    "revealAs": "mafia2miller"
+                },
+                "vote": 0,
+                "distract": {
+                    "mode": "ignore"
+                },
+                "lynch": {
+                    "convertTo": "mafia2boss2",
+                    "convertmsg": "The Phoenix, ~Self~, received ~Count~ votes. But, from its ashes it reborn. He then shouted, a loud and proud roar! You fools, now he is able to use his blast of fire again... RAAAAWWR!! THIS IS NOT EVEN MY FINAL FORM!!"
+                },
+                "night": {
+                    "fire": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "recharge": 3,
+                        "initialrecharge": -4,
+                        "broadcastmsg": "±Game: Your leader, ~Player~ (The Phoenix), is going after ~Target~! Choose a different target!",
+                        "msg": "A winged beast killed you, blazing fire was the last thing your eyes saw!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "mafia2decoy",
+            "translation": "Dragon",
+            "side": "sky",
+            "help": "You're a Dragon, a rare creature with a hugely devastating power. Use /kill (shared) to defeat one creature every night. Your vote counts as -2, don't vote for your leader, the Phoenix, though! Also, your agility allows you to dodge kills during the day and to counter them with your full-power.",
+            "info": "Can kill every night (shared). Evades kills during the day and COUNTERS them. Vote counts as -2. Sided with Winged Beasts.",
+            "actions": {
+                "teamTalk": true,
+                "inspect": {
+                    "revealAs": "mafia2miller"
+                },
+                "vote": -2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 30,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your allies are going after ~Target~!",
+                        "msg": "A shadow is on you... Wait! A creature is flying above you and... and you're dead!"
+                    }
+                },
+                "daykill": "revenge",
+                "daykillrevengemsg": "The Dragon dodged (~Target~)'s assault and counter with a fierce full-power tu'hum: \"FUS RO DAH!!!\"",
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia2bg",
+            "translation": "Griffin",
+            "side": "sky",
+            "help": "You're a legendary creature, half a lion and half an eagle! Use /kill (shared) to defeat a creature and /protect to defend one of your allies, your priority is your leader, the Phoenix!",
+            "info": "Can kill (shared). Can protect an ally. Sided with Winged Beasts.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 30,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your allies are going after ~Target~!",
+                        "msg": "A shadow is on you... Wait! A creature is flying above you and... and you're dead!"
+                    },
+                    "protect": {
+                        "target": "OnlyTeammates",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Griffin, will protect ~Target~!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia2spy",
+            "translation": "Harpy",
+            "side": "sky",
+            "help": "You're a beautiful yet merciless winged woman. You share a /kill with Dragon and Griffin. You can also use /stalk during the night to follow a creature and either identify them (20% chances) or find out who they visited (80% chances).",
+            "info": "Can kill (Shared). Can stalk a creature with a chance to inspect the target instead. Sided with Winged Beasts.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 30,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your allies are going after ~Target~!",
+                        "msg": "A shadow is on you... Wait! A creature is flying above you and... and you're dead!"
+                    },
+                    "stalk": {
+                        "command": {
+                            "stalk": 0.8,
+                            "inspect": 0.2
+                        },
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 80,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Harpy, is going to stalk ~Target~!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "conspmafia2",
+            "translation": "Winged Tengu",
+            "side": "sky",
+            "help": "You took the form of a Japanese mythical winged-beast. Under this form you evade nightkills. Your vote counts as -5 and you receive +5 votes if voted for at all. You can use /original on yourself to convert back into your original form (Shapeshifter)",
+            "info": "One of the Shapeshifter's forms, under this form he evades nightkills. Vote counts as -5. Has a voteshield of +5. Sided with Shapeshifters, wins with Winged Beasts.",
+            "actions": {
+                "teamTalk": true,
+                "vote": -5,
+                "voteshield": 5,
+                "onlist": "conspirator",
+                "kill": {
+                    "mode": "ignore"
+                },
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "night": {
+                    "original": {
+                        "initialrecharge": 3,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "conspirator",
+						"silent": false,
+                        "convertmsg": "The Winged Tengu shifted back to its original form: Shapeshifter."
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "vulpix1",
+            "translation": "Millennium Fox",
+            "side": "foxes",
+            "help": "You're a fox, but not an ordinary one, since you've lived for over 1000 years you have some supernatural powers. During the night, you can either identify 2 creatures using /inspect. or you can release all of your nine tails using /unleash becoming a Kumiho Fox. Your vote is 1.",
+            "info": "Can either inspect up to 3 creatures (depending on game's size) every night or convert itself into Kumiho Fox. Vote counts as 1. Sided with itself.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 75,
+                        "limit": 2,
+                        "restrict": [
+                            "unleash"
+                        ]
+                    },
+                    "unleash": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "ninetales1",
+                        "silent": false,
+                        "convertmsg": "Oh! Great! The Millennium Fox released all his tails and is now a majestic Kumiho Fox!",
+                        "restrict": [
+                            "inspect"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "vulpix2",
+            "translation": "Millennium Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "You're a fox, but not an ordinary one, since you've lived for over 1000 years you have some supernatural powers. During the night, you can either identify 3 creatures using /inspect. or you can release all of your nine tails using /unleash becoming a Kumiho Fox. Your vote is 1.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 75,
+                        "limit": 3,
+                        "restrict": [
+                            "unleash"
+                        ]
+                    },
+                    "unleash": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "ninetales1",
+                        "silent": false,
+                        "convertmsg": "Oh! Great! The Millennium Fox released all his tails and is now a majestic Kumiho Fox!",
+                        "restrict": [
+                            "inspect"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "ninetales1",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 2 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "info": "Vote counts as 2 but is doubled every night. Sided with itself.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 2,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales2",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "ninetales2",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 4 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 4,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales3",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "ninetales3",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 8 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 8,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales4",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "ninetales4",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 16 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 16,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales5",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                }
+            }
+        },
+        {
+            "role": "ninetales5",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 32 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 32,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales6",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales6",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 64 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 64,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales7",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales7",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 128 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 128,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales8",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "ninetales8",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 256 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 256,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales9",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales9",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 512 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 512,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales10",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales10",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 1024 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 1024,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales11",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales11",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 2048 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 2048,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales12",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales12",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 4096 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 4096,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales13",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales13",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 8192 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 8192,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales14",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales14",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 16.384 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 16384,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales15",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales15",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 32.768 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 32768,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales16",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales16",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 64.536 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 65536,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales17",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales17",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 131.072 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 131072,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales18",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales18",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 262.144 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 262144,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales19",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales19",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 524.288 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 524288,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales20",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales20",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 1.048.576 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 1048576,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales20",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "ninetales21",
+            "translation": "Kumiho Fox",
+            "side": "foxes",
+            "hide": true,
+            "help": "Sweet! You released all your nine tails. Now you have a vote power of 2.097.152 but it will be doubled next night. Your magical powers grant you an immunity to zombification.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 2097152,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales20",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Kumiho Fox's magical power is increasing."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "conspfox": "conspirator"
+                    },
+                    "convertmsg": "The Kitsune Fox shifted back to ist original form: Shapeshifter."
+                },
+                "startup": "team-reveal-with-roles"
+            },
+            "winIfDeadRoles": [
+                "fallen",
+                "zombie1",
+                "zombie2",
+                "zombie3",
+                "vampire1",
+                "vampire2",
+                "vampire1a",
+                "vampire2a",
+                "samurai",
+                "samuraiNoReveal",
+                "antimayor",
+                "mayor",
+                "miller",
+                "millerExVillager",
+                "mafia1minion",
+                "mafia1boss1",
+                "mafia1boss2",
+                "mafia2spy",
+                "mafia2bg",
+                "mafia2decoy",
+                "mafia2boss1",
+                "mafia2boss2",
+                "mafia2boss3",
+                "mafia2boss4",
+                "naga",
+                "sdemon",
+                "sdemon2",
+                "demonologist1",
+                "demonologist2",
+                "copycat"
+            ]
+        },
+        {
+            "role": "conspfox",
+            "translation": "Kitsune Fox",
+            "side": "foxes",
+            "help": "You took the form of a magical fox. Under this form, you /inspect a creature every night. You cannot be lynched but your vote counts as 0. You can't be zombified either. You can use /original on yourself to convert back into your original form (Shapeshifter)",
+            "info": "One of the Shapeshifter's forms, under this form he evades lynch. Vote counts as 0. Sided with Shapeshifters, wins The Millennium Foxes.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 0,
+                "voteshield": -9999999,
+                "onlist": "conspirator",
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 75
+                    },
+                    "original": {
+                        "initialrecharge": 6,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "conspirator",
+                        "silent": false,
+                        "convertmsg": "The Kitsune Fox shifted back to its original form: Shapeshifter."
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "fallen",
+            "translation": "Fallen Angel",
+            "side": "undead",
+            "help": "Also known as Banshee, you joined the Undead Horde in this war! Your power reaches its paroxym during the day allowing you to provide a day protection to the Vampire Lord and the Zombie Lord. Additionally, every 2 days, you can use /kill to take a creature's soul during the day. You cannot be zombified.",
+            "info": "A role that can daykill every other day. While it is alive, Vampire Lord and Zombie Lord are protected from daykills. Sided with Undead Horde.",
+            "actions": {
+                "teamTalk": true,
+                "onDeath": {
+                    "convertRoles": {
+                        "vampire2": "vampire1",
+                        "vampire2a": "vampire1a",
+                        "zombie2": "zombie1"
+                    },
+                    "convertmsg": "With the Fallen Angel's death, Vampire Lord and Zombie Lord are no longer protected during the day!"
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Type /kill [name] to kill a creature! (you won't be revealed)",
+                        "killmsg": "The Fallen Angel appeared in front of ~Target~ who instantly met his/her demise!",
+                        "recharge": 2
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "vampire1",
+            "translation": "Vampire Lord",
+            "side": "undead",
+            "help": "You are a night creature that feeds on life essence, essentially, blood! You can use /bite to feed on a creature's blood, poisoning them, biting a Nymph converts them into a Dhampir. Using /distract you send a swarm of bats to annoy someone, preventing them from performing their nightly activities. You are no longer protected from daykills after Fallen Angel's death!",
+            "info": "Can distract during the night. Can bite someone poisoning them, if it bites a Nymph, it will turn it into a Dhampir (There can't be more than 1 Dhampir per game. Evades daykills if Fallen Angel is alive. Can get hax on Nymphs. Sided with Undead Horde.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "bite": {
+                        "command": [
+                            "convert",
+                            "copy",
+                            "poison"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 40,
+                        "canConvert": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager"
+                        ],
+                        "canCopy": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager"
+                        ],
+                        "newRole": "dhampir",
+                        "copyAs": "vampire1a",
+                        "silent": false,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Vampire Lord, is going to bite ~Target~! HeHeHeHe!!!",
+                        "convertmsg": "A player was bitten by the Vampire Lord and became a Dhampir!",
+                        "poisonDeadMessage": "You were too weak to survive the Vampire's bite!"
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: The vampires are going to distract ~Target~!",
+                        "distractmsg": "A swarm bats surrounded you last night! You were too distracted by their annoyance.",
+                        "teammsg": "Your ally was distracted by a swarm of bats, you weren't able to perform your ~Action~ this night."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "dhampir": "vampire1"
+                    },
+                    "convertmsg": "With the death of the leader of the nosferatu horde, a Dhampir replaced him and became the new Vampire Lord!'"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "vampire1a",
+            "translation": "Vampire Lord",
+            "side": "undead",
+            "hide": true,
+            "help": "You are a night creature that feeds on life essence, essentially, blood! You can use /bite to feed on a creature's blood, poisoning them. Using /distract you send a swarm of bats to annoy someone, preventing them from performing their nightly activities. You are no longer protected from daykills after Fallen Angel's death!",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "bite": {
+                        "command": "poison",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 40,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Vampire Lord, is going to bite ~Target~! HeHeHeHe!!!",
+                        "poisonDeadMessage": "You were too weak to survive the Vampire's bite!"
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: The vampires are going to distract ~Target~!",
+                        "distractmsg": "A swarm bats surrounded you last night! You were too distracted by their annoyance.",
+                        "teammsg": "Your ally was distracted by a swarm of bats, you weren't able to perform your ~Action~ this night."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "dhampir": "vampire1"
+                    },
+                    "convertmsg": "With the death of the leader of the nosferatu horde, a Dhampir replaced him and became the new Vampire Lord!'"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "vampire2",
+            "translation": "Vampire Lord",
+            "side": "undead",
+            "hide": true,
+            "help": "You are a night creature that feeds on life essence, essentially, blood! You can use /bite to feed on a creature's blood, poisoning them, biting a Nymph converts them into a Dhampir. Using /distract you send a swarm of bats to annoy someone, preventing them from performing their nightly activities. The Fallen Angel is protecting you from daykills!",
+            "actions": {
+                "teamTalk": true,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "night": {
+                    "bite": {
+                        "command": [
+                            "convert",
+                            "copy",
+                            "poison"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 40,
+                        "canConvert": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager"
+                        ],
+                        "canCopy": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager"
+                        ],
+                        "newRole": "dhampir",
+                        "copyAs": "vampire2a",
+                        "silent": false,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Vampire Lord, is going to bite ~Target~! HeHeHeHe!!!",
+                        "convertmsg": "A player was bitten by the Vampire Lord and became a Dhampir!",
+                        "poisonDeadMessage": "You were too weak to survive the Vampire's bite!"
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: The vampires are going to distract ~Target~!",
+                        "distractmsg": "A swarm bats surrounded you last night! You were too distracted by their annoyance.",
+                        "teammsg": "Your ally was distracted by a swarm of bats, you weren't able to perform your ~Action~ this night."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "dhampir": "vampire1"
+                    },
+                    "convertmsg": "With the death of the leader of the nosferatu horde, a Dhampir replaced him and became the new Vampire Lord!"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "vampire2a",
+            "translation": "Vampire Lord",
+            "side": "undead",
+            "hide": true,
+            "help": "You are a night creature that feeds on life essence, essentially, blood! You can use /bite to feed on a creature's blood, poisoning them. Using /distract you send a swarm of bats to annoy someone, preventing them from performing their nightly activities. The Fallen Angel is protecting you from daykills!",
+            "actions": {
+                "teamTalk": true,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "night": {
+                    "bite": {
+                        "command": "poison",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 40,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Vampire Lord, is going to bite ~Target~! HeHeHeHe!!!",
+                        "poisonDeadMessage": "You were too weak to survive the Vampire's bite!"
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: The vampires are going to distract ~Target~!",
+                        "distractmsg": "A swarm bats surrounded you last night! You were too distracted by their annoyance.",
+                        "teammsg": "Your ally was distracted by a swarm of bats, you weren't able to perform your ~Action~ this night."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "dhampir": "vampire1"
+                    },
+                    "convertmsg": "With the death of the leader of the nosferatu horde, a Dhampir replaced him and became the new Vampire Lord!"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "dhampir",
+            "translation": "Dhampir",
+            "side": "undead",
+            "help": "You're the offspring of a human and a vampire, that is why you reveal as a Nymph when inspected or exposed. You evade both nightkills and daykills and your vote is 0.5, but if the Vampire Lord is dead you'll replace him and be the new leader of the nosferatu horde.",
+            "info": "Evades distractors, daykillers and nightkillers. Reveals as Nymph. Vote counts as 0.5. Converts into Vampire Lord when Vampire Lord dies.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 0.5,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "vampire1",
+                            "vampire2",
+                            "vampire1a",
+                            "vampire2a"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "vampire1a": "vampire1",
+                        "vampire2a": "vampire2"
+                    },
+                    "silentConvert": true
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "zombie1",
+            "translation": "Zombie Lord",
+            "side": "undead",
+            "help": "You're the master of the living-dead creatures! You have the ability to convert other creatures into zombies, putting them under your command using the command /bite, your fangs are venimous that's why your target will die in 2 dies no matter what. You're no longer protected from daykills with the departure of Fallen Angel.",
+            "info": "Using its 2-days-poison-imbued fangs, it can convert a creature into a Zombie Creature every night. Can be day-protected by Fallen Angel's veil. Sided with Undead Horde.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "bite": {
+                        "command": [
+                            "convert",
+                            "poison"
+                        ],
+                        "count": 3,
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 50,
+                        "canConvert": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager",
+                            "prettylady",
+                            "prettylady2",
+                            "prettyladyExVillager",
+                            "spy",
+                            "naga",
+                            "mafia1minion",
+                            "mafia2decoy",
+                            "mafia2spy",
+                            "mafia2bg"
+                        ],
+                        "newRole": "zombie3",
+                        "silent": false,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Zombie Lord, is going to zombify ~Target~! ME WANTS BRAINZ! BRAINZZ!!",
+                        "convertmsg": "A player was bitten by the Zombie Lord and became a Zombie Creature!",
+                        "poisonDeadMessage": "You were too weak to survive the Zombie's curse!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "zombie2",
+            "translation": "Zombie Lord",
+            "side": "undead",
+            "hide": true,
+            "help": "You're the master of the living-dead creatures! You have the ability to convert other creatures into zombies, putting them under your command using the command /bite, your fangs are venimous that's why your target will die in 2 dies no matter what. Also, wwhile Fallen Angel is there, you're protected from daykills.",
+            "actions": {
+                "teamTalk": true,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "night": {
+                    "bite": {
+                        "command": [
+                            "convert",
+                            "poison"
+                        ],
+                        "count": 3,
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 50,
+                        "newRole": "zombie3",
+                        "silent": false,
+                        "canConvert": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager",
+                            "prettylady",
+                            "prettylady2",
+                            "prettyladyExVillager",
+                            "spy",
+                            "naga",
+                            "mafia1minion",
+                            "mafia2decoy",
+                            "mafia2spy",
+                            "mafia2bg"
+                        ],
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: ~Player~, the Zombie Lord, is going to zombify ~Target~! ME WANTS BRAINZ! BRAINZZ !!",
+                        "convertmsg": "A creature was bitten by the Zombie Lord and turned into a Zombie Creature!",
+                        "poisonDeadMessage": "You were too weak to survive the Zombie's curse!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "zombie3",
+            "translation": "Zombie Creature",
+            "side": "undead",
+            "help": "The Zombie Lord recruited you to his horde. You too can convert a creature into a zombie with /bite (Shared with other Zombie Creatures and has only a 10% success rate). Your vote is barely useful since it counts as 0.5! You know other Zombie Creatures.",
+            "info": "Dies after 3 days. Can convert another creature (Shared and fails 90% of the time). Vote counts as 0.5. Sided with Undead Horde.",
+            "actions": {
+                "teamTalk": true,
+                "initialCondition": {
+                    "poison": {
+                        "count": 4,
+                        "poisonDeadMessage": "Your rotten corpse is no longer able to contain your soul! You've finally been released from your curse, R.I.P.!"
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "zombie1",
+                            "zombie2",
+                            "zombie3"
+                        ]
+                    }
+                },
+                "vote": 0.5,
+                "night": {
+                    "bite": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: The horde of Zombie Creatures is going after ~Target~! US WANTS BRAINZ! BRAINZ!",
+                        "canConvert": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager",
+                            "prettylady",
+                            "prettylady2",
+                            "prettyladyExVillager",
+                            "spy",
+                            "naga",
+                            "mafia1minion",
+                            "mafia2decoy",
+                            "mafia2spy",
+                            "mafia2bg"
+                        ],
+                        "newRole": "zombie3",
+                        "failChance": 0.9,
+                        "priority": 51,
+                        "silent": false,
+                        "convertmsg": "A creature has been turned into a Zombie Creature!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "TipZombie",
+            "translation": "[TIP] Zombies / Zombification",
+            "side": "undead",
+            "hide": "side",
+            "help": "",
+            "info": "Roles that CAN be zombified are: Nymph, Naiad, Oread, Orestiad, Lamia, Naga, Siren, Harpy, Dragon, and Griffin. Zombie Lord poisons the roles that cannot be zombified."
+        },
+        {
+            "role": "conspundead",
+            "translation": "Undead Ghoul",
+            "side": "undead",
+            "help": "You took the form of an undead creature. Under this form, you can protect anyone except yourself using the command /protect. You evade poison and zombification. You can use /original on yourself to convert back into your original form (Shapeshifter)",
+            "info": "One of the Shapeshifter's forms, under this form he evades poison and cures from it if already poisoned. Cannot be poisoned. Can protect a creature during the night. Sided with Shapeshifters, wins with Undead Horde.",
+            "actions": {
+                "teamTalk": true,
+                "initialCondition": {
+                    "clearPoison": true
+                },
+                "onlist": "conspirator",
+                "poison": {
+                    "mode": "ignore"
+                },
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20
+                    },
+                    "original": {
+                        "initialrecharge": 3,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 15,
+                        "newRole": "conspirator",
+						"silent": false,
+                        "convertmsg": "The Undead Ghoul shifted back to its original form: Shapeshifter."
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "demonologist1",
+            "translation": "Demonologist",
+            "side": "demon",
+            "help": "You're a sorcerer who mastered black magic, you have 3 spells at your disposal: Use /call to identify the enemy, some creatures are good to be sacrificed to call a Demon. Use /stun to distract the enemy. Use /ward for a full immunity during the night. Each one of these 3 spells has a cooldown of 1 night and only one spell can be used at once. If you die, your magic powers' effects will take an end, causing the Summoned Demon to return to the Underworld, and you to follow it. Your vote counts as 2.",
+            "info": "Every night, can use one out of 3 spells: ward (protect + safeguard), stun (distract), call (inspect, that converts nymphs into a Summoned Demon). When he dies, Summoned Demon dies as well. Can get hax on Nymphs. Sided with Demonologist.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 2,
+                "onDeath": {
+                    "killRoles": [
+                        "sdemon",
+                        "sdemon2"
+                    ],
+                    "killmsg": "When the Demonologist died, there was no more magic source to keep the Summoned Demon alive. (~Target~) vanished and returned to the Underworld!"
+                },
+                "night": {
+                    "stun": {
+                        "command": "distract",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 2,
+                        "distractmsg": "The Demonologist used a spell to stun you!",
+                        "teammsg": "You and your partners were stuned by the Demonologist's spell, you couldn't perform your ~Action~...",
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your master, ~Player~, is going to stun (distract) ~Target~.",
+                        "recharge": 2,
+                        "restrict": [
+                            "ward",
+                            "call"
+                        ]
+                    },
+                    "ward": {
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your master, ~Player~, is going to ward (protect + safeguard) himself.",
+                        "priority": 2,
+                        "recharge": 2,
+                        "restrict": [
+                            "stun",
+                            "call"
+                        ]
+                    },
+                    "call": {
+                        "command": [
+                            "inspect",
+                            "convert",
+                            "copy"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 70,
+                        "canConvert": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager",
+                            "prettylady",
+                            "prettylady2",
+                            "prettyladyExVillager",
+                            "safeguarder",
+                            "safeguarderExVillager"
+                        ],
+                        "canCopy": [
+                            "villagerN",
+                            "villagerO",
+                            "villagerD",
+                            "villagerNO",
+                            "villagerOD",
+                            "villagerND",
+                            "villagerNOD",
+                            "villager",
+                            "miller",
+                            "millerExVillager",
+                            "prettylady",
+                            "prettylady2",
+                            "prettyladyExVillager",
+                            "safeguarder",
+                            "safeguarderExVillager"
+                        ],
+                        "newRole": "sdemon",
+                        "copyAs": "demonologist2",
+                        "silent": false,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your master, ~Player~, is going to call (inspect) ~Target~.",
+                        "convertmsg": "~Old~ was sacrificied by the Demonologist for the summoning of a Demon!",
+                        "recharge": 2,
+                        "restrict": [
+                            "stun",
+                            "ward"
+                        ]
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "demonologist2",
+            "translation": "Demonologist",
+            "side": "demon",
+            "hide": true,
+            "help": "You're a sorcerer who mastered black magic, you have 3 spells at your disposal: Use /call to identify the enemy, some creatures are good to be sacrificed to call a Demon. Use /stun to distract the enemy. Use /ward for a full immunity during the night. Each one of these 3 spells has a cooldown of 1 night and only one spell can be used at once. If you die, your magic powers' effects will take an end, causing the Summoned Demon to return to the Underworld, and you to follow it. Your vote counts as 2.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 2,
+                "onDeath": {
+                    "killRoles": [
+                        "sdemon",
+                        "sdemon2"
+                    ],
+                    "killmsg": "When the Demonologist died, there was no more magic source to keep the Summoned Demon alive. (~Target~) vanished and returned to the Underworld!"
+                },
+                "night": {
+                    "stun": {
+                        "command": "distract",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 2,
+                        "distractmsg": "The Demonologist used a spell to stun you!",
+                        "teammsg": "You and your partners were stuned by the Demonologist's spell, you couldn't perform your ~Action~...",
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your master, ~Player~, is going to stun ~Target~.",
+                        "recharge": 2,
+                        "restrict": [
+                            "ward",
+                            "call"
+                        ]
+                    },
+                    "ward": {
+                        "command": [
+                            "protect",
+                            "safeguard"
+                        ],
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your master, ~Player~, is going to use a ward on himself.",
+                        "recharge": 2,
+                        "restrict": [
+                            "stun",
+                            "call"
+                        ]
+                    },
+                    "call": {
+                        "command": "inspect",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 70,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: Your master, ~Player~, is going to call (inspect) ~Target~.",
+                        "recharge": 2,
+                        "restrict": [
+                            "stun",
+                            "ward"
+                        ]
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "sdemon",
+            "translation": "Summoned Demon",
+            "side": "demon",
+            "help": "You're an infernal demon with divine powers. You have been summoned from the Underworld by a Demonologist who mastered some unique spells. Use /kill to eliminate a creature during the day, you will be revealed, but it does not matter since NOBODY can harm you. You have a voteshield of -9999 and your vote counts as 0. After 4 days, you'll be able to kill 2 targets every day.",
+            "info": "Can kill during the standby. After 4 days, he is able to kill twice per day. Cannot be lynched or harmed in any way except by killing his master, the Demonologist. Vote counts as 0. Sided with Demonologist.",
+            "actions": {
+                "teamTalk": true,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "sdemon2",
+                        "silentCurse": true,
+                        "curseConvertMessage": "Summoned Demon just doubled its energy. May the Gods have mercy on us!",
+                        "curseCount": 6
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "demonologist2": "demonologist1"
+                    },
+                    "silentConvert": true
+                },
+                "avoidStandbyHax": [
+                    "kill"
+                ],
+                "vote": 0,
+                "voteshield": -9999999,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "safeguard": {
+                    "mode": "ignore"
+                },
+                "protect": {
+                    "mode": "ignore"
+                },
+                "stalk": {
+                    "mode": "ignore"
+                },
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Type /kill [name] to slaughter a creature! (You'll be revealed but you just don't care!)",
+                        "killmsg": "~Self~, The Summoned Demon, shouted a dark beam at ~Target~ who instantly died!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "sdemon2",
+            "translation": "Summoned Demon",
+            "side": "demon",
+            "help": "You're an infernal demon with divine powers. You have been summoned from the Underworld by a Demonologist who mastered some unique spells. Use /kill to eliminate 2 creatures during the day, you will be revealed, but it does not matter since NOBODY can harm you. You have a voteshield of -9999 and your vote counts as 0.",
+            "hide": true,
+            "actions": {
+                "teamTalk": true,
+                "onDeath": {
+                    "convertRoles": {
+                        "demonologist2": "demonologist1"
+                    },
+                    "silentConvert": true
+                },
+                "avoidStandbyHax": [
+                    "kill"
+                ],
+                "vote": 0,
+                "voteshield": -9999999,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "safeguard": {
+                    "mode": "ignore"
+                },
+                "protect": {
+                    "mode": "ignore"
+                },
+                "stalk": {
+                    "mode": "ignore"
+                },
+                "copy": {
+                    "mode": "ignore"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": [
+                            "copycat"
+                        ]
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Now you can /kill [name] up to TWO creatures! (You'll still be seen but who cares!)",
+                        "killmsg": "~Self~, The Summoned Demon, shouted a dark beam at ~Target~ who instantly died!",
+                        "limit": 2
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "naga",
+            "translation": "Naga",
+            "side": "thenaga",
+            "help": "You're a humanoid and venomous snake. You can instantly kill a creature with your deadly poison using the command /poison (Can't be detected by spies). Also, you don't give up easily, which is why you leave anyone who kills you to struggle with a deadly poison. You know Lamia but you cannot harm her since she can win with you. Your vote counts as 1.5.",
+            "info": "Can poison (Shared) any creature during the night without being detected by spies, the target dies automatically from this poison. Revenge-poisons when killed during the night. Knows the Lamia(s). Vote counts as 1.5. Sided with itself.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 1.5,
+                "startup": {
+                    "revealRole": [
+                        "spy",
+                        "naga"
+                    ]
+                },
+                "avoidHax": [
+                    "poison"
+                ],
+                "kill": {
+                    "mode": "poisonattacker",
+                    "msg": "You have won an intense fight against the Naga, but you cannot enjoy your victory because her deadly poison will kill you in about 1 day!",
+                    "poisonDeadMessage": "You succumbed to Naga's deadly venom!"
+                },
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 35,
+                        "count": -1,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Game: You are going to assault ~Target~.",
+                        "msg": "Ssssss... You were bitten and died instantly!"
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        "mafia1boss2",
+        "miller"
+    ],
+    "roles2": [
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        "demonologist2",
+        "sdemon"
+    ],
+    "roles3": [
+        "inspector",
+        "safeguarder",
+        "prettylady",
+        "naga",
+        "vampire1",
+        {
+            "villager": 0.5,
+            "copycat": 0.3,
+            "conspirator": 0.2
+        }
+    ],
+    "roles4": [
+        "inspector",
+        "bodyguard",
+        "prettylady",
+        "villager",
+        "miller",
+        "mafia1minion",
+        "mafia2spy",
+        "villager",
+        "mafia2bg",
+        {
+            "copycat": 0.5,
+            "conspirator": 0.5
+        },
+        "villager",
+        "mafia1boss1",
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        "mafia2decoy",
+        "villager"
+    ],
+    "roles5": [
+        "inspector",
+        "bodyguard2",
+        "prettylady",
+        "villager",
+        "villager",
+        "villager",
+        "miller",
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        "spy",
+        "mafia1minion",
+        {
+            "mafia1boss1": 0.8,
+            "mafia1godfather": 0.2
+        },
+        "fallen",
+        {
+            "zombie2": 0.2,
+            "vampire2": 0.8
+        },
+        "mafia2spy",
+        "mafia2bg",
+        "mafia2decoy",
+        {
+            "copycat": 0.5,
+            "conspirator": 0.5
+        },
+        "vulpix1",
+        "antimayor",
+        "villager"
+    ],
+    "roles6": [
+        "demonologist1",
+        "naga",
+        "naga",
+        "fallen",
+        "vampire2",
+        "vulpix2",
+        "inspector",
+        {
+            "samurai": 0.1,
+            "samuraiNoReveal": 0.4,
+            "god": 0.5
+        },
+        "safeguarder",
+        "safeguarder",
+        "prettylady2",
+        "spy",
+        "antimayor",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "copycat",
+        "conspirator",
+        "zombie2",
+        "villager",
+        "spy"
+    ],
+    "roles7": [
+        "mafia1boss1",
+        "mafia1minion",
+        "mafia1minion",
+        "mafia2boss2",
+        "mafia2decoy",
+        "mafia2bg",
+        "mafia2spy",
+        "vulpix2",
+        "conspirator",
+        "miller",
+        "miller",
+        "inspector",
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        "mayor",
+        "bodyguard2",
+        "prettylady2",
+        "spy",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "copycat",
+        "god",
+        "villager",
+        "mafia1godfather",
+        "spy",
+        "mafia2bg",
+        "villager"
+    ],
+    "roles8": [
+        "mafia1boss1",
+        "mafia1minion",
+        "mafia1minion",
+        "mafia2boss2",
+        "mafia2decoy",
+        "mafia2bg",
+        "mafia2spy",
+        "naga",
+        "conspirator",
+        "miller",
+        "miller",
+        "inspector",
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        "mayor",
+        "bodyguard2",
+        "prettylady2",
+        "spy",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "copycat",
+        "god",
+        "villager",
+        "mafia1godfather",
+        "safeguarder",
+        "mafia2bg",
+        "villager",
+        "naga",
+        "villager",
+        "spy",
+        "miller"
+    ],
+    "roles9": [
+        "mafia1boss1",
+        "mafia1minion",
+        "mafia1minion",
+        "mafia2boss2",
+        "mafia2decoy",
+        "mafia2bg",
+        "mafia2spy",
+        "naga",
+        "vampire2",
+        "miller",
+        "miller",
+        "inspector",
+        {
+            "samurai": 0.2,
+            "samuraiNoReveal": 0.8
+        },
+        "mayor",
+        "bodyguard2",
+        "prettylady2",
+        "spy",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "zombie2",
+        "god",
+        "villager",
+        "mafia1godfather",
+        "safeguarder",
+        "mafia2bg",
+        "villager",
+        "naga",
+        "fallen",
+        "spy",
+        "miller",
+        "safeguarder",
+        "villager",
+        "naga",
+        "copycat",
+        "god",
+        "conspirator",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+        "inspector",
+        "mayor",
+        "antimayor",
+        "samurai",
+        "samuraiNoReveal",
+        "miller",
+        "millerExVillager",
+        "bodyguard2"
+    ],
+    "minplayers": 3,
+    "lynchmsg": "±Game: ~Player~ (~Role~) has been chased away!",
+    "killmsg": "±Game: ~Player~ (~Role~) has been eliminated!",
+    "killusermsg": "±Game: Congratulations! You died, miserably...",
+    "drawmsg": "The war now is over! But not a single creature survived... How foolish!",
+    "border": "*** ~~~~~~~~~~~~~~~~~~~~~~~~ < o > ~~~~~~~~~~~~~~~~~~~~~~~~ ***",
+    "changelog2013": [
+        "11/04/2013: Lamia is no longer a vigilante nor a village can't lose role, instead, she now revenge-poisons when attacked and can properly win with Naga if conditions are met.",
+        "13/04/2013: Dragon now has +1 voteshield to balance up his -2 vote power + Many random spawns has been added to the spawnlist for diversity's sake + Vampire Lord doesn't die if he distracts Naga + Naga's vote power is now 2 instead of 2.5 + In small games, Naga is Naga Jr., just to avoid confusion!",
+        "14/04/2013: Vulpix (kuja) and Shepeshifter (conspirator) can now appear in average games and Leviathan can appear in semi-large games throught the random spawn feature, this is for tests purposes + A little buff for Kraken, mainly to make it rely less on the random luck: its vote and voteshield are now both varying between 1 and 8 instead of -2 and 5. Also, it has now a 2nd command /wrap + Phoenix can kill once every 4 nights instead of once per game. This breaks the stall as well as makes this role less boring + Sphinx renamed Fairy & Elf, sounds better this way and avoid some confusion too. (Note: Fairy & Elf's vote +2, Sphinx's vote was +0.5) + Sirens got a buff: Now, they identify who distracted them during the night. Additionally, their vote now counts randomly between 1 and 1.5 + Naga Jr. now leaves its targets poisoned if they were protected from their kill. (Just like the genuine Naga)",
+        "15/04/2013: Sirens were able to team kill, fixed that + Zombie Lord's bite (convert) now poisons the target too for 2 days. So, Zombie Creatures will technically have 2 days to live instead of 3, unless they evaded the poison before getting zombified + Zombie Creatures' fail chance increased from 60% to 70% + Vampire Lord's vote power is now 1.5 instead of 1, but if he is dayprotected by the Fallen Angel, it will have a vote of 1 + Zombie Lord loses its -1 voteshield and gets a 10% fail chance on its /bite when dayprotected by the Fallen Angel + Fixed the case in which Phoenix doesn't get to kill immediately when he is lynched + Zombie Lord's /bite and Vampire Lord's /poison are now both shared with the team, making them both more vulnerable to distractors + Vampire Lord dies now if he distracts Naga + Lamia gets hax on kill and distract. In other words, Lamia, who was a Vigilante originally, is now a Spy.",
+        "16/04/2013: Zombies' /bite priority has been drastically lowered + Sirens' distract now is not shared, it is limited to 2 uses per game per role and has a higher priority + Randomness in spawnlist has been reduced slightly + Griffin, Dragon and Harpy have now different priority on their shared kill. (This will hopefully fix any case where the whole team receives a poison when they kill a role with mode poisonattacker + The priority of Demonologist's /ward and Kraken's /wrap has been swapped.",
+        "17/04/2013: The case in which sometimes some people get poisoned mysteriously has nothing to do with the them itself, it was a glitch in the server's mafia script. It is however fixed + Phoenix's recharge issues fixed + Dryad's (safeguarder) hax on daykillers increased from 5% to 15%. Additionally, Dryad ignores distractors and can cure itself from poison + Lamia's hax on distract and kill has been increased significantly. Additionally, she can protect (including self) ONCE per game + Naiad's (miller) +1 voteshield has been removed.",
+        "24/04/2013: Sirens now can distract up to 3 times instead of 2. And fixed the info texts for this role.",
+        "25/04/2013: Sirens' vote power is back to 1. Since a random vote from 1 to 1.5 doesn't work as expected, it always results in a 1.",
+        "18/06/2013: Phoenix now has an auto-win condition to avoid slow games when there is noboy able to kill it + Lamias (Village's spies) know each other. (Note that the chance for a second/third Lamia to appear are very low + Human (Village's mayor) now has the possibility to /inspect someone every night + Lycanthrope (Village's anti-mayor) now has the possibility to /poison someone every night, this poison takes 2 days.",
+        "21/06/2013: Phoenix's auto-win condition and Kumiho's auto-win conditions fixed, now they win if all killers and poisoners are out + In addition to its daykills and nightkills evasions, Dhampir ignores distractors too + Phoenix's bug fixed once and for all + Lamia and Orestiad no longer know each other + Naga lost its /defend command + Updated Kraken's random vote and random voteshield to work as it used to (the mechanism of random vote/voteshield has been change in Mafia's Script).",
+        "22/06/2013: Leviathan (Asleep)'s voteshield of -2 has been removed + Leviathan (Awakened)'s protect has been removed + The 2nd Undead Horde side has been removed + Orestiad and Fairy can get hax on howl during the day (it's the command used by Human/Lycanthrope) + Demonologist can self-ward every 2 nights instead of 3. Also, when Summoned Demon is dead, Demonologist follows + Shapeshifter's form received some changes, mostly to make it less stall-ish: Tengu receives +6 extra votes if voted, Hydra receives +1 extra vote if voted, Kitsune has the same auto-win condition as Kumiho, and Unicorn has slightly higher chances to get hax.",
+        "23/06/2013: Lost Soul's possess has been replaced by a day expose that serve no real purpose. Additionally, Lost Soul wins with ANY side, making it less of a stall-ish role + The spawn lists have been edited to for more Lamias (Spy) to appear more likely + Fixed Lamia's infos. And while I was there, I removed Lamia's hax on distract and increased her hax on kill.",
+        "24/06/2013: Fixed Fallen Angel's /veil + Fixed the auto-win conditions + Removed the auto-win condition of Kitsune, instead he is converted back to Shapeshifter upon Kumiho/Millenium Fox's death + Added a new role, Avatar, for the village + Lamia's revenge-poison now takes 2 days to kill the attacker instead of 1 day, also her hax on kill has been reduced back + Naiad (miller) is shown as Villager on the list of roles + Kraken now cannot attack anymore, his voteshield has been removed, his vote is now varying between 0 and 8 instead of 1 and 8, and now he dies if he tries to /wrap Naga + Shapeshifter self-cures from poison if shifts into Ghoul, the forme under which he cannot be poisoned + Phoenix's recharge reduced by 1 day.",
+        "25/06/2013: Removed Avatar from VCLR and removed its vote of +666 and voteshield of -9999 + Doppelganger can no longer /identify during the day + Leviathan (Awakened) can no longer self-protect, Kraken can wrap it...",
+        "26/06/2013: Shapeshifter's /copy command is now /join, the former caused confusion to some new players.",
+        "27/06/2013: Reviewed the spawnlist and extended it. + Fixed some infos.",
+        "28/06/2013: Changed the summary. + Renamed the Celestial Alliance side into Winged Beasts. + Fixed the spawnlist, big games' Bodyguard was not appearing + The spawnlist for non-peak games is full of random spawns, making for diversified and, relatively, balanced games + Increased the chances for Fairy and Fairy & Elf to get hax on Pegasus, Human and Lycanthrope + I used the random spawn feature to make Avatar (connector) replace Pegasus (inspector) almost half of the time, for testing purposes.",
+        "29/06/2013: Minimum number of players allowed now is 3 instead of 5. Games of 3 and 4 players are a spawn of random sides. It might be removed after getting tested, enough + Phoenix no longer reveals as Dragon, it's the Dragon that reveals as Phoenix now. Additionally, Dragon does not evade daykills, it counters them instead + Demonologist has now a vote power of 2.",
+        "01/07/2013: Fixed Zombie Lord's and Vampire Lord's infos + Re-made Avatar's self-exposing command in a way that makes it easier to understand and to use.",
+        "02/07/2013: Phoenix now ignores distractors instead of outspeeding them.",
+        "03/07/2013: When Shapeshifter joins a side, its new role (its new form) will be shown on Current Team list of the side it joined.",
+        "06/07/2013: Fallen Angel's /veil no longer reduces the effectiveness of Vampire Lord and Zombie Lord + Vampire Lord's vote power is increased from 1.5 to 2 (I may increase up to 2.5 if I judge it better) + Dragon lost its voteshield of +1.",
+        "09/07/2013: Lycanthrope rename Lycan + Slightly edited the win message of the Winged Beasts...",
+        "17/07/2013: Changed Lycan's and Human's /howl command from a reveal to an expose to avoid the server's error.",
+        "19/12/2013: A big update",
+        "          : The minimum players required is 4 instead of 3, the roles that were solely create for 3 and 4 players sized games are removed.",
+        "          : Sky Creatures side renamed into Winged Beasts.",
+        "          : Dragon and Phoenix are seen as Winged Fire Beast + Naiad and Siren are seen as Water Creature.",
+        "          : All of the Shapeshifters forms are renamed to make it easier to identify which side it is: Peaceful Unicorn, Sea Hydra, Winged Tengu, Undead Ghoul, and Kitsune Fox.",
+        "          : When the shapeshifters shifts back to its original form, a message is shown to all players telling them what was Shapeshifter's last form.",
+        "          : Lycan's vote power is now -4 instead of -3 + Lycan and Human are renamed to Werewolf (Lycan) and Werewolf (Human), repectively.",
+        "          : Pegasus lost its night /inspect + Kumiho lost its /protect + Kumiho is renamed Kumiho Fox.",
+        "          : Millennium Fox's vote power is 0 instead of 1 + Kumiho Fox now has an constantly increasing vote power (starting from 1) and evasions (starting from 5%).",
+        "          : Kraken's random vote is ranging from 0 to 3, instead of 0 and 8 + Naga's vote power is now 1.5 instead of 2, but in big games, 2 Nagas will appear.",
+        "          : Naga Jr. is removed + Naga no longer kills distractors + Naga's /kill command is no longer a dual of poison+kill but only an insta-kill poison, also the command is now /poison and not /kill + 2 or 3 Naga can appear in big games",
+        "          : Vampire Lord's /poison is now /bite, it still poisons the targets but if the target is a Nymph, it will be turned into a Dhampir.",
+        "          : Demonologist's /summon was replaced by a /call command + Demonologist has now a 3rd command /stun",
+        "          : Removed the hax from Demonologist and Summoned Demon due to the new change done to Demonologist + Reduced Lamia's hax, again.",
+        "          : Nymphs have now a chance to randomly convert into the miller nymph (Naiad) or one of the PR nymphs (Orestiad, Oread, Dryad), the chance is between 1% and 5% depending on how the game is progressing.",
+        "          : Nymphs' 1% chance to convert raises higher than before, reaching easily 5% or 6%, and becoming 10% if all of the 3 concerned roles died + Nymphs have no longer a chance to convert into an Orestiad, which is a stronger version of Oread."
+    ],
+    "changelog": [
+        "I cleared year 2013's log, you can still read it by checking the script code.",
+        "16/02/2014: Leviathan's evasion to kills and poison raised from 80% to 100% + Sirens have a chance to hax Naiad + Vampire Lord and Demonologist's hax on Nymphs and Naiads is removed + Fixed a bug where Dragon does not reveal as Winged Fire Beast + Fixed a bug where Naiad (miller)'s /myrole info is 1 word different from Nymph (villager)'s /myrole + Raised Nymphs' chance to convert into Oread, Dryad, and Naiad + Nymphs can no longer convert into Orestiad + Stalking a Nymph or a Naiad that tries to self-convert will say that the role visited nobody + Fixed several bugs related to the commands /bite and /call.",
+        "27/02/2014: Fixed a tiny bug in the converting message of Nymphs",
+        "18/03/2014: Fixed a tiny bug where Water Creatures and Winged Fire Beast don't appear in the roles list.",
+        "29/03/2014: Few slight changes mainly the /tt feature."
+    ]
+}
