@@ -1,0 +1,2122 @@
+{
+    "name": "LOTR",
+    "author": [
+		"Windblown",
+        "JhenMohran"
+    ],
+    "minplayers": 6,
+    "altname": "Lord of the Rings",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?22281-Lord-of-the-Rings-(LOTR)",
+    "summary": "BAGGINS! War has come to Middle-Earth and it's the Fellowship's job to restore order! Help Frodo, Aragorn, Gandalf, and others stop the Dark Lord Sauron from retaking the Ring and taking over Middle Earth! *Gandalf* can claim if Sauron is not in his daykilling mode or dead, as he is essentially a bomb. But danger can come from any side, as the rogue wizard Saruman is also amassing his forces from Isengard, and other dangerous creatures hide in every nook and cranny ready to prey on the forces of good. PM Windblown or JhenMohran with any comments, concerns, or suggestions.",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Fellowship",
+            "winmsg": "The Fellowship of the Ring, aided by ~Players~, have brought peace back to Middle-Earth!"
+        },
+        {
+            "side": "mafia1",
+            "translation": "Isengard Empire",
+            "winmsg": "'There will be no dawn for men!' The Isengard Empire, thanks to ~Players~, has reigned supreme!"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Forces of Mordor",
+            "winmsg": "The Ring is Sauron's again! ~Players~ have showed how one cannot simply walk into Mordor!"
+        },
+        {
+            "side": "mafia3",
+            "translation": "Goblins",
+            "winmsg": "The Goblins, led by ~Players~, have emerged from the mountains to take over the land!"
+        },
+        {
+            "side": "spider",
+            "translation": "Shelob's Web",
+            "winmsg": "The most powerful armies are no match for ~Players~, who have caught them in their web!"
+        },
+        {
+            "side": "smeagol",
+            "translation": "Smeagol",
+            "winmsg": "±~Players~: HA! THE RING IS MINEEEEE! MY PRECIOUSSS! NOTHING WILL SEPARATE US EVER AGAIN! HAHAHA! DEATH! DESTRUCTION! WOE TO ALL!"
+        },
+        {
+            "side": "dragon",
+            "translation": "Dragon",
+            "winmsg": "Middle-Earth? After ~Players~ is done with it, might as well call it Scorched-Earth!"
+        },
+        {
+            "side": "berserk",
+            "translation": "Berserk Boromir",
+            "winmsg": "What's this? When the battle is all said and done, only ~Players~ has emerged alive, and with the Ring in hand..."
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Villager",
+            "side": "village",
+            "help": "As a simple villager, help the Fellowship by voting to remove people during the day!",
+            "actions": {
+                
+            }
+        },
+        {
+            "role": "frodo1",
+            "translation": "Frodo",
+            "side": "village",
+            "help": "Though weak, you have a large responsibility as the Ring-bearer. You can /inspect someone once during the night with the power of the Ring!",
+            "info": "Can inspect one person during the night. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "frodo",
+            "translation": "Frodo",
+            "side": "village",
+            "help": "Though weak, you have a large responsibility as the Ring-bearer. As such, you evade daykills and have a vote of 2. You can choose to put on the Ring every day by using /ring on yourself to possibly alert the Fellowship to your presence (they can hax this command)! Be warned, as Sauron may find you instead!",
+            "info": "Can /ring itself during the day and other members of the Fellowship can hax this commmand (as well as Sauron). Evades daykills. Vote of 2. Sided with Fellowship",
+            "actions": {
+				"vote": 2,
+                "standby": {
+                    "ring": {
+                        "command": "expose",
+                        "target": "Self",
+                        "msg": "You can type /ring [name] to put on the Ring! Other members of the Fellowship may be able to sense you doing this (hax).",
+                        "exposemsg": "Frodo has put the Ring on! His friends may notice, but so may the Dark Lord..."
+                    }
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "daykill": "evade",
+				"onDeath": {
+					"convertRoles": {
+						"gollum2": "rgollum",
+						"gollum": "rgollum"
+					}
+				}
+            }
+        },
+        {
+            "role": "sam",
+            "translation": "Sam",
+            "side": "village",
+            "help": "As Frodo's best friend, it's your job to protect him and other members of the Fellowship. Type /protect during the night. Because you and Frodo are such good friends, you are guaranteed to find him when he puts on the Ring!",
+            "info": "Can protect one person during the night. Gets perfect hax on ring. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8
+                    }
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "legolas",
+            "translation": "Legolas",
+            "side": "village",
+            "help": "An elf of Mirkwood aligned with the Fellowship, you are incredibly light on your feet and your arrows are spot-on. Type /distract during the night to shoot an arrow at someone and prevent them from doing anything. Because you are so close to Gimli, you will know him from the start.",
+            "info": "Can distract one person during the night. Knows Gimli. Sided with Fellowship",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "command": [
+                            "distract",
+                            "convert"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6,
+                        "canConvert": [
+                            "smeagol"
+                        ],
+                        "newRole": "gollum"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "gimli"
+                    ]
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+		{
+            "role": "legolass",
+            "translation": "Legolas",
+            "side": "village",
+            "help": "An elf of Mirkwood aligned with the Fellowship, you are incredibly light on your feet and your arrows are spot-on. Type /stalk during the night to discover what a person has been doing during the night. Because you are so close to Gimli, you will know him from the start.",
+            "info": "Can stalk one person during the night. Knows Gimli. Sided with Fellowship",
+            "actions": {
+                "night": {
+					"stalk": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 35
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "gimli"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "gimli",
+            "translation": "Gimli",
+            "side": "village",
+            "help": "You are Gimli, son of Gloin, and the Fellowship is thankful for your mighty axe. Although you are a dwarf you still command respect with your +3 vote. As Legolas' close friend, you will know him from the start.",
+            "info": "Vote of 3. Knows Legolas. Sided with Fellowship",
+            "actions": {
+                "vote": 3,
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "legolas",
+						"legolass"
+                    ]
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "gandalf",
+            "translation": "Gandalf the Grey",
+            "side": "village",
+            "help": "A member of the Istan order of wizards, your magic prowess is legendary. You can /inspect one person during the night to figure out their identity. On night 3 you will transform into Gandalf the White, but if someone tries to kill you during the night you will transform automatically! If Sauron isn't daykilling, feel free to claim.",
+            "info": "Can inspect one person during the night. Converts to Gandalf the White on night 3. If targeted by a nightkill, transforms into Gandalf the White. Sided with Fellowship.",
+            "actions": {
+				"kill": {
+					"mode": "ignore"
+				},
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "gandalfw",
+                        "curseCount": 3,
+                        "curseConvertMessage": "Gandalf has fallen into the Mines of Moria! But wait! He has come back as Gandalf the White!"
+                    }
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "gandalfw",
+            "translation": "Gandalf the White",
+            "side": "village",
+            "help": "You have struggled with death and have come out the victor! Bathed in radiant light, you can use this to /expose one person during the day. You will not be revealed! You also ignore nightkills for one more night.",
+            "info": "Can expose one person during the day. Revenges nightkills. Sided with Fellowship",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the ~Role~!"
+                    }
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                },
+				"kill": {
+					"mode": "ignore"
+				},
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "gandalfw2",
+                        "curseCount": 2,
+						"curseConvertMessage": "Gandalf the White has lost his immortality - but he will still take you down if you attempt to smite him!"
+					}
+				}
+            }
+        },
+		{
+            "role": "gandalfw2",
+            "translation": "Gandalf the White",
+            "side": "village",
+            "help": "You have struggled with death and have come out the victor! Bathed in radiant light, you can use this to /expose one person during the day. You will not be revealed! You also revenge nightkills.",
+            "info": "Can expose one person during the day. Revenges nightkills. Sided with Fellowship",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the ~Role~!"
+                    }
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                },
+				"kill": {
+					"mode": "killattacker"
+				}
+            }
+        },
+        {
+            "role": "aragorn",
+            "translation": "Aragorn",
+            "side": "village",
+            "help": "A Ranger of the North, you are a skilled warrior. Type /kill during the night to bring down someone with Anduril. If your lover Arwen has joined the battle, you'll know her identity.",
+            "info": "Can kill one person during the night. Knows Arwen. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+					}
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "arwen"
+                    ]
+                },
+                "onDeath": {
+                    "killRoles": [
+                        "arwen"
+                    ],
+                    "killmsg": "At the loss of her beloved, Arwen, ~Target~, has died of grief!"
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "pippin",
+            "translation": "Pippin",
+            "side": "village",
+            "help": "As a simple villager, help the Fellowship by voting to remove people during the day!",
+            "info": "Reveals as Orc if inspected or exposed. Sees himself as Villager. Gets hax on /ring. Sided with Fellowship.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "orc"
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+				 "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+					}
+				}
+            }
+        },
+        {
+            "role": "pippin2",
+            "translation": "Pippin",
+            "side": "village",
+            "help": "As a simple villager, help the Fellowship by voting to remove people during the day!",
+            "info": "Reveals as Ringwraith if inspected or exposed. Sees himself as Villager. Sided with Fellowship.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "wraith"
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+				"standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+					}
+				}
+            }
+        },
+        {
+            "role": "pippin3",
+            "translation": "Pippin",
+            "side": "village",
+            "help": "As a simple villager, help the Fellowship by voting to remove people during the day!",
+            "info": "Reveals as Sauron if inspected or exposed. Sees himself as Villager. Sided with Fellowship.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "sauron"
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+				"standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+					}
+				}
+            }
+        },
+        {
+            "role": "merry",
+            "translation": "Merry",
+            "side": "village",
+            "help": "As a simple villager, help the Fellowship by voting to remove people during the day!",
+            "info": "Reveals as Ringwraith if inspected or exposed. Sees himself as Villager. Sided with Fellowship.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "wraith"
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+				"standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+					}
+				}
+            }
+        },
+        {
+            "role": "merry2",
+            "translation": "Merry",
+            "side": "village",
+            "help": "As a simple villager, help the Fellowship by voting to remove people during the day!",
+            "info": "Reveals as Orc if inspected or exposed. Sided with Fellowship.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "orc"
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+				"standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+					}
+				}
+            }
+        },
+        {
+            "role": "merry3",
+            "translation": "Merry",
+            "side": "village",
+            "help": "As a simple villager, help the Fellowship by voting to remove people during the day!",
+            "info": "Reveals as Sauron if inspected or exposed. Sided with Fellowship.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "sauron"
+                },
+                "hax": {
+                    "slice": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+				"standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+					}
+				}
+            }
+        },
+        {
+            "role": "boromir",
+            "translation": "Boromir",
+            "side": "village",
+            "help": "The son of Denethor, the Steward of Gondor, you are a mighty warrior tempted by the power of the Ring. You can /stalk someone during the night to find out who they visited. Due to your conflicted nature, you become a berserk version of yourself if you stalk Frodo.",
+            "info": "Can stalk one person during the night. Converts to Berserk Boromir if it stalks Frodo. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 35,
+                        "command": [
+                            "copy",
+                            "stalk"
+                        ],
+                        "copyAs": {
+                            "bboromir": [
+                                "frodo"
+                            ]
+                        },
+                        "copymsg": "Boromir's temptation for the Ring has gone too far and he has gone berserk!"
+                    }
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "bboromir",
+            "translation": "Berserk Boromir",
+            "side": "berserk",
+            "help": "THE RING! You must have it! Stalking the Ringbearer gives you a high priority /slice that outspeeds bodyguards and a voteshield of -10 for two nights, but the Fellowship has a good chance of finding you out if they don't already know you!",
+            "info": "Can kill one person during the night. Outspeeds bodyguards. Sided with Berserk Boromir.",
+            "actions": {
+				"voteshield": -10,
+                "night": {
+                    "slice": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "common": "Self",
+                        "priority": 3,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+				"initialCondition": {
+                    "curse": {
+                        "cursedRole": "bboromir2",
+                        "curseCount": 3
+                    }
+				}
+            }
+        },
+		{
+            "role": "bboromir2",
+            "translation": "Berserk Boromir",
+            "side": "berserk",
+            "help": "THE RING! You must have it! Stalking the Ringbearer gives you a high priority /slice that outspeeds bodyguards, but the Fellowship has a good chance of finding you out if they don't already know you!",
+            "info": "Can kill one person during the night. Outspeeds bodyguards. Sided with Berserk Boromir.",
+            "actions": {
+                "night": {
+                    "slice": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "common": "Self",
+                        "priority": 3,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                }
+            }
+        },
+		{
+			"role": "boromirdummy",
+			"translation": "Berserk Boromir",
+			"side": "berserk",
+			"hide": true,
+			"help": "IT TAKES LIKE 7 ARROWS TO KILL YOU SMH ORCS",
+			"info": "ONE DOES NOT SIMPLY WALK INTO MORDOR (OR LIVE PAST THE FIRST MOVIE)",
+			"actions": {
+				"night": {
+					"slice": {
+						"command": "kill",
+						"target": "AnyButSelf",
+						"common": "Team",
+						"priority": 3
+					}
+				}
+			}
+		},
+        {
+            "role": "theoden",
+            "translation": "Theoden",
+            "side": "village",
+            "help": "King of Rohan, you hold much influence over your soldiers. Because of this, you can /recruit one person during the night. If they are a villager, they will turn into a certain race with powers according to the race!",
+            "info": "Can recruit one person during the night. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "recruit": {
+                        "command": "convert",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 31,
+                        "newRole": {
+                            "random": {
+                                "villagerh": 1,
+                                "villagerm": 1,
+                                "villagere": 1,
+                                "villagerd": 1
+                            }
+                        },
+                        "canConvert": [
+                            "villager"
+                        ],
+                        "convertmsg": "Theoden has made a battle-ready soldier out of a simple villager!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerh",
+            "translation": "Hobbit",
+            "side": "village",
+            "help": "Hobbits don't usually fight, but at the insistence of King Theoden, you've joined the battle. Keep your eyes open and use /stalk during the night to track someone's movements!",
+            "info": "Can stalk one person during the night. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 35
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerm",
+            "translation": "Man",
+            "side": "village",
+            "help": "You were just an ordinary villager, until King Theoden took you under his wing. Now you've come to aid the Fellowship and every man counts. As such, you have a vote of 1.5!",
+            "info": "Vote of 1.5. Sided with Fellowship.",
+            "actions": {
+                "vote": 1.5
+            }
+        },
+        {
+            "role": "villagere",
+            "translation": "Elf",
+            "side": "village",
+            "help": "You are an elf who's decided to join the fight. You can /distract one person during the night by shooting at them with your bow and arrow!",
+            "info": "Can distract one person during the night. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "command": [
+                            "distract",
+                            "convert"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6,
+                        "canConvert": [
+                            "smeagol"
+                        ],
+                        "newRole": "gollum"
+                    }
+                }
+            }
+        },
+        {
+            "role": "villagerd",
+            "translation": "Dwarf",
+            "side": "village",
+            "help": "Straight from the mountains you have come to lend your strength to the Fellowship. You can /protect one person every other night!",
+            "info": "Can protect one person every other night. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "recharge": 2,
+                        "common": "Self",
+                        "priority": 8
+                    }
+                }
+            }
+        },
+        {
+            "role": "arwen",
+            "translation": "Arwen",
+            "side": "village",
+            "help": "Known as the Evenstar, you are Aragorn's lover and thus know him from the start! You can /distract one person during the night and /safeguard as well to protect people from poison. Be careful, if Aragorn dies you will follow him in death!",
+            "info": "Can distract one person during the night. Can safeguard one person during the night. Knows Aragorn. Dies if Aragorn is killed or lynched. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "command": [
+                            "distract",
+                            "convert"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6,
+                        "canConvert": [
+                            "smeagol"
+                        ],
+                        "newRole": "gollum"
+                    },
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9
+                    }
+                },
+				"startup": {
+                    "revealRole": [
+                        "legolas"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "faramir",
+            "translation": "Faramir",
+            "side": "village",
+            "help": "A veteran Gondor soldier and the brother of Boromir, your experience in the field allows you to choose your own role in this war! Use /attack (gain a nightkill), /defend (gain a /protect and 2 votes), or /scout (gain a /stalk and a -2 voteshield) yourself to gain the respective powers!",
+            "info": "Can either offense, defense, or scout itself. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "offense": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 34,
+						"hide": true,
+                        "newRole": "faramiro",
+                        "canConvert": [
+                            "faramir"
+                        ],
+                        "convertmsg": "Faramir has chosen to go on the offensive!",
+                        "restrict": [
+                            "defense",
+                            "scout"
+                        ]
+                    },
+                    "defense": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 34,
+						"hide": true,
+                        "newRole": "faramird",
+                        "canConvert": [
+                            "faramir"
+                        ],
+                        "convertmsg": "Faramir has chosen to go on the defensive!",
+                        "restrict": [
+                            "offense",
+                            "scout"
+                        ]
+                    },
+                    "scout": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 34,
+						"hide": true,
+                        "newRole": "faramirs",
+                        "canConvert": [
+                            "faramir"
+                        ],
+                        "convertmsg": "Faramir has chosen to go scout!",
+                        "restrict": [
+                            "offense",
+                            "defense"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "faramiro",
+            "translation": "Faramir (Offense)",
+            "side": "village",
+            "help": "You've chosen to go for offense this battle. You now have a /kill every night!",
+            "info": "Can kill one person during the night. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "priority": 21,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "faramird",
+            "translation": "Faramir (Defense)",
+            "side": "village",
+            "help": "You've chosen for a more defensive role this battle. You now have a /protect you can use on yourself every other night and a vote of 2!",
+            "info": "Can protect itself during the night. Vote of 2. Sided with Fellowship.",
+            "actions": {
+                "vote": 2,
+                "night": {
+                    "protect": {
+                        "priority": 8,
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "recharge": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "faramirs",
+            "translation": "Faramir (Scout)",
+            "side": "village",
+            "help": "You've chosen to scout for the Fellowship this battle. Use your knowledge of the terrain of Middle-Earth to /inspect one person during the night under cover of darkness! You also gain a voteshield of -2!",
+            "info": "Can inspect one person during the night. Voteshield of -2. Sided with Fellowship.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "priority": 30,
+                        "common": "Self",
+                        "target": "AnyButSelf"
+                    }
+                },
+                "voteshield": -2
+            }
+        },
+		{
+			"role": "faramirdummy",
+			"translation": "Faramir",
+			"hide": true,
+			"side": "village",
+			"help": "your brother died, u suk as older brother",
+			"info": "ONE DOES NOT SIMPLY WALK INTO MORDOR????",
+			"actions": {
+				"night": {
+					"convert": {
+						"target": "OnlySelf",
+						"common": "Self",
+						"newRole": "faramir",
+						"priority": 34
+					}
+				}
+			}
+		},
+        {
+            "role": "bilbo",
+            "translation": "Bilbo",
+            "side": "village",
+            "help": "The real story started with you! Though past your prime, you still aid to the Fellowship by writing stories to tell of your incredible exploits. You can /write twice during a game to reveal someone's role during the day, even yourself!. You have a vote of 0, and revenge daykills, so don't fear!",
+            "info": "Can write (expose) one person during the day, twice per game. Sided with Fellowship.",
+            "actions": {
+                "vote": 0,
+				"standby": {
+                    "expose": {
+                        "target": "Any",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "In this chapter of There and Back Again, Bilbo wrote about ~Target~, the ~Role~!",
+                        "charges": 2
+                    }
+                },
+				"daykill": "revenge",
+				"daykillrevengemsg": "~Target~ tried to attack Bilbo, but ~Self~ was able to pull out Sting and strike them down first!"
+			}
+		},
+        {
+            "role": "treebeard",
+            "translation": "Treebeard",
+            "side": "village",
+            "help": "Leader of the peaceful Ents, after much deliberation, you've finally made it onto the battlefield. You don't fight, but you'll take down anyone who tries to kill you, and are immune to poison! Because of your slow decisions your vote is 0 at first, but changes to 3 on day 3.",
+            "info": "Immune to poison. Revenges nightkills. Sided with Fellowship.",
+            "actions": {
+                "vote": 0,
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "killattacker"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "treebearda",
+                        "curseCount": 3,
+                        "curseConvertMessage": "Treebeard has finally decided to aid the Fellowship with his vote of 3!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "treebearda",
+            "translation": "Treebeard",
+            "side": "village",
+            "help": "Leader of the peaceful Ents, after much deliberation, you've finally made it onto the battlefield. You don't fight, but you'll take down anyone who tries to kill you, and are immune to poison! Because of your slow decisions your vote is 0 at first, but changes to 3 on day 3.",
+            "info": "Immune to poison. Revenges nightkills. Vote of 3. Sided with Fellowship.",
+            "hide": true,
+            "actions": {
+                "vote": 3,
+                "poison": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "killattacker"
+                }
+            }
+        },
+        {
+            "role": "shagrat",
+            "translation": "Shagrat",
+            "side": "mafia1",
+            "help": "Leader of the Uruk-hai, you possess incredible brute strength. Type /kill during the night and have no fear, you cannot be distracted (although your team can be)!",
+            "info": "Can kill one person during the night. Ignores distractors. Sided with Isengard Empire.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Shagrat) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to stop you last night! Fool! You just pushed them away!"
+                }
+            }
+        },
+        {
+            "role": "orc",
+            "translation": "Orc",
+            "side": "mafia1",
+            "help": "A common orc, you have been recruited by Saruman to aid him in the war. Type /kill during the night!",
+            "info": "Can kill one person during the night. Sided with Isengard Empire.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Orc) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "saruman",
+            "translation": "Saruman",
+            "side": "mafia1",
+            "help": "A formidable and traitorous wizard, you swear to seize power in Middle-Earth. Type /kill during the night; your magic also allows you to /inspect once per night. Your traitorous nature gives you -3 votes and a one-time poison!",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Can poison one person during the game. Vote of -3. Sided with Isengard Empire.",
+            "actions": {
+                "vote": -3,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Saruman) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 25,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Saruman) has decided to poison ~Target~!",
+                        "charges": 1
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 30,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Saruman) has decided to inspect ~Target~!"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "saruman1",
+            "translation": "Saruman",
+            "side": "mafia1",
+            "help": "A formidable and traitorous wizard, you swear to seize power in Middle-Earth. Type /kill during the night; your magic also allows you to /inspect once per night. Lastly, your traitorous nature gives you -2 votes.",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Vote of -2. Sided with Isengard Empire.",
+            "actions": {
+                "vote": -2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Saruman) has decided to kill ~Target~!"
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 30,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Saruman) has decided to inspect ~Target~!"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true
+            }
+        },
+		{
+			"role": "isengarddummy",
+			"translation": "Isengard Empire",
+			"side": "mafia1",
+			"hide": true,
+			"help": "THEY'RE TAKING THE HOBBITS TO ISENGARD",
+			"info": "THEY'RE TAKING THE HOBBITS TO ISENGARD!",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButSelf",
+						"common": "Team",
+						"priority": 16
+					}
+				}
+			}
+		},
+        {
+            "role": "witchking",
+            "translation": "Witch-king",
+            "side": "mafia2",
+            "help": "Leader of the Ringwraiths, it is your duty to assist Sauron in recovering the One Ring! Type /kill during the night! Because you cannot fall by the hand of man, you have a voteshield of -2!",
+            "info": "Can kill one person during the night. Voteshield of -2. Sided with Forces of Mordor.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 17,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Witch-king) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "voteshield": -2
+            }
+        },
+        {
+            "role": "wraith",
+            "translation": "Ringwraith",
+            "side": "mafia2",
+            "help": "One of the corrupted Men who once held a Ring of power, you are now one of Sauron's ringwraiths who has been tasked to recover the One Ring. Type /kill during the night!",
+            "info": "Can kill one person during the night. Sided with Forces of Mordor.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 17,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Ringwraith) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true
+            }
+        },
+		{
+			"role": "mordordummy",
+			"translation": "Forces of Mordor",
+			"side": "mafia2",
+			"hide": true,
+			"help": "GIVE ME RING PLS",
+			"info": "Nazgul go fly. Get Ring. wow much shriek. kacaw.",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButSelf",
+						"common": "Team",
+						"priority": 17
+					}
+				}
+			}
+		},
+        {
+            "role": "sauron",
+            "translation": "Sauron",
+            "side": "mafia2",
+            "help": "You are the Dark Lord, maker of the One Ring. You can /kill during the night, but you can also decide whether to /eye yourself to get an expose every day or /glare yourself to gain a non-revealing daykill every day. You ignore all distractors and may discover when Frodo puts the Ring on!",
+            "info": "Can kill one person during the night. Ignores distractors. Can either eye itself or glare itself during the night. Sided with Forces of Mordor.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 17,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Sauron) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    },
+                    "eye": {
+                        "command": [
+                            "convert"
+                        ],
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 1,
+						"hide": true,
+                        "restrict": [
+                            "glare"
+                        ],
+                        "newRole": "saurone",
+                        "silent": true,
+                        "canConvert": [
+                            "sauron"
+                        ]
+                    },
+                    "glare": {
+                        "command": [
+                            "convert"
+                        ],
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 1,
+						"hide": true,
+                        "restrict": [
+                            "eye"
+                        ],
+                        "newRole": "saurong",
+                        "silent": true,
+                        "canConvert": [
+                            "sauron"
+                        ]
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to stop you last night, but the all-seeing Eye cannot be swayed from its target!"
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "sauron1",
+            "translation": "Sauron",
+            "side": "mafia2",
+            "help": "You are the Dark Lord, maker of the One Ring, and can /kill during the day. You also have a vote of 2! Make sure to strike down any Frodo foolish enough to claim!",
+            "info": "Can kill one person during the day. Vote of 2. Sided with Forces of Mordor.",
+            "actions": {
+				"vote": 2,
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can now use /kill to kill someone during the day! You won't be revealed!",
+                        "killmsg": "The Eye of Sauron fixates itself upon ~Target~, and in a state of pure terror, they drop dead!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "saurone",
+            "translation": "Sauron",
+            "side": "mafia2",
+            "help": "You've chosen to enhance the Eye and you can now /eye during the day to expose someone's role. Or you can /frodo, /saruman, or /orc during the day to falsely expose them as that role (try revealing your partner or yourself as Frodo!). In addition, you maintain a /kill every night that still ignores distracters!",
+            "info": "Can kill one person during the night. Can expose one person during the day. Can saruman, frodo, or orc one person during the day to expose them as that role. Ignores distracters. Sided with Forces of Mordor.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 17,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Sauron) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 3,
+                        "cursedRole": "saurone2",
+                        "silentCurse": true
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to stop you last night, but the all-seeing Eye cannot be swayed from its target!"
+                },
+                "standby": {
+                    "eye": {
+                        "command": "expose",
+                        "target": "AnyButTeam",
+                        "msg": "You can type /eye [name] to reveal someone's role!",
+                        "exposemsg": "The Eye casts its evil glare upon ~Target~, revealing them as the ~Role~!"
+                    },
+                    "frodo": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Eye casts its evil glare upon ~Target~, revealing them as the Frodo!"
+                    },
+                    "saruman": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "exposemsg": "The Eye casts its evil glare upon ~Target~, revealing them as the Saruman!"
+                    },
+                    "orc": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "exposemsg": "The Eye casts its evil glare upon ~Target~, revealing them as the Orc!"
+                    }
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "saurone2",
+            "translation": "Sauron",
+            "side": "mafia2",
+            "help": "You've chosen to enhance the Eye and you can now /eye during the day to expose someone's role, in addition to maintaining a /kill every night that avoids distracts. To aid in your trickery, when you do expose it will appear that Gandalf has done it! You can even frame someone in your expose to look like yourself by typing /sauron during the day, or use /frodo, /saruman, /orc, or /shelob to falsely reveal someone as that role!",
+            "info": "Can kill one person during the night. Can expose one person during the day. Can sauron, saruman, shelob, frodo, orc, or villager one person during the day to expose them as that role. Ignores distracters. Sided with Forces of Mordor.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 17,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Sauron) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "standby": {
+                    "eye": {
+                        "command": "expose",
+                        "target": "AnyButTeam",
+                        "msg": "You can type /eye [name] to reveal someone's role!",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the ~Role~!"
+                    },
+                    "sauron": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the Sauron!"
+                    },
+                    "frodo": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the Frodo!"
+                    },
+                    "saruman": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the Saruman!"
+                    },
+                    "shelob": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the Shelob!"
+                    },
+                    "orc": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the Orc!"
+                    },
+                    "villager": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "exposemsg": "Gandalf the White raises his staff, illuminating the darkness and revealing ~Target~ as the Villager!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to stop you last night, but the all-seeing Eye cannot be swayed from its target!"
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "saurong",
+            "translation": "Sauron",
+            "side": "mafia2",
+            "help": "You've chosen to use the Eye's destructive powers and you can now /glare every day to kill someone, in addition to maintaining a /kill every night which still ignores distracters.",
+            "info": "Can kill one person during the night. Can kill one person every day. Ignores distracters. Sided with Forces of Mordor.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 17,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Sauron) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "standby": {
+                    "glare": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "msg": "You can now use /glare to kill someone during the day! You won't be revealed!",
+                        "killmsg": "The Eye of Sauron fixates itself upon ~Target~, and in a state of pure terror, they drop dead!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to stop you last night, but the all-seeing Eye cannot be swayed from its target!"
+                },
+                "standbyHax": {
+                    "ring": {
+                        "revealPlayer": 0.4
+                    }
+                }
+            }
+        },
+		{
+		"role": "saurondummy",
+		"translation": "Sauron",
+		"side": "mafia2",
+		"help": "giv me rng or i kill u",
+		"info": "Makes Ring. Loses it. gg no re",
+		"hide": true,
+		"actions": {
+			"night": {
+				"convert": {
+					"target": "OnlySelf",
+					"common": "Self",
+					"newRole": "sauron",
+					"priority": 1
+					}
+				}
+			}
+		},
+        {
+            "role": "shelob",
+            "translation": "Shelob",
+            "side": "spider",
+            "help": "The Spider of Darkness, you bring death to anyone who dares enter your lair! Type /kill during the night; your agility allows you to dispose of distractors and outspeed bodyguards!",
+            "info": "Can kill one person during the night. Outspeeds bodyguards. Kills distractors. Sided with Shelob's Web.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Shelob) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You chose to distract Shelob last night, but you instead ended up in her web!",
+                    "msg": "Someone entered your lair to distract you last night. You spun them up and disposed of them instead!"
+                }
+            }
+        },
+        {
+            "role": "balrog",
+            "translation": "Balrog",
+            "side": "spider",
+            "help": "A fiery demon who resides in the Mines of Moria, you have (for some reason) teamed up with Shelob! Your infernal potency gives you the ability to /blaze one person during the night to prevent them from taking action in addition to your shared /kill with your team. But you should let Shelob do the killing, as she is faster than you!",
+            "info": "Can kill one person during the night. Can blaze (distract) one person during the night. Sided with Shelob's Web.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 19,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Balrog) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    },
+                    "blaze": {
+                        "command": [
+                            "distract",
+                            "convert"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6,
+                        "canConvert": [
+                            "smeagol"
+                        ],
+                        "newRole": "gollum"
+                    }
+                }
+            }
+        },
+        {
+            "role": "ggoblin",
+            "translation": "Great Goblin",
+            "side": "mafia3",
+            "help": "You're the leader of the Goblins under the Misty Mountains, but appear as a villager to inspectors! In addition to being able to /kill once per night, you may /retreat every other night to protect yourself for one night. Beware, as you cannot kill the same night if you do so. Your vote is 4, as a leader's should be, but in hiding it is reduced to 1!",
+            "info": "Can kill one person during the night. Can retreat itself during the night, but cannot kill on the same night if it does so. Inspects as Villager. Vote of 4. Sided with Goblins.",
+            "actions": {
+                "vote": 4,
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Great Goblin) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    },
+                    "retreat": {
+                        "command": [
+                            "convert",
+                            "protect"
+                        ],
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 1,
+                        "restrict": [
+                            "kill"
+                        ],
+                        "newRole": "ggoblinr",
+                        "silentConvert": true,
+                        "silent": true,
+                        "canConvert": [
+                            "ggoblin"
+                        ]
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "ggoblinr",
+            "translation": "Great Goblin",
+            "side": "mafia3",
+            "help": "You're the leader of the Goblins under the Misty Mountains, but appear as a villager to inspectors! In addition to being able to /kill once per night, you may /retreat every other night to protect yourself for one night. Beware, as you cannot kill the same night if you do so. Your vote is 4, as a leader's should be, but in hiding it is reduced to 1!",
+            "info": "Can kill one person during the night. Evades nightkills. Inspects as Villager. Sided with Goblins.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Great Goblin) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ggoblinr",
+                        "curseCount": 2
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "goblin",
+            "translation": "Goblin",
+            "side": "mafia3",
+            "help": "As a mere goblin, do your best to aid your king. You can /kill once per night and /poison once per night. Don't be afraid to try the poison on your Cave Troll, as it might lead to some interesting developments...",
+            "info": "Can kill one person during the night. Can poison one person during the night. Sided with Goblins.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Goblin) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    },
+                    "poison": {
+                        "command": [
+                            "poison",
+                            "convert"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 25,
+                        "broadcast": "team",
+                        "canConvert": [
+                            "troll"
+                        ],
+                        "newRole": "etroll"
+                    }
+                }
+            }
+        },
+        {
+            "role": "troll",
+            "translation": "Cave Troll",
+            "side": "mafia3",
+            "help": "A troll captured by the Great Goblin, you fight for them now! Right now you share a /kill with your team, but if you become poisoned, you instead become enraged! Try getting the Goblin to poison you!",
+            "info": "Can kill one person during the night. If poisoned, converts to Empowered Troll. Sided with Goblins.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Cave Troll) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true
+            }
+        },
+        {
+            "role": "etroll",
+            "translation": "Empowered Troll",
+            "side": "mafia3",
+            "help": "You've been exposed to poison but your natural toughness only incorporates it into your immune system! Your vote is increased to 4 in addition to your nightly /kill!",
+            "info": "Can kill one person during the night. Ignores poison. Vote of 4. Sided with Goblins.",
+            "actions": {
+                "vote": 4,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 18,
+						"hide": true,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Empowered Troll) has decided to kill ~Target~!",
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+				"teamTalk": true,
+                "poison": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "clearPoison": true
+                }
+            }
+        },
+		{
+			"role": "goblindummy",
+			"translation": "Goblins",
+			"side": "mafia3",
+			"hide": true,
+			"help": "I really don't know what you guys say lol",
+			"info": "Goblins. Meh Cards of Humanity card though",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButSelf",
+						"common": "Team",
+						"priority": 18
+					}
+				}
+			}
+		},
+        {
+            "role": "smeagol",
+            "translation": "Smeagol",
+            "side": "smeagol",
+            "help": "You are Smeagol, an unassuming hobbit, and thus inspect as an ordinary villager. You can't really do anything other than vote. I hope no one tries distracting or lynching you!",
+            "info": "Converts to Gollum if lynched or distracted. Inspects as Villager. Sided with Smeagol.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "lynch": {
+                    "convertTo": "gollum",
+                    "convertmsg": "You tried to vote off Smeagol, ~Self~! Now he's gone insane and he'll start by going after Frodo..."
+                }
+            }
+        },
+        {
+            "role": "gollum",
+            "translation": "Gollum",
+            "side": "smeagol",
+            "help": "BAGGINS! You've descended into insanity and your thirst for the Ring over the years have caused you to develop some savage tactics.  You now evade both daykills and nightkills, avoid distractions, have a /kill every night, and for the first night you have a voteshield of -9. As a bonus, you are given the identity of the Ring-bearer, Frodo! Try to get him removed from the game, as it may power you up further!",
+            "info": "Can kill one person during the night. Evades nightkills. Evades daykills. Voteshield of -9 (for one day). Ignores poison. Sided with Smeagol.",
+            "actions": {
+                "voteshield": -9,
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+						"hide": true,
+                        "priority": 15,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "daykill": "evade",
+                "startup": {
+                    "revealRole": [
+                        "frodo"
+                    ]
+                },
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 2,
+                        "cursedRole": "gollum2",
+                        "silentCurse": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "gollum2",
+            "translation": "Gollum",
+            "side": "smeagol",
+            "help": "BAGGINS! You've descended into insanity and your thirst for the Ring over the years have caused you to develop some savage tactics.  You now evade both daykills and nightkills, avoid distractions, and have a /kill every night (your voteshield is gone). As a bonus, you are given the identity of the Ring-bearer, Frodo! Try to get him removed from the game, as it may power you up further!",
+            "info": "Can kill one person during the night. Evades nightkills. Evades daykills. Ignores poison. Sided with Smeagol.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+						"hide": true,
+                        "common": "Role",
+                        "priority": 15,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "daykill": "evade",
+                "startup": {
+                    "revealRole": [
+                        "frodo"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "rgollum",
+            "translation": "Ring-Bearer Gollum",
+            "side": "smeagol",
+            "help": "The Ring-Bearer is dead, and you have picked up the Ring! You now know limitless (vote) power and retain all your old abilities. However, power still corrupts, and your vote will sometimes be -9999 instead of 9999! Make sure to cause as much havoc as you can",
+            "info": "Can kill one person during the night. Evades daykills. Evades nightkills. Ignores poison. Vote has a 66% chance of being 9999 and a 33% chance of being -9999 during any given voting phase. Sided with Smeagol.",
+            "actions": {
+                "vote": [
+                    9999,
+                    9999,
+                    -9999
+                ],
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+						"hide": true,
+                        "priority": 15,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "A ~Distracter~ came last night! OUT OF MY WAY! I MUST HAVE IT! MY PRECIOUSSSSSS!"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "daykill": "evade"
+            }
+        },
+		{
+			"role": "smeagoldummy",
+			"translation": "Smeagol/Gollum",
+			"side": "smeagol",
+			"hide": true,
+			"help": "MY PREEEEEECIOUSSSSSSSSS",
+			"info": "BAGGGGGGGINSSSSSSSSSSSSS",
+			"actions": {
+				"night": {
+					"kill": {
+						"target": "AnyButSelf",
+						"common": "Team",
+						"priority": 15
+					}
+				}
+			}
+		},
+        {
+            "role": "dragon",
+            "translation": "Smaug",
+            "side": "dragon",
+            "help": "Hey! Aren't you in the Hobbit? Regardless, as a greedy dragon, you stray from the battlefield for the first few nights, so you can't be killed. On the 3rd night, however, you can start defending your treasure with a /kill every night and day!",
+            "info": "Evades nightkills. On turn 3, gains an unrevealing daykill and a nightkill and loses nightkill immunity. Sided with Dragon.",
+            "actions": {
+                "kill": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 3,
+                        "cursedRole": "dragona",
+                        "curseConvertMessage": "Smaug has awakened to defend his treasure!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "dragond",
+            "translation": "Smaug",
+            "side": "dragon",
+            "help": "You've chosen not to terrorize the smallfolk so flagrantly and stay close to the mountain, giving you a voteshield of -2. You can still kill during the night though. If you wish, you may choose to /attack yourself to regain your daykill, but lose your voteshield!",
+            "info": "Can kill one person during the night. Voteshield of -2. Sided with Dragon.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 22,
+						"hide": true,
+                        "limit": 1,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    },
+                    "attack": {
+                        "command": [
+                            "convert"
+                        ],
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 1,
+						"hide": true,
+                        "newRole": "dragona",
+                        "convertmsg": "Smaug has reawakened to defend his treasure! He can now kill during both night and day.",
+                        "canConvert": [
+                            "dragona"
+                        ]
+                    }
+                },
+                "voteshield": -2
+            }
+        },
+        {
+            "role": "dragona",
+            "translation": "Smaug",
+            "side": "dragon",
+            "help": "Hey! Aren't you in the Hobbit? You can start defending your treasure with a /kill every night and day! You may choose to /defend yourself to gain a voteshield of -2, but you will lose your daykill.",
+            "info": "Can kill one person during the night. Can kill one person during the day. (nonrevealing). Can defend itself during the night. Sided with Dragon.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 22,
+						"hide": true,
+                        "limit": 1,
+						"command": ["kill", "convert"],
+						"convertmsg": "Gandalf scoffed at those who tried to kill him. 'Fool! YOU SHALL NOT PASS!'",
+						"newRole": 
+							{ "gandalfw": ["gandalf"]
+						}
+                    },
+                    "defend": {
+                        "command": [
+                            "convert"
+                        ],
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 1,
+						"hide": true,
+                        "newRole": "dragond",
+                        "convertmsg": "Smaug has retreated back to his mountaintop lair. He won't be disturbing the peace...at least not during the day.",
+                        "canConvert": [
+                            "dragond"
+                        ]
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "Smaug emerges out of his mountaintop lair and unleashes a burst of fire at ~Target~, incinerating them!"
+                    }
+                }
+            }
+        },
+		{
+			"role": "dragondummy",
+			"translation": "Smaug",
+			"help": "rawr ur a dragon",
+			"info": "You got killed by some dumb human. Lame.",
+			"hide": true,
+			"side": "dragon",
+			"actions": {
+				"initialCondition": {
+					"poison": {
+						"count": 1,
+						"poisonDeadMessage": "moonblast yo"
+					}
+				},
+				"night": {
+					"convert": {
+						"target": "OnlySelf",
+						"common": "Self",
+						"priority": 1,
+						"newRole": "dragon"
+					},
+					"kill": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 22
+					}
+				}
+			}
+		}
+    ],
+    "roles1": [
+        "frodo1",
+        "legolass",
+        "villager",
+        "orc",
+        "orc",
+		"merry2",
+        "sauron1",
+        "sam",
+		"villager",
+        {
+            "pippin": 0.5,
+            "pippin3": 0.5
+        },
+        "gimli",
+        "villager"
+    ],
+    "roles2": [
+        "frodo",
+        "sam",
+        "legolas",
+        "saruman",
+        "sauron",
+        "villager",
+        "villager",
+        "orc",
+        "gimli",
+        {
+            "pippin": 0.25,
+            "pippin2": 0.25,
+            "merry": 0.25,
+            "merry2": 0.25
+        },
+        "wraith",
+        "shelob",
+        "gandalf",
+        "villager",
+		"smeagol",
+        "boromir",
+        "balrog",
+        "villager",
+        "witchking",
+        "shagrat",
+        "villager",
+        "aragorn",
+        "dragon",
+        "arwen",
+        "villager",
+        "theoden",
+        "villager",
+        "faramir",
+        "bilbo",
+        "villager"
+    ],
+    "roles3": [
+        "frodo",
+        "sam",
+        "legolas",
+        "saruman",
+        "sauron",
+        "villager",
+        "villager",
+        "orc",
+        "gimli",
+        {
+            "pippin": 0.25,
+            "pippin2": 0.25,
+            "merry": 0.25,
+            "merry2": 0.25
+        },
+        "wraith",
+        "shelob",
+        "gandalf",
+        "smeagol",
+        "villager",
+        "balrog",
+        "boromir",
+        "villager",
+        "witchking",
+        "shagrat",
+        "villager",
+        "aragorn",
+        "dragon",
+        "arwen",
+        "villager",
+        "theoden",
+        "villager",
+        "ggoblin",
+        "goblin",
+        "troll",
+        "faramir",
+        "villager",
+        "bilbo",
+        "villager",
+        "orc",
+        "wraith",
+        "villager",
+        "treebeard",
+        "villager",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+		"frodo",
+        "gimli",
+        "aragorn",
+        "faramir",
+        "villagerm",
+        "theoden",
+        "faramiro",
+        "faramird",
+        "faramirs",
+        "treebearda"
+    ],
+    "killmsg": "±Game: ~Player~ (~Role~) tried to walk into Mordor and died trying!",
+    "killusermsg": "You have been killed!",
+    "lynchmsg": "±Game: ~Player~ (~Role~) has been removed from the game!",
+	"changelog": {
+		"9.15.13": "Added a voteshield of -2 to Faramir (Scout). Consequently, now shows up on the VCLR list.",
+		"9.29.13": "Added Faramir (Offense), Faramir, Theoden, and Man onto VCLR list. Witchking has a voteshield of -2. Great Goblin is immune to kills the night he /retreats but no other. Boromir has no suicide chance on /slice. Reworked roles 1 spawnlist, pushing back Legolas and Gimli. General fixing of convert mechanics and other miscellaneous code stuff.",
+		"9.30.13": "lol there's a threadlink now",
+		"10.1.13": "Changed Sauron's (exposer) expose message to his own until Gandalf the White shows up.",
+		"10.11.13": "Saruman in small games has a vote of -2. Fixed up some Frodo rolespawn mistake. Moved Aragorn way back so the 3rd mafias for Isengard and Mordor show up earlier.",
+		"10.17.13": "Completely changed small game spawn list - Sauron daykills, basic Orc mafia, and put in Smeagol for a wildcard. Added more roles for exposer-Sauron to fake expose. Changed Ring-Bearer Gollum's poison into a 25% chance to have -9999 votes instead of 9999. Lowered hax on slice. Created two different miller types for Merry and Pippin in the spawn so they don't know what they inspect as.",
+		"10.26.13": "nvm, axed Smeagol from small games. Instead, both Merry and Pippin are in small games and randomly miller as either Sauron or Orc. Taking suggestions on how to balance games, thinking of removing either Sam or Legolas. Also Shelob now evades nightkills and Sauron gets a whole bunch of other roles to fakeexpose; his daykilling form can also daykill every day. Smeagol's moved up to slot 14, Smaug comes at 23, Arwen pushed a bit back. Only one of Merry and Pippin shows up in roles 2 and roles 3. Saruman (in games 13 and up) has a one-time poison.",
+		"10.29.13": "Gollum has a one-time voteshield so he can do something after being transformed rather than just getting distracted by Legolas, caught, and voted out. Changed Frodo's role entirely - he now puts the Ring on during the day and the members of the Fellowship + Sauron get a chance to hax him. Sam's chance is much higher.",
+		"11.1.13": "Gandalf now revenges nightkills as both the Grey and the White.",
+		"11.14.13": "Boromir has a -10 voteshield for two nights when he becomes Berserk. Fixed some coding errors. Shelob doesn't evade nightkills anymore.",
+		"12.9.13": "Gandalf the Grey ignores nightkills. Instead, all kills double as converts and convert him to Gandalf the White instead. Adjusted the role and help text to aid in this new change and help village out. Sam gets perfect hax on Frodo too. Frodo has a vote of 2."
+	}
+}
