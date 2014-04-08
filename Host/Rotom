@@ -1,0 +1,825 @@
+{
+    "name": "Rotom",
+    "author": "RiceKirby",
+    "summary": "Everyone starts as a Rotom and has to choose a form. And then wipe out the other forms. All players can Inspect 3 times during the game. [MOW: Nightkill] - [WASH: +20 votes] - [HEAT: 2x Poison, Distract] - [FROST: Recruiter] - [FAN: Daykill]",
+    "minplayers": 3,
+    "closedSetup": true,
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Rotom",
+            "winmsg": "*** O.O *** The Normal Rotoms won?!?! How the hell did ~Players~ do that?"
+        },
+        {
+            "side": "grass",
+            "translation": "Lawnmowers",
+            "winmsg": "Suddenly, all Lawnmowers in the city started moving on its own! I bet this is ~Players~'s prank!:"
+        },
+        {
+            "side": "water",
+            "translation": "Washing Machines",
+            "winmsg": "Suddenly, all Washing Machines in the city started moving on its own! I bet this is ~Players~'s prank!:"
+        },
+        {
+            "side": "fire",
+            "translation": "Microwave Ovens",
+            "winmsg": "Suddenly, all Microwave Ovens in the city started moving on its own! I bet this is ~Players~'s prank!:"
+        },
+        {
+            "side": "ice",
+            "translation": "Refrigerators",
+            "winmsg": "Suddenly, all Refrigerators in the city started moving on its own! I bet this is ~Players~'s prank!:"
+        },
+        {
+            "side": "flying",
+            "translation": "Electric Fans",
+            "winmsg": "Suddenly, all Electric Fans in the city started moving on its own! I bet this is ~Players~'s prank!:"
+        },
+        {
+            "side": "shiny",
+            "translation": "Shiny Rotom",
+            "winmsg": "Rare and unbeatable! ~Players~, the Shiny Rotom, has triumphed over everyone else!"
+        }
+    ],
+    "variables": {
+        "MaxInspections": 3
+    },
+    "roles": [
+        {
+            "role": "rotom",
+            "translation": "Rotom",
+            "side": "village",
+            "help": "You can possess a machine and get a new power! Type /mow, /wash, /heat, /frost or /fan to change forms. Three times during the game (even after changing forms), you can type /inspect [name] at night to find someone's role (25% chance of working, 100% after converting). ",
+            "info": "Can transform itself into Mow, Wash, Heat, Frost or Fan Rotom. Can inspect 3 times during the game (25% chance of working, 100% after converting). Sided with Rotom.",
+            "actions": {
+                "night": {
+                    "mow": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "grass",
+                        "canConvert": [
+                            "rotom"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "wash",
+                            "frost",
+                            "fan"
+                        ],
+                        "silent": true
+                    },
+                    "wash": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "water",
+                        "canConvert": [
+                            "rotom"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "frost",
+                            "fan",
+                            "mow"
+                        ],
+                        "silent": true
+                    },
+                    "heat": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "fire",
+                        "canConvert": [
+                            "rotom"
+                        ],
+                        "cancel": [
+                            "wash",
+                            "frost",
+                            "fan",
+                            "mow"
+                        ],
+                        "silent": true
+                    },
+                    "frost": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "ice",
+                        "canConvert": [
+                            "rotom"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "wash",
+                            "fan",
+                            "mow"
+                        ],
+                        "silent": true
+                    },
+                    "fan": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "flying",
+                        "canConvert": [
+                            "rotom"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "wash",
+                            "frost",
+                            "mow"
+                        ],
+                        "silent": true
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "charges": "variable:MaxInspections",
+                        "Sight": {
+                            "true": 0.25,
+                            "false_inspect": 0.75
+                        },
+                        "hide": true
+                    }
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                }
+            }
+        },
+        {
+            "role": "rotom2",
+            "translation": "Rotom",
+            "side": "village",
+            "help": "You got demoted, but you can possess a machine again to get a new power! Type /mow, /wash, /heat, /frost or /fan to change forms. ",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "mow": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "grass",
+                        "canConvert": [
+                            "rotom2"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "wash",
+                            "frost",
+                            "fan"
+                        ],
+                        "silent": true,
+                        "hide": true
+                    },
+                    "wash": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "water",
+                        "canConvert": [
+                            "rotom2"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "frost",
+                            "fan",
+                            "mow"
+                        ],
+                        "silent": true,
+                        "hide": true
+                    },
+                    "heat": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "fire",
+                        "canConvert": [
+                            "rotom2"
+                        ],
+                        "cancel": [
+                            "wash",
+                            "frost",
+                            "fan",
+                            "mow"
+                        ],
+                        "silent": true,
+                        "hide": true
+                    },
+                    "frost": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "ice",
+                        "canConvert": [
+                            "rotom2"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "wash",
+                            "fan",
+                            "mow"
+                        ],
+                        "silent": true,
+                        "hide": true
+                    },
+                    "fan": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "newRole": "flying",
+                        "canConvert": [
+                            "rotom2"
+                        ],
+                        "cancel": [
+                            "heat",
+                            "wash",
+                            "frost",
+                            "mow"
+                        ],
+                        "silent": true,
+                        "hide": true
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "Sight": {
+                            "true": 0.25,
+                            "false_inspect": 0.75
+                        },
+                        "hide": true
+                    }
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                }
+            }
+        },
+        {
+            "role": "rotom_dead",
+            "translation": "Rotom",
+            "side": "village",
+            "help": "You can possess a machine and get a new power! Type /mow, /wash, /heat, /frost or /fan to change forms. Twice during the game (even after changing forms), you can type /inspect [name] at night to find someone's role. If you don't possess anything after 3 turns, you will die",
+            "hide": true,
+            "actions": {
+                "initialCondition": {
+                    "poison": {
+                        "count": -1,
+                        "poisonDeadMessage": "You took too long to possess anything, so you disappeared!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "grass",
+            "translation": "Mow Rotom",
+            "side": "grass",
+            "help": "You possessed a Lawnmower! You can type /kill [name] during the night to defeat another Rotom (with a 25% chance of piercing through protection). You have a a 50% chance of receiving a voteshield of -19.",
+            "info": "Can kill one person during the night (25% chance of piercing). Has a 50% chance of receiving a voteshield of -19. Sided with Lawnmowers. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "msg": "A lawnmower ran over you!",
+                        "pierceChance": 0.25
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "hide": true
+                    }
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "voteshield": [0, -19],
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "onlist": "rotom"
+            }
+        },
+        {
+            "role": "water",
+            "translation": "Wash Rotom",
+            "side": "water",
+            "help": "You possessed a Washing Machine! Your vote counts as +20, and you can use /protect [name] once during the game to protect anyone (even yourself) from any night action. You also have a 50% chance of evading poison.",
+            "info": "Vote counts as 20. Can protect + safeguard (including self) once per game. Has a 50% chance of evading poison. Sided with Washing Machines. ",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "hide": true
+                    },
+                    "protect": {
+                        "command": ["safeguard", "protect"],
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 2,
+                        "charges": 1
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "vote": 20,
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "onlist": "rotom"
+            }
+        },
+        {
+            "role": "fire",
+            "translation": "Heat Rotom",
+            "side": "fire",
+            "help": "You possessed a Microwave Oven! You can type /poison [name] twice during the night to kill your targets during the next night. You can also type /distract [name] every 2 nights to prevent someone else from using their actions for that night. You have a 50% chance of evading conversions.",
+            "info": "Can poison 2 persons during the night. Can distract one person every 2 nights. Has a 50% chance of evading conversions. Sided with Microwave Ovens. ",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "count": 2,
+                        "limit": 2,
+                        "poisonDeadMessage": "You melted after being exposed to the microwaves for too long!"
+                    },
+                    "distract": {
+                        "command": ["distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "recharge": 2,
+                        "distractmsg": "A Heat Rotom had put you on the Microwave Oven for 1 turn, so you had to wait patiently."
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "hide": true
+                    }
+                },
+                "convert": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "onlist": "rotom"
+            }
+        },
+        {
+            "role": "ice",
+            "translation": "Frost Rotom",
+            "side": "ice",
+            "help": "You possessed a Refrigerator! You can type /convert [name] every night to transform another kind of Rotom into a Frost Rotom Jr. (Fan Rotoms and Frost Rotom Jr. become a full-fledged Frost Rotom). You have a 50% chance of evading daykills, but you die instantly if poisoned.",
+            "info": "Can convert one person to Frost Rotom or Frost Rotom Jr. during the night. Has a 50% chance of evading daykills. Instantly dies if poisoned. Sided with Refrigerators. ",
+            "actions": {
+                "night": {
+                    "convert": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "newRole": {
+                            "ice3": ["shiny"],
+                            "ice2": ["rotom","fire","water","grass"],
+                            "ice": ["flying", "ice2", "ice3"]
+                        },
+                        "canConvert": [
+                            "rotom",
+                            "rotom2",
+                            "fire",
+                            "water",
+                            "grass",
+                            "flying",
+                            "shiny",
+                            "ice2",
+                            "ice3"
+                        ],
+                        "convertmsg": "A ~Old~ was cooled until it became a ~New~!"
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "hide": true
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["ice", "ice2", "ice3"]
+                    }
+                },
+                "poison": {
+                    "mode": "die",
+                    "msg": "Someone tried to heat you, but being full of ice made you melt instantly!",
+                    "targetmsg": "Your target (~Self~) melted instantly from your heat!"
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "onlist": "rotom"
+            }
+        },
+        {
+            "role": "ice2",
+            "translation": "Frost Rotom Jr.",
+            "side": "ice",
+            "help": "You have been cooled down and put into a Refrigerator! You can type /convert [name] every 2 nights to transform another kind of Rotom into a Frost Rotom (50% chance of failing). You have a 50% chance of evading daykills, but you die instantly if poisoned.",
+            "info": "Can convert one person to Frost Rotom Jr. every 2 nights (50% chance of failing). Has a 50% chance of evading daykills. Instantly dies if poisoned. Sided with Refrigerators. ",
+            "actions": {
+                "night": {
+                    "convert": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "newRole": "ice2",
+                        "canConvert": [
+                            "rotom",
+                            "rotom2",
+                            "fire",
+                            "water",
+                            "grass",
+                            "flying",
+                            "shiny"
+                        ],
+                        "convertmsg": "A ~Old~ was cooled until it became a ~New~!",
+                        "initialrecharge": 2,
+                        "recharge": 2,
+                        "hide": true,
+                        "failChance": 0.5
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "hide": true
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["ice2", "ice3"]
+                    }
+                },
+                "poison": {
+                    "mode": "die",
+                    "msg": "Someone tried to heat you, but being full of ice made you melt instantly!",
+                    "targetmsg": "Your target (~Self~) melted instantly from your heat!"
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "onlist": "rotom"
+            }
+        },
+        {
+            "role": "ice3",
+            "translation": "Frost Rotom Jr.",
+            "side": "ice",
+            "help": "You have been cooled down and put into a Refrigerator! You can type /convert [name] every 2 nights to transform another kind of Rotom into a Frost Rotom (50% chance of failing). You have a 50% chance of evading daykills, but you die instantly if poisoned. You can inspect 3 times during the game with /inspect [name]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "convert": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "newRole": "ice2",
+                        "canConvert": [
+                            "rotom",
+                            "rotom2",
+                            "fire",
+                            "water",
+                            "grass",
+                            "flying",
+                            "shiny"
+                        ],
+                        "convertmsg": "A ~Old~ was cooled until it became a ~New~!",
+                        "initialrecharge": 2,
+                        "recharge": 2,
+                        "hide": true,
+                        "failChance": 0.5
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "charges": "variable:MaxInspections",
+                        "hide": true
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["ice2", "ice3"]
+                    }
+                },
+                "poison": {
+                    "mode": "die",
+                    "msg": "Someone tried to heat you, but being full of ice made you melt instantly!",
+                    "targetmsg": "Your target (~Self~) melted instantly from your heat!"
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "onlist": "rotom"
+            }
+        },
+        {
+            "role": "flying",
+            "translation": "Fan Rotom",
+            "side": "flying",
+            "help": "You possessed an Electric Fan! Type /kill [name] during the day to defeat another Rotom (only after the 2nd day; you won't be revealed). You have a 50% chance of evading nightkills.",
+            "info": "Can kill one person during the standby (after 2 days, concealed). Has a 50% chance of evading nightkills. Sided with Electric Fans. ",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Breeze Time! Type /kill [name] to defeat another Rotom!",
+                        "killmsg": "A Fan Rotom's wind blew ~Target~ away!",
+                        "initialrecharge": 2,
+                        "revealChance": 0,
+                        "revealmsg": "A breeze can be felt around ~Self~."
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "onlist": "rotom"
+            }
+        },
+        {
+            "role": "shiny",
+            "translation": "Shiny Rotom",
+            "side": "shiny",
+            "help": "WAIT, YOU ARE SHINING! You can't change forms, but you can /kill [name] both during the night and day, /poison [name] and even /demote [name] every night to make another player become a normal Rotom again (You can not act during the 1st night)! You are also immune to distractions, get inspected as normal Rotom and bypass protections! You can't inspect though, and you are by yourself!",
+            "info": "Can kill one person during the night. Can poison one person during the night. Can demote one person during the night. Can kill one person during the standby. Cannot be distracted. Bypass any protection. Sided with Shiny Rotom. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "msg": "The Shiny Rotom was too bright for your eyes!",
+                        "initialrecharge": 2,
+                        "pierce": true
+                    },
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9,
+                        "count": 2,
+                        "poisonDeadMessage": "You couldn't stand the Shiny Rotom's poisonous attack, and thus died!",
+                        "initialrecharge": 2,
+                        "pierce": true
+                    },
+                    "demote": {
+                        "command": "convert",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "newRole": "rotom2",
+                        "canConvert": [
+                            "fire",
+                            "ice",
+                            "ice2",
+                            "ice3",
+                            "flying",
+                            "water",
+                            "grass"
+                        ],
+                        "convertmsg": "A ~Old~ was demoted and became a normal ~New~ again!",
+                        "initialrecharge": 2,
+                        "pierce": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Time to shine! Type /kill [name] to defeat another Rotom!",
+                        "killmsg": "Shiny Rotom used Thunderbolt! ~Target~ has fainted!",
+                        "revealChance": 0,
+                        "revealmsg": "~Self~ is shining!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to distract you, but you ignored them!"
+                },
+                "inspect": {
+                    "revealAs": "rotom"
+                },
+                "dummy": {
+                    "mode": "die",
+                    "msg": "You have been electrified!",
+                    "targetmsg": "Your target (~Self~) died electrified!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                }
+            }
+        },
+        {
+            "role": "false_inspect",
+            "translation": "...uh, it seems your inspection failed",
+            "side": "village",
+            "help": "Placeholder role for false /inspect. Also, why did the chicken cross the road?",
+            "hide": true,
+            "actions": {}
+        },
+        {
+            "role": "prio",
+            "translation": "Any Rotom",
+            "side": "village",
+            "help": "Placeholder role for /priority list. Also, why did the chicken cross the road?",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6
+                    }
+                }
+            }
+        }
+    ],
+    
+    "roles1": [
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "shiny",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "shiny",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom",
+        "rotom"
+    ],
+    "villageCantLoseRoles": [],
+    "votemsg": "~Player~ rotoms ~Target~!",
+    "killmsg": "±Motor: ~Player~ (~Role~) disappeared!",
+    "killusermsg": "*** You lost your ability of possessing machines and thus disappeared.",
+    "lynchmsg": "±Motor: ~Player~ (~Role~) disappeared!",
+    "drawmsg": "Rotoms, Rotoms everywh- I mean, nowhere...",
+    "changelog": {
+        "22.03.2014": "#FreeRotom. Normal Rotoms won't die anymore if not converting. Normal Rotom's inspect has now only 25% chance of working. Fixed bug where Shiny Rotom converted into Frost would have unlimited inspections. Fixed bug where Shiny Rotom would be unable to demote Frost Rotom.",
+        "17.03.2014": "Fixed bug where demoted Rotom would be unable to convert again.",
+        "11.03.2014": "Shiny Rotom appears as Shiny on Current Roles list (since it's pointless to hide them).",
+        "10.03.2014": "Normal Rotoms now have a 50% chance of failing when inspecting (won't fail after converting). Normal Rotoms set to village so they auto-lose on 1 vs. 1 situations.",
+        "08.03.2014": "Mow's voteshield reverted to -19. Mow's kill now has a 25% chance of piercing through protection.",
+        "04.03.2014": "Theme is now a fully closed setup. meaning player will not know how many of each form are in the game. Players can now inspect 3 times per game. Shiny Rotom can now daykill D1. Players can now wait until N5 to convert.",
+        "28.02.2014": "Made the theme a half-closed setup, which means all forms will show as regular 'Rotom' at the Current Roles list (still show normally at the Current Team).",
+        "22.02.2014": "Mow's voteshield buffed to -39. Heat's Distract is now faster than Wash's Protect. Rotoms can now wait until N3 to convert (/shock is NOT coming back though). Added Shiny Rotom as a test (Shiny Rotom is alone and can't inspect, but can nightkill, daykill, poison and demote. Shiny also pierces BG, ignores Distract and inspects as normal Rotom).",
+        "13.02.2014": "Added important note the the summary stating that joining only to die N1 will be considered trolling (authorized by Fuzzy). It hinders the game for people who actually want to play and messes the mafia stats/win data.",
+        "23.01.2014": "Heat's distract is now just a regular distraction (AKA won't stop Fan Rotoms from daykilling). If you already typed a command to change forms as Normal Rotom, you can now type another one in case you changed your mind.",
+        "19.01.2014": "Yet another big change: Heats now distract instead of Wash. Heat no longer resists poison for 2 turns. Wash get a self-protect once per game. Wash's vote changed to 20. Mow's voteshield changed to -19. Mow no longer evades distract. Mow's kill is now faster than Heat's poison again. This update is experimental and has a high chance of being reverted if things doesn't work, so don't freak about those changes.",
+        "17.01.2014": "Continuing the balance process, Heats now can protect+safeguard another player twice during the game. ",
+        "12.01.2014": "Starting a new balance patch. Heat's priority is now faster than Mow. Frost can convert every turn. Mow's voteshield reduced to -35. Fan becomes Frost instead of Frost Jr. when converted by Frost. Fan's Buff coming soon (please be patient :x).",
+        "10.01.2014": "Rotoms must convert N1 or die. You all asked for this.",
+        "29.12.2013": "Removed normal Rotom's /shock. Normal Rotoms now die if not converting after 3 nights. Maybe now people will try to actually play the theme.",
+        "26.12.2013": "Another Test Period: Reverted Heats to 2 poisons. Wash can only distract every 2 nights. Heat takes 2 nights to die from poison. Players converted into Frost will be able to convert someone else right away, but with a 50% chance of failing.",
+        "22.12.2013": "Test Period: Heats now can poison 3 targets.",
+        "25.11.2013": "Experimental Balance Update (may be reverted if unsuccessful): Mows have a 50% chance for -60 Voteshield. Fans can be distracted by Wash (unable to daykill for a turn). Players converted into Frost have to wait 1 turn before being able to convert. Heat's poison instantly kills Frosts.",
+        "20.11.2013": "Wash has no more recharge for /distract. Frost evades /convert (so Frosts can't connect by hitting another Frost anymore).",
+        "19.11.2013": "Theme added."
+    }
+}
