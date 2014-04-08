@@ -1,0 +1,183 @@
+{
+    "name": "Jungle",
+    "altname": "Jungle Republic",
+    "nonPeak": "true",
+    "noplur": true,
+    "author": "JhenMohran",
+    "minplayers": 4,
+    "summary": "Jungle Republic! Villagers against the mafia that don't kill or the werewolfs that do. The original theme for majority lynch. Everyone has one vote, a player will only be lynched if the majority of people playing vote them. If not enough vote then no lynch takes place at the end of the vote phase. Use your extended standby mode to co-ordinate the lynch. Talk to Jhen about any problems.",
+    "ticks": {
+        "standby": 45,
+        "night": 20
+    },
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Village"
+        },
+        {
+            "side": "mafia",
+            "translation": "Mafia"
+        },
+        {
+            "side": "werewolf",
+            "translation": "Werewolf"
+        }
+    ],
+    "roles": [
+        {
+            "role": "v",
+            "translation": "Villager",
+            "side": "village",
+            "help": "You are a villager. One vote just like everyone else, co-ordinate the days lynch in the extended standby phase as majority lynch in action.",
+            "info": "Town Villager",
+            "actions": {
+                "inspect": {
+                    "mode": "ignore",
+                        "msg": "Your target isn't a Werewolf!"
+                }
+            }
+        },
+        {
+            "role": "m",
+            "translation": "Mafia",
+            "side": "mafia",
+            "help": "You're Mafia but you can't kill. One vote just like everyone else, co-ordinate the days lynch in the extended standby phase as majority lynch in action.",
+            "info": "Mafia that doesn't kill",
+            "actions": {
+                "startup": "team-reveal",
+                "teamTalk": true,
+                "inspect": {
+                    "mode": "ignore",
+                        "msg": "Your target isn't a Werewolf!"
+                }
+            }
+        },
+        {
+            "role": "ww",
+            "translation": "Werewolf",
+            "side": "werewolf",
+            "help": "You're the Werewolf. Use /kill to kill one target during the night, shared with team. One vote just like everyone else, co-ordinate the days lynch in the extended standby phase as majority lynch in action.",
+            "info": "Werewolf, does kill at night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 1,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "s",
+            "translation": "Seer",
+            "side": "village",
+            "help": "You're the Town Seer. use /inspect to learn the role of one player during the night. Be warned this comes in the view of Werewolf or Not Werewolf (ie it fails). One vote just like everyone else, co-ordinate the days lynch in the extended standby phase as majority lynch in action.",
+            "info": "Town Seer. Inspect result in Werewolf or Fail",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "v",
+        "v",
+        "v",
+        "ww"
+    ],
+    "roles2": [
+        "s",
+        "v",
+        "v",
+        "v",
+        "ww"
+    ],
+    "roles3": [
+        "v",
+        "v",
+        "v",
+        "v",
+        "m",
+        "m"
+    ],
+    "roles4": [
+        "v",
+        "v",
+        "v",
+        "v",
+        "ww",
+        "m",
+        "m"
+    ],
+    "roles5": [
+        "s",
+        "v",
+        "v",
+        "v",
+        "v",
+        "ww",
+        "m",
+        "m"
+    ],
+    "roles6": [
+        "v",
+        "v",
+        "v",
+        "v",
+        "v",
+        "v",
+        "ww",
+        "m",
+        "m"
+    ],
+    "roles7": [
+        "v",
+        "v",
+        "v",
+        "v",
+        "v",
+        "s",
+        "ww",
+        "ww",
+        "m",
+        "m"
+    ],
+    "roles8": [
+        "v",
+        "v",
+        "v",
+        "v",
+        "v",
+        "s",
+        "ww",
+        "ww",
+        "m",
+        "m",
+        "v"
+    ],
+    "roles9": [
+        "v",
+        "v",
+        "v",
+        "v",
+        "v",
+        "s",
+        "ww",
+        "ww",
+        "m",
+        "m",
+        "v",
+        "m"
+    ],
+    "villageCantLoseRoles": []
+}
