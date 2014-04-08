@@ -1,0 +1,1297 @@
+{
+    "author": "Sky Sentinel",
+    "name": "AC",
+    "altname": "Assassin's Creed",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?21240-Assassin-s-Creed-Rebooted",
+    "minplayers": 7,
+    "summary": "The Order of the Knights Templar are trying to abolish free will using force and power! The Order of the Assassins must unite to fight for their freedom! PM Sky Sentinel with comments/suggestions. Feedback is appreciated. Special thanks to everyone for their tips on making this :P Added /changelog as of 8/17/2013, will be updating hopefully frequently. March 20th: UPDATES: Check changelog! TEAMTALK ADDED!",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Assassins",
+            "winmsg": "Vittoria agli assassini! ~Players~ have taken control over the Templars and freed everyone once and for all!"
+        },
+        {
+            "side": "plague",
+            "translation": "Plague",
+            "winmsg": "~Players~ has killed everyone by infecting them with the plague..."
+        },
+        {
+            "side": "mafia3",
+            "translation": "Colonial Templar",
+            "winmsg": "~Players~ take control over the world by crushing the Assassins with force. Their perfect world has been created."
+        },
+        {
+            "side": "mafia2",
+            "translation": "Borgia Templar",
+            "winmsg": "~Players~ take control over the world by crushing the Assassins with force. Their perfect world has been created."
+        },
+        {
+            "side": "mafia1",
+            "translation": "Middle Ages Templar",
+            "winmsg": "~Players~ take control over the world by crushing the Assassins with force. Their perfect world has been created."
+        },
+        {
+            "side": "godfather",
+            "translation": "Cain",
+            "winmsg": "~Players~'s legacy lives on..."
+        },
+        {
+            "side": "general",
+            "translation": "Charles Lee",
+            "winmsg": "General Charles Lee, ~Players~, has won this war!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "desmond",
+            "translation": "Desmond Miles",
+            "side": "village",
+            "info": "Can convert to one of the three Assassin roles.",
+            "help": "You are Desmond! You can enter the Animus and assume the role of one of the Assassins with /altair, /ezio, or /connor [your name]. Altair can inspect and reveal with a daykill, Ezio has a non-revealing daykill, and Connor has 3 votes and a sometimes-revealing expose. Ezio also can /assist one citizen in becoming an Assassin! Choose wisely!",
+            "actions": {
+                "distract": {
+                    "mode": "ignore",
+                    "hookermsg": "Desmond was nowhere to be found!",
+                    "msg": "The ~Distracter~ tried to find you last night, but couldn't!"
+                },
+                "night": {
+                    "altair": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "hide": true,
+                        "priority": 50,
+                        "restrict": [
+                            "ezio",
+                            "connor"
+                        ],
+                        "newRole": {
+                            "altair": [
+                                "desmond"
+                            ]
+                        }
+                    },
+                    "ezio": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "hide": true,
+                        "restrict": [
+                            "altair",
+                            "connor"
+                        ],
+                        "newRole": {
+                            "ezio": [
+                                "desmond"
+                            ]
+                        }
+                    },
+                    "connor": {
+                        "command": "convert",
+                        "hide": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "altair",
+                            "ezio"
+                        ],
+                        "newRole": {
+                            "connor": [
+                                "desmond"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "role": "vigilante",
+            "translation": "Assassin Recruit",
+            "side": "village",
+            "help": "Nothing is true; everything is permitted. Such is the maxim of the Assassins. Recruited by one of the famous Assassin leaders himself, you can kill one person a night with /kill!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 10,
+                        "msg": "Vittoria agli Assassini! You were assassinated by one of the recruits!",
+                        "broadcast": "role",
+                        "broadcastmsg": "The Recruits have decided to kill ~Target~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "spy",
+            "translation": "La Volpe",
+            "side": "village",
+            "help": "Your elite group of thieves allows you to get information on who's killing who in the night! You can also /inspect once during the game to gain information on who people are.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30,
+                        "charges": 1
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.06
+                    }
+                }
+            }
+        },
+        {
+            "role": "desmond2",
+            "translation": "Desmond Miles",
+            "side": "village",
+            "info": "Can convert to one of the three Assassin roles.",
+            "help": "You are Desmond! You can enter the Animus and assume the role of one of the Assassins with /altair, /ezio, or /connor [your name]. Altair can inspect during the night, Ezio has a revealing daykill, and Connor has 3 votes-- and evades Haytham. Choose wisely!",
+            "hide": true,
+            "actions": {
+                "distract": {
+                    "mode": "ignore",
+                    "hookermsg": "Desmond was nowhere to be found!",
+                    "msg": "The ~Distracter~ tried to find you last night, but couldn't!"
+                },
+                "night": {
+                    "altair": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "hide": true,
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "ezio",
+                            "connor"
+                        ],
+                        "newRole": {
+                            "altair2": [
+                                "desmond2"
+                            ]
+                        }
+                    },
+                    "ezio": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "hide": true,
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "altair",
+                            "connor"
+                        ],
+                        "newRole": {
+                            "ezio2": [
+                                "desmond2"
+                            ]
+                        }
+                    },
+                    "connor": {
+                        "command": "convert",
+                        "hide": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "altair",
+                            "ezio"
+                        ],
+                        "newRole": {
+                            "connor2": [
+                                "desmond2"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "role": "altair2",
+            "translation": "Altair",
+            "side": "village",
+            "help": "So, Desmond, you chose to become the Assassin Altair Ibn-La'Ahad, a Syrian-born member of the Levantine Brotherhood of Assassins. You can /inspect using your eagle vision during the night.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "ezio2",
+            "translation": "Ezio",
+            "side": "village",
+            "help": "Vittoria agli Assassini! As Ezio Auditore da Firenze, you have the ability to /kill during the day-- you will be revealed! Use this along with what you know about the other players' roles to eliminate the Templars. Borgia Captains will fail to kill you, but they have a higher vote than you!",
+            "hide": true,
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "bcap"
+                        ]
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill [name] to slay someone.",
+                        "killmsg": "A man in a white hood jumps off a building, swan-diving into a haystack. He crawls out and slowly walks up to ~Target~, grabs them, and presses his wrists into their back. The victim's eyes glaze over. 'Requiescat in pace,' the man says silently. ~Target~ collapses as the man lays his body on the ground. ~Self~ quickly escapes by rooftop."
+                    }
+                }
+            }
+        },
+        {
+            "role": "connor2",
+            "translation": "Connor",
+            "side": "village",
+            "help": "You are the Assassin Ratonhnhake:ton, better (and more easily) known by his adopted name of Connor. You have 3 votes, and you ignore Haytham--which is invaluable.",
+            "hide": true,
+            "actions": {
+                "vote": 3,
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "haytham",
+                            "haytham2"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "altair",
+            "translation": "Altair",
+            "side": "village",
+            "help": "So, Desmond, you chose to become the Assassin Altair Ibn-La'Ahad, a Syrian-born member of the Levantine Brotherhood of Assassins. You can /inspect using your eagle vision during the night, and use this information to kill the Templars in the day with /blade! This will reveal you! Basilisk can't kill you during the day.",
+            "info": "Can inspect during the night. Can kill during the day in bigger games. Sided with Assassins.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                },
+                "standby": {
+                    "blade": {
+                        "target": "AnyButSelf",
+                        "msg": "Take revenge on those Templars, and type /blade [name] to reveal yourself while killing!",
+                        "killmsg": "~Self~ walks up behind ~Target~ and stabs them in the back with his hidden blades!",
+                        "command": "kill"
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "basilisk"
+                        ]
+                    },
+                    "targetmsg": "*** Basilisk tried to kill you, but you jumped out of the way.",
+                    "msg": "*** Altair jumped out of the way."
+                }
+            }
+        },
+        {
+            "role": "ezio",
+            "translation": "Ezio",
+            "side": "village",
+            "help": "Vittoria agli Assassini! As Ezio Auditore da Firenze, you have the ability to /kill during the day-- without being revealed! Use this along with what you know about the other players' roles to eliminate the Templars. Also, once per game, you may /assist a citizen to promote them to a Recruit during the night! Rodrigo can't kill you during the day.",
+            "info": "Can assist one person during the night (convert a Citizen to an Assassin). Can't be nightkilled by Borgia in small games, can't be daykilled by Rodrigo in big. Can kill one person during the standby. Sided with Assassins.",
+            "actions": {
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "rborg"
+                        ]
+                    },
+                    "targetmsg": "*** Rodrigo's goons tried to kill you, but you jumped out of the way.",
+                    "msg": "*** Ezio jumped out of the way."
+                },
+                "night": {
+                    "assist": {
+                        "command": "convert",
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 1001,
+                        "charges": 1,
+                        "broadcast": "*",
+                        "broadcastmsg": "±Animus: Ezio is going to assist ~Target~!",
+                        "convertmsg": "Some Templars are harrassing ~Target~! Ezio Auditore leaps from atop a building and stabs them both in the back, landing safely. He shakes ~Target~'s hand and invites him back to the Guild.",
+                        "newRole": {
+                            "vigilante": [
+                                "citizen"
+                            ]
+                        }
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill [name] to slay someone.",
+                        "killmsg": "A man in a white hood jumps off a building, swan-diving into a haystack. He crawls out and slowly walks up to ~Target~, grabs them, and presses his wrists into their back. The victim's eyes glaze over. 'Requiescat in pace,' the man says silently. ~Target~ collapses as the man lays his body on the ground. Ezio Auditore escapes by rooftop."
+                    }
+                }
+            }
+        },
+        {
+            "role": "connor",
+            "translation": "Connor",
+            "side": "village",
+            "help": "You are the Assassin Ratonhnhake:ton, better (and more easily) known by his adopted name of Connor Kenway. You can expose someone during the day (which may reveal you), and you have 3 votes. Haytham can't kill you. You also know your grandfather, Edward, if he's in the game.",
+            "info": "Knows Edward. Can't be killed by Haytham. Can expose (big games). Vote of 3. Sided with Assassins.",
+            "actions": {
+                "startup": {
+                    "revealRole": [
+                        "edward"
+                    ]
+                },
+                "vote": 3,
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role! This has a 10% chance of revealing you.",
+                        "exposemsg": "Connor watches ~Role~ from atop a building. Another man walks up to ~Role~ and says, 'Hello, ~Target~, what a nice day we're having!'",
+			"revealChance": 0.1,
+			"revealmsg": "~Self~ slips and makes a lot of noise."
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "haytham",
+                            "haytham2"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "edward",
+            "translation": "Edward Kenway",
+            "side": "village",
+            "help": "You are Edward Kenway: pirate, assassin, and star of Assassin's Creed 4. Not much is known about you yet except that you're Connor's grandfather! Being related to him makes you know who he is if he's in the game. You can /kill someone at night, and you can also /stalk to see who someone visited. You should relay your stalk information to Connor so he can have an easier time exposing the bad guys, or use it for your own to kill them yourself!",
+            "actions": {
+                "startup": {
+                    "revealRole": [
+                        "connor"
+                    ]
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 51
+                    }
+                }
+            }
+        },
+        {
+            "role": "mob",
+            "translation": "Mob Member",
+            "side": "village",
+            "help": "Hey, Aveline was right! This is ridiculous! You feel... angry! Grr! Try to /kill something! (shared with other mob members and broadcast to everyone).",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Role",
+                        "broadcast": "*",
+                        "priority": 20,
+                        "broadcastmsg": "*** Hey, let's kill ~Target~!",
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
+            "role": "citizen",
+            "translation": "Citizen",
+            "side": "village",
+            "help": "You are a Citizen! You have the very low chance of becoming a recruit for the Order of the Assassins. You may type /recruit [yourname] to try this, but the chance is very low (8%) and the suicide rate from fighting a group of enemy Templars is significantly higher (30%) than the success rate, so you might want to think about that. Other than that, you're just an average Citizen! Vote to remove people during the day!",
+            "actions": {
+                "night": {
+                    "recruit": {
+                        "recharge": 2,
+                        "suicideChance": 0.3,
+                        "suicidemsg": "You were killed trying to defend yourself.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "newRole": {
+                            "vigilante": [
+                                "citizen"
+                            ]
+                        },
+                        "failChance": 0.92
+                    }
+                }
+            }
+        },
+        {
+            "role": "hooker",
+            "translation": "Teodora Contanto",
+            "side": "village",
+            "help": "You are Teodora, the leader of the Venetian courtesans-- which basically means you run a whore-house. While not very promiscuous yourself, you have girls at your disposal to take any man's mind off of killing. Type /distract [name] to stop someone from performing an action. You can also /hire a citizen once a game to make them able to distract!",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "distractmsg": "The Venetian courtesans came to you last night... Enough said.",
+                        "teammsg": "Your partner was visited by the Venetian courtesans, and had no time to discuss plans with you!",
+                        "broadcast": [
+                            "hooker2"
+                        ]
+                    },
+                    "hire": {
+                        "command": "convert",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1000,
+                        "charges": 1,
+                        "newRole": {
+                            "hooker2": [
+                                "citizen"
+                            ]
+                        },
+                        "convertmsg": "The ~Old~ has decided to take up work as a ~New~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "hooker2",
+            "translation": "Courtesan",
+            "side": "village",
+            "help": "You're a Courtesan, hired by the lovely Teodora Contanto! You're pretty much a fancy whore. You can /distract during the night!",
+            "actions": {
+                "startup": {
+                    "revealRole": [
+                        "hooker"
+                    ]
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "broadcast": [
+                            "hooker"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Niccolo Machiavelli",
+            "side": "village",
+            "help": "You are Niccolo Machiavelli, a man who became the leader of the Italian Assassins after the death of Mario Auditore. However, your disappearance right before a recent battle has raised some suspicion from La Volpe, so if Connor or Altair inspects you, you will be seen as a Borgia Captain! Try to convince them you're good!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "bcap"
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Juno",
+            "side": "village",
+            "help": "You are the Queen of Gods. You are, in fact, featured in this series-- namely during the end of Brotherhood. Use /Protect [name] to protect up to 2 people-- try Desmond or an Assassin as one!",
+            "info": "Protects one person in small games, two in big games. Sided with Assassins.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "bodyguard2",
+            "translation": "Juno",
+            "side": "village",
+            "help": "You are the Queen of Gods. You are, in fact, featured in this series-- namely during the end of Brotherhood. Use /Protect [name] to protect up to 1 people-- try Desmond or an Assassin!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "avelineplaceholder",
+            "translation": "Aveline",
+            "side": "village",
+            "help": "placeholder",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "convert": {
+                        "command": "dummy",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 995
+                    }
+                }
+            }
+        },
+        {
+            "role": "desmondplaceholder",
+            "translation": "Desmond",
+            "side": "village",
+            "help": "placeholder",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "convert": {
+                        "command": "dummy",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50
+                    }
+                }
+            }
+        },
+        {
+            "role": "avelinea",
+            "translation": "Aveline (Assassin)",
+            "side": "village",
+            "help": "You're the Assassin Aveline de Grandpre, a daughter of a rich French merchant and an African slave woman. You are using your assassin persona at the moment, which allows you to shoot a poison blowdart at someone with /poison. They will die in two nights. However, you can use /lady and /slave to change into those personas, which allow you to have extra votes and reveal as citizen/incite riots, respectively.",
+            "info": "Can convert to Lady and Slave personas. Can poison at night. Sided with Assassins.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "mob": "citizen"
+                    },
+                    "convertmsg": "The angry mob calmed down after Aveline died..."
+                },
+                "inspect": {
+                    "revealAs": "avelineplaceholder"
+                },
+                "onlist": "avelineplaceholder",
+                "onteam": "avelineplaceholder",
+                "lynch": {
+                    "revealAs": "avelineplaceholder"
+                },
+                "night": {
+                    "poison": {
+                        "priority": 996,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "poisonDeadMessage": "You died from Aveline's poison.",
+                        "count": 3
+                    },
+                    "lady": {
+                        "command": "convert",
+                        "silent": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "avelinel",
+                        "priority": 995,
+                        "hide": true,
+                        "cancel": [
+                            "slave"
+                        ]
+                    },
+                    "slave": {
+                        "command": "convert",
+                        "silent": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "avelines",
+                        "priority": 995,
+                        "hide": true,
+                        "cancel": [
+                            "lady"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "avelinel",
+            "translation": "Aveline (Lady)",
+            "side": "village",
+            "help": "You're the Assassin Aveline de Grandpre, a daughter of a rich French merchant and an African slave woman. You are using your Lady persona at the moment, which allows you to have 3 votes. However, you can use /assassin and /slave to change into those personas, which allow you to have a poison and reveal as citizen/incite riots, respectively.",
+            "info": "Can convert to Assassin and Slave personas. Has three votes. Sided with Assassins.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "mob": "citizen"
+                    },
+                    "convertmsg": "The angry mob calmed down after Aveline died..."
+                },
+                "vote": 3,
+                "inspect": {
+                    "revealAs": "avelineplaceholder"
+                },
+                "onlist": "avelineplaceholder",
+                "onteam": "avelineplaceholder",
+                "lynch": {
+                    "revealAs": "avelineplaceholder"
+                },
+                "night": {
+                    "assassin": {
+                        "command": "convert",
+                        "silent": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "avelinea",
+                        "priority": 995,
+                        "hide": true,
+                        "cancel": [
+                            "slave"
+                        ]
+                    },
+                    "slave": {
+                        "command": "convert",
+                        "silent": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "avelines",
+                        "priority": 995,
+                        "hide": true,
+                        "cancel": [
+                            "assassin"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "avelines",
+            "translation": "Aveline (Slave)",
+            "side": "village",
+            "help": "You're the Assassin Aveline de Grandpre, a daughter of a rich French merchant and an African slave woman. You are using your Slave persona at the moment, which allows you to blend in with citizens and use /riot to convert citizens into an angry mob, but only until you die. You'll also be revealed when you use this. However, you can use /assassin and /lady to change into those personas, which allow you to have a poison and have extra votes, respectively.",
+            "info": "Can convert to Assassin and Slave personas. Can incite a riot (buff citizens until death). Reveals as a citizen. Sided with Assassins.",
+            "actions": {
+                "onDeath": {
+                    "convertRoles": {
+                        "mob": "citizen"
+                    },
+                    "convertmsg": "The angry mob calmed down after Aveline died..."
+                },
+                "inspect": {
+                    "revealAs": "citizen"
+                },
+                "onlist": "avelineplaceholder",
+                "onteam": "avelineplaceholder",
+                "lynch": {
+                    "revealAs": "avelineplaceholder"
+                },
+                "night": {
+                    "riot": {
+                        "command": "massconvert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 900,
+                        "convertRoles": {
+                            "citizen": "mob"
+                        },
+                        "singlemassconvertmsg": "Enraged by the things ~Self~ said, the citizens became an angry mob!"
+                    },
+                    "assassin": {
+                        "command": "convert",
+                        "silent": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "avelinea",
+                        "priority": 995,
+                        "hide": true,
+                        "cancel": [
+                            "lady"
+                        ]
+                    },
+                    "lady": {
+                        "command": "convert",
+                        "silent": true,
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "newRole": "avelinel",
+                        "priority": 995,
+                        "hide": true,
+                        "cancel": [
+                            "assassin"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "bomb",
+            "translation": "Leonardo da Vinci",
+            "side": "village",
+            "help": "You're the great inventor, Leonardo da Vinci! Your skill in inventing has lead to your creation of a device that allows you to bomb all nightkillers by poisoning them and to blow up in daykillers faces! Make sure to tell Desmond, or you could have some trouble. Since you are always busy working during the day, your vote counts as zero.",
+            "actions": {
+                "vote": 0,
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ tried to kill ~Self~, but Leonardo's patented last-resort explosive pen killed his attacker, too!",
+                "kill": {
+                    "mode": "poisonattacker",
+                    "count": 2
+                }
+            }
+        },
+        {
+            "role": "bcap",
+            "translation": "Borgia Captain",
+            "side": "mafia2",
+            "help": "As a captain of the Borgia, you have a kill during the night. Your vote has been increased to 1.5. You can't kill Ezio. You can talk to your team with /tt!",
+            "hide": true,
+            "actions": {
+                "startup": "team-reveal",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 8,
+                        "broadcast": "team"
+                    }
+                },
+                "vote": 1.5
+            }
+        },
+        {
+            "role": "bcap2",
+            "translation": "Borgia Captain",
+            "side": "mafia2",
+            "help": "As a captain of the Borgia, you have a kill during the night. Your vote has been increased to 1.5. Talk to your team with /tt!",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 8,
+                        "broadcast": "team"
+                    }
+                },
+                "vote": 1.5
+            }
+        },
+        {
+            "role": "rborg",
+            "translation": "Rodrigo Borgia",
+            "side": "mafia2",
+            "help": "You're the leader of the Borgia. You can /kill [name] every day-- You will be revealed 20% of the time! You also share a kill with your team. You can't kill Ezio during the day. Talk to your team with /tt!",
+            "hide": true,
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 8,
+                        "broadcast": "team"
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can have someone killed with /kill!",
+                        "killmsg": "Rodrigo orders his men to murder ~Target~! Rodrigo Borgia takes another victim!",
+                        "revealChance": 0.2,
+                        "revealmsg": "~Self~ yawns."
+                    }
+                }
+            }
+        },
+        {
+            "role": "rborg2",
+            "translation": "Rodrigo Borgia",
+            "side": "mafia2",
+            "help": "You're the leader of the Borgia. You can /kill [name] every other day-- You will be revealed 40% of the time! You have a voteshield of -1. Talk to your team with /tt!",
+            "info": "Daykill that may reveal. Smaller games, daykills every other day. Voteshield of one in small games, can nightkill in big ones. Sided with Borgia Mafia. 40% change to reveal in small games, 15% in larger.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "voteshield": -1,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can have someone killed with /kill!",
+                        "killmsg": "Rodrigo orders his men to murder ~Target~! Rodrigo Borgia takes another victim!",
+                        "revealChance": 0.4,
+                        "revealmsg": "~Self~ yawns.",
+                        "recharge": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "haytham",
+            "translation": "Haytham Kenway",
+            "side": "mafia3",
+            "help": "You're Connor's father, and a Grandmaster of the Templars! Your vote counts as 2, and you can kill--outspeeding Juno and Teodora--during the night. You cannot, however, kill Connor. You can't be haxed! Talk to your team with /tt!",
+            "hide": true,
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "vote": 2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 0,
+                        "broadcast": "team"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "hookermsg": "Haytham laughed at you and moved on-- he had more important things to do!",
+                    "msg": "The ~Distracter~ came to you last night! You walked away!"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "haytham2",
+            "translation": "Haytham Kenway",
+            "side": "mafia3",
+            "help": "You're Connor's father, and a Grandmaster of the Templars! You can kill--outspeeding Juno and Teodora--during the night. You cannot, however, kill Connor. You also avoid hax. You can talk to your team with /tt!",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 0,
+                        "broadcast": "team"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "hookermsg": "Haytham laughed at you and moved on-- he had more important things to do!",
+                    "msg": "The ~Distracter~ came to you last night! You walked away!"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Cain",
+            "winningSides": [
+                "mafia3",
+                "mafia2",
+                "mafia1"
+            ],
+            "side": "godfather",
+            "help": "Known as the founder of the Templars, your 'Mark' is the one the Templars use to identify themselves. Oh, you also killed your own brother. You win with every Templar side, and have a daykill with /smite, which will not reveal you.",
+            "actions": {
+                "standby": {
+                    "smite": {
+                        "target": "AnyButSelf",
+                        "command": "kill",
+                        "msg": "You can kill with /smite. Let them know you mean business.",
+                        "killmsg": "A flame in the shape of Cain's Mark emerges from the ground, engulfing ~Target~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "rcoat",
+            "translation": "Redcoat",
+            "side": "mafia3",
+            "help": "You're a Redcoat-- just an average, everyday murderer. Nothing special, except you're teamed with Haytham. You can /kill during the night (shared with team). Talk to your team with /tt!",
+            "actions": {
+                "startup": "team-reveal",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 9,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "tnite",
+            "translation": "Templar Knight",
+            "side": "mafia1",
+            "help": "You're a Templar Knight. Nothing too special, but you reveal as a Citizen upon inspection. Your kill is shared with your team. Being tricky in nature, you can /discourage (safeguard) one person during the game to stop them from being hired by Teodora or Ezio (note that this only protects from these two actions). Talk to your team with /tt!",
+            "info": "Can kill during the night. Can discourage (safeguard from converts) once during the game. Inspected as Citizen. Sided with the Middle Ages Templar.",
+            "actions": {
+                "startup": "team-reveal",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 5,
+                        "broadcast": "team"
+                    },
+                    "discourage": {
+                        "command": "safeguard",
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 999,
+                        "broadcast": "team",
+                        "charges": 1
+                    }
+                },
+                "inspect": {
+                    "revealAs": "citizen"
+                }
+            }
+        },
+        {
+            "role": "basilisk",
+            "translation": "Basilisk",
+            "side": "mafia1",
+            "help": "You're an old Templar Grand Master with a night kill and a (usually) revealing daykill (30%). Team up with the Templar Knights, but you can't kill Altair during the day. Your kill is shared with the Knights. Talk to your team with /tt!",
+            "actions": {
+                "startup": "team-reveal",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 5,
+                        "broadcast": "team"
+                    }
+                },
+                "standby": {
+                    "smash": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "msg": "You can kill now using /smash [name]! You can't kill Altair like this.",
+                        "killmsg": "Basilisk slices his massive sword through ~Target~!",
+                        "revealChance": 0.3,
+                        "revealmsg": "~Self~ lets out a loud grunt."
+                    }
+                }
+            }
+        },
+        {
+            "role": "badpl",
+            "translation": "Templar Guard",
+            "side": "mafia1",
+            "help": "As a Templar Guard, it is your duty to /stop someone suspicious during the night and question them! They won't be able to do what they were going to do-- you'll be in the way. You can also /kill someone. This is shared with your team. Talk to them with /tt!",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "stop": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "command": "distract",
+                        "priority": 1,
+                        "distractmsg": "The Templar Guard stopped you. You couldn't do what you were going to do...",
+                        "teammsg": "Your partner was visited by the Templar Guard, and had no time to discuss plans with you!",
+                        "broadcast": "team"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 5,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "bodyguard3",
+            "translation": "Horseman",
+            "side": "mafia3",
+            "help": "You're a horseman. Your battling abilities allow you to /protect yourself or your teammates once per night. Your vote counts as 2. Talk to your team with /tt!",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "vote": 2,
+                "night": {
+                    "protect": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 4,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "deadpool",
+            "translation": "Cesare Borgia",
+            "side": "mafia2",
+            "help": "You're Cesare Borgia, another Grand Master of the Borgia Templars. You can expose someone in the day. Team up with Rodrigo and the Captains to defeat Desmond! Your vote counts as 1.1 because you're a Grand Master and have a bit of extra influence. Talk to your team with /tt!",
+            "actions": {
+                "teamTalk": true,
+                "vote": 1.1,
+                "startup": "team-reveal-with-roles",
+                "standby": {
+                    "expose": {
+                        "target": "AnyButTeam",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "Cesare Borgia stares down the ~Role~. '~Target~, may I have a word with you?'"
+                    }
+                }
+            }
+        },
+        {
+            "role": "votekill",
+            "translation": "Charles Lee",
+            "side": "general",
+            "info": "Vote counts as 9999. Wins when all killers are dead. Has a kill every other night.",
+            "winIfDeadRoles": [
+                "altair",
+                "ezio",
+                "connor",
+                "vigilante",
+                "desmond",
+                "rborg",
+                "bcap",
+                "godfather",
+                "poisoner",
+                "basilisk",
+                "bomb",
+                "rcoat",
+                "haytham",
+                "tnite"
+            ],
+            "help": "You're Charles Lee, General of the Continental Army during the American Revolutionary War. You're also a high-ranking Templar. Your vote counts as 9999, because you're a General! You also can /kill every other night.",
+            "actions": {
+                "vote": 9999,
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "recharge": 2,
+                        "common": "Self",
+                        "priority": 23
+                    }
+                }
+            }
+        },
+        {
+            "role": "doctor",
+            "translation": "Dottore",
+            "side": "village",
+            "help": "You're an Italian medic, the Dottore! You can /cure one person during the night to help stop the spread of the Plague. You can't be infected yourself!",
+            "actions": {
+                "night": {
+                    "cure": {
+                        "command": "detox",
+                        "priority": 998,
+                        "target": "Any",
+                        "common": "Self",
+                        "msg": "~Target~ was cured of poison.",
+                        "targetmsg": "The doctor injected you with an antidote.",
+                        "detoxfailmsg": "~Target~ is not infected!",
+                        "silent": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "poisoner",
+            "translation": "Plague",
+            "side": "plague",
+            "info": "Poisons three times a night. Poison lasts 4 days. Can't be killed or poisoned. Poisons distractors. Wins alone. Vote is zero.",
+            "help": "You're the Plague! During all this fighting, you've broken loose and started wreaking havoc! You can /infect up to four people a night, killing them in three days. Since you're not an actual human being, your vote counts as zero-- but you cannot be killed. You will poison all your distractors for two nights. You win if you effectively kill everyone.",
+            "actions": {
+                "distract": {
+                    "mode": "poisonattackerevenifprotected",
+                    "count": 3
+                },
+                "vote": 0,
+                "daykill": "evade",
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "infect": {
+                        "command": "poison",
+                        "priority": 997,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "poisonDeadMessage": "The disease turned out to be fatal, and you died of total organ failure...",
+                        "limit": 4,
+                        "count": 4
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller2",
+            "translation": "Thief",
+            "side": "village",
+            "help": "Your actions are a bit suspicious; you may look bad when inspected. Other than that, you function as a normal citizen.",
+            "info": "Miller. Reveals as a random role.",
+            "actions": {
+                "initialCondition": {
+                    "clearPoison": true
+                },
+                "inspect": {
+                    "revealAs": "*"
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "desmond2",
+        "hooker",
+        "tnite",
+        "citizen",
+        "bodyguard2",
+        "rborg2",
+        "badpl",
+        "citizen",
+        "miller2",
+        "bcap"
+    ],
+    "roles2": [
+        "desmond2",
+        "hooker",
+        "tnite",
+        "citizen",
+        "bodyguard",
+        "rborg2",
+        "badpl",
+        "citizen",
+        "miller2",
+        "bcap",
+        "spy",
+        "haytham2",
+        "citizen",
+        "miller"
+    ],
+    "roles3": [
+        "desmond",
+        "hooker",
+        "tnite",
+        "citizen",
+        "bodyguard",
+        "rborg",
+        "badpl",
+        "citizen",
+        "miller2",
+        "bcap2",
+        "spy",
+        "haytham2",
+        "citizen",
+        "miller",
+        "rcoat",
+        "citizen",
+        "basilisk",
+        "bodyguard3",
+        "deadpool",
+        "edward",
+        "citizen",
+        "miller2",
+        "tnite"
+    ],
+    "roles4": [
+        "desmond",
+        "hooker",
+        "tnite",
+        "citizen",
+        "bodyguard",
+        "rborg",
+        "badpl",
+        "citizen",
+        "miller2",
+        "bcap2",
+        "spy",
+        "haytham",
+        "citizen",
+        "miller",
+        "rcoat",
+        "bcap2",
+        "basilisk",
+        "bodyguard3",
+        "deadpool",
+        "edward",
+        "citizen",
+        "miller2",
+        "tnite",
+        {
+            "avelinel": 0.3,
+            "avelines": 0.3,
+            "avelinea": 0.3
+        },
+        "bomb",
+        "votekill",
+        "tnite",
+        "poisoner",
+        "doctor",
+        "citizen",
+        "miller2",
+        "godfather",
+        "miller2",
+        "citizen",
+        "bcap2",
+        "rcoat",
+        "badpl",
+        "miller2",
+        "citizen"
+    ],
+    "killmsg": "±Animus: ~Player~ (~Role~) was killed.",
+    "killusermsg": "You have been assassinated!",
+    "lynchmsg": "±Animus: ~Player~ (~Role~) has been hanged.",
+    "drawmsg": "'Desmond... wake up...'",
+    "votemsg": "~Player~ thinks we should hang ~Target~!",
+    "changelog": {
+        "8.17.2013": "Added changelog! Slimmed down Desmond's help message to make it easier to read.",
+        "8.20.2013": "Ezio can't be killed during the day by Rodrigo in big games. Rodrigo can kill every day. Raised big game Connor's vote. Altair can't killed by Basilisk during the day. Lowered Borgia Captain's vote to 1.5.",
+        "8.21.2013": "Ezio can't be killed by Borgia Captains in SMALL games. Once he has his non-revealing daykill, he can be killed by them but still not by Rodrigo. Added Edward Kenway. Buffed Plague to re-add Dottore.",
+        "9.28.2013": "Finally gave Templar Guard teamreveal.",
+        "10.5.2013": "Added votemsg.",
+        "10.6.2013": "Lowered Basilisk's reveal chance.",
+        "10.12.2013": "Added a ton of broadcasts that were missing to teams.",
+        "10.14.2013": "Added team talk and raised Cesare's vote slightly so he can win alone if needed.",
+        "11.18.2013": "Fixed Rodrigo's info, thanks to Crobat's suggestion.",
+        "11.30.2013": "Changed Templar Knight and Ezio's info to better clarify what /assist and /discourage do.",
+        "1.25.2014": "Fixed an error where Rodrigo could kill Ezio in 11-14 player games.",
+        "2.7.2014": "Put Aveline in, from Assassin's Creed: Liberation. She has three personas which allow her to have different abilities (use /roles AC:Aveline to find out more! Also added Mob and made some slight adjustments to balance and flavor alike.)",
+	"3.20.2014": "Changed Priority to make Redcoat outspeed Recruit. Changed Connor to always have 3 votes and now has a small chance of revealing himself.",
+	"3.21.2014": "Made changes to make Borgia slightly less vote- and kill-heavy. That is to say, changed a Borgia Captain to a Templar Knight on spawnlist. Raised Rodrigo's chance to reveal by 5%, lowered Connor's by 5%."
+    },
+    "villageCantLoseRoles": [
+        "altair",
+        "altair2",
+        "ezio",
+        "ezio2",
+        "connor",
+        "connor2",
+        "vigilante",
+        "edward",
+        "avelinea",
+        "avelinel"
+    ]
+}
