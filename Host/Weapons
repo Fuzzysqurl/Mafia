@@ -1,0 +1,1264 @@
+{
+    "name": "Weapons",
+    "author": "RiceKirby",
+    "summary": "Wield your Medieval Weapons and use them to fight against the numerous Firearms, the tough Nuclear Bombs, the tricky Magical Artifacts and the dangerous Laser Gun! Warriors have no actions, but Medieval Weapons lose if all of them are defeated (and only one bad side remains)!",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?15917-Weapons",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Medieval Weapons"
+        },
+        {
+            "side": "mafia1",
+            "translation": "Firearms"
+        },
+        {
+            "side": "godfather",
+            "translation": "Laser Gun"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Magical Artifacts"
+        },
+        {
+            "side": "mafia3",
+            "translation": "Nuclear Bombs"
+        },
+        {
+            "side": "werewolf1",
+            "translation": "Ninja Tool"
+        },
+        {
+            "side": "werewolf2",
+            "translation": "Explosive"
+        },
+        {
+            "side": "werewolf3",
+            "translation": "Lightsaber"
+        },
+        {
+            "side": "conspirator",
+            "translation": "Pen"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Warrior",
+            "side": "village",
+            "help": "You have no actions, but without you there's no one to wield the weapons! Therefore, if all Warriors die, the Medieval Weapons lose!",
+            "info": "Has no action, but Medieval Weapons lose if all Warriors are dead. Sided with Medieval Weapons",
+            "actions": {}
+        },
+        {
+            "role": "miller",
+            "translation": "Clumsy Warrior",
+            "side": "village",
+            "help": "You have no actions, but without you there's no one to wield the weapons! Therefore, if all Warriors die, the Medieval Weapons lose!",
+            "info": "Inspected as Gun. Automatically lynched with any vote. Revealed if Laser Gun dies. Sided with Medieval Weapons",
+            "actions": {
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "inspect": {
+                    "revealAs": "mafia1"
+                },
+                "voteshield": 1000
+            }
+        },
+        {
+            "role": "rogue",
+            "translation": "Weak Warrior",
+            "side": "village",
+            "help": "You are a Warrior, but unsatisfied with your own skills, you can leave your team by typing /rogue [yourname] after the 3rd Night. This will change you into a different weapon user, but you will be on your own if you decide to go rogue! You are inspected as a regular Warrior.",
+            "info": "Can change into a Shuriken, Grenade or Lightsaber after the 3rd Night. Inspected as Warrior. Sided with Medieval Weapons.",
+            "actions": {
+                "night": {
+                    "rogue": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "newRole": {
+                            "werewolf1": [
+                                "rogue"
+                            ],
+                            "werewolf2": [
+                                "rogue"
+                            ],
+                            "werewolf3": [
+                                "rogue"
+                            ]
+                        },
+                        "canConvert": [
+                            "rogue"
+                        ],
+                        "convertmsg": "Unsatisfied, a ~Old~ decided to go rogue and become a ~New~ user!",
+                        "initialrecharge": 3
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Shield",
+            "side": "village",
+            "help": "You can use /protect [name] during the night to protect someone from kills. And twice during the game, you can use /shield [name] to take kills, poison and magic attacks aimed at your target.",
+            "info": "Can protect 1 person during the night. Can shield twice during the game. Sided with Medieval Weapons.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButRole",
+                        "common": "Self",
+                        "priority": 9
+                    },
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "charges": 2,
+                        "shieldActions": ["kill", "laser", "snipe", "poison", "magic", "bomb"]
+                    }
+                }
+            }
+        },
+        {
+            "role": "survivor",
+            "translation": "Armor",
+            "side": "village",
+            "help": "You can use /safeguard to prevent someone from getting poisoned, distracted or inspected! Being an armor, survive evade up to 2 nightkills, but you receive 1 extra vote if you get voted!",
+            "info": "Evades 2 nightkills during the game. Can safeguard one person during the night. Has a Voteshield of +1. Sided with Medieval Weapons. ",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 2
+                    }
+                },
+                "voteshield": 1
+            }
+        },
+        {
+            "role": "samurai",
+            "translation": "Sword",
+            "side": "village",
+            "help": "Sharp as ever, you can type /kill [name] during the day to defeat another player (with a 25% chance of revealing yourself). And if another daykiller kills you, you will reveal their identity!",
+            "info": "Can kill one person during standby (25% reveal chance). Reveals Daykillers. Sided with Medieval Weapons",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now by typing /kill name! You have a 25% chance of revealing!:",
+                        "killmsg": "A Sword strikes through ~Target~!",
+                        "revealChance": 0.25,
+                        "revealmsg": "~Self~ then prepares their Sword for the next attack."
+                    }
+                },
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "~Self~ damaged ~Target~'s ~Role~ before getting destroyed!"
+            }
+        },
+        {
+            "role": "bomb",
+            "translation": "Spear",
+            "side": "village",
+            "help": "When attacked during the night, you will pierce your killer, taking them down with you. You can't be lynched, unless the Magic Rod votes for you (but they will die too if they do).",
+            "info": "Revenges nightkills. Has a -99 voteshield. If lynched by the Magic Rod, kills them back. Sided with Medieval Weapons.",
+            "actions": {
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "The Spear pierced you as you attacked them!"
+                },
+                "lynch": {
+                    "killRoles": ["mafia2"],
+                    "killmsg": "±Game: The ~Role~ (~Target~) voted for the Spear, so both died!"
+                },
+                "voteshield": -99
+            }
+        },
+        {
+            "role": "vigilante1",
+            "translation": "Bow & Arrow",
+            "side": "village",
+            "help": "During the night, you can shoot your arrows to poison an opponent by typing /poison [name] or to stun someone by typing /distract [name]. You only have 3 poison arrows and 3 stun arrows, so use them wisely! If lynched, you will become a Crossbow!",
+            "info": "Can poison up to 3 persons during the game. Can distract up to 3 persons during the game. Becomes a Crossbow if lynched. Sided with Medieval Weapons",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+                        "poisonDeadMessage": "You were hit by a poisoned arrow!",
+                        "charges": 3,
+                        "chargesmsg": "You have ~Charges~ poison arrow(s) left."
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "charges": 3,
+                        "chargesmsg": "You have ~Charges~ stun arrow(s) left.",
+                        "distractmsg": "You were hit by an arrow and couldn't move during the night!",
+                        "teammsg": "Your teammate was hit by an arrow and couldn't move during the night!"
+                    }
+                },
+                "lynch": {
+                    "convertTo": "vigilante2",
+                    "convertmsg": "The ~Old~ was destroyed, but was immediately recreated as a ~New~!"
+                }
+            }
+        },
+        {
+            "role": "vigilante2",
+            "translation": "Crossbow",
+            "side": "village",
+            "help": "Rebuilt as a mechanical bow, you can now use /kill [name] twice during the game to kill another player, and this will even hit some evaders!",
+            "info": "Can kill one person during the night (2 charges, can kill evaders). Sided with Medieval Weapons",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "charges": 2,
+                        "chargesmsg": "You have ~Charges~ bolt(s) left."
+                    }
+                }
+            }
+        },
+        {
+            "role": "inspector",
+            "translation": "Dagger",
+            "side": "village",
+            "help": "Being a small weapon makes you ideal for stealth missions. Due to that, you can use /inspect [name] to find someone's role OR /stalk [name] to find who someone visited during that night! You can only use one of those commands each night, and can't use the same action twice in a row!",
+            "info": "Can inspect OR stalk one person during the night (must alternate commands). Sided with Medieval Weapons.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 23,
+                        "recharge": 2,
+                        "restrict": [
+                            "stalk"
+                        ]
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 25,
+                        "recharge": 2,
+                        "restrict": [
+                            "inspect"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "mayor1",
+            "translation": "Axe",
+            "side": "village",
+            "help": "Being a heavy weapon, your vote counts as +2 and you even get a voteshield of -1. You know the Mace, but if they die your voting power increases!",
+            "info": "Vote counts as 2. Gets a voteshield of -1. Knows Mace. Becomes Two-Handed if Mace dies (vote counts as +4 and get a voteshield of -2). Sided with Medieval Weapons.",
+            "actions": {
+                "vote": 2,
+                "voteshield": -1,
+                "startup": {
+                    "revealRole": ["hooker1", "hooker2"]
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "hooker1": "hooker2"
+                    },
+                    "convertmsg": "±Game: Because Axe was defeated, ~Old~ got stronger and changed into a ~New~!"
+                }
+            }
+        },
+        {
+            "role": "mayor2",
+            "translation": "Two-Handed Axe",
+            "side": "village",
+            "help": "The Mace's demise made you stronger! Your vote now counts as +4 and you get a voteshield of -2!",
+            "hide": true,
+            "actions": {
+                "vote": 4,
+                "voteshield": -2,
+                "startup": {
+                    "revealRole": ["hooker1", "hooker2"]
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "hooker1": "hooker2"
+                    },
+                    "convertmsg": "±Game: Because Axe was defeated, ~Old~ got stronger and changed into a ~New~!"
+                }
+            }
+        },
+        {
+            "role": "hooker1",
+            "translation": "Mace",
+            "side": "village",
+            "help": "You can use /protect [name] to defend someone every 2 nights. You can also use /distract [name] every 2 nights to stun someone and stop their movements. You know Axe, but if they die your power increases!",
+            "info": "Can protect one person every 2 nights. Can distract one person every 2 nights. Knows Axe. Becomes Two-Handed if Axe dies (self-protect every 2 nights and distract every night). Sided with Medieval Weapons.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+                        "recharge": 2
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "recharge": 2,
+                        "distractmsg": "You were stunned by a Mace hit! You couldn't act during this night!",
+                        "teammsg": "Your teammate was stunned by a Mace hit! You waited for him, so you couldn't ~Action~ during this night!"
+                    }
+                },
+                "startup": {
+                    "revealRole": ["mayor1", "mayor2"]
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "mayor1": "mayor2"
+                    },
+                    "convertmsg": "±Game: Because Mace was defeated, ~Old~ got stronger and changed into a ~New~!"
+                }
+            }
+        },
+        {
+            "role": "hooker2",
+            "translation": "Two-Handed Mace",
+            "side": "village",
+            "help": "The Axe's demise made you stronger! You can now use /distract [name] every night, and you can use /protect on anyone, including yourself (but still once every 2 nights).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 10,
+                        "recharge": 2,
+                        "initialrecharge": 1,
+                        "hide": true
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "initialrecharge": 1,
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["mayor1", "mayor2"]
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "mayor1": "mayor2"
+                    },
+                    "convertmsg": "±Game: Because Mace was defeated, ~Old~ got stronger and changed into a ~New~!"
+                }
+            }
+        },
+        {
+            "role": "mafia1",
+            "translation": "Gun",
+            "side": "mafia1",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia2",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d",
+                "godfather"
+            ],
+            "help": "You can type /kill [name] during the night to shoot down an opponent (shared with your team). [Hint: Use /tt [message] to talk to your teammates]",
+            "info": "Can kill one person during the night (shared with other Guns). Sided with Firearms.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ is going to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia1_prio",
+            "translation": "Gun/Sniper Rifle",
+            "side": "mafia1",
+            "help": "Placeholder role for /priority formatting. Also, why did the chicken cross the road?",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ is going to kill ~Target~!"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia1boss",
+            "translation": "Sniper Rifle",
+            "side": "mafia1",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia2",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d",
+                "godfather"
+            ],
+            "help": "You can type /kill [name] (every night) and /snipe [name] (every 2 nights) during the night to defeat your targets, but remember: /kill is shared with your team, while /snipe is only yours! And because you shoot from far, you cannot be distracted. [Hint: Use /tt [message] to talk to your teammates]",
+            "info": "Can kill one person during the night. Can snipe one person every 2 nights (separate kill). Can't be distracted. Sided with Firearms.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 16,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ is going to kill ~Target~!",
+                        "hide": true
+                    },
+                    "snipe": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 13,
+                        "recharge": 2,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ is going to snipe ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to hold you, but you your sniping abilities can't be stopped!"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia1helper",
+            "translation": "Tranquilizer Gun",
+            "side": "mafia1",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia2",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d",
+                "godfather"
+            ],
+            "help": "You can type /distract [name] during the night to immobilize an opponent! You can also use /protect [name] to protect a fellow Firearm. If you are lynched, you will become a Sniper Rifle! [Hint: Use /tt [message] to talk to your teammates]",
+            "info": "Can distract one person during the night. Can protect one person during the night. Converts to Sniper Rifle when lynched. Sided with Firearms.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ is going to distract ~Target~!"
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 11,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ is going to protect ~Target~!"
+                    }
+                },
+                "lynch": {
+                    "convertTo": "mafia1boss",
+                    "convertmsg": "The Tranquilizer Gun escaped the lynch and (somehow) became a Sniper Rifle!"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia2",
+            "translation": "Magic Rod",
+            "side": "mafia2",
+            "winIfDeadRoles": [
+                "rogue",
+                "vigilante1",
+                "vigilante2",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d",
+                "godfather"
+            ],
+            "help": "Your magic powers grants you a vote count of +100! Be careful to not vote the Spear, or you will die too! You can also type /magic [name] every 2 nights to convert someone to a random role (they won't change teams though)!",
+            "info": "Vote counts as 100. Can change one person to a random role (on the same team) every 2 nights. Sided with Magical Artifacts. ",
+            "actions": {
+                "night": {
+                    "magic": {
+                        "command": "convert",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 22,
+                        "recharge": 2,
+                        "newRole": {
+                            "villager": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "miller": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "rogue": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "bodyguard": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "survivor": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "samurai": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "bomb": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "vigilante1": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "vigilante2": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "inspector": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "mayor1": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "mayor2": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "hooker1": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "hooker2": ["villager", "miller", "rogue", "bodyguard", "survivor", "samurai", "bomb", "vigilante1", "vigilante2", "inspector", "mayor1", "mayor2", "hooker1", "hooker2"],
+                            "mafia1": ["mafia1", "mafia1boss", "mafia1helper"],
+                            "mafia1boss": ["mafia1", "mafia1boss", "mafia1helper"],
+                            "mafia1helper": ["mafia1", "mafia1boss", "mafia1helper"],
+                            "mafia3": ["mafia3", "mafia3boss", "mafia3boss_b", "mafia3boss_c", "mafia3boss_d"],
+                            "mafia3boss": ["mafia3", "mafia3boss", "mafia3boss_b", "mafia3boss_c", "mafia3boss_d"],
+                            "mafia3boss_b": ["mafia3", "mafia3boss", "mafia3boss_b", "mafia3boss_c", "mafia3boss_d"],
+                            "mafia3boss_c": ["mafia3", "mafia3boss", "mafia3boss_b", "mafia3boss_c", "mafia3boss_d"],
+                            "mafia3boss_d": ["mafia3", "mafia3boss", "mafia3boss_b", "mafia3boss_c", "mafia3boss_d"],
+                            "werewolf1": ["werewolf1", "werewolf2", "werewolf3"],
+                            "werewolf2": ["werewolf1", "werewolf2", "werewolf3"],
+                            "werewolf3": ["werewolf1", "werewolf2", "werewolf3"]
+                        },
+                        "convertmsg": "What sorcery is this? The Magic Rod transformed a ~Old~ into a ~New~!"
+                    }
+                },
+                "vote": 100
+            }
+        },
+        {
+            "role": "mafia3",
+            "translation": "Atomic Bomb",
+            "side": "mafia3",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "godfather"
+            ],
+            "help": "You can defeat one target by typing /kill [name] during the night (you have a 10% chance of dying when using this action!). You can also use /bomb [name] during the night to kill and poison a 2nd target  (you have a 50% chance of dying!). Your actions are NOT shared with your teammates and you evade nightkills, but receives +1 vote if voted for. [Hint: Use /tt [message] to talk to your teammates]",
+            "info": "Can kill one person during the night (10% chance of dying when using). Can bomb (kill + poison) one person during the night (50% chance of dying when using). Evades nightkills. Voteshield of +1. Sided with Nuclear Bombs.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 15,
+                        "broadcast": "team",
+                        "suicideChance": 0.1,
+                        "suicidemsg": "What an explosion! You died while attacking!"
+                    },
+                    "bomb": {
+                        "command": [
+                            "kill",
+                            "poison"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 17,
+                        "broadcast": "team",
+                        "suicideChance": 0.5,
+                        "suicidemsg": "What an explosion! You died while attacking!",
+                        "poisonDeadMessage": "You have been destroyed by the Atomic Bomb's explosion!"
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "mafia1",
+                            "mafia1boss",
+                            "godfather",
+                            "werewolf1"
+                        ]
+                    }
+                },
+                "voteshield": 1,
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia3boss_d",
+            "translation": "Hydrogen Bomb",
+            "side": "mafia3",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "godfather"
+            ],
+            "help": "During the night, you can use /kill [name] to defeat 1 person (but you have a 20% chance of dying too)! You can also use /inspect to find someone's role. If inspected, you reveal yourself as a Warrior. [Hint: Use /tt [message] to talk to your teammates]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 19,
+                        "limit": 1,
+                        "broadcast": "team",
+                        "suicideChance": 0.2,
+                        "suicidemsg": "What an explosion! You died while attacking!",
+                        "hide": true
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 24,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia3boss_c",
+            "translation": "Hydrogen Bomb",
+            "side": "mafia3",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "godfather"
+            ],
+            "help": "During the night, you can use /kill [name] up to 2 times (but you have a 40% chance of dying too)! You can also use /inspect to find someone's role, but each time you do it your kill gets weaker and safer. If inspected, you reveal yourself as a Warrior. [Hint: Use /tt [message] to talk to your teammates]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 19,
+                        "limit": 2,
+                        "broadcast": "team",
+                        "suicideChance": 0.4,
+                        "suicidemsg": "What an explosion! You died while attacking!",
+                        "hide": true
+                    },
+                    "inspect": {
+                        "command": [
+                            "inspect",
+                            "copy"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 24,
+                        "broadcast": "team",
+                        "Sight": {
+                            "true": 1
+                        },
+                        "copyAs": "mafia3boss_d",
+                        "silent": true,
+                        "hide": true,
+                        "silentCopy": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia3boss_b",
+            "translation": "Hydrogen Bomb",
+            "side": "mafia3",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "godfather"
+            ],
+            "help": "During the night, you can use /kill [name] up to 3 times (but you have a 60% chance of dying too)! You can also use /inspect to find someone's role, but each time you do it your kill gets weaker and safer. If inspected, you reveal yourself as a Warrior. [Hint: Use /tt [message] to talk to your teammates]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 19,
+                        "limit": 3,
+                        "broadcast": "team",
+                        "suicideChance": 0.6,
+                        "suicidemsg": "What an explosion! You died while attacking!",
+                        "hide": true
+                    },
+                    "inspect": {
+                        "command": [
+                            "inspect",
+                            "copy"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 24,
+                        "broadcast": "team",
+                        "Sight": {
+                            "true": 1
+                        },
+                        "copyAs": "mafia3boss_c",
+                        "silent": true,
+                        "hide": true,
+                        "silentCopy": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia3boss",
+            "translation": "Hydrogen Bomb",
+            "side": "mafia3",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "godfather"
+            ],
+            "help": "During the night, you can use /kill [name] up to 4 times (but you have a 80% chance of dying too)! You can also use /inspect to find someone's role, but each time you do it your kill gets weaker and safer. If inspected, you reveal yourself as a Warrior. [Hint: Use /tt [message] to talk to your teammates]",
+            "info": "Can kill 4 persons during the night with a 80% chance of suiciding. Can inspect at night (can kill less targets with lower suicide chance each time it inspects). Inspected as Warrior. Sided with Nuclear Bombs.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 19,
+                        "limit": 4,
+                        "broadcast": "team",
+                        "suicideChance": 0.8,
+                        "suicidemsg": "What an explosion! You died while attacking!"
+                    },
+                    "inspect": {
+                        "command": [
+                            "inspect",
+                            "copy"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 24,
+                        "broadcast": "team",
+                        "Sight": {
+                            "true": 1
+                        },
+                        "copyAs": "mafia3boss_b",
+                        "silent": true,
+                        "silentCopy": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Laser Gun",
+            "side": "godfather",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d"
+            ],
+            "help": "Technologically advanced, you can kill one person by typing /kill [name] during the night. You can kill another person by typing /laser [name] every 2 nights (this will bypass most protections). Your vote counts as +2, and you know the Clumsy Warrior (who gets lynched with any vote). ",
+            "info": "Can kill one person during the night. Can laser (kill that ignores protection) one person every 2 nights. Vote counts as 2. Knows Clumsy Warrior. Sided with Laser Gun.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 18
+                    },
+                    "laser": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 8,
+                        "recharge": 2
+                    }
+                },
+                "vote": 2,
+                "startup": {
+                    "revealRole": "miller"
+                },
+                "onDeath": {
+                    "exposeRoles": [
+                        "miller"
+                    ],
+                    "exposemsg": "±Game: Before dying, ~Self~ pointed a light to ~Target~, the ~Role~!"
+                }
+            }
+        },
+        {
+            "role": "werewolf1",
+            "translation": "Shuriken",
+            "side": "werewolf1",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf2",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d",
+                "godfather"
+            ],
+            "help": "You are now alone! You can use shurikens to defeat one target by typing /kill [name] during the night. You can also find who someone visited by typing /stalk [name] during the night! Your stealth skills allow you to avoid nightkills, but your vote only counts as 0.5",
+            "info": "Can kill one person during the night. Can stalk one person during the night. Vote counts as 0.5. Evade nightkills (except from Crossbow). Sided with Ninja Tool. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 14
+                    },
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 26
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "mafia1",
+                            "mafia1boss",
+                            "godfather",
+                            "mafia3",
+                            "mafia3boss"
+                        ]
+                    }
+                },
+                "vote": 0.5
+            }
+        },
+        {
+            "role": "werewolf2",
+            "translation": "Grenade",
+            "side": "werewolf2",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf3",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d",
+                "godfather"
+            ],
+            "help": "You are alone now! You can throw grenades to defeat someone after one night by typing /poison [name]. On the day after you transform, you can use /point [name] to tell everyone who you poisoned (you won't be revealed, and you could even bluff!). Your vote counts as +2, and you can't be distracted!",
+            "info": "Can poison one person during the night. Can point to the poisoned person during the standby (after 1 turn). Vote counts as 2. Ignores any distractors. Sided with Explosive. ",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 12
+                    }
+                },
+                "standby": {
+                    "point": {
+                        "command": "expose",
+                        "target": "Any",
+                        "msg": "You can use /point [name] to tell everyone who you poisoned (you won't be revealed)!",
+                        "exposemsg": "From far, someone is shouting: 'The Grenade I threw last night fell near ~Target~!'",
+                        "initialrecharge": 2
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "werewolf3",
+            "translation": "Lightsaber",
+            "side": "werewolf3",
+            "winIfDeadRoles": [
+                "villager",
+                "miller",
+                "rogue",
+                "werewolf1",
+                "werewolf2",
+                "mafia1",
+                "mafia1boss",
+                "mafia1helper",
+                "mafia2",
+                "mafia3",
+                "mafia3boss",
+                "mafia3boss_b",
+                "mafia3boss_c",
+                "mafia3boss_d",
+                "godfather"
+            ],
+            "help": "You are alone now! You can kill someone by typing /kill [name] during the day (you won't be revealed). You can also block someone's way by typing /distract [name] during the night. You can't be poisoned.",
+            "info": "Can kill one person during the standby (concealed). Can distract one person during the night. Immune to poison. Sided with Lightsaber.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 5
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can kill now by typing /kill [name] (You won't be revealed!):",
+                        "killmsg": "Szhoom! The Lightsaber slices ~Target~ into pieces!"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "conspirator",
+            "translation": "Pen",
+            "side": "conspirator",
+            "help": "Said to be mightier than the sword, you can use /expose [name] to reveal someone's identity during the day (you won't be revealed). Or you can use other commands to reveal someone (even yourself) as another role by using /warrior (reveals target as Warrior), /bow (Bow & Arrow), /dagger, /shield, /spear, /gun, /magic (Magic Rod), /atomic (Atomic Bomb), /shuriken, /grenade, /lightsaber, /laser (Laser Gun) or /pen. You win with anyone, as long as you survive!",
+            "info": "Can expose or fake-expose (as Warrior, Dagger, Shield, Bow, Spear, Gun, Magic Rod, Atomic Bomb, Shuriken, Grenade, Lightsaber, Laser Gun or Pen) one person during the standby. Win with anyone as long as it survives.",
+            "winningSides": "*",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "Any",
+                        "msg": "You can expose someone's role by typing /expose [name] (You won't be revealed!):",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the ~Role~!"
+                    },
+                    "warrior": {
+                        "command": "expose",
+                        "target": "Any",
+                        "msg": "You can instead expose that person as a fake role by using /warrior, /dagger, /shield, /bow, /spear, /gun, /magic, /atomic, /laser, /shuriken, /grenade, /lightsaber or /pen:",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Warrior!"
+                    },
+                    "dagger": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Dagger!"
+                    },
+                    "shield": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Shield!"
+                    },
+                    "bow": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Bow & Arrow!"
+                    },
+                    "spear": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Spear!"
+                    },
+                    "gun": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Gun!"
+                    },
+                    "magic": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Magic Rod!"
+                    },
+                    "atomic": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Atomic Bomb!"
+                    },
+                    "laser": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Laser Gun!"
+                    },
+                    "shuriken": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Shuriken!"
+                    },
+                    "grenade": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Grenade!"
+                    },
+                    "lightsaber": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Lightsaber!"
+                    },
+                    "pen": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "The Pen, mightier than the sword, writes a note stating that ~Target~ is the Pen!"
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "villager",
+        "villager",
+        "bodyguard",
+        "inspector",
+        "mafia1",
+        "mafia1",
+        "villager",
+        "werewolf1",
+        "conspirator",
+        "hooker1",
+        "villager",
+        "survivor",
+        "mafia1helper"
+    ],
+    "roles2": [
+        "inspector",
+        "bodyguard",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "mafia1",
+        "mafia1",
+        "mafia1boss",
+        "mayor1",
+        "hooker1",
+        "conspirator",
+        "survivor",
+        "godfather",
+        "rogue",
+        "miller",
+        "villager"
+    ],
+    "roles3": [
+        "inspector",
+        "bodyguard",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "mafia1",
+        "mafia1",
+        "mafia1helper",
+        "mafia2",
+        "vigilante1",
+        "mayor1",
+        "hooker1",
+        "conspirator",
+        "miller",
+        "godfather",
+        "bomb",
+        "survivor",
+        "mafia1boss",
+        "rogue"
+    ],
+    "roles4": [
+        "inspector",
+        "bodyguard",
+        "survivor",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "villager",
+        "miller",
+        "rogue",
+        "mafia1",
+        "mafia1",
+        "mafia1boss",
+        "mafia1helper",
+        "conspirator",
+        "mafia2",
+        "mafia3",
+        "mafia3",
+        "mayor1",
+        "hooker1",
+        "bomb",
+        "godfather",
+        "vigilante1",
+        "samurai",
+        "villager",
+        "mafia3boss",
+        "bodyguard",
+        "villager",
+        "mafia1boss",
+        "villager",
+        "mafia1helper",
+        "mafia3",
+        "mafia1",
+        "miller",
+        "rogue",
+        "mafia1",
+        "conspirator",
+        "villager",
+        "samurai",
+        "mafia3",
+        "godfather",
+        "miller"
+    ],
+    "villageCantLoseRoles": [
+        "samurai",
+        "vigilante1",
+        "vigilante2",
+        "mayor1",
+        "mayor2"
+    ],
+    "minplayers": 5,
+    "killmsg": "±Game: ~Player~ (~Role~) was destroyed!",
+    "killusermsg": "*** You have been destroyed!",
+    "lynchmsg": "±Game: ~Player~ (~Role~) was lynched! Such a loss for the ~Side~!",
+    "drawmsg": "With lethal weapons everywhere, everyone died :(",
+    "changelog": {
+        "28.03.2014": "Shield no longer has /guard. Shield now has /shield with 2 charges that can shield any kill, poison or magic action.",
+        "04.03.2014": "Armor has a normal vote now (still has the voteshield though).",
+        "22.01.2014": "Changed Bow & Arrow so it cannot use all of its poison/distract in a single night. This is actually a buff to Village, since Bow would often decimate their teammates early game.",
+        "19.01.2014": "Tweaked spawn lists to make villager stronger on games of 14-20 players.",
+        "10.01.2014": "Armor's nightkill evasion changed from 75% chance to twice during the game.",
+        "10.10.2013": "Team Talk added to Firearms and Nuclear Bombs.",
+        "30.09.2013": "Spear now instantly kills Magic Rod when lynched (instead of waiting until the end of the night).",
+        "31.07.2013": "Spawn List expanded to allow for 40+ players",
+        "09.06.2013": "Mace and Axe will now upgrade when the Two-Handed Mace and Axe are killed too (situation possible due to Magic Rod).",
+        "16.03.2013.a": "Theme revamped (Details below).",
+        "16.03.2013.b": "Only 1 Weak Warrior per game (self-convert is now random). Shield can /guard once in the game (self-poison + protect + safeguard). ",
+        "16.03.2013.c": "Sword's revealChance reduced to 25%. Spear is now a nightkill bomb + Kuja bomb. Bow becomes Crossbow when lynched. Crossbow added (nightkiller, 2 charges, can kill evaders).",
+        "16.03.2013.d": "Dagger now must alternate Inspect and Stalk. Knife removed. Atomic Bomb's /bomb now kill and poison. ",
+        "16.03.2013.e": "Hydrogen Bomb changes form when Inspecting (4 forms) and gets [4 - current form] kills with a [100% - current form * 20%] chance of suiciding.",
+        "16.03.2013.f": "Grenade gets a standby expose that only tells who was poisoned. Lightsaber's revealChance removed. Laser Gun's /laser recharge reduced from 3 to 2. Pen can expose more roles now.",
+        "16.03.2013.g": "Revamped Magic Rod: Only 1 Magic Rod now. It gets 100 votes and /magic every 2 nights (changes target into a random role on the same team).",
+        "29.01.2013": "Added this changelog."
+    }
+}
