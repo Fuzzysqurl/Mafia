@@ -1,0 +1,839 @@
+{
+    "name": "Elements",
+    "author": "Master12345",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?15957",
+    "summary": "The basic units of matter – a theme revolving around the periodic table of elements! [Game Notes: Ionize now pierces. Teamtalk added.]",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Healthy Elements",
+            "winmsg": "±Game: ~Players~ (Healthy Elements) win! Life continues on the planet!"
+        },
+        {
+            "side": "mafia1",
+            "translation": "Reactive Elements",
+            "winmsg": "±Game: ~Players~ (Reactive Elements) win! Explosive reactions rampage the planet!"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Toxic Elements",
+            "winmsg": "±Game: ~Players~ (Toxic Elements) win! Pandemic plagues spread throughout the planet!"
+        },
+        {
+            "side": "werewolf",
+            "translation": "Radioactive Elements",
+            "winmsg": "±Game: ~Players~ (Radioactive Elements) win! Radioactive decay corrupts the planet!"
+        },
+        {
+            "side": "neptunium",
+            "translation": "Neptunium",
+            "winmsg": "±Game: Wait what…how did ~Players~, the Neptunium, win all alone?! ~Players~ must be a genius!"
+        },
+        {
+            "side": "plutonium",
+            "translation": "Plutonium",
+            "winmsg": "±Plutonium: Nobody can stop ~Players~! My asteroid entourage pummels this planet to oblivion!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "nitrogen",
+            "translation": "Nitrogen",
+            "side": "village",
+            "help": "Atomic symbol N. When diatomic, your triple bonds are energy-packed – for this, you are used in TNT. Harness this energy by killing in the day – YOU WILL BE REVEALED! Make sure not to kill Carbon (Insp), Oxygen (PL), Xenon (BG), or other Healthy Elements!",
+            "info": "Can kill one player during the day (reveals).  Sided with Healthy Elements.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Form TNT (trinitrotoluene) and destroy another element using /kill [name] !",
+                        "killmsg": "Nitrogen from ~Self~ forms TNT (trinitrotoluene) and explodes on ~Target~! KABOOM!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "oxygen",
+            "translation": "Oxygen",
+            "side": "village",
+            "help": "Atomic symbol O. You react and form bonds with everybody – in redox reactions and hydrogen bonds, for example. Use your flexible bonding to distract others by typing /bond [name]! Work with Carbon (Insp), Xenon (BG), Nitrogen (Samurai), and other Healthy Elements! You may discover protectors during the night.",
+            "info": "Can distract one player during the night. (/bond) Low hax on protect. Sided with Healthy Elements.",
+            "actions": {
+                "night": {
+                    "bond": {
+                        "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12,
+                        "broadcast": "none",
+                        "distractmsg": "The Oxygen atom bonded with you last night! You were too distracted to complete any actions.",
+                        "teammsg": "The Oxygen atom bonded with your teammate last night! You were too distracted to ~Action~ anyone."
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "xenon",
+            "translation": "Xenon",
+            "side": "village",
+            "help": "Atomic symbol Xe. As a noble gas, you do not readily react with other elements. Type /protect [name] to guard an ally! Work with Carbon (Insp), Oxygen (PL), Nitrogen (Samurai), and other Healthy Elements! You may discover distracters during the night.",
+            "info": "Can protect one player during the night. Low hax on distract. Sided with Healthy Elements.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+                        "broadcast": "none"
+                    }
+                },
+                "hax": {
+                    "bond": {
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "xenon2",
+            "translation": "Xenon",
+            "side": "village",
+            "help": "Atomic symbol Xe. As a noble gas, you do not readily react with other elements. Type /protect [name] to guard an ally – YOU CAN NOW USE THIS TWICE! Now upgraded, your chemical neutrality shuns distracters. Work with Carbon (Insp), Oxygen (PL), Nitrogen (Samurai), and other Healthy Elements! You may discover distracters during the night.",
+            "info": "Can protect two players during the night. Low hax on distract. Ignores distractors. Sided with Healthy Elements.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+                        "broadcast": "none",
+                        "limit": 2
+                    }
+                },
+                "hax": {
+                    "bond": {
+                        "revealPlayer": 0.05
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ atom tried to bond with you last night, but you ignored it!"
+                }
+            }
+        },
+        {
+            "role": "iron",
+            "translation": "Iron",
+            "side": "village",
+            "help": "Atomic symbol Fe. A very durable element, you carry oxygen in human bodies with the protein hemoglobin. Your hardiness allows you to use BOTH /protect [name] and /safeguard [name] to guard from kills (protect) and from all other commands – poison, inspect, and distract (safeguard)! Work with Carbon (Insp), Xenon (BG), Oxygen (PL), Nitrogen (Samurai), and other Healthy Elements!",
+            "info": "Can protect one player during the night. Can safeguard one player during the night. Sided with Healthy Elements.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 22,
+                        "broadcast": "none"
+                    },
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "broadcast": "none"
+                    }
+                }
+            }
+        },
+        {
+            "role": "carbon",
+            "translation": "Carbon",
+            "side": "village",
+            "help": "Atomic symbol C. As the “building block of life”, you are the cornerstone of all living organisms. Type /inspect [name] to find another element’s identity! In addition, your vote counts for 2 since your four covalent bonds coordinate organic structures. Work with Oxygen (PL), Xenon (BG), Nitrogen (Samurai), and other Healthy Elements!",
+            "info": "Can inspect one player during the night. Vote counts as 2. Sided with Healthy Elements.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 40,
+                        "broadcast": "none"
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "hydrogen",
+            "translation": "Hydrogen",
+            "side": "village",
+            "help": "Atomic symbol H. You are the lightest, most abundant element. You have no night action, but since the stars are made of you, you may have some extraterrestrial power. Vote with Carbon (Insp), Oxygen (PL), Xenon (BG), Nitrogen (Samurai), and other Healthy Elements!",
+            "info": "Miniscule hax on inspect. Sided with Healthy Elements.",
+            "actions": {
+                "hax": {
+                    "inspect": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.02
+                    }
+                }
+            }
+        },
+        {
+            "role": "copper",
+            "translation": "Copper",
+            "side": "village",
+            "help": "Atomic symbol Cu. You are often overshadowed by Gold, another member of Group 11B, and thus your jealousy manipulates your vote to -1. You may use each of the following actions ONCE per game, as many as you want per night: /react [name] to kill; /bond [name] to distract; /protect [name] to protect; /safeguard [name] to safeguard; and /inspect [name] to inspect. Create  your own crafty endeavors while working with Carbon (Insp), Oxygen (PL), Xenon (BG), Nitrogen (Samurai), and other Healthy Elements!",
+            "info": "Can use each of the following actions ONCE per game: kill (/react), distract (/bond), protect, safeguard, and inspect. Vote counts as -1. Sided with Healthy Elements.",
+            "actions": {
+                "night": {
+                    "react": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 35,
+                        "broadcast": "none",
+                        "charges": 1
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 45,
+                        "broadcast": "none",
+                        "charges": 1
+                    },
+                    "bond": {
+                        "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+                        "broadcast": "none",
+                        "distractmsg": "The Copper atom bonded with you last night! You were too distracted to complete any actions.",
+                        "teammsg": "The Copper atom bonded with your teammate last night! You were too distracted to ~Action~ anyone.",
+                        "charges": 1
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 23,
+                        "broadcast": "none",
+                        "charges": 1
+                    },
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "broadcast": "none",
+                        "charges": 1
+                    }
+                },
+                "vote": -1
+            }
+        },
+        {
+            "role": "phosphorus",
+            "translation": "Phosphorus",
+            "side": "village",
+            "help": "Atomic symbol P. While you are important in trace amounts for use in DNA backbones and biochemical phosphorylation, you are also used in explosives. Decompose opposing elements at night with /react [name] ! You do NOT share a kill. Work together with Carbon (Insp), Oxygen (PL), Xenon (BG), Nitrogen (Samurai), and other Healthy Elements.",
+            "info": "Can kill one player during the night – individual. (/react) Sided with Healthy Elements.",
+            "actions": {
+                "night": {
+                    "react": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 34
+                    }
+                }
+            }
+        },
+        {
+            "role": "gold",
+            "translation": "Gold",
+            "side": "village",
+            "help": "Atomic symbol Au. People treasure you as a rare, valuable, and lucky element! Therefore, your vote is worth 3, and you may also find out which element will decompose! Use your abilities to work with Carbon (Insp), Oxygen (PL), Xenon (BG), Nitrogen (Samurai), and other Healthy Elements!",
+            "info": "Moderate hax on kill (/react), poison, and inspect. Vote counts as 3. Sided with Healthy Elements.",
+            "actions": {
+                "hax": {
+                    "react": {
+                        "revealTeam": 0.3,
+                        "revealPlayer": 0.1
+                    },
+                    "poison": {
+                        "revealTeam": 0.3,
+                        "revealPlayer": 0.1
+                    },
+                    "inspect": {
+                        "revealTeam": 0.3,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "sodium",
+            "translation": "Sodium",
+            "side": "mafia1",
+            "help": "Atomic symbol Na. Though necessary in cellular sodium-potassium pumps, you are such a violently reactive alkali metal that your elemental form cannot be found in nature. Team up with Chlorine and Fluorine by typing /react [name] to decompose an element immediately! In addition, use your -1 vote to trick those opposing the Reactive Elements! Once per game, as a team, you may use /ionize [name] to kill a second opponent.",
+            "info": "Can kill one player during the night (/react), with a one-shot piercing kill (/ionize) (both shared). Vote counts as -1. Sided with Reactive Elements.",
+            "actions": {
+                "night": {
+                    "react": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 33,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Sodium) has decided to react with ~Target~!"
+                    },
+
+                    "ionize": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 32,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Sodium) has decided to ionize ~Target~!",
+			"bypass": ["evadeChance", "ignore"],
+                        "charges": 1
+                    },
+
+                    "cancel": {
+                        "command": "dummy",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 50,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Sodium) cancelled the use of ionize!"
+                    }
+                },
+                "vote": -1,
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "chlorine",
+            "translation": "Chlorine",
+            "side": "mafia1",
+            "help": "Atomic symbol Cl. You are a very reactive Halogen. You are well known for the compound salt, NaCl, but you also possess a repulsive odor and taste. Team up with Sodium, Fluorine, and Francium by typing /react [name] to decompose an element! Furthermore, distract enemies of the Reactive Elements by using /bond [name]! Once per game, as a team, you may use /ionize [name] to kill a second opponent.",
+            "info": "Can kill one player during the night (/react), with a one-shot piercing kill (/ionize) (both shared). Can distract one player during the night (/bond). Sided with Reactive Elements.",
+            "actions": {
+                "night": {
+                    "react": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 33,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Chlorine) has decided to react with ~Target~!"
+                    },
+
+                    "bond": {
+                        "command": "distract",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 11,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Chlorine) has decided to bond with ~Target~!",
+                        "distractmsg": "The Chlorine atom bonded with you last night! You were too distracted to complete any actions.",
+                        "teammsg": "The Chlorine atom bonded with your teammate last night! You were too distracted to ~Action~ anyone."
+                    },
+
+                    "ionize": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 32,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Chlorine) has decided to ionize ~Target~!",
+			"bypass": ["evadeChance", "ignore"],
+                        "charges": 1
+                    },
+
+                    "cancel": {
+                        "command": "dummy",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 50,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Chlorine) cancelled the use of ionize!"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "fluorine",
+            "translation": "Fluorine",
+            "side": "mafia1",
+            "help": "Atomic symbol F. You are a very reactive Halogen. With the highest electronegativity of 4.0, you vigorously mooch off others’ electrons. Team up with Sodium, Chlorine, and Francium by typing /react [name] to decompose an element! In addition, gather knowledge with /inspect [name]! You cannot be distracted. Once per game, as a team, you may use /ionize [name] to kill a second opponent.",
+            "info": "Can kill one player during the night (/react), with a one-shot piercing kill (/ionize) (both shared). Can inspect one player during the night. Cannot be distracted. Sided with Reactive Elements.",
+            "actions": {
+                "night": {
+                    "react": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 33,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Fluorine) has decided to react with ~Target~!"
+                    },
+
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 41,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Fluorine) has decided to inspect ~Target~!"
+		    },
+
+                    "ionize": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 32,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Fluorine) has decided to ionize ~Target~!",
+			"bypass": ["evadeChance", "ignore"],
+                        "charges": 1
+                    },
+
+                    "cancel": {
+                        "command": "dummy",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 50,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Fluorine) cancelled the use of ionize!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ atom tried to bond with you last night, but you ignored it!"
+                },
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "francium",
+            "translation": "Francium",
+            "side": "mafia1",
+            "help": "Atomic symbol Fr. You are the last element to have been discovered in nature, and you decay so rapidly that you have never been seen before as a bulk solid or liquid. Team up with Sodium, Chlorine, and Fluorine by typing /react [name] to decompose an element! In addition, you may kill one person during the day with /kill [name] – YOU REVEAL! Once per game, as a team, you may use /ionize [name] to kill a second opponent.",
+            "info": "Can kill one player during the night (/react), with a one-shot piercing kill (/ionize) (both shared). Can kill one player during the standby (reveals). Sided with Reactive Elements.",
+            "actions": {
+                "night": {
+                    "react": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 33,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Francium) has decided to react with ~Target~!"
+                    },
+
+                    "ionize": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 32,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Francium) has decided to ionize ~Target~!",
+			"bypass": ["evadeChance", "ignore"],
+                        "charges": 1
+                    },
+
+                    "cancel": {
+                        "command": "dummy",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 50,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Francium) cancelled the use of ionize!"
+                    }
+                },
+
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Combustion reactions burn inside you! Use this energy to /kill [name]:",
+                        "killmsg": "~Target~ combusts in a violent chemical reaction sparked by ~Self~, the explosive element Francium!"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+
+        {
+            "role": "mercury",
+            "translation": "Mercury",
+            "side": "mafia2",
+            "help": "Atomic Hg. You are a very toxic element trapped as a liquid in thermometers, where children fear you. Team up with Lead, Arsenic, and Antimony by typing /poison [name] – your target will die the next turn. In addition, utilize your powerful vote of 2 to assist the Toxic Elements!",
+            "info": "Can poison one player during the night. Vote counts as 2. Sided with Toxic Elements.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Mercury) has decided to poison ~Target~!",
+                        "limit": 1
+                    }
+                },
+                "vote": 2,
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "lead",
+            "translation": "Lead",
+            "side": "mafia2",
+            "help": "Atomic symbol Pb. You are a very toxic element as evidenced from many instances of “lead poisoning” from antique cups and plates. Team up with Mercury, Arsenic, and Antimony by typing /poison [name] – your target will die the next turn. In addition, type /protect [name] to prevent a Toxic Element from being night-killed!",
+            "info": "Can poison one player during the night. Can protect two players during the night. Sided with Toxic Elements.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Lead) has decided to poison ~Target~!",
+                        "limit": 1
+                    },
+
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Lead) has decided to protect ~Target~!",
+                        "limit": 2
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "arsenic",
+            "translation": "Arsenic",
+            "side": "mafia2",
+            "help": "Atomic symbol As. You are a very toxic element used in pesticides, but you are also devastatingly poisonous towards humans. Team up with Mercury, Lead, and Antimony by typing /poison [name] – your target will die the next turn. In addition, acquire intel with /inspect [name] to take charge of the Toxic Elements! You cannot be distracted.",
+            "info": "Can poison one player during the night. Can inspect one player during the night. Cannot be distracted. Sided with Toxic Elements.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Arsenic) has decided to poison ~Target~!",
+			"limit": 1
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 42,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Arsenic) has decided to inspect ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ atom tried to bond with you last night, but you ignored it!"
+                },
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "antimony",
+            "translation": "Antimony",
+            "side": "mafia2",
+            "help": "Atomic symbol Sb. You are frequently misidentified as lead ever since the ancient times, perhaps because you alloy so well with your toxic counterpart. Team up with Mercury, Lead, and Arsenic by typing /poison [name] – your target will die the next turn. In addition, your similarity with Lead allows you to safeguard TWO people during the night using /safeguard [name]!",
+            "info": "Can poison one player during the night. Can stalk two players during the night. Sided with Toxic Elements.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Antimony) has decided to poison ~Target~!",
+                        "limit": 1
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Antimony) has decided to stalk ~Target~!",
+          		"stalkmsg": "It seems ~Target~ reacted with ~Visit~ in some way!",
+           		"novisitmsg": "It seems ~Target~ was chemically inert this night!",
+                        "limit": 2
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "uranium",
+            "translation": "Uranium",
+            "side": "werewolf",
+            "help": "Atomic symbol U. People scorn your fission reactions because of your radioactive emissions. Work with Radium by typing /corrupt [name] to decompose an element during the night! Your emanating radioactive aura evades night kills, and if you let Radium kill, you can protect yourself from poison as well by typing /safeguard [Self]. You kill any foolish distractors.",
+            "info": "Can kill one player during the night (shared). Avoids all nightkills, can avoid poison if it chooses not to kill. Low hax on inspect. Kills any distractors. Sided with Radioactive Elements. ",
+            "actions": {
+                "night": {
+                    "corrupt": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Uranium) has decided to corrupt ~Target~!",
+                        "priority": 31,
+			"restrict": ["safeguard"]
+                    },
+
+                    "safeguard": {
+                        "command": "safeguard",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Uranium) has decided to safeguard themselves!",
+                        "priority": 1,
+			"restrict": ["corrupt"]
+                    }
+                },
+                "hax": {
+                    "inspect": {
+                        "revealPlayer": 0.05
+                    }
+                },
+		"distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to bond with the radioactive Uranium, but instead you mysteriously decayed!",
+                    "msg": "The ~Distracter~ tried to bond with you last night! You corrupted it with your radioactivity instead!"
+                },
+                "avoidHax": [
+                    "corrupt"
+                ],
+                "kill": {
+                    "mode": "ignore"
+                },                
+		"startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "radium",
+            "translation": "Radium",
+            "side": "werewolf",
+            "help": "Atomic symbol Ra. As a radioactive element, you share a kill with Uranium; type /corrupt [name]! Furthermore, as the corrupted antithesis of the good Inspector, Carbon, you may inspect twice by using /inspect [name], and your vote has been disfigured to -2. Utilize your abilities to assist Uranium!",
+            "info": "Can kill one player during the night (shared). Can inspect two players during the night. Low hax on inspect. Vote counts as -2. Sided with Radioactive Elements. ",
+            "actions": {
+                "night": {
+                    "corrupt": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+			"broadcastmsg": "Your teammate ~Player~ (Radium) has decided to corrupt ~Target~!",
+                        "priority": 31
+                    },
+
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 43,
+                        "broadcast": "none",
+			"broadcastmsg": "Your teammate ~Player~ (Radium) has decided to inspect ~Target~!",
+                        "limit": 2
+                    }
+                },
+                "hax": {
+                    "inspect": {
+                        "revealPlayer": 0.05
+                    }
+                },
+                "vote": -2,
+                "startup": "team-reveal-with-roles",
+		"teamTalk": true
+            }
+        },
+        {
+            "role": "neptunium",
+            "translation": "Neptunium",
+            "side": "neptunium",
+            "winningSides": "*",
+            "help": "Atomic symbol Np. Outcasted from the world, you are preparing the heat death of the universe – an unorthodox doomsday clock on the entire game! Poison ANY NUMBER OF TARGETS with /poison [name]! Furthermore, you can distract another element with /bond [name]! Your sole goal is to be alive at the end of the game, so feel free to support the side of your choosing! Good luck…",
+            "info": "Can poison INDEFINITE number of people during the night. (Poison lasts 7 turns.) Can distract ONE person during the night. (/bond) Avoids all hax. Ignores any distractors. Wins the game upon survival.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 40,
+                        "broadcast": "none",
+                        "limit": 99,
+                        "count": 8
+                    },
+                    "bond": {
+                        "command": "distract",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "none",
+                        "distractmsg": "Neptunium bonded with you last night! You were too distracted to complete any actions.",
+                        "teammsg": "Neptunium bonded with your teammate last night! You were too distracted to ~Action~ anyone."
+                    }
+                },
+                "startup": "team-reveal",
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ atom tried to bond with you last night, but you ignored it!"
+                },
+                "avoidHax": [
+                    "poison"
+                ]
+            }
+        },
+        {
+            "role": "plutonium",
+            "translation": "Plutonium",
+            "side": "plutonium",
+            "help": "Atomic symbol Pu. Used in the atomic bombs of World War II, you exude an air of monstrosity and mystery. Banned from human use, you have set out to take revenge by yourself! Type /inspect [name] to reveal an element’s identity, and strike down others during the day – YOU WILL NOT BE REVEALED! In addition, you may neither be distracted nor night-killed! Good luck...",
+            "info": "Can kill one player during the day (no reveal). Can inspect one player during the night. Avoids all nightkills. Avoids all hax. Ignores any distractors. Sided with Plutonium.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 44,
+                        "broadcast": "none"
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Extraterrestrial power is now yours! Harness cosmic energy to pummel another element with Plutonian asteroids! Use /kill [name]:",
+                        "killmsg": "A mysterious Kuiper Belt asteroid pummels the Earth, causing widespread pandemonium among the elements. In the debris, ~Target~ was brutally crushed, forming a large crater.  Another element has vanished from the planet forever."
+                    }
+                },
+                "startup": "team-reveal",
+                "kill": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ atom tried to bond with you last night, but you ignored it!"
+                },
+                "avoidHax": [
+                    "inspect"
+                ]
+            }
+        }
+    ],
+    "roles1": [
+        "nitrogen",
+        "oxygen",
+        "sodium",
+        "mercury",
+        "uranium",
+        "hydrogen",
+        "xenon",
+        "hydrogen",
+        "lead",
+        "carbon",
+        "chlorine",
+        "hydrogen",
+        "hydrogen",
+        "hydrogen"
+    ],
+    "roles2": [
+        "nitrogen",
+        "oxygen",
+        "xenon2",
+        "carbon",
+        "phosphorus",
+        "hydrogen",
+        "hydrogen",
+        "hydrogen",
+        "hydrogen",
+        "sodium",
+        "chlorine",
+        "mercury",
+        "lead",
+        "uranium",
+        "plutonium",
+        "radium",
+        "hydrogen",
+        "gold",
+        "hydrogen"
+    ],
+    "roles3": [
+        "nitrogen",
+        "oxygen",
+        "carbon",
+        "xenon2",
+        "phosphorus",
+        "gold",
+        "hydrogen",
+        "hydrogen",
+        "hydrogen",
+        "hydrogen",
+        "hydrogen",
+        "sodium",
+        "chlorine",
+        "fluorine",
+        "mercury",
+        "lead",
+        "arsenic",
+        "uranium",
+        "radium",
+        "plutonium",
+        "hydrogen",
+        "copper",
+        "hydrogen",
+        "iron",
+        "neptunium",
+        "hydrogen",
+        "hydrogen",
+        "antimony",
+        "hydrogen",
+        "francium",
+        "hydrogen",
+        "oxygen",
+        "mercury",
+        "sodium",
+        "nitrogen",
+        "hydrogen",
+        "phosphorus",
+        "radium",
+        "hydrogen",
+        "gold"
+    ],
+    "villageCantLoseRoles": [
+        "nitrogen",
+        "carbon",
+        "phosphorus",
+        "gold",
+        "copper"
+    ],
+    "killmsg": "±Universe: ~Player~ (~Role~) decomposed! ",
+    "killusermsg": "Another element reacted with you, causing you to decompose!",
+    "changelog": {
+        "2.15.13": "Ionize has same function, but bypass nightkill evasion rather than being a 0 turn poison (less ties). Uranium and Radium now share the same kill, and Radium's safeguard now belongs to Uranium, but Uranium cannot use safeguard/kill together (so Radium can kill/Uranium can safeguard itself).",
+        "1.14.13": "Ionize now can pierce through BG (can still be distracted) and nightkill evasion. Minor changes to /roles startup.",
+        "1.4.13": "Changelog added. Teamtalk added."
+    }
+}
