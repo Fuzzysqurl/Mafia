@@ -1,0 +1,1494 @@
+{
+    "name": "DC",
+    "altname": "DC Universe",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?21718-DC-Universe",
+    "author": [
+        "Sky Sentinel",
+        "Withoutatrace"
+    ],
+    "summary": "The Detective Comics Universe has always been a dangerous one. Filled to the brim with monsters and villains such as Doomsday and the Joker, the only beacons of hope for the citizens located in the DC universe are their beloved heroes. Help your favorite heroes such as Batman and The Flash take on nefarious evildoers like Deathstroke and Lex Luthor and save the day! Made by Withoutatrace and Sky Sentinel. Check the /changelog for updates! NEW UPDATES: *3/21* (Superman nerf) TEAMTALK ADDED!",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Heroes",
+            "winmsg": "±Narrator: The heroes, ~Players~, have defeated the villans and saved the DC Universe!"
+        },
+        {
+            "side": "lex",
+            "translation": "Lex Luthor",
+            "winmsg": "±Narrator: Lex Luthor, ~Players~, has finally defeated the Justice League and taken over the world!"
+        },
+        {
+            "side": "joker",
+            "translation": "Joker Mafia",
+            "winmsg": "±Narrator: AHAHAHA! The Joker Mafia, ~Players~, have taken over Gotham and defeated the Justice League!"
+        },
+        {
+            "side": "deathstroke",
+            "translation": "Deathstroke",
+            "winmsg": "±Deathstroke: 'Hmmph. Is that all you've got?' ~Players~ has won this battle."
+        },
+        {
+            "side": "ninja",
+            "translation": "Ninjas",
+            "winmsg": "±Shao Khan: FATALITY. The ninjas, ~Players~, have stealthily eliminated all the other players."
+        },
+        {
+            "side": "suicide",
+            "translation": "Suicide Squad",
+            "winmsg": "±Narrator: The Suicide Squad, ~Players~, have earned the win this time."
+        },
+        {
+            "side": "catwoman",
+            "translation": "Catwoman",
+            "winmsg": "±Narrator: Meow, ~Players~ won by herself!"
+        },
+        {
+            "side": "krypton",
+            "translation": "Kryptonians",
+            "winmsg": "±~Players~: 'Bow down to the new Kryptonian overlords!'"
+        },
+        {
+            "side": "sinestro",
+            "translation": "Sinestro Corps",
+            "winmsg": "±Narrator: The Sinestro Corps, ~Players~, have crushed the Green Lantern Corps and defeated the Justice League, taking over the world!"
+        },
+        {
+            "side": "speed",
+            "translation": "Zoom and Cheetah",
+            "winmsg": "±Narrator: 'You're too slow!' Wait, that's a different theme. ~Players~ have sped past everyone and won the game!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "joker",
+            "translation": "Joker",
+            "side": "joker",
+            "help": "Ahaha! You're the Joker, one of the most infamous villains in the DC Universe! You can /kill someone at night (shared with Harley Quinn) and have a single, one-shot revealing daykill with /shoot. You can also /trick someone to scare them into exposing themself everyday with your trademark prop flag gun. When you're lynched, you'll get the last laugh-- a high-priority poison.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal",
+                "night": {
+                    "kill": {
+                        "msg": "±Joker: Here, hold this.",
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "daykilldoom",
+                        "convertfailmsg": "",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    }
+                },
+                "standby": {
+                    "shoot": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "charges": 1,
+                        "msg": "You can /shoot someone, which will reveal you and kill them, or you can /trick someone to reveal them!",
+                        "killmsg": "The Joker pulls out his pistol and takes aim at ~Target~. BANG! ...the bullet rips through ~Target~'s body, killing them instantly. ~Self~ laughs like a madman."
+                    },
+                    "trick": {
+                        "command": "expose",
+                        "target": "AnyButTeam",
+                        "exposemsg": "The Joker pulls out his pistol and takes aim at ~Target~. BANG! ...nothing happens. ~Role~ sighs in relief."
+                    }
+                },
+                "lynch": {
+                    "convertTo": "lastlaugh",
+                    "convertmsg": "Lynched, The Joker will die only after he gets the last laugh!"
+                }
+            }
+        },
+        {
+            "role": "lastlaugh",
+            "translation": "Dying Joker",
+            "side": "joker",
+            "help": "They tried to get rid of you... But you WILL get the last laugh! You have a top priority /poison which will kill someone the next day, but you will die at the end of the night. Pick your target wisely...",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal",
+                "initialCondition": {
+                    "poison": {
+                        "count": 1,
+                        "poisonDeadMessage": "You have breathed your last..."
+                    }
+                },
+                "night": {
+                    "poison": {
+                        "poisontarmsg": "'AHAHAHAHAHAHA!' The Joker tackled you to the floor and injected you with poison as he died!",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "harley",
+            "translation": "Harley Quinn",
+            "side": "joker",
+            "help": "You are the lover of the Joker, Harley Quinn!  Because of your relationship with Joker, you know him from the start and also share a night kill with him. You will also never be haxed due to the gut-wrenching fear your one true love creates within the hearts of all spies. In addition, your use of pies to the face is baffling, and therefore you are able to /distract once per night.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal",
+                "avoidHax": [
+                    "kill",
+                    "distract"
+                ],
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "distractdoom",
+                        "convertfailmsg": "",
+                        "msg": "±Harley: Too much for ya?",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 5,
+                        "broadcast": "team",
+                        "distractmsg": "'Is that... pumpkin?' You couldn't see what was going on because Harley put a pie in your face!",
+                        "teammsg": "Your teammate got hit in the face with a pie and you spent all night helping them clean up!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "citizen",
+            "translation": "Kid Hero",
+            "side": "village",
+            "help": "You are a wannabe hero-in-training, or perhaps just some kid who aspires to be something. Located in the DC Universe, be it in Metropolis, Gotham City, or some other place, you don't have much to do besides act tough and wait for something to happen. As such, you can /vote during the day to help your team!"
+        },
+        {
+            "role": "reporter",
+            "translation": "Reporter",
+            "side": "village",
+            "help": "You are a reporter, likely for the Daily Planet. You're undercover as a regular citizen, so you might overhear some plans! Vote with the Heroes during the day.",
+            "info": "No special actions, but gets 10% hax on who is being killed (no hax on who's killing).",
+            "actions": {
+		"inspect": {
+                    "revealAs": "citizen"
+                },
+                "onlist": "citizen",
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "krypto",
+            "side": "village",
+            "translation": "Krypto",
+            "help": "You are Krypto the Superdog! You are truly Man's best friend, however you have lost your one true master, Superman. Use /bark to send your role to another player in order to find your Master! Up, up, and away!",
+            "actions": {
+                "night": {
+                    "bark": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 103,
+                        "dummytargetmsg": "WOOF! WOOF! ~Self~ is licking your leg! He's Krypto the Superdog!",
+                        "dummyusermsg": "You BARKED at ~Target~, and they know who you are now."
+                    }
+                }
+            }
+        },
+        {
+            "role": "batson",
+            "side": "village",
+            "translation": "Billy Batson",
+            "help": "The one, the onl- wait, you aren't that important-- yet. You're only the simple Billy Batson! However, on Night 3, you meet the wizard Shazam, who gives you the power to say /shazam and become Captain Marvel! Until you transform, you are confused as a measly Kid Hero.",
+            "actions": {
+                "onlist": "citizen",
+		"inspect": {
+                    "revealAs": "citizen"
+                },
+                "night": {
+                    "shazam": {
+                        "command": "convert",
+                        "newRole": "marvel",
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 102,
+                        "initialrecharge": 3,
+			"convertmsg": "'SHAZAM!'"
+                    }
+                }
+            }
+        },
+        {
+            "role": "manhunter",
+            "side": "village",
+            "translation": "Martian Manhunter",
+            "help": "You're the Martian Manhunter, a super-cool alien from Mars that has decided to work with the Justice League. Being from Mars, you're not vulnerable to much, and you cannot be killed or poisoned. Your vote counts as 0.9, however.",
+            "actions": {
+                "vote": 0.9,
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "batman",
+            "translation": "Batman",
+            "side": "village",
+            "help": "The Dark Knight, the Caped Crusader, the World's Greatest Detective, Batman... Whatever you call yourself, you're the coolest of the cool. Trained in several forms of martial arts, your skill is almost unparalleled. However, you have a thing against killing. It's not your style. You don't do guns. You're also very good at sneaking around, so you can /stalk someone at night. You have a lot of influence over Gotham, so your vote counts as 1.5. You also know Robin, your faithful sidekick! You can talk to him with /tt.",
+            "info": "Can stalk and knows Robin. If Robin is in the game, has a vote of 1.5. When Robin is not present, has a vote of 2. Sided with the heroes.",
+            "actions": {
+                "startup": {
+                    "revealRole": "robin"
+                },
+                "teamTalk": [
+                    "robin"
+                ],
+                "vote": 1.5,
+                "night": {
+                    "stalk": {
+                        "stalkmsg": "As you followed ~Target~ through the darkness, you saw them meet up with ~Visit~.",
+                        "novisitmsg": "~Target~ didn't visit anyone this night!",
+                        "common": "Self",
+                        "priority": 99,
+                        "target": "AnyButSelf",
+                        "broadcast": [
+                            "robin"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "robin": "nightwing"
+                    },
+                    "convertmsg": "Batman is dead, and Robin has hung up his trademark red suit and become Nightwing."
+                }
+            }
+        },
+        {
+            "role": "robin",
+            "side": "village",
+            "translation": "Robin",
+            "help": "You are the sidekick to the caped crusader, Robin! You are best friends with Batman, therefore you know him already. Due to your stealthful nature, you have your own stalk that is broadcasted to Batman, as his broadcasts as well to you. However, if Batman happens to perish, you will become Nightwing. You can talk to Batman with /tt.",
+            "actions": {
+                "startup": {
+                    "revealRole": "batman"
+                },
+                "teamTalk": [
+                    "batman"
+                ],
+                "onDeath": {
+                    "convertRoles": {
+                        "batman": "batmansmall"
+                    },
+                    "convertmsg": "Grieving over the death of his sidekick, Batman is more determined and now has two votes."
+                },
+                "night": {
+                    "stalk": {
+                        "stalkmsg": "As you followed ~Target~ through the darkness, you saw them meet up with ~Visit~.",
+                        "novisitmsg": "~Target~ didn't visit anyone this night!",
+                        "common": "Self",
+                        "priority": 99,
+                        "target": "AnyButSelf",
+                        "broadcast": [
+                            "batman"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "nightwing",
+            "side": "village",
+            "translation": "Nightwing",
+            "help": "Batman has been killed. To avenge him, you became Nightwing, which is more like a darker version of Robin. You can now stalk twice during the night.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "stalkmsg": "As you followed ~Target~ through the darkness, you saw them meet up with ~Visit~.",
+                        "novisitmsg": "~Target~ didn't visit anyone this night!",
+                        "common": "Self",
+                        "priority": 99,
+                        "target": "AnyButSelf",
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "batmansmall",
+            "translation": "Batman",
+            "hide": true,
+            "side": "village",
+            "help": "The Dark Knight, the Caped Crusader, the World's Greatest Detective, Batman... Whatever you call yourself, you're the coolest of the cool. Trained in several forms of martial arts, your skill is almost unparalleled. However, you have a thing against killing. It's not your style. You don't do guns. You're also very good at sneaking around, so you can /stalk one person at night. You have a lot of influence over Gotham, so your vote counts as 2.",
+            "actions": {
+                "vote": 2,
+                "night": {
+                    "stalk": {
+                        "stalkmsg": "As you followed ~Target~ through the darkness, you saw them meet up with ~Visit~.",
+                        "novisitmsg": "~Target~ didn't visit anyone this night!",
+                        "common": "Self",
+                        "priority": 99,
+                        "target": "AnyButSelf",
+                        "limit": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "flash",
+            "translation": "Flash",
+            "side": "village",
+            "help": "You are the Flash! Being the fastest human in the world, able to move at the speed of light with ease, you have 1 high priority kill every night. Due to your blazing speed, you also can never be detected by spies, but you have a weak stature making your voting power -1.",
+            "actions": {
+                "vote": -1,
+                "avoidHax": [
+                    "kill"
+                ],
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "fastdoom",
+                        "msg": "±Flash: Gotta go fast!... Wait, that's not MY catchphrase.",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "convertfailmsg": "",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "flashslow",
+            "translation": "Flash",
+            "hide": true,
+            "side": "village",
+            "help": "You are the Flash! Zoom altered the way time flows around you, making you have the slowest kill in the game. Your vote counts as zero now, but you still avoid hax.",
+            "actions": {
+                "vote": 0,
+                "avoidHax": [
+                    "kill"
+                ],
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "fastdoom",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "convertfailmsg": "",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 90
+                    }
+                }
+            }
+        },
+        {
+            "role": "raven",
+            "side": "village",
+            "translation": "Raven",
+            "help": "As a half-demon member of the Teen Titans, you have a lot of power. You are generally known for being a negative and depressing person, probably because you're always hiding in that hood! As such, your vote counts for -3. You also have been shown to be able to heal others, and you can /detox twice per game to remove poison from someone! Be wary of fakeclaimers.",
+            "actions": {
+                "vote": -3,
+                "night": {
+                    "detox": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 34,
+                        "msg": "~Target~ was cured of poison.",
+                        "targetmsg": "Raven focused healing energy on you, removing the poison from your system.",
+                        "detoxfailmsg": "~Target~ is not poisoned!",
+                        "silent": true,
+                        "charges": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "superman",
+            "translation": "Superman",
+            "side": "village",
+            "help": "It's a bird! It's a plane! It's... you! As the Man of Steel, Superman, you're the strongest person on Earth. Hailing from planet Krypton, you possess superhuman strength, stamina, and agility, as well as special powers such as flight and heat vision. All this allows you to use your heat vision to /beam someone during the day! Your identity is a secret, so you won't be revealed. However, you can only do this every other day because sometimes you're busy as Clark Kent!",
+	    "info": "Can beam one person during the standby. Can kill every other day. Sided with Heroes. ",
+            "actions": {
+                "standby": {
+                    "beam": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "msg": "Use /beam to blast someone with heat!",
+                        "killmsg": "BZZZZZT! ~Target~ was zapped with Superman's heat vision! 'What's the matter, can't take the heat?'",
+			"recharge": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "marvel",
+            "translation": "Captain Marvel",
+            "side": "village",
+            "help": "SHAZAM! You have become Captain Marvel! With the powers given to you by the wizard Shazam, no longer are you a boy. You are a man, with the powers of Protecting, Safeguarding, Inspecting, Distracting, and Killing, and you may use them once per game by using their respective default commands. You can use them all at once, but be careful! You are also sided with the village, so go save the world!",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 4,
+                        "charges": 1,
+                        "distractmsg": "SHAZAM! You got zapped by magical lightning and couldn't move.",
+                        "teammsg": "Your partner got zapped by lightning and you couldn't do anything at night!"
+                    },
+                    "protect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 9,
+                        "charges": 1
+                    },
+                    "safeguard": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 9,
+                        "charges": 1
+                    },
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 101,
+                        "charges": 1
+                    },
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "convertfailmsg": "",
+                        "newRole": "fastdoom",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 13,
+                        "msg": "±Captain Marvel: 'SHAZAM!'",
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "glantern",
+            "translation": "Green Lantern",
+            "side": "village",
+            "help": "You are one of the mighty Green Lantern! You have unimaginable strength, given to you by the power ring that you bear. With this power, you have the ability to create solid-light objects out of thin air. You can /distract one person during the night by trapping them in a cage, stopping them from doing anything!",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 7,
+                        "distractmsg": "The Green Lantern trapped you in a light-construct cage, forcing you to stay there all night.",
+                        "teammsg": "Your teammate was trapped by Green Lantern and you spent all night trying to get them out."
+                    }
+                }
+            }
+        },
+        {
+            "role": "oracle",
+            "translation": "Oracle",
+            "side": "village",
+            "help": "You are the wise and all-knowing Oracle! You have multiple resources to your advantage (some less public than others), allowing you to know the identity of anyone with ease. Use /inspect to reveal their identity to yourself. You can only do this every other night because otherwise your equipment might overheat. Team up with the rest of the heroes to rid the world of villains! You also know your father, James, and you can talk to him with /tt.",
+	    "info": "Can inspect one person during every other night. Sided with Heroes.",
+            "actions": {
+                "teamTalk": [
+                    "gordon"
+                ],
+                "startup": {
+                    "revealRole": [
+                        "gordon"
+                    ]
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 75,
+                        "recharge": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "wonder",
+            "translation": "Wonder Woman",
+            "side": "village",
+            "help": "The Amazonian Warrior, you are Wonder Woman! You wield an infamous shield, impervious to any kind of attack. With this amazing shield, you can /shield one person every night to protect them from harm.",
+            "actions": {
+                "night": {
+                    "shield": {
+                        "command": "protect",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 10
+                    }
+                }
+            }
+        },
+        {
+            "role": "gordon",
+            "translation": "James Gordon",
+            "side": "village",
+            "help": "You are the Commissioner! While having no special actions, due to your high ranking in Gotham City you have a vote of +3. You also know your daughter, who is Oracle, and you can talk to her with /tt.",
+            "actions": {
+                "teamTalk": [
+                    "oracle"
+                ],
+                "startup": {
+                    "revealRole": [
+                        "oracle"
+                    ]
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "deathstroke",
+            "translation": "Deathstroke",
+            "side": "deathstroke",
+            "help": "You have been blessed with the chance to be one of the most epic villains in the history of the DC universe, Deathstroke. Armed to the teeth with guns and a sword, and highly trained in martial arts, you're very tough to kill. In fact, at night, your superhuman regenerative powers allow you to evade kills 35% of the time! During every other night, you can /inspect someone, using your immense brainpower to discover who they are. Anyone who stands in your way will be treated with a bullet to the head! Use the information you collect during the night to /kill your biggest threats during the day and night. Due to your intimidating appearance, your vote counts as 2.",
+            "actions": {
+                "vote": 2,
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.35
+                    },
+                    "msg": "Your target could not be harmed!"
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 75,
+                        "recharge": 2
+                    },
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "convertfailmsg": "",
+                        "msg": "±Deathstroke: Hah, pitiful.",
+                        "newRole": "daykilldoom",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "common": "Self",
+                        "priority": 75,
+                        "target": "AnyButSelf"
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can remove someone from the game with /kill. This won't reveal you.",
+                        "killmsg": "Deathstroke pulls out his sword, slashing at ~Target~, knocking them down. As ~Target~ stuggles to get up, Deathstroke pulls out a pistol and puts them down for good."
+                    }
+                },
+                "distract": {
+                    "mode": "killattacker",
+                    "hookermsg": "You tried to distract Deathstroke! That was a rather terrible idea.",
+                    "msg": "The ~User~ came to you last night... Only you came back."
+                }
+            }
+        },
+        {
+            "role": "pznivy",
+            "translation": "Poison Ivy",
+            "side": "joker",
+            "startupmsg": "Poison...",
+            "help": "One of the most underrated and deadly supervillains is... Poison Ivy. Her blood is poison. Everything about her is toxic...venomous. So what draws people to her? Her great looks and charm can mesmerize even the most hardheaded of heroes. But, just a touch can be fatal. You can /poison someone every night to kill them in two nights, and every other night you can /kiss someone else to poison them, too. They'll die the next night. Obviously, poisons won't hurt you. You're a good friend of Harley Quinn, so you decided to join her.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "poison": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "poison": {
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "count": 3,
+                        "priority": 33,
+                        "broadcast": "team",
+                        "poisonDeadMessage": "Poison Ivy's poison destroyed you.",
+                        "poisontarmsg": "'Ahahaha!' You feel... terrible..."
+                    },
+                    "kiss": {
+                        "command": "poison",
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "count": 2,
+                        "recharge": 2,
+                        "priority": 30,
+                        "broadcast": "team",
+                        "broadcastmsg": "Poison Ivy winked at ~Target~!",
+                        "poisontarmsg": "You felt a slight sting on your lips when Poison Ivy kissed you.",
+                        "poisonDeadMessage": "Just a kiss from Poison Ivy is all it took..."
+                    }
+                }
+            }
+        },
+        {
+            "role": "bane",
+            "translation": "Bane",
+            "side": "suicide",
+            "help": "You are the quite muscular Bane, ready to destroy the world with your steroid, Venom, that increases your strength in massive amounts and fuels your life. You share a kill with your team and can also kill again using /smash.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "broadcastmsg": "Bane flexes and charges at ~Target~."
+                    },
+                    "smash": {
+                        "command": "kill",
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "broadcastmsg": "Bane cracks his knuckles and heads for ~Target~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "doomsday",
+            "info": "Can kill during the night. Default vote of zero, cannot be killed. Abilities vary based on who kills him. Sided with Suicide Squad.",
+            "translation": "Doomsday",
+            "side": "suicide",
+            "help": "Known more for KILLING SUPERMAN than anything, you have ridiculous regenerative powers. Your vote counts as nothing, but you won't die either. For now, actually, you can't do anything but kill, which is shared with Bane. When someone kills you, however, you'll live and gain their power, because that's what you do.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "hide": true,
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "broadcastmsg": "Doomsday roars and charges at ~Target~."
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "protectdoom",
+            "hide": true,
+            "translation": "Doomsday",
+            "side": "suicide",
+            "help": "Known more for KILLING SUPERMAN than anything, you have ridiculous regenerative powers. Your vote counts as nothing, but you won't die either. For now, though, you can kill, which is shared with Bane. You can protect people at night.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "hide": true,
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "broadcastmsg": "Doomsday roars and charges at ~Target~."
+                    },
+                    "protect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 8,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "mayordoom",
+            "hide": true,
+            "translation": "Doomsday",
+            "side": "suicide",
+            "help": "Known more for KILLING SUPERMAN than anything, you have ridiculous regenerative powers. You won't die either. For now, actually, you can't do anything but kill, which is shared with Bane. Your vote counts as 3.",
+            "actions": {
+                "teamTalk": true,
+                "vote": 3,
+                "night": {
+                    "kill": {
+                        "hide": true,
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "broadcastmsg": "Doomsday roars and charges at ~Target~."
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "stalkdoom",
+            "hide": true,
+            "translation": "Doomsday",
+            "side": "suicide",
+            "help": "Known more for KILLING SUPERMAN than anything, you have ridiculous regenerative powers. Your vote counts as nothing, but you won't die either. For now, though, you can kill, which is shared with Bane. You can stalk people at night.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "broadcastmsg": "Doomsday roars and charges at ~Target~."
+                    },
+                    "stalk": {
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 100,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "daykilldoom",
+            "hide": true,
+            "translation": "Doomsday",
+            "side": "suicide",
+            "help": "Known more for KILLING SUPERMAN than anything, you have ridiculous regenerative powers. Your vote counts as nothing, but you won't die either. For now, though, you can kill, which is shared with Bane. You can daykill once per game with /kill.",
+            "actions": {
+                "teamTalk": true,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can remove someone from the game with /kill. This won't reveal you.",
+                        "killmsg": "Doomsday picks ~Target~ up and simply slams them on his knee, completely breaking them.",
+                        "charges": 1
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "hide": true,
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "broadcast": "team",
+                        "broadcastmsg": "Doomsday roars and charges at ~Target~."
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "distractdoom",
+            "hide": true,
+            "translation": "Doomsday",
+            "side": "suicide",
+            "help": "Known more for KILLING SUPERMAN than anything, you have ridiculous regenerative powers. Your vote counts as nothing, but you won't die either. Right now, you have an /attack that will also distract whoever you kill, stopping them from performing their action at all.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "attack": {
+                        "command": [
+                            "distract",
+                            "kill"
+                        ],
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 6,
+                        "broadcast": "team",
+                        "broadcastmsg": "Doomsday roars and charges at ~Target~."
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "fastdoom",
+            "hide": true,
+            "translation": "Doomsday",
+            "side": "suicide",
+            "help": "Known more for KILLING SUPERMAN than anything, you have ridiculous regenerative powers. Your vote counts as nothing, but you won't die either. Right now, you have a /kill that outspeeds bodyguards and can't be stopped, because someone fast tried to kill you... This is still shared with your team, but yours is faster, so you should tell Bane and Deadshot.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 0,
+                        "broadcast": "team",
+                        "broadcastmsg": "Doomsday roars and charges at ~Target~. (hint: He's faster!)"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "deadshot",
+            "translation": "Deadshot",
+            "side": "suicide",
+            "help": "The best assassin in the world, you've never missed a shot. However, you joined the Suicide Squad to get out of jail more quickly by doing jobs for the government. Now that you're out, you're back to the old life of crime. So take aim and /kill during the night! This is shared with your team, but you won't miss.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "msg": "HEADSHOT.",
+                        "target": "AnyButTeam",
+                        "priority": 18,
+                        "common": "Team",
+                        "broadcast": "team",
+                        "broadcastmsg": "Deadshot takes aim at ~Target~. (Deadshot's kill pierces)",
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "meow",
+            "translation": "Catwoman",
+            "side": "catwoman",
+            "winningSides": [
+                "village",
+                "lex",
+                "joker",
+                "suicide",
+                "deathstroke",
+                "krypton",
+                "sinestro",
+                "speed"
+            ],
+            "help": "Meow! You are Catwoman, extremely skillful burglar and Batman's on/off girlfriend! Being so close with Batman and a frequent aid to him in his adventures, you'll win with the village. But, true to your villainous side, you'll win as long as anyone else wins, too! Your agility and stealthiness let you figure out who is dying at night, but you can't really do much else except vote and wait for things to calm down.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.62,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "lex",
+            "side": "lex",
+            "winIfDeadRoles": [
+                "joker",
+                "harley",
+                "lastlaugh",
+                "flash",
+                "sinestro",
+                "zod",
+                "faora",
+                "non",
+                "bane",
+                "deadshot",
+                "pznivy",
+                "deathstroke",
+                "superman",
+                "cheetah",
+                "flashslow",
+                "zoom"
+            ],
+            "translation": "Lex Luthor",
+            "help": "You are the almighty Lex Luthor, the archenemy of Superman. Due to this rivalry, you are the one that keeps Superman's abilities in check. Your suit is powered by Kryptonite, and therefore, you revenge Superman's daykill. In addition, your incredible power and superior intellect as well as your influence over Metropolis give you a vote of 1940. You can also protect yourself every other night.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "common": "Self",
+                        "target": "Self",
+                        "priority": 11,
+                        "recharge": 3
+                    }
+                },
+                "vote": 1940,
+                "daykill": {
+                    "mode": {
+                        "revenge": [
+                            "superman"
+                        ]
+                    }
+                },
+                "daykillrevengemsg": "Superman tried to kill Lex Luthor, but Lex's kryptonite-infused armor brought Superman to his knees."
+            }
+        },
+        {
+            "role": "zod",
+            "translation": "Zod",
+            "side": "krypton",
+            "help": "You are Zod, Kryptonian General and nemesis to Superman. Being a Kryptonian grants you with insane powers on Earth, allowing you to /kill during the night (shared with your team), and you can't be haxed. Your status as a General grants you a lot of respect, making your vote count for 3. You may also discover who Superman is during the day when he kills.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "vote": 3,
+                "avoidHax": [
+                    "kill"
+                ],
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "mayordoom",
+                        "convertfailmsg": "",
+                        "msg": "±Zod: Kneel before me.",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 16,
+                        "broadcast": "team"
+                    }
+                },
+                "standbyHax": {
+                    "beam": {
+                        "revealRole": 0.2
+                    }
+                }
+            }
+        },
+        {
+            "role": "non",
+            "translation": "Non",
+            "side": "krypton",
+            "help": "You are Non, Kryptonian scientist and aid to General Zod! Being a Kryptonian grants you with insane powers on Earth, allowing you to /kill during the night (shared with your team). You're also very big and tough, and nobody wants to mess with you, so you can /protect one person during the night (including yourself)! Keep your team alive!",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "protectdoom",
+                        "convertfailmsg": "",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 16,
+                        "broadcast": "team"
+                    },
+                    "protect": {
+                        "common": "Self",
+                        "target": "Any",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "faora",
+            "translation": "Faora",
+            "side": "krypton",
+            "help": "You are Faora, Kryptonian soldier and wife of General Zod. Being a Kryptonian, you possess various powers and immense strength, and you can /kill during the night (shared with team). You also have super speed, and if someone stalks you they won't know who you visited. You can also /stalk someone, yourself!",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "stalkdoom",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "convertfailmsg": "",
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 16,
+                        "broadcast": "team"
+                    },
+                    "stalk": {
+                        "common": "Self",
+                        "priority": 98,
+                        "target": "AnyButTeam",
+			"broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "arkillo",
+            "side": "sinestro",
+            "translation": "Arkillo",
+            "help": "As Arkillo, you're a highly ranked member of the Sinestro Corps. Working for him is pretty easy, just type /kill [name] at night to get rid of people! You share this with Sinestro. Also, not many people pay attention to you because Sinestro is so infamous, so your vote counts as -2.",
+            "actions": {
+                "teamTalk": true,
+                "vote": -2,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 14,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "sinestro",
+            "side": "sinestro",
+            "translation": "Sinestro",
+            "help": "As Sinestro, leader and namesake of the Sinestro Corps and former mentor of Hal Jordan, the mightiest Green Lantern, your only objective here is to /kill everyone that isn't on your team. You share this with Arkillo. Pretty simple, really. Green Lantern can't distract you because you're his mentor, and you'll kill him instead. You can also /distract one person during the night, much like the Lantern.",
+            "info": "Can kill one person during the night. Can distract one person during the night. Kills distracters. Sided with Sinestro Corps.",
+            "actions": {
+                "teamTalk": true,
+                "distract": {
+                    "mode": "killattacker"
+                },
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 14,
+                        "broadcast": "team"
+                    },
+                    "distract": {
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 6,
+                        "distractmsg": "Sinestro trapped you in a light-construct cage, forcing you to stay there all night.",
+                        "teammsg": "Your teammate was trapped by Sinestro and you spent all night trying to get them out."
+                    }
+                }
+            }
+        },
+        {
+            "role": "cheetah",
+            "side": "speed",
+            "translation": "Cheetah",
+            "help": "As Cheetah, the archenemy of Wonder Woman, you have a lot of work to do here. Possessing the agility and speed of a cheetah, you can kill (shared with Zoom) at a priority only outsped by the Flash. It cannot be stopped. You can also inspect during the night, and you get hax on shield so you may find Wonder Woman.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "shield": {
+                        "revealTeam": 0.5,
+                        "revealPlayer": 0.05
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "fastdoom",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "convertfailmsg": "",
+                        "common": "Team",
+                        "target": "AnyButSelf",
+                        "priority": 3,
+                        "pierce": true,
+                        "broadcast": "team"
+                    },
+                    "inspect": {
+                        "common": "Team",
+                        "target": "AnyButSelf",
+                        "priority": 95,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "zoom",
+            "side": "speed",
+            "translation": "Zoom",
+            "help": "As Zoom, you're one of the few people capable of taking on the Flash. You can alter the way time flows around people, making them slow down. With this power, you can /slow one person during the night. They won't be able to do anything. You can also /kill, which is shared with Cheetah (who was romantically involved with you at one point). Due to you possessing 'super speed' this kill cannot be distracted and bypasses protects. If you /slow the Flash, he'll be permanently slowed and his kill will be the slowest.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "fastdoom",
+                        "convertfailmsg": "",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "common": "Team",
+                        "target": "AnyButSelf",
+                        "priority": 3,
+                        "pierce": true,
+                        "broadcast": "team"
+                    },
+                    "slow": {
+                        "command": [
+                            "distract",
+                            "convert"
+                        ],
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 3,
+                        "distractmsg": "Zoom made you slower, stopping you from acting last night.",
+                        "teammsg": "You and your teammate were slowed!",
+                        "newRole": "flashslow",
+                        "canConvert": [
+                            "flash"
+                        ],
+                        "convertmsg": "Flash's body was slowed by Zoom!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "deathstrokeninja",
+            "translation": "Deathstroke",
+            "side": "ninja",
+            "help": "You have been blessed with the chance to be one of the most epic villains in the history of the DC universe, Deathstroke. Armed to the teeth with guns and a sword, and highly trained in martial arts, you're very tough to kill. In fact, at night, your superhuman regenerative powers allow you to evade kills 25% of the time! During every other night, you can /inspect someone, using your immense brainpower to discover who they are. Anyone who stands in your way will be treated with a bullet to the head! Use the information you collect during the night to /kill your biggest threats during the night. Due to your intimidating appearance, your vote counts as 2. You have teamed up with Scorpion, who will give you his daykill when he dies.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal",
+                "vote": 2,
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    },
+                    "msg": "Your target could not be harmed!"
+                },
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 75,
+                        "recharge": 2
+                    },
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "mayordoom",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "convertfailmsg": "",
+                        "hide": true,
+                        "common": "Team",
+                        "priority": 17,
+                        "target": "AnyButTeam",
+                        "broadcast": "team"
+                    }
+                },
+                "distract": {
+                    "mode": "killattacker",
+                    "hookermsg": "You tried to distract Deathstroke! That was a rather terrible idea.",
+                    "msg": "The ~User~ came to you last night... Only you came back."
+                }
+            }
+        },
+        {
+            "role": "scorpion",
+            "side": "ninja",
+            "translation": "Scorpion",
+            "help": "Hailing from the MORTAL KOMBAT universe, you're the fabled Scorpion! You've been featured with DC characters a lot, such as in MK vs DC, and even Injustice! So, now you're here with another special assassin: Deathstroke. You can /kill someone during the day. You can also /kill at night, but this is shared. Deathstroke can inspect people, so he can help you find out who to kill. If you die, Deathstroke will be able to kill during the day.",
+            "actions": {
+                "teamTalk": true,
+                "night": {
+                    "kill": {
+                        "command": [
+                            "kill",
+                            "convert"
+                        ],
+                        "newRole": "daykilldoom",
+                        "convertfailmsg": "",
+                        "msg": "±Shao Khan: Scorpion wins.",
+                        "canConvert": [
+                            "doomsday"
+                        ],
+                        "silent": true,
+                        "common": "Team",
+                        "priority": 17,
+                        "target": "AnyButTeam",
+                        "broadcast": "team"
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can remove someone from the game with /kill. This won't reveal you.",
+                        "revealChance": 1,
+                        "killmsg": "FINISH HIM! Scorpion pulls off his mask, and breathes fire at ~Target~. Toasty!",
+                        "revealmsg": "Scorpion wins. FATALITY."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "deathstrokeninja": [
+                            "deathstroke"
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "batmansmall",
+        "arkillo",
+        "sinestro",
+        "glantern",
+        "wonder",
+        "citizen",
+        "citizen",
+        "faora"
+    ],
+    "roles2": [
+        "batmansmall",
+        "arkillo",
+        "sinestro",
+        "glantern",
+        "wonder",
+        "citizen",
+        "faora",
+        "non",
+        "citizen",
+        "reporter",
+        "citizen",
+        "gordon"
+    ],
+    "roles3": [
+        "batman",
+        "arkillo",
+        "sinestro",
+        "glantern",
+        "wonder",
+        "citizen",
+        "superman",
+        "non",
+        "robin",
+        "cheetah",
+        "reporter",
+        "citizen",
+        "faora",
+        "citizen",
+        "citizen",
+        "meow"
+    ],
+    "roles4": [
+        "batman",
+        "flash",
+        "glantern",
+        "wonder",
+        "citizen",
+        "superman",
+        "non",
+        "robin",
+        "reporter",
+        "krypto",
+        "zod",
+        "gordon",
+        "faora",
+        "citizen",
+        "zoom",
+        "cheetah",
+        "oracle",
+        "deathstroke",
+        "batson",
+        "reporter",
+        "manhunter",
+        "joker",
+        "citizen",
+        "harley",
+        "meow"
+    ],
+    "roles5": [
+        "batman",
+        "flash",
+        "glantern",
+        "wonder",
+        "citizen",
+        "superman",
+        "non",
+        "robin",
+        "reporter",
+        "krypto",
+        "zod",
+        "gordon",
+        "faora",
+        "citizen",
+        "zoom",
+        "cheetah",
+        "deathstroke",
+        "oracle",
+        "batson",
+        "manhunter",
+        "joker",
+        "harley",
+        "pznivy",
+        "raven",
+        "bane",
+        "doomsday",
+        "deadshot",
+        "lex",
+        "krypto",
+        "citizen",
+        "reporter"
+    ],
+    "roles6": [
+        "batman",
+        "flash",
+        "glantern",
+        "wonder",
+        "citizen",
+        "superman",
+        "non",
+        "robin",
+        "reporter",
+        "krypto",
+        "zod",
+        "gordon",
+        "faora",
+        "citizen",
+        "zoom",
+        "cheetah",
+        "oracle",
+        "deathstrokeninja",
+        "batson",
+        "manhunter",
+        "joker",
+        "harley",
+        "pznivy",
+        "raven",
+        "bane",
+        "doomsday",
+        "deadshot",
+        "lex",
+        "citizen",
+        "citizen",
+        "reporter",
+        "scorpion",
+        "reporter",
+        "citizen",
+        "citizen",
+        "glantern",
+        "meow",
+        "citizen",
+        "reporter",
+        "citizen"
+    ],
+    "villageCantLoseRoles": [
+        "flash",
+        "batman",
+        "batmansmall",
+        "gordon",
+        "superman",
+	"flashslow",
+	"marvel"
+    ],
+    "killmsg": "±Narrator: ~Player~ (~Role~) was ripped from the pages of the DC Universe!",
+    "killusermsg": "±Narrator: You've been killed!",
+    "lynchmsg": "±Narrator: With ~Count~ votes, ~Player~ (~Role~) was ripped from the pages of the DC Universe!",
+    "minplayers": 6,
+    "changelog": {
+        "11.17.2013": "Began testing.",
+        "11.18.2013": "Added changelog and started fixing stuff. Nothing too big. Sinestro kills Green Lantern if distracted by him. Moved Ivy to Joker's team and remade the Toxic Team. Changed citizen to Kid Hero as per Roild's suggestion. Changed name back to DC (it fits more now).",
+        "11.19.2013": "Fixed Batman's vote.",
+        "11.22.2013": "Put second Batman on VCLR.",
+        "11.24.2013": "Fixed Deathstroke's inspect. Lowered his kill evasion. Lowered Zod's vote to 3. Changed priority a bit.",
+        "12.26.2013": "Made Deadshot's daykill a pierce nightkill, and added Scorpion.",
+        "1.12.2014": "Small spawn changes.",
+        "1.14.2014": "Added new messages to make the theme look nicer and stuff. Also made Non not able to protect himself.",
+        "1.16.2014": "Added teamtalk.",
+        "1.18.2014": "Theme approved! Added Billy Batson/Captain Marvel. Added Krypto as neighbor. Made Oracle weaker to make sure the focus is on Batman and Robin/Superman as leaders.",
+	"1.20.2014": "Buffed small game mafia a little. Sinestro can distract, Arkillo's vote is -2, and since Sinestro can distract Non can self-protect again. Altered spawn list slightly.",
+	"1.21.2014": "Fixed VCLR, buffed solo Deathstroke's evasion to 35%.",
+	"3.1.2014": "Fixed Oracle's info message.",
+	"3.21.2014": "Superman kills once every other day now."
+    }
+}
