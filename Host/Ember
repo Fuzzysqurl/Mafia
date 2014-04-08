@@ -1,0 +1,2896 @@
+{
+    "name": "Ember",
+    "author": [
+        "Matt Ayala",
+        "X2C|Matt Ayala",
+        "<b><font color=blue>Suicune3000</font></b>"
+    ],
+    "minplayers": 7,
+    "summary": "All hell is loose...",
+    "sides": [
+        {
+            "side": "moltres",
+            "translation": "Moltres"
+        },
+        {
+            "side": "heatran",
+            "translation": "Heatran"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Geodude Army"
+        },
+        {
+            "side": "village",
+            "translation": "Magmar Martyrs"
+        },
+        {
+            "side": "mafia3",
+            "translation": "Steelix's Posse"
+        },
+        {
+            "side": "volcanion",
+            "translation": "Volcanion"
+        },
+        {
+            "side": "victini",
+            "translation": "Victini"
+        },
+        {
+            "side": "magcargo",
+            "translation": "Mega Magcargo"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Magmar",
+            "side": "village",
+            "help": "Just an average Magmar within a small colony inside Mt. Ember. You have no actions during the night! Vote to remove people during the day!",
+            "info": "No actions. Sided with the Magmar Martyrs.",
+            "actions": {
+                "night": {
+                    "evolve": {
+                        "failChance": 0.85,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 80,
+                        "pierce": true,
+                        "canConvert": [
+                            "villager"
+                        ],
+                        "newRole": "magmortar",
+                        "convertmsg": "Magmar evolves into Magmortar!"
+                    }
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                }
+            }
+        },
+        {
+            "role": "magmortar",
+            "translation": "Magmortar",
+            "side": "village",
+            "help": "Type /Kill [name] to kill someone! This is shared with other Magmortars. You also get a daykill in the day too, but only once.",
+            "info": "Vigilante who can kill during the night(shared with other Magmortars) and day (once per game). Sided with the Magmar Martyrs.",
+            "players": "Evolves from Magmar.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /Kill [name] to kill someone! You can only use this once, but it won't reveal you.",
+                        "killmsg": "Magmortar used Fire Blast! ~Target~ was incinerated!",
+                        "charges": 1
+                    }
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 10,
+                        "broadcast": "role",
+                        "broadcastmsg": "Your teammate (~Self~) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "magby",
+            "translation": "Magby",
+            "side": "village",
+            "help": "You're a smaller than average Magby. The runt of the pack, if you will. Your vote counts as 0, and if voted for, another vote is added.",
+            "info": "Vote counts as 0. If voted for, another vote is added to the total. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "vote": 0,
+                "voteshield": 1
+            }
+        },
+        {
+            "role": "charmander",
+            "translation": "Charmander",
+            "side": "village",
+            "help": "You're a very weak Charmander, albeit adorable, Charmander. If voted for, another vote gets counted to the total. Your vote counts as 0.",
+            "info": "Vote counts as 0. If voted for, another vote is added to the total. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "vote": 0,
+                "voteshield": 1
+            }
+        },
+        {
+            "role": "fennekin",
+            "translation": "Fennekin",
+            "side": "village",
+            "help": "What does Fennekin say? No wait, that doesn't work. All jokes aside, the mountain residents don't seem to appreciate the likes of foxes. You're considered as a hindrance and abomination to the village -- although Delphox and Braixen have begged for your stay in the colony. Your vote counts as 0, but if voted for, the total is increased by one vote.",
+            "info": "Vote counts as 0. If voted for, another vote is added to the total. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "vote": 0,
+                "voteshield": 1
+            }
+        },
+        {
+            "role": "villager2",
+            "translation": "Magmar",
+            "side": "village",
+            "help": "Just an average Magmar within a small colony inside Mt. Ember. During the night, you can type /evolve to try and evolve into Magmortar! This fails a majority of the night, but who knows -- maybe you'll be lucky! Vote to remove people during the day!",
+            "info": "Can evolve into Magmortar (85% chance of failing). Sided with the Magmar Martyrs.",
+            "actions": {
+                "night": {
+                    "evolve": {
+                        "failChance": 0.85,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 80,
+                        "pierce": true,
+                        "canConvert": [
+                            "villager"
+                        ],
+                        "newRole": "magmortar",
+                        "convertmsg": "Magmar evolves into Magmortar!"
+                    }
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                }
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Magcargo",
+            "side": "village",
+            "winningSides": ["magcargo"],
+            "help": "Just an average Magmar within a small colony inside Mt. Ember. You have no actions during the night! Vote to remove people during the day!",
+            "info": "Inspects as Geodude. On Current Roles list as Geodude. Sees itself as Magmar. Sided with Magmar Martyrs.",
+            "actions": {
+                "night": {
+                    "evolve": {
+                        "failChance": 0.9,
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 80,
+                        "pierce": true,
+                        "canConvert": [
+                            "miller"
+                        ],
+                        "newRole": "mega_magcargo",
+                        "convertmsg": "Magcargo Mega Evolves!!"
+                    }
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "inspect": {
+                    "revealAs": "geodude"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "geodude"
+            }
+        },
+        {
+            "role": "slugma",
+            "translation": "Slugma",
+            "side": "village",
+            "winningSides": ["magcargo"],
+            "help": "Just an average Magmar within a small colony inside Mt. Ember. You have no actions during the night! Vote to remove people during the day!",
+            "info": "Inspects as Victini. On Current Roles list as Victini. Sees itself as Magmar. Sided with Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "inspect": {
+                    "revealAs": "victini"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "victini"
+            }
+        },
+        {
+            "role": "miller2",
+            "translation": "Magcargo",
+            "side": "village",
+            "winningSides": ["magcargo"],
+            "help": "Just an average Magmar within a small colony inside Mt. Ember. You have no actions during the night! Vote to remove people during the day!",
+            "hide": true,
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "inspect": {
+                    "revealAs": "geodude"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "geodude"
+            }
+        },
+        {
+            "role": "volcanion",
+            "translation": "Volcanion",
+            "side": "volcanion",
+            "help": "The lone survivor of a volcanic eruption caused by none other than the likes of Heatran. During the night, you can type /Convert [name] to turn one of the Magmars or Magcargos into your slaves. You identify those who inspect, stalk, or distract you. Every other night, you can type /Scald [name] to burn a target. Heatran will die instantly if Scald is used against him. Once per game, you can also type /Protect [name] to protect yourself from nightkills. Your vote also counts as 3.",
+            "info": "Identifies stalkers, distracters and inspectors. Can turn Magmars and Magcargoes into Slaves. Gets role reveal on Magmars and Magcargoes. Can protect himself once per game. Vote counts as 3. Sided with Volcanion.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "vote": 3,
+                "onDeath": {
+                    "convertRoles": {
+                        "villager_slave": "villager_free",
+                        "miller_slave": "miller_free_drought",
+                        "villager_slave_drought": "villager_free_drought"
+                    },
+                    "convertmsg": "±Game: Volcanion is gone! His slaves revolt in hopes of carrying on his legacy!"
+                },
+                "teamTalk": true,
+                "startup": {
+                    "revealPlayers": [
+                        "villager",
+                        "miller"
+                    ],
+                    "revealPlayersMsg": "The Magmars and Magcargoes are ~Players~!"
+                },
+                "distract": {
+                    "mode": "identify",
+                    "msg": "Would you look at that? It appears ~Target~ sidetracked you from your tasks."
+                },
+                "stalk": {
+                    "mode": "identify",
+                    "msg": "An eerie enigma occupies the room. You catch a glimpse of ~Target~ hiding in the shadows, watching you carefully..."
+                },
+                "inspect": {
+                    "mode": "identify",
+                    "msg": "A strange presence keeps you occupied from your tasks. Though unfazed, ~Target~ glances at you, and takes note."
+                },
+                "night": {
+                    "convert": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3.5,
+                        "command": [
+                            "convert",
+                            "protect"
+                        ],
+                        "newRole": {
+                            "villager_slave": [
+                                "villager",
+                                "villager2"
+                            ],
+                            "miller_slave": [
+                                "miller",
+                                "miller2"
+                            ]
+                        },
+                        "convertmsg": "Volcanion has hired himself a new worker!"
+                    },
+                    "scald": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 45,
+                        "command": "poison",
+                        "poisonDeadMessage": "Volcanion burned you with Scald!",
+                        "recharge": 2
+                    },
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "volcanion_drought",
+            "translation": "Drought Volcanion",
+            "side": "volcanion",
+            "help": "The sunlight is harsh! You can type /Convert [name] twice to turn any of the Magmars or Magcargos into your slaves. Neither Heatran nor Arcanine can get rid of you during the day, forcing them to resort to other means of disposing of you. You can also type /protect [your name] once per game to protect yourself from nightkills. Your vote counts as 5.",
+            "info": "Identifies stalkers, distracters and inspectors. Can convert Magmars and Magcargoes into slaves twice per night. Gets role reveal on Magmars and Magcargoes. Can't be daykilled. Can protect himself once during the night. Sided with Volcanion.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "vote": 5,
+                "onDeath": {
+                    "convertRoles": {
+                        "villager_slave": "villager_free",
+                        "miller_slave": "miller_free",
+                        "villager_slave_drought": "villager_free_drought",
+                        "miller_slave_drought": "miller_free_drought"
+                    },
+                    "convertmsg": "±Game: Volcanion is gone! His slaves revolt in hopes of carrying on his legacy!"
+                },
+                "teamTalk": true,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "volcanion",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "startup": {
+                    "revealPlayers": [
+                        "villager",
+                        "miller"
+                    ],
+                    "revealPlayersMsg": "The Magmars and Magcargoes are ~Players~!"
+                },
+                "daykill": "evade",
+                "distract": {
+                    "mode": "identify",
+                    "msg": "Would you look at that? It appears ~Target~ sidetracked you from your tasks."
+                },
+                "stalk": {
+                    "mode": "identify",
+                    "msg": "An eerie enigma occupies the room. You catch a glimpse of ~Target~ hiding in the shadows, watching you carefully..."
+                },
+                "inspect": {
+                    "mode": "identify",
+                    "msg": "A strange presence keeps you occupied from your tasks. Though unfazed, ~Target~ glances at you, and takes note."
+                },
+                "night": {
+                    "convert": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3.5,
+                        "limit": 2,
+                        "command": [
+                            "convert",
+                            "protect"
+                        ],
+                        "newRole": {
+                            "villager_slave_drought": [
+                                "villager",
+                                "villager2"
+                            ],
+                            "miller_slave_drought": [
+                                "miller",
+                                "miller2"
+                            ]
+                        },
+                        "convertmsg": "Volcanion has hired himself a new worker!",
+                        "hide": true
+                    },
+                    "scald": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 45,
+                        "command": "poison",
+                        "poisonDeadMessage": "Volcanion burned you with Scald!",
+                        "hide": true
+                    },
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "shields_protects",
+            "translation": "Protectors/Shielders",
+            "side": "village",
+            "help": "null",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "Shield and Protect": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "command": "dummy9"
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager_slave",
+            "translation": "Enslaved Magmar",
+            "side": "volcanion",
+            "help": "You've been enslaved by Volcanion! He has agreed to spare you, as long as you /Shield him from dangers, such as kills and poisons. You will burn anyone who makes contact with you (kill or inspect)! You can't shield other Slaves.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "teamTalk": true,
+                "shield": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "kill": {
+                    "mode": "poisonattacker",
+                    "msg": "The Enslaved Magmar's Flame Body activated! You were burnt to a crisp!",
+                    "count": 3
+                },
+                "inspect": {
+                    "mode": "poisonattacker",
+                    "msg": "The Enslaved Magmar's Flame Body activated! You were burnt to a crisp!",
+                    "count": 3
+                },
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "shieldActions": [
+                            "kill",
+                            "poison"
+                        ],
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager_slave_drought",
+            "translation": "Drought Enslaved Magmar",
+            "side": "volcanion",
+            "help": "The sunlight is harsh! Type /Shield [name] to protect Volcanion from dangers. You will burn anyone who makes contact with you (kill or inspect) a day faster, now that Drought is in effect! You can't shield other Slaves.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "teamTalk": true,
+                "shield": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager_slave",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "kill": {
+                    "mode": "poisonattacker",
+                    "msg": "The Enslaved Magmar's Flame Body activated! You were burnt to a crisp!",
+                    "count": 2
+                },
+                "inspect": {
+                    "mode": "poisonattacker",
+                    "msg": "The Enslaved Magmar's Flame Body activated! You were burnt to a crisp!",
+                    "count": 3
+                },
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "shieldActions": [
+                            "kill",
+                            "poison"
+                        ],
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller_slave",
+            "translation": "Enslaved Magcargo",
+            "side": "volcanion",
+            "help": "You've been enslaved by Volcanion! He has agreed to spare you, as long as you /Shield him from dangers, such as kills and poisons. You have a 20% chance of evading a kill! You can't use your shield on other Slaves.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "teamTalk": true,
+                "shield": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "shieldActions": [
+                            "kill",
+                            "poison"
+                        ],
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller_slave_drought",
+            "translation": "Drought Enslaved Magcargo",
+            "side": "volcanion",
+            "help": "The sunlight is harsh! Type /Shield [name] to protect Volcanion from dangers. You have a 25% chance of evading a kill! You can't use your shield on other Slaves.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "teamTalk": true,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "miller_slave",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "shieldActions": [
+                            "kill",
+                            "poison"
+                        ],
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "freed_slaves",
+            "translation": "Freed Magmar/Magcargo",
+            "side": "volcanion",
+            "help": "null",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team"
+                    },
+                    "wisp": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team",
+                        "command": "poison",
+                        "poisonDeadMessage": "You succumbed to your burn wounds!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager_free",
+            "translation": "Free Magmar",
+            "side": "volcanion",
+            "help": "Volcanion has fallen! Long live the king! Carry on his legacy with /Kill [name]. You share this with your team.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "teamTalk": true,
+                "shield": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager_free_drought",
+            "translation": "Drought Free Magmar",
+            "side": "volcanion",
+            "help": "The sunlight is harsh! Type /Kill [name] to kill someone! This is shared with your team. Type /Wisp [name] to burn someone! This is also shared with your team.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "teamTalk": true,
+                "shield": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager_free",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team",
+                        "hide": true
+                    },
+                    "wisp": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team",
+                        "command": "poison",
+                        "poisonDeadMessage": "You succumbed to your burn wounds!",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller_free",
+            "translation": "Free Magcargo",
+            "side": "volcanion",
+            "help": "Volcanion has fallen! Long live the king! Carry on his legacy with /Kill [name]. You share this with your team.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller_free_drought",
+            "translation": "Drought Free Magcargo",
+            "side": "volcanion",
+            "help": "The sunlight is harsh! Type /Kill [name] to kill someone! This is shared with your team. Type /Wisp [name] to burn someone! This is also shared with your team.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "teamTalk": true,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "miller_free",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team",
+                        "hide": true
+                    },
+                    "wisp": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 39,
+                        "broadcast": "team",
+                        "command": "poison",
+                        "poisonDeadMessage": "You succumbed to your burn wounds!",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "infernape",
+            "translation": "Infernape",
+            "side": "village",
+            "help": "You've mastered martial arts well enough to use it in self-defense, meaning anyone who tries to kill you during the day or night will die as well! Unfortunately, if someone votes you, 3 additional votes get added!",
+            "info": "Day and night bomb who gets +3 votes if voted for at all. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "kill": {
+                    "mode": "killattacker"
+                },
+                "daykill": "bomb",
+                "daykillrevengemsg": "Someone tries attacking Infernape! Infernape retaliates by using Close Combat, but drops dead from Life Orb recoil!",
+                "voteshield": 3
+            }
+        },
+        {
+            "role": "volcarona",
+            "translation": "Volcarona",
+            "side": "village",
+            "info": "Can inspect a person twice per game to see if they are Rock-type or not. Sided with the Magmar Martyrs.",
+            "help": "You bug everyone in the mountain (pun intended) but you fear all of the Rock-types in the mountain. Twice per game, you may type /Inspect [name] to find out if someone is a Rock-Type or not!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "hide": true,
+                        "command": "dummy8",
+                        "charges": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "carbink",
+            "translation": "Carbink",
+            "side": "village",
+            "info": "Can inspect a person twice per game to see if they are Steel-type or not. Sided with the Magmar Martyrs.",
+            "help": "A huge floating rock! You are deathly afraid of Steel-types like Heatran and Steelix. During the night, up to twice per game, you can type /Inspect [name] to find out if a role is a Steel-type or not!",
+            "actions": {
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "hide": true,
+                        "command": "dummy9",
+                        "charges": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "houndoom",
+            "translation": "Houndoom",
+            "side": "village",
+            "info": "Can stalk one person during the night. Mega Evolves when Arcanine dies. Sided with the Magmar Martyrs.",
+            "help": "Not the friendliest dog(e) in Mt. Ember, but let's work with what we have here. Your ability to camouflage in the darkness allows you to survey others and what they are doing. Type /Stalk [name] to track someone's actions!",
+            "actions": {
+                "onDeadRoles": {
+                    "convertTo": {
+                        "mega_houndoom": [
+                            "arcanine"
+                        ]
+                    },
+                    "convertmsg": "~Old~ Mega Evolves into a ~New~!"
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "mega_houndoom",
+            "translation": "Mega Houndoom",
+            "side": "village",
+            "info": "Can stalk and kill one person during the night. Sided with the Magmar Martyrs.",
+            "help": "You Mega Evolved! Type /Stalk [name] to track someone's actions! You can also type /Kill [name] to kill someone with Dark Pulse!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "hide": true
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 28
+                    }
+                }
+            }
+        },
+        {
+            "role": "delphox",
+            "translation": "Delphox",
+            "side": "village",
+            "info": "Can safeguard one person during the night. Sided with the Magmar Martyrs.",
+            "help": "What does Delphox say? Your extrasensory kills allow you to stop someone from being poisoned, distracted, inspected, stalked, or converted by Volcanion. Type /Safeguard [name] to safeguard someone from these actions!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": -2,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "safeguards",
+            "translation": "Safeguarders",
+            "side": "village",
+            "info": "null",
+            "help": "If you're seeing this, either you're reading the raw or trippin. dawg.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": -2
+                    }
+                }
+            }
+        },
+        {
+            "role": "braixen",
+            "translation": "Braixen",
+            "side": "village",
+            "info": "Can safeguard one person once per game. Sided with the Magmar Martyrs.",
+            "help": "Your mother, Delphox brought you into the colony after an annual migration. You forgot her identity, though. Her skills for safeguarding have rubbed off on you. Once per game, you may type /Safeguard [name] to prevent someone from being poisoned, distracted, inspected, stalked, or converted by Volcanion.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "safeguard": {
+                        "command": [
+                            "safeguard",
+                            "copy"
+                        ],
+                        "silent": true,
+                        "pierce": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": -2,
+                        "charges": 1,
+                        "hide": true,
+                        "copyAs": "braixen_used",
+                        "silentCopy": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "braixen_used",
+            "translation": "Braixen",
+            "side": "village",
+            "help": "Your mother, Delphox brought you into the colony after an annual migration. Her skills for safeguarding have rubbed off on you. However, you can't use your Safeguard action anymore.",
+            "hide": true,
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                }
+            }
+        },
+        {
+            "role": "houndour",
+            "translation": "Houndour",
+            "side": "village",
+            "info": "Can stalk one person once per game. Sided with the Magmar Martyrs.",
+            "help": "Your father, Houndoom, has raised you in the shadows of a long lost urban city. As a very loyal dog, you stalk your prey in the shroud of darkness, surveying their every move. Once per game, you may type /Stalk [name] to find out who someone has visited during the night.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "charges": 1,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "inspects_stalks",
+            "translation": "Inspects/Stalks",
+            "side": "village",
+            "help": "null",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "Inspect/Stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "command": "dummy10"
+                    }
+                }
+            }
+        },
+        {
+            "role": "growlithe",
+            "translation": "Growlithe",
+            "side": "village",
+            "info": "Can inspect one person once per game. Sided with the Magmar Martyrs.",
+            "help": "Your legendary wisdom is unparalleled by others. As a loyal and trustworthy dog, you are tasked with getting information for the Magby Martyrs (village). Once per game, you may type /Inspect [name] to find out someone's role.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "inspect": {
+                        "pierce": true,
+                        "command": [
+                            "inspect",
+                            "copy"
+                        ],
+                        "silent": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "charges": 1,
+                        "hide": true,
+                        "copyAs": "growlithe_used",
+                        "silentCopy": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "growlithe_used",
+            "translation": "Growlithe",
+            "side": "village",
+            "info": "Can inspect one person once per game. Sided with the Magmar Martyrs.",
+            "help": "Your legendary wisdom is unparalleled by others. As a loyal and trustworthy dog, you are tasked with getting information for the Magby Martyrs. However, your action is useless now. Vote to remove people during the day!",
+            "hide": true,
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                }
+            }
+        },
+        {
+            "role": "vulpix",
+            "translation": "Vulpix",
+            "side": "village",
+            "info": "Can distract one person once per game. Can use Drought once per game to replenish all NFE 1-shot roles (Charmeleon, Braixen, Growlithe, and itself.) Sided with the Magmar Martyrs.",
+            "help": "Your enchanting tails are mysterious, captivating, hypnotic even. Once per game, you may type /Distract [name] to occupy someone, and keep them from using their actions, if any. Due to your ability, Drought, you can replenish the actions of all non-fully evolved Fire-Types in the colony (village) once per game with /Drought. This affects you too!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "distract": {
+                        "command": [
+                            "distract",
+                            "copy"
+                        ],
+                        "silent": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2.5,
+                        "charges": 1,
+                        "copyAs": "vulpix_used",
+                        "silentCopy": true
+                    },
+                    "drought": {
+                        "command": "massconvert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2014,
+                        "convertRoles": {
+                            "growlithe_used": "growlithe",
+                            "vulpix": "vulpix_nodrought",
+                            "braixen_used": "braixen",
+                            "charmeleon_used": "charmeleon"
+                        },
+                        "singlemassconvertmsg": "The sunlight is harsh! Fire-type Pokemon have powered up!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "vulpix_used",
+            "translation": "Vulpix",
+            "side": "village",
+            "help": "Your enchanting tails are mysterious, captivating, hypnotic even. However, you can no longer distract people using them. Due to your ability, Drought, you can replenish the actions of all non-fully evolved Fire-Types in the colony (village) once per game with /Drought. This affects you too!",
+            "hide": true,
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "drought": {
+                        "command": "massconvert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2014,
+                        "convertRoles": {
+                            "growlithe_used": "growlithe",
+                            "vulpix_used": "vulpix_nodrought",
+                            "braixen_used": "braixen",
+                            "charmeleon_used": "charmeleon"
+                        },
+                        "singlemassconvertmsg": "The sunlight is harsh! Fire-type Pokemon have powered up!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "vulpix_nodrought",
+            "translation": "Vulpix",
+            "side": "village",
+            "info": "Can distract one person once per game. Sided with the Magmar Martyrs.",
+            "help": "Your enchanting tails are mysterious, captivating, hypnotic even. Once per game, you may type /Distract [name] to occupy someone, and keep them from using their actions, if any. You can no longer use your ability Drought during battle!",
+            "hide": true,
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "distract": {
+                        "command": [
+                            "distract",
+                            "copy"
+                        ],
+                        "silent": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2.5,
+                        "charges": 1,
+                        "copyAs": "vulpix_nodrought_used",
+                        "silentCopy": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "vulpix_nodrought_used",
+            "translation": "Vulpix",
+            "side": "village",
+            "info": "Can distract one person once per game. Sided with the Magmar Martyrs.",
+            "help": "Your enchanting tails are mysterious, captivating, hypnotic even. However, you no longer can use your Drought ability, or your distract. Vote to remove people during the day!",
+            "hide": true,
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                }
+            }
+        },
+        {
+            "role": "charmeleon",
+            "translation": "Charmeleon",
+            "side": "village",
+            "info": "Can protect one person once per game. Sided with the Magmar Martyrs.",
+            "help": "The son of one of the most respected Pokemon in the mountain. His fierce, stubborn loyalty has rubbed off on you. Once per game, you can type /Protect [name] to protect someone from dying.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "protect": {
+                        "command": [
+                            "protect",
+                            "copy"
+                        ],
+                        "silent": true,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "charges": 1,
+                        "hide": true,
+                        "copyAs": "charmeleon_used",
+                        "silentCopy": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "charmeleon_used",
+            "translation": "Charmeleon",
+            "side": "village",
+            "info": "Can protect one person once per game. Sided with the Magmar Martyrs.",
+            "help": "The son of one of the most respected Pokemon in the mountain. His fierce, stubborn loyalty has rubbed off on you. Once per game, you can type /Protect [name] to protect someone from dying.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                }
+            }
+        },
+        {
+            "role": "houndoom_drought",
+            "translation": "Drought Houndoom",
+            "side": "village",
+            "info": "Can stalk two people during the night. Sided with the Magmar Martyrs.",
+            "help": "The sunlight is harsh! Type /Stalk [name] twice to track someone's actions!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "houndoom",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "limit": 2,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "arcanine",
+            "translation": "Arcanine",
+            "side": "village",
+            "info": "Can inspect a Pokemon during the night. Can kill a Pokemon during the day, once per game (reveals). Voteshield of -2. Powers up Charizard if he dies. Sided with the Magmar Martyrs.",
+            "help": "Trusty and loyal. Type /inspect [name] to discover a Pokemon's role! Since you're adorable, not many people in the colony would like to see you leave, so if voted for you get two votes subtracted from the total. You also have a daykill, which you can only use once per game (it reveals you too). If you die, you will power up Charizard into Mega Charizard Y!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1001,
+                        "hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /Kill [name] to down your enemies! You will be revealed, so make wise choices!",
+                        "killmsg": "~Self~ (Arcanine) rams into ~Target~ with an unmatched force and speed. He opens his mouth and unleashes a powerful Flamethrower attack, scorching them! After that, ~Self~ finishes ~Target~ off with a Close Combat attack! Talk about overkill!",
+                        "charges": 1
+                    }
+                },
+                "voteshield": -2
+            }
+        },
+        {
+            "role": "charizard0",
+            "translation": "Charizard",
+            "side": "village",
+            "help": "Tough. Devoted. Loyal. Fierce. And perhaps clumsy? Type /Protect [name] to guard your allies from attacks. This is shared with your partner, but only one of you has a real protect. You inspect as Moltres, due to your similar typing. If your partner and Arcanine are not in the game, or have died, you will become a Mega Charizard Y! If your partner and Blaziken are not in the game, you will become a Mega Charizard X!",
+            "info": "Can protect one person during the night. Inspects as Moltres. Becomes Mega Charizard Y if Arcanine and it's partner die. Becomes Mega Charizard X if Blaziken and it's partner die. Sided with the Magmar Martyrs.",
+            "actions": {
+                "startup": {
+                    "revealPlayers": [
+                        "charizard1",
+                        "charizard0"
+                    ],
+                    "revealPlayersMsg": "People with your role are: ~Players~."
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "charizard": [
+                            "charizard1",
+                            "arcanine"
+                        ],
+                        "charizard_x": [
+                            "blaziken",
+                            "blaziken_drought",
+                            "charizard1"
+                        ]
+                    },
+                    "convertmsg": "~Old~ mega evolves into a ~New~!"
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "inspect": {
+                    "revealAs": "moltres"
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "charizard_x",
+            "translation": "Mega Charizard X",
+            "side": "village",
+            "info": "Can kill one person during the night. Can protect one person during the night. Sided with the Magmar Martyrs.",
+            "help": "You're filling in for Blaziken's vacancy! Your vigilant style of assassination is often overlooked. During the night, you can type /Kill [name] to savagely murder someone! Nothing can stop this kill, so have fun getting your claws dirty! You also keep your protect, and it works if it didn't before you mega evolved!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": -3
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "charizard1",
+            "translation": "Charizard",
+            "side": "village",
+            "help": "Tough. Devoted. Loyal. Fierce. And perhaps clumsy? Type /Protect [name] to guard your allies from attacks. This is shared with your partner, but only one of you has a real protect. You inspect as Moltres, due to your similar typing. If your partner and Arcanine are not in the game, or have died, you will become a Mega Charizard Y! If your partner and Blaziken are not in the game, you will become a Mega Charizard X!",
+            "info": "Can protect one person during the night. Inspects as Moltres. Becomes Mega Charizard Y if Arcanine dies. Sided with the Magmar Martyrs.",
+            "hide": true,
+            "actions": {
+                "startup": {
+                    "revealPlayers": [
+                        "charizard0",
+                        "charizard1"
+                    ],
+                    "revealPlayersMsg": "People with your role are: ~Players~."
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "charizard": [
+                            "charizard0",
+                            "arcanine"
+                        ],
+                        "charizard_x": [
+                            "blaziken",
+                            "blaziken_drought",
+                            "charizard0"
+                        ]
+                    },
+                    "convertmsg": "~Old~ mega evolves into a ~New~!"
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "inspect": {
+                    "revealAs": "moltres"
+                },
+                "night": {
+                    "protect": {
+                        "command": "dummy2",
+                        "pierce": true,
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "charizard",
+            "translation": "Mega Charizard Y",
+            "side": "village",
+            "help": "You've been angered upon the death of Arcanine, and have Mega Evolved! Your ability Drought can power up all Fire-type Pokemon (regardless of side, and including yourself) in the game for one turn (use it by typing /Drought, but you can only use this once per game!) You keep your protect that you retained in regular forme. Every other day, you can use Blast Burn to set fire to your opposition (/Blast [name]). This may reveal you 10% of the time.",
+            "info": "Can protect one person during the night. Can kill one person during the day, every other day (10% reveal chance). Can use drought to power up all Fire-Type Pokemon during the night for a turn. Inspects as Moltres. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "inspect": {
+                    "revealAs": "moltres"
+                },
+                "standby": {
+                    "blast": {
+                        "target": "AnyButSelf",
+                        "msg": "Harness the power of Blast Burn using /blast (name); this has a 30% chance of revealing you, and this will take a turn to recharge.",
+                        "killmsg": "Mega Charizard Y swoops down from the cliffs and scorches ~Target~ with a Blast Burn!",
+                        "revealChance": 0.1,
+                        "revealmsg": "~Self~ needs to recharge!",
+                        "command": "kill"
+                    }
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "hide": true
+                    },
+                    "drought": {
+                        "command": "massconvert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2014,
+                        "convertRoles": {
+                            "charizard": "charizard_drought_used",
+                            "ninetales": "ninetales_drought",
+                            "moltres": "moltres_drought",
+                            "heatran": "heatran_drought",
+                            "volcanion": "volcanion_drought",
+                            "villager_slave": "villager_slave_drought",
+                            "miller_slave": "miller_slave_drought",
+                            "blaziken": "blaziken_drought",
+                            "houndoom": "houndoom_drought",
+                            "ninetales_used": "ninetales_drought_used"
+                        },
+                        "singlemassconvertmsg": "The sunlight is harsh! Fire-type Pokemon have powered up!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "charizard_drought",
+            "translation": "Drought Mega Charizard Y",
+            "side": "village",
+            "help": "The sunlight is harsh! Type /Protect [name] to protect someone! This also prevents them from being touched by any other actions, barring Mega Blaziken's kill. Every other day, you can use Blast Burn to melt your opposition (/blast). This will not reveal you.",
+            "info": "Can protect one person during the night. Can kill one person during the day. Inspects as Moltres. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "charizard",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "moltres"
+                },
+                "standby": {
+                    "blast": {
+                        "target": "AnyButSelf",
+                        "msg": "Harness the power of Blast Burn using /blast (name); this has a 30% chance of revealing you, and this will take a turn to recharge.",
+                        "killmsg": "Mega Charizard Y swoops down from the cliffs and scorches ~Target~ with a Blast Burn!",
+                        "command": "kill"
+                    }
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "charizard_used",
+            "translation": "Mega Charizard Y",
+            "side": "village",
+            "help": "Type /Protect [name] to protect someone from dying! Every other day, you can use Blast Burn to set fire to your opposition (/Blast [name]). This may reveal you 10% of the time. You still inspect as Moltres for some weird reason. ",
+            "info": "Can protect one person during the night. Can kill one person during the day, every other day (10% reveal chance). Inspects as Moltres. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "inspect": {
+                    "revealAs": "moltres"
+                },
+                "standby": {
+                    "blast": {
+                        "target": "AnyButSelf",
+                        "msg": "Harness the power of Blast Burn using /blast (name); this has a 30% chance of revealing you, and this will take a turn to recharge.",
+                        "killmsg": "Mega Charizard Y swoops down from the cliffs and scorches ~Target~ with a Blast Burn!",
+                        "revealChance": 0.1,
+                        "revealmsg": "~Self~ needs to recharge!",
+                        "command": "kill",
+                        "recharge": 2
+                    }
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "charizard_drought_used",
+            "translation": "Drought Mega Charizard Y",
+            "side": "village",
+            "help": "The sunlight is harsh! Type /Protect [name] to protect someone! This also prevents them from being touched by any other actions, barring Mega Blaziken's kill. Every other day, you can use Blast Burn to melt your opposition (/blast). This will not reveal you.",
+            "info": "Can protect one person during the night. Can kill one person during the day. Inspects as Moltres. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "charizard_used",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "inspect": {
+                    "revealAs": "moltres"
+                },
+                "standby": {
+                    "blast": {
+                        "target": "AnyButSelf",
+                        "msg": "Harness the power of Blast Burn using /blast (name); this has a 30% chance of revealing you, and this will take a turn to recharge.",
+                        "killmsg": "Mega Charizard Y swoops down from the cliffs and scorches ~Target~ with a Blast Burn!",
+                        "command": "kill"
+                    }
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "golem",
+            "translation": "Golem",
+            "side": "mafia2",
+            "help": "You're the big, bad boss of the Geodudes. Together with your teammates, you can type /Kill [name] to kill someone! You also can't be distracted! Due to your ability Sturdy, you can survive one nightkill headed your way!",
+            "info": "Can kill one person during the night. Can't be distracted. Survives one nightkill directed towards it. Sided with the Geodude Army.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "Someone tried killing you! Luckily, you were left at 1HP from Sturdy!",
+                    "msg": "You tried killing Golem (~Self~), but he had Sturdy, leaving him at 1HP!"
+                },
+                "teamTalk": true,
+                "night": {
+                    "smash": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "command": "kill",
+                        "priority": 99,
+                        "broadcast": "team",
+                        "recharge": 2
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried distracting you during the night, but you ignored them."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "golem2",
+            "translation": "Golem",
+            "side": "mafia2",
+            "help": "You're the big, bad boss of the Geodudes. Not only can you /Kill (shared with your teammates) but you can /smash your enemies every other turn and get an extra kill for your side. Due to your ability Rock Head, you won't take any recoil! You also can't be distracted!",
+            "info": "Can kill one person during the night (shared). Can kill another person during the night, every other day (unshared). Can't be distracted. Sided with the Geodude Army.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "teamTalk": true,
+                "night": {
+                    "smash": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "command": "kill",
+                        "priority": 99,
+                        "broadcast": "team",
+                        "recharge": 2
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried distracting you during the night, but you ignored them."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "graveler",
+            "translation": "Graveler",
+            "side": "mafia2",
+            "help": "You're a very bulky Graveler, aren't you? Type /Shield [name] to protect Golem or one of the Geodudes! You also have a -2 voteshield, two votes are subtracted from the total amount of votes on you! Because of Sturdy, you can dodge one nightkill thrown at you!",
+            "info": "Can shield one person during the night. Can survive one nightkill. Voteshield of -2. Sided with the Geodude Army.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "Someone tried killing you! Luckily, you were left at 1HP from Sturdy!",
+                    "msg": "You tried killing Graveler (~Self~), but he had Sturdy, leaving him at 1HP!"
+                },
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "voteshield": -2,
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "shieldActions": [
+                            "kill",
+                            "distract",
+                            "poison",
+                            "stalk",
+                            "inspect"
+                        ],
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "graveler2",
+            "translation": "Graveler",
+            "side": "mafia2",
+            "help": "You're a very bulky Graveler, aren't you? Type /Shield [name] to protect Golem or one of the Geodudes! You also have a -2 voteshield, two votes are subtracted from the total amount of votes on you! Because of Rock Head, you can type /Edge [name] to take out one person during the night. This fails if Golem has used his /Smash, or vice versa.",
+            "info": "Can shield one person during the night. Voteshield of -2. Can edge (kill) one person during the game. Sided with the Geodude Army.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "voteshield": -2,
+                "night": {
+                    "shield": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 3,
+                        "broadcast": "team",
+                        "shieldActions": [
+                            "kill",
+                            "distract",
+                            "poison",
+                            "stalk",
+                            "inspect"
+                        ],
+                        "hide": true
+                    },
+                    "edge": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 99,
+                        "broadcast": "team",
+                        "hide": true,
+                        "command": "kill",
+                        "charges": 1,
+                        "restrict": [
+                            "smash",
+                            "edge"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "geodude",
+            "translation": "Geodude",
+            "side": "mafia2",
+            "help": "You're a tiny little Geodude. Though weak alone, you function best in groups. Work with the rest of the Geodude Army to /kill someone during the night! Sturdy allows you to survive one kill, once per game.",
+            "info": "Can kill one person during the night. Sided with the Geodude Army.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "Someone tried killing you! Luckily, you were left at 1HP from Sturdy!",
+                    "msg": "You tried killing Geodude (~Self~), but he had Sturdy, leaving him at 1HP!"
+                },
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "geodude2",
+            "translation": "Geodude",
+            "side": "mafia2",
+            "help": "You're a tiny little Geodude. Though weak alone, you function best in groups. Work with the rest of the Geodude Army to /kill someone during the night! During the night, you can type /Edge [name] to get an extra kill for your team! This can only be used once per game, and can't be used if Golem used his smash (or vice versa.)",
+            "info": "Can kill one person during the night. Sided with the Geodude Army.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team",
+                        "hide": true
+                    },
+                    "edge": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 99,
+                        "broadcast": "team",
+                        "hide": true,
+                        "command": "kill",
+                        "charges": 1,
+                        "restrict": [
+                            "smash",
+                            "edge"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "geodude_army",
+            "translation": "Geodude Army",
+            "side": "mafia2",
+            "help": "null",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 31,
+                        "broadcast": "team"
+                    },
+                    "edge": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 99,
+                        "broadcast": "team",
+                        "command": "kill",
+                        "charges": 1,
+                        "restrict": [
+                            "smash"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "ninetales",
+            "translation": "Ninetales",
+            "side": "village",
+            "help": "A strange looking fox with nine tales. Type /Distract [name] to occupy someone with them! After the third night, you can activate Drought by typing /drought. This will power up all Fire-Type Pokemon, including you, and regardless of their side, for one turn. This can only be used once per game, so be cautious of it's use!",
+            "info": "Can distract one person during the night. After the third night, can use drought to power up Fire-Type Pokemon for a turn. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "distractmsg": "'Look at those tails!' Ninetales struck her amazing tails at you, distracting you from your tasks.",
+                        "teammsg": "'Look at those tails!' You snapped your teammate out of a near-hypnotic state, but forfeited your ~Action~ in return."
+                    },
+                    "drought": {
+                        "command": "massconvert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2014,
+                        "convertRoles": {
+                            "charizard": "charizard_drought",
+                            "ninetales": "ninetales_drought_used",
+                            "moltres": "moltres_drought",
+                            "heatran": "heatran_drought",
+                            "volcanion": "volcanion_drought",
+                            "villager_slave": "villager_slave_drought",
+                            "miller_slave": "miller_slave_drought",
+                            "blaziken": "blaziken_drought",
+                            "houndoom": "houndoom_drought",
+                            "charizard_used": "charizard_drought_used"
+                        },
+                        "singlemassconvertmsg": "The sunlight is harsh! Fire-type Pokemon have powered up!",
+                        "initialrecharge": 3,
+                        "pierce": true,
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "ninetales_drought",
+            "translation": "Drought Ninetales",
+            "side": "village",
+            "help": "The sunlight is harsh! Type /Distract [name] to occupy someone with them! You can also use /Psychic [name] to inspect, distract, and protect someone during the night.",
+            "info": "Can distract one person during the night. Can psychic (inspect, distract and protect) one person during the night. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "distractmsg": "'Look at those tails!' Ninetales struck her amazing tails at you, distracting you from your tasks.",
+                        "teammsg": "'Look at those tails!' You snapped your teammate out of a near-hypnotic state, but forfeited your ~Action~ in return.",
+                        "hide": true
+                    },
+                    "psychic": {
+                        "command": [
+                            "protect",
+                            "distract",
+                            "inspect"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "distractmsg": "A powerful psychic wave from Ninetales hit you! She now knows your identity in exchange for protection during the night.",
+                        "teammsg": "Your partner was hit by a powerful psychic wave. You had to spend the night curing the confusion in order to save him, thus forfeiting your ~Action~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "ninetales_used",
+            "translation": "Ninetales",
+            "side": "village",
+            "help": "A strange looking fox with nine tales. Type /Distract [name] to occupy someone with them!",
+            "info": "Can distract one person during the night. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "distractmsg": "'Look at those tails!' Ninetales struck her amazing tails at you, distracting you from your tasks.",
+                        "teammsg": "'Look at those tails!' You snapped your teammate out of a near-hypnotic state, but forfeited your ~Action~ in return.",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "ninetales_drought_used",
+            "translation": "Drought Ninetales",
+            "side": "village",
+            "help": "The sunlight is harsh! Type /Distract [name] to occupy someone with them! You can also use /Psychic [name] to inspect, distract, and protect someone during the night.",
+            "info": "Can distract one person during the night. Can psychic (inspect, distract and protect) one person during the night. Sided with the Magmar Martyrs.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "ninetales_used",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "distractmsg": "'Look at those tails!' Ninetales struck her amazing tails at you, distracting you from your tasks.",
+                        "teammsg": "'Look at those tails!' You snapped your teammate out of a near-hypnotic state, but forfeited your ~Action~ in return.",
+                        "hide": true
+                    },
+                    "psychic": {
+                        "command": [
+                            "protect",
+                            "distract",
+                            "inspect"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "distractmsg": "A powerful psychic wave from Ninetales hit you! She now knows your identity in exchange for protection during the night.",
+                        "teammsg": "Your partner was hit by a powerful psychic wave. You had to spend the night curing the confusion in order to save him, thus forfeiting your ~Action~.",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "blaziken",
+            "translation": "Blaziken",
+            "side": "village",
+            "info": "Can kill one person during the night. Sided with village.",
+            "help": "You don't like Geodudes, or Onixes, or anything that lives in this mountain. Regardless, you've worked with Arcanine for the duration of your life, and more often than not associate yourself within his affairs. Type /Kill [name] to get rid of someone! Speed Boost allows you to get the first kill, too!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4
+                    }
+                }
+            }
+        },
+        {
+            "role": "blaziken_drought",
+            "translation": "Drought Blaziken",
+            "side": "village",
+            "info": "Can kill one person during the night. Can jumpkick one person during the night (after the second night, every other day, 10% fail chance, 30% chance suiciding). Sided with the Magmar Martyrs.",
+            "help": "The sunlight is harsh! Type /Kill [name] to get rid of someone! Speed Boost allows you to get the first kill, too. You can also type /jumpkick [name] two nights after to get another kill, however this has a 10% chance of missing and 30% chance of suiciding. If someone tries lynching you during the day, you'll Mega Evolve!",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "blaziken",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "hide": true
+                    },
+                    "jumpkick": {
+                        "target": "AnyButSelf",
+                        "command": "kill",
+                        "common": "Self",
+                        "priority": 80,
+                        "failChance": 0.1,
+                        "suicideChance": 0.3,
+                        "suicidemsg": "You kept going and crashed!",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "moltres",
+            "translation": "Moltres",
+            "side": "moltres",
+            "winningSides": "*",
+            "help": "You are the original Mountain Lord, resting peacefully in your cavern until awakened by the ongoing war. Though you have no actions during the night, you win with anyone who can survive until the end.",
+            "info": "A conspirator who wins with any side. Sided by itself.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                }
+            }
+        },
+        {
+            "role": "moltres_drought",
+            "translation": "Drought Moltres",
+            "side": "moltres",
+            "winningSides": "*",
+            "info": "Can grant (dummy + safeguard + protect) one person during the night. Sided with itself, but wins with everyone.",
+            "help": "The sunlight is harsh! During the night, you can type /Grant [name] to grant someone protection from nightkills, burns, inspections, and the like. They will also know your identity! You still win with any side.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "moltres",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "night": {
+                    "grant": {
+                        "target": "AnyButSelf",
+                        "command": [
+                            "dummy",
+                            "safeguard",
+                            "protect"
+                        ],
+                        "common": "Self",
+                        "priority": -1,
+                        "dummytargetmsg": "~Self~ (Moltres) has protected you from harm, ensuring your safety!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "heatran",
+            "translation": "Heatran",
+            "side": "heatran",
+            "help": "You've just woken up. You travel, mountain from mountain, far from your birthplace in the Sinnoh Region, looking for a resting place. Though, they've disturbed your well-being, so now you feel you should take reasonable measures on them. During the night, you can type /Power [name] to either stalk, distract or inspect someone. You can also get to kill two people during the day!",
+            "info": "Can power (inspect, distract or stalk) once a night. Can kill two people during the day. Sided with itself.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "poison": {
+                    "mode": "resistance",
+                    "constant": -1
+                },
+                "night": {
+                    "power": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "bypass": [
+                            "identify",
+                            "poisonattacker"
+                        ],
+                        "command": {
+                            "stalk": 0.33,
+                            "distract": 0.33,
+                            "inspect": 0.33
+                        }
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Kill now with /kill! You won't be revealed!",
+                        "killmsg": "Heatran shudders, and flames leap out of its mouth. ~Target~ runs, but the cursed flames catch up, and ~Target~ is burnt slowly to death!",
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "heatran_drought",
+            "translation": "Drought Heatran",
+            "side": "heatran",
+            "help": "The sunlight is harsh! Type /Power [name] twice to either stalk, distract or inspect someone. You can still kill two people during the day.",
+            "info": "Can power (inspect, distract or stalk) a person twice during the night. Can kill two people during the day (doesn't reveal). Sided with itself.",
+            "actions": {
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "poison": {
+                    "mode": "resistance",
+                    "constant": -1
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "heatran",
+                        "curseCount": 2,
+                        "silentCurse": true
+                    }
+                },
+                "night": {
+                    "power": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "limit": 2,
+                        "hide": true,
+                        "command": {
+                            "stalk": 0.33,
+                            "distract": 0.33,
+                            "inspect": 0.33
+                        }
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Kill now with /kill! You won't be revealed!",
+                        "killmsg": "Heatran shudders, and flames leap out of its mouth. ~Target~ runs, but the cursed flames catch up, and ~Target~ is burnt slowly to death!",
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "steelix_posse",
+            "translation": "Steelix's Posse",
+            "side": "mafia3",
+            "help": "null",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "onix",
+            "translation": "Onix",
+            "side": "mafia3",
+            "help": "Type /Kill [name] to kill someone! This is shared with your teammates. Because of your ability Sturdy, you can survive one nightkill headed towards you.",
+            "info": "Basic mafia who doesn't know teammates but can't kill them. Survives one nightkill aimed at it. Sided with Steelix's Posse.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "Someone tried killing you! Luckily, you were left at 1HP from Sturdy!",
+                    "msg": "You tried killing Onix (~Self~), but he had Sturdy, leaving him at 1HP!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "broadcastmsg": "An Onix has decided to ~Action~ ~Target~!",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "onix2",
+            "translation": "Onix",
+            "side": "mafia3",
+            "help": "Type /Kill [name] to kill someone! This is shared with your teammates. Due to your ability Rock Head, you can type /Edge [name] once per game to kill an extra target (this is shared with your team.)",
+            "info": "Can kill one person during the night. Doesn't know teammates but can't kill them. Can edge (kill) one person during the game (shared.) Sided with Steelix's Posse.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "broadcastmsg": "An Onix has decided to ~Action~ ~Target~!",
+                        "hide": true
+                    },
+                    "edge": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 99,
+                        "broadcast": "team",
+                        "hide": true,
+                        "command": "kill",
+                        "broadcastmsg": "An Onix has decided to ~Action~ ~Target~!",
+                        "charges": 1,
+                        "restrict": [
+                            "edge"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "steelix",
+            "translation": "Steelix",
+            "side": "mafia3",
+            "help": "Leader of Steelix's Posse, you have taken an interest in the mountain. So much, that you've set to invade it with your Onix minions! Type /Kill [name] to kill someone. Type /bind [name] to prevent someone from carrying out their tasks, too. Thanks to Sturdy, you are able to survive one kill during the night. Your vote also counts as two (2).",
+            "info": "Can kill one person during the night. Can bind (distract) one person during the night. Vote counts as 2. Can evade nightkills once. Sided with Steelix's Posse.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "Someone tried killing you! Luckily, you were left at 1HP from Sturdy!",
+                    "msg": "You tried killing Steelix (~Self~), but he had Sturdy, leaving him at 1HP!"
+                },
+                "vote": 2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "broadcastmsg": "Steelix has decided to ~Action~ ~Target~!",
+                        "hide": true
+                    },
+                    "bind": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "command": "distract",
+                        "broadcastmsg": "Steelix has decided to ~Action~ ~Target~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "steelix2",
+            "translation": "Steelix",
+            "side": "mafia3",
+            "help": "Leader of Steelix's Posse, you have taken an interest in the mountain. So much, that you've set to invade it with your Onix minions! Type /kill [name] to kill someone. Type /Bind [name] to prevent someone from carrying out their tasks, too. Because of Rock Head, you can type /Edge [name] once per game to pick off an extra target. Your vote also counts as two (2).",
+            "info": "Can kill one person during the night. Can bind (distract) one person during the night. Can edge one person during the night, once per game (shared with team.) Vote counts as 2. Sided with Steelix's Posse.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Rock-type!"
+                },
+                "vote": 2,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "hide": true,
+                        "broadcastmsg": "Steelix has decided to ~Action~ ~Target~!"
+                    },
+                    "bind": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1,
+                        "command": "distract",
+                        "broadcastmsg": "Steelix has decided to ~Action~ ~Target~!"
+                    },
+                    "edge": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 99,
+                        "broadcast": "team",
+                        "hide": true,
+                        "command": "kill",
+                        "broadcastmsg": "Steelix has decided to ~Action~ ~Target~!",
+                        "charges": 1,
+                        "restrict": [
+                            "edge"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "onix_small",
+            "translation": "Onix",
+            "side": "mafia3",
+            "help": "Type /Kill [name] to kill someone! This is shared with your teammates. Once per game, you can type /Distract [name] (this is also shared with your teammates) to prevent someone from using their actions. If you distract Victini, you'll die, so be careful! You also can't use both actions in one night.",
+            "info": "Can kill one person during the night. Sided with Steelix's Posse.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (~Self~) has decided to ~Action~ ~Target~!",
+                        "hide": true,
+                        "restrict": [
+                            "bind"
+                        ]
+                    },
+                    "bind": {
+                        "target": "AnyButTeam",
+                        "command": "distract",
+                        "common": "Self",
+                        "priority": 1,
+                        "broadcastmsg": "Your partner (~Self~) has decided to ~Action~ ~Target~!",
+                        "restrict": [
+                            "kill"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "onix_used",
+            "translation": "Onix",
+            "side": "mafia3",
+            "help": "Type /Kill [name] to kill someone! This is shared with your teammates.",
+            "info": "Can kill one person during the night. Sided with Steelix's Posse.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (~Self~) has decided to ~Action~ ~Target~!",
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "droughtroles",
+            "translation": "Drought Users",
+            "side": "village",
+            "help": "null",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "drought": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2014,
+                        "command": "dummy7"
+                    }
+                }
+            }
+        },
+        {
+            "role": "mega_magcargo",
+            "translation": "Mega Magcargo",
+            "side": "magcargo",
+            "help": "TYPE /KILL [NAME] DURING THE DAY TO KILL EVERYONE IN YOUR FUCKING WAY. ALSO YOU CAN USE THIS UP TO THREE TIMES BUT IT MIGHT REVEAL YOU.",
+            "players": "Evolves from Magcargo. Has his own side.",
+            "hide": true,
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /Kill [name] to kill someone! You can only use this once, but it won't reveal you.",
+                        "killmsg": "Magcargo used Ember! ~Target~ suffers from a harsh burn and is asphyxiated due to Carbon Dioxide buildup!",
+                        "charges": 3,
+                        "limit": 3,
+                        "revealChance": 0.3,
+                        "revealmsg": "Wait a minute. ~Self~ (Mega Magcargo) doesn't exist!"
+                    }
+                },
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                }
+            }
+        },
+        {
+            "role": "victini",
+            "translation": "Victini",
+            "side": "victini",
+            "help": "Type /Kill [name] to kill someone! You can also type /sear [name] to drain someone of their actions! Shared actions cannot be stolen. You also can't take away Vulpix's Drought command. You are by yourself!",
+            "info": "Can kill one person during the night. Can inferno one person during the night to drain someone of their actions (doesn't take away shared actions). Sided with itself.",
+            "actions": {
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "dummy9": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target isn't a Steel-type!"
+                },
+                "dummy8": {
+                    "mode": "ignore",
+                    "msg": "±Info: Your target is a Rock-type!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (~Self~) has decided to ~Action~ ~Target~!",
+                        "hide": true
+                    },
+                    "sear": {
+                        "command": "convert",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1234,
+                        "newRole": {
+                            "charmeleon_used": [
+                                "charmeleon"
+                            ],
+                            "braixen_used": [
+                                "braixen"
+                            ],
+                            "growlithe_used": [
+                                "growlithe"
+                            ],
+                            "vulpix_used": [
+                                "vulpix"
+                            ],
+                            "vulpix_nodrought_used": [
+                                "vulpix_nodrought"
+                            ],
+                            "onix_used": [
+                                "onix_small"
+                            ]
+                        },
+                        "convertmsg": "Victini's Searing Shot drains ~Old~ of their actions!"
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "braixen",
+        "villager",
+        "villager",
+        "vulpix",
+        "onix_small",
+        "charmeleon",
+        "victini",
+        "growlithe",
+        "onix_small",
+        "villager",
+        "magby"
+    ],
+    "roles2": [
+        "charizard0",
+        {
+            "geodude": 0.3,
+            "geodude2": 0.7
+        },
+        {
+            "villager": 0.5,
+            "villager2": 0.5
+        },
+        "arcanine",
+        "ninetales",
+        {
+            "onix": 0.3,
+            "onix2": 0.7
+        },
+        {
+            "villager": 0.5,
+            "villager2": 0.5
+        },
+        {
+            "graveler": 0.3,
+            "graveler2": 0.7
+        },
+        {
+            "villager": 0.5,
+            "villager2": 0.5
+        },
+        "charizard1",
+        "blaziken",
+        {
+            "mega_magcargo": 0.5,
+            "miller2": 0.5
+        },
+        {
+            "onix": 0.3,
+            "onix2": 0.7
+        },
+        "mega_magcargo",
+        "heatran",
+        {
+            "villager": 0.5,
+            "villager2": 0.5
+        },
+        "carbink",
+        {
+            "golem": 0.5
+        },
+        {
+            "steelix": 0.5,
+            "steelix2": 0.5
+        },
+        "infernape",
+        "volcarona",
+        "volcanion",
+        "moltres",
+        "houndoom",
+        {
+            "geodude": 0.3,
+            "geodude2": 0.7
+        },
+        "magby",
+        {
+            "onix": 0.3,
+            "onix2": 0.7
+        },
+        "delphox",
+        "houndour",
+        {
+            "villager": 0.5,
+            "villager2": 0.5
+        },
+        {
+            "geodude": 0.3,
+            "geodude2": 0.7
+        },
+        {
+            "onix": 0.3,
+            "onix2": 0.7
+        },
+        "braixen",
+        "growlithe",
+        {
+            "villager": 0.5,
+            "villager2": 0.5
+        },
+        {
+            "geodude": 0.3,
+            "geodude2": 0.7
+        },
+        {
+            "villager": 0.5,
+            "villager2": 0.5
+        },
+        "vulpix",
+        {
+            "onix": 0.3,
+            "onix2": 0.7
+        },
+        {
+            "miller": 0.5,
+            "miller2": 0.5
+        },
+        "charmander",
+        "fennekin",
+        {
+            "geodude": 0.3,
+            "geodude2": 0.7
+        }
+    ],
+    "villageCantLoseRoles": [
+        "blaziken",
+        "arcanine",
+        "charizard",
+        "charizard_drought",
+        "blaziken_drought",
+        "charizard_x"
+    ],
+    "changelog": {
+        "December 14, 2013": "Lots of things changed. Roles may be drastically altered, hax/failchances removed, Mega Charizard Y now has Drought which is a massconvert action, Steelix now has an evade charge on kill due to Sturdy, etc.",
+        "December 15, 2013": "Magbies are now Magmars. This is for a new edit that might make it's way into the game depending on the balance. :)",
+        "December 21, 2013": "Winter solstace today. Added Delphox. Slaves ignore shield. Teamtalk added. Heatran now bypasses all modes for his power command. Ninetales now has an initialrecharge of 3 for his drought. Volcanion now has a 50% chance of knowing who Magcargoes/Magmars are. Volcanion now has a Scald which is a poison that automatically kills Heatran if it hits. Volcanion can be daykilled now (except in Drought form)",
+        "December 22, 2013": "Added Vulpix, Growlithe, Fennekin, Charmander, Braixen, Charmeleon, Houndour, and Magby. The middle evolutions and Vulpix, Growlithe, and Houndour have a 1-shot command that their evolutions have. The baby Pokemon have 0 votes and +1 voteshield.",
+        "December 24, 2013": "Happy new year's eve! I mean, um, christmas eve! :) Put some onDeath roles for when Volcanion dies. His minions won't be entirely useless when he's gone. Machamp is now known as Infernape, because it didn't really fit with the theme.",
+        "December 25, 2013": "Merry christmas. Bug fixes, with Volcanion's onDeath and stuff like that. Grammar fixes as well. I missed a lot of logs, working on making Volcanion and Geodude Army more buff. Took out recharges from Ninetales, Arcanine and Houndoom.",
+        "December 26, 2013": "Gave Golem and Steelix lines chances to spawn with either Rock Head or Sturdy. Gave Volcanion 3 votes (5 in drought), a self-protect once per game, and his convert protects his target too.",
+        "December 27, 2013": "Added Volcarona, who can inspect to see if a Pokemon is a Rock-type or not twice per game. Added Carbink, same as Volcarona but with Steels instead. Heatran now has two daykills in both forms.",
+        "December 30, 2013": "Pushed Heatran deeper into spawn. Forfeited Onix and Steelix's abilities during small games. Geodude still has theirs though.",
+        "January 7, 2014": "Victini added for small games only. The x-shot roles that appear in bigger games of like 30 or whatever because I'm too lazy to check the spawn on the checker are now in small games and can have their action drained by Victini or replenished by Vulpix. Team-reveal was given to Onix's team as well as teamtalk.",
+        "January 9, 2014": "Two Charizards are in the game now! One actually has a dummy command, and doesn't protect (they have the same command and it's shared btw, the function is different). When their partner and Arcanine dies, they become a Mega Charizard Y. When their partner and Blaziken dies, they become a Mega Charizard X. Mega Charizard X is a vigilante role with an unstoppable kill (unless he doesn't use it ofc lol.) Mega Blaziken removed. Spawn slightly adjusted.",
+        "January 10, 2014": "silentCopy boolean added to all x-shot roles. Onix added to a list of roles Victini can drain actions from. Charmeleon no longer protects in his used form (which was an accident to begin with). Later: fixed Infernape's daykill bomb message. Gave Arcanine a voteshield instead of extra votes (-2).",
+        "January 12, 2014": "Added Mega Charizard X to vclr. Fixed his help message and info as well. Januaray is now january b/c my gramr skillz sux. Later: silent boolean added. This fixes problems where it says 'X has been converted into an X!'",
+        "March 31, 2014": "Added Mega Magcargo (joke role), Magmortar and Mega Houndoom."
+    }
+}
