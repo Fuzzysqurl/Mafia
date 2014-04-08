@@ -1,0 +1,507 @@
+{
+    "name": "Zelda",
+    "author": "Tyrex",
+    "summary": "The battle between the Triforce continues throughout the Kingdom of Hyrule! Link is the only one who can take down Ganondorf, but he must be careful when the treacherous Koume is around or he'll get struck during the day! Zelda should be wary of Skull Kid, who lurks among the citizens of Hyrule, and the evil Kotake when her magic freezes! Vaati and his army of minions is trying to take over the Kingdom during this time of crisis. While all hell is loose, the Demon King Malladus appears and destroy anyone who opposes him!",
+    "sides": [
+        {
+            "side": "mafia1",
+            "translation": "Wind Mage"
+        },
+        {
+            "side": "mafia2",
+            "translation": "Gerudo"
+        },
+        {
+            "side": "village",
+            "translation": "People of Hyrule"
+        },
+        {
+            "side": "werewolf",
+            "translation": "Skull Kid"
+        },
+        {
+            "side": "godfather",
+            "translation": "Demon King"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Citizen",
+            "side": "village",
+            "help": "You are a normal citizen of Hyrule. Vote to remove people in the day!",
+            "actions": {}
+        },
+        {
+            "role": "inspector",
+            "translation": "Zelda",
+            "side": "village",
+            "help": "You are the Princess of Hyrule and can use /Inspect [name] to find someone's identity with the help of the Triforce of Wisdom! However, you are easily distracted, so maybe you should stay hidden and find a voice to speak for you.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Impa",
+            "side": "village",
+            "help": "You are the last remaining Sheikah and Zelda's personal Bodyguard! Use /Protect [name] to protect someone!",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "role"
+                    }
+                }
+            }
+        },
+        {
+            "role": "werewolf",
+            "translation": "Skull Kid",
+            "side": "werewolf",
+            "help": "You are the Skull Kid, wearing Majora's Mask. Type /Kill [name] to kill someone! You are alone, but Zelda will think you are a normal citizen, you ignore distracters and even Navi can't find you!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you during the night, but couldn't do anything to you."
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "hooker",
+            "translation": "Tingle",
+            "side": "village",
+            "help": "You are a weird guy dressed in green. Your appearance alone is enough to distract most people by using /Distract [name].",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "mayor",
+            "translation": "King of Hyrule",
+            "side": "village",
+            "help": "You are the King of Hyrule. Your word is law! Well, not always, but at least your vote counts for 3.",
+            "actions": {
+                "vote": 3
+            }
+        },
+        {
+            "role": "spy",
+            "translation": "Navi",
+            "side": "village",
+            "help": "You are an annoying little fairy and know more than you should. Say HEY, LISTEN and someone will probably kill you.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.22
+                    }
+                }
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Malladus",
+            "side": "godfather",
+            "help": "You are the Demon King! Terrorize Hyrule by killing up to 2 targets by typing /kill [name]. You destroy any distracters if they dare to stand in your way.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 14,
+                        "limit": 2
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "The Demon King just kills anyone who is in his way. Including you!",
+                    "msg": "Someone was in your way, so you couldn't kill your targets. But you killed the fool instead!"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "din",
+            "translation": "Din",
+            "side": "village",
+            "help": "You are the Goddess of Power. You can kill 1 person in the night with /Kill [name], but you are sided with the People of Hyrule so don't kill them!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 19
+                    }
+                }
+            }
+        },
+        {
+            "role": "nayru",
+            "translation": "Nayru",
+            "side": "village",
+            "help": "You are the Goddess of Wisdom. Use /Protect [name] to protect up to 2 persons!",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6,
+                        "limit": 2,
+                        "broadcast": "role"
+                    }
+                }
+            }
+        },
+        {
+            "role": "farore",
+            "translation": "Farore",
+            "side": "village",
+            "help": "You are the Goddess of Courage. You can prevent others from getting voted off with your -2 vote.",
+            "actions": {
+                "vote": -2
+            }
+        },
+        {
+            "role": "mafia1",
+            "translation": "Vaati's minion",
+            "side": "mafia1",
+            "help": "You are one of Vaati's minions. Type /Kill [name] to kill someone! Let Vaati pick a target and then pick somebody else to get 2 kills for your team. [Hint: Use /tt [message] to talk to your team]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 13,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Vaati's Minion) have decided to kill ~Target~!"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia21",
+            "translation": "Koume",
+            "side": "mafia2",
+            "help": "You are the Gerudo Sorceress of Flame. Type /Kill [name] to kill someone! You can also use your fire magic to burn someone in the day, but that will reveal yourself so use it only in an act of despair! [Hint: Use /tt [message] to talk to your team]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "Koume uses her fire magic to burn ~Target~ to the bones! ~Self~ lets out an evil laugh."
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia22",
+            "translation": "Kotake",
+            "side": "mafia2",
+            "help": "You are the Gerudo Sorceress of Ice. Type /Kill [name] to kill someone! You can also use your ice magic to freeze someone for the night by typing /Distract [name]. [Hint: Use /tt [message] to talk to your team]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafiaboss1",
+            "translation": "Vaati",
+            "side": "mafia1",
+            "help": "You are the evil wind mage Vaati! With /kill [name] you can kill someone. Command your minions to kill a different target than you to get 2 kills per night. You can't be distracted! [Hint: Use /tt [message] to talk to your team]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner (Vaati) have decided to kill ~Target~!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you during the night, but your wind magic negated the effect."
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafiaboss2",
+            "translation": "Ganondorf",
+            "side": "mafia2",
+            "help": "You are the Great King of Evil! You can use /Kill [name] to kill someone and can't be killed yourself by anyone except Link! You also can't be distracted! [Hint: Use /tt [message] to talk to your team]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Tingle tried to sell you a map, but you simply popped his balloon and went on with your business."
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "samurai",
+            "translation": "Link",
+            "side": "village",
+            "help": "You are the Hero of Time and the only one who can kill Ganondorf! Type /Kill [name] during the day phase to kill someone! You will be revealed when you kill, so make wise choices and claim in the first night to get protection!",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "~Self~ raises the Master Sword into the air, followed by a few quick slashes to kill ~Target~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Midna",
+            "side": "village",
+            "help": "You are a normal citizen of Hyrule. Vote to remove people in the day!",
+            "info": "Reveals as Malladus when inspected. Sees itself as Citizen. Sided with People of Hyrule. ",
+            "actions": {
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "inspect": {
+                    "revealAs": "godfather"
+                }
+            }
+        },
+        {
+            "role": "moon",
+            "translation": "Moon",
+            "side": "werewolf",
+            "help": "You are the Moon that threats to fall over Termina! As the days passes, you get closer to the town, which also changes your powers! Your powers will revert if someone plays Song of Time though!",
+            "info": "Power changes every turn. Can expose on the 1st turn, has +4 votes on the 2nd and can nightkill on the 3rd (cycle repeats after that). Sided with Skull Kid.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "moon1",
+                        "curseConvertMessage": "Dawn of First Day: 72 hours remaining."
+                    }
+                }
+            }
+        },
+        {
+            "role": "moon1",
+            "translation": "Moon",
+            "side": "werewolf",
+            "help": "You are the Moon! For the next 24 hours, you can use /expose [name] during the day to reveal someone's identity while keeping yourself hidden!",
+            "hide": true,
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "moon2",
+                        "curseConvertMessage": "Dawn of Second Day: 48 hours remaining."
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /expose [name] to reveal someone's role (you won't be revealed!)",
+                        "exposemsg": "The Moon glares at ~Target~, the ~Role~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "moon2",
+            "translation": "Moon",
+            "side": "werewolf",
+            "help": "You are the Moon! For the next 24 hours, your vote will count as +4!",
+            "hide": true,
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "moon3",
+                        "curseConvertMessage": "Dawn of Final Day: 24 hours remaining."
+                    }
+                },
+                "vote": 4
+            }
+        },
+        {
+            "role": "moon3",
+            "translation": "Moon",
+            "side": "werewolf",
+            "help": "You are the Moon! For the next 24 hours, you can type /kill [name] during the night to defeat an opponent!",
+            "hide": true,
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "moon1",
+                        "curseConvertMessage": "The Moon was about to hit the ground, but the Song of Time was played, and then... Dawn of First Day: 72 hours remaining."
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 17
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "moon",
+        "villager",
+        "villager"
+    ],
+    "roles2": [
+        "samurai",
+        "werewolf",
+        "villager",
+        "villager"
+    ],
+    "roles3": [
+        "bodyguard",
+        "samurai",
+        "mafiaboss1",
+        "inspector",
+        "mafiaboss2",
+        "villager",
+        "mafia1",
+        "hooker",
+        "villager",
+        "mafia22",
+        "mafia1",
+        "spy",
+        "werewolf",
+        "villager",
+        "mayor",
+        "farore",
+        "villager"
+    ],
+    "roles4": [
+        "nayru",
+        "samurai",
+        "mafiaboss1",
+        "inspector",
+        "mafiaboss2",
+        "villager",
+        "mafia1",
+        "hooker",
+        "villager",
+        "mafia22",
+        "mafia1",
+        "mayor",
+        "werewolf",
+        "spy",
+        "farore",
+        "villager",
+        "miller",
+        "godfather",
+        "villager",
+        "villager",
+        "din",
+        "villager",
+        "mafia21",
+        "mafia1",
+        "villager",
+        "villager",
+        "villager",
+        "moon",
+        "mafia1",
+        "villager",
+        "villager",
+        "villager",
+        "hooker",
+        "mafia21",
+        "farore",
+        "mafia1",
+        "miller",
+        "din",
+        "mafia22",
+        "villager",
+        "villager",
+        "mafia1",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+        "mayor",
+        "din",
+        "samurai"
+    ],
+    "changelog": {
+        "06.03.2014": "Midna now sees herself as Citizen. Kotake and Tingle's priority swapped. Changelog added.",
+        "18.03.2014": "Added experimental setup for 3-4 players."
+    },
+	"minplayers": 3
+}
