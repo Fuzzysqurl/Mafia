@@ -1,0 +1,1020 @@
+{
+    "name": "Ghosts",
+    "author": "RiceKirby",
+    "summary": "Welcome to the Ghost Town! In this place, anyone who dies becomes a Ghost, unable to do anything other than talk while hoping a Priest will come to resurrect them! Because people instantly turns into ghosts, no one can know the dead person's role, so you have to pay attention to what happens during the night to find the Mafia!",
+    "nonPeak": true,
+    "minplayers": 4,
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Good People"
+        },
+        {
+            "side": "mafia",
+            "translation": "Mafia"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Villager",
+            "side": "village",
+            "help": "You have no action during the night! Try to vote the Mafia during the day by typing /vote [name]. [Hint: Type /myrole to see all living players]",
+            "actions": {
+                "lynch": {
+                    "convertTo": "ghost_villager",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "neighbour",
+            "translation": "Neighbour",
+            "side": "village",
+            "help": "Once during the game, you can type /greet [name] to reveal your identity to another player. Be careful to not greet the Mafia! [Hint: Type /myrole to see all living players]",
+            "info": "Can greet 1 person during the night to reveal itself to that person (once in the game). Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "greet": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 3,
+                        "dummytargetmsg": "Hello, ~Target~, I'm ~Self~, your ~Role~!",
+                        "dummyusermsg": "You revealed your identity to ~Target~!",
+                        "charges": 1
+                    }
+                },
+                "lynch": {
+                    "convertTo": "ghost_neighbour",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "neighbour2",
+            "translation": "Neighbour",
+            "side": "village",
+            "help": "Once during the game, you can type /greet [name] to reveal your identity to another player. Be careful to not greet the Mafia! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "greet": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 3,
+                        "dummytargetmsg": "Hello, ~Target~, I'm ~Self~, your ~Role~!",
+                        "dummyusermsg": "You revealed your identity to ~Target~!",
+                        "hide": true
+                    }
+                },
+                "lynch": {
+                    "convertTo": "ghost_neighbour2",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Bodyguard",
+            "side": "village",
+            "help": "You can type /protect [name] during the night to save someone's life, but if someone tries to kill that person, you will die instead! [Hint: Type /myrole to see all living players]",
+            "info": "Can protect one person during the night (dies instead of the protected person). Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "command": "shield",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 1,
+                        "shieldActions": ["kill"]
+                    }
+                },
+                "lynch": {
+                    "convertTo": "ghost_bodyguard",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "inspector",
+            "translation": "Mortician",
+            "side": "village",
+            "help": "You can type /inspect [name] every 2 nights to find a dead person's role! [Hint: Type /myrole to see all living players]",
+            "info": "Can inspect 1 dead person every 2 nights. Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 6,
+                        "recharge": 2,
+                        "initialrecharge": 2
+                    }
+                },
+                "lynch": {
+                    "convertTo": "ghost_inspector",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "priest",
+            "translation": "Priest",
+            "side": "village",
+            "help": "Twice during the game, you can type /revive [name] at night to resurrect a dead person! [Hint: Type /myrole to see all living players]",
+            "info": "Can revive one person during the night (twice in the game). Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "revive": {
+                        "command": "convert",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 2,
+                        "initialrecharge": 2,
+                        "charges": 2,
+                        "newRole": {
+                            "villager": ["ghost_villager"],
+                            "neighbour2": ["ghost_neighbour", "ghost_neighbour2"],
+                            "bodyguard": ["ghost_bodyguard"],
+                            "inspector": ["ghost_inspector"],
+                            "bulletproof3": ["ghost_bulletproof3"],
+                            "bulletproof": ["ghost_bulletproof"],
+                            "mafia": ["ghost_mafia"],
+                            "framer3": ["ghost_framer", "ghost_framer3"]
+                        },
+                        "usermsg": "You resurrected ~Target~!",
+                        "convertmsg": "~Target~ was resurrected by the Priest!"
+                    }
+                },
+                "lynch": {
+                    "convertTo": "ghost_priest",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "bulletproof",
+            "translation": "Bulletproof",
+            "side": "village",
+            "help": "You have a bulletproof vest, so you are able to survive for 1 night attack during the game! [Hint: Type /myrole to see all living players]",
+            "info": "Survives 1 night attack (can get killed normally after that). Sided with Good People. ",
+            "actions": {
+                "lynch": {
+                    "convertTo": "ghost_bulletproof",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "bulletproof2",
+            "translation": "Bulletproof",
+            "side": "village",
+            "help": "You have been shot, but your bulletproof vest saved you! Unfortunately, you won't be able to take a 2nd shot, so be careful! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "bulletproof3",
+                        "curseCount": -1,
+                        "silentCurse": true
+                    }
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "bulletproof3",
+            "translation": "Bulletproof",
+            "side": "village",
+            "help": "You have been shot, but your bulletproof vest saved you! Unfortunately, you won't be able to take a 2nd shot, so be careful! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "lynch": {
+                    "convertTo": "ghost_bulletproof3",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            },
+            "winIfDeadRoles": [
+                "mafia",
+                "framer",
+                "framer2",
+                "framer3"
+            ]
+        },
+        {
+            "role": "mafia",
+            "translation": "Mafia",
+            "side": "mafia",
+            "help": "Type /kill [name] during the night to kill someone and transform them into a ghost! [Hint: Type /myrole to see all living players, and /tt [message] to talk to your teammates.]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": ["convert", "curse", "dummy"],
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 5,
+                        "newRole": {
+                            "bulletproof2": ["bulletproof"]
+                        },
+                        "cursedRole": {
+                            "ghost_villager": ["villager"],
+                            "ghost_neighbour": ["neighbour"],
+                            "ghost_neighbour2": ["neighbour2"],
+                            "ghost_priest": ["priest"],
+                            "ghost_bodyguard": ["bodyguard"],
+                            "ghost_inspector": ["inspector"],
+                            "ghost_bulletproof3": ["bulletproof3"]
+                        },
+                        "curseCount": -1,
+                        "convertmsg": "The Bulletproof was shot, but somehow survived!",
+                        "curseConvertMessage": "~Target~ was shot and died!",
+                        "usermsg": "You attacked ~Target~!",
+                        "dummybroadcastmsg": "A suspicious person was seen wandering around during the night!",
+                        "broadcast": "team"
+                    }
+                },
+                "startup": {
+                    "team-revealif": ["mafia"],
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                },
+                "lynch": {
+                    "convertTo": "ghost_mafia",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "dummy2": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "teamTalk": true
+            },
+            "winIfDeadRoles": [
+                "villager",
+                "neighbour",
+                "neighbour2",
+                "bodyguard",
+                "inspector",
+                "priest",
+                "bulletproof",
+                "bulletproof2",
+                "bulletproof3"
+            ]
+        },
+        {
+            "role": "framer",
+            "translation": "Framer",
+            "side": "mafia",
+            "help": "Type /kill [name] during the night to kill someone and transform them into a ghost! Once during the game, you can also use /frame [name] on any player to change the number of people seen walking during the night (use on a teammate to reduce, or on a villager to increase). [Hint: Type /myrole to see all living players, and /tt [message] to talk to your teammates.]",
+            "info": "Can kill one person during the night. Can change the amount of people seen during a night attack (once during the game). Sided with Mafia. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": ["convert", "curse", "dummy"],
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 5,
+                        "newRole": {
+                            "bulletproof2": ["bulletproof"]
+                        },
+                        "cursedRole": {
+                            "ghost_villager": ["villager"],
+                            "ghost_neighbour": ["neighbour"],
+                            "ghost_neighbour2": ["neighbour2"],
+                            "ghost_priest": ["priest"],
+                            "ghost_bodyguard": ["bodyguard"],
+                            "ghost_inspector": ["inspector"],
+                            "ghost_bulletproof3": ["bulletproof3"]
+                        },
+                        "curseCount": -1,
+                        "convertmsg": "The Bulletproof was shot, but somehow survived!",
+                        "curseConvertMessage": "~Target~ was shot and died!",
+                        "usermsg": "You attacked ~Target~!",
+                        "dummybroadcastmsg": "A suspicious person was seen wandering around during the night!",
+                        "broadcast": "team"
+                    },
+                    "frame": {
+                        "command": ["dummy2", "copy"],
+                        "common": "Self",
+                        "target": "Any",
+                        "priority": 4,
+                        "charges": 1,
+                        "initialrecharge": 2,
+                        "copyAs": "framer2",
+                        "canCopy": ["mafia", "framer"],
+                        "dummy2broadcastmsg": "A suspicious person was seen wandering around during the night!",
+                        "silentCopy": true,
+                        "silent": true,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": {
+                    "team-revealif": ["mafia"],
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                },
+                "lynch": {
+                    "convertTo": "ghost_framer",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "dummy2": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "teamTalk": true
+            },
+            "winIfDeadRoles": [
+                "villager",
+                "neighbour",
+                "neighbour2",
+                "bodyguard",
+                "inspector",
+                "priest",
+                "bulletproof",
+                "bulletproof2",
+                "bulletproof3"
+            ]
+        },
+        {
+            "role": "framer2",
+            "translation": "Framer",
+            "side": "mafia",
+            "help": "Type /kill [name] during the night to kill someone and transform them into a ghost! Once during the game, you can also use /frame [name] on any player to change the number of people seen walking during the night (use on a teammate to reduce, or on a villager to increase). [Hint: Type /myrole to see all living players, and /tt [message] to talk to your teammates.]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": ["convert", "curse"],
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 5,
+                        "newRole": {
+                            "bulletproof2": ["bulletproof"]
+                        },
+                        "cursedRole": {
+                            "ghost_villager": ["villager"],
+                            "ghost_neighbour": ["neighbour"],
+                            "ghost_neighbour2": ["neighbour2"],
+                            "ghost_priest": ["priest"],
+                            "ghost_bodyguard": ["bodyguard"],
+                            "ghost_inspector": ["inspector"],
+                            "ghost_bulletproof3": ["bulletproof3"]
+                        },
+                        "curseCount": -1,
+                        "convertmsg": "The Bulletproof was shot, but somehow survived!",
+                        "curseConvertMessage": "~Target~ was shot and died!",
+                        "usermsg": "You attacked ~Target~!",
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "framer3",
+                        "curseCount": -1,
+                        "silentCurse": true
+                    }
+                },
+                "startup": {
+                    "team-revealif": ["mafia"],
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                },
+                "dummy2": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "teamTalk": true
+            },
+            "winIfDeadRoles": [
+                "villager",
+                "neighbour",
+                "neighbour2",
+                "bodyguard",
+                "inspector",
+                "priest",
+                "bulletproof",
+                "bulletproof2",
+                "bulletproof3"
+            ]
+        },
+        {
+            "role": "framer3",
+            "translation": "Framer",
+            "side": "mafia",
+            "help": "Type /kill [name] during the night to kill someone and transform them into a ghost! Once during the game, you can also use /frame [name] on any player to change the number of people seen walking during the night (use on a teammate to reduce, or on a villager to increase). [Hint: Type /myrole to see all living players, and /tt [message] to talk to your teammates.]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": ["convert", "curse", "dummy"],
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 5,
+                        "newRole": {
+                            "bulletproof2": ["bulletproof"]
+                        },
+                        "cursedRole": {
+                            "ghost_villager": ["villager"],
+                            "ghost_neighbour": ["neighbour"],
+                            "ghost_neighbour2": ["neighbour2"],
+                            "ghost_priest": ["priest"],
+                            "ghost_bodyguard": ["bodyguard"],
+                            "ghost_bulletproof3": ["bulletproof3"]
+                        },
+                        "curseCount": -1,
+                        "convertmsg": "The Bulletproof was shot, but somehow survived!",
+                        "curseConvertMessage": "~Target~ was shot and died!",
+                        "usermsg": "You attacked ~Target~!",
+                        "dummybroadcastmsg": "A suspicious person was seen wandering around during the night!",
+                        "broadcast": "team",
+                        "hide": true
+                    },
+                    "frame": {
+                        "command": ["dummy2", "copy"],
+                        "common": "Self",
+                        "target": "Any",
+                        "priority": 4,
+                        "copyAs": "framer2",
+                        "canCopy": ["mafia", "framer"],
+                        "dummy2broadcastmsg": "A suspicious person was seen wandering around during the night!",
+                        "silentCopy": true,
+                        "silent": true,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "team-revealif": ["mafia"],
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                },
+                "lynch": {
+                    "convertTo": "ghost_framer3",
+                    "lynchmsg": "~Self~ has been lynched and became a ghost after receiving ~Count~ votes!"
+                },
+                "dummy2": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "inspect": {
+                    "mode": "ignore",
+                    "msg": "±Info: ~Self~ is not dead!"
+                },
+                "teamTalk": true
+            },
+            "winIfDeadRoles": [
+                "villager",
+                "neighbour",
+                "neighbour2",
+                "bodyguard",
+                "inspector",
+                "priest",
+                "bulletproof",
+                "bulletproof2",
+                "bulletproof3"
+            ]
+        },
+        {
+            "role": "ghost_villager",
+            "translation": "Villager (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "villager",
+                "onteam": "villager",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_neighbour",
+            "translation": "Neighbour (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "neighbour",
+                "onteam": "neighbour",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_neighbour2",
+            "translation": "Neighbour (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "neighbour",
+                "onteam": "neighbour",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_bodyguard",
+            "translation": "Bodyguard (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "bodyguard",
+                "onteam": "bodyguard",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_inspector",
+            "translation": "Mortician (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "inspector",
+                "onteam": "inspector",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_priest",
+            "translation": "Priest (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "priest",
+                "onteam": "priest",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_bulletproof",
+            "translation": "Bulletproof (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "bulletproof",
+                "onteam": "bulletproof",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_bulletproof3",
+            "translation": "Bulletproof (Dead)",
+            "side": "village",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "bulletproof",
+                "onteam": "bulletproof",
+                "copy": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["mafia", "framer", "framer2", "framer3"]
+                    },
+                    "silent": true
+                },
+                "startup": {
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                }
+            }
+        },
+        {
+            "role": "ghost_mafia",
+            "translation": "Mafia (Dead)",
+            "side": "mafia",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players, and /tt [message] to talk to your teammates.]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "mafia",
+                "dummy2": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "startup": {
+                    "team-revealif": ["mafia"],
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                },
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "ghost_framer",
+            "translation": "Framer (Dead)",
+            "side": "mafia",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players, and /tt [message] to talk to your teammates.]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "framer",
+                "dummy2": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "startup": {
+                    "team-revealif": ["mafia"],
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                },
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "ghost_framer3",
+            "translation": "Framer (Dead)",
+            "side": "mafia",
+            "help": "You are now a ghost! Unless the Priest resurrects you, you can't do anything other than talk (not even vote)! You still win with your former side! [Hint: Type /myrole to see all living players, and /tt [message] to talk to your teammates.]",
+            "hide": true,
+            "actions": {
+                "noVote": true,
+                "vote": 0,
+                "voteshield": -1000,
+                "onlist": "framer",
+                "dummy2": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "startup": {
+                    "team-revealif": ["mafia"],
+                    "revealPlayers": ["villager","neighbour","neighbour2","bodyguard","inspector","priest","bulletproof","bulletproof2","bulletproof3","mafia","framer","framer2","framer3"],
+                    "revealPlayersMsg": "Players Alive: ~Players~"
+                },
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "dead_people",
+            "translation": "Ghost",
+            "side": "village",
+            "help": "I see dead people...",
+            "info": "Whoever dies becomes a Ghost. Cannot vote or get lynched and still win with their original side. Ghosts can also be resurrected by the Priest.",
+            "hide": "side",
+            "actions": {
+                
+            }
+        }
+    ],
+    "roles1": [
+        "mafia",
+        "villager",
+        "villager",
+        "neighbour",
+        "priest",
+        "mafia",
+        "bodyguard",
+        "villager",
+        "inspector",
+        "bulletproof",
+        "framer",
+        "villager"
+    ],
+    "changelog": {
+        "29.10.2013": "/myrole now shows players alive instead of ghosts.",
+        "10.10.2013": "Anyone can use /myrole to check Ghost Players list. Ghosts cannot vote anymore. Added TeamTalk to Mafia.",
+        "04.10.2013": "Neighbour now receives a message explaining that they revealed themselves to their target.",
+        "02.10.2013": "Mortician added. Priest can now resurrect 2 persons during the game.",
+        "30.09.2013": "Theme coded."
+    }
+}
