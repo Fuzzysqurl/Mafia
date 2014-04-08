@@ -1,0 +1,1065 @@
+{
+    "author": "Li Q. Assir",
+    "name": "Body",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?16448",
+    "summary": "Welcome to the fight that happens every day inside our bodies: our body defending itself against diseases. Some genetic diseases are harming our body and they are almost unstoppable late game. There are some psychological diseases that can make you go crazy! There are some bacterial ones who are hard to get rid of because of their sporulation. Rabies is hardly stopped when its incubation time ends... (Suggestions or problems? PM Li Q. Assir or post here: http://pokemon-online.eu/forums/showthread.php?16448-Body )",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Body",
+            "winmsg": "~Players~ saved the body from all kind of diseases!"
+        },
+        {
+            "side": "mafia",
+            "translation": "Genetic Diseases",
+            "winmsg": "~Players~ messed up the nuclei of all the cells and caused the most fearsome genetic diseases."
+        },
+        {
+            "side": "mafia1",
+            "translation": "Psychological Diseases",
+            "winmsg": "What is happening? Everything is so confusing. ~Players~ have spread craziness, illusions and all sorts of mind problems."
+        },
+        {
+            "side": "mafia2",
+            "translation": "Idiopathic Diseases",
+            "winmsg": "~Players~ used all sort of causes for diseases and managed to spread them. Health is over."
+        },
+        {
+            "side": "viral",
+            "translation": "Viral Diseases",
+            "winmsg": "~Players~, the virus(es), destroyed all kind of cells, eliminating life as we know it."
+        },
+        {
+            "side": "bacteria",
+            "translation": "Bacterial Diseases",
+            "winmsg": "~Players~ used their adaptability to spread pathogenic bacteria everywhere!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "pineal",
+            "translation": "Pineal Gland",
+            "side": "village",
+            "info": "Night Action: distract. Knows Eye. Sided with the Body.",
+            "help": "You are a gland that produce a hormone called melatonin, which induces sleepiness at night. This production is controlled by the light, so you know the eye, which is the gateway for the light. At night, you can put someone to sleep with /distract, preventing them from performing night actions.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": true,
+                        "priority": 3,
+                        "distractmsg": "Melatonin from pineal was stronger than your will, so you spent this night sleeping.",
+                        "teammsg": "Your teammate slept more than they should. You had to try to wake up him/her and couldn't ~Action~."
+                    }
+                },
+                "startup": {
+                    "revealRole": "eye"
+                }
+            }
+        },
+        {
+            "role": "pineal2",
+            "translation": "Pineal Gland",
+            "side": "village",
+            "info": "Night Action: distract (can be used 2 times per night). Sided with the Body.",
+            "help": "Now that you have no more source of light, the melatonin production is out of control! Now you can put 2 people to sleep with /distract, preventing them from performing night actions.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "limit": 2,
+                        "distractmsg": "Melatonin from pineal was stronger than your will, so you spent this night sleeping.",
+                        "teammsg": "Your teammate slept more than they should. You had to try to wake up him/her and couldn't ~Action~."
+                    }
+                }
+            }
+        },
+        {
+            "role": "bone",
+            "translation": "Bone Marrow",
+            "side": "village",
+            "info": "Night Action: safeguard. Knows Immune System. On Death: converts the Immune System to Leukemia. Sided with the Body.",
+            "help": "You are the bone marrow, where every blood cell is produced. You renew the body's blood, being able to /safeguard someone at night. The Immune System can't harm you, because you are its origin. You also know the Immune System, because of the important relationship between you. ",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "ignore": [
+                            "immune", "immunesmall"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "immune": "leukemia",
+                        "immunesmall": "leukemia"
+                    },
+                    "convertmsg": "±Bone Marrow: The white blood cell production has gone out of control! The Immune System has been corrupted and is now attacking friendly organs!"
+                },
+                "startup": {
+                    "revealRole": [
+                        "immune",
+                        "immunesmall"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "immune",
+            "translation": "Immune System",
+            "side": "village",
+            "info": "Night Action: protect (protect [94.00%] or Kill [6.00%]). Can be used 2 times per night. Knows Bone Marrow. Converted to Leukemia if Bone marrow dies. Sided with the Body",
+            "help": "You are the Immune System, which helps the body defend against disease, but you may cause some autoimmune diseases. Well, it's your choice. You can try to /protect twice at night, but be warned: your protection has a 6% chance of killing the person you tried to protect! And you also get infected with Leukemia when Bone Marrow dies.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "limit": 2,
+                        "command": {
+                            "protect": 0.94,
+                            "kill": 0.06
+                        },
+                        "msg": "The Immune System attempted to protect you. Unfortunately, it couldn't control its antibodies and destroyed you instead."
+                    }
+                },
+                "startup": {
+                    "revealRole": "bone"
+                }
+            }
+        },
+        {
+            "role": "immunesmall",
+            "translation": "Immune System",
+            "side": "village",
+            "info": "Night Action: protect (protect [94.00%] or Kill [6.00%]). Sided with the Body",
+            "help": "You are the Immune System, which helps the body defend against disease, but you may cause some autoimmune diseases. Well, it's your choice. You can try to /protect once at night, but be warned: your protection has a 6% chance of killing the person you tried to protect!",
+            "actions": {
+                "startup": {
+                    "revealRole": "bone"
+                },
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "hide": true,
+                        "command": {
+                            "protect": 0.94,
+                            "kill": 0.06
+                        },
+                        "msg": "The Immune System attempted to protect you. Unfortunately, it couldn't control its antibodies and destroyed you instead."
+                    }
+                }
+            }
+        },
+        {
+            "role": "liver",
+            "translation": "Liver",
+            "side": "village",
+            "info": "Night Actions: kill; inspect (has a 50% chance of failing). Has a 50% chance of evading nightkill. Sided with the Body.",
+            "help": "You are an organ with multiple functions! You can metabolize many things, allowing you to /kill someone. You are also able to /inspect someone (50% failure chance) because of your intricate relationship with every part of the body. You also have a high metabolism that allows you to evade nightkills sometimes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "msg": "The liver metabolized you!"
+                    },
+                    "inspect": {
+                        "failChance": 0.5,
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 56
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                }
+            }
+        },
+        {
+            "role": "brain",
+            "translation": "Brain",
+            "side": "village",
+            "info": "Night Action: know (inspect). Sided with the Body.",
+            "help": "You are the Brain! You control most functions of the body and play an extremely important role in human life. You are the intelligence center, which guarantees you the power to /know someone's role at night.",
+            "actions": {
+                "night": {
+                    "know": {
+                        "command": "inspect",
+                        "target": "AnyButSelf",
+                        "hide": true,
+                        "common": "Self",
+                        "priority": 55
+                    }
+                }
+            }
+        },
+        {
+            "role": "brain2",
+            "translation": "Brain",
+            "side": "village",
+            "info": "Night Action: know (inspect). Vote counts as 5. Sided with the Body.",
+            "help": "You are the Brain! You control most functions of the body and play an extremely important role in human life. Because of this, your vote is +5! You are also the intelligence center, which guarantees you the power to /know someone's role at night.",
+            "actions": {
+                "night": {
+                    "know": {
+                        "command": "inspect",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 55
+                    }
+                },
+                "vote": 5
+            }
+        },
+        {
+            "role": "eye",
+            "translation": "Eye",
+            "side": "village",
+            "info": "Standby Action: expose (user is not revealed). Reveals attacker when daykilled. On Death: converts Pineal Gland (to Pineal Gland - 2 distracts). Gets night hax on know (player reveal 15%). Knows Pineal Gland. Sided with the body.",
+            "help": "You're the organ responsible for vision. Everyone you look at during the day is revealed (/expose). You also may look at what the brain is doing at night. You provide light for the pineal gland, so you know it and empower it when you die.",
+            "actions": {
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "Before dying, ~Self~ looked at ~Target~ and knew that it was the ~Role~!",
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "Reveal someone's role with /expose.",
+                        "exposemsg": "'HEY, LISTEN! Err... I mean HEY, LOOK! ~Target~ is ~Role~!'"
+                    }
+                },
+                "hax": {
+                    "know": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.15
+                    }
+                },
+                "startup": {
+                    "revealRole": "pineal"
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "pineal": "pineal2"
+                    },
+                    "convertmsg": "±Game: The Pineal Gland's source of light has disappeared! Melatonin production has increased!"
+                }
+            }
+        },
+        {
+            "role": "ear",
+            "translation": "Ear",
+            "side": "village",
+            "info": "Gets night hax on kill (player reveal 15%) and poison (player reveal 4%). Sided with the Body.",
+            "help": "Shhh... Hey! You can listen to what the bad guys and the liver are doing! (No command for that)",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.15
+                    },
+                    "poison": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.04
+                    }
+                }
+            }
+        },
+        {
+            "role": "stem",
+            "translation": "Stem Cell",
+            "side": "village",
+            "info": "Can convert itself into ear, brain, heart, pineal, immune or liver. Each of these commands have a fail chance between 91% (for ear) and 94% (for heart), have a suicide chance between 15% (ear) and 55% (heart), if they are converted. Sided with the Body.",
+            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune OR /pineal [your name] to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyways, vote to remove people!",
+            "actions": {
+                "night": {
+                    "ear": {
+                        "suicideChance": 0.15,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "brain",
+                            "heart",
+                            "liver",
+                            "pineal",
+                            "immune"
+                        ],
+                        "newRole": {
+                            "ear": [
+                                "stem"
+                            ]
+                        },
+                        "failChance": 0.9
+                    },
+                    "immune": {
+                        "suicideChance": 0.3,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "brain",
+                            "heart",
+                            "liver",
+                            "pineal",
+                            "ear"
+                        ],
+                        "newRole": {
+                            "immunesmall": [
+                                "stem"
+                            ]
+                        },
+                        "failChance": 0.915
+                    },
+                    "brain": {
+                        "suicideChance": 0.25,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "ear",
+                            "heart",
+                            "liver",
+                            "pineal",
+                            "immune"
+                        ],
+                        "newRole": {
+                            "brain": [
+                                "stem"
+                            ]
+                        },
+                        "failChance": 0.915
+                    },
+                    "heart": {
+                        "suicideChance": 0.55,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "brain",
+                            "ear",
+                            "liver",
+                            "pineal",
+                            "immune"
+                        ],
+                        "newRole": {
+                            "heart": [
+                                "stem"
+                            ]
+                        },
+                        "failChance": 0.94
+                    },
+                    "pineal": {
+                        "suicideChance": 0.2,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "brain",
+                            "heart",
+                            "liver",
+                            "ear",
+                            "immune"
+                        ],
+                        "newRole": {
+                            "pineal": [
+                                "stem"
+                            ]
+                        },
+                        "failChance": 0.91
+                    },
+                    "liver": {
+                        "suicideChance": 0.4,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "restrict": [
+                            "brain",
+                            "heart",
+                            "ear",
+                            "pineal",
+                            "immune"
+                        ],
+                        "newRole": {
+                            "liver": [
+                                "stem"
+                            ]
+                        },
+                        "failChance": 0.93
+                    }
+                }
+            }
+        },
+        {
+            "role": "heart",
+            "translation": "Heart",
+            "side": "village",
+            "info": "Standby Action: kill (45% chance of revealing user). Vote counts as 2. Sided with the Body.",
+            "help": "You are a blood bomb! You can kill someone during the standby phase, but you have a high chance (45%) of revealing yourself. Your vote is worth 2 because you are very important to life processes.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "/kill someone now! You may be revealed, though.",
+                        "killmsg": "The heartbeat rapidly increased for a moment! It was so strong that ~Target~ was cast off the body, totally covered in blood! How lovely <3",
+                        "revealChance": 0.45,
+                        "revealmsg": "~Self~ is exhausted, and has to lower its heartbeat to avoid fibrillation."
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "heartsmall",
+            "translation": "Heart",
+            "side": "village",
+            "info": "Standby Action: kill (45% chance of revealing user). Sided with the Body.",
+            "help": "You are a blood bomb! You can kill someone during the standby phase, but you have a high chance (45%) of revealing yourself.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "/kill someone now! You may be revealed, though.",
+                        "killmsg": "The heartbeat rapidly increased for a moment! It was so strong that ~Target~ was cast off the body, totally covered in blood! How lovely <3",
+                        "revealChance": 0.45,
+                        "revealmsg": "~Self~ is exhausted, and has to lower its heartbeat to avoid fibrillation."
+                    }
+                }
+            }
+        },
+        {
+            "role": "prader",
+            "translation": "Prader-Willi Syndrome",
+            "side": "mafia",
+            "info": "Night Action: kill (shared with team). On Death: converts Angelman Syndrome to Developed AS and exposes it. Knows teammates. Sided with Genetic Diseases.",
+            "help": "You are a common chromosomal disease, caused by a defective Chromosome #15, just like Angelman Syndrome. When one of you is eliminated, the other gets an incredible boost, at the cost of being revealed to everyone. But, for now, you share a /kill at night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 24,
+                        "broadcast": "team",
+                        "msg": "A problem was detected on your 15th Chromosome. They tried to save you, but there was nothing they could do against the genetic disease."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "angel": "angel2"
+                    },
+                    "convertmsg": "±Game: Prader-Willi Syndrome has been eliminated!",
+                    "exposeRoles": [
+                        "angel2"
+                    ],
+                    "exposemsg": "±Game: But, uh, it seems that Angelman Syndrome (~Target~) is developing..."
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "angel",
+            "translation": "Angelman Syndrome",
+            "side": "mafia",
+            "info": "Night Action: kill (shared with team). On Death: converts Prader-Willi Syndrome to Developed PWS and exposes it. Knows teammates. Sided with Genetic Diseases.",
+            "help": "You are a common chromosomal disease that originates from a defective 15th Chromosome, just like Prader-Willi Syndrome. When one of you is eliminated, the other gets an incredible boost, at the cost of being revealed to everyone. But, for now, you share a /kill at night.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 24,
+                        "broadcast": "team",
+                        "msg": "A problem was detected on your 15th Chromosome. They tried to save you, but there was nothing they could do against a genetic disease."
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "prader": "prader2"
+                    },
+                    "convertmsg": "±Game: Angelman Syndrome has been eliminated!",
+                    "exposeRoles": [
+                        "prader2"
+                    ],
+                    "exposemsg": "±Game: But, uh, it seems that Prader-Willi Syndrome (~Target~) is developing..."
+                }
+            }
+        },
+        {
+            "role": "angel2",
+            "translation": "Angelman Syndrome",
+            "side": "mafia",
+            "winIfDeadRoles": [
+                "heart",
+                "stem",
+                "liver",
+                "immune",
+                "anthrax",
+                "tetanus",
+                "flu",
+                "rabies",
+                "rabies2",
+                "schiz",
+                "alz",
+                "depression"
+            ],
+            "info": "Night Action: kill (shared with role). Has a 40% chance of evading nightkill. Can't be distracted. Vote counts as 1000. Knows teammates. Sided with Genetic Diseases.",
+            "help": "Your twin disease is out of the game. Your night kill bypasses protections and distractions. Now you're known - and feared - by everyone, so your votes instantly eliminate one person. Because you are developed, it's almost impossible to get rid of you, so you evade 40% of the nightkills aimed at you.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "You continued to attack, even with your memory and sleep problems, they can't distract you. You are already causing them."
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.4
+                    }
+                },
+                "vote": 1000,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "team",
+                        "msg": "When Angelman Syndrome is developed, it's almost impossible to survive. You didn't."
+                    }
+                }
+            }
+        },
+        {
+            "role": "prader2",
+            "translation": "Prader-Willi Syndrome",
+            "side": "mafia",
+            "winIfDeadRoles": [
+                "heart",
+                "stem",
+                "liver",
+                "immune",
+                "anthrax",
+                "tetanus",
+                "flu",
+                "rabies",
+                "rabies2",
+                "schiz",
+                "alz",
+                "depression"
+            ],
+            "info": "Standby Action: kill (reveals user). Has a 45% chance of evading nightkill. Vote counts as 1000. Knows teammates. Sided with Genetic Diseases.",
+            "help": "Your twin disease is out of the game. You can kill during the standby, instead of your nightkill. Now you're known - and feared - by everyone, so your votes instantly eliminate one person. Because you are developed, it's almost impossible to get rid of you, so you evade almost half of the nightkills aimed at you.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Now you can /kill someone.",
+                        "killmsg": "~Target~ survived for a long time with Prader-Willi Syndrome (~Self~), but then ~Target~ couldn't take it anymore."
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.45
+                    }
+                },
+                "vote": 1000
+            }
+        },
+        {
+            "role": "down",
+            "translation": "Down Syndrome",
+            "side": "mafia",
+            "info": "Night Action: poison (kills after 2 days/3 nights). Can be used 3 times per night. Vote counts as 2. Knows teammates. Sided with Genetic Diseases.",
+            "help": "You are one of the most well-known genetic diseases, you are also known as the trisomy of the 21st Chromosome and you have a good prognosis. Thus, you can /poison 3 people every night and they will die 3 nights after. Your vote has been increased to 2.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 3,
+                        "count": 3,
+                        "poisonDeadMessage": "Down Syndrome has taken its toll on you.",
+                        "broadcast": "team"
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "alz",
+            "translation": "Alzheimer",
+            "side": "mafia1",
+            "info": "Night Actions: distract (shared with role), convert (shared with role - can be used every 2 nights - can convert most PRs to Stem Cell or most diseases to Alzheimer) and kill (shared with team). Vote counts as 0.7. Knows teammates. Sided with Psychological Diseases.",
+            "help": "You're a disease that affects people's memory and elder people are more affected by you. You can /distract someone to make them to forget what they would do at night. You can also /forget someone, every two nights, to change their role (if they are on the good team, they'll become a Stem Cell - villager, if they are a disease, they will become another Alzheimer; you can't convert the bone marrow and some diseases). You share a kill with your team. Due to having memory problems, your voting power was reduced to 0.7.",
+            "actions": {
+                "vote": 0.7,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 4,
+                        "broadcast": "team",
+                        "distractmsg": "Hun? What was I supposed to do this night??",
+                        "teammsg": "Your teammate forgot what he was supposed to do and you spent your night trying to explain it to them."
+                    },
+                    "forget": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "recharge": 2,
+                        "broadcast": "team",
+                        "priority": 44,
+                        "newRole": {
+                            "stem": [
+                                "heart",
+                                "heartsmall",
+                                "ear",
+                                "eye",
+                                "liver",
+                                "pineal",
+                                "immune",
+                                "immunesmall"
+                            ],
+                            "alz": [
+                                "angel",
+                                "down",
+                                "prader",
+                                "blood",
+                                "leukemia",
+                                "leukemiasmall",
+                                "flu",
+                                "tetanus",
+                                "anthrax"
+                            ]
+                        },
+                        "convertmsg": "The ~Old~ forgot its design and now is a/an ~New~!"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 28,
+                        "broadcast": "team",
+                        "msg": "*Head hurts... What is happening to my mind?!* You feel like you can't control yourself anymore and are found dead."
+                    }
+                }
+            }
+        },
+        {
+            "role": "schiz",
+            "translation": "Schizophrenia",
+            "side": "mafia1",
+            "info": "Night Action: kill (shared with team). Standby Actions: kill (reveals user) and expose or fake-expose someone as Tetanus, High Blood Pressure, Rabies, Heart, Brain, Stem Cell or Bone Marrow (doesn't reveal user). Knows teammates. Sided with Psychological Diseases.",
+            "help": "You are a disease caused by random overloads of some neurotransmitters, characterized by some hallucinations and an incredible strength during psychotic outbreaks. You have a nightkill shared with your team. You can expose or fake expose someone during the day (you aren't revealed). You can daykill, but this is revealed. Use your powers wisely!",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "msg": "*Head hurts... What is happening to my mind?!* You feel like you can't control yourself anymore and are found dead."
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "Any",
+                        "msg": "You can expose or fake-expose someone's roles (including yours). Use /expose to expose someone's actual role.",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is ~Role~, ~Target~ is ~Role~, ~Target~ is ~Role~, ~Target~ is ~Role~...'"
+                    },
+                    "tetanus": {
+                        "command": "expose",
+                        "target": "Any",
+                        "msg": " Or you can use /high, /tetanus, /rabies, /heart, /brain, /stem or /bone to fake expose someone as being one of these roles.",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is Tetanus, ~Target~ is Tetanus, ~Target~ is Tetanus, ~Target~ is Tetanus...'"
+                    },
+                    "high": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is High Blood Pressure, ~Target~ is High Blood Pressure, ~Target~ is High Blood Pressure, ~Target~ is High Blood Pressure...'"
+                    },
+                    "rabies": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is Rabies, ~Target~ is Rabies, ~Target~ is Rabies, ~Target~ is Rabies...'"
+                    },
+                    "heart": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is Heart, ~Target~ is Heart, ~Target~ is Heart, ~Target~ is Heart...'"
+                    },
+                    "brain": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is Brain, ~Target~ is Brain, ~Target~ is Brain, ~Target~ is Brain...'"
+                    },
+                    "stem": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is Stem Cell, ~Target~ is Stem Cell, ~Target~ is Stem Cell, ~Target~ is Stem Cell...'"
+                    },
+                    "bone": {
+                        "command": "expose",
+                        "target": "Any",
+                        "exposemsg": "An altered voice is heard. That person seems to be outside of their mind, like something else was controlling them. The only thing that can be heard is '~Target~ is Bone Marrow, ~Target~ is Bone Marrow, ~Target~ is Bone Marrow, ~Target~ is Bone Marrow...'"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "If you want, /kill someone. But you WILL be revealed, if you do it.",
+                        "killmsg": "~Self~ is out of control! He screams and hits everything. Oh, no! ~Target~ wanted to stop ~Self~ but nothing can stop a schizophrenic during a psychotic outbreak. Poor ~Target~..."
+                    }
+                }
+            }
+        },
+        {
+            "role": "depression",
+            "translation": "Depression",
+            "side": "mafia1",
+            "info": "Night Action: kill (shared with team). Gets night hax on distract (player reveal 2%), protect (player reveal 3%) and know (player reveal 3%). Knows teammates. Sided with Psychological Diseases.",
+            "help": "Many people suffer of you, caused when the level of some neurotransmitters is very low. You can /kill someone at night (shared with your team). You get hax on some actions too.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "hax": {
+                    "distract": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.02
+                    },
+                    "protect": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.03
+                    },
+                    "know": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.03
+                    }
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "msg": "*Head hurts... What is happening to my mind?!* You feel like you can't control yourself anymore and are found dead."
+                    }
+                }
+            }
+        },
+        {
+            "role": "blood",
+            "translation": "High Blood Pressure",
+            "side": "mafia2",
+            "winningSides": [
+                "mafia",
+                "mafia1",
+                "mafia2",
+                "viral",
+                "bacteria"
+            ],
+            "info": "Night Action: poison. Wins with any side but the Body.",
+            "help": "You're a disease spread all around the world, without just one cause. That's why you can win the game with any of the other disease groups. Other than that, you can /poison at night.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 27,
+                        "poisonDeadMessage": "You failed to control your blood pressure. It's too late..."
+                    }
+                }
+            }
+        },
+        {
+            "role": "leukemia",
+            "translation": "Leukemia",
+            "side": "mafia2",
+            "winningSides": [
+                "mafia",
+                "mafia1",
+                "mafia2",
+                "viral",
+                "bacteria"
+            ],
+            "info": "Night Action: kill. Kills anyone that distract this role. Wins with any side but the Body.",
+            "help": "You are a cancer caused when white blood cells are being overproduced. Now you are by yourself, but you can win with any disease groups. You can /kill at night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9,
+                        "msg": "Leukemia destroyed every structure of your body."
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "The antibodies can't be stopped. You were destroyed by them, because you tried to do it.",
+                    "msg": "~Distracter~ came to you. All your antibodies bonded to it and destroyed them."
+                }
+            }
+        },
+        {
+            "role": "leukemiasmall",
+            "translation": "Leukemia",
+            "side": "mafia2",
+            "info": "Night Action: kill. Kills anyone that distract this role.",
+            "help": "You are a cancer caused when white blood cells are being overproduced. You are by yourself. You can /kill at night and kill anyone who tries to distract you.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9,
+                        "hide": true,
+                        "msg": "Leukemia destroyed every structure of your body."
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "The antibodies can't be stopped. You were destroyed by them, because you tried to do it.",
+                    "msg": "~Distracter~ came to you. All your antibodies bonded to it and destroyed them."
+                }
+            }
+        },
+        {
+            "role": "flu",
+            "translation": "Flu",
+            "side": "viral",
+            "info": "Night Action: kill (shared with role). Knows players with the same role. Sided with Viral Diseases.",
+            "help": "You are a flu! If underestimated, you may prove fatal. /kill someone at night (shared with other flus). If rabies is on the game, try to find it and teaming up before it is too late - it can't be nightkilled (don't forget, the Liver evades some nightkills).",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 23,
+                        "broadcast": "role",
+                        "msg": "An ordinary flu got you down... next time, try taking more care of your health."
+                    }
+                },
+                "startup": "role-reveal"
+            }
+        },
+        {
+            "role": "rabies",
+            "translation": "Rabies",
+            "side": "viral",
+            "info": "Night Action: convert (can only be used on itself - first use only after 4 nights - converts to daykiller Rabies). Can't be nightkilled. Sided with Viral Diseases.",
+            "help": "You are a viral disease that is hardly early diagnosed, and it's fatal when late diagnosed! For now you are just incubated, meaning you can't be nightkilled and have to wait till the 4th night, when you'll be able to /convert yourself.",
+            "actions": {
+                "night": {
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 43,
+                        "newRole": "rabies2",
+                        "initialrecharge": 4,
+                        "convertmsg": "Rabies incubation time ended up!"
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "rabies2",
+            "translation": "Rabies",
+            "side": "viral",
+            "info": "Standby Actions: kill (user is not revealed - can be used up to 3 times). Can't be nightkilled. Kills anyone that distract it. Sided with Viral Diseases.",
+            "help": "Finally!!! Your incubation is over and you can do a big harm to the body now! Some of your symptoms are aggressiveness and photophobia (or aversion to light), so you can /kill up to 3 people during the day phase. If flu is on the game, PM them if you get to discover their identity.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "/kill now. You won't be revealed and can do it 3 times. Have fun.",
+                        "killmsg": "~Target~ was a victim of the Rabies...",
+                        "limit": 3
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "How foolish... you tried to get rabies' attention. Yes, you got it.",
+                    "msg": "~Distracter~ came to you and you simply destroyed it!"
+                },
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "tetanus",
+            "translation": "Tetanus",
+            "side": "bacteria",
+            "info": "Night Actions: spore (protect and safeguard - can only be used on itself - has a 10% chance of failing) or kill (shared with team). Can't use both night actions at the same night. Vote counts as 1.1. Knows teammates. Sided with Bacterial Diseases.",
+            "help": "You are a bacterial disease that can stop muscles movements. Being caused by a bacteria, you can EITHER form some spores (which protect and safeguard), with /spore [your name] at night OR share a /kill with the other bacterial diseases at night. Due being deadly, your vote was increased to 1.1.",
+            "actions": {
+                "vote": 1.1,
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "spore": {
+                        "command": [
+                            "safeguard",
+                            "protect"
+                        ],
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "failChance": 0.1,
+                        "broadcast": "team",
+                        "restrict": [
+                            "kill"
+                        ]
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 25,
+                        "broadcast": "team",
+                        "msg": "Accidentally, you hurt yourself with a rusty pin. Unfortunately, it was contaminated with some /Clostridium Tetani/ and then you died.",
+                        "restrict": [
+                            "spore"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "anthrax",
+            "translation": "Anthrax",
+            "side": "bacteria",
+            "info": "Night Actions: kill (shared with team) or spore (protect and safeguard - can only be used on itself - has a 20% chance of failing). Inspected as Stem Cell. Vote counts as 100. Knows teammates.",
+            "help": "You are a bacterial disease, used recently to frighten the world, in a form of an unsuspicious white powder. Being caused by a bacteria, you can EITHER form some spores, with /spore [your name] at night OR share a /kill with the other bacterial diseases at night. Your vote was increased to 100, because people are very afraid of you. You are also unsuspicious at inspections and look like Stem Cells.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 25,
+                        "broadcast": "team",
+                        "restrict": [
+                            "spore"
+                        ],
+                        "msg": "You opened a suspicious letter and you touched a white powder. Few hours later, you died of Anthrax."
+                    },
+                    "spore": {
+                        "command": [
+                            "safeguard",
+                            "protect"
+                        ],
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "failChance": 0.2,
+                        "restrict": [
+                            "kill"
+                        ]
+                    }
+                },
+                "vote": 100,
+                "inspect": {
+                    "revealAs": "stem"
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "immunesmall",
+        "leukemiasmall",
+        "pineal",
+        "flu",
+        "brain",
+        "stem"
+    ],
+    "roles2": [
+        "bone",
+        "heartsmall",
+        "tetanus",
+        "flu",
+        "flu",
+        "stem",
+        "immunesmall",
+        "alz",
+        "pineal",
+        "stem",
+        "down",
+        "stem",
+        "depression"
+    ],
+    "roles3": [
+        "bone",
+        "immune",
+        "heart",
+        "pineal",
+        "brain2",
+        "depression",
+        "prader",
+        "angel",
+        "liver",
+        "alz",
+        "stem",
+        "eye",
+        "blood",
+        "ear",
+        "stem",
+        "stem",
+        "down",
+        "schiz",
+        "rabies",
+        "stem",
+        "tetanus",
+        "tetanus",
+        "liver",
+        "anthrax",
+        "stem",
+        "depression",
+        "stem",
+        "flu",
+        "stem",
+        "flu",
+        "flu",
+        "stem",
+        "depression",
+        "brain2",
+        "tetanus"
+    ],
+    "killmsg": "±Doctor: The ~Role~ (~Player~) is no longer viable.",
+    "villageCantLoseRoles": [
+        "liver",
+        "heart",
+        "brain2",
+        "immune",
+        "immunesmall",
+        "heartsmall"
+    ]
+}
