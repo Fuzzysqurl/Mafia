@@ -1,0 +1,1295 @@
+{
+    "name": "Kirby",
+    "author": [
+        "RiceKirby"
+    ],
+    "summary": "Hiii! I'm one of the Kirbies, and we need to defend Dream Land from our enemies coming from Mt. Dedede (Dedede Mafia) and from Battleship Halberd (Meta Knight Army). Other evil beings (Marx and Dark Matter) may come to attack too, but as long as Mike Kirby keeps singing (and exposing people), we have nothing to fear! [NOTE: Marx was buffed. Read details at /changelog.]",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?15912-Kirby",
+    "minplayers": 7,
+    "sides": [
+        {
+            "translation": "Kirby",
+            "side": "village",
+            "winmsg": "*** (>^.^)> ~Players~ <(^_^)> Doing the Kirby Dance! <(^.^<)"
+        },
+        {
+            "translation": "Dedede Mafia",
+            "side": "mafia1",
+            "winmsg": "±King Dedede: I'm the (self-proclaimed) King of Dream Land, so obviously the victory goes to me and my minions! Now bring all the food you can find to ~Players~!"
+        },
+        {
+            "translation": "Meta Knight Army",
+            "side": "mafia2",
+            "winmsg": "±Meta Knight: Halberd, time to take off! ~Players~ shall take over Dream Land and make it a Meta Knight Army's possession!"
+        },
+        {
+            "translation": "Marx",
+            "side": "werewolf",
+            "winmsg": "±Marx: With all this power, Pop Star will be in the hands of ~Players~! Time to cause all the mischief I want! Haha!"
+        },
+        {
+            "translation": "Dark Matter",
+            "side": "godfather",
+            "winmsg": "±Dark Matter: I got rid of all the happiness in Dream Land! Now this entire star belongs to ~Players~!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Sleep Kirby",
+            "side": "village",
+            "help": "Zzzzz... Zzzzz.... Uh? Oh, looks like I can't do anything at night because I'm sleeping. But sometimes I dream about things that happen in Dream Land.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.02
+                    },
+                    "distract": {
+                        "revealTeam": 0.02,
+                        "revealPlayer": 0.02
+                    }
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                }
+            }
+        },
+        {
+            "role": "transformer",
+            "translation": "Copy Kirby",
+            "side": "village",
+            "help": "I got some hi-tech equipment that allows me to scan something and change my power by typing /parasol [myname], /ice [myname] or /fighter [myname] to become a Parasol, Ice or Fighter Kirby (Only once and after the 3rd Night).",
+            "info": "Can change to Parasol Kirby, Ice Kirby or Fighter Kirby after Night 3. Sided with Kirby. ",
+            "actions": {
+                "night": {
+                    "parasol": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 18,
+                        "newRole": {
+                            "bodyguard": [
+                                "transformer"
+                            ]
+                        },
+                        "initialrecharge": 3,
+                        "convertmsg": "~Old~ copied a Parasol Waddle Dee and is now ~New~!"
+                    },
+                    "ice": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 19,
+                        "newRole": {
+                            "hooker": [
+                                "transformer"
+                            ]
+                        },
+                        "initialrecharge": 3,
+                        "convertmsg": "~Old~ copied a Chilly and is now ~New~!"
+                    },
+                    "fighter": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "newRole": {
+                            "vigilante1": [
+                                "transformer"
+                            ]
+                        },
+                        "initialrecharge": 3,
+                        "convertmsg": "~Old~ copied a Knuckle Joe and is now ~New~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "bomb3",
+            "translation": "Mirror Kirby",
+            "side": "village",
+            "help": "Is this the real me? Or am I the reflection? I can't counter night attacks anymore, but I still can also use /protect once during the game to protect myself. For some reason, Marx knows my identity, so I should be wary of fakers.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "hide": true
+                    }
+                },
+                "avoidHax": [ "protect" ],
+                "initialCondition": {
+                    "clearCurse": true
+                }
+            }
+        },
+        {
+            "role": "bomb2",
+            "translation": "Mirror Kirby",
+            "side": "village",
+            "help": "Is this the real me? Or am I the reflection? Anyway, I can counter night attacks back to the attacker with my magical mirrors! I can also use /protect once during the game to protect myself. For some reason, Marx knows my identity, so I should be wary of fakers.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "protect": {
+                        "command": "protect",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "hide": true
+                    }
+                },
+                "avoidHax": [ "protect" ],
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "±Kirby: You tried to kill the Mirror Kirby, but he reflected your attack back at you!"
+                }
+            }
+        },
+        {
+            "role": "bomb",
+            "translation": "Mirror Kirby",
+            "side": "village",
+            "help": "Is this the real me? Or am I the reflection? Anyway, I can counter night attacks back to the attacker with my magical mirrors! I can also use /protect once during the game to protect myself, but I won't be able to counter attacks anymore if I do that before the 3rd night. For some reason, Marx knows my identity, so I should be wary of fakers.",
+            "info": "Can self-protect once during the game. Revenge Nightkills (won't revenge if self-protects before Night 3). Sided with Kirby.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "command": ["protect", "convert"],
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "charges": 1,
+                        "newRole": "bomb3",
+                        "silent": true
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "bomb2",
+                        "curseCount": 3
+                    }
+                },
+                "avoidHax": [ "protect" ],
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "±Kirby: You tried to kill the Mirror Kirby, but he reflected your attack back at you!"
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Parasol Kirby",
+            "side": "village",
+            "help": "Hey, look at this parasol! It may seem fragile, but I still can use it to protect someone once every 2 nights by typing /protect [name]. Unfortunately, my vote counts as 0.5, and, for some reason, Marx knows my identity, so I should be wary of fakers.",
+            "info": "Can protect one person every 2 nights. Vote counts as 0.5. Sided with Kirby.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "recharge": 2
+                    }
+                },
+                "vote": 0.5
+            }
+        },
+        {
+            "role": "hooker",
+            "translation": "Ice Kirby",
+            "side": "village",
+            "help": "Brrrr! Are you cold enough? If not, I can type /distract [name] during the night to freeze you for a entire night. And I can protect someone (even myself) with an Ice Wall by typing /protect [name] during the night, BUT I can only use it once every 3 nights.",
+            "info": "Can distract one person during the night. Can protect one person once every 3 nights. Sided with Kirby. ",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButRole",
+                        "common": "Role",
+                        "priority": 2,
+                        "broadcast": "role",
+                        "distractmsg": "Brrr... So cold! I can't move because of all this ice >.<",
+                        "teammsg": "My partner is frozen! I couldn't ~Action~ because I had to melt the ice!"
+                    },
+                    "protect": {
+                        "command": "protect",
+                        "target": "Any",
+                        "common": "Role",
+                        "priority": 6,
+                        "broadcast": "role",
+                        "recharge": 3
+                    }
+                },
+                "startup": "role-reveal"
+            }
+        },
+        {
+            "role": "stalker",
+            "translation": "Ghost Kirby",
+            "side": "village",
+            "help": "I may be a ghost, but I'm not really dead! Anyway, I can possess someone during the night by typing /stalk and find who that person visited! And while wandering around, I can witness other people fighting! And I will reveal the identity of whoever attack me during the day!",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 17
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 1,
+                        "revealPlayer": 0.1
+                    },
+                    "distract": {
+                        "revealTeam": 0.02,
+                        "revealPlayer": 0.02
+                    }
+                },
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "~Target~ is now known throughout Dream Land as \"The ~Role~ that (somehow) attacked a Ghost\"!"
+            }
+        },
+        {
+            "role": "mayor1",
+            "translation": "Cook Kirby",
+            "side": "village",
+            "help": "What is this? Is this the sound of your empty belly? I can give you food, but in exchange you will have to help me during the votings. A +3 vote count is enough for me, though. On a side note, please don't step over my friend Mini Kirby. I've known him for ages, and people always stomp him accidentally.",
+            "info": "Vote counts as 3. Knows Mini Kirby. Sided with Kirby. ",
+            "actions": {
+                "vote": 3,
+                "startup": {
+                    "revealRole": "mayor2"
+                }
+            }
+        },
+        {
+            "role": "mayor2",
+            "translation": "Mini Kirby",
+            "side": "village",
+            "help": "Hey, I'm down here! People mock me because I'm too small, and they always think I'm kidding during the votings. Because of that, my vote always count as -3. But at least I get good food because I know the Cook Kirby.",
+            "info": "Vote counts as -3. Knows Cook Kirby. Sided with Kirby. ",
+            "actions": {
+                "vote": -3,
+                "startup": {
+                    "revealRole": "mayor1"
+                }
+            }
+        },
+        {
+            "role": "survivor",
+            "translation": "Stone Kirby",
+            "side": "village",
+            "help": "Are you talking to me? Can't you see I'm just a stone? An unbreakable stone, by the way. So I'll just wait here, where nobody can kill me. Oh, and I only have a 0.5 vote count since, you know, I'm just a stone.",
+            "actions": {
+                "vote": 0.5,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "samurai",
+            "translation": "Crash Kirby",
+            "side": "village",
+            "help": "Energy! Lots of Energy! I build all the energy I can and release it during the day to cause a explosion by typing /kill [name]! But that draws a lot of attention, so this power has a 75% chance of revealing my identity. And due to all that energy, I can also sense other people fighting around during the night!",
+            "info": "Can kill one person during the standby (75% chance of revealing). Gets hax on kill and distract. Sided with Kirby. ",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now! Type /kill [name] to crash them all (75% chance of revealing you)!",
+                        "killmsg": "~Target~ was caught in the massive energy surge released by Crash Kirby!",
+                        "revealChance": 0.75,
+                        "revealmsg": "~Self~ (Crash Kirby) needs a rest after releasing so much energy!"
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.3,
+                        "revealPlayer": 0.1
+                    },
+                    "distract": {
+                        "revealTeam": 0.02,
+                        "revealPlayer": 0.02
+                    }
+                }
+            }
+        },
+        {
+            "role": "vigilante1",
+            "translation": "Fighter Kirby",
+            "side": "village",
+            "help": "As an expert fighter, I wander around during the night looking for bad guys to defeat with /fight [name]. By the way, the bad guys have a small chance of getting hax on me, so I should be careful. [Hint: Use /tt [message] to talk to other Vigilantes.]",
+            "info": "Can kill one person during the night (low chance of getting haxed by the bad guys). Knows the other Vigilantes. Sided with Kirby. ",
+            "actions": {
+                "night": {
+                    "fight": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 15
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "vigilante1",
+                        "vigilante2",
+                        "vigilante3"
+                    ]
+                },
+                "teamTalk": [
+                    "vigilante1",
+                    "vigilante2",
+                    "vigilante3"
+                ],
+                "kill": {
+                    "mode": {
+                        "ignore": ["vigilante1", "vigilante2", "vigilante3"]
+                    },
+                    "msg": "Hey, don't kill your fellow Kirby!"
+                }
+            }
+        },
+        {
+            "role": "vigilante2",
+            "translation": "Hammer Kirby",
+            "side": "village",
+            "help": "I got here a nice hammer and I'm not afraid to use it! I only need to type /hammer [name] during the night to pound someone with it. I can't be distracted from my pounding duties, but the bad guys have a CHANCE OF SPOTTING ME whenever I use this enormous hammer! [Hint: Use /tt [message] to talk to other Vigilantes.]",
+            "info": "Can kill one person during the night (medium chance of getting haxed by the bad guys). Ignores any distractors. Knows the other Vigilantes. Sided with Kirby. ",
+            "actions": {
+                "night": {
+                    "hammer": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 14
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Hey ~Distracter~, I have a hammer here, so don't even bother trying to distract me!"
+                },
+                "startup": {
+                    "revealRole": [
+                        "vigilante1",
+                        "vigilante2",
+                        "vigilante3"
+                    ]
+                },
+                "teamTalk": [
+                    "vigilante1",
+                    "vigilante2",
+                    "vigilante3"
+                ],
+                "kill": {
+                    "mode": {
+                        "ignore": ["vigilante1", "vigilante2", "vigilante3"]
+                    },
+                    "msg": "Hey, don't kill your fellow Kirby!"
+                }
+            }
+        },
+        {
+            "role": "vigilante3",
+            "translation": "Sword Kirby",
+            "side": "village",
+            "help": "The best weapon ever is mine! With this sword, I can cut an enemy by typing /sword [name] during the night! If someone try to stop me, I'll just slice that distractor! But a sword draws too much attention, so the enemies have a HIGH CHANCE OF FINDING MY IDENTITY once I use it. [Hint: Use /tt [message] to talk to other Vigilantes.]",
+            "info": "Can kill one person during the night (high chance of getting haxed by the bad guys). Kill evil distractors. Knows the other Vigilantes. Sided with Kirby. ",
+            "actions": {
+                "night": {
+                    "sword": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13
+                    }
+                },
+                "distract": {
+                    "mode": {
+                        "killif": [
+                            "mafia2_mace",
+                            "godfather"
+                        ],
+                        "ignore": [
+                            "hooker"
+                        ]
+                    },
+                    "hookermsg": "Hey, nice weapon you have there, Sword Kirby. Wait, no, don't slice me! I just wanted to distract you! >.<",
+                    "msg": "Trying to distract me, ~Distracter~? Care if I test my sword on you?"
+                },
+                "startup": {
+                    "revealRole": [
+                        "vigilante1",
+                        "vigilante2",
+                        "vigilante3"
+                    ]
+                },
+                "teamTalk": [
+                    "vigilante1",
+                    "vigilante2",
+                    "vigilante3"
+                ],
+                "kill": {
+                    "mode": {
+                        "ignore": ["vigilante1", "vigilante2", "vigilante3"]
+                    },
+                    "msg": "Hey, don't kill your fellow Kirby!"
+                }
+            }
+        },
+        {
+            "role": "inspector",
+            "translation": "Mike Kirby",
+            "side": "village",
+            "help": "Ohhh Yeaaah! With this microphone, I can type /expose [name] during the day to announce someone's role! I'll be revealed, but nobody can kill me during the day because of my concert!",
+            "info": "Can expose one person during the standby (reveals). Can't be daykilled. Sided with Kirby. ",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "~Self~ (Mike Kirby) grabs a mic and shouts: \"Now for an announcement before my next song: ~Target~ is the ~Role~!\""
+                    }
+                },
+                "daykill": "evade"
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Yarn Kirby",
+            "side": "village",
+            "help": "Zzzzz... Zzzzz.... Uh? Oh, looks like I can't do anything at night because I'm sleeping. But sometimes I dream about things that happen in Dream Land.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.02
+                    },
+                    "distract": {
+                        "revealTeam": 0.02,
+                        "revealPlayer": 0.02
+                    }
+                },
+                "inspect": {
+                    "revealAs": "werewolf"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "miller2",
+            "translation": "Beam Kirby",
+            "side": "village",
+            "help": "Zzzzz... Zzzzz.... Uh? Oh, looks like I can't do anything at night because I'm sleeping. But sometimes I dream about things that happen in Dream Land.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.02
+                    },
+                    "distract": {
+                        "revealTeam": 0.02,
+                        "revealPlayer": 0.02
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia1_doo"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "miller3",
+            "translation": "Needle Kirby",
+            "side": "village",
+            "help": "Zzzzz... Zzzzz.... Uh? Oh, looks like I can't do anything at night because I'm sleeping. But sometimes I dream about things that happen in Dream Land.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.02
+                    },
+                    "distract": {
+                        "revealTeam": 0.02,
+                        "revealPlayer": 0.02
+                    }
+                },
+                "inspect": {
+                    "revealAs": "mafia2_mace"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "mayor3",
+            "translation": "Mass Kirby",
+            "side": "village",
+            "help": "You think I'm just a Kirby? Wrong! We are 10 Kirbies! We got split by some bad guy, so one of us can't do much. But together, our vote counts as +10!",
+            "actions": {
+                "vote": 10
+            }
+        },
+        {
+            "role": "mayor4",
+            "translation": "Rainbow Sword Kirby",
+            "side": "village",
+            "help": "I hold the strongest weapon of Dream Land, the Rainbow Sword! Devised to counter Dark Matter, it allows me to save someone during a voting, making my vote count as -98. And if Dark Matter tries to distract me, I'll just chop him with this sword!",
+            "info": "Vote counts as -98. Kills Dark Matter if distracted by it. Sided with Kirby. ",
+            "actions": {
+                "vote": -98,
+                "distract": {
+                    "mode": {
+                        "killif": [
+                            "godfather"
+                        ]
+                    },
+                    "hookermsg": "Wait, is that the Rainbow Sword!  Nooooo, I didn't mean to distract you!",
+                    "msg": "Trying to distract me, ~Distracter~? You shall fall to the Rainbow Sword's power!"
+                }
+            }
+        },
+        {
+            "role": "mafia1_gordo",
+            "translation": "Gordo",
+            "side": "mafia1",
+            "help": "I'm just a ball with eyes, but whoever gets too close to me will get hurt. I can also attack someone by typing /kill [name] during the night (but King Dedede can't be haxed, so he should kill while alive). Since I can't move too much, my vote counts only as 0.5. [Hint: Use /tt [message] to talk to your teammates.]",
+            "info": "Can kill one person during the night. Vote counts as 0.5. Revenges any opponent's night action. Gets hax on fight, hammer and sword. Sided with Dedede Mafia. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Gordo) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "vote": 0.5,
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "±Kirby: I got to close to Gordo and got hurt by his spikes! >.<"
+                },
+                "distract": {
+                    "mode": "killattacker",
+                    "msg": "±Kirby: I got to close to Gordo and got hurt by his spikes! >.<"
+                },
+                "stalk": {
+                    "mode": "killattacker",
+                    "msg": "±Kirby: I got to close to Gordo and got hurt by his spikes! >.<"
+                },
+                "protect": {
+                    "mode": {
+                        "killif": [
+                            "bodyguard",
+                            "hooker",
+                            "mafia2_blade"
+                        ]
+                    },
+                    "msg": "±Kirby: I got to close to Gordo and got hurt by his spikes! >.<"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia1_doo",
+            "translation": "Waddle Doo",
+            "side": "mafia1",
+            "help": "As a loyal servant of his majesty King Dedede, I'll strive to defend him during the night with /protect [name]. I can also fire energy beams from my eye to attack an enemy by typing /kill [name] (but King Dedede can't be haxed, so he should kill while alive). [Hint: Use /tt [message] to talk to your teammates.]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Waddle Doo) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Waddle Doo) has decided to protect ~Target~!"
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia1_tac",
+            "translation": "TAC",
+            "side": "mafia1",
+            "help": "I'm a burglar cat working for King Dedede. As such, I can use /steal [name] during the night to weaken Knights and strip Kirbies of their night actions. I can also attack someone during the night with /kill [name] (but King Dedede can't be haxed, so he should kill while alive). [Hint: Use /tt [message] to talk to your teammates.]",
+            "info": "Can weaken Kirbies and Knights that have night actions. Can kill one person during the night. Gets hax on fight, hammer and sword. Sided with Dedede Mafia.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (TAC) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "steal": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 4,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (TAC) has decided to steal ~Target~!",
+                        "newRole": {
+                            "villager": [
+                                "bodyguard",
+                                "bomb",
+                                "bomb2",
+                                "bomb3",
+                                "hooker",
+                                "vigilante1",
+                                "vigilante2",
+                                "vigilante3",
+                                "stalker",
+                                "transformer"
+                            ],
+                            "mafia2_ax": [
+                                "mafia2_mace",
+                                "mafia2_blade"
+                            ]
+                        },
+                        "convertmsg": "CAT PUNCH! ~Old~ lost its power and is now a ~New~!"
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia1_ddd",
+            "translation": "King Dedede",
+            "side": "mafia1",
+            "help": "I'm the king of Dream Land! I have several loyal servants, and whoever oppose me shall be eliminated with /kill [name] during the night! Since I'm the King, I get a vote count of +4! And I can't be haxed, so I should make the decisions about who our team is going to attack. [Hint: Use /tt [message] to talk to your teammates.]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your boss ~Player~ (King Dedede) has decided to kill ~Target~! (BTW, King Dedede can't be haxed)",
+                        "hide": true
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "vote": 4,
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia1_prio",
+            "translation": "Dedede Mafia",
+            "side": "mafia1",
+            "help": "Placeholder role for /priority formatting",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "mafia2_mk",
+            "translation": "Meta Knight",
+            "side": "mafia2",
+            "help": "I shall lead my army of knights to the victory by defeating my opponents with /kill [name] during the day. I can also use /slice [name] to defeat a second enemy during the day, but this second attack will expose my identity. [Hint: Use /tt [message] to talk to your teammates.]",
+            "info": "Can kill twice during the standby (first kill concealed and second kill revealed). Gets hax on fight, hammer and sword. Sided with Meta Knight Army. ",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Draw your sword and type /kill [name] to kill your opponents! (You won't be revealed).",
+                        "killmsg": "Meta Knight flips his Dimensional Cape, plunging the world into darkness, and then hits ~Target~ with a powerful sword strike!"
+                    },
+                    "slice": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "limit": 2,
+                        "msg": "You can also use /slice [name] to kill a second target, but that will reveal you!",
+                        "killmsg": "Meta Knight throws a sword to ~Target~, who grabs it as they begin to spar. After an intense fight, ~Target~'s sword falls on the ground as ~Self~ emerges victorious."
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia2_ax",
+            "translation": "Ax Knight",
+            "side": "mafia2",
+            "help": "As one of the Meta-Knights, I can type /kill [name] during the night to defeat my opponents with my axe. I also have a small chance of finding a distractor during the night, and when exposed I'll reveal as a Sleep Kirby. [Hint: Use /tt [message] to talk to your teammates.]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Ax Knight) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealRole": 0.03
+                    },
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia2_mace",
+            "translation": "Mace Knight",
+            "side": "mafia2",
+            "help": "As one of the Meta-Knights, I can use my mace to take down the enemies by typing /kill [name] during the night. And as a loyal servant of Meta Knight, I shall buy him time by using /distract [name] to block an opponent's way (I can't be haxed when distracting). [Hint: Use /tt [message] to talk to your teammates.]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Mace Knight) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 1,
+                        "broadcast": "team",
+                        "distractmsg": "There's a Mace Knight blocking my way! I couldn't do anything during this night!",
+                        "teammsg": "My partner was stopped by a Mace Knight! I couldn't ~Action~ because I had to help him/her!",
+                        "broadcastmsg": "Your teammate ~Player~ (Mace Knight) has decided to distract ~Target~!"
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "avoidHax": [
+                    "distract"
+                ],
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia2_blade",
+            "translation": "Blade Knight",
+            "side": "mafia2",
+            "help": "As one of the Meta-Knights, I can use my blade to defeat my opponents by typing /kill [name] during the night (I can't be haxed). I can also use /protect [name] every 2 nights to defend my teammates. And my vote counts as -1. [Hint: Use /tt [message] to talk to your teammates.]",
+            "info": "Can kill one person during the night. Can protect one person every 2 nights. Can't be haxed. Vote counts as -1. Gets hax on fight, hammer and sword. Sided with Meta Knight Army. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your teammate ~Player~ (Blade Knight) has decided to kill ~Target~! (BTW, Blade Knight can't be haxed)",
+                        "hide": true
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9,
+                        "broadcast": "team",
+                        "recharge": 2,
+                        "broadcastmsg": "Your teammate ~Player~ (Blade Knight) has decided to protect ~Target~!"
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "avoidHax": [
+                    "kill",
+                    "protect"
+                ],
+                "vote": -1,
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "mafia2_prio",
+            "translation": "Meta Knight Army",
+            "side": "mafia2",
+            "help": "Placeholder role for /priority formatting.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "werewolf",
+            "translation": "Marx",
+            "side": "werewolf",
+            "help": "My wish is to control Pop Star and cause all the mischief I want! To do that, I can use /kill [name] during the night to defeat my opponents. I know the identity and movements of Parasol and Mirror Kirbys, and I get a power boost if I can get rid of them, but I should be careful because Mirror can counter my attacks!",
+            "info": "Can kill one person during the night. (Can't be detected by spies.) Gets hax on protect, fight, hammer and sword. Knows Mirror Kirby and Parasol Kirby. Becomes Empowered Marx if Mirror and Parasol Kirbys. Sided with Marx. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner Marx is going to kill ~Target~!"
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealTeam": 0.4
+                    },
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "startup": {
+                    "revealPlayers": ["bomb", "bomb2", "bomb3", "bodyguard" ],
+                    "revealPlayersMsg": "The Parasol or Mirror Kirby are: ~Players~."
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "werewolf_empowered": ["bomb", "bomb2", "bomb3", "bodyguard"]
+                    },
+                    "convertmsg": "Marx got their wish granted by NOVA!"
+                }
+            }
+        },
+        {
+            "role": "werewolf_empowered",
+            "translation": "Empowered Marx",
+            "side": "werewolf",
+            "help": "I got Nova to grant my wish and now I'm stronger! Other than using /kill [name], I can also use /inspect [name] to identify other people. My vote now counts as 2 and I cannot be stopped by distractors! ",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Vote counts as 2. Cannot be distracted or haxed. Gets hax on protect, fight, hammer and sword. Sided with Marx. ",
+            "players": "Converted from Marx if all Parasol Kirby and Mirror Kirby are dead.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "broadcast": "team",
+                        "broadcastmsg": "Your partner Marx is going to kill ~Target~!"
+                    },
+                    "inspect": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 22
+                    }
+                },
+                "vote": 2,
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ came to you last night, but you instantly teleported to somewhere out of their reach!"
+                },
+                "inspect": {
+                    "revealAs": "werewolf"
+                },
+                "hax": {
+                    "protect": {
+                        "revealTeam": 0.4
+                    },
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "werewolf2",
+            "translation": "Marx Soul",
+            "side": "werewolf",
+            "help": "Kirby defeated me once, but I'm back as a zombie to get revenge! I can use /kill [name] once during the day to throw someone in a black hole! I need to find the original Marx and work with him to control the whole Pop Star! And I don't need to worry about inspector, since he'll think I'm sleeping!",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can type /kill [name] now to defeat an opponent! You won't be revealed!:",
+                        "killmsg": "Marx Soul created a black hole and threw ~Target~ in it!"
+                    }
+                },
+                "hax": {
+                    "fight": {
+                        "revealRole": 0.04
+                    },
+                    "hammer": {
+                        "revealRole": 0.15
+                    },
+                    "sword": {
+                        "revealRole": 0.33
+                    }
+                },
+                "inspect": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Dark Matter",
+            "side": "godfather",
+            "help": "I am a giant cloud of negative energy who desires to take over this star. Due to my massive energy, I can control the votings with my vote count of 99. I can also possess someone's body with /distract [name] to interrupt his movements during the night. And after the 3rd night, I can choose to type /change [myname] to become my ultimate form, Zero (I'll get a nightkill and a daykill, but lose my 99 votes).",
+            "info": "Can distract one person during the night. Vote counts as 99. Can become Zero after the 3rd night. Sided with Dark Matter. ",
+            "winIfDeadRoles": [
+                "vigilante1",
+                "vigilante2",
+                "vigilante3",
+                "samurai",
+                "mayor4",
+                "mafia1_ddd",
+                "mafia1_doo",
+                "mafia1_gordo",
+                "mafia1_tac",
+                "mafia2_mk",
+                "mafia2_ax",
+                "mafia2_mace",
+                "mafia2_blade",
+                "werewolf",
+                "werewolf_empowered",
+                "werewolf2"
+            ],
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "distractmsg": "A mysterious Dark Matter is controlling me! I couldn't do anything during this night!",
+                        "teammsg": "My partner is being held by a strange Dark Matter! I couldn't ~Action~ because I had to help!"
+                    },
+                    "change": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 21,
+                        "newRole": "godfather2",
+                        "canConvert": [
+                            "godfather"
+                        ],
+                        "convertmsg": "Dark Matter revealed its true form and is now Zero!",
+                        "initialrecharge": 3
+                    }
+                },
+                "vote": 99
+            }
+        },
+        {
+            "role": "godfather2",
+            "translation": "Zero",
+            "side": "godfather",
+            "help": "I am the mastermind behind Dark Matter's actions! I can type /kill [name] during both phases to defeat someone, but if I'm not careful I'll have a 15% chance of revealing myself when attacking during the day!",
+            "info": "Can kill one person during the night. Can kill one person during the standby (15% reveal chance). Sided with Dark Matter. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 16
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can attack now by typing /kill [name] (you have a 15% chance of being revealed!):",
+                        "killmsg": "Zero shoots several red globs at ~Target~.",
+                        "revealChance": 0.15,
+                        "revealmsg": "~Self~ (Zero) opens its eye for a brief moment, and then closes it again."
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "inspector",
+        "bodyguard",
+        "bodyguard",
+        "mafia1_tac",
+        "villager",
+        "mafia2_mace",
+        "villager",
+        "mafia2_ax",
+        "hooker",
+        "mafia1_doo",
+        "miller3",
+        "villager"
+    ],
+    "roles2": [
+        "inspector",
+        "bodyguard",
+        "bodyguard",
+        "bomb",
+        "hooker",
+        "werewolf",
+        "mafia1_doo",
+        "mafia1_tac",
+        "mafia2_ax",
+        { "mafia2_ax": 0.2, "mafia2_mace":0.7, "mafia2_blade": 0.1 },
+        "villager",
+        "villager",
+        {"miller2": 0.5,"miller3":0.5 },
+        "mafia2_mk",
+        "villager"
+    ],
+    "roles3": [
+        "inspector",
+        "bodyguard",
+        "bodyguard",
+        "bomb",
+        "hooker",
+        "werewolf",
+        "mafia1_doo",
+        "mafia1_tac",
+        "mafia2_ax",
+        { "mafia2_ax": 0.2, "mafia2_mace":0.7, "mafia2_blade": 0.1 },
+        "villager",
+        {"miller2": 0.5,"miller3":0.5 },
+        "villager",
+        "mayor1",
+        "mayor2",
+        "mafia1_ddd",
+        "mafia2_mk",
+        "villager",
+        "villager",
+        "vigilante1"
+    ],
+    "roles4": [
+        "inspector",
+        "bodyguard",
+        "bodyguard",
+        "bomb",
+        "hooker",
+        "mayor1",
+        "mayor2",
+        "mafia1_ddd",
+        "mafia1_doo",
+        "mafia1_tac",
+        "mafia2_mk",
+        "mafia2_ax",
+        { "mafia2_ax": 0.2, "mafia2_mace":0.7, "mafia2_blade": 0.1 },
+        { "villager":0.5,"miller2":0.5},
+        { "villager":0.5,"miller3":0.5},
+        "villager",
+        "villager",
+        "samurai",
+        "godfather",
+        "vigilante1",
+        "werewolf",
+        "miller",
+        "villager",
+        "mayor4",
+        { "mafia2_ax": 0.15, "mafia2_mace":0.15, "mafia2_blade": 0.7 },
+        "werewolf2",
+        "bodyguard",
+        "survivor",
+        "mafia1_doo",
+        "vigilante2",
+        "villager",
+        "stalker",
+        { "mafia2_ax": 0.15, "mafia2_mace":0.7, "mafia2_blade": 0.15 },
+        "transformer",
+        "mafia1_gordo",
+        "vigilante3",
+        "villager",
+        "werewolf",
+        "miller",
+        "survivor",
+        "mafia1_ddd",
+        "mayor3",
+        "mafia2_mk",
+        "villager",
+        "hooker",
+        { "mafia2_ax": 0.15, "mafia2_mace":0.7, "mafia2_blade": 0.15 },
+        "mafia1_tac",
+        "inspector",
+        "bodyguard",
+        "godfather",
+        "villager",
+        {"miller2": 0.5,"miller3":0.5 }
+    ],
+    "villageCantLoseRoles": [
+        "transformer",
+        "mayor1",
+        "mayor3",
+        "samurai",
+        "vigilante1",
+        "vigilante2",
+        "vigilante3"
+    ],
+    "killmsg": "±Kirby: ~Player~ (~Role~) will not be seen in Dream Land anymore!",
+    "killusermsg": "*** Game Over. Continue? No / Cancel",
+    "lynchmsg": "±Game: ~Player~ (~Role~) was lynched and had to leave Dream Land!",
+    "border": "***(>^.^)>  === === === === === === === === === === === === === === === ===  <(^.^<)",
+    "changelog": {
+        "04.03.14": "Marx will now instantly become Empowered when Parasols/Mirror are out (doesn't need to wait for Night 3 anymore).",
+        "05.02.14": "Tweaked spawn list for small games. Marx now becomes Empowered Marx if Mirror and Parasols are out after Night 3. Empowered Marx has the same abilities as Marx, plus an Inspect, 2 votes and immunity to distraction. Changelog cleared (you still can read the full changelog by checking the code)."
+    },
+    "changelog2": {
+        "12.10.13": "Tweaked Spawn lists again. Fixed Marx bug where it wouldn't get reveal on all Mirror forms. Vigilantes can't kill each other anymore, and now get teamtalk among them.",
+        "10.10.13": "Theme slightly revamped: Mirror is back as a Night-Bomb and Self-BG (1 charge, loses Night-Bomb power when self protecting before N4). Marx gets reveal both on Parasol and Mirror (can't tell which player is who, but now can kill Parasol). TAC's /steal is faster (can prevent a BG or a Vigilante from acting at the same night). Copy becomes Parasol instead of Mirror. Spawn Lists updated so Marx and Mirror Kirby will always be in. Added Team Talk for Meta Knight Army and Dedede Mafia.",
+        "28.09.13": "Tweaked spawn list for 13-players.",
+        "23.09.13": "Testing Period for small games: Dedede Mafia replaces Meta Knight Army on small games.",
+        "13.09.13": "Tweaked Spawn List for small games.",
+        "31.07.13": "Spawn List expanded to allow for 45+ players. Fixed error where Beam Kirby would never appear at big games. Changed spawn so at least 1 Ax Knight will always be in the game.",
+        "07.04.13": "Mirror replaced by Parasols.",
+        "20.03.13": "Marx now wins automatically on a Marx vs. 2 Parasols situation.",
+        "26.11.12": "Ax, Mace and Blade Knight are now randomized on Spawn.",
+        "14.10.12": "Parasol Kirby added (Protect with recharge 2). roles1 changed.",
+        "17.09.12": "Ax Knight inspected as Sleep Kirby and hax on distract slightly changed. Cutter Kirby changed to Needle Kirby (reveals as Mace Knight). Minor tweaks to roles lists.",
+        "14.09.12": "Minor Balancing tweaks (mainly on roles3 list). Gordo now revenges more actions.",
+        "12.09.12": "Mirror Kirby is not a bomb anymore, but still evades kills from Marx. Roles3 list tweaked (some mafia roles appearing a bit earlier). Mace can't be haxed when distracting. Sleep Hax lowered. Hax on Vigi Trio slightly higher. Minimum Number of Players: 8",
+        "22.08.12": "Added Cutter Kirby (Ax Kirby's miller) and Beam Kirby (Waddle Doo's miller).",
+        "09.08.12": "Added broadcastmsgs",
+        "01.08.12": "Added TAC to Dedede Mafia (can transform some PRs into Sleep Kirbies). Added Blade Knight to MK Army (Protect every 2 nights, can't be haxed, -1 vote)",
+        "10.06.12": "Changed Mike to Exposer. Copy can't inspect anymore (only transform). Some changes to roles lists.",
+        "05.06.12": "Added Revenge Reveal to Ghost Kirby. Added Transform into Mirror, Ice or Fighter to Copy Kirby. Added Zero. Changed Marx Soul to a daykiller. Added info to some roles.",
+        "25.05.12": "Changed Gooey to Rainbow Sword Kirby. Changed Helper to Ghost Kirby (with /stalk). Changed Ice Kirby's /shield to /protect (no 100% hax anymore and can protect self, but only usable every 3 nights). Added distractmsgs and teammsgs. Crash now has revealChance of 50%.",
+        "30.04.12": "Sleep and Crash can now get hax on Distract. Mace and Waddle have a low chance of getting hax on the player. Hax on Vigi Trio reduced. Gordo now Avoid Nightkills instead of Revenge Kill",
+        "27.04.12": "Sleep's hax changed. Helper temporarily removed. RolesLists changed (Mike appears earlier). Gooey and Mass Kirby coded (but not added).",
+        "20.04.12": "Updated some help descriptions and Win Messages",
+        "13.04.12": "Added Win Messages.",
+        "12.04.12": "Hax on Vigi Trio reduced again. Crash's daykill message now says its role to avoid confusion. Added Marx Soul role. Gordo revenge kills again. Changed Distractor messages.",
+        "09.04.12": "Sword Kirby now only kill distractor if it's Mace Knight or Dark Matter. Sword Kirby ignores distractor if it's Ice Kirby. My name on Summary for Flash when this theme is started :D",
+        "05.04.12": "Vigilantes, GF, Samurai and Werewolf appearing a bit earlier in large games. Marx's hax on BG increased.",
+        "03.04.12": "Minor text changes. Changed Meta-Knights to Meta Knight Army.",
+        "01.04.12": "New summary. Added this changelog."
+    }
+}
