@@ -1,0 +1,736 @@
+{
+    "name": "Fruit",
+    "author": [
+        "Lamperi",
+        "Roild"
+    ],
+    "summary": "What a game of wonders. A watermelon, whose vote counts as five? A good guy mango that can kill! A kiwi that can inspect! Tomatoes distracting you! Oranges that have a citrusy burn! Can't forget about those bananas and apples! Angry rotten fruit out for revenge! To top it all off, a daykilling fish that can't be stopped! Also what is a potato doing in the game, it's a tuber! Oh, well, it'll still protect you. Theme updated by Roild!",
+    "border": "***¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>",
+"minplayers": 6,
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Fruit"
+        },
+        {
+            "side": "fish",
+            "translation": "Meats"
+        },
+        {
+            "side": "rotten",
+            "translation": "Rotten Fruit"
+        }
+    ],
+    "roles": [
+        {
+            "role": "banana",
+            "translation": "Banana",
+            "side": "village",
+            "help": "Nomnomnomnom, you're a bananananana! Vote to remove people and help your team during the day.",
+            "actions": {
+                "hax": {
+                    "distract": {
+                        "revealTeam": 0.02
+                    },
+                    "kill": {
+                        "revealTeam": 0.02
+                    }
+                }
+            }
+        },
+{
+"role": "dragon",
+"translation": "Dragonfruit",
+"side": "village",
+"info": "Can kill during the day without being revealed. Dies if affected by any night action. Sided with the Fruit.",
+"help": "You are the tough-to-eat Pitaya. Because of your fierce disposition, you can /kill during the day without being revealed. If you are affected by any night action, you will immediately die.",
+"actions": {
+"inspect": { "mode": "die"},
+"distract": { "mode": "die"},
+"protect": {"mode": "die"},
+"poison": {"mode": "die"},
+"standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill to get rid of the enemy. You won't be revealed.",
+                        "killmsg": "The Dragonfruit channels the ancient lost art of the killer fruit. As ~Target~ watches in awe, he spontaneously explodes. Seeds splatter everywhere as the Dragonfruit continues to walk his lonely path."
+                    }
+                }}},
+{
+"role": "dur",
+"translation": "King Durian",
+"side": "village",
+"info": "Can convert self into bomb, 1x vigilante, 1 day with 10 votes, 2x poison, 2x distract, or 3x protect. Each one once per game unless switched out of.",
+"help": "You are the King of Fruits. Because of your high power, you can choose which powers to use whenever you want, but only once per game each. You can convert into six forms by using /bomb, /kill, /vote, /poison, /distract, and /protect. In /bomb, you will kill whoever kills you. In /kill, you will get one night kill. In /vote, you will get 10 votes (but automatically convert back into normal 1 vote next night). In /poison, you can poison up to two people who die in two nights. In /distract, you can distract up to twice. In /protect, you can protect up to three times, including yourself.",
+"actions": {
+"night": {
+"vote": { "command": "convert", "charges": 1, "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"kill": { "command": "convert", "charges": 1, "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durkill", "silent": true},
+"bomb": { "command": "convert", "charges": 1, "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"distract": { "command": "convert", "charges": 1, "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durdistract", "silent": true},
+"poison": { "command": "convert", "charges": 1, "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durpoison", "silent": true},
+"protect": { "command": "convert", "charges": 1, "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durprotect", "silent": true
+}}}},
+
+{
+"role": "durvote", 
+"translation": "King Durian", "side": "village", "hide": true,
+"help": "Your large size gives you power over others, but just for today! You will have a vote of 10. You can change into another form during the next night if you haven't already. /kill, /bomb, /distract, /poison, /protect, /vote.",
+"actions": {
+"vote": 10,
+"initialCondition": {
+"curse": { "cursedRole": "dur2", "curseCount": 2, "silentCurse": true
+}},
+"night": {
+
+"vote": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"kill": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durkill", "silent": true},
+"bomb": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"distract": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durdistract", "silent": true},
+"poison": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durpoison", "silent": true},
+"protect": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durprotect", "silent": true
+
+}}}},
+
+
+
+
+{
+"role": "dur2", 
+"translation": "King Durian", "side": "village", "hide": true,
+"help": "You're ready to attain more power! You can change into another form during the next night if you haven't already. /kill, /bomb, /distract, /poison, /protect, /vote.",
+"actions": {
+"initialCondition": {
+"curse": { "cursedRole": "dur2", "curseCount": 2, "silentCurse": true
+}},
+"night": {
+
+"vote": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"kill": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durkill", "silent": true},
+"bomb": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"distract": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durdistract", "silent": true},
+"poison": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durpoison", "silent": true},
+"protect": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durprotect", "silent": true
+
+}}}},
+
+{
+"role": "durkill", 
+"translation": "King Durian", "side": "village", "hide": true,
+"help": "Your powerful thorn-covered husk is going to go on the offensive now. You can /kill once and also convert during the same night (You'll be converted out of this form automatically if you don't). You can change into another form during the next night if you haven't already.  /bomb, /distract, /poison, /protect, /vote.",
+"actions": {
+"initialCondition": {
+"curse": { "cursedRole": "dur2", "curseCount": 2, "silentCurse": true
+}},
+"night": {
+"kill": { "common": "Self", "priority": 15, "target": "AnyButSelf", "msg": "The King of the Fruit strikes again!"},
+"vote": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"bomb": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"distract": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durdistract", "silent": true},
+"poison": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durpoison", "silent": true},
+"protect": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durprotect", "silent": true
+}}}},
+
+{
+"role": "durbomb", 
+"translation": "King Durian", "side": "village", "hide": true,
+"help": "Your husk is ready... to EXPLODE! You've kept your rage in so you will explode if anyone attacks you. You can stay in this form for three nights until you are automatically changed back to normal. You can change into another form during the next nights if you haven't already. /kill, /bomb, /distract, /poison, /protect, /vote.",
+"actions": {
+
+"kill": {"mode": "killattackerevenifprotected"},
+
+"initialCondition": {
+"curse": { "cursedRole": "dur2", "curseCount": 4, "silentCurse": true
+}},
+"night": {
+
+"vote": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"kill": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durkill", "silent": true},
+"bomb": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"distract": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durdistract", "silent": true},
+"poison": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durpoison", "silent": true},
+"protect": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durprotect", "silent": true
+
+}}}},
+
+{
+"role": "durdistract", 
+"translation": "King Durian", "side": "village", "hide": true,
+"help": "Your odor is purely intoxicating. You can use it to /distract up to two people tonight before being changed back to normal. You can change into another form during the next night if you haven't already. /kill, /bomb, /distract, /poison, /protect, /vote.",
+"actions": {
+"initialCondition": {
+"curse": { "cursedRole": "dur2", "curseCount": 2, "silentCurse": true
+}},
+"night": {
+"distract": { "common": "Self", "priority": -1, "limit": 2, "target": "AnyButSelf", "distractmsg": "Ooooh. You smell a powerful odor and it intoxicates you for tonight.", "teammsg": "Your partner swoons under a powerful odor."},
+"vote": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"kill": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durkill", "silent": true},
+"bomb": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"poison": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durpoison", "silent": true},
+"protect": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durprotect", "silent": true
+
+}}}},
+
+{
+"role": "durpoison", 
+"translation": "King Durian", "side": "village", "hide": true,
+"help": "Your thorns have been dipped in poison (not affecting you though) so now you can /poison up to twice tonight before being changed back to normal. You can change into another form during the next night if you haven't already. /kill, /bomb, /distract, /poison, /protect, /vote.",
+"actions": {
+"initialCondition": {
+"curse": { "cursedRole": "dur2", "curseCount": 2, "silentCurse": true
+}},
+"night": {
+"poison": { "common": "Self", "target": "AnyButSelf", "priority": 20, "count": 3, "poisonDeadMessage": "Be glad that you were humbled enough to be poisoned by the King Durian!"},
+"vote": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"kill": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durkill", "silent": true},
+"bomb": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"distract": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durdistract", "silent": true},
+
+"protect": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durprotect", "silent": true
+
+}}}},
+
+{
+"role": "durprotect", 
+"translation": "King Durian", "side": "village", "hide": true,
+"help": "Your powerful husk is ready to rumble! You can protect up to three people tonight (including yourself) before you change back to normal. You can change into another form during the next night if you haven't already. /kill, /bomb, /distract, /poison, /protect, /vote.",
+"actions": {
+"initialCondition": {
+"curse": { "cursedRole": "dur2", "curseCount": 2, "silentCurse": true
+}},
+"night": {
+
+"protect": { "common": "Self", "limit": 3, "target": "Any", "priority": 3},
+"vote": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durvote", "silent": true},
+"kill": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durkill", "silent": true},
+"bomb": { "command": "convert", "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durbomb", "silent": true},
+"distract": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durdistract", "silent": true},
+"poison": { "command": "convert",  "target": "OnlySelf", "common": "Self", "priority": 90, "newRole": "durpoison", "silent": true
+
+}}}},
+
+        {
+            "role": "apple",
+            "translation": "Apple",
+            "side": "village",
+"info": "Know other apples. Sided with the Fruit.",
+            "help": "You don't have any special commands during the night! Vote to remove people in the day! You know all the other Apples, and can use /tt to communicate with them!",
+            "actions": {
+"teamTalk": ["apple"],
+                "startup": "role-reveal"
+            }
+        },
+        {
+            "role": "grape",
+            "translation": "Grape",
+            "side": "village",
+            "help": "You don't have any special commands during the night! Vote to remove people in the day! You know all the other Grapes, and can use /tt to communicate with them!",
+"info": "Knows the other grapes. Sided with the Fruit.",
+            "actions": {
+"teamTalk": ["grape"],
+                "startup": "role-reveal"
+            }
+        },
+{
+            "role": "pom",
+            "translation": "Pomegranate",
+            "side": "village",
+			"info": "Reveals as rotten. Sided with the Fruit.",
+            "help": "You are a glossy, oblong fruit! For some reason, the inspectors can't see you too well. You appear as a rotten fruit to inspections!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "rcucumber"
+                }
+            }
+        },
+{
+"role": "venison",
+"translation": "Venison",
+"side": "fish", 
+"info": "Shares a kill. One time protect on anyone. Kills the first person to vote it. Sided with the Meats.", 
+"help": "You are vengeful at heart. You were brought into the Meat family at a young age with anger in your heart after the death of your mother. The Fish fed your rage and now you can revenge kill anyone who votes you! You also share a kill with your team and can /protect yourself or someone else once per game.",
+"actions": { 
+"teamTalk": true,
+"startup": "team-reveal-with-roles",
+"lynch": {
+                    "killVoters": {
+                        "first": 1,
+                        "message": "Vengeance. As the visage of the vivid venison unfolds with vicious vindication, ~Target~'s vanity veers into vacant vexation as victim of a venomous vicissitude. ~Self~'s vast volition voraciously vanquishes the virulent vermin with vaudevillian aplomb. So ends the vestige of this vassal of vengeance, the vile yet valorous villain."
+                }},
+"night": {
+"protect": { "common": "Self", "broadcast": "team", "target": "Any", "charges": 1, "priority": 5},
+"kill": {
+"common": "Team",
+"priority": 18,
+"broadcast": "team",
+"target": "AnyButTeam"
+}}
+}
+},
+        {
+            "role": "rpom",
+            "translation": "Rotten Pomegranate",
+            "side": "rotten",
+            "help": "You are a glossy, oblong fruit! For some reason, the inspectors can't see you too well. You appear as a banana to inspections! Type /Kill to kill someone during the night. You share with the other rotten cucumbers, rotten passion fruits, and rotten tomatoes.",
+		"info": "Can kill one person during the night. Kills shared with rotten tomatoes, passion fruit, and cucumbers. Reveals as banana. Sided with Rotten Fruit.",
+            "actions": {
+			"inspect": { "revealAs": "banana"
+		},
+"teamTalk": true,
+		"avoidHax": ["kill"],
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 5
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "plum",
+            "translation": "Plum",
+            "side": "village",
+            "help": "You don't have any special commands at night, but your soft and dark, so inspectors see you as a rotten tomato. Sucks for you!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "rtomato"
+                }
+            }
+        },
+        {
+            "role": "rtomato",
+            "translation": "Rotten Tomato",
+            "side": "rotten",
+            "help": "Red and smelly, that is you. Type /Kill to kill someone during the night. Type /Distract to distract them with your smell. You share with the other rotten tomatoes and rotten cucumbers. Let the cucumbers kill because they don't get hax'd!",
+		"info": "Can kill one person during the night. Kills shared with rotten tomatoes, rotten passion fruit, and rotten cucumbers. Can distract one person during the night. Sided with Rotten Fruit.",
+            "actions": {
+"teamTalk": true,
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 5
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 1,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "rcucumber",
+            "translation": "Rotten Cucumber",
+            "side": "rotten",
+            "help": "Green and smelly, that is you. Type /Kill to kill someone during the night. You share with the other rotten cucumbers and rotten tomatoes. You should kill because you do not get hax'd.",
+		"info": "Can kill one person during the night. Kills shared with rotten tomatoes, passion fruit, and cucumbers (Can't be hax'd). Sided with Rotten Fruit.",
+            "actions": {
+"teamTalk": true,
+		"avoidHax": ["kill"],
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "broadcast": "team",
+                        "priority": 5
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "ch",
+            "translation": "Chicken",
+            "side": "fish",
+            "help": "You are a chicken! Bawk bawk! You can kill one person during the night, and inspect one person as well! Remember, don't get caught, or you'll be cooked.",
+            "actions": {
+"teamTalk": true,
+
+		"startup": "team-reveal-with-roles",
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "broadcast": "team",
+                        "priority": 18
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "broadcast": "team",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "rpotato",
+            "translation": "Rotten Potato",
+            "side": "rotten",
+            "help": "You smell bad and can keep other people away from your target. Type /Kill to kill someone. Type /protect [name] to protect someone during the night. You share this kill with other rotten potatoes.",
+	    "info": "Can kill one person during the night (Not shared). Can protect one person during the night. Sided with Rotten Fruit.",
+            "actions": {
+"teamTalk": true,
+
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 5,
+                        "broadcast": "team"
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "broadcast": "team",
+                        "priority": 2
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+{
+"role": "rpassion",
+"translation": "Rotten Passionfruit",
+"side": "rotten",
+"help": "Your interior has been pent up for so long... If anyone attacks you during the day, you will explode, killing both of you. You share a kill with your allies.",
+"info": "Bombs daykills. Shared night kill with rotten tomatoes and cucumbers. Sided with the rotten fruit.",
+"actions": {
+"startup": "team-reveal-with-roles", 
+"teamTalk": true,
+"night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 5,
+                        "broadcast": "team"
+                    }},
+"daykill": "bomb",
+"daykillrevengemsg": "~Target~ tried to pop ~Self~... Well, they succeeded. ~Self~ exploded, then imploded. The power was so great that both ~Target~ and ~Self~ were absorbed into a vacuum of space in time, never to be seen again."
+}},
+        {
+            "role": "oj",
+            "translation": "Orange",
+            "side": "village",
+            "help": "An orange and round fruit, that is you! You can /citrus one target during the night, poisoning them and killing them in one day.",
+		"info": "Can citrus (poison) one person during the night. Sided with Fruit.",
+            "actions": {
+                "night": {
+                    "citrus": {
+                        "command": [
+                            "poison"
+                        ],
+                        "target": "AnyButSelf",
+                        "priority": 20,
+                        "common": "Self"
+                    }
+                }
+            }
+        },
+        {
+            "role": "roj",
+            "translation": "Rotten Orange",
+            "side": "rotten",
+            "help": "A slightly orange and squishy fruit, that is you! You can /citrus one target during the night, poisoning them and killing them in one day. You share this with other rotten oranges.",
+	"info": "Can citrus (poison) one person during the night. Poisons shared with Rotten Oranges. Sided with Rotten Fruit.",
+            "actions": {
+"teamTalk": true,
+
+"startup": "team-reveal-with-roles",
+                "night": {
+                    "citrus": {
+                        "command": [
+                            "poison"
+                        ],
+                        "target": "AnyButTeam",
+                        "priority": 20,
+"broadcast": "team",
+                        "common": "Role"
+                    }
+                }
+            }
+        },
+        {
+            "role": "tomato",
+            "translation": "Tomato",
+            "side": "village",
+            "help": "You are round and red, and apparently, a fruit. Type /Distract to distract someone during the night!",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "potato",
+            "translation": "Potato",
+            "side": "village",
+            "help": "Well you live under the ground but are still allied with the fruit (WEIRD, huh?). Type /Protect to protect people from killing during the night. You can protect two people per night.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "limit": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "mango",
+            "translation": "Mango",
+            "side": "village",
+            "help": "Being a big round fruit, you are able to kill. Type /Kill to kill at night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 15
+                    }
+                }
+            }
+        },
+        {
+            "role": "melon",
+            "translation": "Watermelon",
+            "side": "village",
+            "help": "You don't have any special commands at night, but your vote counts as 5 because I said so.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "banana"
+                },
+                "vote": 5
+            }
+        },
+        {
+            "role": "minnow",
+            "translation": "Minnow",
+            "side": "fish",
+"info": "vote of -4. Converts to Sardine when Fish dies. Sided with the Meats.",
+            "help": "As a minor but tasty fish, your vote counts as -4! You are sided with the Meats!",
+            "actions": {
+"teamTalk": true,
+
+                "startup": "team-reveal-with-roles",
+                "vote": -4
+            }
+        },
+{
+"role": "rabbit",
+"translation": "Lean Rabbit",
+"side": "fish",
+"info": "Ignores daykills. Shared night kill. Sided with the meats.",
+"help": "Known to be a delicacy in some places, your tenderness allows you to evade kills during the day. You also share a /kill with your team.", 
+"actions": {
+"startup": "team-reveal-with-roles",
+"teamTalk": true,
+"night": {
+"kill": {
+"common": "Team",
+"priority": 18,
+"broadcast": "team",
+"target": "AnyButTeam"
+}}, 
+"daykill": "evade"
+}},
+
+{"role": "minnow2", "translation": "Sardine",  "side": "fish", "help": "Your partner is gone! It is now up to you to live up to your dream of destroying all the fruit! You can /kill during the night, shared with your team and you have your -4 votes to stay alive. You are sided with the Meats!", 
+"actions": {
+	"startup": "team-reveal-with-roles",
+	"vote": -4, 
+"night": {"kill": { "common": "Team", "priority": 18, "target": "AnyButTeam", "broadcast": "team"}}}},
+        {
+            "role": "rb",
+            "translation": "Rotten Banana",
+            "side": "rotten",
+            "help": "You are sided with the rottens! But, since you are so smelly, your vote counts as -2.",
+            "actions": {
+                "startup": "team-reveal-with-roles",
+                "vote": -2
+            }
+        },
+{
+"role": "squab", 
+"translation": "Squab", "side": "fish", 
+"info": "Shared night kill. Can distract. Sided with the meats.",
+"help": "You've had a very full afterlife. That is to say, you've been stuffed so full of rice and herbs that you have enough to spare! You can /distract during the night to entertain your targets with stuffing. You also share a kill with your team.",
+"actions": {
+"startup": "team-reveal-with-roles",
+"teamTalk": true, 
+"night": {
+"kill": { "common": "Team", "priority": 18, "target": "AnyButTeam", "broadcast": "team"}, 
+"distract": { "common": "Team", "priority": 0, "target": "AnyButTeam", "recharge": 2,"broadcast": "team"}
+}}},
+
+        {
+            "role": "fish",
+            "translation": "Fish",
+            "side": "fish",
+            "help": "You are alone. Sad, small, little fish. You aren't even supposed to win, but if you do, gz. Type /protect to avoid getting killed at night. Type /Kill during standby to kill.",
+            "actions": {
+"teamTalk": true,
+
+                "onDeath": {
+                    "convertRoles": {
+                        "minnow": "minnow2"
+                    },
+                    "convertmsg": "With the death of the Fish, it is now up to the Minnow to be the best fish it can be!"
+                },
+                "startup": "team-reveal-with-roles",
+                "night": {
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "It's time to troll. Type /Kill to get rid of your nemesis.",
+                        "killmsg": "The Fish used Splash! ~Target~ fainted!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "pa",
+            "translation": "Pineapple",
+            "side": "village",
+            "help": "You are sharp, and can hurt people's tongues. However, you can also kill a person during the day. You will be revealed, and there is a fish. Be careful, and STAB ON!",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Type /kill to get rid of the enemy. YOU WILL BE REVEALED.",
+                        "killmsg": "~Self~ dive-bombs ~Target~, who dies because of the sharpness of the ultimate pineapple."
+                    }
+                }
+            }
+        },
+{
+"role": "coco",
+"translation": "Coconut",
+"side": "village",
+"help": "You are the fibrous one-seeded drupe in the fruit, nut, and seed classifications! Your tough exocarp protects you from a night kill once per game.",
+"info": "Ignores first night kill. Sided with the Fruit.",
+"actions": { 
+"kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "You were attacked, but your hard exterior absorbed the hit!",
+                    "msg": "You hit something hard belonging to a... a nut? A fruit? A seed? Maybe all 3!"
+                }}},
+        {
+            "role": "kiwi",
+            "translation": "Kiwi Fruit",
+            "side": "village",
+            "help": "You are hairy fruit. Type /Inspect [name] to inspect someone during the night.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20
+                    }
+                }
+            }
+        }
+    ],
+    "roles1": [
+        "kiwi",
+        "tomato",
+        "rtomato",
+        "roj",
+        "potato",
+        "banana",
+        "ch",
+        "banana"
+    ],
+    "roles2": [
+        "banana",
+        "banana",
+        "potato",
+        "tomato",
+        "rtomato",
+        "rpotato",
+        {"melon": 0.2, "dragon": 0.1},
+        "kiwi",
+		"fish",
+        "banana"
+],
+    "roles3": [
+        "banana",
+        "banana",
+        "potato",
+        "tomato",
+        "rtomato",
+        "rpotato",
+        {"melon": 0.1, "dur": 0.2},
+        "kiwi",
+		"fish",
+        "mango",
+        "banana",
+        "rcucumber",
+		{"minnow": 0.2, "squab": 0.2, "ch": 0.1, "venison": 0.3},
+        "oj",
+        {"apple": 0.1, "grape": 0.1},
+        {"apple": 0.1, "grape": 0.1},
+        "coco",
+		"rpassion",
+        "kiwi",
+        {"dragon": 0.3, "melon": 0.1},
+        "roj",
+        {"ch": 0.3, "rabbit": 0.2},
+        "banana",
+		"pa",
+        {"apple": 0.1, "grape": 0.1},
+{"squab": 0.1, "venison": 0.1, "ch": 0.1},
+        
+        "plum",
+        {"apple": 0.1, "grape": 0.1},
+	"rcucumber",	
+        "rb",
+        "plum",
+	"melon",
+	"rpotato",
+	"kiwi",
+	{"ch": 0.2, "rabbit": 0.3},
+	"rb"
+    ],
+    "villageCantLoseRoles": [
+        "melon",
+"dragon",
+        "mango",
+        "pa"
+    ],
+    "changelog": {
+        "06.09.13": "Chicken added to Fish side, changed to Meats.",
+        "06.08.13": "Small games edited.",
+        "06.05.13": "Minnows get -4 and then convert to Fish upon Fish's death.",
+        "06.06.13": "Roles slightly edited.",
+        "06.07.13": "Orange and Rotten Orange added.",
+	"06.13.13": "Added team reveal to rotten orange.",
+	"06.16.13": "Added team broadcasts to every mafia role",
+	"07.06.13": "Changed Fish converting Minnow to Sardine on death. Gains a kill.",
+	"08.16.13": "Chicken didn't get reveal on team, changed that. Grapes added as secondary mason group to weaken village potency.",
+	"12.07.13": "Team Talk added to apple X apple and grape X grape for ease of communication",
+	"2.6.13": "Added coconuts, rotten passionfruit, lean rabbit, dragonfruit, durian, pomegranate and rotten pomegranate, venison, squab and more fruit to come.",
+   "2.20.13": "Some more fixes, additions, spawn changes.",
+"3.28.14": "Squab's distract every other night. Too strong individually, but is needed to keep strength for side."
+   }
+}
