@@ -1,0 +1,1470 @@
+{
+    "name": "MP",
+    "altname": "Mafia Players",
+    "author": "RiceKirby",
+    "summary": "What type of mafia player are you? Find out in this theme, where roles like Villy Claimer, Randers, Botquoters, AFK Players and even Mafia Admins are included to simulate the craziness of Mafia Channel and its players!",
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?22340-Mafia-Players",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Normal Players",
+            "winmsg": "±Mafia: Thanks to ~Players~, everyone will be able to enjoy a good mafia game! Now, someone should /starttheme a new game!"
+        },
+        {
+            "side": "RuleBreakers",
+            "translation": "Rule Breakers",
+            "winmsg": "±Mafia: Oh god, someone please stop ~Players~, they already broke enough Mafia rules!"
+        },
+        {
+            "side": "BadPlayers",
+            "translation": "Bad Players",
+            "winmsg": "±Mafia: Seriously, we need a tutor for ~Players~. They are too bad at this gam... wait, they won?!"
+        },
+        {
+            "side": "Auth",
+            "translation": "Auth",
+            "winmsg": "±Mafia: No player left in the channel, now it's time for the the Auth ~Players~ to have some fun!"
+        },
+        {
+            "side": "Banned",
+            "translation": "Banned Players",
+            "winmsg": "±Mafia: No matter how many times you try to ban ~Players~, they will come back to get their revenge!"
+        },
+        {
+            "side": "Impersonator",
+            "translation": "Impersonator",
+            "winmsg": "±Mafia: Impersonating is for the weak! ~Players~ didn't need to steal anyone's identity to win this game!"
+        },
+        {
+            "side": "Idiot",
+            "translation": "Annoying Player",
+            "winmsg": "±Mafia: Derp! ~Players~, the Annoying Player, somehow won the game alone!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "New Player",
+            "side": "village",
+            "help": "You just came to Mafia Channel for the first time, and you still don't know much about the game. You can use /learn [name] during the night to find the Tutor and improve your skills.",
+            "info": "Can /learn on a Tutor to become a Quiet Player, Voice or Bluffer. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "learn": {
+                        "command": "copy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 17,
+                        "canCopy": ["tutor"],
+                        "copyAs": {
+                            "quiet": ["tutor"],
+                            "voice": ["tutor"],
+                            "bluffer": ["tutor"]
+                        },
+                        "pierce": true,
+                        "copymsg": "A ~Old~ received tutoring and became a ~New~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager2",
+            "translation": "New Player",
+            "side": "village",
+            "help": "You just came to Mafia Channel for the first time, and you still don't know much about the game, so the only thing you can do is vote for the bad guys during the day!",
+            "hide": true,
+            "actions": {}
+        },
+        {
+            "role": "veteran",
+            "translation": "Veteran",
+            "side": "village",
+            "help": "You have been playing mafia for a long time, so you can easily find the mafia! Use /inspect [name] during the night to find someone's role!",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 22
+                    }
+                }
+            }
+        },
+        {
+            "role": "meatshield",
+            "translation": "Meatshield",
+            "side": "village",
+            "help": "You are always trying to protect the important roles by drawing attention to yourself. As such, you can use /meatshield [name] during the night to protect one person, but there's a 25% chance you will take the hit for your target!",
+            "info": "Can meatshield 1 person during the night (75% chance of protecting, 25% chance of shielding with your own body). Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "meatshield": {
+                        "command": {
+                            "shield": 0.25,
+                            "protect": 0.75
+                        },
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "talkative",
+            "translation": "Talkative Player",
+            "side": "village",
+            "help": "Since you never stop talking, you can use /distract [name] during the night to distract someone (everyone will know who was distracted).",
+            "info": "Can distract 1 person during the night (all players will know who was distracted). Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "command": ["distract", "dummy"],
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 5,
+                        "dummybroadcastmsg": "The ~Role~ spent the entire night talking to ~Target~, keeping them distracted!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "pro_rander",
+            "translation": "PRO Rander",
+            "side": "village",
+            "help": "You love to rand, but are you a PRO or Bad Rander? You have either +3 votes (if you are PRO) or -3 (if you are Bad Rander), but you will only find that after the 3rd Night!",
+            "info": "Votes counts as +3, but player won't know if it's a PRO or Bad Rander until N3. Sided with Normal Players.",
+            "actions": {
+                "vote": 3,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "pro_rander2",
+                        "curseCount": 3
+                    }
+                },
+                "startup": {
+                    "revealAs": "rander"
+                },
+                "onlist": "rander",
+                "onteam": "rander"
+            }
+        },
+        {
+            "role": "bad_rander",
+            "translation": "Bad Rander",
+            "side": "village",
+            "help": "You love to rand, but are you a PRO or Bad Rander? You have either +3 votes (if you are PRO) or -3 (if you are Bad Rander), but you will only find that after the 3rd Night!",
+            "info": "Vote counts as -3, but player won't know if it's a PRO or Bad Rander until N3. Sided with Normal Players.",
+            "actions": {
+                "vote": -3,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "bad_rander2",
+                        "curseCount": 3
+                    }
+                },
+                "startup": {
+                    "revealAs": "rander"
+                },
+                "onlist": "rander",
+                "onteam": "rander"
+            }
+        },
+        {
+            "role": "pro_rander2",
+            "translation": "PRO Rander",
+            "side": "village",
+            "help": "You now know what you are doing when you rand, and as such, your vote counts as +3!",
+            "hide": true,
+            "actions": {
+                "vote": 3,
+                "onlist": "rander",
+                "onteam": "rander"
+            }
+        },
+        {
+            "role": "bad_rander2",
+            "translation": "Bad Rander",
+            "side": "village",
+            "help": "You are terrible at randing, so your vote counts as -3!",
+            "hide": true,
+            "actions": {
+                "vote": -3,
+                "onlist": "rander",
+                "onteam": "rander"
+            }
+        },
+        {
+            "role": "rander",
+            "translation": "Rander",
+            "side": "village",
+            "help": "Placeholder role for onlist/onteam/startup.revealAs. Also, Toc Toc.",
+            "info": "Can be either PRO Rander or Bad Rander. Sided with Normal Players.",
+            "actions": {
+            }
+        },
+        {
+            "role": "bandwagoner",
+            "translation": "Bandwagoner",
+            "side": "village",
+            "help": "You are always following any rand without thinking, so your vote counts as 0! After the 3rd Night, you can type /convert [yourname] to become either a PRO or Bad Rander.",
+            "info": "Vote counts as 0. Can become PRO Rander or Bad Rander after N3. Sided with Normal Players.",
+            "actions": {
+                "vote": 0,
+                "night": {
+                    "convert": {
+                        "common": "Self",
+                        "target": "OnlySelf",
+                        "priority": 18,
+                        "canConvert": ["bandwagoner"],
+                        "newRole": {
+                            "pro_rander2": ["bandwagoner"],
+                            "bad_rander2": ["bandwagoner"]
+                        },
+                        "initialrecharge": 3,
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "counter_rander",
+            "translation": "Counter Rander",
+            "side": "village",
+            "help": "You just came to Mafia Channel for the first time, and you still don't know much about the game. You can use /learn [name] during the night to find the Tutor and improve your skills.",
+            "info": "Sees itself as New Player. If lynched, kills the first person that voted for them. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "learn": {
+                        "command": "copy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 17,
+                        "canCopy": [],
+                        "copyAs": {
+                            "quiet": [],
+                            "voice": [],
+                            "bluffer": []
+                        },
+                        "copymsg": "A ~Old~ received tutoring and became a ~New~!",
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "lynch": {
+                    "killVoters": {
+                        "first": 1,
+                        "message": "~Target~ randed ~Self~, but ~Self~ counter-randed!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "counter_rander2",
+            "translation": "Counter Rander",
+            "side": "village",
+            "help": "You just came to Mafia Channel for the first time, and you still don't know much about the game, so the only thing you can do is vote for the bad guys during the day!",
+            "hide": true,
+            "actions": {
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "lynch": {
+                    "killVoters": {
+                        "first": 1,
+                        "message": "~Target~ randed ~Self~, but ~Self~ counter-randed!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "fake_claimer",
+            "translation": "Fake Claimer",
+            "side": "village",
+            "help": "Because always fake claim someone else's role, you can get inspected as any role!",
+            "info": "Inspected as a random role. Sided with Normal Players.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "*"
+                }
+            }
+        },
+        {
+            "role": "villy_claimer",
+            "translation": "Villy Claimer",
+            "side": "village",
+            "help": "You always claim Villy regardless of your actual role. As such, you can type /claim [name] every 2 nights to reveal your role to someone else!",
+            "info": "Can reveal itself to another player every 2 nights. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "claim": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 27,
+                        "recharge": 2,
+                        "dummytargetmsg": "~Self~ has sent you a message claiming the ~Role~!",
+                        "dummyusermsg": "You revealed your identity to ~Target~!",
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "undercover",
+            "translation": "Undercover Player",
+            "side": "village",
+            "help": "You constantly change your name so other players won't recognize you! As such, you are inspected as a New Player and can get hax on kills, but be aware: the Team Revealer can send fake hax!",
+            "info": "Inspected as New Player. Gets hax on kills (but some of it can be faked by Team Revealer). Sided with Normal Players.",
+            "actions": {
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "hax": {
+                    "kill": {
+                        "revealPlayer": 0.06
+                    }
+                }
+            }
+        },
+        {
+            "role": "easy_target",
+            "translation": "Easy Target",
+            "side": "village",
+            "help": "For some reason, other players are always targeting you. Due to that, you developed the ability of identifying most of the people who uses an action on you during the night!",
+            "info": "Identify player if inspected, distracted, protected, poisoned or converted. Sided with Normal Players.",
+            "actions": {
+                "inspect": {
+                    "mode": "identify"
+                },
+                "distract": {
+                    "mode": "identify"
+                },
+                "protect": {
+                    "mode": "identify"
+                },
+                "shield": {
+                    "mode": "identify"
+                },
+                "poison": {
+                    "mode": "identify"
+                },
+                "convert": {
+                    "mode": "identify"
+                }
+            }
+        },
+        {
+            "role": "caps",
+            "translation": "CAPS LOCK PLAYER",
+            "side": "village",
+            "help": "YOUR CAPS LOCK KEY IS BROKEN, SO YOU ALWAYS TALK LIKE THIS! YOU CAN TYPE /SUGGEST [NAME] DURING THE DAY TO ANONYMOUSLY SUGGEST A LYNCH!",
+            "info": "Can anonymously suggest a lynch during the standby. Sided with Normal Players.",
+            "actions": {
+                "standby": {
+                    "suggest": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "msg": "YOU CAN SUGGEST A LYNCH WITHOUT REVEALING YOURSELF WITH /SUGGEST [NAME]!",
+                        "exposemsg": "HEY GUYS, WE TOTALLY SHOULD LYNCH ~Target~!!!!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "randkiller",
+            "translation": "Randkiller",
+            "side": "village",
+            "help": "The only thing you care about in Mafia is to kill everyone, so you can use /kill [name] during the night to do so!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 14
+                    }
+                }
+            }
+        },
+        {
+            "role": "fake_randkiller",
+            "translation": "Fake Randkiller",
+            "side": "village",
+            "help": "The only thing you care about in Mafia is to kill everyone, so you can use /kill [name] during the night to do so!",
+            "info": "Sees itself as Randkiller, but targets will always be protected (cannot be haxed). Inspected as a random mafia. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": ["protect", "kill"],
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 14,
+                        "hide": true
+                    }
+                },
+                "avoidHax": ["kill"],
+                "startup": {
+                    "revealAs": "randkiller"
+                },
+                "inspect": {
+                    "revealAs": ["deadtalker", "botquoter", "targeter", "team_revealer", "team_voter", "suicidal", "afk", "pm_blocker", "mafia_admin", "auth_hater"]
+                },
+                "onlist": "villager",
+                "onteam": "villager"
+            }
+        },
+        {
+            "role": "mistabber",
+            "translation": "Mistabber",
+            "side": "village",
+            "help": "You always use the TAB key to quicky type someone's name, but you tend to miss often! As such, you can /tab [name] during the night to upgrade the Nameshield into a daykiller!",
+            "info": "Can convert Nameshield into Rager. After converting the Nameshield, can safeguard 1 person during the night. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "tab": {
+                        "command": ["copy", "convert"],
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 19,
+                        "canCopy": ["nameshield"],
+                        "canConvert": ["nameshield"],
+                        "copyAs": "mistabber2",
+                        "newRole": "rager",
+                        "copymsg": "Oops! Someone tabbed the wrong name!",
+                        "convertmsg": "The poor Nameshield is now a Rager after being tabfailed!",
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "mistabber2",
+            "translation": "Mistabber",
+            "side": "village",
+            "help": "Oops, you tabfailed! Now the poor guy who got mistabbed is raging, so you can use /safeguard [name] to protect them to make up for your fail!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 1
+                    }
+                },
+                "startup": {
+                    "revealRole": "rager"
+                }
+            }
+        },
+        {
+            "role": "nameshield",
+            "translation": "Nameshield",
+            "side": "village",
+            "help": "You just came to Mafia Channel for the first time, and you still don't know much about the game. You can use /learn [name] during the night to find the Tutor and improve your skills.",
+            "info": "Sees itself as New Player. If tabbed by Mistabber, becomes Rager (daykiller). If lynched, becomes Rager (vengeful killer). Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "learn": {
+                        "command": "copy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 17,
+                        "canCopy": [],
+                        "copyAs": {
+                            "quiet": [],
+                            "voice": [],
+                            "bluffer": []
+                        },
+                        "copymsg": "A ~Old~ received tutoring and became a ~New~!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "lynch": {
+                    "convertTo": "nameshield_lynched",
+                    "convertmsg": "~Self~ is raging because people tabfailed them! ~Self~ can kill someone before dying!"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "nameshield2",
+            "translation": "Nameshield",
+            "side": "village",
+            "help": "You just came to Mafia Channel for the first time, and you still don't know much about the game, so the only thing you can do is vote for the bad guys during the day!",
+            "hide": true,
+            "actions": {
+                "lynch": {
+                    "convertTo": "nameshield_lynched",
+                    "convertmsg": "~Self~ is raging because people tabfailed them! ~Self~ can kill someone before dying!"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                }
+            }
+        },
+        {
+            "role": "nameshield_lynched",
+            "translation": "Rager",
+            "side": "village",
+            "help": "You have been tabfailed, so you are now raging! Type /kill [name] to kill someone, since you will die by the end of this night!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 10
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "It seems the ~Distracter~ tried to distract someone who was already lynched. It was clearly not effective."
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "poison": {
+                        "count": -1,
+                        "poisonDeadMessage": "You got tabfailed, but only died now!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "rager",
+            "translation": "Rager",
+            "side": "village",
+            "help": "Oh god, someone mistabbed your name, which made you rage! Type /kill [name] during the day to unleash your rage on your enemies (you won't be revealed!)",
+            "info": "If tabbed by Mistabber, can kill during the standby. If lynched as Nameshield, can kill 1 person at night before dying. Sided with Normal Players.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now by typing /kill [name] (you won't be revealed!)",
+                        "killmsg": "±Rager: WTH?! What are you guys doing?!?! Are you blind?!?!?! Stop failing and get right ~Target~ now!!!"
+                    }
+                },
+                "startup": {
+                    "revealRole": "mistabber2"
+                }
+            }
+        },
+        {
+            "role": "tutor",
+            "translation": "Tutor",
+            "side": "village",
+            "help": "You are a good person who is always willing to teach Mafia to new players! You can type /tutor [name] every 2 nights to convert a New Player into a Quiet Player, Voice or Bluffer! Be aware that you cannot be protected, and you will expose your tutees if you are killed!",
+            "info": "Can convert New Players into Quiet Player, Voice or Bluffer every 2 nights. Cannot be protected. Exposes tutored players when killed. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "tutor": {
+                        "command": "convert",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 16,
+                        "canConvert": ["villager"],
+                        "newRole": {
+                            "quiet": ["villager"],
+                            "voice": ["villager"],
+                            "bluffer": ["villager"]
+                        },
+                        "recharge": 2,
+                        "convertmsg": "A ~Old~ received tutoring and became a ~New~!",
+                        "pierce": true
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["quiet", "voice", "bluffer"],
+                    "exposemsg": "±Tutor: I may be out, but I'm sure ~Target~ will be a good ~Role~(s)!",
+                    "convertRoles": {
+                        "villager": "villager2",
+                        "nameshield": "nameshield2",
+                        "counter_rander": "counter_rander2"
+                    },
+                    "silentConvert": true,
+                    "singleconvertmsg": "Oh no, the Tutor is out, leaving New Players without anyone to learn from now!"
+                },
+                "protect": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "shield": {
+                    "mode": "ignore",
+                    "silent": true
+                },
+                "kill": {
+                    "mode": {
+                        "ignore": ["bluffer"]
+                    },
+                    "msg": "±Game: Why would you kill the person that teached you how to play?"
+                },
+                "startup": {
+                    "revealRole": ["quiet", "voice", "bluffer"]
+                }
+            }
+        },
+        {
+            "role": "quiet",
+            "translation": "Quiet Player",
+            "side": "village",
+            "help": "You learned how to play the game silently, without drawing attention while you gather information! You can type /stalk [name] during the night to follow someone's movements (shared with other Quiet Players)!",
+            "info": "Can stalk 1 person during the night (shared with other Quiet Players). Knows other Quiet Players. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "common": "Role",
+                        "target": "AnyButRole",
+                        "priority": 25,
+                        "broadcast": "role"
+                    }
+                },
+                "startup": {
+                    "revealRole": ["quiet", "tutor"]
+                }
+            }
+        },
+        {
+            "role": "voice",
+            "translation": "Voice",
+            "side": "village",
+            "help": "You learned how to voice other roles, so you can use that technique to protect other players! Type /protect [name] during the night to do so (shared with other Voices). Remember that the Tutor cannot be protected!",
+            "info": "Can protect 1 person during the night (shared with other Voices). Knows other Voices. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "common": "Role",
+                        "target": "AnyButRole",
+                        "priority": 6,
+                        "broadcast": "role"
+                    }
+                },
+                "startup": {
+                    "revealRole": ["voice", "tutor"]
+                }
+            }
+        },
+        {
+            "role": "bluffer",
+            "translation": "Bluffer",
+            "side": "village",
+            "help": "You learned how to bluff your actions to get your enemies killed! Type /kill [name] during the night to kill someone (shared with other Bluffers)!",
+            "info": "Can kill 1 person during the night (shared with other Bluffers). Knows other Bluffers. Sided with Normal Players.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Role",
+                        "target": "AnyButRole",
+                        "priority": 13,
+                        "broadcast": "role"
+                    }
+                },
+                "startup": {
+                    "revealRole": ["bluffer", "tutor"]
+                }
+            }
+        },
+        {
+            "role": "deadtalker",
+            "translation": "Deadtalker",
+            "side": "RuleBreakers",
+            "help": "Although you shouldn't, you tend to relay information you got after you died. As such, you reveal whoever daykills you, and you can type /fake [name] every 2 nights to fake someone's death (which will reveal them and make them look as if they are deadtalking). You can also use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "info": "Can kill 1 person during the night. Can fake someone's death every 2 nights. Reveals daykillers. Sided with Rule Breakers.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "hide": true
+                    },
+                    "fake": {
+                        "command": ["dummy", "dummy2"],
+                        "common": "Self",
+                        "target": "Any",
+                        "priority": 9,
+                        "recharge": 2,
+                        "dummybroadcastmsg": "±Game: ~Target~ (~TargetRole~) left Mafia Channel forever!",
+                        "dummy2targetmsg": "±Game:  WAIT! It seems someone is spreading false rumors about your death, but YOU ARE STILL ALIVE!"
+                    }
+                },
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "~Self~ says: 'Oh, I died. Damn, right when I had found that ~Target~ is the ~Role~! Oops, was that a deadtalk?'",
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "botquoter",
+            "translation": "Botquoter",
+            "side": "RuleBreakers",
+            "help": "Although you shouldn't, you tend to copy/paste bot messages. As such, 3 times during the game, you can type /kill [name] during the day to kill someone (you have a 20% chance of revealing). You can also use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "info": "Can kill 1 person during the night. Can kill 1 person during the standby (up to 3 times in the game, 20% chance of revealing). Sided with Rule Breakers.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can now kill with /kill [name] (you have a 20% chance of being revealed",
+                        "killmsg": "±Game: Botquoter: (13:37:00) ±Game: The Ruler Breakers are going to kill ~Target~!",
+                        "revealChance": 0.2,
+                        "revealmsg": "Mafia Admin: '~Self~, don't botquote!'",
+                        "charges": 3
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "targeter",
+            "translation": "Targeter",
+            "side": "RuleBreakers",
+            "help": "Although you shouldn't, you always target the same person to annoy them. As such, you can type /target [name] every 2 nights to distract, poison and curse someone you want to annoy. You can also use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "info": "Can kill 1 person during the night. Can target (distract + poison) 1 person every 2 nights. Sided with Rule Breakers.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "hide": true
+                    },
+                    "target": {
+                        "command": ["distract", "distract", "poison", "curse"],
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 4,
+                        "broadcast": "team",
+                        "recharge": 2,
+                        "cursedRole": "villager",
+                        "curseCount": 3
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "team_revealer",
+            "translation": "Team Revealer",
+            "side": "RuleBreakers",
+            "help": "Although you shouldn't, you tend to reveal your teammates and ruin their games. As such, you can type /fake or /fake2 [name] during the night to frame someone by sending fake hax to the Undercover Player. You can also use /expose or /reverse [name] during the day to reveal yourself and someone else's role (although /reverse will reveal you as your target and your target as you). You can also use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "info": "Can kill 1 person during the night. Can send fake hax during the night. Can expose or reverse-expose 1 person during the day. Sided with Rule Breakers.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 8,
+                        "broadcast": "team",
+                        "hide": true
+                    },
+                    "fake": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 29,
+                        "broadcast": ["undercover"],
+                        "restrict": ["fake", "fake2"],
+                        "broadcastmsg": "~Target~ is The Rule Breakers!"
+                    },
+                    "fake2": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 29,
+                        "broadcast": ["undercover"],
+                        "restrict": ["fake", "fake2"],
+                        "broadcastmsg": "~Target~ is The Bad Players!",
+                        "hide": true
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can now expose someone with /expose [name] (You will be revealed!).",
+                        "exposemsg": "~Self~ (Team Revealer) says: 'Fine, I will team-reveal ~Target~ as ~Role~!'"
+                    },
+                    "reverse": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "msg": "Or you can use /reverse [name] to expose you as someone else's role and your target as you!",
+                        "exposemsg": "~Target~ (Team Revealer) says: 'Fine, I will team-reveal ~Self~ as ~Role~!'"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "troll",
+            "translation": "Troll",
+            "side": "BadPlayers",
+            "help": "You are always trolling to make other players mad, allowing you to type /kill [name] during the night to kill another player. [Hint: Use /tt [message] for team talk]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "startup": "team-reveal",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "team_voter",
+            "translation": "Team Voter",
+            "side": "BadPlayers",
+            "help": "You always mess your votes and ends voting your teammates! Because of that, your vote counts as -2 so you can safely vote for your partners!You can also use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+                },
+                "teamTalk": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                "vote": -2
+            }
+        },
+        {
+            "role": "suicidal",
+            "translation": "Suicidal",
+            "side": "BadPlayers",
+            "help": "You try to suicide all the time, so you've been given the ability to survive to one lynch. You can also use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "info": "Can kill 1 person during the night. Survives 1 lynch (can't be distracted after lynched). Sided with Bad Players.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+                },
+                "teamTalk": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                "lynch": {
+                    "convertTo": "suicidal2",
+                    "lynchmsg": "Suicidal says: Thanks for respecting the suicide."
+                }
+            }
+        },
+        {
+            "role": "suicidal2",
+            "translation": "Suicidal",
+            "side": "BadPlayers",
+            "help": "So you finally got lynched! You won't survive the next lynch, but at least you ignore distractors now. You can use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+                },
+                "teamTalk": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to distract you after you suicided. Didn't work."
+                }
+            }
+        },
+        {
+            "role": "afk",
+            "translation": "AFK Player",
+            "side": "BadPlayers",
+            "help": "You often join a game and go away, forgetting you are still playing. As such, you are inspected and stalked as an innocent New Player, but you receives 2 votes if you are voted. You can also use /kill [name] during the night (shared with your team), and you will come back from being AFK after the 4th night. [Hint: Use /tt [message] for team talk]",
+            "info": "Can kill 1 person during the night. Inspected as New Player. Immune to Stalk. Voteshield of +2. After N4, inspected and stalked normally, no voteshield, and gets an extra kill during the night. Sided with Bad Players.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+                },
+                "teamTalk": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                "voteshield": 2,
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "afk2",
+                        "curseCount": 4,
+                        "curseConvertMessage": "Oh, it seems the AFK Player is finally back!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "afk2",
+            "translation": "Not-AFK Player",
+            "side": "BadPlayers",
+            "help": "You were AFK, but now you are back! You are now inspected and stalked normally, but now you have no voteshield and can type both /kill [name] (shared with your team) and /kill2 [name] (not shared) during the night to kill 2 targets. [Hint: Use /tt [message] for team talk]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "hide": true
+                    },
+                    "kill2": {
+                        "command": "kill",
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 12,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+                    }
+                },
+                "startup": {
+                    "revealRole": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+                },
+                "teamTalk": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+            }
+        },
+        {
+            "role": "pm_blocker",
+            "translation": "PM Blocker",
+            "side": "BadPlayers",
+            "help": "You often forget to enable PMs while playing Mafia, so because of that you don't know your teammates! Use /stalk [name] during the night to obtain information, and if you think you know one of your partners, use /unblock on them to find your entire team and gain new abilities! Be aware that if you unblock someone else, that person will find your identity!",
+            "info": "Doesn't know teammates. Can stalk 1 person during the night. Can unblock 1 person during the night to look for the teammates. After Unblocking a teammate: [Can block 1 person during the night (stalk, distract, protect and safeguard). Can kill 1 person during the night]. If all teammates die before unblocking: [Can kill 1 person during the night] Sided with Bad Players.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 26
+                    },
+                    "unblock": {
+                        "command": ["dummy", "copy"],
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 20,
+                        "canCopy": ["team_voter", "suicidal", "suicidal2", "afk", "afk2"],
+                        "copyAs": "pm_blocker2",
+                        "silent": true,
+                        "dummytargetmsg": "±Game: ~Self~ says: 'Hi, ~Role~ here... Wait, are you even my teammate?'",
+                        "pierce": true
+                    }
+                },
+                "onDeadRoles" : {
+                    "convertTo" : {
+                        "pm_blocker3": ["team_voter", "suicidal", "suicidal2", "afk", "afk2"]
+                    },
+                    "convertmsg" : "It seems the PM Blocker never found their teammates."
+                }
+            }
+        },
+        {
+            "role": "pm_blocker2",
+            "translation": "PM Blocker",
+            "side": "BadPlayers",
+            "help": "You finally remembered to unblock your PMs and now you know your teammates! You can now use /block [name] during the night to block another player from using or receiving any action (this will stalk, distract and protect your target). You can also use /kill [name] during the night (shared with your team). [Hint: Use /tt [message] for team talk]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "hide": true
+                    },
+                    "block": {
+                        "command": ["stalk", "distract", "protect", "safeguard"],
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 2,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "stalkmsg": "You blocked ~Target~ while they were trying to visit ~Visit~!",
+                        "novisitmsg": "You blocked ~Target~, even though they didn't try to visit anyone this night!"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"]
+            }
+        },
+        {
+            "role": "pm_blocker3",
+            "translation": "PM Blocker",
+            "side": "BadPlayers",
+            "help": "You never found your teammates, so you are now alone! You can use /kill [name] during the night to kill another player.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": ["team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2"],
+                        "hide": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "rulerBreakers",
+            "translation": "Rule Breakers",
+            "side": "RuleBreakers",
+            "help": "Placeholder Role for /priority.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 8,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "badPlayers",
+            "translation": "Bad Players",
+            "side": "BadPlayers",
+            "help": "Placeholder Role for /priority.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 7,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "mafia_admin",
+            "translation": "Mafia Admin",
+            "side": "Auth",
+            "help": "You keep the order in Mafia Channel! You can type /kill [name] during the day to kill another player (you won't be revealed). Your vote counts as +2 due to your authority. Twice during the game, you can also type /punish [name] during the night to transform another player into Banned Player (lynched with any vote, becomes Auth Hater after 2 turns).",
+            "info": "Can kill 1 person during the standby (not revealed). Can convert 2 players into Banned Players during the game. Vote counts as +2. Sided with Auth.",
+            "actions": {
+                "night": {
+                    "punish": {
+                        "command": "convert",
+                        "common": "Self",
+                        "target": "AnyButTeam",
+                        "priority": 15,
+                        "newRole": "banned",
+                        "charges": 2,
+                        "convertmsg": "The ~Old~ was detained by the Mafia Admin!"
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can daykill now by typing /kill [name] (you won't be revealed!)",
+                        "killmsg": "±Game: The Mafia Admin banned ~Target~ from Mafia Channel! [Reason: For being a ~TargetRole~]"
+                    }
+                },
+                "vote": 2,
+                "dummy3": {
+                    "mode": "die",
+                    "msg": "The player you banned before came back for revenge. And they got you.",
+                    "targetmsg": "You got your revenge against the Mafia Admin! Bwahaha!"
+                },
+                "startup": {
+                    "revealRole": "banned"
+                }
+            }
+        },
+        {
+            "role": "banned",
+            "translation": "Banned Player",
+            "side": "Banned",
+            "help": "Since you are banned, your vote now counts as 0, and you get lynched with any vote you receive. You will become an Auth Hater in 2 turns!",
+            "info": "Vote counts as 0. Lynched with any vote. Becomes Auth Hater after 2 turns. Sided with Banned Players.",
+            "actions": {
+                "vote": 0,
+                "voteshield": 500,
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "auth_hater",
+                        "curseCount": 3,
+                        "curseConvertMessage": "The Banned Player has been unbanned, and now wants revenge against the Mafia Admin!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "auth_hater",
+            "translation": "Auth Hater",
+            "side": "Banned",
+            "help": "You have been unbanned, but now you want revenge against the Mafia Admin! You can use /kill [name] during the night, but that will only work on the Mafia Admin (at least while they are alive)! You also counter any daykiller that try to attack you! [Hint: Use /tt [message] for team talk]",
+            "info": "Can kill 1 person during the night (if Mafia Admin is alive, kill will only work on them). Counters daykills. Sided with Banned Players.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": "dummy3",
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ tried to attack the Auth Hater, but Auth Hater's revenge against the Mafia Admin cannot be stopped!",
+                "onDeadRoles" : {
+                    "convertTo" : {
+                        "auth_hater2": ["mafia_admin"]
+                    },
+                    "convertmsg" : "±Auth Hater: Bwahaha! That's for banning me, Mafia Admin!"
+                },
+                "startup": "team-reveal",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "auth_hater2",
+            "translation": "Auth Hater",
+            "side": "Banned",
+            "help": "Now that the Mafia Admin is gone, you can use /kill [name] on anyone. You also counter any daykiller that try to attack you! [Hint: Use /tt [message] for team talk]",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Team",
+                        "target": "AnyButTeam",
+                        "priority": 11,
+                        "broadcast": "team",
+                        "hide": true
+                    }
+                },
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ tried to attack the Auth Hater, but Auth Hater's revenge against the Mafia Admin cannot be stopped!",
+                "startup": "team-reveal",
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "impersonator",
+            "translation": "Impersonator",
+            "side": "Impersonator",
+            "help": "You are always copying other players' name or using a role's name as your name. As such, you are able to use /identify [name] once during the game to find someone's role, and then you can use /steal [name] to swap roles with another player and kill them!",
+            "info": "Gets one inspection during the game. Can steal someone's role by killing that person. Sided with itself.",
+            "actions": {
+                "night": {
+                    "steal": {
+                        "command": [
+                            "copy",
+                            "convert",
+                            "kill"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 21,
+                        "newRole": "impersonated",
+                        "copyAs": "*",
+                        "initialrecharge": 2,
+                        "silent": true,
+                        "pierce": true
+                    },
+                    "identify": {
+                        "command": "inspect",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 24,
+                        "charges": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "impersonated",
+            "translation": "Impersonator",
+            "side": "Impersonator",
+            "help": "The Impersonator stole your identity and killed you!",
+            "hide": true,
+            "actions": { }
+        },
+        {
+            "role": "idiot",
+            "translation": "Annoying Player",
+            "side": "Idiot",
+            "help": "You like being annoying, so you can only win if you get lynched before the 6th night! Your vote counts as 0, but you identify anyone that visits you during the night! You can also use /beg [name] during the night to send an anonymous message to all bad guys asking for someone's death!",
+            "info": "Has 0 votes, identify any visitor and can send an anonymous message to the mafia requesting someone to be killed. Need to get lynched before the 6th night to win.",
+            "actions": {
+                "night": {
+                    "beg": {
+                        "command": "dummy",
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 28,
+                        "broadcast": ["deadtalker", "botquoter", "targeter", "team_revealer", "team_voter", "suicidal", "suicidal2", "afk", "afk2", "pm_blocker2", "pm_blocker3", "mafia_admin", "auth_hater", "auth_hater2"],
+                        "broadcastmsg": "±Request: The Annoying Player is requesting that someone kill ~Target~!",
+                        "restrict": [
+                            "beg"
+                        ]
+                    }
+                },
+                "initialCondition": {
+                    "poison": {
+                        "count": 6,
+                        "poisonDeadMessage": "Derp! You couldn't get lynched, thus you died!"
+                    }
+                },
+                "inspect": {
+                    "mode": "identify"
+                },
+                "poison": {
+                    "mode": "identify"
+                },
+                "distract": {
+                    "mode": "identify"
+                },
+                "protect": {
+                    "mode": "identify"
+                },
+                "stalk": {
+                    "mode": "identify"
+                },
+                "lynch": {
+                    "convertTo": "idiot2",
+                    "convertmsg": "~Self~, the ~Old~, achieved their goal of getting lynched!"
+                },
+                "vote": 0
+            }
+        },
+        {
+            "role": "idiot2",
+            "translation": "Annoying Player [Lynched]",
+            "side": "Idiot",
+            "help": "You managed to get lynched, so you win! That means you are immune to everything now, and automatically wins when some other team achieves victory! Your vote still counts as 0, but now you can annoy other players during the day by typing /mock [name].",
+            "info": "Vote counts as 0. Can mock one person during the day. Immune to everything and can win the game with any other side. ",
+            "winningSides": "*",
+            "actions": {
+                "initialCondition": {
+                    "clearPoison": true
+                },
+                "standby": {
+                    "mock": {
+                        "command": "expose",
+                        "target": "AnyButSelf",
+                        "msg": "You can type /mock [name] to taunt someone!",
+                        "exposemsg": "The Annoying Player says: 'Derp, ~Target~ sux!'.",
+                        "revealChance": 0.5,
+                        "revealmsg": "~Self~ then laughs alone."
+                    }
+                },
+                "kill": {
+                    "mode": "ignore",
+                    "msg": "Why would you want to kill the Annoying Player after he was lynched?"
+                },
+                "poison": {
+                    "mode": "ignore",
+                    "msg": "Why would you want to poison the Annoying Player after he was lynched?"
+                },
+                "convert": {
+                    "mode": "ignore",
+                    "msg": "Why would you want to convert the Annoying Player after he was lynched?"
+                },
+                "curse": {
+                    "mode": "ignore",
+                    "msg": "Why would you want to curse the Annoying Player after he was lynched?"
+                },
+                "daykill": "evade",
+                "voteshield": -1000,
+                "vote": 0,
+                "onlist": "idiot",
+                "onteam": "idiot",
+                "startup": {
+                    "revealAs": "idiot"
+                }
+            }
+        }
+    ],
+    
+    "roles1":[
+        "targeter",
+        "troll",
+        "meatshield",
+        "veteran",
+        { "villager2": 1, "villager": 0 },
+        { "nameshield2": 1, "nameshield": 0 },
+        "villager2",
+        "troll",
+        "talkative",
+        "villager2"
+    ],
+    "roles2":[
+        "targeter",
+        "troll",
+        "meatshield",
+        "veteran",
+        "villager",
+        "nameshield",
+        "villager",
+        "troll",
+        "talkative",
+        "villager",
+        "tutor",
+        "troll"
+    ],
+    "roles3":[
+        "veteran",
+        "villager",
+        "villager",
+        "nameshield",
+        "meatshield",
+        "tutor",
+        "suicidal",
+        "afk",
+        "targeter",
+        "deadtalker",
+        "talkative",
+        
+        "villager",
+        {"idiot": 1, "impersonator": 1},
+        "team_voter",
+        "undercover",
+        "counter_rander",
+        "team_revealer",
+        {"pro_rander": 1, "bad_rander": 1}
+    ],
+    "roles4":[
+        "veteran",
+        "villager",
+        "villager",
+        "nameshield",
+        "meatshield",
+        "tutor",
+        "team_voter",
+        "suicidal",
+        "afk",
+        "team_revealer",
+        "targeter",
+        "deadtalker",
+        "talkative",
+        "villager",
+        "undercover",
+        {"idiot": 1, "impersonator": 1},
+        "villy_claimer",
+        "mafia_admin",
+        "pm_blocker",
+        {"pro_rander": 1, "bad_rander": 1},
+        "counter_rander",
+        "botquoter"
+    ],
+    "roles5":[
+        "veteran",
+        "villager",
+        "villager",
+        "nameshield",
+        "meatshield",
+        "tutor",
+        "pm_blocker",
+        "team_voter",
+        "suicidal",
+        "afk",
+        "botquoter",
+        "team_revealer",
+        "targeter",
+        "deadtalker",
+        "talkative",
+        "villager",
+        "undercover",
+        {"idiot": 1, "impersonator": 1},
+        "randkiller",
+        "counter_rander",
+        "fake_randkiller",
+        "mafia_admin",
+        "mistabber",
+        {"pro_rander": 1, "bad_rander": 1},
+        "fake_claimer",
+        "villager",
+        "villy_claimer",
+        "team_voter",
+        "team_revealer",
+        "villager",
+        "caps",
+        "bandwagoner",
+        "villager",
+        "easy_target",
+        "meatshield",
+        "botquoter",
+        "villager",
+        "afk",
+        "fake_randkiller",
+        {"idiot": 1, "impersonator": 1}
+    ],
+    "villageCantLoseRoles": [
+        "pro_rander",
+        "bandwagoner",
+        "nameshield",
+        "nameshield_lynched",
+        "randkiller",
+        "rager",
+        "bluffer"
+    ],
+    "minplayers": 6,
+    "killmsg": "±Game: ~Player~ (~Role~) left Mafia Channel forever!",
+    "lynchmsg": "±Game: ~Player~ (~Role~) left Mafia Channel forever!",
+    "killusermsg": "*** You have been kicked from Mafia!",
+    "votemsg": "~Player~ typed /vote ~Target~!",
+    "changelog": {
+        "29.10.2013": "New Player, Nameshield and Counter Rander will be unable to use /learn if no Tutor is around. PRO Rander and Bad Rander won't need to self-inspect anymore to find real vote.",
+        "27.10.2013": "Trying to make some messages clearer (Deadtalker, New Player).",
+        "11.10.2013": "Team Talk added to Bad Players, Rule Breakers and Auth Haters. Nameshield and Counter Rander inverted (Nameshield can kill when lynched, Counter Rander now kills the first person to vote them when lynched).",
+        "04.10.2013": "Villy Claimer now receives a message explained that they revealed themselves to their target.",
+        "28.09.2013": "Deadtalker's /fake now can only be used every 2 nights. Added winmsgs.",
+        "24.09.2013": "Meatshield's /meatshield's chance to shield reduced to 25%.",
+        "23.09.2013": "Spawn for small games tweaked (Veteran replaces Quiet Player in small games, 2nd and 3rd Trolls appears a bit later). AFK Player's name becomes Not-AFK Player after converting. Fixed Deadtalker's /fake message.",
+        "19.09.2013": "Tutor evades Bluffer's kill.",
+        "17.09.2013": "Theme coded."
+    }
+}
