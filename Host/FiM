@@ -1,0 +1,3937 @@
+{
+    "name": "FiM",
+    "author": ["Tesla Elesa", "obey to kyubey"],
+    "minplayers": 6,
+    "summary": "Equestria, the land of ponies and friendship, is under attack! Discord and Queen Chrysalis have teamed up, ready to plunge Equestria into eternal chaos! At the same time, the Princesses decide to have a little fun, the Diamond Dogs seek to enslave ponykind, Trixie returns with her truly magical magic show, and Zecora works away mysteriously in her hut. Poor Derpy has no idea whose team she's on. Use the magic of friendship and work together as teams to win! PM Tesla Elesa any comments or suggestions, or post in this thread: http://pokemon-online.eu/forums/showthread.php?15907-FiM. UPDATE 36: Major balancing. See thread.",
+    "sides": [
+        {
+            "side": "dd1",
+            "translation": "Diamond Dogs",
+            "winmsg": "±Diamond Dogs: We have enslaved you all, ponies! Bring us (~Players~) all the gems you can find!"
+        },
+        {
+            "side": "brony",
+            "translation": "The Bronies",
+            "winmsg": "±Bronies: Hurray our collection is complete. Now we (~Players~) have to go and watch the next episode"
+        },
+        {
+            "side": "discord",
+            "translation": "Discord-Chrysalis Axis",
+            "winmsg": "±Discord: Oh, that was simply delightful. You little ponies are just the most fun I have had in aeons! And now we (~Players~) shall reign over all of Equestria!"
+        },
+        {
+            "side": "village",
+            "translation": "Ponyville Residents",
+            "winmsg": "±Twilight Sparkle: Dear Princess Celestia, today I learned that through teamwork, you can overcome the toughest of adversaries! ~Players~ are truly friends you can rely on! ~Your most faithful student, Twilight Sparkle"
+        },
+        {
+            "side": "alicorn",
+            "translation": "Princesses",
+            "winmsg": "±Princess Celestia: Oh you silly ponies! Come, Luna, let us (~Players~) restore peace and rule Equestria together. But mostly me."
+        },
+        {
+            "side": "trixie",
+            "translation": "The Great and Powerful Trixie",
+            "winmsg": "±Trixie: Ha! Once again, the Great and Powerful Trixie (~Players~) has proven herself to be the most amazing unicorn in all of Equestria!"
+        },
+        {
+            "side": "sombra",
+            "translation": "King Sombra",
+            "winmsg": "±King Sombra: Muahah, Equestria is mine! Everyone shall tremble when will hear my name and that of my empire. ~Players~ now have the world under their feet."
+        },
+        {
+            "side": "crystal",
+            "translation": "The Crystal Empire",
+            "winmsg": "±Crystal Ponies: We are shiny, we are cool, we (~Players~) will teach the way for the perfection to you too!"
+        },
+        {
+            "side": "zecora",
+            "translation": "Zecora",
+            "winmsg": "±Zecora: Maybe next time you will take a second look, and not judge the cover of the book. (~Players~) has won."
+        },
+        {
+            "side": "toads",
+            "translation": "Toads",
+            "winmsg": "±Hypnotoad: *BZZZZJKCACWECDJKDFSJKJFLKERFEWFIEOWDJSL*"
+        }
+    ],
+	"variables": {
+				  "brony copy": ["villager1", "v1", "villager2", "v2", "villager3", "v3", "villager4", "v4", "twilight1", "spike", "rarity", "flutters", "villager1x", "v1x", "villager2x", "v2x", "villager3x", "v3x", "villager4x", "v4x", "twilight1x", "spikex", "rarityx", "fluttersx"],
+				  "brony convert":{
+                            "doll1": [ "villager1", "v1", "villager1x", "v1x" ],
+                            "doll2": [ "villager2", "v2", "villager2x", "v2x" ],
+                            "doll3": [ "villager3", "v3", "villager3x", "v3x" ],
+                            "doll4": [ "villager4", "v4", "villager4x", "v4x" ],
+                            "dtwilight": [ "twilight1", "twilight1x"],
+                            "dspike": [ "spike", "spikex" ],
+                            "drarity": [ "rarity", "rarityx" ],
+                            "dflutters": [ "flutters", "fluttersx"],
+							"dchangeling": [ "changeling1", "changeling" ],
+							"dpara": [ "para", "para1" ]
+                        }
+	},
+    "roles": [
+        {
+            "role": "villager1",
+            "translation": "Bon Bon",
+            "side": "village",
+            "help": "You are Bon Bon, the background pony of many voices! You are often seen at the side of your best friend, Lyra, and do everything together! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager1x",
+            "translation": "Bon Bon",
+            "side": "village",
+            "help": "You are Bon Bon, the background pony of many voices! You are often seen at the side of your best friend, Lyra, and do everything together! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+				"onDeadRoles": { "convertTo": { "villager1": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager2",
+            "translation": "Lyra",
+            "side": "village",
+            "help": "You are Lyra, and you are convinced that you're so much more than a background pony- you're a human (at heart). With your best friend Bon Bon at your side, you can do anything! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager2x",
+            "translation": "Lyra",
+            "side": "village",
+            "help": "You are Lyra, and you are convinced that you're so much more than a background pony- you're a human (at heart). With your best friend Bon Bon at your side, you can do anything! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+				"onDeadRoles": { "convertTo": { "villager2": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager3",
+            "translation": "Doctor Hooves",
+            "side": "village",
+            "help": "You are Doctor Hooves, a background pony! Or at least, that's what you want them to think. Secretly, you are a time traveller, looking to unravel the mysteries behind all things timey-wimey. You have a chance of finding the bad guys!",
+            "info": "A mysterious time wizard. Gets hax on swarm and feedoff. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.04
+                    },
+                    "swarm": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager3x",
+            "translation": "Doctor Hooves",
+            "side": "village",
+            "help": "You are Doctor Hooves, a background pony! Or at least, that's what you want them to think. Secretly, you are a time traveller, looking to unravel the mysteries behind all things timey-wimey. You have a chance of finding the bad guys!",
+            "info": "A mysterious time wizard. Gets hax on swarm and feedoff. Sided with Ponyville Residents.",
+            "actions": {
+				"onDeadRoles": { "convertTo": { "villager3": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.04
+                    },
+                    "swarm": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager11",
+            "translation": "Minuette",
+            "side": "village",
+            "help": "You are Minuette, the local dentist of Ponyville (they call you Colgate). You are a time traveller- but they don't know that. You might find the bad guys at night!",
+            "info": "The local dentist. Also a time traveller. Gets hax on kidnap and feedoff. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.04
+                    },
+                    "kidnap": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager4",
+            "translation": "Berry Punch",
+            "side": "village",
+            "help": "You are Berry Punch, a background pony! The others say you have a problem, but you know you're perfectly capable of quitting whenever you want. But you don't, because cider is some good stuff. The other ponies don't trust you though, so your vote counts as -1.",
+            "info": "A harmless background pony. Likes cider (but is definitely not an alcoholic). Has a vote of -1. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "vote": -1
+            }
+        },
+        {
+            "role": "villager4x",
+            "translation": "Berry Punch",
+            "side": "village",
+            "help": "You are Berry Punch, a background pony! The others say you have a problem, but you know you're perfectly capable of quitting whenever you want. But you don't, because cider is some good stuff. The other ponies don't trust you though, so your vote counts as -1.",
+            "info": "A harmless background pony. Likes cider (but is definitely not an alcoholic). Has a vote of -1. Sided with Ponyville Residents.",
+            "actions": {
+				"onDeadRoles": { "convertTo": { "villager3": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "vote": -1
+            }
+        },
+        {
+            "role": "villager5",
+            "translation": "Carrot Top",
+            "side": "village",
+            "help": "You are Carrot Top, a background pony! You're Derpy's best friend, and one of the only ponies who understands her clumsy antics. You love love love carrots, and can't be poisoned. Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Can't be poisoned. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "villager6",
+            "translation": "Rose",
+            "side": "village",
+            "help": "You are Rose, a background pony! Along with your friends Lily and Daisy, you sell flowers to the ponies of Ponyville! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager7",
+            "translation": "Daisy",
+            "side": "village",
+            "help": "You are Daisy, a background pony! Along with your friends Rose and Lily, you sell flowers to the ponies of Ponyville! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager8",
+            "translation": "Lily",
+            "side": "village",
+            "help": "You are Lily, a background pony! Along with your friends Daisy and Rose, you sell flowers to the ponies of Ponyville! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager9",
+            "translation": "Octavia",
+            "side": "village",
+            "help": "You are Octavia, a background pony! You are a calm, dignified pony, who masterfully plays the cello. Some say you're Pinkie's long lost sister. You know who Vinyl Scratch is, so be sure to claim and connect your team. Vote to remove bad guys in the day! Use /tt to talk with your partners.",
+            "info": "A harmless background pony. Knows Vinyl Scratch. Sided with Ponyville Residents.",
+            "actions": {
+				"teamTalk": [ "villager9", "v9", "villager10", "v10"],
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "startup": {
+                    "revealRole": "villager10"
+                }
+            }
+        },
+        {
+            "role": "villager10",
+            "translation": "Vinyl Scratch",
+            "side": "village",
+            "help": "You are Vinyl Scratch, a background pony! Your stage name is DJ P0n3, and you are seldom seen without your signature purple sunglasses. You know who Octavia is, so be sure to claim and connect your team. Vote to remove bad guys in the day! Use /tt to talk with your partners.",
+            "info": "A harmless background pony. Knows Octavia. Sided with Ponyville Residents.",
+            "actions": {
+				"teamTalk": [ "villager9", "v9", "villager10", "v10"],
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "startup": {
+                    "revealRole": "villager9"
+                }
+            }
+        },
+        {
+            "role": "villager12",
+            "winningSides": [
+                "village"
+            ],
+            "translation": "Snails",
+            "side": "trixie",
+            "help": "You are Snails, a little filly! You are one of the greatest fans of the Great and Powerful Trixie and she will know who you are if she will use her powers on you, help her to demonstrate who is the greatest magician of ever.  Anyway in case that she would fall you can always win with the Ponyville Residents! Use /tt to talk with Snips",
+            "info": "A harmless little pony. Can win with the Ponyville Residents. Knows Snips when discover their own role. Sided with the Great and Powerful Trixie.",
+            "actions": {
+                "startup": {
+                    "revealRole": "villager13"
+                },
+                "distract": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~user~ Snails! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~Target~ ~Role~! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "villager13",
+            "winningSides": [
+                "village"
+            ],
+            "translation": "Snips",
+            "side": "trixie",
+            "help": "You are Snails, a little filly! You are one of the greatest fans of the Great and Powerful Trixie and she will know who you are if she will use her powers on you, help her to demonstrate who is the greatest magician of ever. Anyway in case that she would fall you can always win with the Ponyville Residents! Use /tt to talk with Snails.",
+            "info": "A harmless little pony. Can win with the Ponyville Residents. Knows Snails when they discover their own role. Sided with the Great and Powerful Trixie.",
+            "actions": {
+                "startup": {
+                    "revealRole": "villager12"
+                },
+                "distract": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~user~ Snips! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~Target~ ~Role~! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "v1",
+            "translation": "Pony",
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A villager that doesn't know his precise role until day 3.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "curseConvertMessage": "The ponies regained their forgotten memories hurray!!",
+                        "cursedRole": "villager1",
+                        "curseCount": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "v1x",
+            "translation": "Pony",
+			"hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A villager that doesn't know his precise role until day 3.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "curseConvertMessage": "The ponies regained their forgotten memories hurray!!",
+                        "cursedRole": "villager1x",
+                        "curseCount": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "v2",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager2",
+                        "curseCount": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "v2x",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager2x",
+                        "curseCount": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "v3",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A mysterious time wizard. Gets hax on swarm and feedoff. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager3",
+                        "curseCount": 3
+                    }
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.04
+                    },
+                    "swarm": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "v3x",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A mysterious time wizard. Gets hax on swarm and feedoff. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager3x",
+                        "curseCount": 3
+                    }
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.04
+                    },
+                    "swarm": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "v11",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "The local dentist. Also a time traveller. Gets hax on kidnap and feedoff. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager11",
+                        "curseCount": 3
+                    }
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.04
+                    },
+                    "kidnap": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "v4",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Likes cider (but is definitely not an alcoholic). Has a vote of -1. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager4",
+                        "curseCount": 3
+                    }
+                },
+                "vote": -1
+            }
+        },
+        {
+            "role": "v4x",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Likes cider (but is definitely not an alcoholic). Has a vote of -1. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager4x",
+                        "curseCount": 3
+                    }
+                },
+                "vote": -1
+            }
+        },
+        {
+            "role": "v5",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Can't be poisoned. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager5",
+                        "curseCount": 3
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "v6",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager6",
+                        "curseCount": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "v7",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager7",
+                        "curseCount": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "v8",
+            "translation": "Pony",
+	    "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless background pony. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager8",
+                        "curseCount": 3
+                    }
+                }
+            }
+        },
+        {
+            "role": "v9",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day! Use /tt to talk with your partner.",
+            "info": "A harmless background pony. Knows Vinyl Scratch. Sided with Ponyville Residents.",
+            "actions": {
+				"teamTalk": [ "villager9", "v9", "villager10", "v10"],
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager9",
+                        "curseCount": 3
+                    }
+                },
+                "startup": {
+                    "revealRole": "v10"
+                }
+            }
+        },
+        {
+            "role": "v10",
+            "translation": "Pony",
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day! Use /tt to talk with your partner.",
+            "info": "A harmless background pony. Knows Octavia. Sided with Ponyville Residents.",
+            "actions": {
+				"teamTalk": [ "villager9", "v9", "villager10", "v10"],
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager10",
+                        "curseCount": 3
+                    }
+                },
+                "startup": {
+                    "revealRole": "v9"
+                }
+            }
+        },
+        {
+            "role": "v12",
+            "translation": "Pony",
+            "winningSides": [
+                "trixie"
+            ],
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless little pony. Can win with the Ponyville Residents. Sided with the Great and Powerful Trixie.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager12",
+                        "curseCount": 3
+                    }
+                },
+                "distract": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~user~ Snails! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~Target~ ~Role~! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "v13",
+            "translation": "Pony",
+            "winningSides": [
+                "trixie"
+            ],
+            "hide": true,
+            "side": "village",
+            "help": "Oh no! A famous violet pony has tested the wrong spell from Star Swirl the Bearded's grimoire and now you forgot what's your name, if you have some particular ability you still have it but you forgot what is it! Vote to remove bad guys in the day!",
+            "info": "A harmless little pony. Can win with the Ponyville Residents. Sided with the Great and Powerful Trixie.",
+            "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "villager13",
+                        "curseCount": 3
+                    }
+                },
+                "distract": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~user~ Snips! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "daykill": {
+                    "mode": {
+                        "ignore": [
+                            "trixie",
+                            "trixie2"
+                        ]
+                    },
+                    "msg": "Hey Trixie it's me: ~Target~ ~Role~! I am one of your greatest fans, if you contact me i can help you to win."
+                },
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "twilight",
+            "translation": "Twilight Sparkle",
+            "side": "village",
+            "info": "A bright unicorn pony. Can inspect at night.Has a chance to find out spike. Can teleport someone away during the day (reveals). Sided with Ponyville Residents.",
+            "help": "You are Twilight Sparkle, a bright and studious pony! Princess Celestia's most faithful student, you have been sent to Ponyville to discover the magic of friendship! Calm and calculated (most of the time, at least), you can /inspect one pony at night. Use this knowledge to /teleport somepony far away during the day, but be careful, as you are revealed! You have a chance to find out who is spike!",
+            "actions": {
+                "hax": {
+                    "protect": {
+                        "revealRole": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                },
+                "standby": {
+                    "teleport": {
+                        "target": "AnyButSelf",
+                        "msg": "Your horn is ready to /teleport somepony away (reveals)!",
+                        "killmsg": "~Self~ (Twilight Sparkle) fires a ray of light at ~Target~, who is teleported somewhere far away...",
+                        "command": "kill"
+                    }
+                }
+            }
+        },
+        {
+            "role": "twilight1",
+            "translation": "Twilight Sparkle",
+            "side": "village",
+            "hide": "side",
+            "info": "A bright unicorn pony inspector. Sided with Ponyville residents.",
+            "help": "You are Twilight Sparkle, a bright and studious pony! Princess Celestia's most faithful student, you have been sent to Ponyville to discover the magic of friendship! Calm and calculated (most of the time, at least), you can /inspect one pony at night.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": true,
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "twilight1x",
+            "translation": "Twilight Sparkle",
+            "side": "village",
+            "hide": true,
+            "info": "A bright unicorn pony inspector. Sided with Ponyville residents.",
+            "help": "You are Twilight Sparkle, a bright and studious pony! Princess Celestia's most faithful student, you have been sent to Ponyville to discover the magic of friendship! Calm and calculated (most of the time, at least), you can /inspect one pony at night.",
+            "actions": {
+				"onDeadRoles": { "convertTo": { "twilight1x": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "hide": true,
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "spike",
+            "translation": "Spike",
+            "side": "village",
+            "info": "A tiny dragon who assists Twilight Sparkle. Can /protect one pony at night. May find Rarity. Can't be poisoned in 12 players games or higher. Sided with Ponyville Residents.",
+            "help": "You are Spike, Twilight's loyal slave- I mean, assistant- since your birth! Smaller and cuter than other dragons, you sometimes wonder who you really are. /Protect your friends from threats! You have a chance of finding Rarity.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "broadcast": "role"
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling1",
+                            "chrysalis",
+                            "chrysalis1"
+                        ]
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealRole": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "spikex",
+            "translation": "Spike",
+			"hide": true,
+            "side": "village",
+            "info": "A tiny dragon who assists Twilight Sparkle. Can /protect one pony at night. May find Rarity. Can't be poisoned in 12 players games or higher. Sided with Ponyville Residents.",
+            "help": "You are Spike, Twilight's loyal slave- I mean, assistant- since your birth! Smaller and cuter than other dragons, you sometimes wonder who you really are. /Protect your friends from threats! You have a chance of finding Rarity.",
+            "actions": {
+				"onDeadRoles": {"convertTo": { "spikex": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "night": {
+                    "protect": {
+						"hide": true,
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "broadcast": "role"
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling1",
+                            "chrysalis",
+                            "chrysalis1"
+                        ]
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealRole": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "spike1",
+            "translation": "Spike",
+            "side": "village",
+            "hide": true,
+            "info": "A tiny dragon who assists Twilight Sparkle. Can /protect one pony at night. Can't be poisoned. May find Rarity. Sided with Ponyville Residents.",
+            "help": "You are Spike, Twilight's loyal slave- I mean, assistant- since your birth! Smaller and cuter than other dragons, you sometimes wonder who you really are. /Protect your friends from threats! Your thick dragon scales protect you against most poisons, and you have a chance of finding Rarity.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 2,
+                        "broadcast": "role"
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling1",
+                            "chrysalis",
+                            "chrysalis1"
+                        ]
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealRole": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                }
+            }
+        },
+		        {
+            "role": "brony5",
+            "translation": "Brony",
+            "side": "brony",
+			"hide": true,
+            "help": "Doesn't matter if Friendship is Magic is made for kids, you love that show: sadly your favourite characters fear strange animals that stands on two legs no fur and that plays mafia on Pokemon Online, but don't worry: you can convert them to your version of friendship using /collect if your target is a villager, otherwise you will simply weaken your targets leaving them with only 0,5 vote power and weakened powers. You have a voteshield of -4.1 but your vote power is 0. Because you cannot kill and your vote is 0 your only way to win is that to /collect 4 villagers before that all the mafia roles are killed by the village. Use /tt to Talk with your teammates.",
+            "help2": "Your voteshield rised to -2.1.",
+			"info": "Can convert one person every night, the converted players have weakened their abilities only 0.5 vote power and if the target was a villager it will be now sided with the Bronies. It starts with a voteshield of -1.1 but will get an extra -1 voteshield for any vilager that he convert. Vote of 0. Wins only if he converts at least 4 villagers before that the village eliminate the mafia. Sided with the Bronies.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "collect": {
+                        "command": [
+                            "copy",
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4.1,
+						"copyAs": {  "brony5": "variable:brony copy" },
+                        "newRole": "variable:brony convert",
+                        "copymsg": "Oh Yeah! Another piece added to Brony's collection",
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"onDeadRoles": { "convertTo": { "brony0": [ "para", "dpara", "para1", "changeling", "dchangeling", "changeling1" ]},
+					 "convertmsg": "Oh noes, now that all the bad guys are dead, the price of Brony's dolls has dropped down, now Brony is without voteshield"
+					},
+                "vote": 0,
+                "voteshield": -5.1
+            },
+            "winIfDeadRoles": [
+                "sombra"
+            ]
+        },
+		{
+            "role": "brony4",
+            "translation": "Brony",
+            "side": "brony",
+			"hide": true,
+            "help": "Doesn't matter if Friendship is Magic is made for kids, you love that show: sadly your favourite characters fear strange animals that stands on two legs no fur and that plays mafia on Pokemon Online, but don't worry: you can convert them to your version of friendship using /collect if your target is a villager, otherwise you will simply weaken your targets leaving them with only 0,5 vote power and weakened powers. You have a voteshield of -4.1 but your vote power is 0. Because you cannot kill and your vote is 0 your only way to win is that to /collect 4 villagers before that all the mafia roles are killed by the village. Use /tt to Talk with your teammates.",
+            "help2": "Your voteshield rised to -4.1.",
+			"info": "Can convert one person every night, the converted players have weakened their abilities only 0.5 vote power and if the target was a villager it will be now sided with the Bronies. It starts with a voteshield of -1.1 but will get an extra -1 voteshield for any vilager that he convert. Vote of 0. Wins only if he converts at least 4 villagers before that the village eliminate the mafia. Sided with the Bronies.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "collect": {
+                        "command": [
+                            "copy",
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4.2,
+						"copyAs": {  "brony5": "variable:brony copy" },
+                        "newRole": "variable:brony convert",
+                        "copymsg": "Oh Yeah! Another piece added to Brony's collection, still 0 to go!",
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"onDeadRoles": { "convertTo": { "brony0": [ "para", "dpara", "para1", "changeling", "dchangeling", "changeling1" ]},
+					 "convertmsg": "Oh noes, now that all the bad guys are dead, the price of Brony's dolls has dropped down, now Brony is without voteshield"
+					},
+                "vote": 0,
+                "voteshield": -4.1
+            }
+        },
+		{
+            "role": "brony3",
+            "translation": "Brony",
+            "side": "brony",
+			"hide": true,
+            "help": "Doesn't matter if Friendship is Magic is made for kids, you love that show: sadly your favourite characters fear strange animals that stands on two legs no fur and that plays mafia on Pokemon Online, but don't worry: you can convert them to your version of friendship using /collect if your target is a villager, otherwise you will simply weaken your targets leaving them with only 0,5 vote power and weakened powers. You have a voteshield of -5 but your vote power is 0. Because you cannot kill and your vote is 0 your only way to win is that to /collect 4 villagers before that all the mafia roles are killed by the village. Use /tt to Talk with your teammates.",
+            "help2": "Your voteshield rised to -3.1.",
+			"info": "Can convert one person every night, the converted players have weakened their abilities only 0.5 vote power and if the target was a villager it will be now sided with the Bronies. Voteshield of -4,1.. Vote of 0. Wins only if he converts at least 4 villagers before that the village eliminate the mafia. Sided with the Bronies.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "collect": {
+                        "command": [
+                            "copy",
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4.3,
+						"copyAs": {  "brony4": "variable:brony copy" },
+                        "newRole": "variable:brony convert",
+                        "copymsg": "Oh Yeah! Another piece added to Brony's collection, still 1 to go!",
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"onDeadRoles": { "convertTo": { "brony0": [ "para", "dpara", "para1", "changeling", "dchangeling", "changeling1" ]},
+					 "convertmsg": "Oh noes, now that all the bad guys are dead, the price of Brony's dolls has dropped down, now Brony is without voteshield"
+					},
+                "vote": 0,
+                "voteshield": -3.1
+            }
+        },
+		{
+            "role": "brony2",
+            "translation": "Brony",
+            "side": "brony",
+			"hide": true,
+            "help": "Doesn't matter if Friendship is Magic is made for kids, you love that show: sadly your favourite characters fear strange animals that stands on two legs no fur and that plays mafia on Pokemon Online, but don't worry: you can convert them to your version of friendship using /collect if your target is a villager, otherwise you will simply weaken your targets leaving them with only 0,5 vote power and weakened powers. You have a voteshield of -4.1 but your vote power is 0. Because you cannot kill and your vote is 0 your only way to win is that to /collect 4 villagers before that all the mafia roles are killed by the village. Use /tt to Talk with your teammates.",
+            "help2": "Your voteshield rised to -2.1.",
+			"info": "Can convert one person every night, the converted players have weakened their abilities only 0.5 vote power and if the target was a villager it will be now sided with the Bronies. It starts with a voteshield of -1.1 but will get an extra -1 voteshield for any vilager that he convert. Vote of 0. Wins only if he converts at least 4 villagers before that the village eliminate the mafia. Sided with the Bronies.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "collect": {
+                        "command": [
+                            "copy",
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4.4,
+						"copyAs": {  "brony3": "variable:brony copy" },
+                        "newRole": "variable:brony convert",
+                        "copymsg": "Oh Yeah! Another piece added to Brony's collection, still 2 to go!",
+                        "hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"onDeadRoles": { "convertTo": { "brony0": [ "para", "dpara", "para1", "changeling", "dchangeling", "changeling1" ]},
+					 "convertmsg": "Oh noes, now that all the bad guys are dead, the price of Brony's dolls has dropped down, now Brony is without voteshield"
+					},
+                "vote": 0,
+                "voteshield": -2.1
+            }
+        },
+		{
+            "role": "brony1",
+            "translation": "Brony",
+            "side": "brony",
+            "help": "Doesn't matter if Friendship is Magic is made for kids, you love that show: sadly your favourite characters fear strange animals that stands on two legs no fur and that plays mafia on Pokemon Online, but don't worry: you can convert them to your version of friendship using /collect if your target is a villager, otherwise you will simply weaken your targets leaving them with only 0,5 vote power and weakened powers. You have a voteshield of -4.1 but your vote power is 0. Because you cannot kill and your vote is 0 your only way to win is that to /collect 4 villagers before that all the mafia roles are killed by the village. Use /tt to Talk with your teammates.",
+            "help2": "You have -1.1 voteshield.",
+			"info": "Can convert one person every night, the converted players have weakened their abilities only 0.5 vote power and if the target was a villager it will be now sided with the Bronies. It starts with a voteshield of -1.1 but will get an extra -1 voteshield for any vilager that he convert. Vote of 0. Wins if he converts at least 4 villagers before that the village eliminate the mafia. Sided with the Bronies.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "collect": {
+                        "command": [
+                            "copy",
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4.5,
+						"copyAs": {  "brony2": "variable:brony copy" },
+                        "newRole": "variable:brony convert",
+                        "copymsg": "Oh Yeah! Another piece added to Brony's collection, still 3 to go!"
+                    }
+                },
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"onDeadRoles": { "convertTo": { "brony0": [ "para", "dpara", "para1", "changeling", "dchangeling", "changeling1" ]},
+					 "convertmsg": "Oh noes, now that all the bad guys are dead, the price of Brony's dolls has dropped down, now Brony is without voteshield"
+					},
+                "vote": 0,
+                "voteshield": -1.1
+            }
+        },
+		{
+            "role": "brony0",
+            "translation": "Broken Brony",
+            "side": "brony",
+			"help2": "You don't have a voteshield any longer.",
+            "help": "Now that you have lost your voteshield after the fall of the dolls market: you have no defense during the vote phase apart your partners votes, you can still /collect ponies but now this command fail 50% of the time. Use /tt to Talk with your teammates.",
+            "info": "Brony when all the baddies are dead. Can convert one person every night 50% chance to fail, the converted players have weakened their abilities only 0.5 vote power and if the target was a villager it will be now sided with the Bronies. No more Voteshield. Vote of 0. Wins if his team is the only one standing. Sided with the Bronies.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "collect": {
+                        "command": [
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4,
+                        "newRole": "variable:brony convert",
+						"hide": true
+                    }
+                },
+				"onDeadRoles": { "convertTo": { "bronyx": [ "para", "dpara", "para1", "changeling", "dchangeling", "changeling1" ]},
+					 "convertmsg": ""
+					},
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+                "vote": 0
+            }
+        },
+		{
+            "role": "bronyx",
+            "translation": "Broken Brony",
+            "side": "brony",
+			"help2": "You don't have a voteshield any longer.",
+            "help": "Now that you have lost your voteshield after the fall of the dolls market: you have no defense during the vote phase apart your partners votes, you can still /collect ponies but now this command fail 50% of the time. Use /tt to Talk with your teammates.",
+            "info": "Brony when all the baddies are dead. Can convert one person every night 50% chance to fail, the converted players have weakened their abilities only 0.5 vote power and if the target was a villager it will be now sided with the Bronies. No more Voteshield. Vote of 0. Wins if his team is the only one standing. Sided with the Bronies.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "collect": {
+                        "command": [
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4,
+                        "newRole": "variable:brony convert",
+						"hide": true
+                    }
+                },
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+                "vote": 0
+            }
+        },
+        {
+            "role": "doll1",
+            "translation": "Doll Bon Bon",
+            "winningSides": [ "village" ],
+            "side": "brony",
+			"hide": true,
+            "help": "The Bronies have collected you and now you are one of their dolls! Your vote is now only 0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. When inspected you will be revealed as a Brony. Use /tt to Talk with your teammates.",
+            "info": "A harmless background pony. Sided with the Bronies.",
+            "actions": {
+                "initialCondition": {
+                    "clearCurse": true
+                },
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"vote": 0.5,
+                "inspect": {
+                    "revealAs": [
+                        "brony1"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "doll2",
+            "translation": "Doll Lyra",
+            "winningSides": [ "village" ],
+            "side": "brony",
+			"hide": true,
+            "help": "The Bronies have collected you and now you are one of their dolls! Your vote is now only 0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. When inspected you will be revealed as a Brony. Use /tt to Talk with your teammates.",
+            "info": "A harmless background pony. Sided with the Bronies.",
+            "actions": {
+                "initialCondition": {
+                    "clearCurse": true
+                },
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"vote": 0.5,
+                "inspect": {
+                    "revealAs": [
+                        "brony1"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "doll3",
+            "translation": "Doll Doctor Hooves",
+            "winningSides": [ "village" ],
+            "side": "brony",
+			"hide": true,
+            "help": "The Bronies have collected you and now you are one of their dolls! Your vote is now only 0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. You have a chance of finding the bad guys! When inspected you will be revealed as a Brony. Use /tt to Talk with your teammates.",
+            "info": "A mysterious time wizard. Gets hax on swarm and feedoff. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "clearCurse": true
+                },
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"vote": 0.5,
+                "inspect": {
+                    "revealAs": [
+                        "brony1"
+                    ]
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.12,
+                        "revealPlayer": 0.04
+                    },
+                    "swarm": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "doll4",
+            "translation": "Doll Berry Punch",
+            "winningSides": [ "village" ],
+            "side": "brony",
+			"hide": true,
+            "help": "You are Berry Punch, a background pony! The Bronies have collected you and now you are one of their dolls! Your vote is now only -0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. When inspected you will be revealed as a Brony. Use /tt to Talk with your teammates.",
+            "info": "A harmless background pony. Likes cider (but is definitely not an alcoholic). Has a vote of -1. Sided with Ponyville Residents.",
+            "actions": {
+                "initialCondition": {
+                    "clearCurse": true
+                },
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+                "inspect": {
+                    "revealAs": [
+                        "brony1"
+                    ]
+                },
+                "vote": -0.5
+            }
+        },
+		{
+            "role": "dspike",
+            "translation": "Doll Spike",
+            "side": "brony",
+			"hide": true,
+            "info": "A tiny dragon who assists Twilight Sparkle. Can /protect one pony at night. May find Rarity. Can't be poisoned in 12 players games or higher. Sided with Ponyville Residents.",
+            "help": "You are Spike, Twilight's loyal slave- I mean, assistant- since your birth! The Bronies have collected you and now you are one of their dolls! Your vote is now only 0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. You can /Protect your friends from threats but now that you are made of plastic you will fail 40% of the time! Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"vote": 0.5,
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "failChance": 0.4,
+                        "common": "Role",
+                        "priority": 2,
+                        "broadcast": "role"
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling1",
+                            "chrysalis",
+                            "chrysalis1"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "role": "drarity",
+            "translation": "Doll Rarity",
+            "winningSides": [ "village" ],
+            "side": "brony",
+            "hide": true,
+            "info": "An absolutely marvelous unicorn (and best pony). Can distract one pony during the night. Gets hax on feedoff. Has a chance of finding Applejack. Sided with Ponyville Residents.",
+            "help": "You are Rarity, the most elegant and generous pony in Ponyville. The Bronies have collected you and now you are one of their dolls! Your vote is now only 0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. You can /distract someone with your stunning dress designs and accessories but you will fail 50% of the time! Your horn may alert you to danger. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"vote": 0.5,
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "failChance": 0.5,
+                        "priority": 1,
+                        "distractmsg": "Shiny gems! Pretty dresses! Wait, were you supposed to be doing something? Stupid Rarity.",
+                        "teammsg": "Your partner went to go visit Rarity's boutique last night, so you tagged along and forgot to ~Action~ last night."
+                    }
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.17,
+                        "revealPlayer": 0.025
+                    }
+                }
+            }
+        },
+        {
+            "role": "dtwilight",
+            "translation": "Doll Twilight Sparkle",
+            "winningSides": [ "village" ],
+            "side": "brony",
+            "hide": true,
+            "info": "A bright unicorn pony. Sided with Ponyville residents.",
+            "help": "You are Twilight Sparkle, a bright and studious pony! The Bronies have collected you and now you are one of their dolls! Your vote is now only 0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. Calm and calculated (most of the time, at least), you can /inspect one pony at night with a 50% chance to fail. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+				"vote": 0.5,
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "failChance": 0.5,
+                        "hide": true,
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "dflutters",
+            "translation": "Doll Fluttershy",
+            "side": "brony",
+            "winningSides": [ "village" ],
+            "hide": true,
+            "info": "A bashful pegasus pony. Can't be nightkilled and has a 50% chance of evading poison. Has a chance of finding Twilight. Vote counts as 0. Sided with Ponyville Residents.",
+            "help": "You are Fluttershy, a bashful and gentle pony. The Bronies have collected you and now you are one of their dolls! You are sided with your owners bronies but when they die you will have a chance to win again with the village. You have 25% chance to evade poison attacks and 50% chance to evade kill attacks! Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "startup": {
+                    "revealRole": ["doll1", "doll2", "doll3", "doll4", "dtwilight", "dspike", "drarity", "dflutters", "brony1", "brony2", "brony3", "brony4", "brony5", "brony0" ],
+                    "team-revealif-with-roles": [
+                        "brony"
+                    ]
+                },
+                "vote": 0,
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                }
+            }
+        },
+        {
+            "role": "doll",
+            "translation": "Doll villagers",
+            "side": "brony",
+            "info": "A villager or Power Role pony transformed in to a doll by a Brony. Any power that they have is now halved, for exemple if that role was an inspector their vote is now 0,5 and their /inspect fail 50% of the time. Any Doll that is not a Power Role: will be inspected as a Brony. Sided with the Bronies but can still win with village too when the bronies are gone.",
+            "help": "You are Rarity, the most elegant and generous pony in Ponyville. The Bronies have collected you and now you are one of their dolls! Your vote is now only 0.5 and you are sided with your owners bronies but when they die you will have a chance to win again with the village. You can /distract someone with your stunning dress designs and accessories but you will fail 50% of the time! Your horn may alert you to danger.",
+            "actions": {
+            }
+        },
+        {
+            "role": "dpara",
+            "translation": "Peluche Parasprite",
+			"help2": "You know any other partner that has been transformed into a Peluche",
+            "info": "Parasprites after that a Brony transformed them into a weaker peluche version of themselves. Can kill one person during the night with a 30% chance to fail. Gets hax on inspect. Cannot be poisoned. Has a chance of finding Changeling. Even when Changeling is dead he can still be distracted. Their vote is 0.5 now. Knows Peluche Changeling. Sided with Discord-Chrysalis Axis.",
+            "side": "discord",
+            "help": "You are a swarm of Parasprites. The Bronies have tranformed you in to a peluche! You are still sided with Discord but now that you are a peluche your powers have been weakened. You can /swarm a pony to get rid of them 30% of the time it will fail! You have a chance of finding the good guys. Under your leader Discord and your allies, the Changelings (you forgot who they were though), chaos will consume Equestria! Your vote power is 0.5 now. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": [ "para", "para1", "dpara", "discord", "dchangeling"],
+			"vote": 0.5,
+                "night": {
+                    "swarm": {
+                        "target": "AnyButRole",
+                        "common": "Team",
+                        "priority": 12,
+                        "failChance": 0.2,
+                        "broadcast": [
+                            "discord",
+                            "para"
+                        ],
+                        "command": "kill"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+						"dchangeling",
+                        "discord",
+                        "para"
+                    ]
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "poison": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1",
+                            "chrysalis"
+                        ]
+                    }
+                },
+                "hax": {
+                    "inspect": {
+                        "revealTeam": 0.035,
+                        "revealPlayer": 0.01
+                    },
+                    "identify": {
+                        "revealTeam": 0.025,
+                        "revealPlayer": 0.01
+                    },
+                    "feedoff": {
+                        "revealRole": 0.025,
+                        "revealPlayer": 0.025
+                    }
+                }
+            }
+        },
+        {
+            "role": "dchangeling",
+            "translation": "Peluche Changeling",
+            "info": "Changeling after that a brony morphed it into a Peluche weakening his abilities. Changeling's poison has 20% chance to fail. May find Parasprites. Appears to be a normal Pony when inspected. Avoids distract 50% of the time. Gets hax on distract. His vote is now 0.5. Knows the identity of Peluche Parasprite. Sided with Discord-Chrysalis Axis.",
+            "side": "discord",
+			"help2": "You know any other partner that has been transformed into a Peluche",
+            "help": "You are a changeling, a ponylike minion of Queen Chrysalis! The Bronies have tranformed you in to a peluche! You are still sided with Discord but now that you are a peluche your powers have been weakened. You can /feedoff (poison that fails 20% of the time now that you are a stupid peluche) of someone's emotions, leaving them empty after a turn, and avoid most distractions. You are also allied with Discord and the Parasprites, but forget who they were. You appear as an ordinary pony when inspected, and may see what happens around town. Converts Paraspries when defeated unless they too have been transformed in to peluches. Use /tt to Talk with your teammates. Your vote now is only 0.5.",
+            "actions": {
+				"teamTalk": [ "cadance", "chrysalis1", "chrysalis", "changeling", "changeling1", "dpara", "dchangeling"],
+			"vote": 0.5,
+                "night": {
+                    "feedoff": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "failChance": 0.2,
+                        "priority": 9,
+                        "broadcast": [
+                            "changeling",
+                            "chrysalis",
+                            "cadance",
+                            "discord"
+                        ],
+                        "broadcastmsg": "±Game: Changeling is preparing to Poison ~Target~!",
+                        "command": "poison"
+                    }
+                },
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealTeam": 0.045,
+                        "revealPlayer": 0.01
+                    },
+                    "swarm": {
+                        "revealRole": 0.033,
+                        "revealPlayer": 0.033
+                    }
+                },
+                "distract": {
+                    "mode": "identify",
+                    "msg": "Shiny gems! Pretty dresses! A being like you has no need for some trinkets. You look around the store, and manage to discover Rarity's identity: ~Target~."
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "para": "para1"
+                    },
+                    "convertmsg": "Bzzzzzt. The Parasprite swarm has grown, and can no longer be distracted."
+                },
+                "startup": {
+                    "revealRole": [
+						"dpara",
+                        "changeling",
+                        "chrysalis",
+                        "chrysalis1",
+                        "cadance"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "derpy",
+            "translation": "Derpy Hooves",
+            "winningSides": "*",
+            "side": {
+                "random": {
+                    "village": 0.2,
+                    "dd1": 0.2,
+                    "discord": 0.2,
+                    "alicorn": 0.2,
+                    "trixie": 0.1,
+                    "zecora": 0.1
+                }
+            },
+            "info": "A derpy Pegasus pony. Can derp at night to perform a random command. Can derp (reveal) during the standby. Has a 30% chance of avoiding nightkills, daykills, and poison. Can't be distracted. Appears on a random side, but wins with every other side as well.",
+            "help": "You are Derpy Hooves, and oh dear, somehow you have ended up on a random team! The most absent-minded and clumsy pony around, that hasn't stopped you from being a fan favourite. You can /derp in the day to reveal yourself. You can /derp at night too; no one knows what will happen. Since nopony is sure whose side you are really on, you win with every team!",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 3
+                    },
+                    "derp": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "failChance": 0.1,
+                        "command": {
+                            "stalk": 0.16,
+                            "kill": 0.1,
+                            "poison": 0.1,
+                            "protect": 0.16,
+                            "safeguard": 0.16,
+                            "distract": 0.16,
+                            "inspect": 0.16
+                        }
+                    }
+                },
+                "standby": {
+                    "derp": {
+                        "command": "reveal",
+                        "revealmsg": "Something's falling out of the sky! Oh, it's just Derpy. Silly ~Self~."
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.3
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.3
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.3
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Someone tried to distract you last night. Weird."
+                },
+                "avoidHax": [
+                    "safeguard"
+                ]
+            }
+        },
+        {
+            "role": "changeling",
+            "translation": "Changeling",
+	    "hide": "side",
+            "info": "A shapeshifting being. Can feedoff (poison) one pony during the night. May find Parasprites. Appears to be a normal Pony when inspected. Avoids distract 50% of the time. Gets hax on distract. Sided with Discord-Chrysalis Axis.",
+            "side": "discord",
+            "help": "You are a changeling, a ponylike minion of Queen Chrysalis! You can /feedoff (poison) of someone's emotions, leaving them empty after a turn, and avoid most distractions. You are also allied with Discord and the Parasprites, but forget who they were. You appear as an ordinary pony when inspected, and may see what happens around town. Converts Paraspries when defeated. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": [ "cadance", "chrysalis1", "chrysalis", "changeling", "changeling1"],
+                "night": {
+                    "feedoff": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 9,
+                        "broadcast": [
+                            "changeling",
+                            "chrysalis",
+                            "cadance",
+                            "discord"
+                        ],
+                        "broadcastmsg": "±Game: Changeling is preparing to Poison ~Target~!",
+                        "command": "poison"
+                    }
+                },
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealTeam": 0.07,
+                        "revealPlayer": 0.02
+                    },
+                    "swarm": {
+                        "revealRole": 0.075
+                    }
+                },
+                "distract": {
+                    "mode": "identify",
+                    "msg": "Shiny gems! Pretty dresses! A being like you has no need for some trinkets. You look around the store, and manage to discover Rarity's identity: ~Target~."
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "para": "para1"
+                    },
+                    "convertmsg": "Bzzzzzt. The Parasprite swarm has grown, and can no longer be distracted."
+                },
+                "startup": {
+                    "revealRole": [
+                        "changeling",
+                        "chrysalis",
+                        "chrysalis1",
+                        "cadance"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "changeling1",
+            "translation": "Changeling",
+            "info": "A shapeshifting being. Can feedoff (poison) one pony during the night. May find Parasprites. Appears to be a Pony when inspected. Avoids distract 50% of the time. Gets hax on distract. Sided with Discord-Chrysalis Axis.",
+            "side": "discord",
+            "help": "You are a changeling, a ponylike minion of Queen Chrysalis! You can /feedoff (poison) of someone's emotions, leaving them empty after a turn, and avoid most distractions. You are also allied with Discord and the Parasprites, but forget who they were. You appear as an ordinary pony when inspected, and may see what happens around town. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": [ "cadance", "chrysalis1", "chrysalis", "changeling", "changeling1"],
+                "night": {
+                    "feedoff": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 9,
+                        "hide": true,
+                        "broadcast": [
+                            "changeling1",
+                            "chrysalis",
+                            "chrysalis1",
+                            "cadance",
+                            "discord"
+                        ],
+                        "broadcastmsg": "±Game: Changeling is preparing to Poison ~Target~!",
+                        "command": "poison"
+                    }
+                },
+                "inspect": {
+                    "revealAs": [
+                        "v1",
+                        "v2",
+                        "v9",
+                        "v10"
+                    ]
+                },
+                "distract": {
+                    "mode": "identify",
+                    "msg": "~Target~ let's teach him to not play with the changelings."
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealTeam": 0.07,
+                        "revealPlayer": 0.02
+                    },
+                    "swarm": {
+                        "revealRole": 0.075
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "para": "para1"
+                    },
+                    "convertmsg": "Bzzzzzt. The Parasprite swarm has grown, and can no longer be distracted."
+                },
+                "startup": {
+                    "revealRole": [
+                        "changeling",
+                        "chrysalis",
+                        "chrysalis1",
+                        "cadance"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "chrysalis",
+            "translation": "Queen Chrysalis",
+	    "hide": "side",
+            "side": "discord",
+            "info": "The leader of the Changelings. Can consume (poison, goes through safeguard) one pony's emotions during the night. Can't be distracted. Can convert into Princess Cadance. Has a voteshield of -5. May find Discord. Reveals as a random role when inspected. Sided with Discord-Chrysalis Axis.",
+            "help": "You are Queen Chrysalis, the leader of the Changelings! You have allied yourself with Discord and his Parasprites, and together shall rule over Equestria! Problem is, you forgot who he was, although you do have a chance of finding him. You can /consume somepony's emotions at night (even the mighty Celestia herself!), leaving them hollow shells of their former selves after a turn. /Convert [yourname] to transform into Princess Cadance (can self protect and safeguard). You erase up to 5 votes against you, and appear as a random other role when inspected. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": [ "cadance", "chrysalis1", "chrysalis", "changeling", "changeling1"],
+                "night": {
+                    "consume": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4,
+                        "broadcast": [
+                            "changeling",
+                            "changeling1",
+                            "discord"
+                        ],
+                        "broadcastmsg": "±Game: Queen Crysalis is preparing to Consume ~Target~!",
+                        "command": "poison"
+                    },
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 32,
+                        "newRole": "cadance",
+                        "canConvert": [
+                            "chrysalis"
+                        ],
+                        "convertmsg": "Hey everypony! Look, it's Princess Cadance!"
+                    }
+                },
+                "standbyHax": {
+                    "troll": {
+                        "revealPlayer": 0.2
+                    }
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "voteshield": -5,
+                "inspect": {
+                    "revealAs": [
+                        "spike",
+                        "spot",
+                        "rarity",
+                        "v1",
+                        "v9",
+                        "v2",
+                        "v10",
+                        "para",
+                        "changeling1",
+                        "v3",
+                        "v11",
+                        "flutters",
+                        "pinkie",
+                        "discord",
+                        "aj",
+                        "fido",
+                        "derpy",
+                        "trixie",
+                        "zecora",
+                        "rainbow",
+                        "v4"
+                    ]
+                },
+                "startup": {
+                    "revealRole": [
+                        "changeling",
+                        "changeling1"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "chrysalis1",
+            "translation": "Queen Chrysalis",
+            "side": "discord",
+            "info": "The leader of the Changelings, shapeshifting beings. Can consume (poison, goes through safeguard) one pony's emotions during the night. Can't be distracted. Can convert into Princess Cadance. Has a voteshield of -5. May find Discord. Reveals as a random role when inspected. Sided with Discord-Chrysalis Axis.",
+            "help": "You are Queen Chrysalis, the leader of the Changelings! You have allied yourself with Discord and his Parasprites, and together shall rule over Equestria! Problem is, you forgot who he was, although you do have a chance of finding him. You can /consume somepony's emotions at night (even the mighty Celestia herself!), leaving them hollow shells of their former selves after a turn. /Convert [yourname] to transform into Princess Cadance (can self protect and safeguard). You erase up to 5 votes against you, and appear as possibly any other role when inspected. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": [ "cadance", "chrysalis1", "chrysalis", "changeling", "changeling1"],
+                "night": {
+                    "consume": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4,
+                        "broadcast": [
+                            "changeling1",
+                            "changeling",
+                            "discord"
+                        ],
+                        "broadcastmsg": "±Game: Queen Crysalis is preparing to Consume ~Target~!",
+                        "hide": true,
+                        "command": "poison"
+                    },
+                    "convert": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 32,
+                        "hide": true,
+                        "newRole": "cadance",
+                        "canConvert": [
+                            "chrysalis"
+                        ],
+                        "convertmsg": "Hey everypony! Look, it's Princess Cadance!"
+                    }
+                },
+                "standbyHax": {
+                    "troll": {
+                        "revealPlayer": 0.2
+                    }
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "voteshield": -5,
+                "inspect": {
+                    "revealAs": [
+                        "spike",
+                        "spot",
+                        "rarity",
+                        "v1",
+                        "para",
+                        "changeling1",
+                        "v2",
+                        "v3",
+                        "flutters",
+                        "pinkie",
+                        "discord",
+                        "aj",
+                        "fido",
+                        "derpy",
+                        "trixie",
+                        "zecora1",
+                        "rainbow",
+                        "v4",
+                        "celestia",
+                        "luna",
+                        "cmc",
+                        "v5",
+                        "dog1",
+                        "v9",
+                        "v10",
+                        "v6",
+                        "v11",
+                        "v7",
+                        "v8",
+                        "dog1"
+                    ]
+                },
+                "startup": {
+                    "revealRole": [
+                        "changeling",
+                        "changeling1"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "cadance",
+            "translation": "Princess Cadance",
+            "info": "An alicorn that is not quite what she seems (because she's actually Queen Chrysalis). Can protect and safeguard anypony during the night. Can transform into Queen Chrysalis. Has a chance of finding Discord and Parasprites. Sided with Discord-Chrysalis Axis. Wins the game with Princesses.",
+            "side": "discord",
+            "winningSides": [
+                "alicorn"
+            ],
+            "help": "You are Princess Cadance, the niece of Princess Celestia. Or so you appear to be, as you are actually Queen Chrysalis in disguise! You can both /safeguard and /protect at night, and win with both the Princess and the Discord-Chrysalis Axis. However, Twilight can see through your ruse in this form. You may /transform [yourname] into Queen Chrysalis (consumes, reveals as a random role, voteshield of -5). Hint: Your protect and safeguard lets Discord connect to your team. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": [ "cadance", "chrysalis1", "chrysalis", "changeling", "changeling1"],
+                "night": {
+                    "protect": {
+                        "target": "Any",
+                        "common": "Role",
+                        "broadcast": [
+                            "changeling1",
+                            "changeling"
+                        ],
+                        "priority": 6
+                    },
+                    "safeguard": {
+                        "target": "Any",
+                        "common": "Self",
+                        "broadcast": [
+                            "changeling1",
+                            "changeling",
+                            "discord"
+                        ],
+                        "priority": 3
+                    },
+                    "transform": {
+                        "target": "OnlySelf",
+                        "command": "convert",
+                        "common": "Self",
+                        "priority": 31,
+                        "newRole": "chrysalis",
+                        "canConvert": [
+                            "cadance"
+                        ],
+                        "convertmsg": "With a flutter of wings and a sparkle of a horn, Princess Cadance has gone."
+                    }
+                },
+                "avoidHax": [
+                    "protect",
+                    "safeguard"
+                ],
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "standbyHax": {
+                    "troll": {
+                        "revealPlayer": 0.3
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "changeling",
+                        "changeling1"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "rarity",
+            "translation": "Rarity",
+            "side": "village",
+            "info": "An absolutely marvelous unicorn (and best pony). Can distract one pony during the night. Gets hax on feedoff. Has a chance of finding Applejack. Sided with Ponyville Residents.",
+            "help": "You are Rarity, the most elegant and generous pony in Ponyville. You are committed to your work as a fashion designer, and can /distract someone with your stunning dress designs and accessories! You have a chance of finding your friend Applejack, and your horn may alert you to danger.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "distractmsg": "Shiny gems! Pretty dresses! Wait, were you supposed to be doing something? Stupid Rarity.",
+                        "teammsg": "Your partner went to go visit Rarity's boutique last night, so you tagged along and forgot to ~Action~ last night."
+                    }
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.05
+                    },
+                    "buck": {
+                        "revealRole": 0.2,
+                        "revealPlayer": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "rarityx",
+            "translation": "Rarity",
+			"hide": true,
+            "side": "village",
+            "info": "An absolutely marvelous unicorn (and best pony). Can distract one pony during the night. Gets hax on feedoff. Has a chance of finding Applejack. Sided with Ponyville Residents.",
+            "help": "You are Rarity, the most elegant and generous pony in Ponyville. You are committed to your work as a fashion designer, and can /distract someone with your stunning dress designs and accessories! You have a chance of finding your friend Applejack, and your horn may alert you to danger.",
+            "actions": {
+				"onDeadRoles": {"convertTo": { "rarityx": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "distractmsg": "Shiny gems! Pretty dresses! Wait, were you supposed to be doing something? Stupid Rarity.",
+                        "teammsg": "Your partner went to go visit Rarity's boutique last night, so you tagged along and forgot to ~Action~ last night."
+                    }
+                },
+                "hax": {
+                    "feedoff": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.05
+                    },
+                    "buck": {
+                        "revealRole": 0.2,
+                        "revealPlayer": 0.1
+                    }
+                }
+            }
+        },
+        {
+            "role": "flutters",
+            "translation": "Fluttershy",
+			"hide": true,
+            "side": "village",
+            "info": "A bashful pegasus pony. Can't be nightkilled and has a 50% chance of evading poison. Has a chance of finding Twilight. Vote counts as 0. Sided with Ponyville Residents.",
+            "help": "You are Fluttershy, a bashful and gentle pony. You really see no reason as to why everyone is fighting, but you suppose you have a part to play in all of this. You keep bad guys away with The Stare, and so cannot be harmed at night! Since you don't want to be responsible for something wrong, your vote counts as 0. You have a chance of finding your friend Twilight Sparkle, and when you do, connect everypony and work together to protect Equestria!",
+            "actions": {
+                "vote": 0,
+                "hax": {
+                    "inspect": {
+                        "revealRole": 0.15,
+                        "revealPlayer": 0.15
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                }
+            }
+        },
+        {
+            "role": "fluttersx",
+            "translation": "Fluttershy",
+            "side": "village",
+            "info": "A bashful pegasus pony. Can't be nightkilled and has a 50% chance of evading poison. Has a chance of finding Twilight. Vote counts as 0. Sided with Ponyville Residents.",
+            "help": "You are Fluttershy, a bashful and gentle pony. You really see no reason as to why everyone is fighting, but you suppose you have a part to play in all of this. You keep bad guys away with The Stare, and so cannot be harmed at night! Since you don't want to be responsible for something wrong, your vote counts as 0. You have a chance of finding your friend Twilight Sparkle, and when you do, connect everypony and work together to protect Equestria!",
+            "actions": {
+				"onDeadRoles": { "convertTo": { "fluttersx": ["brony1", "brony2", "brony3", "brony4", "brony5", "brony0"] }
+					},
+                "vote": 0,
+                "hax": {
+                    "inspect": {
+                        "revealRole": 0.15,
+                        "revealPlayer": 0.15
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                }
+            }
+        },
+        {
+            "role": "pinkie",
+            "translation": "Pinkie Pie",
+            "side": "village",
+            "info": "A silly Earth pony. Can safeguard one pony during the night. Revenge reveals if daykilled. Gets perfect hax on swarm, shout, kidnap, dash, and buck. Sided with Ponyville Residents.",
+            "help": "You are Pinkie Pie, a super energetic and party-loving pony! You have no idea what a “Mafia” or a “Pokemon Online” is, but you go with it because it sounds fun! You reveal bad guys if they attack you in the day (how silly), and you can /guard anyone from harm at night with your gypsy magic (Twilight seems like she needs it the most)! Your Pinkie Sense gives you the inexplicable ability of finding out things right before they happen! Relay this info to your team when you find them.",
+            "actions": {
+                "night": {
+                    "guard": {
+                        "command": "safeguard",
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                },
+                "hax": {
+                    "swarm": {
+                        "revealTeam": 1,
+                        "revealPlayer": 0.2
+                    },
+                    "shout": {
+                        "revealTeam": 1
+                    },
+                    "kidnap": {
+                        "revealTeam": 1,
+                        "revealPlayer": 0.2
+                    },
+                    "dash": {
+                        "revealTeam": 1,
+                        "revealRole": 0.25
+                    },
+                    "buck": {
+                        "revealTeam": 1,
+                        "revealRole": 0.25
+                    }
+                },
+                "daykill": "revealkiller",
+                "daykillrevengemsg": "Hello everypony, there's something that you should know~ ~Target~ is ~Role~, why don't you say hello~"
+            }
+        },
+        {
+            "role": "rainbow",
+            "translation": "Rainbow Dash",
+            "side": "village",
+            "info": "An awesome Pegasus pony. Can dash (priority kill) one pony during the night. Has a 20% (what else) chance of evading day and night kills. Can find out who is Pinkie Pie. Sided with Ponyville Residents.",
+            "help": "You are Rainbow Dash, the awesomest pony in all of Equestria, and you just made this theme about 20% cooler.You have a chance to hax your partner in pranks Pinkie Pie. When you're not relaxing on your cloud, you're the fastest pony around, giving you a chance to avoid danger. Use your Sonic Rainboom, /dash, to deftly take somepony out of the game at night (high priority). Be careful not to hurt your own teammates, though.",
+            "actions": {
+                "hax": {
+                    "guard": {
+                        "revealRole": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "night": {
+                    "dash": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "command": "kill"
+                    }
+                }
+            }
+        },
+        {
+            "role": "aj",
+            "translation": "Applejack",
+            "info": "An dependable Earth pony. Can inspect, distract, safeguard, and protect once each (cannot switch targets). May buck (distract or kill) twice a game. Vote counts as 2. Can find the Cutie Mark Crusaders. Sided with Ponyville Residents.",
+            "side": "village",
+            "help": "You are Applejack, a reliable and hard-working pony. Your sister is part of the Cutie Mark Crusaders and for this you can hax them. You have more than proven yourself to be dependable with your work at the farm, and get 2 votes. You may /inspect, /distract, /safeguard, /protect, and once each (use them prudently!). Use your signature /buck (distract or kill) up to twice a game! Your honesty alerts your teammates to your actions, but also prevents you from switching targets.",
+            "actions": {
+                "avoidHax": [
+                    "inspect",
+                    "distract",
+                    "safeguard",
+                    "protect"
+                ],
+                "standbyHax": {
+                    "squee": {
+                        "revealPlayer": 0.2
+                    }
+                },
+                "hax": {
+                    "scoot": {
+                        "revealRole": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "vote": 2,
+                "night": {
+                    "buck": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "broadcastmsg": "±Applejack: Ah'm gonna ~Action~ ~Target~, y'all hear?",
+                        "broadcast": "team",
+                        "priority": 3,
+                        "charges": 2,
+                        "restrict": [
+                            "buck"
+                        ],
+                        "command": {
+                            "kill": 0.6,
+                            "distract": 0.4
+                        },
+                        "chargesmsg": "You may buck ~Charges~ more time(s)."
+                    },
+                    "safeguard": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 3,
+                        "broadcastmsg": "±Applejack: Ah'm gonna ~Action~ ~Target~, y'all hear?",
+                        "broadcast": "team",
+                        "charges": 1,
+                        "restrict": [
+                            "safeguard"
+                        ],
+                        "chargesmsg": "You may safeguard ~Charges~ more time(s)."
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "broadcastmsg": "±Applejack: Ah'm gonna ~Action~ ~Target~, y'all hear?",
+                        "broadcast": "team",
+                        "priority": 30,
+                        "charges": 1,
+                        "Sight": {
+                            "true": 1
+                        },
+                        "restrict": [
+                            "inspect"
+                        ],
+                        "chargesmsg": "You may inspect ~Charges~ more time(s)."
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "broadcastmsg": "±Applejack: Ah'm gonna ~Action~ ~Target~, y'all hear?",
+                        "broadcast": "team",
+                        "priority": 2,
+                        "restrict": [
+                            "distract"
+                        ],
+                        "charges": 1,
+                        "chargesmsg": "You may distract ~Charges~ more time(s)."
+                    },
+                    "protect": {
+                        "target": "Any",
+                        "common": "Self",
+                        "broadcastmsg": "±Applejack: Ah'm gonna ~Action~ ~Target~, y'all hear?",
+                        "broadcast": "team",
+                        "priority": 2,
+                        "restrict": [
+                            "protect"
+                        ],
+                        "charges": 1,
+                        "chargesmsg": "You may protect ~Charges~ more time(s)."
+                    }
+                }
+            }
+        },
+        {
+            "role": "celestia",
+            "translation": "Princess Celestia",
+            "info": "The benevolent ruler of Equestria. Vote counts as 999.  Can't be daykilled. Avoids poison from Changelings. Sided with Princesses.",
+            "side": "alicorn",
+            "help": "You are Princess Celestia, co-ruler of Equestria with your sister Luna. You are a benevolent ruler (so you say), and have ruled peacefully for hundreds of years. You cannot be harmed in the day, and can banish anypony you wish to the moon with your 999 votes (you are an absolute monarch after all)! Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "vote": 999,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1"
+                        ]
+                    }
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "luna": "luna1"
+                    },
+                    "convertmsg": "'Sister! I... I will try my best to lead Equestria alone.'"
+                },
+                "startup": "team-reveal"
+            },
+            "winIfDeadRoles": [
+                "twilight",
+                "spot",
+                "rover",
+                "fido",
+                "sombra",
+                "zecorapo",
+                "zecorapr",
+                "zecoradi",
+                "zecorado",
+                "zecoraz",
+                "zecorazz",
+                "dog1",
+                "para",
+                "discord",
+                "trixie",
+                "trixie2",
+                "chrysalis",
+                "rainbow",
+                "aj"
+            ]
+        },
+        {
+            "role": "celestia1",
+            "translation": "Her Majesty Princess Celestia",
+	    "hide": "side",
+            "info": "The benevolent sole ruler of Equestria. Can banish somepony during the day once every 3 days. Vote counts as 999. Can't be daykilled. Avoids poison from Changelings. Sided with Princesses.",
+            "side": "alicorn",
+            "help": "Evidently your foolish sister could not handle such a monumental task placed before her. Fear not, she has been placed under your care. For now, though, you must continue in her place. You may /banish someone once every 3 days, in addition to your all powerful vote. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "standby": {
+                    "banish": {
+                        "target": "AnyButTeam",
+                        "msg": "You may /banish an unworthy subject now.",
+                        "killmsg": "'~Target~,' Princess Celestia's voice booms from above. 'By the Elements of Harmony, I hereby banish you from Equestria.'",
+                        "recharge": 3,
+                        "command": "kill"
+                    }
+                },
+                "vote": 999,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1"
+                        ]
+                    }
+                },
+                "startup": "team-reveal"
+            },
+            "winIfDeadRoles": [
+                "twilight",
+                "spot",
+                "rover",
+                "fido",
+                "zecorapo",
+                "zecorapr",
+                "zecoradi",
+                "zecorado",
+                "sombra",
+                "zecoraz",
+                "zecorazz",
+                "dog1",
+                "para",
+                "discord",
+                "trixie",
+                "trixie2",
+                "chrysalis",
+                "rainbow",
+                "aj"
+            ]
+        },
+        {
+            "role": "luna",
+            "translation": "Princess Luna",
+            "info": "Co-ruler of Equestria with her sister Celestia. Can shout at one pony during the night. Can't be nightkilled. Vote counts as 2. Sided with Princesses.",
+            "side": "alicorn",
+            "help": "You are Princess Luna, co-ruler of Equestria with your sister Celestia. You were banished in the moon for a thousand years, and as such, have trouble communicating with your subjects, even when you try to be friendly. You cannot be harmed or discovered at night, and can /shout (kill) with your ROYAL CANTERLOT VOICE to silence anypony that dares not listen. Celestia has allocated you only 2 votes, as despite your supposedly equal status, she always HAS to bring up the 'Nightmare Moon' incident. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "vote": 2,
+                "night": {
+                    "shout": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 13,
+                        "broadcast": [
+                            "celestia"
+                        ],
+                        "broadcastmsg": "±Luna: Sister! It is I, ~Player~. We are going to shout at ~Target~!",
+                        "msg": "THOU DARE HATH THE COURAGE TO SPEAK ILL OF PRINCESS LUNA? WE SHALL BANISH THOU FROM EQUESTRIA!",
+                        "command": "kill"
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "celestia": "celestia1"
+                    },
+                    "convertmsg": "'Oh Luna. You have so much to learn.'"
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "luna1",
+            "translation": "Her Majesty Princess Luna",
+	    "hide": "side",
+            "info": "Acting ruler of Equestria. Can shout at one pony during the night. Can't be nightkilled. Can't be distracted. Vote counts as 4. Sided with Princesses.",
+            "side": "alicorn",
+            "help": "Sure you did that 'Nightmare Moon' thing because you wanted to rule alone, but you never imagined it would be this difficult. In any case, you must fulfill your duties as best you can. You may still /shout with your with your ROYAL CANTERLOT VOICE to silence anypony that dares not listen. You won't let your sister down, and so can't be distracted. You have also doubled your vote power to 4. Celestia... Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "vote": 4,
+                "night": {
+                    "shout": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 13.1,
+                        "broadcast": [
+                            "celestia"
+                        ],
+                        "msg": "THOU DARE HATH THE COURAGE TO SPEAK ILL OF PRINCESS LUNA? WE SHALL BANISH THOU FROM EQUESTRIA!",
+                        "command": "kill"
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "We shan't let you down, sister. No distractions will get in our way."
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "celestia": "celestia1"
+                    },
+                    "convertmsg": "'Oh Luna. You have so much to learn.'"
+                },
+                "startup": "team-reveal"
+            }
+        },
+        {
+            "role": "dog1",
+            "translation": "Diamond Dog",
+            "info": "A dog that inhabits the mines. Can kidnap one pony (shared) during the night. Sided with Diamond Dogs.",
+            "side": "dd1",
+            "help": "You are a Diamond Dog! You can /kidnap a pony once a night, forcing them to work in your gem mines. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "kidnap": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": [
+                            "dog1",
+                            "fido",
+                            "rover",
+                            "spot"
+                        ],
+                        "broadcastmsg": "±Game: ~Player~ (Diamond Dog) is preparing to ~Action~ ~Target~!",
+                        "command": "kill"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "fido",
+            "translation": "Fido",
+            "side": "dd1",
+            "info": "The muscle dog of the Diamond Dogs. Can protect one pony during the night. Can kidnap one pony (shared) during the night, and capture once per game. Can't be distracted. Sided with Diamond Dogs.",
+            "help": "You are Fido, the muscle dog of the Diamond Dogs! You can /kidnap a pony at night (shared with team- you can't be distracted though), forcing her/him to work in your gem mines, and /protect one of your teammates. You get an additional /capture, which you may use but once. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 8,
+                        "broadcastmsg": "±Game: ~Player~ (Fido) is going to ~Action~ ~Target~!",
+                        "broadcast": [
+                            "dog1",
+                            "fido",
+                            "rover",
+                            "spot"
+                        ]
+                    },
+                    "kidnap": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": [
+                            "dog1",
+                            "fido",
+                            "rover",
+                            "spot"
+                        ],
+                        "broadcastmsg": "±Game: ~Player~ (Fido) is preparing to ~Action~ ~Target~!",
+                        "command": "kill"
+                    },
+                    "capture": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": [
+                            "dog1",
+                            "fido",
+                            "rover",
+                            "spot"
+                        ],
+                        "broadcastmsg": "±Game: ~Player~ (Fido) is preparing to ~Action~ ~Target~!",
+                        "chargesmsg": "You can no longer /capture.",
+                        "charges": 1,
+                        "command": "kill"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles",
+                "avoidHax": [
+                    "protect"
+                ]
+            }
+        },
+        {
+            "role": "rover",
+            "translation": "Rover",
+            "info": "The leader of the Diamond Dogs. Can kidnap one pony (shared) during the night. Can identify one pony during the night (25% chance of being wrong). Gets hax on shout and buck. Sided with Diamond Dogs.",
+            "side": "dd1",
+            "help": "You are Rover, the leader of the Diamond Dogs! You can /kidnap a pony at night (shared with team), forcing her/him to work in your gem mines, and /identify (inspect) as well, but sometimes these ponies look all alike and you get confused. Your keen sense of hearing may pick up on certain sounds. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "hax": {
+                    "shout": {
+                        "revealTeam": 0.25
+                    },
+                    "buck": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.05
+                    }
+                },
+                "night": {
+                    "kidnap": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcastmsg": "±Game: ~Player~ (Rover) is preparing to ~Action~ ~Target~!",
+                        "broadcast": [
+                            "dog1",
+                            "fido",
+                            "rover",
+                            "spot"
+                        ],
+                        "command": "kill"
+                    },
+                    "identify": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 30,
+                        "broadcast": [
+                            "dog1",
+                            "fido",
+                            "rover",
+                            "spot"
+                        ],
+                        "Sight": {
+                            "true": 0.75,
+                            "rarity": 0.075,
+                            "aj": 0.025,
+                            "v1": 0.025,
+                            "v2": 0.025,
+                            "twilight": 0.05,
+                            "flutters": 0.05
+                        },
+                        "broadcastmsg": "±Game: ~Player~ (Rover) is going to ~Action~ ~Target~!",
+                        "command": "inspect"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "spot",
+            "translation": "Spot",
+            "info": "A leader of the Diamond Dogs. Can kidnap one pony (shared) during the night. Can stalk one pony during the night. Gets hax on dash, swarm, and feedoff. Sided with Diamond Dogs.",
+            "side": "dd1",
+            "help": "You are Spot, the smallest leader of the Diamond Dogs! Use this to your advantage by possibly spotting (harharhar) what is going on at night! You can /kidnap a pony at night (shared with team), and can also /stalk at night to see what someone was doing. Use /tt to Talk with your teammates.",
+            "actions": {
+				"teamTalk": true,
+                "hax": {
+                    "dash": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.05
+                    },
+                    "swarm": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.05
+                    },
+                    "feedoff": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.05
+                    }
+                },
+                "night": {
+                    "kidnap": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcastmsg": "±Game: ~Player~ (Spot) is preparing to ~Action~ ~Target~!",
+                        "broadcast": [
+                            "dog1",
+                            "fido",
+                            "rover",
+                            "spot"
+                        ],
+                        "command": "kill"
+                    },
+                    "stalk": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 20
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "para",
+            "translation": "Parasprites",
+            "info": "A swarm of insects. Can swarm one person during the night. Gets hax on inspect. Cannot be poisoned. Has a chance of finding Changeling. When the Changelings die, cannot be distracted. Sided with Discord-Chrysalis Axis.",
+            "side": "discord",
+            "help": "You are a swarm of Parasprites. You look cute, but have a dangerously ravenous appetite. You can /swarm a pony to get rid of them! You have a chance of finding the good guys. Under your leader Discord and your allies, the Changelings (you forgot who they were though), chaos will consume Equestria! If the Changelings fall, you will continue in their place. Use /tt to Talk with Discord and the other parasprites.",
+            "actions": {
+				"teamTalk": [ "para", "para1", "discord"],
+                "night": {
+                    "swarm": {
+                        "target": "AnyButRole",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": [
+                            "discord",
+                            "para"
+                        ],
+                        "command": "kill"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "discord",
+                        "para"
+                    ]
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "poison": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1",
+                            "chrysalis"
+                        ]
+                    }
+                },
+                "hax": {
+                    "inspect": {
+                        "revealTeam": 0.07,
+                        "revealPlayer": 0.02
+                    },
+                    "identify": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.015
+                    },
+                    "feedoff": {
+                        "revealRole": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "para1",
+            "translation": "More Parasprites",
+	    "hide": "side",
+            "info": "A swarm of insects. Can swarm one person during the night. Gets hax on inspect. Cannot be poisoned, cannot be distracted. Has a chance of finding Changeling. Sided with Discord-Chrysalis Axis.",
+            "side": "discord",
+            "help": "Bzzzzzzzt. You reproduce rather quickly, as such, your numbers have doubled. You can no longer be distracted, and your /swarm is faster now. Use /tt to Talk with Discord and the other parasprites.",
+            "actions": {
+				"teamTalk": [ "para", "para1", "discord"],
+                "night": {
+                    "swarm": {
+                        "target": "AnyButRole",
+                        "common": "Team",
+                        "priority": 10,
+                        "broadcast": [
+                            "discord",
+                            "para"
+                        ],
+                        "command": "kill"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "discord",
+                        "para1",
+                        "para"
+                    ]
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para",
+                            "para1"
+                        ]
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "Bzzzzzt. Somepony tries distracting you, but you just eat all her dresses instead. Yummy."
+                },
+                "poison": {
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1",
+                            "chrysalis"
+                        ]
+                    },
+		   "msg": "Hey partner stop attacking me, i am on your side"
+                },
+                "hax": {
+                    "inspect": {
+                        "revealTeam": 0.07,
+                        "revealPlayer": 0.02
+                    },
+                    "identify": {
+                        "revealTeam": 0.05,
+                        "revealPlayer": 0.015
+                    },
+                    "feedoff": {
+                        "revealRole": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "discord",
+            "translation": "Discord",
+            "info": "A powerful being of chaos. Can confuse one pony during the night. Can troll (kill) one pony during the day. Has a chance of finding Queen Chrysalis. Sided with Discord-Chrysalis Axis.",
+            "side": "discord",
+            "help": "You are Discord, a powerful and manipulative trickster, part pony, part dragon, all evil. You have returned in hopes of plunging Equestria into chaos, this time, with your Parasprite Legion, and have allied yourself with the Changelings and Queen Chrysalis. Too bad you forgot who they were, though you have a chance of finding them. You can /troll (kill) during the day to claim somepony for the forces of chaos, and /confuse (distract) during the night with your mischievous antics. Hint: See who Princess Cadance protects to connect with the other half of your team. Use /tt to Talk with the Parasprites.",
+            "actions": {
+				"teamTalk": [ "para", "para1", "discord"],
+                "night": {
+                    "confuse": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "broadcast": [
+                            "para",
+                            "chrysalis",
+                            "chrysalis1",
+                            "cadance"
+                        ],
+                        "command": "distract",
+                        "distractmsg": "'Excellent, another pony...' was all you recalled last night. Discord strikes again.",
+                        "teammsg": "You spent the entire night resuscitating your teammate from Discord, and was unable to ~Action~ in time."
+                    }
+                },
+                "standby": {
+                    "troll": {
+                        "target": "AnyButTeam",
+                        "msg": "What a pleasant day. Looks like just the right time for you to /troll.",
+                        "killmsg": "~Target~ gets discorded by the forces of chaos!",
+                        "command": "kill"
+                    }
+                },
+                "kill": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "para"
+                        ]
+                    }
+                },
+                "poison": {
+		   "msg": "Hey partner stop attacking me, i am on your side!!",
+                    "mode": {
+                        "ignore": [
+                            "changeling",
+                            "changeling1",
+                            "chrysalis",
+                            "chrysalis1"
+                        ]
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "para"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "cmc",
+            "translation": "Cutie Mark Crusaders",
+            "info": "Four adorable little fillies. Can scoot (protect) one pony during the night. Can squee (reveal) one pony during the standby (25% chance of self reveal). Vote counts as 2. May find Rainbow Dash.  Sided with Ponyville Residents.",
+            "side": "village",
+            "help": "You are the Cutie Mark Crusaders- Sweetie Belle, Applebloom, Scootaloo, and Babs Seed, four fillies who search for their special talents in life! You have a chance of discovering Rainbow Dash from your club treehouse, and you have 2 votes total (.5 each). /Scoot (protect) one of your friends away from danger! /Squee in the day to put the someone into cardiac arrest long enough to reveal their role (but be careful, you might trip)! Who knows, you just might get your cutie marks along the way!",
+            "actions": {
+                "vote": 2,
+                "night": {
+                    "scoot": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 8,
+                        "command": "protect"
+                    }
+                },
+                "hax": {
+                    "dash": {
+                        "revealTeam": 0.2,
+                        "revealRole": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "standby": {
+                    "squee": {
+                        "target": "AnyButSelf",
+                        "msg": "Full cuteness array activate, /squee now to reveal someone's role!",
+                        "exposemsg": "The Cutie Mark Crusaders approach ~Target~. CUTIE MARK CRUSADERS DIABEETUS-INDUCING CUTENESS GO! Dazed, ~Target~ is revealed to be ~Role~!",
+                        "command": "expose",
+                        "revealChance": 0.25,
+                        "revealmsg": "THUD! The Cutie Mark Crusaders clumsily trip over each other. 'Scatter girls!' ~Self~ exclaims as they run in every which way."
+                    }
+                }
+            }
+        },
+        {
+            "role": "zecora",
+            "translation": "Zecora",
+	    "hide": "side",
+            "info": "A mysterious zebra who lives in Everfree Forest. Cannot be harmed initially. Can join a side of her choosing after 1 turn. Can then /potion (protect or safeguard) and /poison (distract, poison, kill, or curse). If she stays alone for 5 turns becomes Shaman Zecora.",
+            "side": "zecora",
+            "help": "You are no normal equine, we find. A zebra among strange fauna and flora, the ponies, they trembled at your name Zecora. However, you proved them wrong, as you were kindly all along. Curing the ponies of their ails, a friend indeed, who never fails. Few dare wander to your home, until then live in peace alone (can't be killed or poisoned). After 1 turn, start anew; choose a side— /ponyville, /discord, /dogs, or /princesses [your name], why don't you (then you can use potion and poison with various effects). Or brew alone in sanctuary, on the 5th night you shall be quite scary.",
+            "actions": {
+                "night": {
+                    "ponyville": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "command": "convert",
+                        "priority": 29,
+                        "initialrecharge": 2,
+                        "newRole": "zecorapo",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined Ponyville. Together they shall rid Equestria of ills!"
+                    },
+                    "discord": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "initialrecharge": 2,
+                        "command": "convert",
+                        "newRole": "zecoradi",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined with Discord and Chrysalis. What good can come out of this?"
+                    },
+                    "dogs": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "initialrecharge": 2,
+                        "command": "convert",
+                        "newRole": "zecorado",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined with the Diamond Dogs. Just what does she have in stock?"
+                    },
+                    "princesses": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "initialrecharge": 2,
+                        "command": "convert",
+                        "newRole": "zecorapr",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined with the Princesses. This has become quite a mess."
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "zecoraz",
+                        "curseCount": 5,
+                        "curseConvertMessage": "'Ah yes, it is all done. Now it truly has begun,' Zecora announces (she now revenges every command used on her, and can poison everyone)."
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "zecora1",
+            "translation": "Zecora",
+	    "hide": "side",
+            "side": "zecora",
+            "info": "A mysterious zebra who lives in Everfree Forest. Cannot be harmed initially. Can join a side of her choosing after 2 turns. Can then /potion (protect or safeguard) and /poison (distract, poison, kill, or curse). If she stays alone for 6 turns becomes Shaman Zecora.",
+            "help": "You are no normal equine, we find. A zebra among strange fauna and flora, the ponies, they trembled at your name Zecora. However, you proved them wrong, as you were kindly all along. Curing the ponies of their ails, a friend indeed, who never fails. Few dare wander to your home, until then live in peace alone (can't be killed or poisoned). After 2 turns, start anew; choose a side— /ponyville, /discord, /dogs, or /princesses [your name], why don't you (then you can use potion and poison with various effects). Or brew alone in sanctuary, on the 6th night you shall be quite scary.",
+            "actions": {
+                "night": {
+                    "ponyville": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "command": "convert",
+                        "priority": 29,
+                        "hide": true,
+                        "initialrecharge": 3,
+                        "newRole": "zecorapo",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined Ponyville. Together they shall rid Equestria of ills!"
+                    },
+                    "discord": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "initialrecharge": 3,
+                        "command": "convert",
+                        "hide": true,
+                        "newRole": "zecoradi",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined with Discord and Chrysalis. What good can come out of this?"
+                    },
+                    "dogs": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "hide": true,
+                        "initialrecharge": 3,
+                        "command": "convert",
+                        "newRole": "zecorado",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined with the Diamond Dogs. Just what does she have in stock?"
+                    },
+                    "princesses": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "hide": true,
+                        "priority": 29,
+                        "initialrecharge": 3,
+                        "command": "convert",
+                        "newRole": "zecorapr",
+                        "silent": false,
+                        "canConvert": [
+                            "zecora"
+                        ],
+                        "convertmsg": "Zecora has joined with the Princesses. This has become quite a mess."
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "zecorazz",
+                        "curseCount": 6,
+                        "curseConvertMessage": "'Ah yes, it is all done. Now it truly has begun,' Zecora announces (she now revenge kills every command used on her, and can poison everyone)."
+                    }
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 1
+                    }
+                }
+            }
+        },
+        {
+            "role": "zecoraz",
+            "translation": "Shaman Zecora",
+            "info": "Can treat 99 ponies a night to poison. Revenges all commands used on her. Cannot be killed, poisoned, or distracted. Has a voteshield of -1 (-3 in large games). Sided with Zecora.",
+            "side": "zecora",
+            "help": "They have shunned you for far too long, soon they will learn they were wrong. Your concoction is now complete, /treat them all, as many as you can, to something decidedly unsweet (poison). They still dare not come near, for if they do, they bow down in fear (revenges all night commands, voteshield of -1). In time, they will see why you rhyme...",
+            "actions": {
+                "voteshield": -1,
+                "night": {
+                    "treat": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "command": "poison",
+                        "limit": 99
+                    }
+                },
+                "stalk": {
+                    "mode": "ChangeTarget",
+                    "targetmsg": "'Who dares enter my abode- you have reached the end of the road!'",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "inspect": {
+                    "mode": "ChangeTarget",
+                    "targetmsg": "'Who dares enter my abode- you have reached the end of the road!'",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "kill": {
+                    "mode": "ChangeTarget",
+                    "targetmsg": "'Who dares enter my abode- you have reached the end of the road!'",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "targetmsg": "'Who dares enter my abode- you have reached the end of the road!'",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "poison": {
+                    "mode": "ChangeTarget",
+                    "targetmsg": "'Who dares enter my abode- you have reached the end of the road!'",
+                    "msg": "~User~ made it to your front door, but no more."
+                }
+            }
+        },
+        {
+            "role": "zecorazz",
+            "translation": "Shaman Zecora",
+            "info": "Can treat 99 ponies a night to poison. Revenges all commands used on her. Cannot be killed, poisoned, or distracted. Has a voteshield of -4. Sided with Zecora.",
+            "side": "zecora",
+            "hide": true,
+            "help": "They have shunned you for far too long, soon they will learn they were wrong. Your concoction is now complete, /treat them all, as many as you can, to something decidedly unsweet (poison). They still dare not come near, for if they do, they bow down in fear (revenges all night commands, voteshield of -3). In time, they will see why you rhyme...",
+            "actions": {
+                "voteshield": -3,
+                "night": {
+                    "treat": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "hide": true,
+                        "command": "poison",
+                        "limit": 99
+                    }
+                },
+                "stalk": {
+                    "mode": "ChangeTarget",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "inspect": {
+                    "mode": "ChangeTarget",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "kill": {
+                    "mode": "ChangeTarget",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "msg": "~User~ made it to your front door, but no more."
+                },
+                "poison": {
+                    "mode": "ChangeTarget",
+                    "msg": "~User~ made it to your front door, but no more."
+                }
+            }
+        },
+        {
+            "role": "zecorapo",
+            "translation": "Zecora",
+            "info": "Can poison (kill, distract, curse, or poison) a pony at night. Can potion a pony at night (protect or safeguard). Knows the Cutie Mark Crusaders. Evades kills, daykills, and poisons 25% of the time.",
+            "side": "village",
+            "hide": true,
+            "help": "Among the common folk you find life, aid them in this time of strife. You can provide someone a /potion (protect or safeguard), and upon an enemy a /poison (kill, distract, curse, or poison). In Ponyville you are not invulnerable to harm, but upon yourself you have placed some charms (chance of evading danger). On Applebloom you can depend, so you know her and all her Cutie Mark Crusader friends.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+                        "limit": 1,
+                        "count": 2,
+                        "curseCount": 2,
+                        "curseConvertMessage": "Oh no! Zecora has turned ~Old~ into a Toad!",
+                        "cursedRole": "toad",
+                        "command": {
+                            "kill": 0.25,
+                            "distract": 0.25,
+                            "poison": 0.25,
+                            "curse": 0.25
+                        }
+                    },
+                    "potion": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "limit": 1,
+                        "command": {
+                            "protect": 0.5,
+                            "safeguard": 0.5
+                        }
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "cmc"
+                    ]
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                }
+            }
+        },
+        {
+            "role": "zecorapr",
+            "translation": "Zecora",
+            "hide": true,
+            "info": "Can poison (kill, distract, curse, or poison) a pony at night. Can potion a pony at night (protect or safeguard). Evades kills, daykills, and poisons 50% of the time.",
+            "side": "alicorn",
+            "help": "You have joined with Princesses, since why should you deserve any less? Royalty you shall always be. Celestia has cast a ward upon you, most danger you will now eschew. Protect her or Luna with your /potions (protect or safeguard), all others shall face your /poison (kill, distract, curse, or poison).",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "limit": 1,
+                        "hide": true,
+                        "count": 2,
+                        "curseCount": 2,
+                        "curseConvertMessage": "Oh no! Zecora has turned ~Old~ into a Toad!",
+                        "cursedRole": "toad",
+                        "command": {
+                            "kill": 0.1,
+                            "distract": 0.3,
+                            "poison": 0.2,
+                            "curse": 0.4
+                        }
+                    },
+                    "potion": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "limit": 1,
+                        "hide": true,
+                        "command": {
+                            "protect": 0.5,
+                            "safeguard": 0.5
+                        }
+                    }
+                },
+                "startup": "team-reveal",
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                }
+            }
+        },
+        {
+            "role": "zecorado",
+            "translation": "Zecora",
+            "info": "Can poison (kill, distract, curse, or poison) a pony at night. Can potion 3 ponies at night (protect or safeguard). Evades kills, daykills, and poisons 20% of the time.",
+            "side": "dd1",
+            "hide": true,
+            "help": "You do not like dogs particularly, but now you see an opportunity. Their many gems you seek, and to them you are quite oblique. Help them now with your /potion (can use up to 3 times a night on self or others, 30% chance of protect or safeguard), enemies you will feed your /poison (kill, distract, curse, or poison).",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 10,
+                        "hide": true,
+                        "count": 2,
+                        "curseCount": 2,
+                        "curseConvertMessage": "Oh no! Zecora has turned ~Old~ into a Toad!",
+                        "cursedRole": "toad",
+                        "command": {
+                            "kill": 0.3,
+                            "distract": 0.3,
+                            "poison": 0.2,
+                            "curse": 0.2
+                        }
+                    },
+                    "potion": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 3,
+                        "limit": 3,
+                        "hide": true,
+                        "failChance": 0.7,
+                        "command": {
+                            "protect": 0.5,
+                            "safeguard": 0.5
+                        }
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "startup": "team-reveal",
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                }
+            }
+        },
+        {
+            "role": "zecoradi",
+            "translation": "Zecora",
+            "hide": true,
+            "info": "Has a random vote ranging from -5 to 5. Can poison (kill, distract, curse, or poison) a pony at night. Can potion a pony at night (protect or safeguard). Evades kills, daykills, and poisons 20% of the time.",
+            "side": "discord",
+            "help": "Though the others see them as malevolent, you see that is not their intent. The embodiment of chaos has granted you with a distruptive vote from -5 to 5, though you are not sure what ends you are to strive. You shall be a worthy ally to them as well, to their allegiance you now dwell. Provide for them your /potion (protects or safeguards), and to those that stand in your way your /poison (kill, distract, curse, or poison)",
+            "actions": {
+				"teamTalk": true,
+                "vote": [
+                    -5,
+                    6
+                ],
+                "night": {
+                    "poison": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 10,
+                        "count": 2,
+                        "hide": true,
+                        "curseCount": 2,
+                        "curseConvertMessage": "Oh no! Zecora has turned ~Old~ into a Toad!",
+                        "cursedRole": "toad",
+                        "command": {
+                            "kill": 0.2,
+                            "distract": 0.2,
+                            "poison": 0.3,
+                            "curse": 0.3
+                        }
+                    },
+                    "potion": {
+                        "target": "Any",
+                        "common": "Self",
+                        "hide": true,
+                        "priority": 3,
+                        "command": {
+                            "protect": 0.5,
+                            "safeguard": 0.5
+                        }
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                },
+                "startup": "team-reveal",
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.2
+                    }
+                }
+            }
+        },
+        {
+            "role": "toad",
+            "translation": "Toad",
+            "winningSides": "*",
+            "info": "A seemingly ordinary toad. Dies if any command is used on it. Has a vote of 0. Receives 3 votes if voted for at all. Sided with Toads. Wins with anyone.",
+            "side": "toads",
+            "help": "You are now a boring old toad, but heyy, you're kind of cute. Your vote counts as 0 (no one ever cares what toads think :x). If you manage to make it to the end, you win (and then maybe the magic will wear off)! Be careful though, the life of a toad is a dangerous one...",
+            "actions": {
+                "vote": 0,
+                "voteshield": 3,
+                "inspect": {
+                    "mode": "die",
+                    "msg": "You hop away from ~Role~ as soon as they see you. Hey, what's that in the sky...",
+                    "targetmsg": "You found a toad, but you scared it away and it was eaten by a bird :(."
+                },
+                "distract": {
+                    "mode": "die",
+                    "msg": "You hop away from ~Role~ as soon as they see you. Hey, what's that in the sky...",
+                    "targetmsg": "You found a toad, but you scared it away and it was eaten by a bird :(."
+                },
+                "poison": {
+                    "mode": "die",
+                    "msg": "You hop away from ~Role~ as soon as they see you. Hey, what's that in the sky...",
+                    "targetmsg": "You found a toad, but you scared it away and it was eaten by a bird :(."
+                },
+                "stalk": {
+                    "mode": "die",
+                    "msg": "You hop away from ~Role~ as soon as they see you. Hey, what's that in the sky...",
+                    "targetmsg": "You found a toad, but you scared it away and it was eaten by a bird :(."
+                },
+                "protect": {
+                    "mode": "die",
+                    "msg": "You hop away from ~Role~ as soon as they see you. Hey, what's that in the sky...",
+                    "targetmsg": "You found a toad, but you scared it away and it was eaten by a bird :(."
+                },
+                "safeguard": {
+                    "mode": "die",
+                    "msg": "You hop away from ~Role~ as soon as they see you. Hey, what's that in the sky...",
+                    "targetmsg": "You found a toad, but you scared it away and it was eaten by a bird :(."
+                }
+            }
+        },
+        {
+            "role": "sombra",
+            "translation": "King Sombra",
+            "side": "sombra",
+            "help": "Every night you can convert one background Pony, Changeling, or Derpy into Slaves using /slave, but only these roles are able to be converted! Thanks to your powerful magic, you know the identity of all the Background Ponies and your /slave will actually protect your target from being killed in the same night. Your powers also makes you immune to distractions and all votes against you count for nothing. You are also immune to poison. Use /tt to Talk with your teammates.",
+            "info": "Can convert one person every night. Ignores distractors. Immune to poison. Voteshield of -9999. Sided with King Sombra.",
+            "actions": {
+				"teamTalk": true,
+                "night": {
+                    "slave": {
+                        "command": [
+                            "convert",
+                            "protect"
+                        ],
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": {
+                            "slave": [
+                                "villager1",
+                                "villager2",
+                                "villager3",
+                                "villager4",
+                                "villager5",
+                                "villager6",
+                                "villager7",
+                                "villager8",
+                                "villager9",
+                                "villager10",
+                                "villager11",
+                                "villager12",
+                                "villager13",
+                                "v1",
+                                "v2",
+                                "v3",
+                                "v4",
+                                "v5",
+                                "v6",
+                                "v7",
+                                "v8",
+                                "v9",
+                                "v10",
+                                "v11",
+                                "v12",
+                                "v13",
+                                "changeling1",
+                                "changeling",
+                                "derpy"
+                            ]
+                        },
+                        "convertmsg": "Muahah! A ~Old~ has been enslaved in the King Sombra's army"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "villager1",
+                        "villager2",
+                        "villager3",
+                        "villager4",
+                        "villager5",
+                        "villager6",
+                        "villager7",
+                        "villager8",
+                        "villager9",
+                        "villager10",
+                        "villager11",
+                        "villager12",
+                        "villager13",
+                        "v1",
+                        "v2",
+                        "v3",
+                        "v4",
+                        "v5",
+                        "v6",
+                        "v7",
+                        "v8",
+                        "v9",
+                        "v10",
+                        "v11",
+                        "v12",
+                        "v13"
+                    ],
+                    "team-revealif-with-roles": [
+                        "sombra"
+                    ]
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 1
+                    },
+                    "silent": true
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "slave": "crystal"
+                    },
+                    "convertmsg": "Hurray King Sombra is dead, with his death the Crystal Heart has morphed any ~Old~ in ~New~!"
+                },
+                "voteshield": -9999
+            },
+            "winIfDeadRoles": [
+                "luna",
+                "luna1",
+                "celestia",
+                "celestia1",
+                "twilight",
+                "spot",
+                "rover",
+                "fido",
+                "zecorapo",
+                "zecorapr",
+                "zecoradi",
+                "zecorado",
+                "zecoraz",
+                "zecorazz",
+                "dog1",
+                "para",
+                "discord",
+                "trixie",
+                "trixie2",
+                "rainbow",
+                "aj"
+            ]
+        },
+        {
+            "role": "slave",
+            "translation": "Slave",
+            "side": "sombra",
+            "help": "Oh no! King Sombra caught you and enslaved you! To make matters worse, you have no vote because as a slave you have no rights! Anyway, if you get inspected, you will reveal as Pony. Use /tt to Talk with your teammates.",
+            "info": "Vote of 0. Reveals as Pony when inspected. Sided with King Sombra.",
+            "actions": {
+				"teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "vote": 0,
+                "inspect": {
+                    "revealAs": [
+                        "v2"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "crystal",
+            "translation": "Crystal Pony",
+            "side": "crystal",
+            "hide": "side",
+            "help": "King Sombra is dead, and with his death you and the other ex-slaves will rule the Crystal Empire as Crystal Ponies! You now have vote of 3 to use because you are so tasty. Use /tt to Talk with your teammates.",
+            "info": "Vote of 3. Reveals as Pony when inspected. Sided with Crystal Empire.",
+            "actions": {
+				"teamTalk": true,
+                "vote": 3,
+                "startup": {
+                    "revealRole": [
+                        "crystal"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "trixie",
+            "translation": "The Great and Powerful Trixie",
+	    "hide": "side",
+            "info": "A self-proclaimed master magician unicorn pony.Can dazzle (distract) 99 ponies once every 3 turns after the first (80% chance). Becomes the Greater and More Powerful Trixie when lynched. Vote counts as -2. Has a 25% chance of avoiding daykills, nightkills, and poison. Sided with The Great and Powerful Trixie.",
+            "side": "trixie",
+            "help": "You are the Great and Powerful Trixie, the self-proclaimed most magical unicorn in all of Equestria! Your magic grants you a chance of avoiding harm in both the day and night. Once every 3 nights after the 1st, /dazzle as many ponies as you can a night (80% chance) with a truly magical and splendiferous performance! You can /announce this to someone the day before. The other ponies are skeptical, and as a result, you have -2 votes, but they're just so evidently jealous of your talent. You are, after all, the Great and Powerful Trixie, who once singlehoofedly defeated an Ursa Major! If you get the most votes, your magic show just becomes more popular!",
+            "actions": {
+                "night": {
+                    "dazzle": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 1,
+                        "limit": 99,
+                        "initialrecharge": 2,
+                        "failChance": 0.2,
+                        "recharge": 3,
+                        "command": "distract",
+                        "distractmsg": "You spent the night in awe of The Great and Powerful Trixie's amazingly captivating performance.",
+                        "teammsg": "Your teammate went to visit The Great and Powerful Trixie's truly magical magic show, and you decided to tag along."
+                    }
+                },
+                "standby": {
+                    "announce": {
+                        "target": "AnyButSelf",
+                        "msg": "Before your show begins, you can /announce it to some pony.",
+                        "exposemsg": "~Target~ is absolutely fixated on going to Trixie's magic show tonight.",
+                        "recharge": 4,
+                        "command": "expose"
+                    }
+                },
+                "vote": -2,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.25
+                    }
+                },
+                "lynch": {
+                    "convertTo": "trixie2",
+                    "convertmsg": "~Self~, the ~Old~, received ~Count~ votes, making her even more popular in Equestria!"
+                }
+            }
+        },
+        {
+            "role": "trixie2",
+            "translation": "The Greater and More Powerful Trixie",
+            "info": "Can bedazzle (distract) 99 ponies once every three turns. Can teleport (reveals) one pony during the standby.  Has a voteshield of -900. Has a 40% chance of avoiding daykills, nightkills, and poison. Sided with The Great and Powerful Trixie.",
+            "side": "trixie",
+            "help": "You are the Greater and More Powerful Trixie, now widely known throughout all of Equestria for you magical prowess! You have honed your talents, allowing you to avoid all harm 40% of the time, and /dazzle as many ponies as you can once every 3 nights. You may perform your greatest trick of all in the day and /teleport somepony far away, further than Twilight would ever imagine. Votes only add to your fame (be careful of Celestia though)!",
+            "actions": {
+                "night": {
+                    "dazzle": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 1,
+                        "initialrecharge": 1,
+                        "limit": 99,
+                        "recharge": 3,
+                        "command": "distract",
+                        "distractmsg": "You spent the night in awe of The Greater and More Powerful Trixie's amazingly captivating performance.",
+                        "teammsg": "Your teammate went to visit The Greater and More Powerful Trixie's truly magical magic show, and you decided to tag along."
+                    }
+                },
+                "standby": {
+                    "teleport": {
+                        "target": "AnyButSelf",
+                        "msg": "The Greater and More Powerful Trixie is ready to showcase her greatest trick of all; /teleport somepony away now!",
+                        "killmsg": "'It is time for ~Self~ (The Greater and More Powerful Trixie) to showcase her final and greatest trick of all!' ABRA KADABRA! Everyone looks back at the vacant spot where ~Target~ once stood. 'And that concludes The Greater and More Powerful Trixie's truly magical magic show for the day.'",
+                        "command": "kill"
+                    }
+                },
+                "voteshield": -900,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.4
+                    }
+                },
+                "poison": {
+                    "mode": {
+                        "evadeChance": 0.4
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.4
+                    }
+                }
+            },
+            "winIfDeadRoles": [
+                "twilight",
+                "spot",
+                "rover",
+                "fido",
+                "sombra",
+                "zecorapo",
+                "zecorapr",
+                "zecoradi",
+                "zecorado",
+                "zecoraz",
+                "zecorazz",
+                "dog1",
+                "para",
+                "discord",
+                "celestia",
+                "luna",
+                "chrysalis",
+                "cadance",
+                "changeling",
+                "rainbow",
+                "aj"
+            ]
+        }
+    ],
+    "roles1": [
+        "spike",
+        "para",
+        "twilight1",
+        "changeling",
+        "rarity",
+        "v1",
+        "v2"
+    ],
+    "roles2": [
+        "spike",
+        "para",
+        "twilight1",
+        "changeling",
+        "rarity",
+        "v1",
+        "v2",
+        "brony1",
+        "v3",
+        "v4",
+        "flutters"
+    ],
+    "roles3": [
+        "spike1",
+        "spot",
+        "rover",
+        "twilight",
+        "rarity",
+        {
+            "v1": 0.5,
+            "v9": 0.5
+        },
+        {
+            "v2": 0.5,
+            "v10": 0.5
+        },
+        "para",
+        "changeling1",
+        {
+            "v3": 0.5,
+            "v11": 0.5
+        },
+        "pinkie",
+        "discord",
+        "flutters",
+        "aj",
+        "fido",
+        "derpy",
+        {
+            "trixie": 0.5,
+            "zecora": 0.5
+        },
+        "rainbow",
+        "v4",
+        {
+            "chrysalis": 0.5,
+            "cadance": 0.5
+        },
+        "celestia",
+        "luna",
+        "cmc"
+    ],
+    "roles4": [
+        "spike1",
+        "spot",
+        "rover",
+        "twilight",
+        "rarity",
+        {
+            "v1": 0.5,
+            "v9": 0.5
+        },
+        {
+            "v2": 0.5,
+            "v10": 0.5
+        },
+        "para",
+        "changeling1",
+        {
+            "v3": 0.5,
+            "v11": 0.5
+        },
+        "pinkie",
+        "discord",
+        "flutters",
+        "aj",
+        "fido",
+        "derpy",
+        {
+            "trixie": 0.4,
+            "zecora": 0.3,
+	    "sombra": 0.3
+        },
+        "rainbow",
+        "v4",
+        {
+            "chrysalis": 0.5,
+            "cadance": 0.5
+        },
+        "celestia",
+        "luna",
+        "cmc",
+        "v5",
+        "dog1",
+        "para",
+        "v6",
+        "v7",
+        "v8",
+        "changeling1"
+    ],
+    "roles5": [
+        "spike1",
+        "spot",
+        "rover",
+        "twilight",
+        "rarity",
+        "v1",
+        "para",
+        "changeling1",
+        "v2",
+        "v3",
+        "flutters",
+        "pinkie",
+        "discord",
+        "aj",
+        "fido",
+        "derpy",
+        "trixie",
+        "zecora1",
+        "rainbow",
+        "v4",
+        {
+            "chrysalis1": 0.5,
+            "cadance": 0.5
+        },
+        "celestia",
+        "luna",
+        "cmc",
+        "v5",
+        "dog1",
+        "para",
+        "v9",
+        "v10",
+        "v6",
+        "v11",
+        "changeling1",
+        "v7",
+        "v8",
+        "dog1",
+        "v12",
+        "v13",
+        "sombra"
+    ],
+    "villageCantLoseRoles": [
+		"villager1x", "v1x", "villager2x", "v2x", "villager3x", "v3x", "villager4x", "v4x", "twilight1x", "spikex", "rarityx", "fluttersx", "brony0",
+        "twilight",
+        "zecorapo",
+        "aj",
+        "rainbow",
+        "cmc"
+    ],
+    "lynchmsg": "±Mayor Mare: ~Player~ (~Role~) has been banished from Equestria!",
+    "killmsg": "±Mayor Mare: ~Player~ (~Role~) has disappeared from Equestria!",
+    "killusermsg": "±Game: You have been defeated!",
+    "changelog": {
+        "June 14, 2012": "Changelog added. Derpy now wins with ANY team if she makes it to the end, and can no longer poison during the night. Cutie Mark Crusaders now expose instead of kill during the day. Priorities updated.",
+        "June 16, 2012": "Derpy no longer kills distractors, and has a 10% chance of avoiding daykills, nightkills, and poison. Priorities updated.",
+        "June 30, 2012": "Discord appears much earlier. Derpy can only safeguard once, but now has a 50% chance of evading poison, and a 15% chance of evading day and nightkills. The Diamond Dogs know each other's roles.",
+        "August 6, 2012": "Pinkie Pie reveals daykillers instead of avoiding them. Flutterhax reduced.",
+        "August 7, 2012": "Queen Chrysalis can now chrysalize once per game, an insta-killing poison. Team hax added for Parasprites and Changelings and increased for Chrysalis, Discord, and Cadance.",
+        "August 13, 2012": "All the Diamond Dogs get a custom broadcast command whenever someone on the team acts.",
+        "August 15, 2012": "The Great and Powerful Trixie has been added as a lone role.",
+        "September 11, 2012": "Cadance appears at first instead of Chrysalis. /Chrysalize no longer pierces through bodyguards.",
+        "September 14, 2012": "Applejack broadcasts /buck (now once every other night). Trixie can no longer /teleport and only has a 20% of avoiding all harm. She converts into The Greater and More Powerful Trixie upon being lynched. Doctor Hooves and Pinkie Pie get hax on feedoff.",
+        "September 17, 2012": "Applejack may now use each of the following commands once per game- buck, inspect, distract, protect, and safeguard. Chrysalis's consume is now a poison, and she has a voteshield of -4. Win messages added.",
+        "September 21, 2012": "Derpy can /derp at night to use a random command. Princesses avoid poison 15% of the time.",
+        "September 23, 2012": "Roles list updated. Pinkie Pie appears instead of Applejack in smaller games. Fido appears after Discord. Fido may use capture once per game without an initial recharge.",
+        "October 4, 2012": "Berry Punch appears instead of Pinkie in small games. Applejack appears after Discord.",
+        "October 30, 2012": "Celestia has a voteshield of -999. The Greater and More Powerful Trixie wins if killing roles (and Celestia) are gone; her avoid rate is lowered to 40%. Pinkie no longer gets hax on consume or feedoff; Rarity does instead. Applejack must wait one turn before using her commands. Parasprites cannot be poisoned. Derpy may appear on Trixie's side, and /derp has a higher chance of failing.",
+        "November 9, 2012": "Applejack can no longer change targets for her commands (cuz she's honest), and /buck is now a two-time priority distract/kill. Initial recharge removed.",
+        "December 4, 2012": "Added in Babs Seed to Cutie Mark Crusaders. They have 2 votes now, but reveal themselves 15% of the time when using /squee. Chrysalis's poison goes through protect. Rover has a 20% chance of inspecting incorrectly.",
+        "January 3, 2013": "Princess Luna gets -997 votes to balance out Celestia's 999. Celestia cannot be poisoned by Changelings. Changelings avoid distract only 50% of the time. Chrysalis can't be distracted. Zecora delayed :(.",
+        "February 2, 2013": "Finally added Zecora. She starts out invulnerable to every command. After 2 turns, she can choose to join a side and then assist them with potions and poisons. Or, after 6 turns, she can go alone and revenge every command used against her, as well as use a 3 turn poison against everyone.",
+        "February 5, 2013": "Zecora converts on the 5th night, and has a 1 day poison. Celestia gets 1 daykill instead of nightkills after Luna is gone. Added in new villagers and made some random. Added a roles3 list.",
+        "February 9, 2013": "Bug fixes.",
+        "March 2, 2013": "Luna has a vote of 2 instead of -997.",
+        "April 3, 2013": "Cleaned up /roles and /priority by hiding some roles. Trixie can now /dazzle every 3 nights. 2nd form Trixie gets /dazzle as well, and the command cannot fail. Shaman Zecora has a voteshield of -1 in medium games.",
+        "July 4, 2013": "Balance update. See the thread for details: http://pokemon-online.eu/forums/showthread.php?15907-FiM.",
+        "August 25, 2013": "The villagers ponies now don't know their real name until day 3 and both them and changeling get inspected as Pony instead of a more precise pony.",
+        "August 27, 2013": "Added Snips,Snails and King Sombra as roles.",
+		"December 27, 2013": "Added Brony.",
+		"February 21, 2014": "Now baddies and Masons can Team-Talk.",
+		"February 26, 2014": "Fixed the bug where Brony win even if village can still fight back. Now Brony starts with only -1.1 voteshield that rises of -1 every time that they convert a villager."
+    }
+}
