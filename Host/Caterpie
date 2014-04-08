@@ -1,0 +1,344 @@
+{
+    "name": "Caterpie",
+    "author": ["RiceKirby"],
+    "summary": "The Weedle Family wants to take over the forest, but the Caterpie Family (+Venomoth) has come to stop them! Meanwhile, a Charmeleon is looking for battles, while a Bug Catcher tries to increase his insects collection! With no Inspectors or Bodyguards in the Forest, everyone will have to find another way to identify or clean other players!",
+    "minplayers": 6,
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?15914-Caterpie",
+    "sides": [
+        {
+            "translation": "Caterpie Family",
+            "side": "village",
+            "winmsg": "±Forest: And the Caterpie Family saved the Forest! Everyone hail ~Players~, our savior(s)! Hopefully, all the insects will live peacefully from now on! "
+        },
+        {
+            "translation": "Weedle Family",
+            "side": "mafia",
+            "winmsg": "±Forest: This Forest is now under control of the Weedle Family, which consists of ~Players~. Only Weedles, Kakunas and Beedrills are allowed here!"
+        },
+        {
+            "translation": "Fire Pokémon",
+            "side": "werewolf",
+            "winmsg": "±Forest: Nobody was a match for ~Players~, the Fire Pokémon, who left the Forest triumphantly as the grand winner!"
+        },
+        {
+            "translation": "Bug Catcher",
+            "side": "godfather",
+            "winmsg": "±Forest: After some days spent in the Forest, ~Players~'s collection is now complete! Now this Bug Catcher has every existing Bug-Type Pokémon! ...wait, even Genesect?!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "caterpie",
+            "translation": "Caterpie",
+            "side": "village",
+            "help": "You are a simple bug, but since there are several of you, you have great chances of witnessing a fight in the Forest. However, you are slow and rarely gets to see the attacker's face.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.75,
+                        "revealPlayer": 0.025
+                    },
+                    "poison": {
+                        "revealTeam": 0.75,
+                        "revealPlayer": 0.025
+                    }
+                }
+            }
+        },
+        {
+            "role": "metapod",
+            "translation": "Metapod",
+            "side": "village",
+            "help": "While you may be just a cocoon that can't move too much, you're a sturdy Pokémon and will hold a few hits before being defeated. This means you have 40% chance of surviving a night attack.",
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.4
+                    }
+                }
+            }
+        },
+        {
+            "role": "butterfree",
+            "translation": "Butterfree",
+            "side": "village",
+            "help": "As a fully evolved Butterfree, you can learn Sleep Powder and use it to stop your opponents for a night by typing /distract [name]. Also, you are admired by your fellow insects, so your vote counts as 3.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "distractmsg": "Butterfree used Sleep Powder on you! You overslept and thus couldn't act during the night!"
+                    }
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "venomoth",
+            "translation": "Venomoth",
+            "side": "village",
+            "help": "You are a distant relative of the Caterpie Family, so you came to help them. Type /kill [name] to kill someone (aim for the Weedle Family and the Fire Pokémon)! Oh, and since you are a Poison-type, you are immune to poison.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "weedle",
+            "translation": "Weedle",
+            "side": "mafia",
+            "help": "As a Bug/Poison Pokémon, you can type /Poison [name] to use your Poison Sting on someone. But since you are weak, your poison takes 2 nights to completely defeat an opponent. [Hint: You don't share your actions with other Weedles.]",
+			"info": "Can poison one person during the night (they will die after 2 nights). Sided with Weedle Family.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButRole",
+                        "common": "Self",
+                        "priority": 2,
+                        "broadcast": ["weedle", "kakuna", "beedrill"],
+                        "count": 3,
+                        "poisonDeadMessage": "You found a Pecha Berry, but you died from poison before you could eat it!"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "weedle",
+                        "kakuna",
+                        "beedrill"
+                    ]
+                },
+                "teamTalk": [
+                    "weedle",
+                    "kakuna",
+                    "beedrill"
+                ]
+            }
+        },
+        {
+            "role": "kakuna",
+            "translation": "Kakuna",
+            "side": "mafia",
+            "help": "As a Cocoon Pokémon, you keep clung to trees, hindering other insects' movement. Because of that, your vote counts as -2 (both because you slow down everyone and because nobody cares about you). You can't be daykilled, and you have a chance of witnessing Venomoth's attacks! If you are the last of your team, you will evolve to a Beedrill. ",
+            "info": "Vote counts as -2. Can't be daykilled. Can't be poisoned. Gets hax on kill. Becomes Beedrill if all teammates but Kakunas are dead. Sided with Weedle Family. ",
+            "actions": {
+                "vote": -2,
+                "poison": {
+                    "mode": "ignore"
+                },
+                "daykill": "evade",
+                "startup": {
+                    "revealRole": [
+                        "weedle",
+                        "kakuna",
+                        "beedrill"
+                    ]
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.35,
+                        "revealPlayer": 0.06
+                    }
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "beedrill": ["weedle", "beedrill", "s_beedrill"]
+                    },
+                    "convertmsg": "~Old~ evolved into ~New~!"
+                },
+                "teamTalk": [
+                    "weedle",
+                    "kakuna",
+                    "beedrill"
+                ]
+            }
+        },
+        {
+            "role": "beedrill",
+            "translation": "Beedrill",
+            "side": "mafia",
+            "help": "As the strongest insect from the Weedle Family, you can type /Kill [name] during the night to use Twineedle and knock down a opponent Pokémon. [Hint: You don't share your actions with other Beedrills.]",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4,
+                        "broadcast": ["weedle", "kakuna", "beedrill"]
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "startup": {
+                    "revealRole": [
+                        "weedle",
+                        "kakuna",
+                        "beedrill"
+                    ]
+                },
+                "teamTalk": [
+                    "weedle",
+                    "kakuna",
+                    "beedrill"
+                ]
+            }
+        },
+        {
+            "role": "s_beedrill",
+            "translation": "Shiny Beedrill",
+            "side": "mafia",
+            "help": "As a rare kind of Beedrill, you often are away from your team and don't know who they are. Because of that, you always miss your team's swarm attacks and can only use /kill [name] during the day. But since people rarely see a Shiny Pokémon, you won't be revealed when you kill.",
+			"info": "Can kill one person during the standby. Can't be poisoned. Sided with Weedle Family (but doesn't know its team). ",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "It's time to shine! Type /Kill [name] to Twineedle someone to death:",
+                        "killmsg": "Shiny Beedrill used Twineedle! It's not very effective, but it still pierced ~Target~'s body!"
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "charmeleon",
+            "translation": "Charmeleon",
+            "side": "werewolf",
+            "help": "As a Fire Pokémon, you are feared by the Bugs and won't be haxed by them. Type /Kill [name] to burn them all and take control of the Forest! And since Sunny Day is in effect, whoever tries to attack you during the day will regret it deeply. You evade 1 nightkill during the game, and if anyone distracts you, you will find their identity!",
+            "info": "Can kill one person during the night. (Can't be detected by spies). Identify distractors. Evades 1 nightkill. Counter daykills. Sided with Fire Pokémon. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3
+                    }
+                },
+                "daykill": "revenge",
+                "daykillrevengemsg": "~Target~ tried to attack Charmeleon while Sunny Day was in effect. The attack failed miserably, and ~Target~ was defeated instead!",
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    }
+                },
+                "distract": {
+                    "mode": "identify"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "bug_trainer",
+            "translation": "Bug Catcher",
+            "side": "godfather",
+            "help": "You are the only human in the whole forest. You can type /catch once per day to capture a Pokémon. You can also type /capture to get a second Pokémon during the day (with a 50% chance of revealing you)! And since you are a human, you have 2 votes.",
+            "info": "Can kill twice during the standby (1st kill concealed, 2nd kill with a 50% chance of revealing). Vote counts as 2. Sided with Bug Catcher. ",
+			"actions": {
+                "standby": {
+                    "catch": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "limit": 1,
+                        "msg": "Gotta catch'em all! Type /catch [name] to capture a Bug Pokémon (you won't be revealed)!",
+                        "killmsg": "Suddenly, a Poké Ball is seen flying towards ~Target~, who's then caught by a Bug Catcher!"
+                    },
+                    "capture": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "limit": 2,
+                        "msg": "You can also type /capture [name] after you used /catch, but that has a 50% chance of revealing you!",
+                        "killmsg": "The Bug Catcher raises a net and use it to capture ~Target~!",
+                        "revealChance": 0.5,
+                        "revealmsg": "~Self~ is a famous Bug Catcher now! Even the Pokémon recognize them!"
+                    }
+                },
+                "vote": 2
+            }
+        }
+    ],
+    "roles1": [
+        "beedrill",
+        "caterpie",
+        "caterpie",
+        "metapod",
+        "metapod",
+        "caterpie",
+        "weedle",
+        "metapod",
+        "charmeleon",
+        "butterfree",
+        "caterpie",
+        "kakuna",
+        "caterpie",
+        "metapod",
+        "beedrill",
+        "venomoth",
+        "metapod",
+        "s_beedrill",
+        "caterpie",
+        "butterfree",
+        "weedle",
+        "bug_trainer",
+        "caterpie",
+        "kakuna",
+        "charmeleon",
+        "caterpie",
+        "venomoth",
+        "metapod",
+        "butterfree",
+        "caterpie",
+        "caterpie",
+        "metapod",
+        "metapod",
+        "metapod",
+        "beedrill",
+        "caterpie",
+        "metapod",
+        "bug_trainer",
+        "caterpie",
+        "weedle",
+        "caterpie",
+        "s_beedrill",
+        "metapod",
+        "beedrill",
+        "charmeleon",
+        "butterfree",
+        "kakuna",
+        "caterpie"
+    ],
+    "villageCantLoseRoles": [
+        "butterfree",
+        "venomoth"
+    ],
+    "killmsg": "±Forest: ~Player~ (~Role~) was defeated and disappeared from the Forest!",
+    "lynchmsg": "±Forest: ~Player~ (~Role~) was defeated and disappeared from the Forest!",
+    "killusermsg": "Your HP dropped to 0! ",
+    "border": "( º w º ) === === === === === === === === === === === === === === === === ( º w º ):",
+    "changelog": {
+        "20.02.2014": "Butterfree now is able to distract another Butterfree.",
+        "27.12.2013": "Removed Pikachu. Charmeleon now can evade 1 nightkill per game. Buff for Bug Catcher coming soon.",
+        "10.10.2013": "Weedles, Kakuna and Beedrills can use /tt to talk privately.",
+        "03.10.2013": "Kakuna evolves when all Weedles, Beedrills and Shiny Beedrills are dead (added some time ago, made official now).",
+        "03.08.2013": "Kakuna hax slightly increased.",
+        "03.08.2013": "Kakuna now hax kills (to reduce Venomoth spamming /kill).",
+        "31.07.2013": "Spawn List expanded to allow for 40+ players.",
+        "24.06.2013": "Pikachu finally found, so it will appear on /roles and /sides now.",
+        "27.05.2013": "Small games balance. Reduced minimum players to 6.",
+        "22.02.2013": "Easter Egg.",
+        "29.01.2013": "Added this changelog."
+    }
+}
