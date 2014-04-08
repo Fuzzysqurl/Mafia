@@ -1,0 +1,2915 @@
+{
+    "name": "SSBB",
+    "altname": "Super Smash Bros. Brawl",
+    "author": [
+        "Hoboman2.0",
+        "RiceKirby"
+    ],
+    "summary": "[MAJOR OVERHAUL: Check /changelog for details] Nintendo's all-stars collide in a wild and crazy mafia theme, in this one Brawl to end them all! No brawler is safe at any moment, be it mafia or villager! ",
+    "border": "***~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~",
+    "minplayers": 7,
+    "threadlink": "http://pokemon-online.eu/forums/showthread.php?16208-SSBB",
+    "sides": [
+        {
+            "side": "village",
+            "translation": "Good People",
+            "winmsg": "±Announcer: ~Players~ are going to make sure everyone can have a fair brawl! The Good People wins!"
+        },
+        {
+            "side": "villains",
+            "translation": "Villains",
+            "winmsg": "±Announcer: Bwa Ha Ha! ~Players~ have conquered the Smash universe! The Villains won!"
+        },
+        {
+            "side": "monkey",
+            "translation": "Monkey Mafia",
+            "winmsg": "±Announcer: ~Players~ have beaten everyone on their quest to retrieve their bananas! The Monkey Mafia wins!"
+        },
+        {
+            "side": "pokemon",
+            "translation": "Pokémon Mafia",
+            "winmsg": "±Announcer: ~Players~ have become the very best brawlers, like no one ever was! The Pokémon Mafia wins!"
+        },
+        {
+            "side": "metaknight",
+            "translation": "Meta Knight",
+            "winmsg": "±Announcer: ~Players~ has shown why Meta Knight is at the top of Brawl's tier lists! Meta Knight wins!"
+        },
+        {
+            "side": "dedede",
+            "translation": "King Dedede's Posse",
+            "winmsg": "±Announcer: ~Players~ will now rule both Dream Land and Final Destination! The King Dedede's Posse wins!"
+        },
+        {
+            "side": "third",
+            "translation": "Third Party",
+            "winmsg": "±Announcer: What a shame, letting ~Players~, a non-Nintendo character, steal your win! The Third Party wins!"
+        },
+        {
+            "side": "hand",
+            "translation": "Master Hand",
+            "winmsg": "±Announcer: TODO!"
+        }
+    ],
+    "variables": {
+        "villageList": [
+            "mario",
+            "luigi",
+            "lucas",
+            "lucas2",
+            "ness",
+            "ness2",
+            "peach",
+            "yoshi",
+            "link",
+            "toon_link",
+            "captain_falcon",
+            "marth",
+            "ike",
+            "pit",
+            "samus1",
+            "samus2",
+            "olimar7",
+            "olimar6",
+            "olimar5",
+            "olimar4",
+            "olimar3",
+            "olimar2",
+            "olimar1",
+            "ice_climbers",
+            "zelda",
+            "sheik",
+            "fox",
+            "fox2",
+            "falco",
+            "falco2",
+            "mr_game_watch",
+            "rob",
+            "kirby",
+            "kirby_prio",
+            "kirby_lucas",
+            "kirby_ness",
+            "kirby_peach",
+            "kirby_yoshi",
+            "kirby_link",
+            "kirby_captain_falcon",
+            "kirby_marth",
+            "kirby_ike",
+            "kirby_pit",
+            "kirby_samus",
+            "kirby_olimar7",
+            "kirby_olimar6",
+            "kirby_olimar5",
+            "kirby_olimar4",
+            "kirby_olimar3",
+            "kirby_olimar2",
+            "kirby_olimar1",
+            "kirby_ice_climbers",
+            "kirby_zelda",
+            "kirby_sheik"
+        ],
+        "villainsList": [
+            "villains_prio",
+            "wario",
+            "wario_man",
+            "ganondorf",
+            "ganondorf2",
+            "beast_ganon",
+            "beast_ganon2",
+            "bowser",
+            "giga_bowser",
+            "bowser_help",
+            "ganondorf_help",
+            "wario_help",
+            "wolf",
+            "covered_villain"
+        ],
+        "pokemonList": [
+            "pokemon_prio",
+            "pikachu",
+            "jigglypuff",
+            "lucario",
+            "pokemon_trainer_squirtle",
+            "pokemon_trainer_ivysaur",
+            "pokemon_trainer_charizard"
+        ],
+        "monkeyList": [
+            "monkey_prio",
+            "donkey_kong3",
+            "donkey_kong2",
+            "donkey_kong",
+            "diddy_kong",
+            "diddy_kong2"
+        ],
+        "metaknightList": [
+            "meta_knight"
+        ],
+        "dededeList": [
+            "king_dedede",
+            "waddle_doo"
+        ],
+        "thirdList": [
+            "snake",
+            "sonic"
+        ]
+    },
+    "roles": [
+        {
+            "role": "mario",
+            "translation": "Mario",
+            "side": "village",
+            "help": "If you don't know who Mario is, get out from under your rock! You don’t have any special commands during the night, but you do have a tiny chance to find out who is going to be killed! Vote to remove people in the day!",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.07,
+                        "revealPlayer": 0.02
+                    },
+                    "poison": {
+                        "revealTeam": 0.06,
+                        "revealPlayer": 0.02
+                    }
+                }
+            }
+        },
+        {
+            "role": "luigi",
+            "translation": "Luigi",
+            "side": "village",
+            "help": "You are also known as King of Second Bananas! You don’t have any special commands during the night, but you know your fellow Luigis, so you could claim confirming each other! Oh, and your vote counts as -1!",
+            "info": "Knows other Luigis. Vote counts as -1. Sided with Good People",
+            "actions": {
+                "vote": -1,
+                "startup": "role-reveal"
+            }
+        },
+        {
+            "role": "lucas",
+            "translation": "Lucas",
+            "side": "village",
+            "help": "Due to your amazing PSI abilities, you can type /inspect [name] to find someone's identity! ",
+            "info": "Can inspect one person during the night. After Ness dies, Vote counts as 2 and has 50% chance of evading daykills. Sided with Good People.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 35
+                    }
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "lucas2": ["ness", "ness2"]
+                    },
+                    "convertmsg": "Lucas' determination increased due to Ness' defeat!"
+                }
+            }
+        },
+        {
+            "role": "lucas2",
+            "translation": "Lucas",
+            "side": "village",
+            "help": "Your determination has increased! You still can use /inspect [name] during the night, but now your vote counts as 2 and you have a 50% chance of evading daykills!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 35,
+                        "hide": true
+                    }
+                },
+                "vote": 2,
+                "daykill": {
+                    "mode": {
+                        "evadeChance": 0.5
+                    }
+                }
+            }
+        },
+        {
+            "role": "ness",
+            "translation": "Ness",
+            "side": "village",
+            "help": "You are a PSI extrodinaire from Eagleland! Your mastery of PSI allows you to type /protect [name] to protect someone from any harmful effect (including poison)! You have a small chance of finding out who gets killed next!",
+            "info": "Can protect + safeguard one person (2 on larger games) during the night. Get hax on kill. Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "command": [
+                            "safeguard",
+                            "protect"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.04
+                    }
+                }
+            }
+        },
+        {
+            "role": "ness2",
+            "translation": "Ness",
+            "side": "village",
+            "help": "You are a PSI extrodinaire from Eagleland! Your mastery of PSI allows you to type /protect [name] twice per night to guard your target from any harmful effect (including poison)! You have a small chance of finding out who gets killed next! ",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "protect": {
+                        "command": [
+                            "safeguard",
+                            "protect"
+                        ],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "limit": 2,
+                        "hide": true
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.04
+                    }
+                }
+            }
+        },
+        {
+            "role": "peach",
+            "translation": "Peach",
+            "side": "village",
+            "help": "You are the Princess of the Mushroom Kingdom! Type /distract [name] to distract someone! Once per game, you can use /expose [name] during the standby to publicly reveal someone's role (you won't be revealed)!",
+            "info": "Can distract one person during the night. Once per game, can expose one person during the standby (won't reveal itself). Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "exposemsg": "A Princess Peach-themed border covers the whole screen and a rain of peaches falls, pulling ~Target~, the ~Role~ into a deep slumber.",
+                        "msg": "You can expose someone once during the game with /expose [name] (you won't be revealed)!",
+                        "charges": 1
+                    }
+                },
+                "avoidStandbyHax": ["expose"]
+            }
+        },
+        {
+            "role": "yoshi",
+            "translation": "Yoshi",
+            "side": "village",
+            "help": "You are the green dinosaur that helps Mario on his quests! You can type /cure [name] up to 3 times per game to remove someone's poison!",
+            "info": "Can cure 3 persons of poison during the game. Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "cure": {
+                        "command": "detox",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 22,
+                        "charges": 3,
+                        "detoxmsg": "Yoshi has removed the poison from ~Target~'s body!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "link",
+            "translation": "Link",
+            "side": "village",
+            "help": "Known as the Hero of Time, you can type /kill [name] to kill someone using the Master Sword!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10
+                    }
+                }
+            }
+        },
+        {
+            "role": "toon_link",
+            "translation": "Toon Link",
+            "side": "village",
+            "help": "Known as the cel-shaded Hero of Time, you can type /kill [name] to kill someone using the Master Sword! Due to being a cartoon, you cannot be stopped by distractors!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 17
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ tried to distract you, but how would they stop a cartoon?"
+                }
+            }
+        },
+        {
+            "role": "captain_falcon",
+            "translation": "Captain Falcon",
+            "side": "village",
+            "help": "You are a famous F-Zero Racer! You can use /punch or /kill [name] during the standby to defeat someone with a punch (you will be revealed though). ",
+            "info": "Can punch one person during the standby. Sided with Good People. ",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /punch [name] (/kill works too). You will be revealed!",
+                        "killmsg": "~Self~ pulls out a fist and punches it through ~Target~'s chest! FALCON PAUWNCH!"
+                    },
+                    "punch": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "killmsg": "~Self~ pulls out a fist and punches it through ~Target~'s chest! FALCON PAUWNCH!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "marth",
+            "translation": "Marth",
+            "side": "village",
+            "help": "As the King of Altea, you will fight back the invaders and kill anyone that attacks you! ",
+            "info": "Revenge nightkills. Sided with Good People. ",
+            "actions": {
+                "kill": {
+                    "mode": "killattacker",
+                    "msg": "You tried to attack Marth, but Marth used Counter on you!"
+                }
+            }
+        },
+        {
+            "role": "ike",
+            "translation": "Ike",
+            "side": "village",
+            "help": "As a member of the Greil Mercenaries, you will kill back anyone who dares to try poisoning you or attacking you during the day. ",
+            "info": "Revenge poison and daykills. Sided with Good People. ",
+            "actions": {
+                "poison": {
+                    "mode": "killattacker",
+                    "msg": "You tried to attack Ike, but Ike used Counter on you!"
+                },
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ tried to attack Ike, but ~Self~ used Counter!"
+            }
+        },
+        {
+            "role": "pit",
+            "translation": "Pit",
+            "side": "village",
+            "help": "You are a winged soldier of the Goddess Palutena! You can fly above another player with /fly [name] to reveal your identity to them! You will also identify anyone that distracts you from your duties!",
+            "info": "Can fly during the night to reveal own role to another player. Identify distractors. Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "fly": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 38,
+                        "dummytargetmsg": "A voice comes from the heavens. As you look up, you can see ~Self~, the ~Role~, flying above the clouds.",
+                        "dummyusermsg": "You revealed your identity to ~Target~!",
+                        "pierce": true
+                    }
+                },
+                "distract": {
+                    "mode": "identify"
+                }
+            }
+        },
+        {
+            "role": "samus1",
+            "translation": "Samus",
+            "side": "village",
+            "help": "You are an amazing bounty hunter! Type /kill [name] during the night to kill someone with a missile, and /distract [name] to distract someone every 2 nights! You die instantly if distracted. You can also change to Zero Suit Samus using /zero, but you can't change forms and use your other abilities at the same night!",
+            "info": "Can kill one person during the night. Can distract one person every 2 nights. Dies instantly if distracted. Can change into Zero Suit Samus. Sided with Good People. ",
+            "actions": {
+                "distract": {
+                    "mode": "die",
+                    "msg": "You have been distracted. Your pride as a bounty hunter is now hurt, and led to your defeat.",
+                    "targetmsg": "You distracted ~Self~, who died immediately!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 16,
+                        "initialrecharge": 1,
+                        "restrict": [
+                            "zero"
+                        ]
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "recharge": 2,
+                        "initialrecharge": 1,
+                        "restrict": [
+                            "zero"
+                        ]
+                    },
+                    "zero": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "command": "convert",
+                        "priority": 32,
+                        "newRole": "samus2",
+                        "canConvert": [
+                            "samus1"
+                        ],
+                        "convertmsg": "Samus took her Power Suit off!",
+                        "restrict": [
+                            "kill",
+                            "distract"
+                        ],
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "samus2",
+            "translation": "Zero Suit Samus",
+            "side": "village",
+            "help": "You took your Power Suit off, and became Zero Suit Samus. You can /distract [name] every night and /kill [name] every 2 nights! You die instantly if poisoned. You can put on your Power Suit again by typing /power, but you can't change forms and use your other actions during the same night.",
+            "info": "Can kill one person every 2 nights. Can distract one person during the night. Dies instantly if poisoned. Can change into Samus. Sided with Good People. ",
+            "actions": {
+                "poison": {
+                    "mode": "die",
+                    "msg": "You have been poisoned, but died immediately because you didn't have your Power Suit on!",
+                    "targetmsg": "You poisoned ~Self~, who died immediately because they didn't have their Power Suit on!"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 16,
+                        "recharge": 2,
+                        "initialrecharge": 1,
+                        "restrict": [
+                            "power"
+                        ],
+                        "hide": true
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "initialrecharge": 1,
+                        "restrict": [
+                            "power"
+                        ],
+                        "pierce": true,
+                        "hide": true
+                    },
+                    "power": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "command": "convert",
+                        "priority": 32,
+                        "newRole": "samus1",
+                        "canConvert": [
+                            "samus2"
+                        ],
+                        "convertmsg": "Samus put her Power Suit back on!",
+                        "restrict": [
+                            "kill",
+                            "distract"
+                        ],
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "olimar7",
+            "translation": "Olimar (6 Pikmins)",
+            "side": "village",
+            "help": "You now have 6 Pikmins (therefore, your vote is 4)! You are at maximum capacity, so you can't pluck anymore!",
+            "hide": true,
+            "actions": {
+                "vote": 4
+            }
+        },
+        {
+            "role": "olimar6",
+            "translation": "Olimar (5 Pikmins)",
+            "side": "village",
+            "help": "You now have 5 Pikmins (therefore, your vote is 3.5)! You can type /pluck during the night to pluck some Pikmins. Your vote increases by 0.5 for each Pikmin you pick (maximum of 6 Pikmins)!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 28,
+                        "newRole": "olimar7",
+                        "canConvert": ["olimar6"],
+                        "failChance": 0.25,
+                        "convertmsg": "Captain Olimar plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 3.5
+            }
+        },
+        {
+            "role": "olimar5",
+            "translation": "Olimar (4 Pikmins)",
+            "side": "village",
+            "help": "You now have 4 Pikmins (therefore, your vote is 3)! You can type /pluck during the night to pluck some Pikmins. Your vote increases by 0.5 for each Pikmin you pick (maximum of 6 Pikmins)!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 28,
+                        "newRole": {
+                            "random": {
+                                "olimar6": 9,
+                                "olimar7": 3
+                            }
+                        },
+                        "canConvert": ["olimar5"],
+                        "failChance": 0.25,
+                        "convertmsg": "Captain Olimar plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "olimar4",
+            "translation": "Olimar (3 Pikmins)",
+            "side": "village",
+            "help": "You now have 3 Pikmins (therefore, your vote is 2.5)! You can type /pluck during the night to pluck some Pikmins. Your vote increases by 0.5 for each Pikmin you pick (maximum of 6 Pikmins)!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 28,
+                        "newRole": {
+                            "random": {
+                                "olimar5": 8,
+                                "olimar6": 3,
+                                "olimar7": 1
+                            }
+                        },
+                        "canConvert": ["olimar4"],
+                        "failChance": 0.25,
+                        "convertmsg": "Captain Olimar plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 2.5
+            }
+        },
+        {
+            "role": "olimar3",
+            "translation": "Olimar (2 Pikmins)",
+            "side": "village",
+            "help": "You now have 2 Pikmins (therefore, your vote is 2)! You can type /pluck during the night to pluck some Pikmins. Your vote increases by 0.5 for each Pikmin you pick (maximum of 6 Pikmins)!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 28,
+                        "newRole": {
+                            "random": {
+                                "olimar4": 8,
+                                "olimar5": 3,
+                                "olimar6": 1
+                            }
+                        },
+                        "canConvert": ["olimar3"],
+                        "failChance": 0.25,
+                        "convertmsg": "Captain Olimar plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "olimar2",
+            "translation": "Olimar (1 Pikmin)",
+            "side": "village",
+            "help": "You now have 1 Pikmin (therefore, your vote is 1.5)! You can type /pluck during the night to pluck some Pikmins. Your vote increases by 0.5 for each Pikmin you pick (maximum of 6 Pikmins)!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 28,
+                        "newRole": {
+                            "random": {
+                                "olimar3": 8,
+                                "olimar4": 3,
+                                "olimar5": 1
+                            }
+                        },
+                        "canConvert": ["olimar2"],
+                        "failChance": 0.25,
+                        "convertmsg": "Captain Olimar plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 1.5
+            }
+        },
+        {
+            "role": "olimar1",
+            "translation": "Olimar",
+            "side": "village",
+            "help": "An Employee of the Hocotate Freights, you can type /pluck during the night to pluck some Pikmins. Your vote increases by 0.5 for each Pikmin you pick (maximum of 6 Pikmins)!",
+            "info": "Can pluck 1~3 Pikmins during the night (maximum of 6). Vote counts as 1 + 0.5 per Pikmin. Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 28,
+                        "newRole": {
+                            "random": {
+                                "olimar2": 8,
+                                "olimar3": 3,
+                                "olimar4": 1
+                            }
+                        },
+                        "canConvert": ["olimar1"],
+                        "failChance": 0.25,
+                        "convertmsg": "Captain Olimar plucked a Pikmin!",
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "ice_climbers",
+            "translation": "Ice Climbers",
+            "side": "village",
+            "help": "You are actually a duo, Popo and Nana! Being 2 persons, your vote counts as 2, and you evade 1 nightkill used against you!",
+            "info": "Vote counts as 2. Evades the first nightkill taken. Sided with Good People. ",
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "Nana has been defeated! One more hit and you are out!"
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "zelda",
+            "translation": "Zelda",
+            "side": "village",
+            "help": "The princess of Hyrule, you have the power of the Triforce of Wisdom, allowing you to use /watch [name] to find who visited that person during the night! If you wish to disguise yourself, you can change forms by typing /sheik.",
+            "info": "Can watch one person during the night. Can change into Sheik. Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "watch": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 41
+                    },
+                    "sheik": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 30,
+                        "newRole": "sheik",
+                        "canConvert": ["zelda"],
+                        "convertmsg": "Zelda vanishes in thin air, and in her place, Sheik appears!",
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "sheik",
+            "translation": "Sheik",
+            "side": "village",
+            "help": "The persona adopted by Zelda, your Sheikan knowledge allows you to use /stalk [name] during the night to follow someone's movements! If you wish to become Zelda again, you can change forms by typing /zelda.",
+            "info": "Can stalk one person during the night. Can change into Zelda. Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 41
+                    },
+                    "zelda": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 30,
+                        "newRole": "zelda",
+                        "canConvert": ["sheik"],
+                        "convertmsg": "Sheik vanishes in thin air, and in their place, Zelda appears!",
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "fox",
+            "translation": "Fox",
+            "side": "village",
+            "help": "If you don't know who Mario is, get out from under your rock! You don’t have any special commands during the night, but you do have a tiny chance to find out who is going to be killed! Vote to remove people in the day!",
+            "info": "Sees itself as Mario. Inspected as a Villain. If lynched, can expose one player during the night before dying. Sided with Good People. ",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.07,
+                        "revealPlayer": 0.02
+                    },
+                    "poison": {
+                        "revealTeam": 0.06,
+                        "revealPlayer": 0.02
+                    }
+                },
+                "lynch": {
+                    "convertTo": "fox2",
+                    "convertmsg": "Lynched, ~Self~ (~Old~) can expose one person before dying!"
+                },
+                "startup": {
+                    "revealAs": "mario"
+                },
+                "inspect": {
+                    "revealAs": ["wario", "ganondorf", "bowser"]
+                }
+            }
+        },
+        {
+            "role": "fox2",
+            "translation": "Fox",
+            "side": "village",
+            "help": "You were actually Fox, the leader of Star Fox! You are dying, but as a last effort, you can use /expose [name] during this night to reveal someone's role!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "expose": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 37,
+                        "dummybroadcastmsg": "Before dying, Fox revealed that ~Target~ is the ~TargetRole~!",
+                        "pierce": true
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "It seems the ~Distracter~ tried to distract someone who was already lynched. It was clearly not effective."
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "detox": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "poison": {
+                        "count": -1,
+                        "poisonDeadMessage": "You have been lynched during the day, but only died now!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "falco",
+            "translation": "Falco",
+            "side": "village",
+            "help": "If you don't know who Mario is, get out from under your rock! You don’t have any special commands during the night, but you do have a tiny chance to find out who is going to be killed! Vote to remove people in the day!",
+            "info": "Sees itself as Mario. Inspected as a Pokémon Mafia. If lynched, can kill one player during the night before dying. Sided with Good People. ",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.07,
+                        "revealPlayer": 0.02
+                    },
+                    "poison": {
+                        "revealTeam": 0.06,
+                        "revealPlayer": 0.02
+                    }
+                },
+                "lynch": {
+                    "convertTo": "falco2",
+                    "convertmsg": "Lynched, ~Self~ (~Old~) can kill one person before dying!"
+                },
+                "startup": {
+                    "revealAs": "mario"
+                },
+                "inspect": {
+                    "revealAs": ["pikachu", "jigglypuff", "lucario"]
+                }
+            }
+        },
+        {
+            "role": "falco2",
+            "translation": "Falco",
+            "side": "village",
+            "help": "You were actually Falco, a member of Star Fox! You are dying, but as a last effort, you can use /kill [name] during this night to take down an enemy!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 19
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "It seems the ~Distracter~ tried to distract someone who was already lynched. It was clearly not effective."
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                },
+                "detox": {
+                    "mode": "ignore"
+                },
+                "initialCondition": {
+                    "poison": {
+                        "count": -1,
+                        "poisonDeadMessage": "You have been lynched during the day, but only died now!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "mr_game_watch",
+            "translation": "Mr. Game & Watch",
+            "side": "village",
+            "help": "You are a resident of the Flat Zone! During the night, you can use /judge [name] to get some kind of information about your target, with a 10% chance of instantly killing your target instead.",
+            "info": "Can judge one person during the night to find information about them, with a 10% chance of killing the target instead. Sided with Good People.",
+            "actions": {
+                "night": {
+                    "judge": {
+                        "command": {
+                            "watch": 3,
+                            "stalk": 2,
+                            "inspect": 2,
+                            "dummy": 2,
+                            "kill": 1
+                        },
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 26,
+                        "dummybroadcastmsg": "Mr. Game & Watch used their Judge's hammer to find that ~Target~ is sided with ~TargetSide~!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "rob",
+            "translation": "R.O.B.",
+            "side": "village",
+            "help": "Also known as Robotic Operating Buddy, you will kill the first person to vote you if you are lynched.",
+            "info": "Kills first person to vote it when lynched. Sided with Good People.",
+            "actions": {
+                "lynch": {
+                    "killVoters": {
+                        "first": 1,
+                        "last": 0,
+                        "message": "As it got lynched, ~Self~ exploded! ~Target~ was caught in the explosion and died too!"
+                    }
+                }
+            }
+        },
+        {
+            "role": "kirby",
+            "translation": "Kirby",
+            "side": "village",
+            "help": "You are the adorable plush resident of Dream Land! You can use /copy [name] during the night to copy someone's powers (although weaker than the original user). This will only work on your teammates with powers, and if you die you will reveal them!",
+            "info": "Can copy some village roles to get their powers (weaker than the original). Sided with Good People. ",
+            "actions": {
+                "night": {
+                    "copy": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 33,
+                        "copyAs": {
+                            "kirby_peach": ["peach"],
+                            "kirby_yoshi": ["yoshi"],
+                            "kirby_captain_falcon": ["captain_falcon"],
+                            "kirby_ness": ["ness", "ness2"],
+                            "kirby_lucas": ["lucas", "lucas2"],
+                            "kirby_pit": ["pit"],
+                            "kirby_ice_climbers": ["ice_climbers"],
+                            "kirby_olimar1": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                            "kirby_marth": ["marth"],
+                            "kirby_ike": ["ike"],
+                            "kirby_link": ["link", "toon_link"],
+                            "kirby_zelda": ["zelda"],
+                            "kirby_sheik": ["sheik"],
+                            "kirby_samus": ["samus1", "samus2"],
+                            "kirby_mr_game_watch": ["mr_game_watch"],
+                            "kirby_rob": ["rob"]
+                        },
+                        "copymsg": "~Old~ swallowed another player and is now ~New~!",
+                        "pierce": true
+                    }
+                }
+            }
+        },
+        {
+            "role": "kirby_prio",
+            "translation": "Kirby",
+            "side": "village",
+            "help": "Priority stuff",
+            "hide": true,
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 18
+                    },
+                    "distract": {
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 4
+                    }
+                }
+            }
+        },
+        {
+            "role": "kirby_lucas",
+            "translation": "Kirby (Lucas)",
+            "side": "village",
+            "help": "You copied Lucas! As such, you can use /inspect [name] every 2 nights to find someone's aligment. If you die, you will reveal Lucas' identity!",
+            "info": "Can inspect one person every 2 nights to find their side. If killed, reveals Lucas. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 36,
+                        "Sight": "Team",
+                        "recharge": 2
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["lucas", "lucas2"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_ness",
+            "translation": "Kirby (Ness)",
+            "side": "village",
+            "help": "You copied Ness! As such, you can use /protect [name] 3 times during the game to prevent someone from being killed during the night. If you die, you will reveal Ness' identity!",
+            "info": "Can protect one person 3 times during the game. If killed, reveals Ness. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 7,
+                        "charges": 3
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["ness", "ness2"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_peach",
+            "translation": "Kirby (Peach)",
+            "side": "village",
+            "help": "You copied Peach! As such, you can use /distract [name] 3 times during the game to stop their movement for the night. If you die, you will reveal Peach's identity!",
+            "info": "Can distract one person 3 times during the game. If killed, reveals Peach. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "charges": 3,
+                        "hide": true
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["peach"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_yoshi",
+            "translation": "Kirby (Yoshi)",
+            "side": "village",
+            "help": "You copied Yoshi! As such, you can use /cure [name] once during the game to remove someone's poison. If you die, you will reveal Yoshi's identity!",
+            "info": "Can cure one person of poison during the game. If killed, reveals Yoshi. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "cure": {
+                        "command": "detox",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 23,
+                        "charges": 1,
+                        "detoxmsg": "Kirby has removed the poison from ~Target~'s body!"
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["yoshi"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_link",
+            "translation": "Kirby (Link)",
+            "side": "village",
+            "help": "You copied Link! As such, you can use /kill [name] every 2 nights to defeat another opponent. If you die, you will reveal Link's identity!",
+            "info": "Can kill one person every 2 nights. If killed, reveals Link/Toon Link. Sided with Good People. ",
+			"hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 18,
+                        "recharge": 2,
+                        "hide": true
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["link", "toon_link"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_captain_falcon",
+            "translation": "Kirby (Captain Falcon)",
+            "side": "village",
+            "help": "You copied Captain Falcon! As such, you can use /kill [name] every 2 days to defeat someone during the standby (you will be revealed). If you die, you will reveal Captain Falcon's identity!",
+            "info": "Can kill one person during the standby every 2 days. If killed, reveals Captain Falcon. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill every 2 days by using /kill [name]. You will be revealed!",
+                        "killmsg": "~Self~ says: (>^.^)> Falcon Punch! <(^.^<)",
+                        "recharge": 2
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["captain_falcon"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_marth",
+            "translation": "Kirby (Marth)",
+            "side": "village",
+            "help": "You copied Marth! As such, you will poison anyone that kills you at night. If you die, you will reveal Marth's identity!",
+            "info": "Poison nightkillers. If killed, reveals Marth. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "kill": {
+                    "mode": "poisonattacker",
+                    "msg": "You attacked Kirby, but Kirby poisoned you before dying!"
+                },
+                "onDeath": {
+                    "exposeRoles": ["marth"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_ike",
+            "translation": "Kirby (Ike)",
+            "side": "village",
+            "help": "You copied Ike! As such, you will kill anyone who poisons you. If you die, you will reveal Ike's identity!",
+            "info": "Revenge poisoners. If killed, reveals Ike. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "poison": {
+                    "mode": "killattacker",
+                    "msg": "You attacked Kirby, but Kirby killed you before dying!"
+                },
+                "onDeath": {
+                    "exposeRoles": ["ike"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_pit",
+            "translation": "Kirby (Pit)",
+            "side": "village",
+            "help": "You copied Pit! As such, you can use /fly [name] every 2 nights to reveal your identity to another player. If you die, you will reveal Pit's identity!",
+            "info": "Can reveal itself to another player every 2 nights. If killed, reveals Pit. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "fly": {
+                        "command": "dummy",
+                        "common": "Self",
+                        "target": "AnyButSelf",
+                        "priority": 39,
+                        "dummytargetmsg": "A voice comes from the heavens. As you look up, you can see ~Self~, the ~Role~, flying above the clouds.",
+                        "dummyusermsg": "You revealed your identity to ~Target~!",
+                        "pierce": true,
+                        "recharge": 2
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["pit"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        
+        {
+            "role": "kirby_samus",
+            "translation": "Kirby (Samus)",
+            "side": "village",
+            "help": "You copied Samus! As such, you can use /distract [name] and /kill [name] during the night, but you can't use both actions together, and you can't use the same action twice in a row. If you die, you will reveal Samus' identity!",
+            "info": "Can kill or distract one person every 2 nights. If killed, reveals Samus/Zero Suit Samus. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 18,
+                        "recharge": 2,
+                        "restrict": ["distract"],
+                        "hide": true
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "recharge": 2,
+                        "restrict": ["kill"],
+                        "hide": true
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["samus1", "samus2"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_olimar7",
+            "translation": "Kirby (Olimar, 6 Pikmins)",
+            "side": "village",
+            "help": "You have 6 Pikmins, so your vote counts as 3! You can't pluck any more Pikmins though. If you die, you will reveal Captain Olimar's identity!",
+            "hide": true,
+            "actions": {
+                "vote": 3,
+                "onDeath": {
+                    "exposeRoles": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_olimar6",
+            "translation": "Kirby (Olimar, 5 Pikmins)",
+            "side": "village",
+            "help": "You have 5 Pikmins, so your vote counts as 2.5! You can use /pluck during the night to pluck a Pikmin and increase your vote by 0.5 per Pikmin (maximum of 6 Pikmins). If you die, you will reveal Captain Olimar's identity!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": "kirby_olimar7",
+                        "canConvert": ["kirby_olimar6"],
+                        "failChance": 0.25,
+                        "convertmsg": "Kirby plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 2.5,
+                "onDeath": {
+                    "exposeRoles": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_olimar5",
+            "translation": "Kirby (Olimar, 4 Pikmins)",
+            "side": "village",
+            "help": "You have 4 Pikmins, so your vote counts as 2! You can use /pluck during the night to pluck 1~2 Pikmins and increase your vote by 0.5 per Pikmin (maximum of 6 Pikmins). If you die, you will reveal Captain Olimar's identity!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": {
+                            "random": {
+                                "kirby_olimar6": 9,
+                                "kirby_olimar7": 3
+                            }
+                        },
+                        "canConvert": ["olimar5"],
+                        "failChance": 0.25,
+                        "convertmsg": "Kirby plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 2,
+                "onDeath": {
+                    "exposeRoles": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_olimar4",
+            "translation": "Kirby (Olimar, 3 Pikmins)",
+            "side": "village",
+            "help": "You have 3 Pikmins, so your vote counts as 1.5! You can use /pluck during the night to pluck 1~3 Pikmins and increase your vote by 0.5 per Pikmin (maximum of 6 Pikmins). If you die, you will reveal Captain Olimar's identity!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": {
+                            "random": {
+                                "kirby_olimar5": 8,
+                                "kirby_olimar6": 3,
+                                "kirby_olimar7": 1
+                            }
+                        },
+                        "canConvert": ["olimar4"],
+                        "failChance": 0.25,
+                        "convertmsg": "Kirby plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 1.5,
+                "onDeath": {
+                    "exposeRoles": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_olimar3",
+            "translation": "Kirby (Olimar, 2 Pikmins)",
+            "side": "village",
+            "help": "You have 2 Pikmins, so your vote counts as 1! You can use /pluck during the night to pluck 1~3 Pikmins and increase your vote by 0.5 per Pikmin (maximum of 6 Pikmins). If you die, you will reveal Captain Olimar's identity!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": {
+                            "random": {
+                                "kirby_olimar4": 8,
+                                "kirby_olimar5": 3,
+                                "kirby_olimar6": 1
+                            }
+                        },
+                        "canConvert": ["olimar3"],
+                        "failChance": 0.25,
+                        "convertmsg": "Kirby plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 1,
+                "onDeath": {
+                    "exposeRoles": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_olimar2",
+            "translation": "Kirby (Olimar, 1 Pikmin)",
+            "side": "village",
+            "help": "You have 1 Pikmin, so your vote counts as 0.5! You can use /pluck during the night to pluck 1~3 Pikmins and increase your vote by 0.5 per Pikmin (maximum of 6 Pikmins). If you die, you will reveal Captain Olimar's identity!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": {
+                            "random": {
+                                "kirby_olimar3": 8,
+                                "kirby_olimar4": 3,
+                                "kirby_olimar5": 1
+                            }
+                        },
+                        "canConvert": ["kirby_olimar2"],
+                        "failChance": 0.25,
+                        "convertmsg": "Kirby plucked a Pikmin!",
+                        "pierce": true,
+                        "hide": true
+                    }
+                },
+                "vote": 0.5,
+                "onDeath": {
+                    "exposeRoles": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_olimar1",
+            "translation": "Kirby (Olimar)",
+            "side": "village",
+            "help": "You copied Captain Olimar! As such, your vote counts as 0, but you can use /pluck during the night to pluck 1~3 Pikmins and increase your vote by 0.5 per Pikmin (maximum of 6 Pikmins). If you die, you will reveal Captain Olimar's identity!",
+            "info": "Can pluck 1~3 Pikmin every night (maximum of 6 Pikmins). Vote counts as 0 + 0.5 per Pikmin. If killed, reveals Captain Olimar. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "pluck": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 29,
+                        "newRole": {
+                            "random": {
+                                "kirby_olimar2": 8,
+                                "kirby_olimar3": 3,
+                                "kirby_olimar4": 1
+                            }
+                        },
+                        "canConvert": ["kirby_olimar1"],
+                        "failChance": 0.25,
+                        "convertmsg": "Kirby plucked a Pikmin!",
+                        "pierce": true
+                    }
+                },
+                "vote": 0,
+                "onDeath": {
+                    "exposeRoles": ["olimar1", "olimar2", "olimar3", "olimar4", "olimar5", "olimar6", "olimar7"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_ice_climbers",
+            "translation": "Kirby (Ice Climbers)",
+            "side": "village",
+            "help": "You copied Ice Climbers! As such, you will evade the first nightkill used against you. If you die, you will reveal Ice Climber's identity!",
+            "info": "Evades the first nightkill taken. If killed, reveals Ice Climbers. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "You evaded a kill, but the next one will definitely hit you!"
+                },
+                "onDeath": {
+                    "exposeRoles": ["ice_climbers"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_zelda",
+            "translation": "Kirby (Zelda)",
+            "side": "village",
+            "help": "You copied Zelda! As such, you can use /watch [name] every 2 nights to find who visited your target. If you die, you will reveal Zelda or Sheik's identity!",
+            "info": "Can watch one person every 2 nights. If killed, reveals Zelda/Sheik. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "watch": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 40,
+                        "recharge": 2
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["zelda", "sheik"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_sheik",
+            "translation": "Kirby (Sheik)",
+            "side": "village",
+            "help": "You copied Sheik! As such, you can use /stalk [name] every 2 nights to follow someone's movements. If you die, you will reveal Zelda or Sheik's identity!",
+            "info": "Can stalk one person every 2 nights. If killed, reveals Sheik/Zelda. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 40,
+                        "recharge": 2
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["zelda", "sheik"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_mr_game_watch",
+            "translation": "Kirby (Mr. Game & Watch)",
+            "side": "village",
+            "help": "You copied Mr. Game & Watch! As such, you can use /judge [name] every 2 nights to get some kind of information about your target, with a 10% chance of instantly killing your target instead. If you die, you will reveal Mr. Game & Watch's identity!",
+            "info": "Can judge one person every 2 nights to find information about them, with a 10% chance of killing the target instead. If killed, reveals Mr. Game & Watch. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "judge": {
+                        "command": {
+                            "watch": 3,
+                            "stalk": 2,
+                            "inspect": 2,
+                            "dummy": 2,
+                            "kill": 1
+                        },
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 27,
+                        "dummybroadcastmsg": "Kirby used their Judge's hammer to find that ~Target~ is sided with ~TargetSide~!",
+                        "recharge": 2
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["mr_game_watch"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        {
+            "role": "kirby_rob",
+            "translation": "Kirby (R.O.B.)",
+            "side": "village",
+            "help": "You copied R.O.B.! As such, you will kill the last person to vote for you if you are lynched. If you die, you will reveal R.O.B.'s identity!",
+            "info": "Kills last person to vote it when lynched. If killed, reveals R.O.B.. Sided with Good People. ",
+            "hide": "side",
+            "players": "Conversion Only",
+            "actions": {
+                "lynch": {
+                    "killVoters": {
+                        "first": 0,
+                        "last": 1,
+                        "message": "As it got lynched, ~Self~ exploded! ~Target~ was caught in the explosion and died too!"
+                    }
+                },
+                "onDeath": {
+                    "exposeRoles": ["rob"],
+                    "exposemsg": "±Kirby: Aaaw, and I even had copied ~Target~ to get ~Role~'s power!"
+                }
+            }
+        },
+        
+        
+        
+        
+        {
+            "role": "villains_prio",
+            "translation": "Villains",
+            "side": "villains",
+            "help": "Priority stuff.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "wario",
+            "translation": "Wario",
+            "side": "villains",
+            "help": "You are the rather chubby Anti-Mario! During the night, you can type /kill [name] to defeat someone (shared with your team) and /poison [name] to poison them! If you are the last member of your team alive, you become Wario Man!",
+            "hide": "role",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Wario) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 20,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Wario) has decided to poison ~Target~!",
+                        "poisonDeadMessage": "You got killed by the poison of Wa-Wa-Wario!"
+                    }
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "wario_man": ["ganondorf", "ganondorf2", "bowser", "wolf"]
+                    },
+                    "convertmsg": "Oh no! ~Old~ got a Smash Ball and became ~New~!"
+                },  
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "wario_man",
+            "translation": "Wario Man",
+            "side": "villains",
+            "help": "You got a Smash Ball and now are a Wario Man! You can use /kill [name] and /poison [name] during the night, and now you evades the first nightkill used against you!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Wario Man) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 20,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Wario Man) has decided to poison ~Target~!",
+                        "poisonDeadMessage": "You got killed by the poison of Wa-Wa-Wario Man!",
+                        "hide": true
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    },
+                    "evadechargemsg": "You evaded a kill, but the next one will definitely hit you!"
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        
+        {
+            "role": "ganondorf",
+            "translation": "Ganondorf",
+            "side": "villains",
+            "help": "You are the Great King of Evil! You can use /kill [name] during the night to defeat another player (shared with your team), and you evade a daykill once per game. If you are the last member of your team alive, you become Beast Ganon!",
+            "hide": "role",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Ganondorf) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeCharges": 1
+                    }
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "beast_ganon": ["wario", "bowser", "wolf"]
+                    },
+                    "convertmsg": "Oh no! ~Old~ got a Smash Ball and became ~New~!"
+                },  
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        
+        {
+            "role": "ganondorf2",
+            "translation": "Ganondorf",
+            "side": "villains",
+            "help": "You are the Great King of Evil! You can use /kill [name] during the night to defeat another player (shared with your team), and you evade a daykill once per game. If you are the last member of your team alive, you become Beast Ganon!",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Ganondorf) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeCharges": "*"
+                    }
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "beast_ganon": ["wario", "bowser", "wolf"]
+                    },
+                    "convertmsg": "Oh no! ~Old~ got a Smash Ball and became ~New~!"
+                },  
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "beast_ganon",
+            "translation": "Beast Ganon",
+            "side": "villains",
+            "help": "You got a Smash Ball and now are a Beast Ganon! You can use /kill [name] during the night, and now you survive a lynch (only once). You also evade a daykill once per game.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Beast Ganon) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "lynch": {
+                    "convertTo": "beast_ganon2",
+                    "convertmsg": "~Old~ took ~Count~% of damage, but was able to come back to the stage (this won't happen again though)!"
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeCharges": "*"
+                    }
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "beast_ganon2",
+            "translation": "Beast Ganon",
+            "side": "villains",
+            "help": "You got lynched, but survived the attacks (but this won't happen again)! You can use /kill [name] during the night, and you also evade a daykill once per game.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Beast Ganon) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "daykill": {
+                    "mode": {
+                        "evadeCharges": "*"
+                    }
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        
+        {
+            "role": "bowser",
+            "translation": "Bowser",
+            "side": "villains",
+            "help": "You are the King of Koopas! You can use /kill [name] during the night to defeat another player (shared with your team), and you can't be distracted. If you are the last member of your team alive, you become Giga Bowser!",
+            "hide": "role",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Bowser) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ came to you last night! They barely escaped! Bwa. Hah. Hah. HAAAAA!"
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "giga_bowser": ["wario", "ganondorf", "ganondorf2", "wolf"]
+                    },
+                    "convertmsg": "Oh no! ~Old~ got a Smash Ball and became ~New~!"
+                }, 
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        
+        {
+            "role": "giga_bowser",
+            "translation": "Giga Bowser",
+            "side": "villains",
+            "help": "You got a Smash Ball and now are a Giga Bowser! You can use /kill [name] during the night (you can't be distracted), and you can use /kill [name] during the standby every 2 turns to defeat an opponent (you will have a 25% chance of revealing).",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Giga Bowser) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "You can kill every 2 days by typing /kill [name] (you have a 25% chance of revealing)!",
+                        "killmsg": "Giga Bowser breathes a hot stream of fire on ~Target~!",
+                        "recharge": 2,
+                        "revealChance": 0.25,
+                        "revealmsg": "Bwa. Hah. Hah. HAAAAA! ~Self~ is unstoppable!"
+                    }
+                },
+                "distract": {
+                    "mode": "ignore",
+                    "msg": "The ~Distracter~ came to you last night! They barely escaped! Bwa. Hah. Hah. HAAAAA!"
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "bowser_help",
+            "translation": "Bowser/Giga Bowser",
+            "side": "villains",
+            "help": "Role only to customize /roles.",
+            "info": "Can kill one person during the night (shared). Ignores Distractors. If last member of the team alive, becomes Giga Bowser (daykill every 2 turns with a 25% reveal chance). Sided with Villains.",
+            "hide": "side",
+            "actions": {}
+        },
+        {
+            "role": "ganondorf_help",
+            "translation": "Ganondorf/Beast Ganon",
+            "side": "villains",
+            "help": "Role only to customize /roles.",
+            "info": "Can kill one person during the night (shared). Evades a daykill once per game. If last member of the team alive, becomes Beast Ganon (survives the first time it's lynched). Sided with Villains.",
+            "hide": "side",
+            "actions": {}
+        },
+        {
+            "role": "wario_help",
+            "translation": "Wario/Wario Man",
+            "side": "villains",
+            "help": "Role only to customize /roles.",
+            "info": "Can kill one person during the night (shared). Can poison one person during the night. If last member of the team alive, becomes Wario Man (evades first nightkill taken). Sided with Villains.",
+            "hide": "side",
+            "actions": {}
+        },
+        {
+            "role": "covered_villain",
+            "translation": "Mario",
+            "side": "villains",
+            "help": "If you are reading this, something didn't work as expected. Please contact RiceKirby.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "cover": {
+                        "command": "dummy",
+                        "target": "OnlyTeam",
+                        "common": "Role",
+                        "priority": 34,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Wolf) has decided to cover ~Target~!"
+                    }
+                },
+                "stalk": {
+                    "mode": "noVisit"
+                },
+                "inspect": {
+                    "revealAs": "mario",
+                    "seenSide": "village"
+                },
+                "convert": {
+                    "mode": {
+                        "ignore": ["wolf"]
+                    },
+                    "silent": true
+                },
+                "curse": {
+                    "mode": {
+                        "ignore": ["wolf"]
+                    },
+                    "silent": true
+                },
+                "dummy": {
+                    "mode": {
+                        "ignore": ["wolf"]
+                    },
+                    "msg": "±Game: You covered ~Self~!"
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "wolf",
+            "translation": "Wolf",
+            "side": "villains",
+            "help": "You are the leader of the Star Wolf! You can use /kill [name] during the night to defeat another player (shared with your team), and you can also use /cover [name] on anyone in your team (shared) to make them inspect as Mario and avoid stalkers for that night.",
+            "info": "Can kill one person during the night (shared). Can cover one teammate to make them inspect as Mario and ignore stalkers for that night. Sided with Villains.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 14,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Wolf) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "cover": {
+                        "command": ["curse", "convert", "dummy"],
+                        "target": "OnlyTeammates",
+                        "common": "Role",
+                        "priority": 34,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Wolf) has decided to cover ~Target~!",
+                        "newRole": "covered_villain",
+                        "cursedRole": {
+                            "wolf": ["wolf"],
+                            "bowser": ["bowser"],
+                            "wario": ["wario"],
+                            "ganondorf2": ["ganondorf", "ganondorf2"]
+                        },
+                        "curseCount": -1,
+                        "pierce": true,
+                        "silent": true,
+                        "silentConvert": true,
+                        "silentCurse": true
+                    }
+                },
+                "avoidHax": ["kill"],
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        
+        
+        {
+            "role": "pokemon_prio",
+            "translation": "Pokémon Mafia",
+            "side": "pokemon",
+            "help": "Priority stuff",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "pikachu",
+            "translation": "Pikachu",
+            "side": "pokemon",
+            "help": "You are the eletric mouse Pokémon! You can type /kill [name] during the night to defeat an opponent (shared with your team). You kill anyone that distracts you, and if lynched, you will kill the first person to vote you. You also get hax on protectors, and you are immune to hax, stalk and watch!",
+            "info": "Can kill one person during the night (shared). If lynched, kills the first person to vote them. Cannot be haxed, stalked or watched. Kills distractors. Get hax on protect. Sided with Pokémon Mafia.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+						"broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Pikachu) has decided to kill ~Target~!",
+                        "hide": true,
+                        "noFollow": true
+                    }
+                },
+                "lynch": {
+                    "killVoters": {
+                        "first": 1,
+                        "last": 0,
+                        "message": "Before getting lynched, ~Self~ hit ~Target~ with a Quick Attack!"
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to distract Pikachu! They used Thunder on you instead!",
+                    "msg": "The ~Distracter~ tried to stop you, but you used Thunder on them instead!"
+                },
+                "standbyHax": {
+                    "inspect": {
+                        "revealTeam": 1
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealPlayer": 0.075
+                    }
+                },
+                "avoidHax": ["kill"],
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "jigglypuff",
+            "translation": "Jigglypuff",
+            "side": "pokemon",
+            "help": "You are the balloon Pokémon! You can type /kill [name] during the night to defeat an opponent (shared with your team), and /distract [name] to stop someone's actions for the night! You also get hax on distractors!",
+            "info": "Can kill one person during the night (shared). Can distract one person during the night. Gets hax on distract. Sided with Pokémon Mafia.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+						"broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Jigglypuff) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 1,
+						"broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Jigglypuff) has decided to distract ~Target~!"
+                    }
+                },
+                "standbyHax": {
+                    "inspect": {
+                        "revealTeam": 1
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealPlayer": 0.075
+                    }
+                },
+                "avoidHax": ["distract"],
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "lucario",
+            "translation": "Lucario",
+            "side": "pokemon",
+            "help": "You are the aura Pokémon! You can type /kill [name] during the night to defeat an opponent (shared with your team). During the day, you can type /inspect [name] to find someone's role (only you and your team will know who was inspected, and you won't be revealed). You also get hax on nightkillers!",
+            "info": "Can kill one person during the night (shared). Can inspect one person during the standby. Gets hax on nightkills. Sided with Pokémon Mafia.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+						"broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Lucario) has decided to kill ~Target~!",
+                        "hide": true
+                    }
+                },
+                "standby": {
+                    "inspect": {
+                        "command": "expose",
+                        "target": "AnyButTeam",
+                        "msg": "You can find someone's role by typing /inspect [name] (you won't be revealed!)",
+                        "exposemsg": "Lucario looks deep into someone's aura, and thus identifies the ~Role~!",
+                        "exposedtargetmsg": "~Target~ is the ~Role~!"
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealPlayer": 0.06
+                    }
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "pokemon_trainer_squirtle",
+            "translation": "Pokémon Trainer (Squirtle)",
+            "side": "pokemon",
+            "help": "You use a different Pokémon every turn. With Squirtle, you can type /kill [name] to defeat an opponent during the night, and this one is separated from your team's kills!",
+            "info": "Can kill one person during the night (separated). Changes to Pokémon Trainer (Ivysaur) after 1 turn. Sided with Pokémon Mafia.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 13,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Pokémon Trainer) has decided to kill ~Target~!"
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "pokemon_trainer_ivysaur",
+                        "curseConvertMessage": "The Pokémon Trainer called Squirtle back and sent out Ivysaur!"
+                    }
+                },
+                "standbyHax": {
+                    "inspect": {
+                        "revealTeam": 1
+                    }
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "pokemon_trainer_ivysaur",
+            "translation": "Pokémon Trainer (Ivysaur)",
+            "side": "pokemon",
+            "help": "You use a different Pokémon every turn. With Ivysaur, you can type /poison [name] to defeat an opponent during the next night!",
+            "info": "Can poison one person during the night. Changes to Pokémon Trainer (Charizard) after 1 turn. Sided with Pokémon Mafia.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 21,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Pokémon Trainer) has decided to poison ~Target~!",
+                        "poisonDeadMessage": "You died to Ivysaur's poison attack!"
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "pokemon_trainer_charizard",
+                        "curseConvertMessage": "The Pokémon Trainer called Ivysaur back and sent out Charizard!"
+                    }
+                },
+                "standbyHax": {
+                    "inspect": {
+                        "revealTeam": 1
+                    }
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "pokemon_trainer_charizard",
+            "translation": "Pokémon Trainer (Charizard)",
+            "side": "pokemon",
+            "help": "You use a different Pokémon every turn. With Charizard, you can type /kill [name] to defeat an opponent during the standby (you won't be revealed)!",
+            "info": "Can kill one person during the standby (not revealed). Changes to Pokémon Trainer (Squirtle) after 1 turn. Sided with Pokémon Mafia.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "msg": "Type /kill [name] to defeat another player (you won't be revealed)!",
+                        "killmsg": "\"Charizard, hit ~Target~ with a Fire Blast!\""
+                    }
+                },
+                "initialCondition": {
+                    "curse": {
+                        "curseCount": 1,
+                        "cursedRole": "pokemon_trainer_squirtle",
+                        "curseConvertMessage": "The Pokémon Trainer called Charizard back and sent out Squirtle!"
+                    }
+                },
+                "standbyHax": {
+                    "inspect": {
+                        "revealTeam": 1
+                    }
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        
+        
+        {
+            "role": "monkey_prio",
+            "translation": "Monkey Mafia",
+            "side": "monkey",
+            "help": "Priority again",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                }
+            }
+        },
+        {
+            "role": "donkey_kong3",
+            "translation": "Donkey Kong",
+            "side": "monkey",
+            "help": "Your vote now counts as +3, and you can kill 3 targets during the night with /kill [name]! You are now fully charged, but your kills and vote will go back to 1 once you kill someone! You cannot be haxed.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": ["copy", "kill"],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Donkey Kong) has decided to kill ~Target~!",
+                        "limit": 3,
+                        "hide": true,
+                        "copyAs": "donkey_kong",
+                        "silent": true,
+                        "silentCopy": true
+                    }
+                },
+                "vote": 3,
+                "distract": {
+                    "mode": {
+                        "ignore": ["diddy_kong"]
+                    },
+                    "msg": ""
+                },
+                "inspect": {
+                    "mode": {
+                        "ignore": ["diddy_kong"]
+                    },
+                    "silent": true
+                },
+                "avoidHax": ["kill"],
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "donkey_kong2",
+            "translation": "Donkey Kong",
+            "side": "monkey",
+            "help": "Your vote now counts as +2, and you can kill 2 targets during the night with /kill [name]! Alternatively, you can use /charge to gain an extra kill and vote for the next turn (your kills/votes reset after you kill)! You cannot be haxed.",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "command": ["copy", "kill"],
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Donkey Kong) has decided to kill ~Target~!",
+                        "limit": 2,
+                        "restrict": ["charge"],
+                        "hide": true,
+                        "copyAs": "donkey_kong",
+                        "silent": true,
+                        "silentCopy": true
+                    },
+                    "charge": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 31,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Donkey Kong) has decided to charge!",
+                        "restrict": ["kill"],
+                        "newRole": "donkey_kong3",
+                        "pierce": true,
+                        "silent": true,
+                        "hide": true
+                    }
+                },
+                "vote": 2,
+                "distract": {
+                    "mode": {
+                        "ignore": ["diddy_kong"]
+                    },
+                    "msg": ""
+                },
+                "inspect": {
+                    "mode": {
+                        "ignore": ["diddy_kong"]
+                    },
+                    "silent": true
+                },
+                "avoidHax": ["kill"],
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "donkey_kong",
+            "translation": "Donkey Kong",
+            "side": "monkey",
+            "help": "You are a fairly huge ape! Every night, you can use /kill [name] to defeat an opponent, or you can use /charge to gain an extra kill and vote for the next turn (your kills/votes reset after you kill)! You cannot be haxed.",
+            "info": "Can kill one person during the night (avoid hax) OR can charge to increase kill and vote by 1. Votes and Kills reset after killing someone. Sided with Monkey Mafia.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Donkey Kong) has decided to kill ~Target~!",
+                        "limit": 1,
+                        "restrict": ["charge"],
+                        "hide": true
+                    },
+                    "charge": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 31,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Donkey Kong) has decided to charge!",
+                        "restrict": ["kill"],
+                        "newRole": "donkey_kong2",
+                        "silent": true,
+                        "pierce": true
+                    }
+                },
+                "distract": {
+                    "mode": {
+                        "ignore": ["diddy_kong"]
+                    },
+                    "msg": ""
+                },
+                "inspect": {
+                    "mode": {
+                        "ignore": ["diddy_kong"]
+                    },
+                    "silent": true
+                },
+                "avoidHax": ["kill"],
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "diddy_kong",
+            "translation": "Diddy Kong",
+            "side": "monkey",
+            "help": "You are Donkey Kong's little buddy! During the night, you can use /block [name] to either protect Donkey Kong or to distract, protect and inspect an opponent. If Donkey Kong dies, you get a slight power-up.",
+            "info": "Can block one person during the night (distract + protect + inspect, if used on Donkey Kong will only Protect). If Donkey Kong dies, can kill one person during the night (avoid hax). Sided with Monkey Mafia.",
+            "actions": {
+                "night": {
+                    "block": {
+                        "command": ["distract", "protect", "inspect"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Diddy Kong) has decided to block ~Target~!"
+                    }
+                },
+                "onDeadRoles": {
+                    "convertTo": {
+                        "diddy_kong2": ["donkey_kong", "donkey_kong2", "donkey_kong3"]
+                    },
+                    "convertmsg": "Donkey Kong was defeated, so now it's time for Diddy's Kong quest!"
+                },
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        {
+            "role": "diddy_kong2",
+            "translation": "Diddy Kong",
+            "side": "monkey",
+            "help": "You are Donkey Kong's little buddy! During the night, you can use /kill [name] to defeat another player (you can't be haxed), and /block [name] to distract, protect and inspect an opponent. ",
+            "hide": true,
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 11,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Diddy Kong) has decided to kill ~Target~!",
+                        "hide": true
+                    },
+                    "block": {
+                        "command": ["distract", "protect", "inspect"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "broadcast": "team",
+						"broadcastmsg": "Your teammate ~Player~ (Diddy Kong) has decided to block ~Target~!",
+                        "hide": true
+                    }
+                },
+                "avoidHax": ["kill"],
+                "startup": "team-reveal-with-roles", 
+                "teamTalk": true
+            }
+        },
+        
+        
+        {
+            "role": "meta_knight",
+            "translation": "Meta Knight",
+            "side": "metaknight",
+            "help": "You are the honorable and mysterious captain of the Halberd! During the day, you can use /kill [name] to defeat an opponent without revealing yourself. You can also use /slice [name] to defeat a second player after the 2nd turn, but that will have a 75% chance of revealing you. You have a voteshield of -0.5 and you cannot be nightkilled!",
+            "info": "Can kill one person during the standby (won't be revealed). Can slice to kill a 2nd person during the standby (75% reveal chance, only after D2). Has a voteshield of -0.5, evades nightkills. Sided with itself.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "limit": 1,
+                        "msg": "You can kill now using /kill [name] (this won't reveal you)!",
+                        "killmsg": "Meta Knight pulls out the holy sword, Galaxia, and strikes it through ~Target~'s chest!"
+                    },
+                    "slice": {
+                        "command": "kill",
+                        "target": "AnyButTeam",
+                        "initialrecharge": 3,
+                        "limit": 2,
+                        "msg": "You can also use /slice [name] to kill a second target, but that will have a 75% chance of revealing you!",
+                        "killmsg": "Meta Knight flips his Dimensional Cape, plunging the world into darkness, and then hits ~Target~ with a powerful sword strike!",
+                        "revealChance": 0.75,
+                        "revealmsg": "Meta Knight's mask falls for a split second, and he can be identified as ~Self~!"
+                    }
+                },
+                "voteshield": -0.5,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        
+        {
+            "role": "king_dedede",
+            "translation": "King Dedede",
+            "side": "dedede",
+            "help": "You are the self-claimed king of Dream Land! During the night, you can type /recruit [name] up to 2 times per game to transform another player into a Waddle Doo. You can also use /protect [name] every night, and your vote counts as +2. If the Waddle Doos die, you can recruit new members.",
+            "info": "Can recruit 2 targets to transform them into Waddle Doo (bypass safeguard). Can protect one person during the night. Vote counts as 2. If Waddle Doos dies, can recruit 2 more players. Sided with King Dedede.",
+            "actions": {
+                "night": {
+                    "recruit": {
+                        "command": "convert",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 25,
+                        "charges": 2,
+                        "newRole": "waddle_doo",
+                        "convertmsg": "King Dedede recruited a ~Old~ and made them a ~New~!",
+						"broadcast": "team",
+						"broadcastmsg": "Your boss ~Player~ (King Dedede) has decided to recruit ~Target~!",
+                        "pierce": true
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+						"broadcast": "team",
+						"broadcastmsg": "Your boss ~Player~ (King Dedede) has decided to protect ~Target~!"
+                    }
+                },
+                "vote": 2,
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+        
+        {
+            "role": "waddle_doo",
+            "translation": "Waddle Doo",
+            "side": "dedede",
+            "help": "You have been transformed into King Dedede's minion! You can use /kill [name] during the night to defeat an opponent (not shared with the other Waddle Doo). If the other Waddle Doo dies, you die too!",
+            "info": "Can kill one person during the night (not shared). Dies if the other Waddle Doo dies. Sided with King Dedede.",
+            "players": "Conversion Only",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 15,
+                        "broadcast": "team",
+                        "initialrecharge": 1,
+						"broadcastmsg": "Your teammate ~Player~ (Waddle Doo) has decided to kill ~Target~!"
+                    }
+                },
+                "onDeath": {
+                    "killRoles": ["waddle_doo"],
+                    "convertRoles": {
+                        "king_dedede": "king_dedede"
+                    },
+                    "killmsg": "±Game: ~Target~ tried to help ~Self~, but got defeated too!",
+                    "convertmsg": "±Game: King Dedede can now recruit more Waddle Doos!"
+                },
+                "initialCondition": {
+                    "clearCurse": true
+                },
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
+            }
+        },
+		
+        
+        
+        {
+            "role": "snake",
+            "translation": "Snake",
+            "side": "third",
+            "help": "You are a former member of FOXHOUND! You are on a mission and will only win if all non-village roles are dead. You can use /spy [name] at night to find someone's role and movements. Since you are disguised, you cannot attack, but at least you can use /fake [name] to make someone think they are poisoned (try to use this to extract information from them). You also get hax on kills and poison, and you have a 50% chance of being inspected as Mario and you can't be stalked.",
+            "info": "Can spy (inspect + stalk + watch) one person during the night. Can fake-poison one person during the night. Gets hax on kill and poison. Inspected as Mario (50% chance) and immune to stalk. Sided with Third Party, wins alone if all non-village roles are dead.",
+            "actions": {
+                "night": {
+                    "spy": {
+                        "command": ["inspect", "stalk", "watch"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 42
+                    },
+                    "fake": {
+                        "command": "dummy",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 43,
+                        "dummytargetmsg": "±Game: You have 1 days to live.",
+                        "dummyusermsg": "±Game: Ha! Now ~Target~ will think they are poisoned! Try to get some information out of them!"
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.3,
+                        "revealPlayer": 0.04
+                    },
+                    "poison": {
+                        "revealTeam": 0.2,
+                        "revealPlayer": 0.04
+                    }
+                },
+                "inspect": {
+                    "revealAs": ["mario", "snake"]
+                },
+				"stalk": {
+					"mode": "noVisit"
+				}
+            },
+            "winIfDeadRoles": [
+                "wario",
+                "wario_man",
+                "ganondorf",
+                "beast_ganon",
+                "beast_ganon2",
+                "bowser",
+                "giga_bowser",
+                "wolf",
+                "covered_villain",
+                "pikachu",
+                "jigglypuff",
+                "lucario",
+                "pokemon_trainer_squirtle",
+                "pokemon_trainer_ivysaur",
+                "pokemon_trainer_charizard",
+                "donkey_kong3",
+                "donkey_kong2",
+                "donkey_kong",
+                "diddy_kong",
+                "diddy_kong2",
+                "meta_knight",
+                "king_dedede",
+                "waddle_doo",
+                "master_hand"
+            ]
+        },
+        {
+            "role": "sonic",
+            "translation": "Sonic",
+            "side": "third",
+            "help": "You are the fastest thing alive! You can use /kill [name] during the night to defeat another player (you cannot be haxed), and your vote counts as -5. Due to being a non-Nintendo character, you only win if all village roles are dead.",
+            "info": "Can kill one person during the night (avoid hax). Vote counts as -5. Sided with Third Party, wins alone if all village roles are dead.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9
+                    }
+                },
+                "avoidHax": ["kill"],
+                "vote": -5
+            },
+            "winIfDeadRoles": [
+                "mario",
+                "luigi",
+                "lucas",
+                "lucas2",
+                "ness",
+                "ness2",
+                "peach",
+                "yoshi",
+                "link",
+                "toon_link",
+                "captain_falcon",
+                "marth",
+                "ike",
+                "pit",
+                "samus1",
+                "samus2",
+                "olimar7",
+                "olimar6",
+                "olimar5",
+                "olimar4",
+                "olimar3",
+                "olimar2",
+                "olimar1",
+                "ice_climbers",
+                "zelda",
+                "sheik",
+                "fox",
+                "fox2",
+                "falco",
+                "falco2",
+                "kirby",
+                "kirby_lucas",
+                "kirby_ness",
+                "kirby_peach",
+                "kirby_yoshi",
+                "kirby_link",
+                "kirby_captain_falcon",
+                "kirby_marth",
+                "kirby_ike",
+                "kirby_pit",
+                "kirby_samus",
+                "kirby_olimar7",
+                "kirby_olimar6",
+                "kirby_olimar5",
+                "kirby_olimar4",
+                "kirby_olimar3",
+                "kirby_olimar2",
+                "kirby_olimar1",
+                "kirby_ice_climbers",
+                "kirby_zelda",
+                "kirby_sheik",
+                "mr_game_watch",
+                "rob"
+            ]
+        },
+        {
+            "role": "master_hand",
+            "translation": "Master Hand",
+            "side": "hand",
+            "help": "You have a great power over the brawlers, which allow you to type /convert [name] every night to transform someone into a random role (they won't change teams though)! You also get one vote for each of your fingers (AKA your vote counts as 5).",
+            "info": "Vote counts as 5. Can change one person to a random role (on the same team) every night. Sided with Master Hand. ",
+            "actions": {
+                "night": {
+                    "convert": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 24,
+                        "newRole": {
+                            "mario": "variable:villageList",
+                            "luigi": "variable:villageList",
+                            "lucas": "variable:villageList",
+                            "lucas2": "variable:villageList",
+                            "ness": "variable:villageList",
+                            "ness2": "variable:villageList",
+                            "peach": "variable:villageList",
+                            "yoshi": "variable:villageList",
+                            "link": "variable:villageList",
+                            "toon_link": "variable:villageList",
+                            "captain_falcon": "variable:villageList",
+                            "marth": "variable:villageList",
+                            "ike": "variable:villageList",
+                            "pit": "variable:villageList",
+                            "samus1": "variable:villageList",
+                            "samus2": "variable:villageList",
+                            "olimar1": "variable:villageList",
+                            "ice_climbers": "variable:villageList",
+                            "zelda": "variable:villageList",
+                            "sheik": "variable:villageList",
+                            "fox": "variable:villageList",
+                            "falco": "variable:villageList",
+                            "mr_game_watch": "variable:villageList",
+                            "rob": "variable:villageList",
+                            "kirby": "variable:villageList",
+                            "wario": "variable:villainsList",
+                            "wario_man": "variable:villainsList",
+                            "ganondorf": "variable:villainsList",
+                            "beast_ganon": "variable:villainsList",
+                            "bowser": "variable:villainsList",
+                            "giga_bowser": "variable:villainsList",
+                            "wolf": "variable:villainsList",
+                            "pikachu": "variable:pokemonList",
+                            "jigglypuff": "variable:pokemonList",
+                            "lucario": "variable:pokemonList",
+                            "pokemon_trainer_squirtle": "variable:pokemonList",
+                            "pokemon_trainer_ivysaur": "variable:pokemonList",
+                            "pokemon_trainer_charizard": "variable:pokemonList",
+                            "donkey_kong": "variable:monkeyList",
+                            "diddy_kong": "variable:monkeyList",
+                            "meta_knight": "variable:metaknightList",
+                            "king_dedede": "variable:dededeList",
+                            "waddle_doo": "variable:dededeList",
+                            "snake": "variable:thirdList",
+                            "sonic": "variable:thirdList"
+                        },
+                        "pierce": true,
+                        "convertmsg": "The Master Hand grabs ~Old~, throws them into an old box, and then replaces it with a trophy of ~New~!"
+                    }
+                },
+                "vote": 5
+            }
+        }
+    ],
+    "roles1": [
+		"wolf",
+		"wolf",
+		"lucas",
+		"ness",
+        "mario",
+        "mario",
+        "luigi",
+        "mario",
+		"donkey_kong",
+		"peach",
+		"wolf"
+    ],
+    "roles2": [
+		{ "wario": 1, "wario_help": 0 },
+		{ "ganondorf": 1, "ganondorf_help": 0 },
+		"jigglypuff",
+		"lucario",
+		"luigi",
+		"luigi",
+		"lucas",
+		"ness",
+		{ "samus1": 1,"samus2": 1 },
+        "mario",
+		{ "fox": 1, "falco": 1 },
+		{ "olimar1": 1, "ice_climbers": 1},
+		"mario",
+        { "zelda": 1, "sheik": 1 }
+	],
+    "roles3": [
+		{ "wario": 1, "wario_help": 0 },
+		{ "ganondorf": 1, "ganondorf_help": 0 },
+		"jigglypuff",
+		"lucario",
+		"luigi",
+		"luigi",
+		"lucas",
+		{ "ness2": 1,"ness": 0 },
+		{ "samus1": 1,"samus2": 1 },
+        "mario",
+		{ "fox": 1, "falco": 1 },
+		{ "olimar1": 1, "ice_climbers": 1},
+		"mario",
+        { "zelda": 1, "sheik": 1 },
+		{ "meta_knight": 1, "king_dedede": 1},
+		"captain_falcon",
+        "mario",
+		{ "pokemon_trainer_squirtle": 1, "pokemon_trainer_ivysaur": 1, "pokemon_trainer_charizard": 0 },
+		{ "bowser": 1, "bowser_help": 0 },
+		"mario"
+	],
+	"roles4": [
+		{ "wario": 1, "wario_help": 0 },
+		{ "ganondorf": 1, "ganondorf_help": 0 },
+		{ "bowser": 1, "bowser_help": 0 },
+		"pikachu",
+		"jigglypuff",
+		"lucario",
+		{ "meta_knight": 1, "king_dedede": 1},
+		"donkey_kong",
+		"diddy_kong",
+		"luigi",
+		"luigi",
+		"lucas",
+		{ "ness2": 1,"ness": 0 },
+		"peach",
+		{ "olimar1": 1, "ice_climbers": 1},
+		"captain_falcon",
+        "pit",
+        "mario",
+        "mario",
+        "mario",
+		{ "fox": 1, "falco": 1 },
+		{ "link": 1, "toon_link": 1 },
+		{ "pokemon_trainer_squirtle": 1, "pokemon_trainer_ivysaur": 1, "pokemon_trainer_charizard": 0 },
+        "mario",
+		{ "sonic": 1, "snake": 1},
+        "mario",
+		"wolf",
+		{ "mr_game_watch": 1, "rob": 1},
+		"yoshi",
+        { "fox": 1, "falco": 1 },
+		"kirby",
+		"wolf",
+		{ "marth": 1, "ike": 1 },
+		"jigglypuff",
+        "mario",
+		{ "zelda": 1, "sheik": 1 },
+		"luigi",
+		"diddy_kong",
+		{ "samus1": 1,"samus2": 1 },
+        "mario",
+        "ness",
+        { "mr_game_watch": 1, "rob": 1},
+        "pit",
+        "luigi",
+        { "meta_knight": 1, "king_dedede": 1},
+        "mario",
+        "pikachu",
+        "peach",
+        { "wario": 1, "wario_help": 0 },
+        "mario",
+        "kirby"
+    ],
+    "villageCantLoseRoles": [
+		"lucas2",
+		"link",
+		"toon_link",
+		"captain_falcon",
+		"samus1",
+		"samus2",
+		"olimar7",
+		"olimar6",
+		"olimar5",
+		"olimar4",
+		"olimar3",
+		"olimar2",
+		"olimar1",
+		"ice_climbers",
+		"kirby_link",
+		"kirby_captain_falcon",
+		"kirby_samus",
+		"kirby_olimar7",
+		"kirby_olimar6",
+		"kirby_olimar5",
+		"kirby_olimar4",
+		"kirby_olimar3",
+		"kirby_olimar2",
+		"kirby_olimar1"
+	],
+    "killmsg": "±Announcer: ~Player~ (~Role~) has been thrown off of the screen!",
+    "killusermsg": "*** You have been thrown off the screen!",
+    "votemsg": "~Player~ attacks ~Target~!",
+    "changelog": {
+        "30.03.2014": "Ganondorf/Beast Ganon now only evades to 1 daykill per game.",
+        "03.03.2014": "Fixed bug where Waddle Doo would have to wait 1 turn to kill if it was converted right after killing as Zero Suit Samus.",
+        "23.02.2014": "Balance Patch v4.2 aiming to make things simpler by removing the awful amount of odd votes: Lucas and Ness now get a normal vote. When Ness dies, Lucas' vote is now 2. Captain Falcon no longer has voteshield. Marth, Ike, Marth Kirby and Ike Kirby's vote is now 1. Giga Bowser's reveal chance for daykill slightly increased to 25%. Pokémon Mafia's kill is now faster than Villains' kill. Pokémon Mafia's hax slightly increased. Lucario can now inspect every turn. Mr. Game & Watch now gets a nightkill too. R.O.B. now starts with 2 kills, but lose one of them if self protecting. R.O.B.'s protect charges reduced from 3 to 2.",
+        "19.02.2014": "Fixed Meta Knight's /slice (shouldn't be able to slice D1).",
+        "05.02.2014": "Ness can protect 2 targets on games with 15+ players. Wolf can't cover itself anymore (still can get covered by another Wolf).",
+        "03.02.2014": "Fixed Diddy's message saying it was 'her'. Added hint to Luigi's help message.",
+        "19.01.2014": "Pikachu now gets hax on Protectors. Jigglypuff gets hax on Distractors. Lucario gets hax on nightkillers. King Dedede now can only recruit once per night (still can get 2 Waddle Doos, but must wait a turn to get the second). Meta Knight's voteshield changed from -1 to -0.5.",
+        "10.01.2014": "Samus now dies instantly if distracted instead of evading poison. Zero Suit Samus now dies instantly if poisoned instead of evading nightkills. Spawn tweaked.",
+        "06.01.2014": "Meta Knight gets a voteshield of -1 (to avoid perfect stall vs. Ganondorf). Tweaked Spawn List.",
+        "04.01.2014": "Fixing typos and wrong hax.",
+        "29.12.2013": "Changed Meta Knight so it can only use /slice after D2.",
+        "27.12.2013": "Added broadcast to King Dedede's protect. Changed Lucario's command from expose to inspect (same action, just to avoid confusion).",
+        "23.12.2013": "Snake only inspects as Mario 50% of time now. Added winmsgs. Inverted Ganondorf and Beast Ganon abilities (Now both forms evades daykills, but only Beast Ganon survives a lynch). Expanded and Tweaked Spawn Lists. Charizard won't spawn directly anymore (since it would transform before being able to daykill).",
+        "22.12.2013": "Changed Olimar and Kirby (Olimar) names to state how many Pikmins they have.",
+        "17.12.2013": "SSBB v3 finished. Currently testing, some stuff may be reverted if unsuccessful. Main changes:",
+        "17.12.2013a": "All playable characters from SSBB are now in the theme. Teams Structure completely changed. Bowser, Ganondorf, Wario and Wolf are all part of Villains Mafia. Donkey and Diddy are now Monkey Mafia, and there's also a Pokémon Mafia. Solo roles are Mr. Game & Watch, R.O.B., Sonic, Snake, Meta Knight and King Dedede. Everyone else is sided with village (including Ice Climbers and Kirby, who were previously solo roles).",
+        "17.12.2013b": "Roles that changed the most: King Dedede (now a Recruiter), Peach (normal vote, but gets an 1-time expose), Captain Falcon (normal vote, gets -1 voteshield), Donkey Kong (now a mafia killer that can charge to get more kills/votes), Meta Knight (evades nightkills and gets a /slice with 50% reveal chance), Ice Climbers (now village, evades 1 nightkill), Captain Olimar (can pluck Pikmins to increase votes), Wolf (can make a teammate inspect/stalk as Mario), Snake (wins alone when all mafia roles are dead), Sonic (nightkiller with -5 votes, wins alone when all village roles are dead).",
+        "17.12.2013c": "Roles completely unchanged: Mario, Luigi, Link, Lucas and Ness. All other roles had something changed, for a full log, check the theme's thread at http://pokemon-online.eu/forums/showthread.php?16208-SSBB (old version and changelog also included).",
+        "17.12.2013d": "Random Spawn used to fit more characters. Mr. Game & Watch and R.O.B. share a slot (they will never be in the same game), Meta Knight and King Dedede shares another, while Sonic and Snake share another slot. Other pairs like Link/Toon Link, Marth/Ike and Ice Climbers/Olimar also share a slot due to having similar abilities."
+        
+    }
+}
