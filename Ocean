@@ -23,7 +23,7 @@
         },
         {
             "side": "mammal",
-            "translation": "Mammal Alliance",
+            "translation": "Mammal Alliance"barracuda,
             "winmsg": "The Mammals united and have emerged victorious! ~Players~ can now get back to whatever the hell they were doing before!"
         },
         {
@@ -459,7 +459,7 @@
                     "kill": {
                         "target": "AnyButSelf",
                         "common": "Role",
-                        "broadcast": "Role",
+                        "broadcast": "role",
                         "priority": 2
                     }
                 }
