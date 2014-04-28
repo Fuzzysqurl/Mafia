@@ -5,7 +5,7 @@
         "ticks": {"night": 35, "standby": 35},
 		"minplayers": 6,
 		"threadlink": "http://pokemon-online.eu/forums/showthread.php?22157-Flock",
-        "summary": "A fight for dominance of the skies has begun! Which of the Flying type Pokemon will claim victory? PM Solace with comments. Use /changelog to see what's been updated and please post logs of this here http://pokemon-online.eu/forums/showthread.php?22157-Flock Thanks.",
+        "summary": "A fight for dominance of the skies has begun! Which of the Flying type Pokemon will claim victory? Use /changelog to see what's been updated and please post logs of this here http://pokemon-online.eu/forums/showthread.php?22157-Flock Thanks.",
         "sides": [
             {
             "side": "village",
