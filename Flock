@@ -1,6 +1,5 @@
 {
         "name": "Flock",
-		"altname": "KACAW",
         "author": ["Roild", "<span style='color:#ff4e00'>Solace</span>"],
         "ticks": {"night": 35, "standby": 35},
 		"minplayers": 6,
