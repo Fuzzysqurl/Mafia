@@ -1001,9 +1001,9 @@
                 "vote": 100,
                 "inspect": {
                     "revealAs": "stem"
-                }
-            },
+                },
                 "teamTalk": true
+            }
         }
     ],
     "roles1": [
