@@ -972,6 +972,7 @@
             "help": "You are a bacterial disease, used recently to frighten the world, in a form of an unsuspicious white powder. Being caused by a bacteria, you can EITHER form some spores, with /spore [your name] at night OR share a /kill with the other bacterial diseases at night. Your vote was increased to 100, because people are very afraid of you. You are also unsuspicious at inspections and look like Stem Cells.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "teamTalk": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -1001,8 +1002,7 @@
                 "vote": 100,
                 "inspect": {
                     "revealAs": "stem"
-                },
-                "teamTalk": true
+                }
             }
         }
     ],
