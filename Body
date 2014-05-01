@@ -479,7 +479,8 @@
                     ],
                     "exposemsg": "±Game: But, uh, it seems that Angelman Syndrome (~Target~) is developing..."
                 },
-                "startup": "team-reveal-with-roles"
+                "startup": "team-reveal-with-roles",
+                "teamTalk": true
             }
         },
         {
@@ -508,7 +509,8 @@
                         "prader2"
                     ],
                     "exposemsg": "±Game: But, uh, it seems that Prader-Willi Syndrome (~Target~) is developing..."
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -551,7 +553,8 @@
                         "broadcast": "team",
                         "msg": "When Angelman Syndrome is developed, it's almost impossible to survive. You didn't."
                     }
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -588,7 +591,8 @@
                         "evadeChance": 0.45
                     }
                 },
-                "vote": 1000
+                "vote": 1000,
+                "teamTalk": true
             }
         },
         {
@@ -610,7 +614,8 @@
                         "broadcast": "team"
                     }
                 },
-                "vote": 2
+                "vote": 2,
+                "teamTalk": true
             }
         },
         {
@@ -670,7 +675,8 @@
                         "broadcast": "team",
                         "msg": "*Head hurts... What is happening to my mind?!* You feel like you can't control yourself anymore and are found dead."
                     }
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -737,7 +743,8 @@
                         "msg": "If you want, /kill someone. But you WILL be revealed, if you do it.",
                         "killmsg": "~Self~ is out of control! He screams and hits everything. Oh, no! ~Target~ wanted to stop ~Self~ but nothing can stop a schizophrenic during a psychotic outbreak. Poor ~Target~..."
                     }
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -770,7 +777,8 @@
                         "broadcast": "team",
                         "msg": "*Head hurts... What is happening to my mind?!* You feel like you can't control yourself anymore and are found dead."
                     }
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -865,7 +873,8 @@
                         "msg": "An ordinary flu got you down... next time, try taking more care of your health."
                     }
                 },
-                "startup": "role-reveal"
+                "startup": "role-reveal",
+                "teamTalk": true
             }
         },
         {
@@ -887,7 +896,8 @@
                 },
                 "kill": {
                     "mode": "ignore"
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -912,7 +922,8 @@
                 },
                 "kill": {
                     "mode": "ignore"
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -949,7 +960,8 @@
                             "spore"
                         ]
                     }
-                }
+                },
+                "teamTalk": true
             }
         },
         {
@@ -990,7 +1002,8 @@
                 "inspect": {
                     "revealAs": "stem"
                 }
-            }
+            },
+                "teamTalk": true
         }
     ],
     "roles1": [
