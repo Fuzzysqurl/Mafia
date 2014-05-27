@@ -971,7 +971,7 @@
 	],
 		"villageCantLoseRoles": [
 		"villager2",
-		"villager3"
+		"villager3",
 		"fetch",
 		"samurai"
 	],
