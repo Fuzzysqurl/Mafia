@@ -83,4 +83,27 @@
             }
             return;
         }
+        if (command == "debug") {
+            var val, param = commandData.split(":"), data = param[0].split(".");
+           
+            if (data.length > 0) {
+                val = mafia[data[0]];
+                for (var j = 1; j < data.length; j++) {
+                    val = val[data[j]];
+                }
+                if (Array.isArray(val)) {
+                    if (param.length > 1) {
+                        val = val.map(function(x) { return typeof x == "object" ? x[param[1]] : x; }).join(", ");
+                    } else {
+                        val = val.join(", ");
+                    }
+                } else if (typeof val == "object") {
+                    val = Object.keys(val).join(", ");
+                }
+                msg(src, "Value of mafia." + commandData +": " + val);
+            } else {
+                msg(src, "Invalid property");
+            }
+            return;
+        }
         /* TESTINGSCRIPTEND */
