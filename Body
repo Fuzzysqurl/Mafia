@@ -2,7 +2,7 @@
     "author": "Li Q. Assir",
     "name": "Body",
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?16448",
-    "summary": "Welcome to the fight that happens every day inside our bodies: our body defending itself against diseases. Some genetic diseases are harming our body and they are almost unstoppable late game. There are some psychological diseases that can make you go crazy! There are some bacterial ones who are hard to get rid of because of their sporulation. Rabies is hardly stopped when its incubation time ends... (Suggestions or problems? PM Li Q. Assir or post here: http://pokemon-online.eu/forums/showthread.php?16448-Body )",
+    "summary": "Welcome to the fight that happens every day inside our bodies: our body defending itself against diseases. Some genetic diseases are harming our body and they are almost unstoppable late game. There are some psychological diseases that can make you go crazy! There are some bacterial ones who are hard to get rid of because of their sporulation. Rabies is hardly stopped when its incubation time ends...",
     "sides": [
         {
             "side": "village",
@@ -110,7 +110,8 @@
                         "immune",
                         "immunesmall"
                     ]
-                }
+                },
+                "updateTeam": true
             }
         },
         {
@@ -118,7 +119,7 @@
             "translation": "Immune System",
             "side": "village",
             "info": "Night Action: protect (protect [94.00%] or Kill [6.00%]). Can be used 2 times per night. Knows Bone Marrow. Converted to Leukemia if Bone marrow dies. Sided with the Body",
-            "help": "You are the Immune System, which helps the body defend against disease, but you may cause some autoimmune diseases. Well, it's your choice. You can try to /protect twice at night, but be warned: your protection has a 6% chance of killing the person you tried to protect! And you also get infected with Leukemia when Bone Marrow dies.",
+            "help": "You are the Immune System, which helps the body defend against disease, but you may cause some autoimmune diseases. Well, it's your choice. You can try to /protect twice at night, but be warned: your protection has a 6% chance of killing the person you tried to protect! You also get infected with Leukemia when Bone Marrow is not around.",
             "actions": {
                 "night": {
                     "protect": {
@@ -284,7 +285,7 @@
             "translation": "Stem Cell",
             "side": "village",
             "info": "Can convert itself into ear, brain, heart, pineal, immune or liver. Each of these commands have a fail chance between 91% (for ear) and 94% (for heart), have a suicide chance between 15% (ear) and 55% (heart), if they are converted. Sided with the Body.",
-            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune OR /pineal [your name] to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyways, vote to remove people!",
+            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune, /marrow, OR /pineal [your name] to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyways, vote to remove people!",
             "actions": {
                 "night": {
                     "ear": {
@@ -294,12 +295,13 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
-                        "restrict": [
+                        "cancel": [
                             "brain",
                             "heart",
                             "liver",
                             "pineal",
-                            "immune"
+                            "immune",
+                            "bone"
                         ],
                         "newRole": {
                             "ear": [
@@ -315,18 +317,43 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
-                        "restrict": [
+                        "cancel": [
                             "brain",
                             "heart",
                             "liver",
                             "pineal",
-                            "ear"
+                            "ear",
+                            "bone"
                         ],
                         "newRole": {
                             "immunesmall": [
                                 "stem"
                             ]
                         },
+                        "failChance": 0.915
+                    },
+                    "marrow": {
+                        "suicideChance": 0.3,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": ["convert", "massconvert],
+                        "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "cancel": [
+                            "brain",
+                            "heart",
+                            "liver",
+                            "pineal",
+                            "ear",
+                            "immune"
+                        ],
+                        "newRole": {
+                            "bone": [
+                                "stem"
+                            ]
+                        },
+                        "convertRoles": [ "leukemia":"immune"],
                         "failChance": 0.915
                     },
                     "brain": {
@@ -336,12 +363,13 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
-                        "restrict": [
+                        "cancel": [
                             "ear",
                             "heart",
                             "liver",
                             "pineal",
-                            "immune"
+                            "immune",
+                            "bone"
                         ],
                         "newRole": {
                             "brain": [
@@ -357,12 +385,13 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
-                        "restrict": [
+                        "cancel": [
                             "brain",
                             "ear",
                             "liver",
                             "pineal",
-                            "immune"
+                            "immune",
+                            "bone"
                         ],
                         "newRole": {
                             "heart": [
@@ -378,12 +407,13 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
-                        "restrict": [
+                        "cancel": [
                             "brain",
                             "heart",
                             "liver",
                             "ear",
-                            "immune"
+                            "immune",
+                            "bone"
                         ],
                         "newRole": {
                             "pineal": [
@@ -399,12 +429,13 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
-                        "restrict": [
+                        "cancel": [
                             "brain",
                             "heart",
                             "ear",
                             "pineal",
-                            "immune"
+                            "immune",
+                            "bone"
                         ],
                         "newRole": {
                             "liver": [
@@ -480,7 +511,8 @@
                     "exposemsg": "±Game: But, uh, it seems that Angelman Syndrome (~Target~) is developing..."
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -510,7 +542,8 @@
                     ],
                     "exposemsg": "±Game: But, uh, it seems that Prader-Willi Syndrome (~Target~) is developing..."
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -554,7 +587,8 @@
                         "msg": "When Angelman Syndrome is developed, it's almost impossible to survive. You didn't."
                     }
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -592,7 +626,8 @@
                     }
                 },
                 "vote": 1000,
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -615,7 +650,8 @@
                     }
                 },
                 "vote": 2,
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -623,7 +659,7 @@
             "translation": "Alzheimer",
             "side": "mafia1",
             "info": "Night Actions: distract (shared with role), convert (shared with role - can be used every 2 nights - can convert most PRs to Stem Cell or most diseases to Alzheimer) and kill (shared with team). Vote counts as 0.7. Knows teammates. Sided with Psychological Diseases.",
-            "help": "You're a disease that affects people's memory and elder people are more affected by you. You can /distract someone to make them to forget what they would do at night. You can also /forget someone, every two nights, to change their role (if they are on the good team, they'll become a Stem Cell - villager, if they are a disease, they will become another Alzheimer; you can't convert the bone marrow and some diseases). You share a kill with your team. Due to having memory problems, your voting power was reduced to 0.7.",
+            "help": "You're a disease that affects people's memory and elder people are more affected by you. You can /distract someone to make them to forget what they would do at night. You can also /forget someone, every two nights, to change their role (if they are on the good team, they'll become a Stem Cell - villager, if they are a disease, they will become another Alzheimer; you can't convert the Bone Marrow and some diseases). You share a kill with your team. Due to having memory problems, your voting power was reduced to 0.7.",
             "actions": {
                 "vote": 0.7,
                 "startup": "team-reveal-with-roles",
@@ -676,7 +712,9 @@
                         "msg": "*Head hurts... What is happening to my mind?!* You feel like you can't control yourself anymore and are found dead."
                     }
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true,
+                "updateTeam": true
             }
         },
         {
@@ -744,7 +782,9 @@
                         "killmsg": "~Self~ is out of control! He screams and hits everything. Oh, no! ~Target~ wanted to stop ~Self~ but nothing can stop a schizophrenic during a psychotic outbreak. Poor ~Target~..."
                     }
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true,
+                "updateTeam": true
             }
         },
         {
@@ -778,7 +818,9 @@
                         "msg": "*Head hurts... What is happening to my mind?!* You feel like you can't control yourself anymore and are found dead."
                     }
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true,
+                "updateTeam": true
             }
         },
         {
@@ -817,7 +859,7 @@
                 "bacteria"
             ],
             "info": "Night Action: kill. Kills anyone that distract this role. Wins with any side but the Body.",
-            "help": "You are a cancer caused when white blood cells are being overproduced. Now you are by yourself, but you can win with any disease groups. You can /kill at night.",
+            "help": "You are a cancer caused when white blood cells are being overproduced. Now you are by yourself, but you can win with any disease groups. You can /kill at night. If the Body gets new Bone Marrow, you will resume your previous role as the Immune System.",
             "actions": {
                 "night": {
                     "kill": {
@@ -874,7 +916,8 @@
                     }
                 },
                 "startup": "role-reveal",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -897,7 +940,8 @@
                 "kill": {
                     "mode": "ignore"
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -923,7 +967,8 @@
                 "kill": {
                     "mode": "ignore"
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -961,7 +1006,8 @@
                         ]
                     }
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -1002,7 +1048,8 @@
                 "vote": 100,
                 "inspect": {
                     "revealAs": "stem"
-                }
+                },
+                "preventTeamvote": true
             }
         }
     ],
@@ -1074,5 +1121,8 @@
         "immune",
         "immunesmall",
         "heartsmall"
-    ]
+    ],
+    "changelog": {
+        "06.29.2014": "updateTeam and preventTeamvote. Stem can now convert to Bone Marrow and rescue a converted Immune System. Stems can also now change their mind on the conversion during the night instead of being restricted to whatever they first chose."
+    }
 }
