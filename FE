@@ -2,12 +2,11 @@
     "name": "FE",
     "altname": "Fire Emblem",
     "author": [
-        "<span style='color:#ff4e00'>Solace</span>",
-        "Fuzzy"
+        "Fuzzysqurl"
     ],
     "minplayers": 6,
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?15904-Fire-Emblem",
-    "summary": "[MASSIVE OVERHAUL] The world is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the Earth!",
+    "summary": "The world is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the Earth!",
     "sides": [
         {
             "side": "village",
@@ -598,6 +597,7 @@
             "info": "Can poison one person during the night. Can kill one person during the night. Vote of 2. Sided with The Grado Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -626,6 +626,7 @@
             "info": "Can convert into Demon King during the night (Converting also protects and safeguards self). Sided with The Grado Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "activate": {
                         "command": [
@@ -678,6 +679,7 @@
             "info": "Can poison two people during the night. Vote of 999. Immune to convert, distract, and poison. Sided with The Grado Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "poison": {
                         "target": "AnyButTeam",
@@ -709,6 +711,7 @@
             "info": "Can kill four people during the night, after the fourth night. Can intimidate during the day, once per game, after the third day. Immune to converts and poison. Evades night kills. Sided with The Begnion Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "luna": {
                         "command": "kill",
@@ -750,6 +753,7 @@
             "info": "Can kill one person during the night. Vote of 1.5. Sided with The Begnion Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -772,6 +776,7 @@
             "info": "Can kill one person during the night. Vote of 1.1. Immune to distract. Sided with The Begnion Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -827,6 +832,7 @@
             "info": "Can kill one person during the night. Can inspect one person during the night. Vote of 2. Immune to convert and poison. Sided with The Kingdom of Bern.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -863,6 +869,7 @@
             "info": "Can kill one person during the night. Can inspect one person during the night. Can convert one person to Bribed Soldier during the night, once per game. Vote of 3. Immune to convert and poison. Sided with The Kingdom of Bern.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -917,6 +924,7 @@
             "info": "Can poison one person during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -944,6 +952,7 @@
             "info": "Can kill one person during the night. Can distract one person during the night. Sided with The Kingdom of Bern.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "distract": {
                         "target": "AnyButTeam",
@@ -973,6 +982,7 @@
             "info": "Can protect two people during the night. Can kill one person during the night. Sided with The Kingdom of Bern.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "protect": {
                         "target": "AnyButSelf",
@@ -1001,6 +1011,8 @@
             "info": "Can morph one person every night, twice per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "morph": {
                         "command": "convert",
@@ -1040,6 +1052,8 @@
             "info": "Can morph one person every night, three times per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "morph": {
                         "command": "convert",
@@ -1081,6 +1095,8 @@
             "info": "Can morph one person every night.Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "morph": {
                         "command": "convert",
@@ -1119,6 +1135,8 @@
             "info": "Can shield one person during the night (50% fail chance). Vote of 0. Voteshield of -3. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "shield": {
                         "target": "AnyButSelf",
@@ -1152,6 +1170,8 @@
             "info": "Can kill one person during the night. Can inspect one person during the night. Immune to poison. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -1183,6 +1203,8 @@
             "info": "Can kill one person during the night. Can distract one person during the night. Immune to poison. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "bind": {
                         "command": "distract",
@@ -1216,6 +1238,8 @@
             "info": "Can kill one person during the night. Can stalk one person during the night. Immune to poison. Sided with The Black Fang.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -1243,6 +1267,7 @@
             "info": "Can kill one person during the day. Immune to convert. Sided with The Grimleal Army.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "convert": {
                     "mode": "ignore"
                 },
@@ -1267,6 +1292,7 @@
             "info": "Can kill one person during the night. Vote of 5. Immune to distract and convert. Sided with The Grimleal Army.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "kill": {
                         "target": "AnyButTeam",
@@ -1295,6 +1321,7 @@
             "info": "Can kill one person during the night. Can inspect one person during the night, twice per game. Voteshield of -3. Immune to convert. Sided with The Grimleal Army.",
             "actions": {
                 "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
                 "night": {
                     "inspect": {
                         "target": "AnyButTeam",
@@ -1443,6 +1470,7 @@
         "9.30.2013": "Flavor and hide tweaks.",
         "10.9.2013": "Minor spawn changes in small games. Soldiers now die immediately from poison in small games.",
         "10.21.2013": "Hector insult removed.",
-        "01.10.2014": "Flavor adjustments. Coded Celica"
+        "01.10.2014": "Flavor adjustments. Coded Celica",
+        "06.29.2014": "updateTeam and preventTeamvote"
     }
 }
