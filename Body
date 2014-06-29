@@ -1,5 +1,5 @@
 {
-    "author": "Li Q. Assir",
+    "author": ["Li Q. Assir", "Fuzzysqurl"],
     "name": "Body",
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?16448",
     "summary": "Welcome to the fight that happens every day inside our bodies: our body defending itself against diseases. Some genetic diseases are harming our body and they are almost unstoppable late game. There are some psychological diseases that can make you go crazy! There are some bacterial ones who are hard to get rid of because of their sporulation. Rabies is hardly stopped when its incubation time ends...",
@@ -301,7 +301,7 @@
                             "liver",
                             "pineal",
                             "immune",
-                            "bone"
+                            "marrow"
                         ],
                         "newRole": {
                             "ear": [
@@ -323,7 +323,7 @@
                             "liver",
                             "pineal",
                             "ear",
-                            "bone"
+                            "marrow"
                         ],
                         "newRole": {
                             "immunesmall": [
@@ -335,7 +335,7 @@
                     "marrow": {
                         "suicideChance": 0.3,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": ["convert", "massconvert],
+                        "command": ["convert", "massconvert"],
                         "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
                         "target": "OnlySelf",
                         "common": "Self",
@@ -353,7 +353,7 @@
                                 "stem"
                             ]
                         },
-                        "convertRoles": [ "leukemia":"immune"],
+                        "convertRoles": { "leukemia":"immune"},
                         "failChance": 0.915
                     },
                     "brain": {
@@ -369,7 +369,7 @@
                             "liver",
                             "pineal",
                             "immune",
-                            "bone"
+                            "marrow"
                         ],
                         "newRole": {
                             "brain": [
@@ -391,7 +391,7 @@
                             "liver",
                             "pineal",
                             "immune",
-                            "bone"
+                            "marrow"
                         ],
                         "newRole": {
                             "heart": [
@@ -413,7 +413,7 @@
                             "liver",
                             "ear",
                             "immune",
-                            "bone"
+                            "marrow"
                         ],
                         "newRole": {
                             "pineal": [
@@ -435,7 +435,7 @@
                             "ear",
                             "pineal",
                             "immune",
-                            "bone"
+                            "marrow"
                         ],
                         "newRole": {
                             "liver": [
