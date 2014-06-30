@@ -1,7 +1,7 @@
 {
     "name": "Ocean",
     "author": [
-        "Fuzzy"
+        "Fuzzysqurl"
     ],
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?15935-Ocean",
     "summary": "Ah, the ocean! It's truly a wonderful place where fish can safely go about their business without fear of... hang on, that's not right. The ocean is a terrible place where fish are in constant danger. Violent Shark deaths occur on a regular basis and even the Mammals are getting in on the action! [Use /changelog to learn of all the new updates!]",
@@ -558,7 +558,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -586,7 +587,8 @@
                     "mode": "ignore"
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -613,7 +615,8 @@
                 },
                 "startup": "team-reveal-with-roles",
                 "vote": 2,
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -644,7 +647,8 @@
                 "stalk": {
                     "mode": "noVisit"
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -682,7 +686,8 @@
                     "mode": "resistance",
                     "rate": 2
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -695,7 +700,8 @@
                 "daykill": "evade",
                 "daykillevademsg": "The water around that player doesn't look safe, maybe you should go after someone else.",
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             },
             "winIfDeadRoles": [
                 "greatwhite",
@@ -721,7 +727,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -740,7 +747,8 @@
                         "mammal"
                     ]
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             },
             "winIfDeadRoles": [
                 "swordfish",
@@ -779,7 +787,8 @@
                     "mode": "ignore"
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -833,7 +842,9 @@
                     "convertmsg": "Even in the face of death, the Sushi Chef made sure to finish their work by using the ~Old~ in order to make ~New~!"
                 },
                 "voteshield": -9999,
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true,
+                "updateTeam": true
             },
             "winIfDeadRoles": [
                 "swordfish",
@@ -862,7 +873,9 @@
                         "fishy"
                     ]
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true,
+                "updateTeam": true
             }
         },
         {
@@ -879,7 +892,9 @@
                         "sushi"
                     ]
                 },
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true,
+                "updateTeam": true
             }
         },
         {
@@ -974,6 +989,7 @@
         "8.10.2013": "Adjusted Dolphin's winIfDead to credit wins properly. Adjusted Chef's winIfDead to credit wins properly. Adjusted Dolphin's help to reduce confusion with a reveal. Increased Blue Whale's resistance to poison. Decreased Gurry Shark's vote to 2 to give more wins to Mammals. Sashimi inspect as fish again. Team-revealif-with-roles finally! Sushi Chef no longer dies if it tries to convert Cthulhu. Clean up of Placeholder roles. Blue whale no longer kills Gurry Shark. Message tweaking here and there. Slightly tweaked middle game spawn to give Village a better chance of winning. Anemone gets it's vote back. ",
         "8.17.2013": "Typo fix in Swordfish's help",
         "9.11.2013": "Backport change for middle game balance",
+        "6.29.2014": "preventTeamvote and updateTeam added. New update soon maybe...",
         "Potential Additions": "New PRs for Village. New Mafia side. New roles for each existing Mafia side.",
         "Potential Tweaks": "Dolphin dayinspect. Puffer Fish poison resistance. Sushi inspect as Fish. Specific Daykill/Expose revenge. A role with Detox. Removal or restriction of Hammerhead's nightkill. Clown Fish maintaining vote after losing Anemone."
     }
