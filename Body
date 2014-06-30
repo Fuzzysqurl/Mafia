@@ -114,6 +114,24 @@
             }
         },
         {
+            "role": "bonetemp",
+             "translation": "Bone Marrow (Temp)",
+             "side": "village",
+             "hide": "both",
+             "help": "~",
+             "actions": {
+                "initialCondition": {
+                    "curse": {
+                        "silentCurse": true,
+                        "curseConvertMessage": "",
+                        "cursemsg": "",
+                        "curseCount": -1,
+                        "cursedRole": "bone"
+                    }
+                }
+            }
+        },
+        {
             "role": "immune",
             "translation": "Immune System",
             "side": "village",
@@ -356,7 +374,7 @@
                     "marrow": {
                         "suicideChance": 0.000003,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": ["curse", "massconvert"],
+                        "command": ["convert", "massconvert"],
                         "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
                         "target": "OnlySelf",
                         "common": "Self",
@@ -370,15 +388,11 @@
                             "immune",
                             "kidney"
                         ],
-                        "cursedRole": {
-                            "bone": ["stem"]
+                        "newRole": {
+                            "bonetemp": ["stem"]
                         },
                         "convertRoles": { "leukemia":"immune"},
                         "failChance": 0.00000000000915,
-                        "silentCurse": true,
-                        "curseConvertMessage": "",
-                        "cursemsg": "",
-                        "curseCount": -1,
                         "pierce": true
                     },
                     "brain": {
