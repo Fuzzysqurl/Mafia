@@ -317,7 +317,7 @@
             "translation": "Stem Cell",
             "side": "village",
             "info": "Can convert itself into ear, brain, heart, pineal, immune or liver. Each of these commands have a fail chance between 91% (for ear) and 94% (for heart), have a suicide chance between 15% (ear) and 55% (heart), if they are converted. Sided with the Body.",
-            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune, /marrow, /kidney, OR /pineal [your name] to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyways, vote to remove people!",
+            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune, /marrow, /kidney, OR /pineal to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyway, vote to remove people!",
             "actions": {
                 "night": {
                     "ear": {
@@ -1224,6 +1224,6 @@
         "kidney"
     ],
     "changelog": {
-        "06.29.2014": "updateTeam and preventTeamvote. New Role: Kidney (Detox). Stem Cell can convert to Kidney and Bone Marrow. If it converts to Marrow, a converted Immune System will return to the team. Tweaked spawn list and start up reveal a bit (Example: Pineal gets reveal on all other Pineals, just in case a Stem converts)"
+        "06.29.2014": "updateTeam and preventTeamvote. New Role: Kidney (Detox). Stem Cell can convert to Kidney and Bone Marrow. If it converts to Marrow, a converted Immune System will return to the team. Tweaked spawn list and start up reveal a bit (Example: Pineal gets reveal on all other Pineals, just in case a Stem converts."
     }
 }
