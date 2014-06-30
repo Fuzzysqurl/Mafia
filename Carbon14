@@ -50,7 +50,8 @@
                 "night": "variable:kill",
                 "startup": "team-reveal",
                 "teamTalk": true,
-                "onlist": "suspect"
+                "onlist": "suspect",
+                "preventTeamvote": true
             }
         },
         { "role": "ww",
@@ -64,7 +65,8 @@
                 "night": "variable:kill",
                 "startup": "team-reveal",
                 "teamTalk": true,
-                "onlist": "suspect"
+                "onlist": "suspect",
+                "preventTeamvote": true
             }
         },
         { "role": "sm",
@@ -192,6 +194,7 @@
     },
     "roles1": ["pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a", "pack:a"],
     "changelog": {
-        "April 5": "Removed Daystart. Updated /roles. Fixed issue with Werewolf not spawning correctly."
+        "04.05.2014": "Removed Daystart. Updated /roles. Fixed issue with Werewolf not spawning correctly.",
+        "06.29.2014": "preventTeamvote"
     }
 }
