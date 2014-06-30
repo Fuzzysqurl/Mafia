@@ -379,7 +379,7 @@
                             "kidney"
                         ],
                         "newRole": {
-                            "bonetemp": ["bonetemp"]
+                            "bone": ["bonetemp"]
                         },
                         "cursedRole": {
                             "bone": ["stem", "bonetemp"]
