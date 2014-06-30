@@ -240,7 +240,7 @@
             "translation": "Kidneys",
             "side": "village",
             "info": "Night Action: filter (detox). Vote counts as 2. Sided with the Body.",
-            "help": "To be filled in.",
+            "help": "You're the organ responsible for filtering impurities from the blood. You can clear any toxins from people using the /filter command. Because there are two of you, your vote counts for 2!",
             "actions": {
                 "night": {
                     "filter": {
