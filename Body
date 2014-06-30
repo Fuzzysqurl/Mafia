@@ -114,14 +114,6 @@
             }
         },
         {
-            "role": "bonetemp",
-            "translation": "Bone Marrow (Temp)",
-            "side": "village",
-            "hide": "both",
-            "help": "You are the bone marrow, where every blood cell is produced. You renew the body's blood, being able to /safeguard someone at night. The Immune System can't harm you, because you are its origin. You also know the Immune System, because of the important relationship between you.",
-            "actions": {}
-        },
-        {
             "role": "immune",
             "translation": "Immune System",
             "side": "village",
@@ -364,7 +356,7 @@
                     "marrow": {
                         "suicideChance": 0.000003,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": ["curse", "massconvert", "convert"],
+                        "command": ["curse", "massconvert"],
                         "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
                         "target": "OnlySelf",
                         "common": "Self",
@@ -378,11 +370,8 @@
                             "immune",
                             "kidney"
                         ],
-                        "newRole": {
-                            "bone": ["bonetemp"]
-                        },
                         "cursedRole": {
-                            "bone": ["stem", "bonetemp"]
+                            "bone": ["stem"]
                         },
                         "convertRoles": { "leukemia":"immune"},
                         "failChance": 0.00000000000915,
