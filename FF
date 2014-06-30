@@ -55,7 +55,7 @@
             "translation": "Locke",
             "side": "village",
             "info": "Can inspect one person during the night. Sided with Heroes. ",
-            "help": "A master thief - er, treasure hunter, and one of the protagonists of Final Fantasy VI. Type /Inspect [name] during the night to find his/her identity!",
+            "help": "A master thief - er, treasure hunter, and one of the protagonists of Final Fantasy VI. Type /Inspect [name] during the night to find his/her identity! You may be Cactuar, as he thinks he is Locke, but sees 90% of his inspects as Kefka!",
             "actions": {
                 "night": {
                     "inspect": {
@@ -109,7 +109,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -133,7 +134,8 @@
                 },
                 "avoidHax": [
                     "kill"
-                ]
+                ],
+                "preventTeamvote": true
             }
         },
         {
@@ -285,7 +287,8 @@
             "help": "The true show begins now! You're the brightest star in the voting arena, voting for anyone results in their immediate death. Team up with Kefka to win!",
             "actions": {
                 "vote": 999,
-                "voteshield": -9999
+                "voteshield": -9999,
+                "preventTeamvote": true
             },
             "winIfDeadRoles": [
                 "jecht",
@@ -426,7 +429,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -445,7 +449,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -473,7 +478,8 @@
                     "kill"
                 ],
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -498,7 +504,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -527,7 +534,8 @@
                 "teamTalk": true,
                 "avoidHax": [
                     "distract"
-                ]
+                ],
+                "preventTeamvote": true
             }
         },
         {
@@ -556,7 +564,8 @@
                 ],
                 "vote": 2,
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -578,7 +587,8 @@
                     }
                 },
                 "startup": "team-reveal-with-roles",
-                "teamTalk": true
+                "teamTalk": true,
+                "preventTeamvote": true
             }
         },
         {
@@ -605,7 +615,8 @@
                 "teamTalk": true,
                 "avoidHax": [
                     "inspect"
-                ]
+                ],
+                "preventTeamvote": true
             }
         },
         {
@@ -630,7 +641,7 @@
             "translation": "Cactuar",
             "side": "village",
             "info": "Can inspect one person during the night (90% chance for fake inspect). Sees itself as Locke. Reveals as Kefka when inspected. Sided with Heroes.",
-            "help": "A master thief - er, treasure hunter, and one of the protagonists of Final Fantasy VI. Type /Inspect [name] during the night to find his/her identity!",
+            "help": "A master thief - er, treasure hunter, and one of the protagonists of Final Fantasy VI. Type /Inspect [name] during the night to find his/her identity! You may be Cactuar, as he thinks he is Locke, but sees 90% of his inspects as Kefka!",
             "actions": {
                 "night": {
                     "inspect": {
@@ -699,24 +710,6 @@
                 },
                 "vote": 4
             }
-        },
-        {
-            "role": "squall",
-            "translation": "Squal",
-            "side": "village",
-            "hide": true,
-            "info": "Sided with Heroes",
-            "help": "",
-            "actions": {}
-        },
-        {
-            "role": "griever",
-            "translation": "Griever",
-            "side": "ultimecia",
-            "hide": true,
-            "info": "Sided with Ultimecia",
-            "help": "",
-            "actions": {}
         }
     ],
     "roles1": [
@@ -828,6 +821,12 @@
         "paladin",
         "chocobo"
     ],
+	"tips": {
+        "Cloud": "FOR THE LOVE OF GOD CLOUD, DON'T KILL D1.",
+        "Cactuar": "If you inspect Kefka, YOU'RE PROBABLY CACTUAR. Pay attention to other people inspecting to see if you're Locke or Cactuar, or at least wait till n2 to confirm your inspect results. READ YOUR HELP TEXT.",
+        "Cactuar Part 2": "If you and Locke spam like you're supposed to, you should already be connected to each other and Zidane. Figure out which one of you is Cactuar, meatshield as Zidane and ask for PRs. If you die, no real loss there, as Locke can now confirm himself.",
+        "CACTUAR PART 3": "CACTUAR INSPECTS AS KEFKA. CACTUAR INSPECTS AS KEFKA. DO NOT PANIC."
+	},
     "killmsg": "±Game: ~Player~ (~Role~) has fallen!",
     "killusermsg": "You have been killed!",
     "lynchmsg": "±Game: ~Player~ (~Role~) has been removed from the game!",
@@ -837,6 +836,6 @@
         "6.18.2013": "Kuja can no longer selfvote and get lynched.",
         "6.20.2013": "DKC now gets -3 votes to help balance. Cecil and Auron ignore each other's protects.",
         "6.24.2013": "Expanded players supported to 40. Added new roles and buffed some existing.  Chocobo Rider (2 vote stalker sided with village), Anima (Poisoner sided with Sin), Judge Zargabaath (upgraded killer sided with House). Buffed Sephiroth to ignore poison, stalk, and have a small voteshield in large games. ",
-        "??.??.????": "Griever (Ultimecia's Guardian Force) and Squall (Main Character of FF8) are planned roles for larger games to break up the stretch of moogles, if you have any ideas on what could be done, contact Fuzzy."
+        "6.29.2014": "preventTeamvote"
     }
 }
