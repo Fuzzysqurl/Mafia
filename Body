@@ -379,10 +379,10 @@
                             "kidney"
                         ],
                         "newRole": {
-                            "bonetemp": ["stem"]
+                            "bonetemp": ["bonetemp"]
                         },
                         "cursedRole": {
-                            "bone": ["stem"]
+                            "bone": ["stem", "bonetemp"]
                         },
                         "convertRoles": { "leukemia":"immune"},
                         "failChance": 0.00000000000915,
