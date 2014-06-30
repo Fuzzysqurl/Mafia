@@ -1224,6 +1224,6 @@
         "kidney"
     ],
     "changelog": {
-        "06.29.2014": "updateTeam and preventTeamvote. New Role: Kidney (Detox). Stem Cell can convert to Kidney and Bone Marrow. If it converts to Marrow, a converted Immune System will return to the team. Tweaked spawn list and start up reveal a bit (Example: Pineal gets reveal on all other Pineals, just in case a Stem converts."
+        "06.29.2014": "updateTeam and preventTeamvote. New Role: Kidney (Detox). Stem Cell can convert to Kidney and Bone Marrow. If it converts to Marrow, a converted Immune System will return to the team. Tweaked spawn list and start up reveal a bit (Example: Pineal gets reveal on all other Pineals, just in case a Stem converts)."
     }
 }
