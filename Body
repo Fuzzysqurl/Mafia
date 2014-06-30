@@ -382,12 +382,11 @@
                             "bonetemp": ["stem"]
                         },
                         "cursedRole": {
-                            "bonetemp": ["stem"]
+                            "bone": ["stem"]
                         },
                         "convertRoles": { "leukemia":"immune"},
                         "failChance": 0.00000000000915,
-                        "silentCurse": false,
-                        "silentConvert": true,
+                        "silentCurse": true,
                         "curseConvertMessage": "",
                         "cursemsg": "",
                         "curseCount": -1,
