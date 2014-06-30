@@ -310,7 +310,7 @@
             "translation": "Stem Cell",
             "side": "village",
             "info": "Can convert itself into ear, brain, heart, pineal, immune or liver. Each of these commands have a fail chance between 91% (for ear) and 94% (for heart), have a suicide chance between 15% (ear) and 55% (heart), if they are converted. Sided with the Body.",
-            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune, /marrow, OR /pineal [your name] to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyways, vote to remove people!",
+            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune, /marrow, /kidney, OR /pineal [your name] to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyways, vote to remove people!",
             "actions": {
                 "night": {
                     "ear": {
@@ -326,7 +326,8 @@
                             "liver",
                             "pineal",
                             "immune",
-                            "marrow"
+                            "marrow",
+                            "kidney"
                         ],
                         "newRole": {
                             "ear": [
@@ -349,7 +350,8 @@
                             "liver",
                             "pineal",
                             "ear",
-                            "marrow"
+                            "marrow",
+                            "kidney"
                         ],
                         "newRole": {
                             "immunesmall": [
@@ -362,7 +364,7 @@
                     "marrow": {
                         "suicideChance": 0.000003,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": ["convert", "curse", "massconvert"],
+                        "command": ["curse", "massconvert", "convert"],
                         "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
                         "target": "OnlySelf",
                         "common": "Self",
@@ -373,7 +375,8 @@
                             "liver",
                             "pineal",
                             "ear",
-                            "immune"
+                            "immune",
+                            "kidney"
                         ],
                         "newRole": {
                             "bonetemp": ["stem"]
@@ -400,7 +403,8 @@
                             "liver",
                             "pineal",
                             "immune",
-                            "marrow"
+                            "marrow",
+                            "kidney"
                         ],
                         "newRole": {
                             "brain": [
@@ -423,7 +427,8 @@
                             "liver",
                             "pineal",
                             "immune",
-                            "marrow"
+                            "marrow",
+                            "kidney"
                         ],
                         "newRole": {
                             "heart": [
@@ -446,10 +451,35 @@
                             "liver",
                             "ear",
                             "immune",
-                            "marrow"
+                            "marrow",
+                            "kidney"
                         ],
                         "newRole": {
                             "pineal": [
+                                "stem"
+                            ]
+                        },
+                        "failChance": 0.91,
+                        "pierce": true
+                    },
+                    "kidney": {
+                        "suicideChance": 0.2,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "cancel": [
+                            "brain",
+                            "heart",
+                            "liver",
+                            "ear",
+                            "immune",
+                            "marrow",
+                            "pineal"
+                        ],
+                        "newRole": {
+                            "kidney": [
                                 "stem"
                             ]
                         },
@@ -469,7 +499,8 @@
                             "ear",
                             "pineal",
                             "immune",
-                            "marrow"
+                            "marrow",
+                            "kidney"
                         ],
                         "newRole": {
                             "liver": [
