@@ -54,7 +54,10 @@
                     }
                 },
                 "startup": {
-                    "revealRole": "eye"
+                    "revealRole": [
+                        "eye",
+                        "pineal"
+                    ]
                 }
             }
         },
@@ -108,7 +111,8 @@
                 "startup": {
                     "revealRole": [
                         "immune",
-                        "immunesmall"
+                        "immunesmall",
+                        "bone"
                     ]
                 }
             }
@@ -134,7 +138,11 @@
                     }
                 },
                 "startup": {
-                    "revealRole": "bone"
+                    "revealRole": [
+                        "bone",
+                        "immune",
+                        "immunesmall"
+                    ]
                 }
             }
         },
@@ -146,7 +154,11 @@
             "help": "You are the Immune System, which helps the body defend against disease, but you may cause some autoimmune diseases. Well, it's your choice. You can try to /protect once at night, but be warned: your protection has a 6% chance of killing the person you tried to protect!",
             "actions": {
                 "startup": {
-                    "revealRole": "bone"
+                    "revealRole": [
+                        "bone",
+                        "immune",
+                        "immunesmall"
+                    ]
                 },
                 "night": {
                     "protect": {
@@ -268,7 +280,10 @@
                     }
                 },
                 "startup": {
-                    "revealRole": "pineal"
+                    "revealRole": [
+                        "eye",
+                        "pineal"
+                    ]
                 },
                 "onDeath": {
                     "convertRoles": {
@@ -354,7 +369,7 @@
                         "pierce": true
                     },
                     "marrow": {
-                        "suicideChance": 0.000003,
+                        "suicideChance": 0.3,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["curse", "massconvert"],
                         "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
@@ -374,7 +389,7 @@
                             "bone": ["stem"]
                         },
                         "convertRoles": { "leukemia":"immune"},
-                        "failChance": 0.00000000000915,
+                        "failChance": 0.915,
                         "silentCurse": false,
                         "curseConvertMessage": "",
                         "cursemsg": "",
@@ -1209,6 +1224,6 @@
         "kidney"
     ],
     "changelog": {
-        "06.29.2014": "updateTeam and preventTeamvote. Stem can now convert to Bone Marrow and rescue a converted Immune System. Stems can also now change their mind on the conversion during the night instead of being restricted to whatever they first chose! Added Kidney, tweaked spawn list accordingly."
+        "06.29.2014": "updateTeam and preventTeamvote. New Role: Kidney (Detox). Stem Cell can convert to Kidney and Bone Marrow. If it converts to Marrow, a converted Immune System will return to the team. Tweaked spawn list and start up reveal a bit (Example: Pineal gets reveal on all other Pineals, just in case a Stem converts)"
     }
 }
