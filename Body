@@ -115,7 +115,7 @@
         },
         {
             "role": "bonetemp",
-            "translation": "Bone Marrow",
+            "translation": "Bone Marrow (Temp)",
             "side": "village",
             "hide": "both",
             "help": "You are the bone marrow, where every blood cell is produced. You renew the body's blood, being able to /safeguard someone at night. The Immune System can't harm you, because you are its origin. You also know the Immune System, because of the important relationship between you.",
@@ -387,6 +387,8 @@
                         "convertRoles": { "leukemia":"immune"},
                         "failChance": 0.00000000000915,
                         "silentCurse": true,
+                        "curseConvertMessage": "",
+                        "cursemsg": "",
                         "curseCount": -1,
                         "pierce": true
                     },
