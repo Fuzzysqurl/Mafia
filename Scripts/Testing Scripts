@@ -71,7 +71,7 @@
                     return;
                 }
                 if (role in mafia.theme.roles) {
-                    mafia.players[player] = {'name': player, 'role': mafia.theme.roles[role], 'targets': {}, 'recharges': {}, 'dayrecharges':{}, 'charges' : {}, 'daycharges' : {}, 'evadeCharges' : {}, 'restrictions': [] };
+                    mafia.players[player] = {'name': player, 'role': mafia.theme.roles[role], 'targets': {}, 'recharges': {}, 'dayrecharges':{}, 'charges' : {}, 'daycharges' : {}, 'evadeCharges' : {}, 'restrictions': [], 'guardActions' : [] };
                     mafia.setPlayerRole(mafia.players[player], role);
                     gamemsg(srcname, "Player " + player + " pushed to the game as " + mafia.theme.trrole(role) + " (" + role + ")");
                 } else {
