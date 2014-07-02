@@ -9220,7 +9220,6 @@
                     "mode" : "ignore",
                     "msg" : "Someone tried to distract you, but Pokémon moves doesn't work on humans!"
                 },
-                "startup" : "team-reveal-with-roles",
                 "inspect" : {
                     "revealAs" : "Trainer",
                     "mode" : {
@@ -9228,7 +9227,7 @@
                     },
                     "msg" : "±Info: ~Self~ is an Inspector!"
                 },
-                "teamTalk" : true
+                "mafiaTools" : true
             }
         }, {
             "role" : "Blue_Trainer",
