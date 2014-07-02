@@ -583,7 +583,7 @@
                         "priority": 80,
                         "msg": "~Target~ was cured of poison.",
                         "targetmsg": "Celica focused her healing energy on you, removing the poison from your system.",
-                        "failmsg": "~Target~ is not poisoned!"
+                        "detoxfailmsg": "~Target~ is not poisoned!"
                     }
                 }
             }
