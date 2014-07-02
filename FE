@@ -4,7 +4,7 @@
     "author": [
         "Fuzzysqurl"
     ],
-    "minplayers": 6,
+    "minplayers": 3,
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?15904-Fire-Emblem",
     "summary": "The world is at war! Join your favorite Fire Emblem heroes as they team up to fight some of the most nefarious and powerful villains in the series. Defeat them and return peace to the Earth!",
     "sides": [
@@ -1345,6 +1345,7 @@
         }
     ],
     "roles1": [
+    "nergal2",
         "hector",
         "roy",
         "riev",
