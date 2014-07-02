@@ -1011,6 +1011,10 @@
             "info": "Can morph one person every night, twice per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
             "actions": {
                 "mafiaTools": true,
+                "teamTalk": true,
+                "startup": "team-reveal-with-roles",
+                "preventTeamvote": true,
+                "updateTeam": true,
                 "night": {
                     "morph": {
                         "command": "convert",
