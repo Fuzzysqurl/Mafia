@@ -323,7 +323,7 @@
                     "ear": {
                         "suicideChance": 0.15,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": "convert",
+                        "command": ["convert", "dummy"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
@@ -342,12 +342,13 @@
                             ]
                         },
                         "failChance": 0.9,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
                     },
                     "immune": {
                         "suicideChance": 0.3,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": "convert",
+                        "command": ["convert", "dummy"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
@@ -366,12 +367,13 @@
                             ]
                         },
                         "failChance": 0.915,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
                     },
                     "marrow": {
                         "suicideChance": 0.3,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": ["curse", "massconvert"],
+                        "command": ["curse", "dummy", "massconvert"],
                         "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
                         "target": "OnlySelf",
                         "common": "Self",
@@ -394,12 +396,13 @@
                         "curseConvertMessage": "",
                         "cursemsg": "",
                         "curseCount": -1,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become ~New~!"
                     },
                     "brain": {
                         "suicideChance": 0.25,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": "convert",
+                        "command": ["convert", "dummy"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
@@ -418,12 +421,13 @@
                             ]
                         },
                         "failChance": 0.915,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     },
                     "heart": {
                         "suicideChance": 0.55,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": "convert",
+                        "command": ["convert", "dummy"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
@@ -442,12 +446,13 @@
                             ]
                         },
                         "failChance": 0.94,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     },
                     "pineal": {
                         "suicideChance": 0.2,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": "convert",
+                        "command": ["convert", "dummy"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
@@ -466,12 +471,13 @@
                             ]
                         },
                         "failChance": 0.91,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     },
                     "kidney": {
                         "suicideChance": 0.2,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": "convert",
+                        "command": ["convert", "dummy"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
@@ -490,12 +496,13 @@
                             ]
                         },
                         "failChance": 0.91,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become ~New~!"
                     },
                     "liver": {
                         "suicideChance": 0.4,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
-                        "command": "convert",
+                        "command": ["convert", "dummy"],
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 50,
@@ -514,7 +521,8 @@
                             ]
                         },
                         "failChance": 0.93,
-                        "pierce": true
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     }
                 }
             }
