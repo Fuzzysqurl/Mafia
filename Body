@@ -41,7 +41,7 @@
             "translation": "Pineal Gland",
             "side": "village",
             "info": "Night Action: distract. Knows Eye. Sided with the Body.",
-            "help": "You are a gland that produce a hormone called melatonin, which induces sleepiness at night. This production is controlled by the light, so you know the eye, which is the gateway for the light. At night, you can put someone to sleep with /distract, preventing them from performing night actions.",
+            "help": "You are a gland that produce a hormone called melatonin, which induces sleepiness at night. This production is controlled by the light, so you know the Eye, which is the gateway for the light. At night, you can put someone to sleep with /distract, preventing them from performing night actions.",
             "actions": {
                 "night": {
                     "distract": {
@@ -66,7 +66,7 @@
             "translation": "Pineal Gland",
             "side": "village",
             "info": "Night Action: distract (can be used 2 times per night). Sided with the Body.",
-            "help": "Now that you have no more source of light, the melatonin production is out of control! Now you can put 2 people to sleep with /distract, preventing them from performing night actions.",
+            "help": "Now that you have no more source of light, the melatonin production is out of control! Now you can put 2 people to sleep with /distract, preventing them from performing night actions. If a new Eye is introduced, the source of light will return and you'll revert back to your previous form.",
             "actions": {
                 "night": {
                     "distract": {
@@ -289,7 +289,7 @@
                     "convertRoles": {
                         "pineal": "pineal2"
                     },
-                    "convertmsg": "±Game: The Pineal Gland's source of light has disappeared! Melatonin production has increased!"
+                    "convertmsg": "±Eye: The Pineal Gland's source of light has disappeared! Melatonin production has increased!"
                 }
             }
         },
@@ -316,12 +316,13 @@
             "role": "stem",
             "translation": "Stem Cell",
             "side": "village",
-            "info": "Can convert itself into ear, brain, heart, pineal, immune or liver. Each of these commands have a fail chance between 91% (for ear) and 94% (for heart), have a suicide chance between 15% (ear) and 55% (heart), if they are converted. Sided with the Body.",
-            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /ear, /brain, /heart, /liver, /immune, /marrow, /kidney, OR /pineal to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyway, vote to remove people!",
+            "info": "Can convert itself into ear, brain, heart, pineal, immune or liver. Each of these commands have a fail chance between 85% (for ear) and 95% (for heart), have a suicide chance between 20% (ear) and 50% (heart), if they are converted. Sided with the Body.",
+            "help": "You are a Stem Cell, which means you can potentially grow up into any organ you want! You can /eye, /ear, /brain, /heart, /liver, /immune, /marrow, /kidney, OR /pineal to try to become something more useful than you actually are. Unfortunately, current research involving you is not very advanced, so you don't have a good chance of differentiating and also have a chance of killing yourself instead. Anyway, vote to remove people!",
             "actions": {
                 "night": {
                     "ear": {
-                        "suicideChance": 0.15,
+                        "failChance": 0.85,
+                        "suicideChance": 0.2,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["convert", "dummy"],
                         "target": "OnlySelf",
@@ -334,18 +335,49 @@
                             "pineal",
                             "immune",
                             "marrow",
-                            "kidney"
+                            "kidney",
+                            "eye"
                         ],
                         "newRole": {
                             "ear": [
                                 "stem"
                             ]
                         },
+                        "pierce": true,
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
+                    },
+                    "eye": {
                         "failChance": 0.9,
+                        "suicideChance": 0.25,
+                        "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
+                        "command": ["curse", "dummy", "massconvert"],
+                        "singlemassconvertmsg": "±Eye: The Pineal Gland's source of light has reappeared! Melatonin production has decreased!",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "cancel": [
+                            "brain",
+                            "heart",
+                            "liver",
+                            "pineal",
+                            "immune",
+                            "marrow",
+                            "kidney",
+                            "ear"
+                        ],
+                        "cursedRole": {
+                            "eye": ["stem"]
+                        },
+                        "convertRoles": { "pineal2":"pineal"},
+                        "silentCurse": false,
+                        "curseConvertMessage": "",
+                        "cursemsg": "",
+                        "curseCount": -1,                        
                         "pierce": true,
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
                     },
                     "immune": {
+                        "failChance": 0.93,
                         "suicideChance": 0.3,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["convert", "dummy"],
@@ -359,19 +391,20 @@
                             "pineal",
                             "ear",
                             "marrow",
-                            "kidney"
+                            "kidney",
+                            "eye"
                         ],
                         "newRole": {
                             "immunesmall": [
                                 "stem"
                             ]
                         },
-                        "failChance": 0.915,
                         "pierce": true,
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
                     },
                     "marrow": {
-                        "suicideChance": 0.3,
+                        "failChance": 0.89,
+                        "suicideChance": 0.25,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["curse", "dummy", "massconvert"],
                         "singlemassconvertmsg": "±Bone Marrow: Control over white blood cell production has been regained. The Immune System is functioning normally again!",
@@ -385,13 +418,13 @@
                             "pineal",
                             "ear",
                             "immune",
-                            "kidney"
+                            "kidney",
+                            "eye"
                         ],
                         "cursedRole": {
                             "bone": ["stem"]
                         },
                         "convertRoles": { "leukemia":"immune"},
-                        "failChance": 0.915,
                         "silentCurse": false,
                         "curseConvertMessage": "",
                         "cursemsg": "",
@@ -400,6 +433,7 @@
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become ~New~!"
                     },
                     "brain": {
+                        "failChance": 0.92,
                         "suicideChance": 0.25,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["convert", "dummy"],
@@ -413,19 +447,20 @@
                             "pineal",
                             "immune",
                             "marrow",
-                            "kidney"
+                            "kidney",
+                            "eye"
                         ],
                         "newRole": {
                             "brain": [
                                 "stem"
                             ]
                         },
-                        "failChance": 0.915,
                         "pierce": true,
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     },
                     "heart": {
-                        "suicideChance": 0.55,
+                        "failChance": 0.95,
+                        "suicideChance": 0.5,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["convert", "dummy"],
                         "target": "OnlySelf",
@@ -438,19 +473,20 @@
                             "pineal",
                             "immune",
                             "marrow",
-                            "kidney"
+                            "kidney",
+                            "eye"
                         ],
                         "newRole": {
                             "heart": [
                                 "stem"
                             ]
                         },
-                        "failChance": 0.94,
                         "pierce": true,
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     },
                     "pineal": {
-                        "suicideChance": 0.2,
+                        "failChance": 0.91,
+                        "suicideChance": 0.25,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["convert", "dummy"],
                         "target": "OnlySelf",
@@ -463,14 +499,14 @@
                             "ear",
                             "immune",
                             "marrow",
-                            "kidney"
+                            "kidney",
+                            "eye"
                         ],
                         "newRole": {
                             "pineal": [
                                 "stem"
                             ]
                         },
-                        "failChance": 0.91,
                         "pierce": true,
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     },
@@ -488,7 +524,8 @@
                             "ear",
                             "immune",
                             "marrow",
-                            "pineal"
+                            "pineal",
+                            "eye"
                         ],
                         "newRole": {
                             "kidney": [
@@ -500,7 +537,8 @@
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become ~New~!"
                     },
                     "liver": {
-                        "suicideChance": 0.4,
+                        "failChance": 0.94,
+                        "suicideChance": 0.3,
                         "suicidemsg": "You failed to differentiate. You could not successfully become a new organ and died trying.",
                         "command": ["convert", "dummy"],
                         "target": "OnlySelf",
@@ -513,14 +551,14 @@
                             "pineal",
                             "immune",
                             "marrow",
-                            "kidney"
+                            "kidney",
+                            "eye"
                         ],
                         "newRole": {
                             "liver": [
                                 "stem"
                             ]
                         },
-                        "failChance": 0.93,
                         "pierce": true,
                         "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
                     }
@@ -1004,21 +1042,25 @@
             "role": "rabies",
             "translation": "Rabies",
             "side": "viral",
-            "info": "Night Action: convert (can only be used on itself - first use only after 4 nights - converts to daykiller Rabies). Can't be nightkilled. Sided with Viral Diseases.",
-            "help": "You are a viral disease that is hardly early diagnosed, and it's fatal when late diagnosed! For now you are just incubated, meaning you can't be nightkilled and have to wait till the 4th night, when you'll be able to /convert yourself.",
+            "info": "Converts to daykilling Rabies after 4 nights. Can't be nightkilled. Immune to poison. Sided with Viral Diseases.",
+            "help": "You are a viral disease that is hardly early diagnosed, and it's fatal when late diagnosed! For now you are just incubated, meaning you can't be nightkilled and have to wait till the 4th night, when your incubation time is up.",
             "actions": {
-                "night": {
-                    "convert": {
-                        "target": "OnlySelf",
-                        "common": "Self",
-                        "priority": 43,
-                        "newRole": "rabies2",
-                        "initialrecharge": 4,
-                        "convertmsg": "Rabies incubation time ended up!"
+                "initialCondition": {
+                    "curse": {
+                        "cursedRole": "rabies2",
+                        "curseCount": 4,
+                        "curseConvertMessage": "Rabies incubation time ended up!"
                     }
                 },
                 "kill": {
                     "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Target~) was poisoned!"
                 },
                 "teamTalk": true,
                 "preventTeamvote": true
@@ -1028,8 +1070,8 @@
             "role": "rabies2",
             "translation": "Rabies",
             "side": "viral",
-            "info": "Standby Actions: kill (user is not revealed - can be used up to 3 times). Can't be nightkilled. Kills anyone that distract it. Sided with Viral Diseases.",
-            "help": "Finally!!! Your incubation is over and you can do a big harm to the body now! Some of your symptoms are aggressiveness and photophobia (or aversion to light), so you can /kill up to 3 people during the day phase. If flu is on the game, PM them if you get to discover their identity.",
+            "info": "Standby Actions: kill (user is not revealed - can be used up to 3 times). Can't be nightkilled. Immune to poison. Kills anyone that distract it. Sided with Viral Diseases.",
+            "help": "Finally!!! Your incubation is over and you can do a big harm to the body now! Some of your symptoms are aggressiveness and photophobia (or aversion to light), so you can /kill up to 3 people during the day phase. If Flu is in the game, you will be unable to kill them, so contact them if they are unable to be killed!",
             "actions": {
                 "standby": {
                     "kill": {
@@ -1046,6 +1088,10 @@
                 },
                 "kill": {
                     "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore",
+                    "msg": "±Game: Your target (~Target~) was poisoned!"
                 },
                 "teamTalk": true,
                 "preventTeamvote": true
@@ -1232,6 +1278,7 @@
         "kidney"
     ],
     "changelog": {
-        "06.29.2014": "updateTeam and preventTeamvote. New Role: Kidney (Detox). Stem Cell can convert to Kidney and Bone Marrow. If it converts to Marrow, a converted Immune System will return to the team. Tweaked spawn list and start up reveal a bit (Example: Pineal gets reveal on all other Pineals, just in case a Stem converts)."
+        "06.29.2014": "updateTeam and preventTeamvote. New Role: Kidney (Detox). Stem Cell can convert to Kidney and Bone Marrow. If it converts to Marrow, a converted Immune System will return to the team. Tweaked spawn list and start up reveal a bit (Example: Pineal gets reveal on all other Pineals, just in case a Stem converts).",
+        "07.04.2014": "Stem can now convert to Eye. Rates slightly tweaked to give lesser used roles a better chance of succeeding. Rabies immune to poison and automatically converts on night 4. Success rate on Stem: Heart (2.5%), Liver (4.2%), Immune (4.9%), Brain (6%), Pineal (6.75%), Eye (7.5%), Marrow (8.25%), Kidney (10.4%), Ear (12%). Numbers are subject to change at any point (likely anything over 6% will be decreased if/when changed)"
     }
 }
