@@ -1010,11 +1010,7 @@
             "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army, but you only have the power to do this twice. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
             "info": "Can morph one person every night, twice per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
             "actions": {
-                "mafiaTools": true,
-                "teamTalk": true,
-                "startup": "team-reveal-with-roles",
-                "preventTeamvote": true,
-                "updateTeam": true,
+                "teamUtilities": true,
                 "night": {
                     "morph": {
                         "command": "convert",
