@@ -344,7 +344,7 @@
                             ]
                         },
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an Ear!"
                     },
                     "eye": {
                         "failChance": 0.9,
@@ -374,7 +374,7 @@
                         "cursemsg": "",
                         "curseCount": -1,                        
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an Eye!"
                     },
                     "immune": {
                         "failChance": 0.93,
@@ -400,7 +400,7 @@
                             ]
                         },
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become an Immune System!"
                     },
                     "marrow": {
                         "failChance": 0.89,
@@ -430,7 +430,7 @@
                         "cursemsg": "",
                         "curseCount": -1,
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become Bone Marrow!"
                     },
                     "brain": {
                         "failChance": 0.92,
@@ -456,7 +456,7 @@
                             ]
                         },
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a Brain!"
                     },
                     "heart": {
                         "failChance": 0.95,
@@ -482,7 +482,7 @@
                             ]
                         },
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a Heart!"
                     },
                     "pineal": {
                         "failChance": 0.91,
@@ -508,7 +508,7 @@
                             ]
                         },
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a Pineal Gland!"
                     },
                     "kidney": {
                         "suicideChance": 0.2,
@@ -534,7 +534,7 @@
                         },
                         "failChance": 0.91,
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become Kidneys!"
                     },
                     "liver": {
                         "failChance": 0.94,
@@ -560,7 +560,7 @@
                             ]
                         },
                         "pierce": true,
-                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a ~New~!"
+                        "dummybroadcastmsg": "A Stem Cell has successfully reprogrammed to become a Liver!"
                     }
                 }
             }
