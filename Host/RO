@@ -1137,19 +1137,17 @@
     "villageCantLoseRoles": [
         "merch",
         "smith",
-        "alchemist",
         "hunter",
         "crusader",
         "knight",
-        "thief",
         "monk",
         "assassin",
-        "ninja",
         "buff_ninja",
         "wizard"
     ],
     "changelog": {
         "2.7.2014": "Teamtalk added. Valkyrie ignores distract instead of killing him. Appears at small games instead of Dark illusion. ; Dark Illusion has a vote of 1.1 ; Rogue stalks every night ; Bard is no longer a day bomb but has 2 distracts now ; new role: Dancer ; Hoping to add a new mafia team.",
-        "2.19.2014": "Adjusted VCLR"
+        "2.19.2014": "Adjusted VCLR",
+        "7.17.2014": "Adjusted VCLR again..."
     }
 }
