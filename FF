@@ -595,7 +595,7 @@
             "role": "vayne",
             "translation": "Vayne Solidor",
             "side": "house",
-            "info": "Can kill one person during the night. Can inspect one person during the night. Cannot be detected by spies. Sided with House Solidor.",
+            "info": "Can kill one person during the night. Can inspect one person during the night (Cannot be detected by spies). Sided with House Solidor.",
             "help": "As head of House Solidor, it is your duty to crush the foolish heroes. Type /kill [name]. Your extensive spy network also allows you to /inspect one player per night.",
             "actions": {
                 "night": {
