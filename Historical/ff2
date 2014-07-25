@@ -1,0 +1,349 @@
+{
+    "name": "FF",
+    "altname": "Final Fantasy",
+    "author": ["Fuzzy", "Stocke", "Solace", "JhenMohran"],
+    "summary": "",
+    "threadlink": "",
+    "sides": [
+        {   "side": "village",
+            "translation": "Heroes",
+            "winmsg": ""
+        },
+        {   "side": "garland",
+            "translation": "Garland",
+            "winmsg": ""
+        },
+        {   "side": "kefkuja",
+            "translation": "Insane Kefka Posse",
+            "winmsg": ""
+        },
+        {   "side": "arch",
+            "translation": "Archadian Empire",
+            "winmsg": ""
+        },
+        {   "side": "shinra",
+            "translation": "Shinra",
+            "winmsg": ""
+        },
+        {   "side": "caius",
+            "translation": "Caius",
+            "winmsg": ""
+        },
+        {   "side": "chaos",
+            "translation": "Chaos",
+            "winmsg": ""
+        }
+        
+    ],
+    "roles": [
+        {   "role": "moogle",
+            "translation": "Moogle",
+            "side": "village",
+            "startupmsg": "You are a Moogle.",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "boco",
+            "translation": "Boco",
+            "side": "village",
+            "startupmsg": "You are Boco the Chocobo.",
+            "help": "",
+            "info": "",
+            "actions": {}
+        },
+        {   "role": "locke",
+            "translation": "Locke",
+            "side": "village",
+            "startupmsg": "You are Locke.",
+            "help": "",
+            "info": "",
+            "actions": {
+            "night": {  
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 
+                        }
+                    }
+                }
+        },
+        {   "role": "zidane",
+            "translation": "Zidane",
+            "side": "village",
+            "startupmsg": "You are Locke.",
+            "help": "",
+            "info": "",
+            "actions": {
+                 "night": {
+                     "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30,
+                            "Sight": {
+                            //this is the insane bit of it so will need deciding
+                                TBD ... Probably
+                                         }
+                                 }
+                        }
+                }
+        },
+        {   "role": "ace",
+            "translation": "Ace",
+            "side": "village",
+            "startupmsg": "You are Ace.",
+            "help": "",
+            "info": "",
+            "actions": {
+                "vote": [blah,blah,blah]
+            }
+        },
+        {   "role": "bartz",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz.",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": ,
+                        "copy": {
+                            "target": "AnyButSelf",
+                            "common": "Self",
+                            "priority": ,
+                             //not sure if above 3 needed
+                            "canCopy": "boco",
+                            "copyAs": "blah",
+                            "copymsg": ""
+                               }
+                            }
+                    }        
+                }
+        },
+        {   "role": "bartz2",
+            "translation": "Bartz",
+            "side": "village",
+            "startupmsg": "You are Bartz",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 
+                        "copy": {
+                            "target": "AnyButSelf",
+                            "common": "Self",
+                            "priority": ,
+                            //not sure if above 3 needed
+                            "canCopy": "boco",
+                            "copyAs": "blah",
+                            "copymsg": ""
+                            }
+                    }
+                }
+            }
+        },
+        {   "role": "cloud",
+            "translation": "Cloud",
+            "side": "village",
+            "startupmsg": "You are a Cloud",
+            "help": "",
+            "info": "",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "",
+                        "killmsg": ""
+                    }
+                }
+            }
+        },
+        {   "role": "squall",
+            "translation": "Squall",
+            "side": "village",
+            "startupmsg": "You are Squall",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": { 
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": Blah,
+                        "killmsg": ""
+                        }
+                    }
+            }
+        },
+        {   "role": "mog",
+            "translation": "Mog",
+            "side": "village",
+            "startupmsg": "You are Mog",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": ["randomperson","randomperson","randomperson"],
+                        "common": "self",
+                        "priority": 
+               }
+            }
+        },
+        {   "role": "lightning",
+            "translation": "Lightning",
+            "side": "village",
+            "startupmsg": "You are Lightning",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "ravager": {
+                        "kill": {
+                            "target": "AnyButSelf",
+                            "common": "Self",
+                            "charges": 1
+                            "priority":
+                                }
+                            },
+                    "commando": {
+                        "whateverthisisdecidedtobe"
+                             },
+                    "medic": {}
+                    //will finish when finalised
+                    }    
+            }
+        },
+        {   "role": "dkc",
+            "translation": "Dark Knight Cecil",
+            "side": "village",
+            "startupmsg": "You are Dark Knight Cecil",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": ,
+                        "restrict": ["purify"]
+                    },
+                    "purify": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": ,
+                        "newRole": "paladin",
+                        "canConvert": ["dkc"],
+                        "convertmsg": "",
+                        "silent": false,
+                        "restrict": ["protect"]
+                    }
+                }
+            }
+        },
+        {   "role": "paladin",
+            "translation": "Paladin Cecil",
+            "side": "village",
+            "startupmsg": "You are Paladin Cecil",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": ,
+                        "restrict": ["shadow"]
+                    },
+                    "shadow": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": ,
+                        "newRole": "dkc",
+                        "canConvert": ["paladin"],
+                        "convertmsg": "",
+                        "silent": false,
+                        "restrict": ["protect"]
+                    }
+                },
+				"protect": {
+					"mode": "ignore"
+				}
+            }
+        },
+        {   "role": "noctis",
+            "translation": "Noctis",
+            "side": "village",
+            "startupmsg": "You are Noctis",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 8,
+                        "broadcast": "role"
+                            },
+                    "hax": {
+                        "kill": {
+                            "revealTarget(thiscorrect???)": blah
+                            }
+                        }
+                        
+                    }
+                }
+        },    
+        {   "role": "yuna",
+            "translation": "Yuna",
+            "side": "village",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": ,
+                        "distractmsg":  ,
+                        "teammsg": 
+                            }
+                    }
+            }
+        },
+        {   "role": "lulu",
+            "translation": "Lulu",
+            "side": "village",
+            "startupmsg": "",
+            "help": "",
+            "info": "",
+             "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": ,
+                        "distractmsg":  ,
+                        "teammsg": 
+                            }
+                    }
+            }
+        },
+     {       
+            
+
+    
+    
+    
+    
+    ]
+}
