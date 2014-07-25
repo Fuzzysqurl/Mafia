@@ -2,7 +2,8 @@
     "name": "FE",
     "altname": "Fire Emblem",
     "author": [
-        "Fuzzysqurl"
+        "Fuzzysqurl",
+        "Sky Sentinel"
     ],
     "minplayers": 6,
     "threadlink": "http://pokemon-online.eu/forums/showthread.php?15904-Fire-Emblem",
@@ -20,8 +21,8 @@
         },
         {
             "side": "fang",
-            "translation": "Black Fang",
-            "winmsg": "'Humans... they are so very fragile'... The Black Fang, ~Players~, has won!"
+            "translation": "Dread Isle",
+            "winmsg": "'Humans... they are so very fragile'... The Dread Isle, ~Players~, has won!"
         },
         {
             "side": "grado",
@@ -115,7 +116,7 @@
                         "target": "AnyButRole",
                         "common": "Role",
                         "priority": 3,
-                        "msg": "±Tactician: Have you ever seen a man toss an axe into the air then watch it turn in three full circles before grabbing it and slamming it down into someone? Well, now you can say you have. That's what Berserkers do, after all."
+                        "msg": "±Tactician: After being hit with a Berserk Staff, the unit will attack the closest, weakest unit. That happened to be you."
                     }
                 }
             }
@@ -125,7 +126,7 @@
             "translation": "Trainee",
             "side": "village",
             "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands and are extremely vulnerable to poison, thus you die instantly if inflicted with it.",
-            "info": "Can be seen as a member of Kingdom of Bern, Begnion Empire, Black Fang, or Grimleal. Voteshield of 1. Vote of 0 if seen on Begnion Empire. Sided with The Heroes.",
+            "info": "Can be seen as a member of Kingdom of Bern, Begnion Empire, Dread Isle, or Grimleal. Voteshield of 1. Vote of 0 if seen on Begnion Empire. Sided with The Heroes.",
             "actions": {
                 "startup": {
                     "revealAs": "villager"
@@ -537,7 +538,7 @@
                         "common": "Self",
                         "priority": 17,
                         "pierce": true,
-                        "msg": "'AETHER!' Chrom slashes down with the Falchion and delivers a finishing blow. You've been killed!"
+                        "msg": "'AETHER!' Chrom slashes down with the Exalted Falchion and delivers a finishing blow. You've been killed!"
                     }
                 },
                 "distract": {
@@ -604,7 +605,7 @@
                         "common": "Self",
                         "priority": 12,
                         "broadcast": "team",
-                        "msg": "±Tactician: You are struck in the midst of battle and lose consciousness. You begin to awaken and see a light. Too bad that light was Riev's Aura magic because now you're dead."
+                        "msg": "±Tactician: You awaken to a blinding column of light. Riev cackles with delight as you are torn apart by his unholy magic."
                     },
                     "poison": {
                         "target": "AnyButTeam",
@@ -749,7 +750,7 @@
             "translation": "Sephiran",
             "side": "begnion",
             "startupmsg": "You are ~Role~!",
-            "help": "You are Sephiran, the Chancellor of Begnion. You believe the inhabitants of the world deserve nothing but destruction. Use your /kill and your vote of 1.5 to bring about your enemies' ends.",
+            "help": "You are Sephiran, ancient heron and the Chancellor of Begnion. You believe the world should be cleansed of violence by the Goddess Ashera. Use your /kill and your vote of 1.5 to bring about your enemies' ends.",
             "info": "Can kill one person during the night. Vote of 1.5. Sided with The Begnion Empire.",
             "actions": {
                 "startup": "team-reveal-with-roles",
@@ -760,7 +761,7 @@
                         "common": "Team",
                         "priority": 13,
                         "broadcast": "team",
-                        "msg": "±Tactician: Sephiran's magic proved to be too much for you to handle. You've been killed!"
+                        "msg": "±Tactician: Sephiran's Creiddylad proved to be too much for you to handle. You've been killed!"
                     }
                 },
                 "vote": 1.5,
@@ -783,7 +784,7 @@
                         "common": "Team",
                         "priority": 13,
                         "broadcast": "team",
-                        "msg": "±Tactician: He may be just a politician, but he knows where to stick a knife when needs to. Lekain has seen to the end of you!"
+                        "msg": "±Tactician: You crumble to your death as you are struck with a powerful Rexaura. Lekain has seen to the end of you!"
                     }
                 },
                 "distract": {
@@ -996,7 +997,7 @@
                         "common": "Team",
                         "priority": 11,
                         "broadcast": "team",
-                        "msg": "±Tactician: Murdock swings his big 'ole axe in your direction and you fail to dodge it. You're dead!"
+                        "msg": "±Tactician: Murdock throws his big 'ole axe in your direction and you fail to dodge it. You're dead!"
                     }
                 },
                 "teamTalk": true
@@ -1008,7 +1009,7 @@
             "side": "fang",
             "startupmsg": "You are ~Role~!",
             "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army, but you only have the power to do this twice. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
-            "info": "Can morph one person every night, twice per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
+            "info": "Can morph one person every night, twice per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Dread Isle.",
             "actions": {
                 "teamUtilities": true,
                 "night": {
@@ -1046,7 +1047,7 @@
             "hide": "side",
             "startupmsg": "You are ~Role~!",
             "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army, but you only have the power to do this three times. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
-            "info": "Can morph one person every night, three times per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
+            "info": "Can morph one person every night, three times per game. Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Dread Isle.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "preventTeamvote": true,
@@ -1089,7 +1090,7 @@
             "hide": "side",
             "startupmsg": "You are ~Role~!",
             "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every night you are able to /morph any unit into a Nameless Morph to join your army. You are also able to /kill one person during the night using basic dark magic as well. Plunge the world into darkness!",
-            "info": "Can morph one person every night.Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Black Fang.",
+            "info": "Can morph one person every night.Can kill one person during the night. Kills all Nameless Morphs on death or lynch. Sided with The Dread Isle.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "preventTeamvote": true,
@@ -1129,7 +1130,7 @@
             "translation": "Nameless Morph",
             "side": "fang",
             "help": "You've been slain and your life force has been stolen! The morph made from your corpse retains your memories and you are still 'alive,' if only in name. Your vote is worthless but you possess a voteshield of -3. You can /shield one person on your team to attempt to protect them from harm, but it won't always work.",
-            "info": "Can shield one person during the night (50% fail chance). Vote of 0. Voteshield of -3. Sided with The Black Fang.",
+            "info": "Can shield one person during the night (50% fail chance). Vote of 0. Voteshield of -3. Sided with The Dread Isle.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "preventTeamvote": true,
@@ -1164,7 +1165,7 @@
             "side": "fang",
             "startupmsg": "You are ~Role~!",
             "help": "One of Nergal's morphs, you are among the strongest of the ones he possesses. In addition to being able to /kill one person during the night, you are able to /inspect one player at night. As you are not alive, you cannot be poisoned.",
-            "info": "Can kill one person during the night. Can inspect one person during the night. Immune to poison. Sided with The Black Fang.",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Immune to poison. Sided with The Dread Isle.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "preventTeamvote": true,
@@ -1197,7 +1198,7 @@
             "side": "fang",
             "startupmsg": "You are ~Role~!",
             "help": "The strongest and most beautiful of morphs at Nergal's command, you are a master of magic. You can use this magic to /kill one person every night. Elemental magics grant you the ability to /bind an opponent in place, rendering them unable to take action for the night. As you are not alive, you cannot be poisoned.",
-            "info": "Can kill one person during the night. Can distract one person during the night. Immune to poison. Sided with The Black Fang.",
+            "info": "Can kill one person during the night. Can distract one person during the night. Immune to poison. Sided with The Dread Isle.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "preventTeamvote": true,
@@ -1217,7 +1218,7 @@
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: Fimbulvetr. That's the name of the ice magic Limstella wields. It's the name of the ice magic that ended your life."
+                        "msg": "±Tactician: A woman in a long dress shouts FIMBULVETR! You have no idea what's happening until you freeze to death."
                     }
                 },
                 "poison": {
@@ -1227,12 +1228,12 @@
             }
         },
         {
-            "role": "jaffar",
-            "translation": "Jaffar",
+            "role": "sonia",
+            "translation": "Sonia",
             "side": "fang",
             "startupmsg": "You are ~Role~!",
-            "help": "You are Jaffar, the 'Angel of Death'. Use your skills as an assassin to /kill one person during the night and /stalk another to learn who they visited.",
-            "info": "Can kill one person during the night. Can stalk one person during the night. Immune to poison. Sided with The Black Fang.",
+            "help": "You are Sonia, the imperfect morph. You don't believe you're a morph, and you are convinced you are human. Use your skills as a master sage to /kill one person during the night and /stalk another to learn who they visited.",
+            "info": "Can kill one person during the night. Can stalk one person during the night. Immune to poison. Sided with The Dread Isle.",
             "actions": {
                 "startup": "team-reveal-with-roles",
                 "preventTeamvote": true,
@@ -1243,7 +1244,7 @@
                         "common": "Team",
                         "priority": 16,
                         "broadcast": "team",
-                        "msg": "±Tactician: Silence. One strike, one death. The Angel, Jaffar, has come to take you away."
+                        "msg": "±Tactician: From far away, a bolt of lightning is cast in your direction. Sonia did not miss."
                     },
                     "stalk": {
                         "target": "AnyButTeam",
@@ -1397,7 +1398,7 @@
         "micaiah",
         "disgruntled",
         "narshen",
-        "jaffar",
+        "sonia",
         "marth",
         "zelgius",
         "sephiran",
@@ -1431,7 +1432,7 @@
         "micaiah",
         "disgruntled",
         "narshen",
-        "jaffar",
+        "sonia",
         "marth",
         "zelgius",
         "sephiran",
@@ -1468,6 +1469,7 @@
         "10.9.2013": "Minor spawn changes in small games. Soldiers now die immediately from poison in small games.",
         "10.21.2013": "Hector insult removed.",
         "01.10.2014": "Flavor adjustments. Coded Celica",
-        "06.29.2014": "updateTeam and preventTeamvote"
+        "06.29.2014": "updateTeam and preventTeamvote",
+        "7.24.2014": "Miscellaneous flavor changes. Black Fang has been changed to Dread Isle once again. Jaffar was changed to Sonia. Sky Sentinel added to author list."
     }
 }
