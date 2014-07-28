@@ -656,6 +656,10 @@
             "side": "grado",
             "winIfDeadRoles": [
                 "lyndis",
+                "sonia",
+                "lekain",
+                "narcian",
+                "lord",
                 "marth",
                 "eirika",
                 "ike",
