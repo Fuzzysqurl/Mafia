@@ -114,7 +114,7 @@
                 "teamUtilities": true,
                 "night": {
                     "kill": {
-                        "target": "AnyButRole",
+                        "target": "AnyButTeam",
                         "common": "Role",
                         "priority": 3,
                         "msg": "±Tactician: After being hit with a Berserk Staff, the unit will attack the closest, weakest unit. That happened to be you."
@@ -809,7 +809,7 @@
             "actions": {
                 "night": {
                     "kill": {
-                        "target": "AnyButSelf",
+                        "target": "AnyButTeam",
                         "common": "Self",
                         "priority": 10,
                         "msg": "±Tactician: One slash of the mighty Gurgurant and you were gone."
@@ -820,7 +820,7 @@
                 },
                 "standby": {
                     "kill": {
-                        "target": "AnyButSelf",
+                        "target": "AnyButTeam",
                         "msg": "You can kill now using /kill [name] :",
                         "killmsg": "'If you will not bring the fight to me, then I shall bring the fight to YOU!' Ashnard lunges at his foe...~Target~ never stood a chance..."
                     }
