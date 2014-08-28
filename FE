@@ -90,6 +90,7 @@
             "help": "You've just about had it with these naïve heroes! You don't care who wins any more - so long as it isn't them! If you get lynched, you will turn into a Berserk Soldier!",
             "info": "Converts to Berserk Soldier when lynched. Wins the game with any side, excluding The Heroes. Sided with The Kingdom of Daein.",
             "actions": {
+                "teamUtilities": true,
                 "lynch": {
                     "convertTo": "berserk",
                     "convertmsg": "The Disgruntled Soldier, ~Self~,  is hit with a Berserk Staff after receiving ~Count~ votes. He has gone insane and now kills at night."
@@ -110,7 +111,7 @@
             "help": "You've lost all sense of self-preservation. The side of justice has just tried to rid themselves of you...and you are completely enraged! The time for talk is over - you now have one swift kill per night.",
             "info": "Can kill one person during the night. Wins the game with any side, excluding The Heroes. Sided with The Kingdom of Daein.",
             "actions": {
-                "startup": "role-reveal",
+                "teamUtilities": true,
                 "night": {
                     "kill": {
                         "target": "AnyButRole",
@@ -825,7 +826,7 @@
                     }
                 },
                 "vote": 3,
-                "teamTalk": true
+                "teamUtilities": true
             }
         },
         {
@@ -1474,6 +1475,7 @@
         "10.21.2013": "Hector insult removed.",
         "01.10.2014": "Flavor adjustments. Coded Celica",
         "06.29.2014": "updateTeam and preventTeamvote",
-        "7.24.2014": "Miscellaneous flavor changes. Black Fang has been changed to Dread Isle once again. Jaffar was changed to Sonia. Sky Sentinel added to author list."
+        "7.24.2014": "Miscellaneous flavor changes. Black Fang has been changed to Dread Isle once again. Jaffar was changed to Sonia. Sky Sentinel added to author list.",
+        "8.26.2014": "Ashnard connected with Disgruntled completely now. Teamtalk was accidentally added in a previous update, but I kind of like it so I'm keeping it. I'll adjust his abilities if needed."
     }
 }
